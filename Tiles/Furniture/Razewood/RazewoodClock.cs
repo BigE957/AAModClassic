@@ -9,7 +9,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 {
     public class RazewoodClock : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -25,14 +25,14 @@ namespace AAMod.Tiles.Furniture.Razewood
                 16
             };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Example Clock"); // Automatic from .lang files
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("RazewoodDust");
-            adjTiles = new int[] { TileID.GrandfatherClocks };
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            AdjTiles = new int[] { TileID.GrandfatherClocks };
         }
 
-        public override bool NewRightClick(int x, int y)
+        public override bool RightClick(int x, int y)
         {
             Main.NewText(Language.GetTextValue("Mods.AAMod.Common.RazewoodClockGetTime"), 205, 62, 12);
             return true;
@@ -42,7 +42,7 @@ namespace AAMod.Tiles.Furniture.Razewood
         {
             if (closer)
             {
-                Main.clock = true;
+                Main.SceneMetrics.HasClock = true;
             }
         }
 
@@ -53,7 +53,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("RazewoodClock"));
+            Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("RazewoodClock").Type);
         }
     }
 }

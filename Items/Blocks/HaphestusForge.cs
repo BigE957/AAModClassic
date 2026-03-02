@@ -9,39 +9,39 @@ namespace AAMod.Items.Blocks
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hephaestus Forge");
-            Tooltip.SetDefault(
+            // DisplayName.SetDefault("Hephaestus Forge");
+            /* Tooltip.SetDefault(
 @"*Slaps top of forge* This baby can fit so many crafting stations in it
-Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer's Workshop, and a Table and Chair");
+Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer's Workshop, and a Table and Chair"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 50;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.rare = 5;
-            item.consumable = true;
-            item.value = 150;
-            item.createTile = mod.TileType("HaphestusForge");
+            Item.width = 50;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.rare = 5;
+            Item.consumable = true;
+            Item.value = 150;
+            Item.createTile = Mod.Find<ModTile>("HaphestusForge").Type;
         }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -55,8 +55,8 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAMod:Altar");
             recipe.AddIngredient(ItemID.Hellforge, 1);
             recipe.AddIngredient(ItemID.Bottle, 1);
@@ -64,8 +64,7 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
             recipe.AddIngredient(ItemID.WoodenTable);
             recipe.AddIngredient(ItemID.WoodenChair, 1);
             recipe.AddIngredient(null, "HellstoneAnvil", 1);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

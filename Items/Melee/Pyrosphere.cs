@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -6,28 +7,28 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pyrosphere");			
+			// DisplayName.SetDefault("Pyrosphere");			
 		}		
 		
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 30;
-            item.maxStack = 1;
-            item.rare = 2;
-            item.value = BaseUtility.CalcValue(0, 0, 90, 50);
-            item.useStyle = 5;
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.UseSound = SoundID.Item1;
-            item.damage = 15;
-            item.knockBack = 7;
-            item.melee = true;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Pyrosphere>();
-            item.shootSpeed = 10;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.channel = true;		
+            Item.width = 30;
+            Item.height = 30;
+            Item.maxStack = 1;
+            Item.rare = 2;
+            Item.value = BaseUtility.CalcValue(0, 0, 90, 50);
+            Item.useStyle = 5;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.UseSound = SoundID.Item1;
+            Item.damage = 15;
+            Item.knockBack = 7;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Pyrosphere>();
+            Item.shootSpeed = 10;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.channel = true;		
         }
 	}
 }

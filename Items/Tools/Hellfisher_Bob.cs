@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,22 +12,22 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BobberHotline);
+            Projectile.CloneDefaults(ProjectileID.BobberHotline);
         }
 
-        public override bool PreDrawExtras(SpriteBatch spriteBatch)
+        public override bool PreDrawExtras()
 		{
-			Lighting.AddLight(projectile.Center, 0.216f, 0.081f, 0.047f);
-			Player player = Main.player[projectile.owner];
-			if (projectile.bobber && Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].holdStyle > 0)
+			Lighting.AddLight(Projectile.Center, 0.216f, 0.081f, 0.047f);
+			Player player = Main.player[Projectile.owner];
+			if (Projectile.bobber && Main.player[Projectile.owner].inventory[Main.player[Projectile.owner].selectedItem].holdStyle > 0)
 			{
 				float num = player.MountedCenter.X;
 				float num2 = player.MountedCenter.Y;
-				num2 += Main.player[projectile.owner].gfxOffY;
-				int type = Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem].type;
-				float gravDir = Main.player[projectile.owner].gravDir;
-				num += 43 * Main.player[projectile.owner].direction;
-				if (Main.player[projectile.owner].direction < 0)
+				num2 += Main.player[Projectile.owner].gfxOffY;
+				int type = Main.player[Projectile.owner].inventory[Main.player[Projectile.owner].selectedItem].type;
+				float gravDir = Main.player[Projectile.owner].gravDir;
+				num += 43 * Main.player[Projectile.owner].direction;
+				if (Main.player[Projectile.owner].direction < 0)
 				{
 					num -= 13f;
 				}
@@ -36,9 +37,9 @@ namespace AAMod.Items.Tools
 					num2 -= 12f;
 				}
 				Vector2 value = new Vector2(num, num2);
-				value = Main.player[projectile.owner].RotatedRelativePoint(value + new Vector2(8f), true) - new Vector2(8f);
-				float num3 = projectile.position.X + projectile.width * 0.5f - value.X;
-				float num4 = projectile.position.Y + projectile.height * 0.5f - value.Y;
+				value = Main.player[Projectile.owner].RotatedRelativePoint(value + new Vector2(8f), true) - new Vector2(8f);
+				float num3 = Projectile.position.X + Projectile.width * 0.5f - value.X;
+				float num4 = Projectile.position.Y + Projectile.height * 0.5f - value.Y;
 				Math.Sqrt(num3 * num3 + num4 * num4);
 				float rotation = (float)Math.Atan2(num4, num3) - 1.57f;
 				bool flag = true;
@@ -54,8 +55,8 @@ namespace AAMod.Items.Tools
 					num4 *= num5;
 					value.X -= num3;
 					value.Y -= num4;
-					num3 = projectile.position.X + projectile.width * 0.5f - value.X;
-					num4 = projectile.position.Y + projectile.height * 0.5f - value.Y;
+					num3 = Projectile.position.X + Projectile.width * 0.5f - value.X;
+					num4 = Projectile.position.Y + Projectile.height * 0.5f - value.Y;
 				}
 				while (flag)
 				{
@@ -78,12 +79,12 @@ namespace AAMod.Items.Tools
 						num4 *= num7;
 						value.X += num3;
 						value.Y += num4;
-						num3 = projectile.position.X + projectile.width * 0.5f - value.X;
-						num4 = projectile.position.Y + projectile.height * 0.1f - value.Y;
+						num3 = Projectile.position.X + Projectile.width * 0.5f - value.X;
+						num4 = Projectile.position.Y + Projectile.height * 0.1f - value.Y;
 						if (num8 > 12f)
 						{
 							float num9 = 0.3f;
-							float num10 = Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y);
+							float num10 = Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y);
 							if (num10 > 16f)
 							{
 								num10 = 16f;
@@ -100,7 +101,7 @@ namespace AAMod.Items.Tools
 							{
 								num9 = 0f;
 							}
-							num10 = 1f - projectile.localAI[0] / 100f;
+							num10 = 1f - Projectile.localAI[0] / 100f;
 							num9 *= num10;
 							if (num4 > 0f)
 							{
@@ -109,7 +110,7 @@ namespace AAMod.Items.Tools
 							}
 							else
 							{
-								num10 = Math.Abs(projectile.velocity.X) / 3f;
+								num10 = Math.Abs(Projectile.velocity.X) / 3f;
 								if (num10 > 1f)
 								{
 									num10 = 1f;
@@ -126,7 +127,7 @@ namespace AAMod.Items.Tools
 						}
 						rotation = (float)Math.Atan2(num4, num3) - 1.57f;
 						Color color = Lighting.GetColor((int)value.X / 16, (int)(value.Y / 16f), new Color(216, 81, 47, 100));
-						Main.spriteBatch.Draw(Main.fishingLineTexture, new Vector2(value.X - Main.screenPosition.X + Main.fishingLineTexture.Width * 0.5f, value.Y - Main.screenPosition.Y + Main.fishingLineTexture.Height * 0.5f), new Rectangle?(new Rectangle(0, 0, Main.fishingLineTexture.Width, (int)num6)), color, rotation, new Vector2(Main.fishingLineTexture.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
+						Main.spriteBatch.Draw(TextureAssets.FishingLine.Value, new Vector2(value.X - Main.screenPosition.X + TextureAssets.FishingLine.Value.Width * 0.5f, value.Y - Main.screenPosition.Y + TextureAssets.FishingLine.Value.Height * 0.5f), new Rectangle?(new Rectangle(0, 0, TextureAssets.FishingLine.Value.Width, (int)num6)), color, rotation, new Vector2(TextureAssets.FishingLine.Value.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
 					}
 				}
 			}

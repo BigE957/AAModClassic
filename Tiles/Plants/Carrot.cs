@@ -6,7 +6,7 @@ namespace AAMod.Tiles.Plants
 {
     public class Carrot : ModTile
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileCut[Type] = true;
@@ -14,12 +14,12 @@ namespace AAMod.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            drop = ModContent.ItemType<Items.Potions.Carrot>();
-            dustType = ModContent.DustType<Dusts.CarrotDust>();
-            soundType = 6;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Potions.Carrot>();
+            DustType = ModContent.DustType<Dusts.CarrotDust>();
+            HitSound = 6;
         }
 
-        public override bool Dangersense(int i, int j, Player player)
+        public override bool IsTileDangerous(int i, int j, Player player)
         {
             return true;
         }

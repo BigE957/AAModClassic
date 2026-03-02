@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Anubis.Forsaken
@@ -9,44 +11,44 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Horus Hawk");
-			Main.projFrames[projectile.type] = 4;
+			// DisplayName.SetDefault("Horus Hawk");
+			Main.projFrames[Projectile.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 42;
-			projectile.height = 42;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-            projectile.minion = true;
-			projectile.penetrate = 1;
-			projectile.ignoreWater = false;
-			projectile.tileCollide = false;
-			projectile.usesLocalNPCImmunity = true;
-			projectile.localNPCHitCooldown = 0;
-			projectile.timeLeft = 600;
+			Projectile.width = 42;
+			Projectile.height = 42;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true;
+            Projectile.minion = true;
+			Projectile.penetrate = 1;
+			Projectile.ignoreWater = false;
+			Projectile.tileCollide = false;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 0;
+			Projectile.timeLeft = 600;
 		}
 		
 		public override void AI()
         {
-			if (projectile.frameCounter++ > 5)
+			if (Projectile.frameCounter++ > 5)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
 			
-            projectile.spriteDirection = projectile.direction = (projectile.velocity.X > 0).ToDirectionInt();
-			projectile.rotation = projectile.velocity.ToRotation() + (projectile.spriteDirection == 1 ? 0f : MathHelper.Pi);
+            Projectile.spriteDirection = Projectile.direction = (Projectile.velocity.X > 0).ToDirectionInt();
+			Projectile.rotation = Projectile.velocity.ToRotation() + (Projectile.spriteDirection == 1 ? 0f : MathHelper.Pi);
 			
-			if (projectile.localAI[0] == 0f)
+			if (Projectile.localAI[0] == 0f)
 			{
-				AdjustMagnitude(ref projectile.velocity);
-				projectile.localAI[0] = 1f;
+				AdjustMagnitude(ref Projectile.velocity);
+				Projectile.localAI[0] = 1f;
 			}
 			Vector2 move = Vector2.Zero;
 			float distance = 900f;
@@ -55,7 +57,7 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			{
 				if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != 488)
 				{
-					Vector2 newMove = Main.npc[k].Center - projectile.Center;
+					Vector2 newMove = Main.npc[k].Center - Projectile.Center;
 					float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
 					if (distanceTo < distance)
 					{
@@ -68,8 +70,8 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			if (target)
 			{
 				AdjustMagnitude(ref move);
-				projectile.velocity = (12 * projectile.velocity + move) / 11f;
-				AdjustMagnitude(ref projectile.velocity);
+				Projectile.velocity = (12 * Projectile.velocity + move) / 11f;
+				AdjustMagnitude(ref Projectile.velocity);
 			}
 		}
 
@@ -82,9 +84,9 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			}
 		}
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(3, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.NPCHit1, Projectile.position);
         }
     }
 }

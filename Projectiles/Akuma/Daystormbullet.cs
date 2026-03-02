@@ -10,79 +10,79 @@ namespace AAMod.Projectiles.Akuma
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Daystormbullet");
+            // DisplayName.SetDefault("Daystormbullet");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.penetrate = 1;
-            projectile.tileCollide = true;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 500;
-            projectile.alpha = 255;
-            projectile.extraUpdates = 1;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 500;
+            Projectile.alpha = 255;
+            Projectile.extraUpdates = 1;
         }
 
         public override void AI()
         {
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
             }
-            if(projectile.alpha < 150)
+            if(Projectile.alpha < 150)
             {
-                float x2 = projectile.position.X + projectile.width / 2 - projectile.velocity.X / 2f;
-				float y2 = projectile.position.Y + projectile.height / 2 - projectile.velocity.Y / 2f;
-                int num166 = Dust.NewDust(new Vector2(projectile.position.X + projectile.width / 2, projectile.position.Y + projectile.height / 2), projectile.width, projectile.height + 5, mod.DustType("AkumaDust"), projectile.velocity.X * 0.2f,
-                    projectile.velocity.Y * 0.2f, 0, default, 2f);
-                Main.dust[num166].alpha = projectile.alpha;
+                float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f;
+				float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f;
+                int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, Mod.Find<ModDust>("AkumaDust").Type, Projectile.velocity.X * 0.2f,
+                    Projectile.velocity.Y * 0.2f, 0, default, 2f);
+                Main.dust[num166].alpha = Projectile.alpha;
                 Main.dust[num166].position.X = x2;
 				Main.dust[num166].position.Y = y2;
                 Main.dust[num166].velocity *= 0f;
                 Main.dust[num166].noGravity = true;
             }
-            float num167 = (float)Math.Sqrt(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y);
-            float num168 = projectile.localAI[0];
+            float num167 = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
+            float num168 = Projectile.localAI[0];
             if (num168 == 0f)
             {
-                projectile.localAI[0] = num167;
+                Projectile.localAI[0] = num167;
                 num168 = num167;
             }
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 25;
+                Projectile.alpha -= 25;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            float num169 = projectile.position.X;
-            float num170 = projectile.position.Y;
+            float num169 = Projectile.position.X;
+            float num170 = Projectile.position.Y;
             float num171 = 300f;
             bool flag4 = false;
             int num172 = 0;
-            if (projectile.ai[1] == 0f)
+            if (Projectile.ai[1] == 0f)
             {
                 int num;
                 for (int num173 = 0; num173 < 200; num173 = num + 1)
                 {
-                    if (Main.npc[num173].CanBeChasedBy(projectile, false) && (projectile.ai[1] == 0f || projectile.ai[1] == num173 + 1))
+                    if (Main.npc[num173].CanBeChasedBy(Projectile, false) && (Projectile.ai[1] == 0f || Projectile.ai[1] == num173 + 1))
                     {
                         float num174 = Main.npc[num173].position.X + Main.npc[num173].width / 2;
                         float num175 = Main.npc[num173].position.Y + Main.npc[num173].height / 2;
-                        float num176 = Math.Abs(projectile.position.X + projectile.width / 2 - num174) + Math.Abs(projectile.position.Y + projectile.height / 2 - num175);
-                        if (num176 < num171 && Collision.CanHit(new Vector2(projectile.position.X + projectile.width / 2, projectile.position.Y + projectile.height / 2), 1, 1, Main.npc[num173].position, Main.npc[num173].width, Main.npc[num173].height))
+                        float num176 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num174) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num175);
+                        if (num176 < num171 && Collision.CanHit(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), 1, 1, Main.npc[num173].position, Main.npc[num173].width, Main.npc[num173].height))
                         {
                             num171 = num176;
                             num169 = num174;
@@ -95,18 +95,18 @@ namespace AAMod.Projectiles.Akuma
                 }
                 if (flag4)
                 {
-                    projectile.ai[1] = num172 + 1;
+                    Projectile.ai[1] = num172 + 1;
                 }
                 flag4 = false;
             }
-            if (projectile.ai[1] > 0f)
+            if (Projectile.ai[1] > 0f)
             {
-                int num177 = (int)(projectile.ai[1] - 1f);
-                if (Main.npc[num177].active && Main.npc[num177].CanBeChasedBy(projectile, true) && !Main.npc[num177].dontTakeDamage)
+                int num177 = (int)(Projectile.ai[1] - 1f);
+                if (Main.npc[num177].active && Main.npc[num177].CanBeChasedBy(Projectile, true) && !Main.npc[num177].dontTakeDamage)
                 {
                     float num178 = Main.npc[num177].position.X + Main.npc[num177].width / 2;
                     float num179 = Main.npc[num177].position.Y + Main.npc[num177].height / 2;
-                    float num180 = Math.Abs(projectile.position.X + projectile.width / 2 - num178) + Math.Abs(projectile.position.Y + projectile.height / 2 - num179);
+                    float num180 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num178) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num179);
                     if (num180 < 1000f)
                     {
                         flag4 = true;
@@ -116,17 +116,17 @@ namespace AAMod.Projectiles.Akuma
                 }
                 else
                 {
-                    projectile.ai[1] = 0f;
+                    Projectile.ai[1] = 0f;
                 }
             }
-            if (!projectile.friendly)
+            if (!Projectile.friendly)
             {
                 flag4 = false;
             }
             if (flag4)
             {
                 float num181 = num168;
-                Vector2 vector19 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+                Vector2 vector19 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                 float num182 = num169 - vector19.X;
                 float num183 = num170 - vector19.Y;
                 float num184 = (float)Math.Sqrt(num182 * num182 + num183 * num183);
@@ -134,26 +134,26 @@ namespace AAMod.Projectiles.Akuma
                 num182 *= num184;
                 num183 *= num184;
                 int num185 = 8;
-                projectile.velocity.X = (projectile.velocity.X * (num185 - 1) + num182) / num185;
-                projectile.velocity.Y = (projectile.velocity.Y * (num185 - 1) + num183) / num185;
+                Projectile.velocity.X = (Projectile.velocity.X * (num185 - 1) + num182) / num185;
+                Projectile.velocity.Y = (Projectile.velocity.Y * (num185 - 1) + num183) / num185;
             }
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
         }

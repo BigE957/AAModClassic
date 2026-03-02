@@ -11,27 +11,27 @@ namespace AAMod.Items.Vanity.Gibs
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Revenant Plate");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
+            // DisplayName.SetDefault("Revenant Plate");
+            // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 128, 0);
+                    line2.OverrideColor = new Color(255, 128, 0);
                 }
             }
         }
 
-        public override bool DrawBody()
+        public override bool DrawBody()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true if you returned false */
         {
             return false;
         }
 
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
+        public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
         {
             drawHands = false;
             drawArms = false;
@@ -39,10 +39,10 @@ namespace AAMod.Items.Vanity.Gibs
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 10;
-            item.vanity = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 10;
+            Item.vanity = true;
         }
     }
 }

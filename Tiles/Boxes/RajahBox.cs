@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Boxes
 {
     class RajahBox : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileObsidianKill[Type] = true;
@@ -18,24 +19,24 @@ namespace AAMod.Tiles.Boxes
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Music Box");
-            dustType = DustID.Gold;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Music Box");
+            DustType = DustID.Gold;
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType("RajahBox"));
+			Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("RajahBox").Type);
 		}
 
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("RajahBox");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("RajahBox").Type;
 		}
 	}
 }

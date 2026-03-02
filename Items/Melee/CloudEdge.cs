@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,37 +9,36 @@ namespace AAMod.Items.Melee   //where is located
         public override void SetDefaults()
         {
 
-            item.damage = 20;            
-            item.melee = true;            
-            item.width = 32;              
-            item.height = 32;             
-            item.useTime = 45;          
-            item.useAnimation = 45;     
-            item.useStyle = 1;        
-            item.knockBack = 1;      
-            item.value = 5000;        
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = true;   
-            item.useTurn = true;
-            item.shoot = mod.ProjectileType("CloudEdgeP");
-            item.shootSpeed = 12f;                                 
+            Item.damage = 20;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 32;              
+            Item.height = 32;             
+            Item.useTime = 45;          
+            Item.useAnimation = 45;     
+            Item.useStyle = 1;        
+            Item.knockBack = 1;      
+            Item.value = 5000;        
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = true;   
+            Item.useTurn = true;
+            Item.shoot = Mod.Find<ModProjectile>("CloudEdgeP").Type;
+            Item.shootSpeed = 12f;                                 
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Cloud Edge");
-      Tooltip.SetDefault("Shoots cloud projectiles");
+      // DisplayName.SetDefault("Cloud Edge");
+      // Tooltip.SetDefault("Shoots cloud projectiles");
     }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.FallenStar, 5);   
 			recipe.AddIngredient(ItemID.Cloud, 200);
             recipe.AddTile(TileID.WorkBenches);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

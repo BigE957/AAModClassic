@@ -11,27 +11,27 @@ namespace AAMod.Items.Armor.Demon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Demon Cowl");
-            Tooltip.SetDefault(@"9% Increased Minion damage");
+            // DisplayName.SetDefault("Demon Cowl");
+            // Tooltip.SetDefault(@"9% Increased Minion damage");
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 20;
-            item.value = 9000;
-            item.rare = 4;
-            item.defense = 6;
+            Item.width = 24;
+            Item.height = 20;
+            Item.value = 9000;
+            Item.rare = 4;
+            Item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.09f;
+            player.GetDamage(DamageClass.Summon) += 0.09f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("DemonGarb") && legs.type == mod.ItemType("DemonBoots");
+            return body.type == Mod.Find<ModItem>("DemonGarb").Type && legs.type == Mod.Find<ModItem>("DemonBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -42,13 +42,13 @@ namespace AAMod.Items.Armor.Demon
             modPlayer.demonBonus = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(mod.BuffType("DemonBuff")) == -1)
+                if (player.FindBuffIndex(Mod.Find<ModBuff>("DemonBuff").Type) == -1)
                 {
-                    player.AddBuff(mod.BuffType("DemonBuff"), 3600, true);
+                    player.AddBuff(Mod.Find<ModBuff>("DemonBuff").Type, 3600, true);
                 }
-                if (player.ownedProjectileCounts[mod.ProjectileType("ImpMinion")] < 1)
+                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("ImpMinion").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("ImpMinion"), 20, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("ImpMinion").Type, 20, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
@@ -56,24 +56,22 @@ namespace AAMod.Items.Armor.Demon
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "ImpHood", 1);
                 recipe.AddIngredient(ItemID.Bone, 5);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "ImpHood", 1);
                 recipe.AddIngredient(ItemID.Bone, 5);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

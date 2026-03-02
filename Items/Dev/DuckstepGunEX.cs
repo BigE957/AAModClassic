@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
@@ -10,31 +11,31 @@ namespace AAMod.Items.Dev
         
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Duckstep R.E.M.I.X.");
-            Tooltip.SetDefault(@"Duckstep Launcher EX");
+            // DisplayName.SetDefault("Duckstep R.E.M.I.X.");
+            // Tooltip.SetDefault(@"Duckstep Launcher EX");
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 320;
-			item.magic = true;
-            item.mana = 10;
-            item.width = 80;
-			item.height = 42;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 4;
-			item.value = 3000000;
-            item.expert = true; item.expertOnly = true;
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/QUAK");
-            item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 15f;
-            item.shoot = mod.ProjectileType("Duck");
-            item.rare = 10;
+			Item.damage = 320;
+			Item.DamageType = DamageClass.Magic;
+            Item.mana = 10;
+            Item.width = 80;
+			Item.height = 42;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4;
+			Item.value = 3000000;
+            Item.expert = true; Item.expertOnly = true;
+			Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/QUAK");
+            Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 15f;
+            Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
+            Item.rare = 10;
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
             glowmaskDrawType = GLOWMASKTYPE_GUN;
             glowmaskDrawColor = Color.White;  
@@ -44,23 +45,22 @@ namespace AAMod.Items.Dev
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(158, 255, 61);
+                    line2.OverrideColor = new Color(158, 255, 61);
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DuckstepGun");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			float numberProjectiles = 3 + Main.rand.Next(3);
 			float rotation = MathHelper.ToRadians(45);

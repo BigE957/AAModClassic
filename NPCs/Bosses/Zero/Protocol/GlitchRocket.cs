@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero.Protocol
@@ -9,20 +11,20 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("R0CKET");
-            Main.projFrames[projectile.type] = 3;
+			// DisplayName.SetDefault("R0CKET");
+            Main.projFrames[Projectile.type] = 3;
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 50;
-            projectile.height = 50;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            cooldownSlot = 1;
-            projectile.damage = 10;
-            projectile.tileCollide = false;
+            Projectile.width = 50;
+            Projectile.height = 50;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            CooldownSlot = 1;
+            Projectile.damage = 10;
+            Projectile.tileCollide = false;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -32,53 +34,53 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
 
         public override void AI()
         {
-        	Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.9f / 255f, (255 - projectile.alpha) * 0f / 255f, (255 - projectile.alpha) * 0.4f / 255f);
-        	projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-        	if (projectile.ai[1] == 0f)
+        	Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.9f / 255f, (255 - Projectile.alpha) * 0f / 255f, (255 - Projectile.alpha) * 0.4f / 255f);
+        	Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+        	if (Projectile.ai[1] == 0f)
 			{
-				projectile.ai[1] = 1f;
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 20);
+				Projectile.ai[1] = 1f;
+				SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
 			}
-        	int num103 = Player.FindClosest(projectile.Center, 1, 1);
-			projectile.ai[1] += 1f;
-			if (projectile.ai[1] < 220f && projectile.ai[1] > 20f)
+        	int num103 = Player.FindClosest(Projectile.Center, 1, 1);
+			Projectile.ai[1] += 1f;
+			if (Projectile.ai[1] < 220f && Projectile.ai[1] > 20f)
 			{
-				float scaleFactor2 = projectile.velocity.Length();
-				Vector2 vector11 = Main.player[num103].Center - projectile.Center;
+				float scaleFactor2 = Projectile.velocity.Length();
+				Vector2 vector11 = Main.player[num103].Center - Projectile.Center;
 				vector11.Normalize();
 				vector11 *= scaleFactor2;
-				projectile.velocity = (projectile.velocity * 24f + vector11) / 25f;
-				projectile.velocity.Normalize();
-				projectile.velocity *= scaleFactor2;
+				Projectile.velocity = (Projectile.velocity * 24f + vector11) / 25f;
+				Projectile.velocity.Normalize();
+				Projectile.velocity *= scaleFactor2;
 			}
-			if (projectile.ai[0] < 0f)
+			if (Projectile.ai[0] < 0f)
 			{
-				if (projectile.velocity.Length() < 18f)
+				if (Projectile.velocity.Length() < 18f)
 				{
-					projectile.velocity *= 1.02f;
+					Projectile.velocity *= 1.02f;
 				}
 			}
 			
-			int dustId = Dust.NewDust(projectile.position, projectile.width, projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), projectile.velocity.X * 0.2f,
-					projectile.velocity.Y * 0.2f, 100);
+			int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X * 0.2f,
+					Projectile.velocity.Y * 0.2f, 100);
 				Main.dust[dustId].noGravity = true;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)projectile.Center.X, (int)projectile.Center.Y);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
             float spread = 12f * 0.0174f;
-			double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y)- spread/2;
+			double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y)- spread/2;
 	    	double Angle = spread/4f;
 	    	double offsetAngle;
 	    	int i;
-	    	if (projectile.owner == Main.myPlayer)
+	    	if (Projectile.owner == Main.myPlayer)
 	    	{
 		    	for (i = 0; i < 4; i++ )
 		    	{
 		   			offsetAngle = startAngle + Angle * ( i + i * i ) / 2f  + 32f * i;
-		        	Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 2f ), (float)( Math.Cos(offsetAngle) * 6f ), mod.ProjectileType("GlitchBlast"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-		        	Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 2f ), (float)( -Math.Cos(offsetAngle) * 6f ), mod.ProjectileType("GlitchBlast"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 2f ), (float)( Math.Cos(offsetAngle) * 6f ), Mod.Find<ModProjectile>("GlitchBlast").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 2f ), (float)( -Math.Cos(offsetAngle) * 6f ), Mod.Find<ModProjectile>("GlitchBlast").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 		    	}
 	    	}
         }

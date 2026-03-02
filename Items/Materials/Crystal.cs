@@ -10,8 +10,8 @@ namespace AAMod.Items.Materials
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Biome Prism");
-            Tooltip.SetDefault("A magical prism that can be enhanced with the power of a biome.");
+            // DisplayName.SetDefault("Biome Prism");
+            // Tooltip.SetDefault("A magical prism that can be enhanced with the power of a biome.");
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
@@ -19,11 +19,11 @@ namespace AAMod.Items.Materials
         {
             
             
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 8;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 8;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,16 +33,15 @@ namespace AAMod.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, AAColor.COLOR_WHITEFADE1.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, AAColor.COLOR_WHITEFADE1.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Prism", 5);
             recipe.AddTile(null, "TerraPrism");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 
@@ -52,18 +51,18 @@ namespace AAMod.Items.Materials
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Prism");
-            Tooltip.SetDefault("Imbued with the unified harmony of the land of Terraria");
+            // DisplayName.SetDefault("Terra Prism");
+            // Tooltip.SetDefault("Imbued with the unified harmony of the land of Terraria");
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 8;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 8;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -73,26 +72,24 @@ namespace AAMod.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, AAColor.TerraGlow.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, AAColor.TerraGlow.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "TerraShard", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "DragonSpirit", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }
@@ -103,18 +100,18 @@ namespace AAMod.Items.Materials
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Prism");
-            Tooltip.SetDefault("Imbued with the discordian flames of chaos");
+            // DisplayName.SetDefault("Chaos Prism");
+            // Tooltip.SetDefault("Imbued with the discordian flames of chaos");
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 8;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 8;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -124,7 +121,7 @@ namespace AAMod.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, AAColor.Shen3.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, AAColor.Shen3.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

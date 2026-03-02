@@ -9,7 +9,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosCandle : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -17,7 +17,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);
-            dustType = mod.DustType("DoomDust");
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
             Main.tileLighted[Type] = true; 
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	        AddMapEntry(new Color(70, 0, 10));
@@ -32,17 +32,17 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
-            if(Main.tile[i, j].frameX == 0 && Main.tile[i, j].frameY == 0)
+            if(Main.tile[i, j].TileFrameX == 0 && Main.tile[i, j].TileFrameY == 0)
             {
-                Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("OroborosCandle"));
+                Item.NewItem(i * 16, j * 16, 48, 48, Mod.Find<ModItem>("OroborosCandle").Type);
             }
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Color color = new Color(255, 50, 50, 0);
-            int frameX = Main.tile[i, j].frameX;
-            int frameY = Main.tile[i, j].frameY;
+            int frameX = Main.tile[i, j].TileFrameX;
+            int frameY = Main.tile[i, j].TileFrameY;
             int width = 20;
             int offsetY = -2;
             int height = 20;
@@ -54,7 +54,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
             }
             for (int k = 0; k < 7; k++)
             {
-                Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Oroboros/OroborosCandle_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosCandle_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
             }
         }
     }

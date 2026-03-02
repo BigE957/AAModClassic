@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
@@ -9,86 +11,86 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.alpha = 255;
-			projectile.width = 34;
-			projectile.height = 34;
-			projectile.friendly = true;
-			projectile.penetrate = 5;
-			projectile.melee = true;
-			projectile.ignoreWater = true;
-			projectile.extraUpdates = 1;
-			projectile.timeLeft = 300;
+            Projectile.alpha = 255;
+			Projectile.width = 34;
+			Projectile.height = 34;
+			Projectile.friendly = true;
+			Projectile.penetrate = 5;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.ignoreWater = true;
+			Projectile.extraUpdates = 1;
+			Projectile.timeLeft = 300;
         }
 		
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			if (projectile.velocity.X != oldVelocity.X)
+			if (Projectile.velocity.X != oldVelocity.X)
 			{
-				projectile.velocity.X = -oldVelocity.X;
+				Projectile.velocity.X = -oldVelocity.X;
 			}
-			if (projectile.velocity.Y != oldVelocity.Y)
+			if (Projectile.velocity.Y != oldVelocity.Y)
 			{
-				projectile.velocity.Y = -oldVelocity.Y;
+				Projectile.velocity.Y = -oldVelocity.Y;
 				
 			}
-			projectile.penetrate--;
-			if (projectile.penetrate <= 0)
+			Projectile.penetrate--;
+			if (Projectile.penetrate <= 0)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
 			return false;
 		}
 		
         public override void AI()
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 50;
+                Projectile.alpha -= 50;
             }
             else
             {
-                projectile.extraUpdates = 0;
+                Projectile.extraUpdates = 0;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) - 1.57f;
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 6)
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) - 1.57f;
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 6)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
             }
-            if (projectile.frame >= 2)
+            if (Projectile.frame >= 2)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
             for (int num363 = 0; num363 < 3; num363++)
             {
-                float num364 = projectile.velocity.X / 3f * num363;
-                float num365 = projectile.velocity.Y / 3f * num363;
-                int num366 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 75, 0f, 0f, 0);
-                Main.dust[num366].position.X = projectile.Center.X - num364;
-                Main.dust[num366].position.Y = projectile.Center.Y - num365;
+                float num364 = Projectile.velocity.X / 3f * num363;
+                float num365 = Projectile.velocity.Y / 3f * num363;
+                int num366 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 75, 0f, 0f, 0);
+                Main.dust[num366].position.X = Projectile.Center.X - num364;
+                Main.dust[num366].position.Y = Projectile.Center.Y - num365;
                 Main.dust[num366].velocity *= 0f;
                 Main.dust[num366].scale = 0.5f;
             }
-            float num367 = projectile.position.X;
-            float num368 = projectile.position.Y;
+            float num367 = Projectile.position.X;
+            float num368 = Projectile.position.Y;
             float num369 = 100000f;
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] > 30f)
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] > 30f)
             {
-                projectile.ai[0] = 30f;
+                Projectile.ai[0] = 30f;
                 for (int num370 = 0; num370 < 200; num370++)
                 {
                     if (Main.npc[num370].CanBeChasedBy(this, false))
                     {
                         float num371 = Main.npc[num370].position.X + Main.npc[num370].width / 2;
                         float num372 = Main.npc[num370].position.Y + Main.npc[num370].height / 2;
-                        float num373 = Math.Abs(projectile.position.X + projectile.width / 2 - num371) + Math.Abs(projectile.position.Y + projectile.height / 2 - num372);
-                        if (num373 < 800f && num373 < num369 && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num370].position, Main.npc[num370].width, Main.npc[num370].height))
+                        float num373 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num371) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num372);
+                        if (num373 < 800f && num373 < num369 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.npc[num370].position, Main.npc[num370].width, Main.npc[num370].height))
                         {
                             num369 = num373;
                             num367 = num371;
@@ -97,65 +99,65 @@ namespace AAMod.Projectiles
                     }
                 }
             }
-            projectile.friendly = true;
+            Projectile.friendly = true;
             float num374 = 9f;
             float num375 = 0.2f;
-            Vector2 vector27 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+            Vector2 vector27 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float num376 = num367 - vector27.X;
             float num377 = num368 - vector27.Y;
             float num378 = (float)Math.Sqrt(num376 * num376 + num377 * num377);
             num378 = num374 / num378;
             num376 *= num378;
             num377 *= num378;
-            if (projectile.velocity.X < num376)
+            if (Projectile.velocity.X < num376)
             {
-                projectile.velocity.X = projectile.velocity.X + num375;
-                if (projectile.velocity.X < 0f && num376 > 0f)
+                Projectile.velocity.X = Projectile.velocity.X + num375;
+                if (Projectile.velocity.X < 0f && num376 > 0f)
                 {
-                    projectile.velocity.X = projectile.velocity.X + num375 * 2f;
+                    Projectile.velocity.X = Projectile.velocity.X + num375 * 2f;
                 }
             }
-            else if (projectile.velocity.X > num376)
+            else if (Projectile.velocity.X > num376)
             {
-                projectile.velocity.X = projectile.velocity.X - num375;
-                if (projectile.velocity.X > 0f && num376 < 0f)
+                Projectile.velocity.X = Projectile.velocity.X - num375;
+                if (Projectile.velocity.X > 0f && num376 < 0f)
                 {
-                    projectile.velocity.X = projectile.velocity.X - num375 * 2f;
+                    Projectile.velocity.X = Projectile.velocity.X - num375 * 2f;
                 }
             }
-            if (projectile.velocity.Y < num377)
+            if (Projectile.velocity.Y < num377)
             {
-                projectile.velocity.Y = projectile.velocity.Y + num375;
-                if (projectile.velocity.Y < 0f && num377 > 0f)
+                Projectile.velocity.Y = Projectile.velocity.Y + num375;
+                if (Projectile.velocity.Y < 0f && num377 > 0f)
                 {
-                    projectile.velocity.Y = projectile.velocity.Y + num375 * 2f;
+                    Projectile.velocity.Y = Projectile.velocity.Y + num375 * 2f;
                     return;
                 }
             }
-            else if (projectile.velocity.Y > num377)
+            else if (Projectile.velocity.Y > num377)
             {
-                projectile.velocity.Y = projectile.velocity.Y - num375;
-                if (projectile.velocity.Y > 0f && num377 < 0f)
+                Projectile.velocity.Y = Projectile.velocity.Y - num375;
+                if (Projectile.velocity.Y > 0f && num377 < 0f)
                 {
-                    projectile.velocity.Y = projectile.velocity.Y - num375 * 2f;
+                    Projectile.velocity.Y = Projectile.velocity.Y - num375 * 2f;
                     return;
                 }
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 1;
-			projectile.Kill();
+			target.immune[Projectile.owner] = 1;
+			Projectile.Kill();
 		}
 		
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
-			Main.PlaySound(3, (int)projectile.position.X, (int)projectile.position.Y, 1, 1f, 0f);
+			SoundEngine.PlaySound(SoundID.NPCHit1, Projectile.position);
 			int num3;
 			for (int num622 = 0; num622 < 20; num622 = num3 + 1)
 			{
-				int num623 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 0);
+				int num623 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, 0f, 0f, 0);
 				Dust dust = Main.dust[num623];
 				dust.scale *= 1.1f;
 				Main.dust[num623].noGravity = true;
@@ -163,7 +165,7 @@ namespace AAMod.Projectiles
 			}
 			for (int num624 = 0; num624 < 30; num624 = num3 + 1)
 			{
-				int num625 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 0);
+				int num625 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, 0f, 0f, 0);
 				Dust dust = Main.dust[num625];
 				dust.velocity *= 2.5f;
 				dust = Main.dust[num625];
@@ -171,7 +173,7 @@ namespace AAMod.Projectiles
 				Main.dust[num625].noGravity = true;
 				num3 = num624;
 			}
-			if (projectile.owner == Main.myPlayer)
+			if (Projectile.owner == Main.myPlayer)
 			{
 				int num626 = 2;
 				if (Main.rand.Next(10) == 0)
@@ -192,7 +194,7 @@ namespace AAMod.Projectiles
 					float num629 = Main.rand.Next(-35, 36) * 0.02f;
 					num628 *= 10f;
 					num629 *= 10f;
-					int p = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, num628, num629, ModContent.ProjectileType<CursedFireball>(), projectile.damage*3, (int)(projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
+					int p = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<CursedFireball>(), Projectile.damage*3, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
 					num3 = num627;
 					Main.projectile[p].timeLeft = 240;
 				}

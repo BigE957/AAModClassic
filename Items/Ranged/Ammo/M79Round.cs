@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged.Ammo
 {
@@ -6,21 +7,21 @@ namespace AAMod.Items.Ranged.Ammo
 	{
 		public override void SetDefaults()
 		{
-			item.ranged = true;
-			item.damage = 25;
-			item.width = 8;
-			item.height = 16;
-			item.maxStack = 999;
-			item.value = Item.sellPrice(0, 0, 20, 0);
-			item.rare = 3;
-			item.consumable = true;
-			item.shoot = mod.ProjectileType("M79P");
-			item.ammo = item.type;
+			Item.DamageType = DamageClass.Ranged;
+			Item.damage = 25;
+			Item.width = 8;
+			Item.height = 16;
+			Item.maxStack = 999;
+			Item.value = Item.sellPrice(0, 0, 20, 0);
+			Item.rare = 3;
+			Item.consumable = true;
+			Item.shoot = Mod.Find<ModProjectile>("M79P").Type;
+			Item.ammo = Item.type;
 		}
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("M79 Round");
+			// DisplayName.SetDefault("M79 Round");
 		}
     }
 }

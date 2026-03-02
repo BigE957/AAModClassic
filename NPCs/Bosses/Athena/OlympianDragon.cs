@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.NPCs.Bosses.Athena.Olympian;
+using Terraria.ModLoader.Utilities;
 
 namespace AAMod.NPCs.Bosses.Athena
 {
@@ -11,46 +12,46 @@ namespace AAMod.NPCs.Bosses.Athena
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Olympian Dragon");
-            Main.npcFrameCount[npc.type] = 5;
+            // DisplayName.SetDefault("Olympian Dragon");
+            Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
         {
-            npc.width = 38;
-            npc.height = 38;
-            npc.aiStyle = 0;
-            npc.damage = 30;
-            npc.defense = 30;
-            npc.lifeMax = 150;
-            npc.HitSound = SoundID.DD2_WyvernHurt;
-            npc.DeathSound = SoundID.DD2_WyvernDeath;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.knockBackResist = 0.05f;
-            npc.npcSlots = 0f;
-            npc.lavaImmune = true;
-            npc.netAlways = true;
-            npc.alpha = 255;
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.aiStyle = 0;
+            NPC.damage = 30;
+            NPC.defense = 30;
+            NPC.lifeMax = 150;
+            NPC.HitSound = SoundID.DD2_WyvernHurt;
+            NPC.DeathSound = SoundID.DD2_WyvernDeath;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.knockBackResist = 0.05f;
+            NPC.npcSlots = 0f;
+            NPC.lavaImmune = true;
+            NPC.netAlways = true;
+            NPC.alpha = 255;
         }
 
         public override bool PreAI()
         {
             if (!NPC.AnyNPCs(ModContent.NPCType<Athena>()) || !NPC.AnyNPCs(ModContent.NPCType<AthenaA>()))
             {
-                npc.velocity *= .95f;
-                if (npc.alpha != 0)
+                NPC.velocity *= .95f;
+                if (NPC.alpha != 0)
                 {
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].noLight = false;
                     }
                 }
-                npc.alpha += 3;
-                if (npc.alpha >= 255 && Main.netMode != 1)
+                NPC.alpha += 3;
+                if (NPC.alpha >= 255 && Main.netMode != 1)
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
                 return false;
             }
@@ -59,50 +60,50 @@ namespace AAMod.NPCs.Bosses.Athena
 
         public override void AI()
         {
-            if (npc.alpha != 0)
+            if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = false;
                 }
             }
-            npc.alpha -= 3;
-            if (npc.alpha < 0)
+            NPC.alpha -= 3;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
-            BaseAI.AIFlier(npc, ref npc.ai, true, 0.15f, 0.08f, 6f, 5f, false, 300);
-            Player player = Main.player[npc.target];
-            if (player.Center.X > npc.Center.X)
+            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 6f, 5f, false, 300);
+            Player player = Main.player[NPC.target];
+            if (player.Center.X > NPC.Center.X)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
             else
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.frame.Y > (frameHeight * 3))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > (frameHeight * 3))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.playerSafe || !Main.hardMode)
+            if (spawnInfo.PlayerSafe || !Main.hardMode)
             {
                 return 0f;
             }

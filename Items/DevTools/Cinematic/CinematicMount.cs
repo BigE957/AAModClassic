@@ -8,21 +8,21 @@ namespace AAMod.Items.DevTools.Cinematic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cinematic Mount");
+			// DisplayName.SetDefault("Cinematic Mount");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 28;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.value = Item.sellPrice(0, 0, 0, 0);
-			item.rare = -12;
-			item.UseSound = SoundID.Item25;
-			item.noMelee = true;
-			item.mountType = mod.MountType("CinematicThing");
+			Item.width = 28;
+			Item.height = 28;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 1;
+			Item.value = Item.sellPrice(0, 0, 0, 0);
+			Item.rare = -12;
+			Item.UseSound = SoundID.Item25;
+			Item.noMelee = true;
+			Item.mountType = Mod.Find<ModMount>("CinematicThing").Type;
 		}
 	}
 }

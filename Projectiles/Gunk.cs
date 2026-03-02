@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,69 +10,69 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gunk");
+            // DisplayName.SetDefault("Gunk");
         }
         public override void SetDefaults()
         {
-            projectile.penetrate = 1;  
-            projectile.width = 28;
-            projectile.height = 28;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 300;
-            projectile.aiStyle = -1;
-            projectile.alpha = 70;
+            Projectile.penetrate = 1;  
+            Projectile.width = 28;
+            Projectile.height = 28;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 300;
+            Projectile.aiStyle = -1;
+            Projectile.alpha = 70;
         }
 
         public override void AI()
         {
-            if (projectile.ai[0]++ > 60)
+            if (Projectile.ai[0]++ > 60)
             {
-                projectile.ai[0] = 0;
-                projectile.ai[1] += 1;
-                if (projectile.ai[1] > 2)
+                Projectile.ai[0] = 0;
+                Projectile.ai[1] += 1;
+                if (Projectile.ai[1] > 2)
                 {
-                    projectile.ai[1] = 2;
+                    Projectile.ai[1] = 2;
                 }
             }
-            projectile.frame = (int)projectile.ai[1];
-            if (projectile.ai[1] == 0)
+            Projectile.frame = (int)Projectile.ai[1];
+            if (Projectile.ai[1] == 0)
             {
-                projectile.scale = 1 / 4;
+                Projectile.scale = 1 / 4;
             }
-            else if (projectile.ai[1] == 0)
+            else if (Projectile.ai[1] == 0)
             {
-                projectile.scale = 1 / 2;
+                Projectile.scale = 1 / 2;
             }
             else
             {
-                projectile.scale = 1;
+                Projectile.scale = 1;
             }
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 46, new Color(0, 255, 217), 1.184211f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 46, new Color(0, 255, 217), 1.184211f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 46, new Color(0, 255, 217), 1.184211f);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 46, new Color(0, 255, 217), 1.184211f);
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            int width = Main.projectileTexture[projectile.type].Width;
-            int height = Main.projectileTexture[projectile.type].Height;
+            int width = TextureAssets.Projectile[Projectile.type].Value.Width;
+            int height = TextureAssets.Projectile[Projectile.type].Value.Height;
 
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, width, height / 3, 0, 0);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, width, height / 3, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, 1f, projectile.rotation, 0, 3, frame, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, 1f, Projectile.rotation, 0, 3, frame, lightColor, true);
             return false;
         }
     }

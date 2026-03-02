@@ -11,17 +11,17 @@ namespace AAMod.Items.Armor.Kindled
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Kindled Dao");
-			Tooltip.SetDefault("Forged in the flames of the blazing sun");
+			// DisplayName.SetDefault("Kindled Dao");
+			// Tooltip.SetDefault("Forged in the flames of the blazing sun");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 24;
-			item.value = 6000;
-			item.rare = 2;
-			item.defense = 7;
+			Item.width = 30;
+			Item.height = 24;
+			Item.value = 6000;
+			Item.rare = 2;
+			Item.defense = 7;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -31,12 +31,11 @@ namespace AAMod.Items.Armor.Kindled
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 25);
             recipe.AddIngredient(null, "BroodScale", 20);
             recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

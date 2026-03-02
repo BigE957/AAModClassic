@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class LungMinion : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Lung");
-            Description.SetDefault("Summons an ancient dragon to fight for you");
+            // DisplayName.SetDefault("Ancient Lung");
+            // Description.SetDefault("Summons an ancient dragon to fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("LungHead")] > 0) modPlayer.LungMinion = true;
+            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("LungHead").Type] > 0) modPlayer.LungMinion = true;
             if (!modPlayer.LungMinion)
             {
                 player.DelBuff(buffIndex);

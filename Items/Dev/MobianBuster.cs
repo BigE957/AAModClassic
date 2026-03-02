@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
 {
@@ -6,29 +7,29 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mobian Buster");
-            Tooltip.SetDefault("A standard issue Mobian blaster.\n" +
+            // DisplayName.SetDefault("Mobian Buster");
+            /* Tooltip.SetDefault("A standard issue Mobian blaster.\n" +
                 "Hold the use button to charge, and then release a powerful Charged Shot!\n" +
                 "\"Remember, the charged shot fires when you RELEASE the trigger, not the other way around.\" \n" +
-                "- Tails\n");
+                "- Tails\n"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 74;
-            item.height = 34;
-            item.ranged = true;
-            item.damage = 100;
-            item.shoot = mod.ProjectileType("MobianBuster");
-            item.useTime = 10;
-            item.useAnimation = 10;
-            item.useStyle = 5;
-            item.channel = true;
+            Item.width = 74;
+            Item.height = 34;
+            Item.DamageType = DamageClass.Ranged;
+            Item.damage = 100;
+            Item.shoot = Mod.Find<ModProjectile>("MobianBuster").Type;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = 5;
+            Item.channel = true;
             Item.sellPrice(0, 30, 0, 0);
-            item.noMelee = true;
-			item.rare = 10;
-			item.shootSpeed = 12f;
-			item.noUseGraphic = true;
+            Item.noMelee = true;
+			Item.rare = 10;
+			Item.shootSpeed = 12f;
+			Item.noUseGraphic = true;
         }
     }
 }

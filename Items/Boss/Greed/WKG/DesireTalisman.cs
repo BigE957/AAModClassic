@@ -9,32 +9,32 @@ namespace AAMod.Items.Boss.Greed.WKG
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Talisman of Desire");
-            Tooltip.SetDefault(@"Grabbing coins boosts your damage by 1% for 4 seconds
+            // DisplayName.SetDefault("Talisman of Desire");
+            /* Tooltip.SetDefault(@"Grabbing coins boosts your damage by 1% for 4 seconds
 Grabbing another coin increases the damage by 1% and resets the countdown
 Caps out at 20% damage
 Increases coin pickup range 
 Shops have lower prices
-Hitting enemies will sometimes drop extra coins");
+Hitting enemies will sometimes drop extra coins"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = Item.sellPrice(0, 12, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.expertOnly = true;
-            item.expert = true;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = Item.sellPrice(0, 12, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            Player player = Main.player[item.owner];
+            Player player = Main.player[Item.playerIndexTheItemIsReservedFor];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 
-            TooltipLine DamageTooltip = new TooltipLine(mod, "Damage", Language.GetTextValue("Mods.AAMod.Common.DesireTalismanInfo") + modPlayer.GreedyDamage + "%");
+            TooltipLine DamageTooltip = new TooltipLine(Mod, "Damage", Language.GetTextValue("Mods.AAMod.Common.DesireTalismanInfo") + modPlayer.GreedyDamage + "%");
             tooltips.Add(DamageTooltip);
 
             base.ModifyTooltips(tooltips);
@@ -47,7 +47,7 @@ Hitting enemies will sometimes drop extra coins");
             modPlayer.GreedTalisman = true;
             player.goldRing = true;
             player.coins = true;
-            player.discount = true;
+            player.discountAvailable = true;
         }
     }
 }

@@ -10,21 +10,21 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tartarus Reaper");
+            // DisplayName.SetDefault("Tartarus Reaper");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 120;
-            projectile.height = 114;
-            projectile.aiStyle = 0;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.ownerHitCheck = true;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 26;
-            aiType = ProjectileID.Bullet;
-            projectile.melee = true;
+            Projectile.width = 120;
+            Projectile.height = 114;
+            Projectile.aiStyle = 0;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.ownerHitCheck = true;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 26;
+            AIType = ProjectileID.Bullet;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
@@ -35,14 +35,14 @@ namespace AAMod.Projectiles
             return projHitbox.Intersects(targetHitbox);
         }
 
-        public override void OnHitNPC(NPC npc, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[projectile.owner] = 8;
+            npc.immune[Projectile.owner] = 8;
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             if (target.Center.X < player.Center.X)
             {
                 hitDirection = -1;
@@ -55,40 +55,40 @@ namespace AAMod.Projectiles
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
             if (player.dead)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
             if (player.direction > 0)
             {
-                projectile.rotation += 0.35f;
-                projectile.spriteDirection = 1;
+                Projectile.rotation += 0.35f;
+                Projectile.spriteDirection = 1;
             }
             else
             {
-                projectile.rotation -= 0.35f;
-                projectile.spriteDirection = -1;
+                Projectile.rotation -= 0.35f;
+                Projectile.spriteDirection = -1;
             }
 
-            player.heldProj = projectile.whoAmI;
-            projectile.position.X = player.Center.X - (projectile.width / 2f);
-            projectile.position.Y = player.Center.Y - (projectile.height / 2f);
+            player.heldProj = Projectile.whoAmI;
+            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
+            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
 
-            Projectile.NewProjectile(projectile.Center.X + 20, projectile.Center.Y, -15f, 0f, mod.ProjectileType("CursedSickleEXDamage"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.Center.X - 20, projectile.Center.Y, 15f, 0f, mod.ProjectileType("CursedSickleEXDamage"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleEXDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleEXDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 
-            if (projectile.timeLeft == 13)
+            if (Projectile.timeLeft == 13)
             {
-                Projectile.NewProjectile(projectile.Center.X + 20, projectile.Center.Y, -15f, 0f, mod.ProjectileType("CursedSickleEXDamage2"), (int)(projectile.damage * .35), projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X - 20, projectile.Center.Y, 15f, 0f, mod.ProjectileType("CursedSickleEXDamage2"), (int)(projectile.damage * .35), projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleEXDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleEXDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
-            if (projectile.timeLeft < 8)
+            if (Projectile.timeLeft < 8)
             {
-                projectile.alpha -= 28;
+                Projectile.alpha -= 28;
             }
         }
     }
@@ -97,14 +97,14 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 8;
-            projectile.height = 8;
-            projectile.aiStyle = -1;
-            projectile.tileCollide = false;
-            projectile.ownerHitCheck = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 24;
+            Projectile.width = 8;
+            Projectile.height = 8;
+            Projectile.aiStyle = -1;
+            Projectile.tileCollide = false;
+            Projectile.ownerHitCheck = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 24;
         }
 
         public static Vector2 RotateVector(Vector2 origin, Vector2 vecToRot, float rot)
@@ -119,7 +119,7 @@ namespace AAMod.Projectiles
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
             if (player.direction > 0)
             {
@@ -130,15 +130,15 @@ namespace AAMod.Projectiles
                 rot -= 0.20f;
             }
 
-            projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + (projectile.ai[0] * (6.28f / 2)));
+            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + (Projectile.ai[0] * (6.28f / 2)));
 
             for (int m = 0; m < 5; m++)
             {
-                float velX = projectile.velocity.X / 3f * m;
-                float velY = projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, 75, 0, 0, 0);
-                Main.dust[dustID].position.X = projectile.Center.X - velX;
-                Main.dust[dustID].position.Y = projectile.Center.Y - velY;
+                float velX = Projectile.velocity.X / 3f * m;
+                float velY = Projectile.velocity.Y / 3f * m;
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 75, 0, 0, 0);
+                Main.dust[dustID].position.X = Projectile.Center.X - velX;
+                Main.dust[dustID].position.Y = Projectile.Center.Y - velY;
                 Main.dust[dustID].velocity *= 0f;
                 Main.dust[dustID].alpha = 180;
                 Main.dust[dustID].noGravity = true;
@@ -152,29 +152,29 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 120;
-            projectile.height = 96;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.ownerHitCheck = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 8;
-            aiType = ProjectileID.Bullet;
+            Projectile.width = 120;
+            Projectile.height = 96;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.ownerHitCheck = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 8;
+            AIType = ProjectileID.Bullet;
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire>(), 210);
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
-            projectile.position.X = player.Center.X - (projectile.width / 2f);
-            projectile.position.Y = player.Center.Y - (projectile.height / 2f);
+            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
+            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
         }
     }
 
@@ -183,29 +183,29 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 120;
-            projectile.height = 96;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.ownerHitCheck = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 4;
-            aiType = ProjectileID.Bullet;
+            Projectile.width = 120;
+            Projectile.height = 96;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.ownerHitCheck = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 4;
+            AIType = ProjectileID.Bullet;
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire>(), 210);
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
-            projectile.position.X = player.Center.X - (projectile.width / 2f);
-            projectile.position.Y = player.Center.Y - (projectile.height / 2f);
+            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
+            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
         }
     }
 }

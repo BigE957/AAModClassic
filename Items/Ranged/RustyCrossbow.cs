@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -6,26 +7,26 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rusty Crossbow");
+            // DisplayName.SetDefault("Rusty Crossbow");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.width = 32;
-            item.height = 20;
-            item.shoot = 1;
-            item.useAmmo = AmmoID.Arrow;
-            item.UseSound = SoundID.Item5;
-            item.damage = 25;
-            item.shootSpeed = 10f;
-            item.knockBack = 2f;
-            item.rare = 3;
-            item.noMelee = true;
-            item.value = 10000;
-            item.ranged = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.width = 32;
+            Item.height = 20;
+            Item.shoot = 1;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.UseSound = SoundID.Item5;
+            Item.damage = 25;
+            Item.shootSpeed = 10f;
+            Item.knockBack = 2f;
+            Item.rare = 3;
+            Item.noMelee = true;
+            Item.value = 10000;
+            Item.DamageType = DamageClass.Ranged;
         }
     }
 }

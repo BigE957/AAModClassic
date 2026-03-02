@@ -16,13 +16,13 @@ namespace AAMod
 		public override void SetDefaults()
 		{
 			SafeSetDefaults();
-			item.melee = false;
-			item.ranged = false;
-			item.magic = false;
-			item.thrown = true;
-			item.summon = false;
+			Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.DamageType = DamageClass.Throwing;
+			Item.summon = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 		}
-		public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
 			if (ModSupport.GetMod("CalamityMod") != null)
 			{
@@ -30,12 +30,12 @@ namespace AAMod
 				add += throwingDamage - 1f;
 			}
 		}
-		public override void GetWeaponCrit(Player player, ref int crit)
+		public override void ModifyWeaponCrit(Player player, ref float crit)
 		{
 			if (ModSupport.GetMod("CalamityMod") != null)
 			{
 				int throwingCrit = (int) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingCrit", false, false);
-				crit = item.crit + throwingCrit;
+				crit = Item.crit + throwingCrit;
 			}
 		}
 		public override float UseTimeMultiplier(Player player)
@@ -60,23 +60,23 @@ namespace AAMod
 		{
 			if (ModSupport.GetMod("CalamityMod") != null)
 			{
-				TooltipLine tooltipLine = tooltips.FirstOrDefault((TooltipLine x) => x.Name == "Damage" && x.mod == "Terraria");
+				TooltipLine tooltipLine = tooltips.FirstOrDefault((TooltipLine x) => x.Name == "Damage" && x.Mod == "Terraria");
 				if (tooltipLine != null)
 				{
-					string[] source = tooltipLine.text.Split(new char[]
+					string[] source = tooltipLine.Text.Split(new char[]
 					{
 						' '
 					});
 					string str = source.First();
 					string str2 = source.Last();
-					tooltipLine.text = str + " rogue " + str2;
+					tooltipLine.Text = str + " rogue " + str2;
 				}
 			}
 			else
 			{
-				TooltipLine error = new TooltipLine(mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT CALAMITY ENABLED!")
+				TooltipLine error = new TooltipLine(Mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT CALAMITY ENABLED!")
                 {
-                    overrideColor = new Color(255, 50, 50)
+                    OverrideColor = new Color(255, 50, 50)
                 };
                 tooltips.Add(error);
 			}
@@ -101,7 +101,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingDamage", false, false);
+                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingDamage", false, false);
                     if (stealth != null) return (float)stealth;
                 }
                 return 1f;
@@ -110,7 +110,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-					ModSupport.SetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingDamage", value, false, false);
+					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingDamage", value, false, false);
 				}
 			}
 		}
@@ -121,7 +121,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingVelocity", false, false);
+                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingVelocity", false, false);
                     if (stealth != null) return (float)stealth;
                 }
                 return 1f;
@@ -130,7 +130,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-					ModSupport.SetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "rogueStealthMax", value, false, false);
+					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", value, false, false);
 				}
 			}
 		}
@@ -141,7 +141,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-                    int? stealth = (int?) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingCrit", false, false);
+                    int? stealth = (int?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingCrit", false, false);
                     if (stealth != null) return (int)stealth;
                 }
                 return 0;
@@ -150,7 +150,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-					ModSupport.SetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingCrit", value, false, false);
+					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "throwingCrit", value, false, false);
 				}
 			}
 		}
@@ -161,7 +161,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "rogueStealth", false, false);
+                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealth", false, false);
                     if (stealth != null) return (float)stealth;
                 }
                 return 0f;
@@ -170,7 +170,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-					ModSupport.SetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "rogueStealth", value, false, false);
+					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealth", value, false, false);
 				}
 			}
 		}
@@ -181,7 +181,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "rogueStealthMax", false, false);
+                    float? stealth = (float?) ModSupport.GetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", false, false);
                     if (stealth != null) return (float)stealth;
                 }
                 return 0f;
@@ -190,7 +190,7 @@ namespace AAMod
 			{
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
-					ModSupport.SetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "rogueStealthMax", value, false, false);
+					ModSupport.SetModPlayerConditions("CalamityMod", Player, "CalamityPlayer", "rogueStealthMax", value, false, false);
 				}
 			}
 		}
@@ -202,7 +202,7 @@ namespace AAMod
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
 					Mod mod = ModSupport.GetMod("CalamityMod");
-					ModPlayer modplayer = player.GetModPlayer(mod, "CalamityPlayer");
+					ModPlayer modplayer = Player.GetModPlayer(mod, "CalamityPlayer");
 					MethodInfo StealthStrike = modplayer.GetType().GetMethod("StealthStrikeAvailable", BindingFlags.Instance | BindingFlags.Public);
                     bool? stealth = (bool?)StealthStrike.Invoke(modplayer, new object[]{});
                     if (stealth != null) return (bool)stealth;
@@ -215,7 +215,7 @@ namespace AAMod
 	public class RogueItem : GlobalItem
 	{
 		public override bool InstancePerEntity => true;
-		public override bool CloneNewInstances => true;
+		protected override bool CloneNewInstances => true;
 		public bool rogue;
 
         public override void SetDefaults(Item item)
@@ -231,7 +231,7 @@ namespace AAMod
 	public class RogueProj : GlobalProjectile
 	{
 		public override bool InstancePerEntity => true;
-		public override bool CloneNewInstances => true;
+		protected override bool CloneNewInstances => true;
 		public bool rogue;
 		public bool stealthStrike = false;
         public override void SetDefaults(Projectile projectile)

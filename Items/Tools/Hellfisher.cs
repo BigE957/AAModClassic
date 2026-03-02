@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,23 +8,22 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Hellfisher");
+            // DisplayName.SetDefault("Hellfisher");
 		}
 
 		public override void SetDefaults()
 		{
-            item.CloneDefaults(ItemID.HotlineFishingHook);
-            item.shoot = ModContent.ProjectileType<Hellfisher_Bob>();
+            Item.CloneDefaults(ItemID.HotlineFishingHook);
+            Item.shoot = ModContent.ProjectileType<Hellfisher_Bob>();
 		}
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "IncineriteBar", 12);
                 recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
 	}

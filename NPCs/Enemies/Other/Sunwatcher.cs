@@ -11,65 +11,65 @@ namespace AAMod.NPCs.Enemies.Other
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sun Watcher");
-            Main.npcFrameCount[npc.type] = 1;
+			// DisplayName.SetDefault("Sun Watcher");
+            Main.npcFrameCount[NPC.type] = 1;
 		}
 
 		public override void SetDefaults()
 		{
-            npc.width = 38;
-            npc.height = 38;
-            npc.value = 0;
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 1200;
-            npc.defense = 120;
-            npc.damage = 80;
-			npc.HitSound = SoundID.NPCHit4;
-			npc.DeathSound = SoundID.NPCDeath14;
-            npc.knockBackResist = 0.3f;
-			npc.noGravity = true;
-			npc.noTileCollide = true;
-			banner = npc.type;
-			bannerItem = mod.ItemType("SunWatcherBanner");
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.value = 0;
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 1200;
+            NPC.defense = 120;
+            NPC.damage = 80;
+			NPC.HitSound = SoundID.NPCHit4;
+			NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.knockBackResist = 0.3f;
+			NPC.noGravity = true;
+			NPC.noTileCollide = true;
+			Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("SunWatcherBanner").Type;
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{		
-			bool isDead = npc.life <= 0;
+			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<DaybringerDust>(), npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<DaybringerDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
 			}
 		}
 
 		float shootAI = 0;
 		public override void AI()
 		{
-			BaseAI.AISkull(npc, ref npc.ai, false, 6f, 350f, 0.1f, 0.15f);
-			Player player = Main.player[npc.target];
+			BaseAI.AISkull(NPC, ref NPC.ai, false, 6f, 350f, 0.1f, 0.15f);
+			Player player = Main.player[NPC.target];
 			bool playerActive = player != null && player.active && !player.dead;
-			BaseAI.LookAt(playerActive ? player.Center : (npc.Center + npc.velocity), npc, 0);		
+			BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);		
 			if(Main.netMode != 1 && playerActive)
 			{
 				shootAI++;
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-					int projType = mod.ProjType("Sunbeam");					
-					if(Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height))
-						BaseAI.FireProjectile(player.Center, npc, projType, (int)(npc.damage * 0.25f), 0f, 2f);
+					int projType = Mod.ProjType("Sunbeam");					
+					if(Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
+						BaseAI.FireProjectile(player.Center, NPC, projType, (int)(NPC.damage * 0.25f), 0f, 2f);
 				}
 			}
 		}
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
 			if(AAWorld.downedEquinox)
 			{
 				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
 				{
-					npc.DropLoot(ModContent.ItemType<Items.Materials.Stardust>());
+					NPC.DropLoot(ModContent.ItemType<Items.Materials.Stardust>());
 				}
 			}
         }

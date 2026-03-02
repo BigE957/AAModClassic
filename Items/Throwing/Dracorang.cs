@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,25 +10,25 @@ namespace AAMod.Items.Throwing
 	{
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.LightDisc);
-			item.melee = true;
-			item.shootSpeed = 16f;
-			item.useTime = 20;
-			item.damage = 50;                            
-			item.value = 20;
-			item.rare = 4;
-			item.knockBack = 4;
-			item.useStyle = 1;
-			item.useAnimation = 20;
-			item.shoot = mod.ProjectileType("DracorangP");
-			item.width = 22;
-			item.height = 32;
-            item.noMelee = true;
+			Item.CloneDefaults(ItemID.LightDisc);
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.shootSpeed = 16f;
+			Item.useTime = 20;
+			Item.damage = 50;                            
+			Item.value = 20;
+			Item.rare = 4;
+			Item.knockBack = 4;
+			Item.useStyle = 1;
+			Item.useAnimation = 20;
+			Item.shoot = Mod.Find<ModProjectile>("DracorangP").Type;
+			Item.width = 22;
+			Item.height = 32;
+            Item.noMelee = true;
         }
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (player.ownedProjectileCounts[mod.ProjectileType("DracorangP")] < item.stack)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DracorangP").Type] < Item.stack)
 			{
 				return true;
 			}
@@ -36,19 +37,18 @@ namespace AAMod.Items.Throwing
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dracorang");
-			Tooltip.SetDefault(@"Leaves short living flame trail
-Stacks up to 5");
+			// DisplayName.SetDefault("Dracorang");
+			/* Tooltip.SetDefault(@"Leaves short living flame trail
+Stacks up to 5"); */
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RadiantIncinerite"), 3);
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("RadiantIncinerite").Type, 3);
 			recipe.AddIngredient(ItemID.LivingFireBlock, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

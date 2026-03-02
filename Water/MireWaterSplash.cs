@@ -5,9 +5,9 @@ namespace AAMod.Water
 {
     public class MireWaterSplash : ModDust
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			updateType = 33;
+			UpdateType = 33;
 		}
 
 		public override void OnSpawn(Dust dust)

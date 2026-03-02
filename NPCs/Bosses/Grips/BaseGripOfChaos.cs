@@ -13,48 +13,48 @@ namespace AAMod.NPCs.Bosses.Grips
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Grip of Chaos");
-            Main.npcFrameCount[npc.type] = 8;
+            // DisplayName.SetDefault("Grip of Chaos");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 66;
-            npc.height = 60;
-            npc.aiStyle = -1;
-			npc.knockBackResist = 0f;
-            npc.value = Item.sellPrice(0, 1, 50, 0);
-            npc.npcSlots = 1f;
-            npc.boss = true;
-            npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.netAlways = true;
-            bossBag = mod.ItemType("GripBag");
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GripsTheme");
+            NPC.width = 66;
+            NPC.height = 60;
+            NPC.aiStyle = -1;
+			NPC.knockBackResist = 0f;
+            NPC.value = Item.sellPrice(0, 1, 50, 0);
+            NPC.npcSlots = 1f;
+            NPC.boss = true;
+            NPC.lavaImmune = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.netAlways = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("GripBag").Type;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GripsTheme");
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter > 6)
+            NPC.frameCounter++;
+            if (NPC.frameCounter > 6)
             {
-				npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.ai[0] == 2 || npc.ai[0] == 3 || npc.ai[0] == 4)
+				NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.ai[0] == 2 || NPC.ai[0] == 3 || NPC.ai[0] == 4)
                 {
-                    if (npc.frame.Y < 4 * frameHeight || npc.frame.Y < 7 * frameHeight)
+                    if (NPC.frame.Y < 4 * frameHeight || NPC.frame.Y < 7 * frameHeight)
                     {
-                        npc.frame.Y = 4 * frameHeight;
+                        NPC.frame.Y = 4 * frameHeight;
                     }
                 }
                 else
                 {
-                    if (npc.frame.Y > 4 * frameHeight)
+                    if (NPC.frame.Y > 4 * frameHeight)
                     {
-                        npc.frame.Y = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
@@ -71,19 +71,19 @@ namespace AAMod.NPCs.Bosses.Grips
             potionType = ItemID.LesserHealingPotion;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
-            npc.damage = (int)(npc.damage * 0.8f);  //boss damage increase in expermode
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
+            NPC.damage = (int)(NPC.damage * 0.8f);  //boss damage increase in expermode
         }
 
 		public override void BossHeadRotation(ref float rotation)
 		{
-			rotation = npc.rotation;
+			rotation = NPC.rotation;
 		}
 		public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)
 		{
-			spriteEffects = npc.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			spriteEffects = NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 		}
 
 		public Vector2 offsetBasePoint = Vector2.Zero;
@@ -115,18 +115,18 @@ namespace AAMod.NPCs.Bosses.Grips
 
         public override void AI()
 		{
-			npc.TargetClosest();
-			Player targetPlayer = Main.player[npc.target];
+			NPC.TargetClosest();
+			Player targetPlayer = Main.player[NPC.target];
 
             if (Main.dayTime)
             {
                 DespawnHandler();
                 return;
             }
-            if (Main.player[npc.target].dead || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+            if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
-                npc.TargetClosest(false);
-                if (Main.player[npc.target].dead || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+                NPC.TargetClosest(false);
+                if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
                 {
                     DespawnHandler();
                 }
@@ -134,34 +134,34 @@ namespace AAMod.NPCs.Bosses.Grips
             }
 
             bool forceChange = false;
-			if(Main.netMode != 1 && npc.ai[0] != 2 && npc.ai[0] != 3)
+			if(Main.netMode != 1 && NPC.ai[0] != 2 && NPC.ai[0] != 3)
 			{
 				int stopValue = 250;
-				npc.ai[3]++;
-				if(npc.ai[3] > stopValue) npc.ai[3] = stopValue;
-				forceChange = npc.ai[3] >= stopValue;
+				NPC.ai[3]++;
+				if(NPC.ai[3] > stopValue) NPC.ai[3] = stopValue;
+				forceChange = NPC.ai[3] >= stopValue;
 			}
-            if(npc.ai[0] == 0)
+            if(NPC.ai[0] == 0)
                 checkOver = true;
-            if (npc.ai[0] == 1) //move to starting charge position
+            if (NPC.ai[0] == 1) //move to starting charge position
 			{ 
                 if (Main.netMode != 1 && checkOver)
                 {
-                    npc.ai[3] = 0;
+                    NPC.ai[3] = 0;
                     for (int i = 0; i < 200; i++)
                     {
-                        if (npc.type == mod.NPCType("GripOfChaosBlue"))
+                        if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
                         {
-                            if (Main.npc[i].type == mod.NPCType("GripOfChaosRed"))
+                            if (Main.npc[i].type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
                             {
                                 Main.npc[i].ai[0] = 1;
                                 Main.npc[i].ai[3] = 0;
                                 break;
                             }
                         }
-                        if (npc.type == mod.NPCType("GripOfChaosRed"))
+                        if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
                         {
-                            if (Main.npc[i].type == mod.NPCType("GripOfChaosBlue"))
+                            if (Main.npc[i].type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
                             {
                                 Main.npc[i].ai[0] = 1;
                                 Main.npc[i].ai[3] = 0;
@@ -169,7 +169,7 @@ namespace AAMod.NPCs.Bosses.Grips
                             }
                         }
                     }
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                     checkOver = false;
                     canGrab = true;
                 }
@@ -178,42 +178,42 @@ namespace AAMod.NPCs.Bosses.Grips
                 moveSpeed = 7f;
 				Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -250f);
 				MoveToPoint(point);
-				if(Main.netMode != 1 && (Vector2.Distance(npc.Center, point) < 10f || forceChange))
+				if(Main.netMode != 1 && (Vector2.Distance(NPC.Center, point) < 10f || forceChange))
 				{
-					npc.ai[0] = 2;
-					npc.ai[1] = targetPlayer.Center.X;
-					npc.ai[2] = targetPlayer.Center.Y;
-					npc.ai[3] = 0;
-					npc.netUpdate = true;
+					NPC.ai[0] = 2;
+					NPC.ai[1] = targetPlayer.Center.X;
+					NPC.ai[2] = targetPlayer.Center.Y;
+					NPC.ai[3] = 0;
+					NPC.netUpdate = true;
 				}
-				BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);
+				BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
                 
             }
             else
-			if(npc.ai[0] == 2) //dive down
+			if(NPC.ai[0] == 2) //dive down
 			{
                 
                 moveSpeed = 9f;
-				Vector2 targetCenter = new Vector2(npc.ai[1], npc.ai[2]);
+				Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 
                     Vector2 point = targetCenter - offsetBasePoint + new Vector2(0f, 250f);
 				MoveToPoint(point);
-				if(Main.netMode != 1 && Vector2.Distance(npc.Center, point) < 10f && internalAI[1] == 0 && internalAI[2] == 0 || (internalAI[2] >= 60))
+				if(Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f && internalAI[1] == 0 && internalAI[2] == 0 || (internalAI[2] >= 60))
 				{
-					bool doubleDive = npc.life < npc.lifeMax / 2;
-                    npc.ai[0] = doubleDive ? 3 : 0;
-                    npc.ai[1] = doubleDive ? targetPlayer.Center.X : 0;
-                    npc.ai[2] = doubleDive ? targetPlayer.Center.Y : 0;
-                    npc.ai[3] = 0;
-					npc.netUpdate = true;
+					bool doubleDive = NPC.life < NPC.lifeMax / 2;
+                    NPC.ai[0] = doubleDive ? 3 : 0;
+                    NPC.ai[1] = doubleDive ? targetPlayer.Center.X : 0;
+                    NPC.ai[2] = doubleDive ? targetPlayer.Center.Y : 0;
+                    NPC.ai[3] = 0;
+					NPC.netUpdate = true;
 				}
                 
 			}else
-			if(npc.ai[0] == 3) //dive up
+			if(NPC.ai[0] == 3) //dive up
 			{
-                Player player = Main.player[npc.target];
+                Player player = Main.player[NPC.target];
                 Rectangle rectangle1 = new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height);
-                Rectangle rectangle2 = new Rectangle((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height);
+                Rectangle rectangle2 = new Rectangle((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height);
                 if (rectangle1.Intersects(rectangle2) && canGrab)
                 {
                     canGrab = false;
@@ -222,126 +222,126 @@ namespace AAMod.NPCs.Bosses.Grips
 
                 if (internalAI[1] != 0)
                 {
-                    targetPlayer.Center = npc.Center + new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-4, 4));
+                    targetPlayer.Center = NPC.Center + new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-4, 4));
                     internalAI[1]++;
-                    if (npc.type == mod.NPCType("GripOfChaosRed"))
-                        npc.rotation += 0.1f - (internalAI[1] / 600f);
-                    if (npc.type == mod.NPCType("GripOfChaosBlue"))
-                        npc.rotation -= 0.1f - (internalAI[1] / 600f);
+                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                        NPC.rotation += 0.1f - (internalAI[1] / 600f);
+                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                        NPC.rotation -= 0.1f - (internalAI[1] / 600f);
                     if (internalAI[1] == 120)
                     {
                         player.invis = true;
-                        targetPlayer.velocity = new Vector2((float)Math.Cos(npc.rotation + (Math.PI * 0.5f)) * 20, (float)Math.Sin(npc.rotation + (Math.PI * 0.5f)) * 20);
+                        targetPlayer.velocity = new Vector2((float)Math.Cos(NPC.rotation + (Math.PI * 0.5f)) * 20, (float)Math.Sin(NPC.rotation + (Math.PI * 0.5f)) * 20);
                         internalAI[2] = 1;
                         internalAI[1] = 0;
                     }
                 }
                 if (internalAI[2] != 0)
                 {
-                    if (npc.type == mod.NPCType("GripOfChaosRed"))
-                        npc.rotation -= 0.1f - (internalAI[2] / 600);
-                    if (npc.type == mod.NPCType("GripOfChaosBlue"))
-                        npc.rotation += 0.1f - (internalAI[2] / 600);
+                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                        NPC.rotation -= 0.1f - (internalAI[2] / 600);
+                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                        NPC.rotation += 0.1f - (internalAI[2] / 600);
                     internalAI[2]++;
                 }
-                npc.ai[3] = 0;
+                NPC.ai[3] = 0;
                 moveSpeed = 9f;
-				Vector2 targetCenter = new Vector2(npc.ai[1], npc.ai[2]);
+				Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
 				Vector2 point = targetCenter + offsetBasePoint + new Vector2(0f, -250f);
 				MoveToPoint(point);
-				if(Main.netMode != 1 && Vector2.Distance(npc.Center, point) < 10f && internalAI[1] == 0 && internalAI[2] == 0 || (internalAI[2] >= 60))
+				if(Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f && internalAI[1] == 0 && internalAI[2] == 0 || (internalAI[2] >= 60))
 				{
-                    npc.ai[0] = 0;
-                    npc.ai[1] = 0;
-                    npc.ai[2] = 0;
-                    npc.ai[3] = 0;
-					npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.ai[1] = 0;
+                    NPC.ai[2] = 0;
+                    NPC.ai[3] = 0;
+					NPC.netUpdate = true;
 				}
                 if (internalAI[1] < 20 && internalAI[2] == 0)
-                    BaseAI.Look(npc, 0, 0f, 0.1f, false);
+                    BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
             else
-            if (npc.ai[0] == 4) //dive back down
+            if (NPC.ai[0] == 4) //dive back down
             {
-                npc.ai[3] = 0;
+                NPC.ai[3] = 0;
                 moveSpeed = 9f;
-                Vector2 targetCenter = new Vector2(npc.ai[1], npc.ai[2]);
+                Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 Vector2 point = targetCenter - offsetBasePoint + new Vector2(0f, -250f);
                 MoveToPoint(point);
-                if (Main.netMode != 1 && Vector2.Distance(npc.Center, point) < 10f)
+                if (Main.netMode != 1 && Vector2.Distance(NPC.Center, point) < 10f)
                 {
-                    npc.ai[0] = 0;
-                    npc.ai[1] = 0;
-                    npc.ai[2] = 0;
-                    npc.ai[3] = 0;
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.ai[1] = 0;
+                    NPC.ai[2] = 0;
+                    NPC.ai[3] = 0;
+                    NPC.netUpdate = true;
                 }
-                BaseAI.Look(npc, 0, 0f, 0.1f, false);
+                BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
             else //standard movement
 			{
                 MinionTimer++;
                 if (MinionTimer == 160)
                 {
-                    if (npc.type == ModContent.NPCType<GripOfChaosRed>() && NPC.CountNPCS(ModContent.NPCType<DragonClawM>()) < 4)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosRed>() && NPC.CountNPCS(ModContent.NPCType<DragonClawM>()) < 4)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<DragonClawM>());
+                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DragonClawM>());
                     }
-                    if (npc.type == ModContent.NPCType<GripOfChaosBlue>() && NPC.CountNPCS(ModContent.NPCType<HydraClawM>()) < 4)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosBlue>() && NPC.CountNPCS(ModContent.NPCType<HydraClawM>()) < 4)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<HydraClawM>());
+                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraClawM>());
                     }
                     MinionTimer = 0;
                 }
 				moveSpeed = 5f;
 				Vector2 point = targetPlayer.Center + offsetBasePoint;
 				MoveToPoint(point);
-				if(Main.netMode != 1 && (Vector2.Distance(npc.Center, point) < 50f || forceChange))
+				if(Main.netMode != 1 && (Vector2.Distance(NPC.Center, point) < 50f || forceChange))
 				{
-					npc.ai[1]++;
-					if(npc.ai[1] > 150)
+					NPC.ai[1]++;
+					if(NPC.ai[1] > 150)
 					{
-						npc.ai[0] = 1;
-						npc.ai[1] = 0;
-						npc.ai[2] = 0;
-						npc.ai[3] = 0;
-						npc.netUpdate = true;
+						NPC.ai[0] = 1;
+						NPC.ai[1] = 0;
+						NPC.ai[2] = 0;
+						NPC.ai[3] = 0;
+						NPC.netUpdate = true;
 					}
 				}
-				BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);
+				BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
 			}
-            if (npc.ai[0] == 0)
+            if (NPC.ai[0] == 0)
             {
-                npc.alpha += 5;
-                if (npc.alpha >= 50)
+                NPC.alpha += 5;
+                if (NPC.alpha >= 50)
                 {
-                    npc.defense = 20;
-                    npc.alpha = 50;
+                    NPC.defense = 20;
+                    NPC.alpha = 50;
                 }
             }
             else
             {
-                npc.alpha -= 5;
-                if (npc.alpha <= 0)
+                NPC.alpha -= 5;
+                if (NPC.alpha <= 0)
                 {
-                    if (npc.type == ModContent.NPCType<GripOfChaosRed>())
+                    if (NPC.type == ModContent.NPCType<GripOfChaosRed>())
                     {
-                        npc.defense = 12;
+                        NPC.defense = 12;
                     }
-                    if (npc.type == ModContent.NPCType<GripOfChaosBlue>())
+                    if (NPC.type == ModContent.NPCType<GripOfChaosBlue>())
                     {
-                        npc.defense = 8;
+                        NPC.defense = 8;
                     }
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
         }
 
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)
 		{
-			if(moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+			if(moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
 			float velMultiplier = 1f;
-			Vector2 dist = point - npc.Center;
+			Vector2 dist = point - NPC.Center;
 			float length = dist == Vector2.Zero ? 0f : dist.Length();
 			if(length < moveSpeed)
 			{
@@ -359,20 +359,20 @@ namespace AAMod.NPCs.Bosses.Grips
 			{
 				moveSpeed *= 0.5f;
 			}
-			npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-			npc.velocity *= moveSpeed;
-			npc.velocity *= velMultiplier;
+			NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+			NPC.velocity *= moveSpeed;
+			NPC.velocity *= velMultiplier;
 		}
 
         private void DespawnHandler()
         {
-            Player player = Main.player[npc.target];
-            npc.TargetClosest(false);
-            player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
+            NPC.TargetClosest(false);
+            player = Main.player[NPC.target];
             if (!player.active || player.dead || Main.dayTime)        // If the player is dead and not active, the npc flies off-screen and despawns
             {
-                npc.velocity.X = 0;
-                npc.velocity.Y -= 1;
+                NPC.velocity.X = 0;
+                NPC.velocity.Y -= 1;
             }
         }
     }

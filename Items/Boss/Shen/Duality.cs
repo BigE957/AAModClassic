@@ -10,8 +10,8 @@ namespace AAMod.Items.Boss.Shen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Duality");
-            Tooltip.SetDefault(@"Chaos flares from this ancient talisman
+            // DisplayName.SetDefault("Duality");
+            /* Tooltip.SetDefault(@"Chaos flares from this ancient talisman
 Combines the effects of the Taiyang Baolei and the Naitokurosu, while granting their strongest effects at all times
 Your attacks inflict Discordian Inferno
 You are immune to Terrablaze, Dragonfire, Hydratoxin, Discordian Inferno
@@ -19,26 +19,26 @@ Attack is multiplied by 15%
 While in the chaos biomes, your attack multiplier is increased to 30%
 While in the Inferno, your defense is increased by 10
 While in the Mire, your speed is increased by 50%
-Grants a strong dash that shreds through enemies in a fiery blaze of glory");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 8));
+Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 34;
-            item.value = Item.sellPrice(5, 0, 0, 0);
-            item.rare = 9;
-            item.expert = true; item.expertOnly = true;
-            item.accessory = true;
-            item.defense = 8;
+            Item.width = 32;
+            Item.height = 34;
+            Item.value = Item.sellPrice(5, 0, 0, 0);
+            Item.rare = 9;
+            Item.expert = true; Item.expertOnly = true;
+            Item.accessory = true;
+            Item.defense = 8;
         }
 
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.DarkMagenta.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.DarkMagenta.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -68,12 +68,12 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory");
             player.buffImmune[196] = true;
             player.buffImmune[197] = true;
             player.buffImmune[203] = true;
-            player.buffImmune[mod.BuffType("DragonFire")] = true;
-            player.buffImmune[mod.BuffType("BurningAsh")] = true;
-            player.buffImmune[mod.BuffType("HydraToxin")] = true;
-            player.buffImmune[mod.BuffType("Clueless")] = true;
-            player.buffImmune[mod.BuffType("Terrablaze")] = true;
-            player.buffImmune[mod.BuffType("DiscordInferno")] = true;
+            player.buffImmune[Mod.Find<ModBuff>("DragonFire").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("BurningAsh").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("HydraToxin").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("Clueless").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("Terrablaze").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("DiscordInferno").Type] = true;
             player.noKnockback = true;
             player.blackBelt = true;
             player.spikedBoots = 2;
@@ -82,15 +82,15 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory");
             player.endurance += 0.06f;
             player.dash = 3;
             player.moveSpeed += player.GetModPlayer<AAPlayer>().ZoneMire ? .5f : 0f;
-            item.defense = player.GetModPlayer<AAPlayer>().ZoneInferno ? 18 : 8;
+            Item.defense = player.GetModPlayer<AAPlayer>().ZoneInferno ? 18 : 8;
 
             if (player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire)
             {
-                player.allDamage += .3f;
+                player.GetDamage(DamageClass.Generic) += .3f;
             }
             else
             {
-                player.allDamage += .15f;
+                player.GetDamage(DamageClass.Generic) += .15f;
             }
         }
 
@@ -98,22 +98,21 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "TaiyangBaolei", 1);
             recipe.AddIngredient(null, "Naitokurosu", 1);
             recipe.AddIngredient(null, "ChaosSoul", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

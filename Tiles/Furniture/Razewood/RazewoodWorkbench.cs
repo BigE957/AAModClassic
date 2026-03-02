@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 {
     public class RazewoodWorkbench : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -19,12 +20,12 @@ namespace AAMod.Tiles.Furniture.Razewood
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 18 };
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Razewood Workbench");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Razewood Workbench");
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("RazewoodDust");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.WorkBenches };
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.WorkBenches };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -34,7 +35,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("RazewoodWorkbench"));
+			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RazewoodWorkbench").Type);
 		}
 	}
 }

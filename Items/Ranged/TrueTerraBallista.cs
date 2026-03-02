@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,35 +10,35 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Unity Ballista");
-            Tooltip.SetDefault(@"Replaces Arrows with Terra Arrows
+			// DisplayName.SetDefault("Unity Ballista");
+            /* Tooltip.SetDefault(@"Replaces Arrows with Terra Arrows
 Shoots 3 waves of 3 arrows on single use
-Terra Ballista EX");
+Terra Ballista EX"); */
         }
 
 	    public override void SetDefaults()
 	    {
-	        item.damage = 215;
-	        item.crit += 25;
-	        item.ranged = true;
-	        item.width = 50;
-	        item.height = 34;
-	        item.useTime = 3;
-	        item.reuseDelay = 15;
-	        item.useAnimation = 9;
-	        item.useStyle = 5;
-	        item.noMelee = true;
-	        item.knockBack = 3f;
-	        item.value = 500000;
-	        item.rare = 11;
-	        item.UseSound = SoundID.Item5;
-	        item.autoReuse = true;
-	        item.shoot = 10;
-	        item.shootSpeed = 16f;
-	        item.useAmmo = 40;
+	        Item.damage = 215;
+	        Item.crit += 25;
+	        Item.DamageType = DamageClass.Ranged;
+	        Item.width = 50;
+	        Item.height = 34;
+	        Item.useTime = 3;
+	        Item.reuseDelay = 15;
+	        Item.useAnimation = 9;
+	        Item.useStyle = 5;
+	        Item.noMelee = true;
+	        Item.knockBack = 3f;
+	        Item.value = 500000;
+	        Item.rare = 11;
+	        Item.UseSound = SoundID.Item5;
+	        Item.autoReuse = true;
+	        Item.shoot = 10;
+	        Item.shootSpeed = 16f;
+	        Item.useAmmo = 40;
 	    }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(3));
@@ -46,20 +47,19 @@ Terra Ballista EX");
 			float speedY2 = perturbedSpeed2.Y;
 			float speedX3 = perturbedSpeed3.X;
 			float speedY3 = perturbedSpeed3.Y;
-			Projectile.NewProjectile(vector.X, vector.Y, speedX2, speedY2, mod.ProjectileType("TerraArrow"), damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(vector.X, vector.Y, speedX, speedY, mod.ProjectileType("TerraArrow"), damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(vector.X, vector.Y, speedX3, speedY3, mod.ProjectileType("TerraArrow"), damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(vector.X, vector.Y, speedX2, speedY2, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(vector.X, vector.Y, speedX, speedY, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(vector.X, vector.Y, speedX3, speedY3, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockBack, player.whoAmI);
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);      
-            recipe.AddIngredient(mod.ItemType("TerraBallista"));
-			recipe.AddIngredient(mod.ItemType("EXSoul"));
+            Recipe recipe = CreateRecipe();      
+            recipe.AddIngredient(Mod.Find<ModItem>("TerraBallista").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

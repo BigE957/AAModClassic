@@ -8,45 +8,43 @@ namespace AAMod.Items.Melee
     {
         public override void SetDefaults()
         {
-			item.CloneDefaults(ItemID.Sunfury);
+			Item.CloneDefaults(ItemID.Sunfury);
 
-            item.damage = 48; 
-            item.melee = true; 
-            item.width = 46; 
-            item.height = 66;    
-            item.knockBack = 5;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 4;
-            item.autoReuse = false;
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("Yogan");
-			item.UseSound = SoundID.Item18;
+            Item.damage = 48; 
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
+            Item.width = 46; 
+            Item.height = 66;    
+            Item.knockBack = 5;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 4;
+            Item.autoReuse = false;
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("Yogan").Type;
+			Item.UseSound = SoundID.Item18;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Yogan");
-			Tooltip.SetDefault(@"Ignites enemies on hit");
+			// DisplayName.SetDefault("Yogan");
+			// Tooltip.SetDefault(@"Ignites enemies on hit");
 		}
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("Pyrosphere"));
-            recipe.AddIngredient(mod.ItemType("GlacierBreaker"));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("Pyrosphere").Type);
+            recipe.AddIngredient(Mod.Find<ModItem>("GlacierBreaker").Type);
             recipe.AddIngredient(ItemID.BlueMoon);
 			recipe.AddIngredient(ItemID.Sunfury);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-			recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("Pyrosphere"));
-            recipe.AddIngredient(mod.ItemType("GlacierBreaker"));
+            recipe.Register();
+			recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("Pyrosphere").Type);
+            recipe.AddIngredient(Mod.Find<ModItem>("GlacierBreaker").Type);
             recipe.AddIngredient(ItemID.BlueMoon);
 			recipe.AddIngredient(ItemID.Sunfury);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

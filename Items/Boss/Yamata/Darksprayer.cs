@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,38 +11,38 @@ namespace AAMod.Items.Boss.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darksprayer");
-            Tooltip.SetDefault(@"'Spouts of dark, leaves its mark'
-Inflicts Moonrazed");           
+            // DisplayName.SetDefault("Darksprayer");
+            /* Tooltip.SetDefault(@"'Spouts of dark, leaves its mark'
+Inflicts Moonrazed"); */           
         }
 
         public override void SetDefaults()
         {
-            item.damage = 425;
-            item.ranged = true;
-            item.width = 44;
-            item.height = 34;
-            item.useTime = 19;
-            item.useAnimation = 19;
-            item.useStyle = 5;
-            item.useAmmo = AmmoID.Rocket;
-            item.knockBack = 8f;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = SoundID.Item38;      
-            item.autoReuse = true;   
-            item.shootSpeed = 20f;
-            item.shoot = mod.ProjectileType("Moonblow");
-            item.rare = 9; AARarity = 13;
-            item.noMelee = true;
+            Item.damage = 425;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 44;
+            Item.height = 34;
+            Item.useTime = 19;
+            Item.useAnimation = 19;
+            Item.useStyle = 5;
+            Item.useAmmo = AmmoID.Rocket;
+            Item.knockBack = 8f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = SoundID.Item38;      
+            Item.autoReuse = true;   
+            Item.shootSpeed = 20f;
+            Item.shoot = Mod.Find<ModProjectile>("Moonblow").Type;
+            Item.rare = 9; AARarity = 13;
+            Item.noMelee = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -51,21 +52,20 @@ Inflicts Moonrazed");
             return new Vector2(-12, 0);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Moonblow"), damage, knockBack, player.whoAmI, 0, 1);
+            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("Moonblow").Type, damage, knockBack, player.whoAmI, 0, 1);
             return false;
         }
 	
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(ItemID.SnowmanCannon);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

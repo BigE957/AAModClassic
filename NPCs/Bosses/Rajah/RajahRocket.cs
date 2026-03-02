@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,44 +11,44 @@ namespace AAMod.NPCs.Bosses.Rajah
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rocket");
+            // DisplayName.SetDefault("Rajah Rocket");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.penetrate = 1;
-            projectile.tileCollide = true;
-            projectile.hostile = true;
-            projectile.friendly = false;
-            projectile.scale = 0.9f;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 120;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = true;
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.scale = 0.9f;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 120;
         }
 
         public override void AI()
         {
-            if (projectile.timeLeft <= 0)
+            if (Projectile.timeLeft <= 0)
             {
-                Kill(projectile.timeLeft);
+                Kill(Projectile.timeLeft);
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X) - 1.57f;
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X) - 1.57f;
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            Projectile.NewProjectile(projectile.position, new Vector2(0, 0), ModContent.ProjectileType<RabbitRocketBoomR>(), projectile.damage, projectile.knockBack, projectile.owner);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            Projectile.NewProjectile(Projectile.position, new Vector2(0, 0), ModContent.ProjectileType<RabbitRocketBoomR>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
     }
 }

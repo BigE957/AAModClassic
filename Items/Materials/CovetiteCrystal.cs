@@ -4,16 +4,16 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Covetite Crystal");
-            Tooltip.SetDefault(@"You have a strange desire for this crystal, 
-despite you already owning it.");
+            // DisplayName.SetDefault("Covetite Crystal");
+            /* Tooltip.SetDefault(@"You have a strange desire for this crystal, 
+despite you already owning it."); */
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-			item.maxStack = 99;
-            item.rare = 6;
+            Item.width = 22;
+            Item.height = 20;
+			Item.maxStack = 99;
+            Item.rare = 6;
         }
     }
 }

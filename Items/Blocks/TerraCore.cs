@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -7,44 +8,43 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Core of Terraria");
-            Tooltip.SetDefault(@"Combines most crafting stations into one
-Used to create ancient crafting stations");
+            // DisplayName.SetDefault("Core of Terraria");
+            /* Tooltip.SetDefault(@"Combines most crafting stations into one
+Used to create ancient crafting stations"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 36;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 11;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 1000000;
-            item.createTile = mod.TileType("TerraCore");
+            Item.width = 32;
+            Item.height = 36;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 11;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 1000000;
+            Item.createTile = Mod.Find<ModTile>("TerraCore").Type;
         }
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }   
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAMod:AstralStations", 1);
             recipe.AddIngredient(null, "TruePaladinsSmeltery", 1);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

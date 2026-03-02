@@ -9,39 +9,38 @@ namespace AAMod.Items.Magic
         public override void SetDefaults()
         {
 
-            item.damage = 50;                        
-            item.magic = true;                     
-            item.width = 60;
-            item.height = 60;
+            Item.damage = 50;                        
+            Item.DamageType = DamageClass.Magic;                     
+            Item.width = 60;
+            Item.height = 60;
 
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 5;     
-            item.noMelee = true;
-            item.knockBack = 6;        
-            item.value = 10000;
-            item.rare = 5;
-            item.mana = 5;             
-            item.UseSound = SoundID.Item21;            
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType ("DragonP");  
-            item.shootSpeed = 13f;     
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = 5;     
+            Item.noMelee = true;
+            Item.knockBack = 6;        
+            Item.value = 10000;
+            Item.rare = 5;
+            Item.mana = 5;             
+            Item.UseSound = SoundID.Item21;            
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("DragonP").Type;  
+            Item.shootSpeed = 13f;     
         }   
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Dragon Staff");
-      Tooltip.SetDefault("Shoots dragon scales.");
-            Item.staff[item.type] = true;
+      // DisplayName.SetDefault("Dragon Staff");
+      // Tooltip.SetDefault("Shoots dragon scales.");
+            Item.staff[Item.type] = true;
     }
 
 		public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DragonSpirit", 20);
             recipe.AddTile(TileID.MythrilAnvil);   
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

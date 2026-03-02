@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Trees
 {
     class BogPalmSapling : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -24,19 +25,19 @@ namespace AAMod.Tiles.Trees
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType("Depthsand") };
+            TileObjectData.newTile.AnchorValidTiles = new int[] { Mod.Find<ModTile>("Depthsand").Type };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.newTile.RandomStyleRange = 3;
             TileObjectData.addTile(Type);
-            sapling = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bog Palm Sapling");
+            sapling/* tModPorter Note: Removed. Use TileID.Sets.TreeSapling and TileID.Sets.CommonSapling instead */ = true;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bog Palm Sapling");
             AddMapEntry(new Color(200, 200, 200), name);
             //dustType = mod.DustType("Sparkle");
-            adjTiles = new int[] { TileID.Saplings };
+            AdjTiles = new int[] { TileID.Saplings };
         }
 
         public override void RandomUpdate(int i, int j)

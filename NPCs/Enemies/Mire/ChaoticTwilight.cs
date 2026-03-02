@@ -10,93 +10,93 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chaotic Twilight");
-            Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Chaotic Twilight");
+            Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
         {
-            npc.width = 74;
-            npc.height = 76;
-            npc.damage = 90;
-			npc.defense = 10;
-			npc.lifeMax = 200;
-			npc.HitSound = SoundID.NPCHit4;
-			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 24000f;
-            npc.knockBackResist = .30f;
-            npc.aiStyle = -1;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("ChaoticTwilightBanner");
+            NPC.width = 74;
+            NPC.height = 76;
+            NPC.damage = 90;
+			NPC.defense = 10;
+			NPC.lifeMax = 200;
+			NPC.HitSound = SoundID.NPCHit4;
+			NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.value = 24000f;
+            NPC.knockBackResist = .30f;
+            NPC.aiStyle = -1;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("ChaoticTwilightBanner").Type;
         }
 
         public override void AI()
         {
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
 
-            Lighting.AddLight((int)((npc.position.X + npc.width / 2) / 16f), (int)((npc.position.Y + npc.height / 2) / 16f), 0f, 0f, 0.3f);
+            Lighting.AddLight((int)((NPC.position.X + NPC.width / 2) / 16f), (int)((NPC.position.Y + NPC.height / 2) / 16f), 0f, 0f, 0.3f);
 
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            if (npc.ai[0] == 0f)
+            if (NPC.ai[0] == 0f)
             {
                 float num312 = 9f;
-                Vector2 vector32 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                float num313 = Main.player[npc.target].position.X + Main.player[npc.target].width / 2 - vector32.X;
-                float num314 = Main.player[npc.target].position.Y + Main.player[npc.target].height / 2 - vector32.Y;
+                Vector2 vector32 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float num313 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector32.X;
+                float num314 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector32.Y;
                 float num315 = (float)Math.Sqrt(num313 * num313 + num314 * num314);
                 num315 = num312 / num315;
                 num313 *= num315;
                 num314 *= num315;
-                npc.velocity.X = num313;
-                npc.velocity.Y = num314;
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 0.785f;
-                npc.ai[0] = 1f;
-                npc.ai[1] = 0f;
-                npc.netUpdate = true;
+                NPC.velocity.X = num313;
+                NPC.velocity.Y = num314;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 0.785f;
+                NPC.ai[0] = 1f;
+                NPC.ai[1] = 0f;
+                NPC.netUpdate = true;
                 return;
             }
-            if (npc.ai[0] == 1f)
+            if (NPC.ai[0] == 1f)
             {
-                if (npc.justHit)
+                if (NPC.justHit)
                 {
-                    npc.ai[0] = 2f;
-                    npc.ai[1] = 0f;
+                    NPC.ai[0] = 2f;
+                    NPC.ai[1] = 0f;
                 }
-                npc.velocity *= 0.99f;
-                npc.ai[1] += 1f;
-                if (npc.ai[1] >= 100f)
+                NPC.velocity *= 0.99f;
+                NPC.ai[1] += 1f;
+                if (NPC.ai[1] >= 100f)
                 {
-                    npc.netUpdate = true;
-                    npc.ai[0] = 2f;
-                    npc.ai[1] = 0f;
-                    npc.velocity.X = 0f;
-                    npc.velocity.Y = 0f;
+                    NPC.netUpdate = true;
+                    NPC.ai[0] = 2f;
+                    NPC.ai[1] = 0f;
+                    NPC.velocity.X = 0f;
+                    NPC.velocity.Y = 0f;
                     return;
                 }
             }
             else
             {
-                if (npc.justHit)
+                if (NPC.justHit)
                 {
-                    npc.ai[0] = 2f;
-                    npc.ai[1] = 0f;
+                    NPC.ai[0] = 2f;
+                    NPC.ai[1] = 0f;
                 }
-                npc.velocity *= 0.96f;
-                npc.ai[1] += 1f;
-                float num316 = npc.ai[1] / 120f;
+                NPC.velocity *= 0.96f;
+                NPC.ai[1] += 1f;
+                float num316 = NPC.ai[1] / 120f;
                 num316 = 0.1f + num316 * 0.4f;
-                npc.rotation += num316 * npc.direction;
-                if (npc.ai[1] >= 120f)
+                NPC.rotation += num316 * NPC.direction;
+                if (NPC.ai[1] >= 120f)
                 {
-                    npc.netUpdate = true;
-                    npc.ai[0] = 0f;
-                    npc.ai[1] = 0f;
+                    NPC.netUpdate = true;
+                    NPC.ai[0] = 0f;
+                    NPC.ai[1] = 0f;
                     return;
                 }
             }
@@ -104,48 +104,48 @@ namespace AAMod.NPCs.Enemies.Mire
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter < 3)
+            NPC.frameCounter++;
+            if (NPC.frameCounter < 3)
             {
-                npc.frame.Y = 0 * frameHeight;
+                NPC.frame.Y = 0 * frameHeight;
             }
-            else if (npc.frameCounter < 6)
+            else if (NPC.frameCounter < 6)
             {
-                npc.frame.Y = 1 * frameHeight;
+                NPC.frame.Y = 1 * frameHeight;
             }
-            else if (npc.frameCounter < 9)
+            else if (NPC.frameCounter < 9)
             {
-                npc.frame.Y = 2 * frameHeight;
+                NPC.frame.Y = 2 * frameHeight;
             }
-            else if (npc.frameCounter < 12)
+            else if (NPC.frameCounter < 12)
             {
-                npc.frame.Y = 3 * frameHeight;
+                NPC.frame.Y = 3 * frameHeight;
             }
             else
             {
-                npc.frameCounter = 0;
+                NPC.frameCounter = 0;
             }
         }
         
 
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
 
             int dust1 = ModContent.DustType<Dusts.MireBubbleDust>();
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
 			{
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
 		}
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
             
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AbyssalTwilight"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AbyssalTwilight").Type);
                 }
         }
 	}

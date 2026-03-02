@@ -7,21 +7,21 @@ namespace AAMod.Items.Usable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Yellow Solution");
-			Tooltip.SetDefault("Used by the Clentaminator"
-				+ "\nClears the Snow biome");
+			// DisplayName.SetDefault("Yellow Solution");
+			/* Tooltip.SetDefault("Used by the Clentaminator"
+				+ "\nClears the Snow biome"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Snowmelt>() - ProjectileID.PureSpray;
-			item.ammo = AmmoID.Solution;
-			item.width = 10;
-			item.height = 12;
-			item.value = Item.sellPrice(0, 0, 25, 0);
-			item.rare = 3;
-			item.maxStack = 999;
-			item.consumable = true;
+			Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Snowmelt>() - ProjectileID.PureSpray;
+			Item.ammo = AmmoID.Solution;
+			Item.width = 10;
+			Item.height = 12;
+			Item.value = Item.sellPrice(0, 0, 25, 0);
+			Item.rare = 3;
+			Item.maxStack = 999;
+			Item.consumable = true;
 		}
 	}
 }

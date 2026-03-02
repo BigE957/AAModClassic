@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class BlazingPain : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Scorching Pain");
-			Description.SetDefault("Fire debuffs inflict double damage on you");
+			// DisplayName.SetDefault("Scorching Pain");
+			// Description.SetDefault("Fire debuffs inflict double damage on you");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

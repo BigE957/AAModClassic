@@ -7,9 +7,9 @@ namespace AAMod.Buffs
 {
     public class Falling : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Falling");
+			// DisplayName.SetDefault("Falling");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = true;

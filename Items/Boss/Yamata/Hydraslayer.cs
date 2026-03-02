@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Yamata   //where is located
 {
@@ -9,32 +11,32 @@ namespace AAMod.Items.Boss.Yamata   //where is located
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Amenomuraku");
-            Tooltip.SetDefault(@"Used to defeat the multi-headed monstrosities of the abyss
-Inflicts Moonrazed");
+            // DisplayName.SetDefault("Amenomuraku");
+            /* Tooltip.SetDefault(@"Used to defeat the multi-headed monstrosities of the abyss
+Inflicts Moonrazed"); */
         }
 
         
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("PhantomSword");
-            item.damage = 220;            
-            item.melee = true;            
-            item.width = 86;              
-            item.height = 86;             
-            item.useTime = 13;          
-            item.useAnimation = 13;     
-            item.useStyle = 1;        
-            item.knockBack = 3f;      
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = SoundID.Item20;      
-            item.autoReuse = true;   
-            item.useTurn = true;
-            item.shootSpeed = 20f;
-            item.rare = 9; AARarity = 13;
+            Item.shoot = Mod.Find<ModProjectile>("PhantomSword").Type;
+            Item.damage = 220;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 86;              
+            Item.height = 86;             
+            Item.useTime = 13;          
+            Item.useAnimation = 13;     
+            Item.useStyle = 1;        
+            Item.knockBack = 3f;      
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = SoundID.Item20;      
+            Item.autoReuse = true;   
+            Item.useTurn = true;
+            Item.shootSpeed = 20f;
+            Item.rare = 9; AARarity = 13;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 
             float numberProjectiles = 1; // This defines how many projectiles to shot

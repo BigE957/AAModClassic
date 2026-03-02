@@ -9,26 +9,25 @@ namespace AAMod.Items.Armor.Olympian
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Olympian Breastplate");
+			// DisplayName.SetDefault("Olympian Breastplate");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-			item.value = Item.sellPrice (0, 5, 0, 0);
-			item.rare = 6;
-			item.defense = 8;
+			Item.width = 22;
+			Item.height = 24;
+			Item.value = Item.sellPrice (0, 5, 0, 0);
+			Item.rare = 6;
+			Item.defense = 8;
 		}
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GladiatorBreastplate);
             recipe.AddIngredient(null, "GoddessFeather", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

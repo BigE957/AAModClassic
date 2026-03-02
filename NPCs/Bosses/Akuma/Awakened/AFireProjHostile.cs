@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Akuma.Awakened
@@ -10,21 +12,21 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
         
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 4;
-            DisplayName.SetDefault("Blazing Fury");
+            Main.projFrames[Projectile.type] = 4;
+            // DisplayName.SetDefault("Blazing Fury");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.scale = 1.1f;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 60;
-            projectile.timeLeft = 180;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.scale = 1.1f;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 60;
+            Projectile.timeLeft = 180;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -34,29 +36,29 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
 
         public override void AI()
         {
-            if (projectile.timeLeft > 0)
+            if (Projectile.timeLeft > 0)
             {
-                projectile.timeLeft--;
+                Projectile.timeLeft--;
             }
-            if (projectile.timeLeft == 0)
+            if (Projectile.timeLeft == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.frameCounter++;
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
-            if (projectile.frameCounter > 6)
+            Projectile.frameCounter++;
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
+            if (Projectile.frameCounter > 6)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -64,34 +66,34 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(mod.BuffType("DragonFire"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
         }
 
-        public override bool PreDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             int shader = Terraria.Graphics.Shaders.GameShaders.Armor.GetShaderIdFromItemId(Terraria.ID.ItemID.LivingOceanDye);
 
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 4, 0, 2);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 2);
 
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], shader, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 4, frame, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
             float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 15;
             double offsetAngle;
             int i;
             for (i = 0; i < 15; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), mod.ProjectileType("FireshotA"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), mod.ProjectileType("FireshotA"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FireshotA").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FireshotA").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
         }
     }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,12 +11,12 @@ namespace AAMod.Tiles.Altar
 {
     public class StarAltar : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            dustType = mod.DustType("RadiumDust");
+            DustType = Mod.Find<ModDust>("RadiumDust").Type;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Direction = TileObjectDirection.None;
@@ -23,11 +24,11 @@ namespace AAMod.Tiles.Altar
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Altar of the Stars");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Altar of the Stars");
             AddMapEntry(new Color(100, 80, 20), name);
-            disableSmartCursor = true;
-            animationFrameHeight = 54;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -69,12 +70,12 @@ namespace AAMod.Tiles.Altar
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = mod.GetTexture("Glowmasks/StarAltar_Glow");
-            if (tile != null && tile.active() && tile.type == Type)
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/StarAltar_Glow");
+            if (tile != null && tile.HasTile && tile.TileType == Type)
             {
                 int width = 16, height = 16;
-                int frameX = tile != null && tile.active() ? tile.frameX : 0;
-                int frameY = tile != null && tile.active() ? tile.frameY + (Main.tileFrame[Type] * 54) : 0;
+                int frameX = tile != null && tile.HasTile ? tile.TileFrameX : 0;
+                int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, width, height, frameX, frameY, false, false, false, null, GetColor);
                 for (int m = 0; m < 3; m++)
                 {
@@ -83,7 +84,7 @@ namespace AAMod.Tiles.Altar
             }
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<Items.Boss.Athena.Olympian.StarChart>();
@@ -122,8 +123,8 @@ namespace AAMod.Tiles.Altar
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("SC");
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = Mod.Find<ModItem>("SC").Type;
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero.Protocol
@@ -10,66 +11,66 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Broken Rift");
-            Main.npcFrameCount[npc.type] = 26;
-            Terraria.ID.NPCID.Sets.TechnicallyABoss[npc.type] = true;
+            // DisplayName.SetDefault("Broken Rift");
+            Main.npcFrameCount[NPC.type] = 26;
+            Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
         }
         public override void SetDefaults()
         {
-            npc.width = 146;
-            npc.height = 150;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 146;
+            NPC.height = 150;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, npc.GetAlpha(lightColor), true);
-            BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, AAColor.Oblivion, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, NPC.GetAlpha(lightColor), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, AAColor.Oblivion, true);
             return false;
         }
 
         public override void AI()
         {
-			npc.TargetClosest();			
-            Player player = Main.player[npc.target];
+			NPC.TargetClosest();			
+            Player player = Main.player[NPC.target];
 
-            npc.ai[0]++;
+            NPC.ai[0]++;
             
-            if (npc.ai[0] % 5 == 0)
+            if (NPC.ai[0] % 5 == 0)
             {
-                npc.frame.Y += 152;
+                NPC.frame.Y += 152;
             }
-            if (npc.ai[0] >= 130)
+            if (NPC.ai[0] >= 130)
             {
-                npc.frame.Y = 152 * 25;
+                NPC.frame.Y = 152 * 25;
             }
-            if (npc.ai[0] >= 135 && !NPC.AnyNPCs(mod.NPCType("ZeroProtocol")) && Main.netMode != 1)
+            if (NPC.ai[0] >= 135 && !NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type) && Main.netMode != 1)
             {
-                AAModGlobalNPC.SpawnBoss(player, mod.NPCType("ZeroProtocol"), false, npc.Center, "", false);
+                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("ZeroProtocol").Type, false, NPC.Center, "", false);
 
-                int b = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("ShockwaveBoom"), 0, 1, Main.myPlayer, 0, 0);
-                Main.projectile[b].Center = npc.Center;
+                int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                Main.projectile[b].Center = NPC.Center;
 
-                npc.netUpdate = true;
-                npc.active = false;
+                NPC.netUpdate = true;
+                NPC.active = false;
             }
         }
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(mod.NPCType("ZeroProtocol")))
+            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type))
             {
                 return false;
             }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,32 +8,31 @@ namespace AAMod.Items.Usable
 	{
 		public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("Moonpowder");
-            item.useStyle = 1;
-            item.shootSpeed = 4f;
-            item.width = 16;
-            item.height = 24;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.noMelee = true;
-            item.value = 75;
+            Item.shoot = Mod.Find<ModProjectile>("Moonpowder").Type;
+            Item.useStyle = 1;
+            Item.shootSpeed = 4f;
+            Item.width = 16;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.noMelee = true;
+            Item.value = 75;
         }
 
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault(@"Cleanses the Inferno");
+			// Tooltip.SetDefault(@"Cleanses the Inferno");
 		}
         
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(5);
             recipe.AddIngredient(null, "Darkshroom", 1);
             recipe.AddTile(TileID.Bottles);
-            recipe.SetResult(this, 5);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

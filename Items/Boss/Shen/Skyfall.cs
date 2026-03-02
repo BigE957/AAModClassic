@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,28 +15,28 @@ namespace AAMod.Items.Boss.Shen
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skyfall");
+            // DisplayName.SetDefault("Skyfall");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 210;
-            item.ranged = true;
-            item.width = 22;
-            item.height = 50;
-            item.useTime = 5;
-            item.useAnimation = 5;
-            item.useAmmo = AmmoID.Arrow;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.channel = true;
-            item.knockBack = 5f;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Skyfall");
-            item.shootSpeed = 14f;
-            item.UseSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
-            item.rare = 9;
+            Item.damage = 210;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 22;
+            Item.height = 50;
+            Item.useTime = 5;
+            Item.useAnimation = 5;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.channel = true;
+            Item.knockBack = 5f;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("Skyfall").Type;
+            Item.shootSpeed = 14f;
+            Item.UseSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            Item.rare = 9;
             AARarity = 14;
         }
 
@@ -43,9 +44,9 @@ namespace AAMod.Items.Boss.Shen
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
@@ -53,14 +54,14 @@ namespace AAMod.Items.Boss.Shen
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -73,21 +74,21 @@ namespace AAMod.Items.Boss.Shen
         }
 
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            float num72 = item.shootSpeed;
+            float num72 = Item.shootSpeed;
             type = Main.rand.Next(3);
 
             switch (type)
             {
                 case 0:
-                    type = mod.ProjectileType("Skyfall");
+                    type = Mod.Find<ModProjectile>("Skyfall").Type;
                     break;
                 case 1:
-                    type = mod.ProjectileType("SkyfallR");
+                    type = Mod.Find<ModProjectile>("SkyfallR").Type;
                     break;
                 default:
-                    type = mod.ProjectileType("SkyfallB");
+                    type = Mod.Find<ModProjectile>("SkyfallB").Type;
                     break;
             }
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -135,14 +136,13 @@ namespace AAMod.Items.Boss.Shen
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiantDawn", 1);
             recipe.AddIngredient(null, "FallingTwilight", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -7,7 +8,7 @@ namespace AAMod.Items.Dev.DevTile.Tiles
 {
     public class CCMireBox : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -19,14 +20,14 @@ namespace AAMod.Items.Dev.DevTile.Tiles
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-			ModTranslation modTranslation = CreateMapEntryName(null);
-			modTranslation.SetDefault("Cardboard Box");
+			LocalizedText modTranslation = CreateMapEntryName(null);
+			// modTranslation.SetDefault("Cardboard Box");
 			AddMapEntry(Color.Gold, modTranslation);
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("CCBox"));
+			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("CCBox").Type);
 		}
     }
 }

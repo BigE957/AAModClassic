@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using Terraria.ModLoader.Utilities;
 
 namespace AAMod.NPCs.Enemies.Other
 {
@@ -9,50 +10,50 @@ namespace AAMod.NPCs.Enemies.Other
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyss Claw");
-            Main.npcFrameCount[npc.type] = 5;
+            // DisplayName.SetDefault("Abyss Claw");
+            Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
         {
-            npc.width = 28;
-            npc.height = 24;
-            npc.friendly = false;
-            npc.damage = 30;
-            npc.defense = 0;
-            npc.lifeMax = 45;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 0f;
-            npc.knockBackResist = 0.5f;
-            npc.aiStyle = -1;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("AbyssClawBanner");
+            NPC.width = 28;
+            NPC.height = 24;
+            NPC.friendly = false;
+            NPC.damage = 30;
+            NPC.defense = 0;
+            NPC.lifeMax = 45;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 0f;
+            NPC.knockBackResist = 0.5f;
+            NPC.aiStyle = -1;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("AbyssClawBanner").Type;
         }
 
         public override void AI()
         {
-            AAAI.AIClaw(npc, ref npc.ai, false, true, 0.1f, 0.04f, 9f, 5f, 1f, 1f);
-            if (npc.velocity.X > 0f)
+            AAAI.AIClaw(NPC, ref NPC.ai, false, true, 0.1f, 0.04f, 9f, 5f, 1f, 1f);
+            if (NPC.velocity.X > 0f)
             {
-                npc.spriteDirection = 1;
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X);
+                NPC.spriteDirection = 1;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X);
             }
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 3.14f;
+                NPC.spriteDirection = -1;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 3.14f;
             }
 
-            npc.frameCounter++;
-            if (npc.frameCounter >= 8)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 8)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 26;
-                if (npc.frame.Y > (26 * 4))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 26;
+                if (NPC.frame.Y > (26 * 4))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
@@ -66,25 +67,25 @@ namespace AAMod.NPCs.Enemies.Other
             return 0;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(npc.Center, npc.width, npc.height, ModContent.DustType<Dusts.YamataAuraDust>());
+                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<Dusts.YamataAuraDust>());
                 }
             }
         }
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EventideAbyssiumOre"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EventideAbyssiumOre").Type);
         }
     }
 }

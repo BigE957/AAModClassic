@@ -8,11 +8,11 @@ namespace AAMod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 22;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 6;
-            item.accessory = true;
+            Item.width = 30;
+            Item.height = 22;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 6;
+            Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -22,8 +22,8 @@ namespace AAMod.Items.Accessories
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ornate Band");
-            Tooltip.SetDefault("+50 Max Life");
+            // DisplayName.SetDefault("Ornate Band");
+            // Tooltip.SetDefault("+50 Max Life");
         }
 
     }

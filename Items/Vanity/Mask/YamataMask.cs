@@ -10,15 +10,15 @@ namespace AAMod.Items.Vanity.Mask
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Yamata Mask");
+            // DisplayName.SetDefault("Yamata Mask");
 		}
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 26;
-            item.rare = 2;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 26;
+            Item.rare = 2;
+            Item.vanity = true;
         }
     }
 }

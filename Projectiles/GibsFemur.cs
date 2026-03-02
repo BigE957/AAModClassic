@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,24 +10,24 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Angry Femur");
+            // DisplayName.SetDefault("Angry Femur");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.scale = 1f;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 1;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.scale = 1f;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 1;
         }
 
         public int bounces = 5;
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 16;
             height = 16;
@@ -35,15 +36,15 @@ namespace AAMod.Projectiles
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            if (projectile.velocity.X != oldVelocity.X)
+            if (Projectile.velocity.X != oldVelocity.X)
             {
-                projectile.position.X = projectile.position.X + projectile.velocity.X;
-                projectile.velocity.X = -oldVelocity.X;
+                Projectile.position.X = Projectile.position.X + Projectile.velocity.X;
+                Projectile.velocity.X = -oldVelocity.X;
             }
-            if (projectile.velocity.Y != oldVelocity.Y)
+            if (Projectile.velocity.Y != oldVelocity.Y)
             {
-                projectile.position.Y = projectile.position.Y + projectile.velocity.Y;
-                projectile.velocity.Y = -oldVelocity.Y;
+                Projectile.position.Y = Projectile.position.Y + Projectile.velocity.Y;
+                Projectile.velocity.Y = -oldVelocity.Y;
             }
             bounces--;
             return false;
@@ -54,38 +55,38 @@ namespace AAMod.Projectiles
         {
             if (bounces <= 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
             if (a++ > 2)
             {
-                CombatText.NewText(projectile.getRect(), Color.IndianRed, "A", true);
+                CombatText.NewText(Projectile.getRect(), Color.IndianRed, "A", true);
                 a = 0;
             }
-            projectile.ai[0] += 2f;
-            if (projectile.ai[0] >= 15f)
+            Projectile.ai[0] += 2f;
+            if (Projectile.ai[0] >= 15f)
             {
-                projectile.ai[0] = 15f;
-                projectile.velocity.Y = projectile.velocity.Y + 0.1f;
+                Projectile.ai[0] = 15f;
+                Projectile.velocity.Y = Projectile.velocity.Y + 0.1f;
             }
-            if (projectile.velocity.Y > 16f)
+            if (Projectile.velocity.Y > 16f)
             {
-                projectile.velocity.Y = 16f;
+                Projectile.velocity.Y = 16f;
             }
 
-            projectile.rotation += .7f * projectile.direction;
+            Projectile.rotation += .7f * Projectile.direction;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Bleeding, 600);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1, 1f, 0f);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num604 = 0; num604 < 10; num604++)
             {
-                Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 26, 0f, 0f, 0, default, 0.8f);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 26, 0f, 0f, 0, default, 0.8f);
             }
         }
     }

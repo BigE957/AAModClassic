@@ -8,45 +8,45 @@ namespace AAMod.Items.Armor.Assassin
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Midnight Assassin Shirt");
-            Tooltip.SetDefault(@"14% increased melee/ranged damage and critical strike chance
+            // DisplayName.SetDefault("Midnight Assassin Shirt");
+            /* Tooltip.SetDefault(@"14% increased melee/ranged damage and critical strike chance
 20% decreased ammo consumption
 +50 Max Life
-A dark armor infused with the shadow of midnight");
+A dark armor infused with the shadow of midnight"); */
         }
 
         public override void SetDefaults()
 		{
-			item.width = 14;
-			item.height = 14;
-            item.rare = 9;
+			Item.width = 14;
+			Item.height = 14;
+            Item.rare = 9;
             AARarity = 12;
-            item.value = 300000;
-            item.defense = 29;
+            Item.value = 300000;
+            Item.defense = 29;
 		}
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeCrit += 14;
-            player.rangedCrit += 14;
-            player.meleeDamage += .14f;
-            player.rangedDamage += .14f;
+            player.GetCritChance(DamageClass.Melee) += 14;
+            player.GetCritChance(DamageClass.Ranged) += 14;
+            player.GetDamage(DamageClass.Melee) += .14f;
+            player.GetDamage(DamageClass.Ranged) += .14f;
             player.statLifeMax2 += 50;
             player.ammoCost80 = true;
         }
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)
+		public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
 		{
 			drawHands = true;
 		}

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -13,50 +14,50 @@ namespace AAMod.Projectiles
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            projectile.glowMask = customGlowMask;
+            Projectile.glowMask = customGlowMask;
 
-            DisplayName.SetDefault("Darkmatter Kunai");
+            // DisplayName.SetDefault("Darkmatter Kunai");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.penetrate = 2;
-            projectile.aiStyle = 2;
-            projectile.timeLeft = 600;
-            aiType = 48;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 2;
+            Projectile.aiStyle = 2;
+            Projectile.timeLeft = 600;
+            AIType = 48;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(tex, projectile.Center - Main.screenPosition, null, projectile.GetAlpha(lightColor), projectile.rotation, tex.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
+            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, tex.Size() / 2f, Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (Main.rand.Next(2) == 0)
             {
-                Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("DarkmatterKunai"));
+                Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("DarkmatterKunai").Type);
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Electrified"), 500);
+            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
         }
 
     }

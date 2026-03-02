@@ -8,21 +8,21 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meteor Strike");     
-            Main.projFrames[projectile.type] = 5;     
+            // DisplayName.SetDefault("Meteor Strike");     
+            Main.projFrames[Projectile.type] = 5;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 176;
-            projectile.height = 230;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.melee = true;
-            projectile.timeLeft = 600;
+            Projectile.width = 176;
+            Projectile.height = 230;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 600;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -32,17 +32,17 @@ namespace AAMod.Projectiles
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 5)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 5)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 

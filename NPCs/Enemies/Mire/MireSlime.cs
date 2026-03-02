@@ -9,43 +9,43 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Murky Slime");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+			// DisplayName.SetDefault("Murky Slime");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BlueSlime];
 		}
 
 		public override void SetDefaults()
 		{
-            npc.aiStyle = 1;
-            npc.noGravity = false;
-            npc.noTileCollide = false;
-            npc.width = 32;
-			npc.height = 26;
-			npc.damage = 5;
-			npc.defense = 2;
-			npc.lifeMax = 20;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
-            npc.lavaImmune = true;
-            npc.knockBackResist = 0.5f;
-            animationType = 81;
-			banner = npc.type;
-			bannerItem = mod.ItemType("MireSlimeBanner");
+            NPC.aiStyle = 1;
+            NPC.noGravity = false;
+            NPC.noTileCollide = false;
+            NPC.width = 32;
+			NPC.height = 26;
+			NPC.damage = 5;
+			NPC.defense = 2;
+			NPC.lifeMax = 20;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 60f;
+            NPC.lavaImmune = true;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = 81;
+			Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MireSlimeBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = Main.rand.Next(139, 143);
-				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}
 		
-		public override void NPCLoot()
+		public override void OnKill()
 		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MurkyGel"), Main.rand.Next(5, 15));
+			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MurkyGel").Type, Main.rand.Next(5, 15));
         }
 	}
 }

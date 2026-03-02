@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,34 +9,33 @@ namespace AAMod.Items.Melee
 
         public override void SetDefaults()
         {
-			item.useTime = 25;
-            item.CloneDefaults(ItemID.Terrarian);
-            item.damage = 190;                            
-            item.value = 1000000;
-            item.rare = 9;
-            item.knockBack = 1;
-            item.channel = true;
-            item.useStyle = 5;
-            item.useAnimation = 12;
-            item.useTime = 12;
-            item.rare = 11;
-            item.shoot = mod.ProjectileType("Void");  
+			Item.useTime = 25;
+            Item.CloneDefaults(ItemID.Terrarian);
+            Item.damage = 190;                            
+            Item.value = 1000000;
+            Item.rare = 9;
+            Item.knockBack = 1;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 12;
+            Item.useTime = 12;
+            Item.rare = 11;
+            Item.shoot = Mod.Find<ModProjectile>("Void").Type;  
 		}
 
         public override void SetStaticDefaults()
         {
-             DisplayName.SetDefault("Void");
-            Tooltip.SetDefault("Made out of pure Dark Matter");
+             // DisplayName.SetDefault("Void");
+            // Tooltip.SetDefault("Made out of pure Dark Matter");
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkEnergy", 5);
             recipe.AddIngredient(null, "DarkMatter", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
     }

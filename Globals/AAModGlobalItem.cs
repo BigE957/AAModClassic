@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -8,13 +9,14 @@ using AAMod.Items.Boss.Grips;
 using AAMod.Items;
 using AAMod.Items.Dev.Invoker;
 using AAMod.Items.Usable;
+using Terraria.GameContent.ItemDropRules;
 
 namespace AAMod
 {
     public class AAModGlobalItem : GlobalItem
 	{
         public override bool InstancePerEntity => true;
-		public override bool CloneNewInstances => true;
+		protected override bool CloneNewInstances => true;
 		public bool AAOnly = false;
         public bool NOHitPlayer = false;
         public bool HardCoreMode = false;
@@ -28,12 +30,12 @@ namespace AAMod
 
             if (item.type == ItemID.LunarOre)
             {
-                item.createTile = mod.TileType("LuminiteOre");
+                item.createTile = Mod.Find<ModTile>("LuminiteOre").Type;
             }
 
-            if (item.modItem != null && item.modItem.mod.Name == mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)
+            if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)
             {
-                BaseAAItem AAitem = (BaseAAItem)item.modItem;
+                BaseAAItem AAitem = (BaseAAItem)item.ModItem;
 
                 if (AAitem.AARarity != 0)
                 {
@@ -110,7 +112,7 @@ namespace AAMod
                     }
                 }
             }
-            if(item.magic && item.useStyle == 5 && !Item.staff[item.type] && item.width < item.height * 1.25 && !item.channel)
+            if(item.CountsAsClass(DamageClass.Magic) && item.useStyle == 5 && !Item.staff[item.type] && item.width < item.height * 1.25 && !item.channel)
             {
                 spellbookmagic = true;
             }
@@ -120,17 +122,17 @@ namespace AAMod
 		{
             if(AAOnly)
             {
-                TooltipLine line = new TooltipLine(mod, "AAOnly", "AAMod Loaded Only Item");
+                TooltipLine line = new TooltipLine(Mod, "AAOnly", "AAMod Loaded Only Item");
 			    tooltips.Insert(tooltips.Count,line);
             }
             if(NOHitPlayer)
             {
-                TooltipLine line = new TooltipLine(mod, "NOHitPlayer", "NohitPlayer bonus item");
+                TooltipLine line = new TooltipLine(Mod, "NOHitPlayer", "NohitPlayer bonus item");
 			    tooltips.Insert(tooltips.Count,line);
             }
             if(HardCoreMode)
             {
-                TooltipLine line = new TooltipLine(mod, "HardCoreMode", "HardCoreMode Item");
+                TooltipLine line = new TooltipLine(Mod, "HardCoreMode", "HardCoreMode Item");
 			    tooltips.Insert(tooltips.Count,line);
             }
 		}
@@ -144,9 +146,9 @@ namespace AAMod
             }
         }
 
-        public override bool CanEquipAccessory(Item item, Player player, int slot)
+        public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
-            if (item.type == ItemID.AnkhShield || item.type == ItemID.ObsidianShield || item.type == ModContent.ItemType<TaiyangBaolei>() || item.type == mod.ItemType("Duality"))
+            if (item.type == ItemID.AnkhShield || item.type == ItemID.ObsidianShield || item.type == ModContent.ItemType<TaiyangBaolei>() || item.type == Mod.Find<ModItem>("Duality").Type)
             {
                 if (slot < 10)
                 {
@@ -169,7 +171,7 @@ namespace AAMod
                             return false;
                         }
 
-                        if (slot != i && player.armor[i].type == mod.ItemType("Duality"))
+                        if (slot != i && player.armor[i].type == Mod.Find<ModItem>("Duality").Type)
                         {
                             return false;
                         }
@@ -225,6 +227,53 @@ namespace AAMod
             return true;
         }
 
+        public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
+        {
+            switch(item.type)
+            {
+                case ItemID.GoldenCrate:
+                    itemLoot.Add(ItemDropRule.FewFromOptions(1, 5, 
+                        ItemID.AnglerEarring, 
+                        ItemID.HighTestFishingLine, 
+                        ItemID.TackleBox, 
+                        ItemID.AnglerHat, 
+                        ItemID.AnglerVest, 
+                        ItemID.AnglerPants,
+                        ItemID.FishermansGuide,
+                        ItemID.WeatherRadio,
+                        ItemID.Sextant,
+                        ItemID.GoldenFishingRod,
+                        ItemID.GoldenBugNet,
+                        ItemID.FishHook,
+                        ItemID.BottomlessBucket,
+                        ItemID.SuperAbsorbantSponge,
+                        ItemID.HotlineFishingHook
+                    ));
+                    break;
+                case ItemID.GoldenCrateHard:
+                    itemLoot.Add(ItemDropRule.FewFromOptions(1, 5,
+                        ItemID.AnglerEarring,
+                        ItemID.HighTestFishingLine,
+                        ItemID.TackleBox,
+                        ItemID.AnglerHat,
+                        ItemID.AnglerVest,
+                        ItemID.AnglerPants,
+                        ItemID.FishermansGuide,
+                        ItemID.WeatherRadio,
+                        ItemID.Sextant,
+                        ItemID.GoldenFishingRod,
+                        ItemID.GoldenBugNet,
+                        ItemID.FishHook,
+                        ItemID.BottomlessBucket,
+                        ItemID.SuperAbsorbantSponge,
+                        ItemID.HotlineFishingHook,
+                        ItemID.FinWings
+                    ));
+                    break;
+            }
+        }
+
+        /*
         public override void OpenVanillaBag(string context, Player player, int arg)
 		{
             if(context == "crate" && arg == ItemID.GoldenCrate)
@@ -234,48 +283,48 @@ namespace AAMod
                     switch(WorldGen.genRand.Next(20))
                     {
                         case 0:
-                            player.QuickSpawnItem(ItemID.AnglerEarring, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.AnglerEarring, 1);
                             break;
                         case 1:
-                            player.QuickSpawnItem(ItemID.HighTestFishingLine, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.HighTestFishingLine, 1);
                             break;
                         case 2:
-                            player.QuickSpawnItem(ItemID.TackleBox, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.TackleBox, 1);
                             break;
                         case 3:
-                            player.QuickSpawnItem(ItemID.AnglerHat, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.AnglerHat, 1);
                             break;
                         case 4:
-                            player.QuickSpawnItem(ItemID.AnglerVest, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.AnglerVest, 1);
                             break;
                         case 5:
-                            player.QuickSpawnItem(ItemID.AnglerPants, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.AnglerPants, 1);
                             break;
                         case 6:
-                            player.QuickSpawnItem(ItemID.FishermansGuide, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.FishermansGuide, 1);
                             break;
                         case 7:
-                            player.QuickSpawnItem(ItemID.WeatherRadio, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.WeatherRadio, 1);
                             break;
                         case 8:
-                            player.QuickSpawnItem(ItemID.Sextant, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.Sextant, 1);
                             break;
                         case 9:
-                            player.QuickSpawnItem(ItemID.GoldenFishingRod, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.GoldenFishingRod, 1);
                             break;
                         case 10:
-                            player.QuickSpawnItem(ItemID.GoldenBugNet, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.GoldenBugNet, 1);
                             break;
                         case 11:
-                            player.QuickSpawnItem(ItemID.FishHook, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.FishHook, 1);
                             break;
                         case 12:
-                            player.QuickSpawnItem(ItemID.FuzzyCarrot, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.FuzzyCarrot, 1);
                             break;
                         case 13:
                             if (Main.hardMode)
                             {
-                                player.QuickSpawnItem(ItemID.FinWings, 1);
+                                player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.FinWings, 1);
                             }
                             else
                             {
@@ -283,19 +332,20 @@ namespace AAMod
                             }
                             break;
                         case 14:
-                            player.QuickSpawnItem(ItemID.BottomlessBucket, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.BottomlessBucket, 1);
                             break;
                         case 15:
-                            player.QuickSpawnItem(ItemID.SuperAbsorbantSponge, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.SuperAbsorbantSponge, 1);
                             break;
                         default:
-                            player.QuickSpawnItem(ItemID.HotlineFishingHook, 1);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.HotlineFishingHook, 1);
                             break;
 
                     }
                 }
             }
 		}
+        */
 
         public override bool OnPickup(Item item, Player player)
         {
@@ -329,7 +379,7 @@ namespace AAMod
             {
                 if (Main.rand.Next(4) == 0)
                 {
-                    player.QuickSpawnItem(ItemID.GoldCoin, Main.rand.Next(5, 13));
+                    player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ItemID.GoldCoin, Main.rand.Next(5, 13));
                     noRareItem = false;
                 }
 
@@ -363,7 +413,7 @@ namespace AAMod
                         amount = Main.rand.Next(7, 18);
                     }
 
-                    player.QuickSpawnItem(item, amount);
+                    player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, amount);
                     noRareItem = false;
                 }
             }
@@ -376,18 +426,18 @@ namespace AAMod
                     ItemID.HunterPotion, ItemID.GravitationPotion,
                     ItemID.MiningPotion, ItemID.HeartreachPotion
                 };
-                player.QuickSpawnItem(Main.rand.Next(items), Main.rand.Next(2, 5));
+                player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Main.rand.Next(items), Main.rand.Next(2, 5));
             }
 
             if (Main.rand.Next(2) == 0)
             {
-                player.QuickSpawnItem(Main.rand.Next(188, 190), Main.rand.Next(5, 18));
+                player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Main.rand.Next(188, 190), Main.rand.Next(5, 18));
             }
 
             if (Main.rand.Next(2) == 0)
             {
                 int item = Main.rand.Next(2) == 0 ? ItemID.MasterBait : ItemID.JourneymanBait;
-                player.QuickSpawnItem(item, Main.rand.Next(2, 7));
+                player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 7));
             }
 
             Mod mod = AAMod.instance;
@@ -403,23 +453,23 @@ namespace AAMod
                         switch (item)
                         {
                             case 0:
-                                item = mod.ItemType("Pyrosphere");
+                                item = mod.Find<ModItem>("Pyrosphere").Type;
                                 break;
                             case 1:
-                                item = mod.ItemType("Firebuster");
+                                item = mod.Find<ModItem>("Firebuster").Type;
                                 break;
                             case 2:
-                                item = mod.ItemType("Volley");
+                                item = mod.Find<ModItem>("Volley").Type;
                                 break;
                             case 3:
-                                item = mod.ItemType("DragonsSoul");
+                                item = mod.Find<ModItem>("DragonsSoul").Type;
                                 break;
                             default:
-                                item = mod.ItemType("DragonsGuard");
+                                item = mod.Find<ModItem>("DragonsGuard").Type;
                                 break;
                         }
-                        player.QuickSpawnItem(item);
-                        player.QuickSpawnItem(mod.ItemType("IncineriteBar"), Main.rand.Next(1, 12));
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item);
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), mod.Find<ModItem>("IncineriteBar").Type, Main.rand.Next(1, 12));
 
                     }
                     if (CrateType == 1)
@@ -429,37 +479,37 @@ namespace AAMod
                         switch (item)
                         {
                             case 0:
-                                item = mod.ItemType("HydrasSpear");
+                                item = mod.Find<ModItem>("HydrasSpear").Type;
                                 break;
                             case 1:
-                                item = mod.ItemType("Mossket");
+                                item = mod.Find<ModItem>("Mossket").Type;
                                 break;
                             case 2:
-                                item = mod.ItemType("GlowmossBall");
+                                item = mod.Find<ModItem>("GlowmossBall").Type;
                                 break;
                             case 3:
-                                item = mod.ItemType("ShadowBand");
+                                item = mod.Find<ModItem>("ShadowBand").Type;
                                 break;
                             default:
-                                item = mod.ItemType("GunkWand");
+                                item = mod.Find<ModItem>("GunkWand").Type;
                                 break;
                         }
 
-                        player.QuickSpawnItem(item);
-                        player.QuickSpawnItem(mod.ItemType("AbyssiumBar"), Main.rand.Next(1, 12));
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item);
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), mod.Find<ModItem>("AbyssiumBar").Type, Main.rand.Next(1, 12));
 
                     }
                 }
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
                     int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.SoulOfSpite>() : ModContent.ItemType<Items.Materials.SoulOfSmite>();
-                    player.QuickSpawnItem(item, Main.rand.Next(2, 6));
+                    player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
 
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
                     int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.HydraToxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
-                    player.QuickSpawnItem(item, Main.rand.Next(2, 6));
+                    player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
             }
         }
@@ -475,19 +525,19 @@ namespace AAMod
 
     public class ExtractinatorItem : GlobalItem
     {
-        public override bool UseItem(Item item, Player player)
+        public override bool? UseItem(Item item, Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
             if(player.GetModPlayer<AAPlayer>().StripeManOre)
             {
                 int tileTargetX = (int)((Main.mouseX + Main.screenPosition.X) / 16f);
 				int tileTargetY = (int)((Main.mouseY + Main.screenPosition.Y) / 16f);
-                if(Main.tile[tileTargetX, tileTargetY].active() && Main.tile[tileTargetX, tileTargetY].type == 219 && item.createTile > 0 && (Main.tileSand[item.createTile] || TileID.Sets.Conversion.Sand[item.createTile]))
+                if(Main.tile[tileTargetX, tileTargetY].HasTile && Main.tile[tileTargetX, tileTargetY].TileType == 219 && item.createTile > 0 && (Main.tileSand[item.createTile] || TileID.Sets.Conversion.Sand[item.createTile]))
                 {
                     bool flag = player.position.X / 16f - Player.tileRangeX - player.inventory[player.selectedItem].tileBoost - player.blockRange <= Player.tileTargetX && (player.position.X + player.width) / 16f + Player.tileRangeX + player.inventory[player.selectedItem].tileBoost - 1f + player.blockRange >= Player.tileTargetX && player.position.Y / 16f - Player.tileRangeY - player.inventory[player.selectedItem].tileBoost - player.blockRange <= Player.tileTargetY && (player.position.Y + player.height) / 16f + Player.tileRangeY + player.inventory[player.selectedItem].tileBoost - 2f + player.blockRange >= Player.tileTargetY;
                     if(flag && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
                     {
-                        player.itemTime = (int)(player.inventory[player.selectedItem].useTime / PlayerHooks.TotalUseTimeMultiplier(player, player.inventory[player.selectedItem]));
-					    Main.PlaySound(7, -1, -1, 1, 1f, 0f);
+                        player.itemTime = (int)(player.inventory[player.selectedItem].useTime / PlayerLoader.UseAnimationMultiplier(player, player.inventory[player.selectedItem]));
+					    SoundEngine.PlaySound(SoundID.Grab);
                         ExtractinatorUse2(item.type);
                         for (int i = 0; i < 58; i++)
                         {
@@ -549,11 +599,11 @@ namespace AAMod
                     }
                 }
             }
-            else if(extractType == mod.ItemType("Depthsand"))
+            else if(extractType == Mod.Find<ModItem>("Depthsand").Type)
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = mod.ItemType("Abyssium");
+                    result = Mod.Find<ModItem>("Abyssium").Type;
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -568,11 +618,11 @@ namespace AAMod
                     }
                 }
             }
-            else if(extractType == mod.ItemType("Torchsand"))
+            else if(extractType == Mod.Find<ModItem>("Torchsand").Type)
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = mod.ItemType("Incinerite");
+                    result = Mod.Find<ModItem>("Incinerite").Type;
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -967,14 +1017,14 @@ namespace AAMod
             if (result > 0)
             {
                 Vector2 vector = Main.ReverseGravitySupport(Main.MouseScreen, 0f) + Main.screenPosition;
-                int number = Item.NewItem((int)vector.X, (int)vector.Y, 1, 1, result, stack, false, -1, false, false);
+                int number = Item.NewItem(Item.GetSource_NaturalSpawn(), (int)vector.X, (int)vector.Y, 1, 1, result, stack, false, -1, false, false);
                 if (Main.netMode == 1)
                 {
                     NetMessage.SendData(21, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
                 }
             }
         }
-        public override void ExtractinatorUse(int extractType, ref int resultType, ref int resultStack)
+        public override void ExtractinatorUse(int extractType, int extractinatorBlockType, ref int resultType, ref int resultStack)
 		{
             int result = 0;
             int stack = 1;
@@ -982,7 +1032,7 @@ namespace AAMod
             {
                 if(Main.rand.Next(50) == 0)
                 {
-                    result = mod.ItemType("VikingRelic");
+                    result = Mod.Find<ModItem>("VikingRelic").Type;
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -1001,7 +1051,7 @@ namespace AAMod
             {
                 if(Main.rand.Next(50) == 0)
                 {
-                    result = mod.ItemType("DynaskullOre");
+                    result = Mod.Find<ModItem>("DynaskullOre").Type;
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -1052,7 +1102,7 @@ namespace AAMod
                     {
                         if(Main.rand.Next(2) == 0)
                         {
-                            result = mod.ItemType("DynaskullOre");
+                            result = Mod.Find<ModItem>("DynaskullOre").Type;
                             stack += 1;
                             if (Main.rand.Next(5) == 0)
                             {
@@ -1069,7 +1119,7 @@ namespace AAMod
                         }
                         else
                         {
-                            result = mod.ItemType("VikingRelic");
+                            result = Mod.Find<ModItem>("VikingRelic").Type;
                             stack += 1;
                             if (Main.rand.Next(5) == 0)
                             {
@@ -1165,7 +1215,7 @@ namespace AAMod
             }
         }
 
-        public override bool CloneNewInstances
+        protected override bool CloneNewInstances
         {
             get
             {
@@ -1174,7 +1224,7 @@ namespace AAMod
         }
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == mod.ItemType("InvokerStaff") && player.altFunctionUse == 2))
+            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == Mod.Find<ModItem>("InvokerStaff").Type && player.altFunctionUse == 2))
             {
                 return false;
             }

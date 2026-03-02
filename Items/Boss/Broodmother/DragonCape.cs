@@ -10,32 +10,32 @@ namespace AAMod.Items.Boss.Broodmother
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragontamer's Cloak");
-            Tooltip.SetDefault(
-@"3% Increased Damage Resistance");
+            // DisplayName.SetDefault("Dragontamer's Cloak");
+            /* Tooltip.SetDefault(
+@"3% Increased Damage Resistance"); */
         }
         public override void SetDefaults()
         {
-            item.width = 66;
-            item.height = 78;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 2;
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
-            item.defense = 3;
+            Item.width = 66;
+            Item.height = 78;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 2;
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
+            Item.defense = 3;
         }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -52,7 +52,7 @@ namespace AAMod.Items.Boss.Broodmother
             player.endurance += .03f;
         }
 
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {

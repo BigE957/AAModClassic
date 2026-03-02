@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,30 +8,29 @@ namespace AAMod.Items.Blocks.BogwoodF
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bogwood Dresser");
+            // DisplayName.SetDefault("Bogwood Dresser");
         }
 
         public override void SetDefaults()
         {
-            item.width = 38;
-            item.height = 24;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("BogwoodDresser");
+            Item.width = 38;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("BogwoodDresser").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("Bogwood"), 16);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("Bogwood").Type, 16);
             recipe.AddTile(TileID.Sawmill);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
 

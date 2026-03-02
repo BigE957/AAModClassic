@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod
 {
@@ -62,7 +64,7 @@ namespace AAMod
                             player.MountedCenter,
                             velocity,
                             slashProjectileID,
-                            (int)(item.damage * player.meleeDamage),
+                            (int)(item.damage * player.GetDamage(DamageClass.Melee)),
                             item.scale,
                             player.whoAmI,
                             (int)(player.itemAnimationMax * slashDelay - player.itemAnimationMax), ai1);
@@ -209,7 +211,7 @@ namespace AAMod
             if (!quiet && Main.netMode == 1 && Main.myPlayer == player.whoAmI)
             {
                 NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
-                NetMessage.SendData(MessageID.ItemAnimation, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
             }
         }
 
@@ -504,10 +506,10 @@ namespace AAMod
         public static bool PreDrawSlashAndWeapon(SpriteBatch spriteBatch, Projectile projectile, int weaponItemID, Color weaponColor, Texture2D slashTexture, Color slashColor, int slashFramecount, float slashDirection = 1f, bool shadow = false)
         {
             Player player = Main.player[projectile.owner];
-            Texture2D weapon = Main.itemTexture[weaponItemID];
+            Texture2D weapon = TextureAssets.Item[weaponItemID].Value;
             if (slashTexture == null)
             {
-                slashTexture = Main.projectileTexture[projectile.type];
+                slashTexture = TextureAssets.Projectile[projectile.type].Value;
                 slashFramecount = Main.projFrames[projectile.type];
             }
 

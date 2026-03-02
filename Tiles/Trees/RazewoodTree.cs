@@ -10,7 +10,7 @@ namespace AAMod.Tiles.Trees
 
         public override int DropWood()
         {
-            return mod.ItemType("Razewood");
+            return mod.Find<ModItem>("Razewood").Type;
         }
 
         public override Texture2D GetTexture()

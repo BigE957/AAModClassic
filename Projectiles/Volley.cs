@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,25 +10,25 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Volley");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Volley");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 32;
-            projectile.aiStyle = 1;
-            projectile.friendly = true;
-            projectile.magic = true;
-            projectile.hostile = false;
-            projectile.penetrate = 2;
-            projectile.timeLeft = 600;
-            projectile.light = 2f;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            projectile.extraUpdates = 1;
-            aiType = ProjectileID.WoodenArrowFriendly;
+            Projectile.width = 14;
+            Projectile.height = 32;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.hostile = false;
+            Projectile.penetrate = 2;
+            Projectile.timeLeft = 600;
+            Projectile.light = 2f;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
+            AIType = ProjectileID.WoodenArrowFriendly;
         }
         public override Color? GetAlpha(Color lightColor)
         {
@@ -36,32 +37,32 @@ namespace AAMod.Projectiles
 
         public override bool PreAI()
         {
-            Lighting.AddLight(projectile.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
-            if (projectile.wet)
+            Lighting.AddLight(Projectile.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            if (Projectile.wet)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (projectile.frameCounter++ >= 9)
+            if (Projectile.frameCounter++ >= 9)
             {
-                projectile.frameCounter = 0;
-                projectile.frame += 1;
-                if (projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                Projectile.frame += 1;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
             return true;
         }
 
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.DD2_BetsyFireballImpact, projectile.Center);
+            SoundEngine.PlaySound(SoundID.DD2_BetsyFireballImpact, Projectile.Center);
             if (Main.rand.Next(3) == 0)
             {
-                Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, 6,
-                    projectile.velocity.X * .2f, projectile.velocity.Y * .2f, 200, Scale: 1.2f);
-                dust.velocity += projectile.velocity * 0.3f;
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 6,
+                    Projectile.velocity.X * .2f, Projectile.velocity.Y * .2f, 200, Scale: 1.2f);
+                dust.velocity += Projectile.velocity * 0.3f;
                 dust.velocity *= 0.2f;
             }
         }

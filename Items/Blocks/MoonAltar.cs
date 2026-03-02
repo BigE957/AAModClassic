@@ -8,32 +8,31 @@ namespace AAMod.Items.Blocks
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dread Moon Altar");
+            // DisplayName.SetDefault("Dread Moon Altar");
         }
 
         public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 28;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.rare = 10;
-			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.createTile = mod.TileType("MoonAltar");
+			Item.width = 28;
+			Item.height = 28;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.rare = 10;
+			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.createTile = Mod.Find<ModTile>("MoonAltar").Type;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "EventideAbyssium", 15);
 			recipe.AddTile(null, "ACS");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

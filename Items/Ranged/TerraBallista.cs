@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,49 +11,48 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Ballista");
-            Tooltip.SetDefault("Replaces Arrows with Terra Arrows");
+			// DisplayName.SetDefault("Terra Ballista");
+            // Tooltip.SetDefault("Replaces Arrows with Terra Arrows");
         }
 
 	    public override void SetDefaults()
 	    {
-	        item.damage = 70;
-	        item.crit += 25;
-	        item.ranged = true;
-	        item.width = 50;
-	        item.height = 34;
-	        item.useTime = 15;
-	        item.useAnimation = 15;
-	        item.useStyle = 5;
-	        item.noMelee = true;
-	        item.knockBack = 2.5f;
-	        item.value = 350000;
-	        item.rare = 7;
-	        item.UseSound = SoundID.Item5;
-	        item.autoReuse = true;
-	        item.shoot = 10;
-	        item.shootSpeed = 16f;
-	        item.useAmmo = 40;
+	        Item.damage = 70;
+	        Item.crit += 25;
+	        Item.DamageType = DamageClass.Ranged;
+	        Item.width = 50;
+	        Item.height = 34;
+	        Item.useTime = 15;
+	        Item.useAnimation = 15;
+	        Item.useStyle = 5;
+	        Item.noMelee = true;
+	        Item.knockBack = 2.5f;
+	        Item.value = 350000;
+	        Item.rare = 7;
+	        Item.UseSound = SoundID.Item5;
+	        Item.autoReuse = true;
+	        Item.shoot = 10;
+	        Item.shootSpeed = 16f;
+	        Item.useAmmo = 40;
 	    }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
             double startAngle = Math.Atan2(speedX, speedY) - .1d;
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("TerraArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
+            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockBack, player.whoAmI, 0f, 0f);
         
             return false;
         }
 
         public override void AddRecipes()
 	    {
-	        ModRecipe recipe = new ModRecipe(mod);
+	        Recipe recipe = CreateRecipe();
 	        recipe.AddIngredient(null, "TrueDeathlyLongbow");
             recipe.AddIngredient(ItemID.HallowedRepeater);
             recipe.AddIngredient(null, "HeroShards", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-	        recipe.SetResult(this);
-	        recipe.AddRecipe();
+	        recipe.Register();
 	    }
 	}
 }

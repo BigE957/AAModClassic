@@ -7,9 +7,9 @@ namespace AAMod.Tiles.Bars
 {
     public class RadiumBarTile : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            soundType = 21;
+            HitSound = 21;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;
@@ -21,9 +21,9 @@ namespace AAMod.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            dustType = ModContent.DustType<Dusts.RadiumDust>();
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(200, 170, 100));
-			minPick = 0;
+			MinPick = 0;
         }
     }
 }

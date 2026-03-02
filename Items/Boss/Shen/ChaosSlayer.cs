@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -11,29 +12,29 @@ namespace AAMod.Items.Boss.Shen
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chaos Slayer");
-            Tooltip.SetDefault(@"Unleashes blades of chaos to smite your foes
+			// DisplayName.SetDefault("Chaos Slayer");
+            /* Tooltip.SetDefault(@"Unleashes blades of chaos to smite your foes
 blades go through tiles
-'Shatter all sanity'");
+'Shatter all sanity'"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 85;
-            item.height = 85;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.useStyle = 1;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.UseSound = SoundID.Item103;
-            item.damage = 400;
-            item.knockBack = 12;
-            item.melee = true;
-            item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ChaosSlayerSword");
-			item.shootSpeed = 5;
-            item.useTurn = true;
-            item.rare = 9;
+            Item.width = 85;
+            Item.height = 85;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.useStyle = 1;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.UseSound = SoundID.Item103;
+            Item.damage = 400;
+            Item.knockBack = 12;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("ChaosSlayerSword").Type;
+			Item.shootSpeed = 5;
+            Item.useTurn = true;
+            Item.rare = 9;
             AARarity = 14;
         }
 
@@ -41,23 +42,23 @@ blades go through tiles
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -69,26 +70,25 @@ blades go through tiles
             );
         }
 
-        public override bool Shoot(Player player, ref Vector2 shootPos, ref float speedX, ref float speedY, ref int projType, ref int damage, ref float knockback)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX, speedY, projType, damage, knockback, player.whoAmI);
 			for (int m = 0; m < 2; m++)
 			{
-				Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX * 1f, speedY * 1f, m == 0 ? mod.ProjectileType("ChaosSlayerSwordRed") : mod.ProjectileType("ChaosSlayerSwordBlue"), damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRed").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlue").Type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ReignOfFire", 1);
             recipe.AddIngredient(null, "Hydraslayer", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

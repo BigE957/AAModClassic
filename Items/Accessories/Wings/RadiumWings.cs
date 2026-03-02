@@ -8,17 +8,17 @@ namespace AAMod.Items.Accessories.Wings
 	{
 		public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radium Wings");
-            Tooltip.SetDefault("Allows flight and slow fall");
+            // DisplayName.SetDefault("Radium Wings");
+            // Tooltip.SetDefault("Allows flight and slow fall");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 40;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 11;
-			item.accessory = true;
+			Item.width = 28;
+			Item.height = 40;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 11;
+			Item.accessory = true;
 		}
 		
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -44,12 +44,11 @@ namespace AAMod.Items.Accessories.Wings
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "RadiumBar", 10);
             recipe.AddIngredient(null, "Stardust", 15);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

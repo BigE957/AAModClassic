@@ -6,12 +6,12 @@ namespace AAMod.Walls
 {
     public class OroborosWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("DoomDust");
+			DustType = Mod.Find<ModDust>("DoomDust").Type;
             AddMapEntry(new Color(8, 8, 8));
-            soundType = 21;
-            drop = mod.ItemType("OroborosWall");
+            HitSound = 21;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("OroborosWall").Type;
             Main.wallHouse[Type] = true;
         }
 

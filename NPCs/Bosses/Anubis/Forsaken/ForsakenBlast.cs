@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,51 +11,51 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
     {
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.penetrate = 1;
-            projectile.hostile = true;
-            projectile.extraUpdates = 1;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = 1;
+            Projectile.hostile = true;
+            Projectile.extraUpdates = 1;
         }
 
 
         public override void AI()
         {
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             int dustType = ModContent.DustType<Dusts.ForsakenDust>();
-            if (projectile.localAI[0] == 0f)
+            if (Projectile.localAI[0] == 0f)
             {
-                projectile.localAI[0] = 1f;
-                Main.PlaySound(SoundID.DD2_BetsyFireballShot, projectile.Center);
+                Projectile.localAI[0] = 1f;
+                SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, Projectile.Center);
             }
             if (Main.rand.Next(3) == 0)
             {
-                int dustID2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
-                Main.dust[dustID2].velocity = -projectile.velocity * 0.5f;
+                int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
+                Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;
                 Main.dust[dustID2].noLight = false;
                 Main.dust[dustID2].noGravity = true;
             }
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             int dustType = ModContent.DustType<Dusts.ForsakenDust>();
             int pieCut = 20;
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;
             }
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;
             }
-            Main.PlaySound(SoundID.Item62, (int)projectile.position.X, (int)projectile.position.Y);
+            SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
         }
 
         public override Color? GetAlpha(Color lightColor)

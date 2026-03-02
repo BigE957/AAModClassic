@@ -12,23 +12,23 @@ namespace AAMod.Items.Pets
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Boomer"); // Automatic from .lang files
-			Main.projFrames[projectile.type] = 3;
-			Main.projPet[projectile.type] = true;
+			// DisplayName.SetDefault("Boomer"); // Automatic from .lang files
+			Main.projFrames[Projectile.type] = 3;
+			Main.projPet[Projectile.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.DD2PetDragon);
-			aiType = ProjectileID.DD2PetDragon;
-            projectile.width = 66;
-            projectile.height = 56;
+			Projectile.CloneDefaults(ProjectileID.DD2PetDragon);
+			AIType = ProjectileID.DD2PetDragon;
+            Projectile.width = 66;
+            Projectile.height = 56;
             
         }
 
 		public override bool PreAI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			player.petFlagDD2Dragon = false; // Relic from aiType
 			return true;
 		}
@@ -36,7 +36,7 @@ namespace AAMod.Items.Pets
 
         public override void AI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			if (player.dead)
 			{
@@ -44,7 +44,7 @@ namespace AAMod.Items.Pets
 			}
 			if (modPlayer.BoomBoi)
 			{
-				projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
         }
 	}

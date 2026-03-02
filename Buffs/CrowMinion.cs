@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class CrowMinion : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crow");
-			Description.SetDefault("Summons a vicious crow to fight for you");
+			// DisplayName.SetDefault("Crow");
+			// Description.SetDefault("Summons a vicious crow to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("CrowMinion")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("CrowMinion").Type] > 0)
 			{
 				modPlayer.CrowMinion = true;
 			}

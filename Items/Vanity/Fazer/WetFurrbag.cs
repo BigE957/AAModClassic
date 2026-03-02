@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Fazer
 {
@@ -6,17 +7,17 @@ namespace AAMod.Items.Vanity.Fazer
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wet Furrbag");
-            Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Funloving Fox!'");
+            // DisplayName.SetDefault("Wet Furrbag");
+            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Funloving Fox!'");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;  
+            Item.maxStack = 1;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;  
         }
 
         public override bool CanRightClick()
@@ -26,9 +27,9 @@ namespace AAMod.Items.Vanity.Fazer
 
  		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("SammyWig"));
-            player.QuickSpawnItem(mod.ItemType("SammySweater"));
-            player.QuickSpawnItem(mod.ItemType("SammyPants"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("SammyWig").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("SammySweater").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("SammyPants").Type);
         }
     }
 }

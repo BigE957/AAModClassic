@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Throwing
 {
@@ -7,30 +8,30 @@ namespace AAMod.Items.Throwing
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 32;
-			item.ranged = true;
-			item.width = 20;
-			item.height = 18;
-			item.noUseGraphic = true;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.shoot = mod.ProjectileType("BurningGelP");
-			item.shootSpeed = 9f;
-			item.useStyle = 1;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 0, 0, 25);
-			item.rare = 2;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.noMelee = true;
+			Item.damage = 32;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 20;
+			Item.height = 18;
+			Item.noUseGraphic = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.shoot = Mod.Find<ModProjectile>("BurningGelP").Type;
+			Item.shootSpeed = 9f;
+			Item.useStyle = 1;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 0, 0, 25);
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.noMelee = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Burning Gel");
-			Tooltip.SetDefault("Ignites target on hit");
+			// DisplayName.SetDefault("Burning Gel");
+			// Tooltip.SetDefault("Ignites target on hit");
 		}
 	}
 }

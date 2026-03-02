@@ -13,12 +13,12 @@ namespace AAMod.Items.Dev.Invoker
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("The Book of the Law");
-            Tooltip.SetDefault(@"A Legendary Book of the Mega Therion.
+            // DisplayName.SetDefault("The Book of the Law");
+            /* Tooltip.SetDefault(@"A Legendary Book of the Mega Therion.
 30% increased minion damage
 +2 minion slots
 Includes the effects of all the pieces used to make this.
-");
+"); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -31,37 +31,37 @@ Includes the effects of all the pieces used to make this.
             else
             text += Language.GetTextValue("Mods.AAMod.Common.InvokerBookEX3");
 
-            TooltipLine line = new TooltipLine(mod, "newtooltip", text);
+            TooltipLine line = new TooltipLine(Mod, "newtooltip", text);
             list.RemoveAt(2);
             list.Insert(2,line);
 
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = Color.Gold;
+                    line2.OverrideColor = Color.Gold;
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 20;
-            item.rare = 11;
-            item.accessory = true;
-            item.useStyle = 4;
-            item.useTime = 1;
-            item.expertOnly = true;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            Item.width = 18;
+            Item.height = 20;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.useStyle = 4;
+            Item.useTime = 1;
+            Item.expertOnly = true;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
         }
         
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.minionDamage += .3f;
+            player.GetDamage(DamageClass.Summon) += .3f;
             player.maxMinions += 2;
-            player.minionKB += 2f;
+            player.GetKnockback(DamageClass.Summon).Base += 2f;
 
 			player.lifeRegen += 26;
             player.lifeRegenTime += 2;
@@ -80,21 +80,20 @@ Includes the effects of all the pieces used to make this.
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "InvokerBook", 1);
-            recipe.AddIngredient(mod, "InvokerHood", 1);
-            recipe.AddIngredient(mod, "InvokerRobe", 1);
-            recipe.AddIngredient(mod, "InvokerPants", 1);
+			Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "InvokerBook", 1);
+            recipe.AddIngredient(Mod, "InvokerHood", 1);
+            recipe.AddIngredient(Mod, "InvokerRobe", 1);
+            recipe.AddIngredient(Mod, "InvokerPants", 1);
 			recipe.AddIngredient(ItemID.SquireGreatHelm, 1);
             recipe.AddIngredient(ItemID.SquireAltShirt, 1);
             recipe.AddIngredient(ItemID.ShinyStone, 1);
             recipe.AddIngredient(ItemID.FrozenTurtleShell, 1);
             recipe.AddIngredient(ItemID.PaladinsShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
-            recipe.AddIngredient(mod, "EXSoul", 1);
-			recipe.AddTile(mod, "ACS");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+            recipe.AddIngredient(Mod, "EXSoul", 1);
+			recipe.AddTile(Mod, "ACS");
+			recipe.Register();
 		}
     }
 }

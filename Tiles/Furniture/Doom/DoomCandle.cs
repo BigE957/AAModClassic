@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Doom
 {
     public class DoomCandle : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -21,31 +22,31 @@ namespace AAMod.Tiles.Furniture.Doom
             };
             TileObjectData.newTile.DrawYOffset = -4;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Doom Candle");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Doom Candle");
             AddMapEntry(new Color(200, 0, 0), name);
-            dustType = mod.DustType("DoomDust");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Candelabras };
-            drop = mod.ItemType("DoomCandle");
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Candelabras };
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomCandle").Type;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)
         {
 
 
-            if (Main.tile[i, j].frameX >= 18)
+            if (Main.tile[i, j].TileFrameX >= 18)
             {
-                Main.tile[i, j].frameX -= 18;
+                Main.tile[i, j].TileFrameX -= 18;
             }
             else
             {
-                Main.tile[i, j].frameX += 18;
+                Main.tile[i, j].TileFrameX += 18;
             }
 
 
         }
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Main.player[Main.myPlayer].PickTile(i, j, 100);
             return true;
@@ -58,14 +59,14 @@ namespace AAMod.Tiles.Furniture.Doom
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("DoomCandle");
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = Mod.Find<ModItem>("DoomCandle").Type;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 18)
+            if (tile.TileFrameX < 18)
             {
                 r = 0.9f;
                 g = 0.9f;
@@ -81,8 +82,8 @@ namespace AAMod.Tiles.Furniture.Doom
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/DoomCandle_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DoomCandle_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

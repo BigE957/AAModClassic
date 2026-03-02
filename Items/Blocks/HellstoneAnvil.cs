@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,43 +8,41 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hellstone Anvil");
-            Tooltip.SetDefault("Is this thing supposed to be on fire?");
+            // DisplayName.SetDefault("Hellstone Anvil");
+            // Tooltip.SetDefault("Is this thing supposed to be on fire?");
         }
 
         public override void SetDefaults()
         {
-            item.width = 50;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 3;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 150;
-            item.createTile = mod.TileType("HellstoneAnvil");
+            Item.width = 50;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 3;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 150;
+            Item.createTile = Mod.Find<ModTile>("HellstoneAnvil").Type;
         }
 
         public override void AddRecipes()
         { 
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.HellstoneBar, 20);
                 recipe.AddIngredient(ItemID.IronAnvil, 1);
                 recipe.AddIngredient(ItemID.ObsidianWorkBench, 1);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.HellstoneBar, 20);
                 recipe.AddIngredient(ItemID.LeadAnvil, 1);
                 recipe.AddIngredient(ItemID.ObsidianWorkBench, 1);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

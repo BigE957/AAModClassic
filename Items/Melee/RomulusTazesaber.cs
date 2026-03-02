@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee   //where is located
 {
@@ -6,25 +7,25 @@ namespace AAMod.Items.Melee   //where is located
     {
         public override void SetDefaults()
         {
-            item.damage = 100;            
-            item.melee = true;            
-            item.width = 58;              
-            item.height = 58;             
-            item.useTime = 17;          
-            item.useAnimation = 17;     
-            item.useStyle = 1;        
-            item.knockBack = 0;      
-            item.value = 10000;        
-            item.rare = 7;
-            item.UseSound = SoundID.Item15;       
-            item.autoReuse = true;   
-            item.useTurn = true; 
+            Item.damage = 100;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 58;              
+            Item.height = 58;             
+            Item.useTime = 17;          
+            Item.useAnimation = 17;     
+            Item.useStyle = 1;        
+            Item.knockBack = 0;      
+            Item.value = 10000;        
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item15;       
+            Item.autoReuse = true;   
+            Item.useTurn = true; 
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("Romulus' Tazesaber");
-          Tooltip.SetDefault("A fulgarian Tazesaber stolen from a respected hero.");
+          // DisplayName.SetDefault("Romulus' Tazesaber");
+          // Tooltip.SetDefault("A fulgarian Tazesaber stolen from a respected hero.");
         }
     }
 }

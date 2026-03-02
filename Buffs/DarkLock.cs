@@ -8,28 +8,28 @@ namespace AAMod.Buffs
 {
     public class DarkLock : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Lock");
-            Description.SetDefault("You're locked in place by darkness!");
+            // DisplayName.SetDefault("Dark Lock");
+            // Description.SetDefault("You're locked in place by darkness!");
             Main.debuff[Type] = true;
-            longerExpertDebuff = false;
+            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
         }
     }
     public class DarkLockEffect : GlobalNPC
     {
         public override bool PreAI(NPC npc)
         {
-            if (npc.HasBuff(mod.BuffType("DarkLock")))
+            if (npc.HasBuff(Mod.Find<ModBuff>("DarkLock").Type))
             {
                 npc.velocity = Vector2.Zero;
                 return false;
             }
             return base.PreAI(npc);
         }
-        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)
+        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (npc.HasBuff(mod.BuffType("DarkLock")) && npc.active)
+            if (npc.HasBuff(Mod.Find<ModBuff>("DarkLock").Type) && npc.active)
             {
                 Texture2D DarkX = new Texture2D(Main.graphics.GraphicsDevice, npc.width, npc.height);
                 Color[] dataColors = new Color[npc.width * npc.height];

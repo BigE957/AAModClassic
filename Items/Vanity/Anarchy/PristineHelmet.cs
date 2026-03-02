@@ -10,28 +10,28 @@ namespace AAMod.Items.Vanity.Anarchy
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Pristine Helmet");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Contributors!'
-For the record, Anarchy sprited this himself.");
+            // DisplayName.SetDefault("Pristine Helmet");
+            /* Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Contributors!'
+For the record, Anarchy sprited this himself."); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(200, 200, 200);
+                    line2.OverrideColor = new Color(200, 200, 200);
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 30;
-            item.rare = 9;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 30;
+            Item.rare = 9;
+            Item.vanity = true;
         }
 	}
 }

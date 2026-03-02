@@ -9,17 +9,17 @@ namespace AAMod.Items.Currency
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Halloween Treat");
-            Tooltip.SetDefault("A very tasty treat. Don't eat it though, most likely cursed.");
+            // DisplayName.SetDefault("Halloween Treat");
+            // Tooltip.SetDefault("A very tasty treat. Don't eat it though, most likely cursed.");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 8;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 8;
         }
     }
     public class HTreat : CustomCurrencySingleCoin

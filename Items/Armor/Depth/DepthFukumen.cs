@@ -11,30 +11,30 @@ namespace AAMod.Items.Armor.Depth
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Depth Fukumen");
-            Tooltip.SetDefault(@"25% increased movement speed
+            // DisplayName.SetDefault("Depth Fukumen");
+            /* Tooltip.SetDefault(@"25% increased movement speed
 8% increased ranged damage
-Weightless as shadow itself");
+Weightless as shadow itself"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = 7500;
-            item.rare = 2;
-            item.defense = 5;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = 7500;
+            Item.rare = 2;
+            Item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += .08f;
+            player.GetDamage(DamageClass.Ranged) += .08f;
             player.moveSpeed += .25f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("DepthGi") && legs.type == mod.ItemType("DepthHakama");
+            return body.type == Mod.Find<ModItem>("DepthGi").Type && legs.type == Mod.Find<ModItem>("DepthHakama").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -47,12 +47,11 @@ Weightless as shadow itself");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "AbyssiumBar", 15);
             recipe.AddIngredient(null, "HydraHide", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

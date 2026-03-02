@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Athena
 {
@@ -7,21 +8,21 @@ namespace AAMod.Items.Boss.Athena
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;
-            item.rare = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;
+            Item.rare = 10;
         }
 
-        public override int BossBagNPC => mod.NPCType("Athena");
+        public override int BossBagNPC => Mod.Find<ModNPC>("Athena").Type;
 
         public override bool CanRightClick()
         {
@@ -32,18 +33,18 @@ namespace AAMod.Items.Boss.Athena
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("AthenaMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("AthenaMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PPDevArmor();
             }
-            player.QuickSpawnItem(mod.ItemType("SeraphHarp"));
-            player.QuickSpawnItem(mod.ItemType("GoddessFeather"), Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Mod.Find<ModItem>("SeraphHarp").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(25, 30));
             string[] lootTable = { "DivineWindCharm", "GaleOfWings", "RazorwindLongbow", "SkycutterKopis", "OlympianWings" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
         }
     }
 }

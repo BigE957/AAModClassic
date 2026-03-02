@@ -8,29 +8,29 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.melee = true;
-            item.width = 54;
-            item.height = 60;
-            item.useStyle = 1;
-            item.useTime = 4;
-            item.useAnimation = 16;
-            item.tileBoost += 25;
-            item.knockBack = 3;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.rare = 11;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.damage = 120;
-            item.pick = 320;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 54;
+            Item.height = 60;
+            Item.useStyle = 1;
+            Item.useTime = 4;
+            Item.useAnimation = 16;
+            Item.tileBoost += 25;
+            Item.knockBack = 3;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.rare = 11;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.damage = 120;
+            Item.pick = 320;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terraformer");
-            Tooltip.SetDefault(@"Right Click to change tool types
+            // DisplayName.SetDefault("Terraformer");
+            /* Tooltip.SetDefault(@"Right Click to change tool types
 You may only have a maximum of 2 tool types active
-Terratool EX");
+Terratool EX"); */
         }
 
         public override bool AltFunctionUse(Player player)
@@ -42,23 +42,23 @@ Terratool EX");
         {
             if (player.altFunctionUse == 2 && Main.mouseRight && Main.mouseRightRelease)
             {
-                item.autoReuse = false;
-                item.noUseGraphic = true;
+                Item.autoReuse = false;
+                Item.noUseGraphic = true;
                 AAMod.instance.TerratoolEXState.ToggleUI(AAMod.instance.TerratoolInterface);
-                item.pick = 0;
-                item.axe = 0;
-                item.hammer = 0;
-                item.damage = 0;
+                Item.pick = 0;
+                Item.axe = 0;
+                Item.hammer = 0;
+                Item.damage = 0;
                 return false;
             }
             else if(player.altFunctionUse != 2)
             {
-                item.autoReuse = true;
-                item.noUseGraphic = false;
-                item.pick = UI.TerratoolEXUI.Pick;
-                item.axe = UI.TerratoolEXUI.Axe;
-                item.hammer = UI.TerratoolEXUI.Hammer;
-                item.damage = 120;
+                Item.autoReuse = true;
+                Item.noUseGraphic = false;
+                Item.pick = UI.TerratoolEXUI.Pick;
+                Item.axe = UI.TerratoolEXUI.Axe;
+                Item.hammer = UI.TerratoolEXUI.Hammer;
+                Item.damage = 120;
             }
             else
             {
@@ -69,12 +69,11 @@ Terratool EX");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "Terratool");
-            recipe.AddIngredient(mod, "EXSoul");
-            recipe.AddTile(mod, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "Terratool");
+            recipe.AddIngredient(Mod, "EXSoul");
+            recipe.AddTile(Mod, "ACS");
+            recipe.Register();
         }
     }
 }

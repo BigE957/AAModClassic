@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -9,56 +10,56 @@ namespace AAMod.NPCs.Bosses.Lucifer
     {
         public override void SetDefaults()
         {
-            npc.friendly = true;
-            npc.townNPC = true;
-            npc.dontTakeDamage = true;
-            npc.noGravity = true;
-            npc.width = 56;
-            npc.height = 82;
-            npc.damage = 0;
-            npc.defense = 0;
-            npc.lifeMax = 1;
-            npc.aiStyle = -1;
-            npc.knockBackResist = 0f;
-            npc.npcSlots = 0;
+            NPC.friendly = true;
+            NPC.townNPC = true;
+            NPC.dontTakeDamage = true;
+            NPC.noGravity = true;
+            NPC.width = 56;
+            NPC.height = 82;
+            NPC.damage = 0;
+            NPC.defense = 0;
+            NPC.lifeMax = 1;
+            NPC.aiStyle = -1;
+            NPC.knockBackResist = 0f;
+            NPC.npcSlots = 0;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lucifer the Pit Lord");
-            Main.npcFrameCount[npc.type] = 9;
-            NPCID.Sets.TownCritter[npc.type] = true;
+            // DisplayName.SetDefault("Lucifer the Pit Lord");
+            Main.npcFrameCount[NPC.type] = 9;
+            NPCID.Sets.TownCritter[NPC.type] = true;
         }
 
         public override bool UsesPartyHat() { return false; }
 
         public override void AI()
         {
-            npc.wet = false;
-            npc.lavaWet = false;
-            npc.honeyWet = false;
-            npc.velocity.X = npc.velocity.Y = 0f;
-            npc.dontTakeDamage = true;
-            npc.immune[255] = 30;
+            NPC.wet = false;
+            NPC.lavaWet = false;
+            NPC.honeyWet = false;
+            NPC.velocity.X = NPC.velocity.Y = 0f;
+            NPC.dontTakeDamage = true;
+            NPC.immune[255] = 30;
             if (Main.netMode != 1)
             {
-                npc.homeless = false;
-                npc.homeTileX = -1;
-                npc.homeTileY = -1;
-                npc.netUpdate = true;
+                NPC.homeless = false;
+                NPC.homeTileX = -1;
+                NPC.homeTileY = -1;
+                NPC.netUpdate = true;
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 8)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 8)
             {
-                npc.frame.Y += frameHeight;
-                npc.frameCounter = 0;
-                if (npc.frame.Y > frameHeight * 8)
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
+                if (NPC.frame.Y > frameHeight * 8)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
@@ -98,7 +99,7 @@ namespace AAMod.NPCs.Bosses.Lucifer
             }
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
@@ -119,7 +120,7 @@ namespace AAMod.NPCs.Bosses.Lucifer
                     Main.npcChatText = @"See you around. Come back when I finish, I'd love to see you get gored! BWAHAHAHAHAHAHAHAHAH!!!";
                 }
                 chatNumber++;
-                Main.PlaySound(12, -1, -1, 1);
+                SoundEngine.PlaySound(SoundID.MenuTick);
             }
         }
 

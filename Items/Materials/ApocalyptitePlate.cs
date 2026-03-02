@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Materials
@@ -7,35 +8,34 @@ namespace AAMod.Items.Materials
     {
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 30;
-            item.maxStack = 99;
-			item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            Item.width = 32;
+            Item.height = 30;
+            Item.maxStack = 99;
+			Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Apocalyptite Plate");
-            Tooltip.SetDefault("A forboding energy rings from this metal plating");
+            // DisplayName.SetDefault("Apocalyptite Plate");
+            // Tooltip.SetDefault("A forboding energy rings from this metal plating");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
         public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Apocalyptite", 5);              //example of how to craft with a modded item
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

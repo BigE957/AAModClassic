@@ -10,24 +10,24 @@ namespace AAMod.Items.Melee
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flaming Fury");
-			Tooltip.SetDefault("Forged with the kindled rage of ancient dragons.");
+			// DisplayName.SetDefault("Flaming Fury");
+			// Tooltip.SetDefault("Forged with the kindled rage of ancient dragons.");
         }
 		public override void SetDefaults()
 		{
             
-			item.damage = 26;
-			item.melee = true;
-			item.width = 44;
-			item.height = 48;
-			item.useTime = 27;
-			item.useAnimation = 27;
-			item.useStyle = 1;
-			item.knockBack = 5;
-			item.value = 3000;
-			item.rare = 2;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			Item.damage = 26;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 44;
+			Item.height = 48;
+			Item.useTime = 27;
+			Item.useAnimation = 27;
+			Item.useStyle = 1;
+			Item.knockBack = 5;
+			Item.value = 3000;
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = false;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -46,14 +46,13 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 12);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }

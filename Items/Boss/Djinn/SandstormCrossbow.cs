@@ -1,7 +1,9 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Djinn
 {
@@ -9,32 +11,32 @@ namespace AAMod.Items.Boss.Djinn
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sandstorm Crossbow");
-            Tooltip.SetDefault("Replaces arrows with desert bolts");
+			// DisplayName.SetDefault("Sandstorm Crossbow");
+            // Tooltip.SetDefault("Replaces arrows with desert bolts");
         }
 
 	    public override void SetDefaults()
 	    {
-	        item.damage = 28;
-	        item.ranged = true;
-	        item.width = 40;
-	        item.height = 26;
-	        item.useTime = 19;
-	        item.reuseDelay = 0;
-	        item.useAnimation = 19;
-	        item.useStyle = 5;
-	        item.noMelee = true;
-	        item.knockBack = 2.5f;
-	        item.value = 50000;
-	        item.rare = 3;
-	        item.UseSound = SoundID.Item5;
-	        item.autoReuse = true;
-	        item.shoot = 10;
-	        item.shootSpeed = 8f;
-	        item.useAmmo = 40;
+	        Item.damage = 28;
+	        Item.DamageType = DamageClass.Ranged;
+	        Item.width = 40;
+	        Item.height = 26;
+	        Item.useTime = 19;
+	        Item.reuseDelay = 0;
+	        Item.useAnimation = 19;
+	        Item.useStyle = 5;
+	        Item.noMelee = true;
+	        Item.knockBack = 2.5f;
+	        Item.value = 50000;
+	        Item.rare = 3;
+	        Item.UseSound = SoundID.Item5;
+	        Item.autoReuse = true;
+	        Item.shoot = 10;
+	        Item.shootSpeed = 8f;
+	        Item.useAmmo = 40;
 	    }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int Shoot = Main.rand.Next(2);
             switch (Shoot)

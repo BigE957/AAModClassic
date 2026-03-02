@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Shen
@@ -14,27 +15,27 @@ namespace AAMod.Items.Boss.Shen
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            DisplayName.SetDefault("Chaos Scale");
-            Tooltip.SetDefault("Chaos radiates from this blazing scale");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 6));
+            // DisplayName.SetDefault("Chaos Scale");
+            // Tooltip.SetDefault("Chaos radiates from this blazing scale");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 6));
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
@@ -42,12 +43,12 @@ namespace AAMod.Items.Boss.Shen
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 42;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 9;
-            item.glowMask = customGlowMask;
+            Item.width = 30;
+            Item.height = 42;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 9;
+            Item.glowMask = customGlowMask;
         }
 
         // The following 2 methods are purely to show off these 2 hooks. Don't use them in your own code.
@@ -55,7 +56,7 @@ namespace AAMod.Items.Boss.Shen
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

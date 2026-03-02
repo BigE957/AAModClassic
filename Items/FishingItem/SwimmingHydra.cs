@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.FishingItem
 {
@@ -8,31 +10,31 @@ namespace AAMod.Items.FishingItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Swimming Hydra");
+			// DisplayName.SetDefault("Swimming Hydra");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 20;
-			item.melee = true;
-			item.width = 36;
-			item.height = 40;
-			item.useTime = 27;
-			item.useAnimation = 27;  
-			item.useStyle = 1;
-            item.knockBack = 2;
-			item.value = Item.sellPrice(0, 4, 0, 0);
-			item.rare = 5;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.useTurn = true;
-            item.shootSpeed = 10;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.HydraSlash>();
+			Item.damage = 20;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 36;
+			Item.height = 40;
+			Item.useTime = 27;
+			Item.useAnimation = 27;  
+			Item.useStyle = 1;
+            Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 4, 0, 0);
+			Item.rare = 5;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+			Item.useTurn = true;
+            Item.shootSpeed = 10;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.HydraSlash>();
 		}
 
         int shoot = 0;
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             shoot++;
             if (shoot % 3 != 0) return false;
@@ -41,7 +43,7 @@ namespace AAMod.Items.FishingItem
             return true;
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.HydraToxin>(), 180);
 		}

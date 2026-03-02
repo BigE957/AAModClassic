@@ -10,20 +10,20 @@ namespace AAMod.Tiles
     class Torchsand : ModTile
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSand[Type] = true;
-            drop = mod.ItemType("Torchsand");
-            soundStyle = 18;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Torchsand").Type;
+            soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(50, 35, 22));
-            SetModCactus(new Razetus());
-            SetModPalmTree(new RazePalmTree());
+            SetModCactus(new Razetus())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModCactus.SetStaticDefaults instead */;
+            SetModPalmTree(new RazePalmTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModPalmTree.SetStaticDefaults instead */;
             TileID.Sets.Conversion.Sand[Type] = true;
-            dustType = ModContent.DustType<Dusts.RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
@@ -31,21 +31,21 @@ namespace AAMod.Tiles
             Tile tile = Main.tile[i, j];
             Tile tile2 = Main.tile[i, j - 1];
             Tile tile3 = Main.tile[i, j + 1];
-            int tileType = tile.type;
-            if (!WorldGen.noTileActions && tile.active() && (tileType == Type))
+            int tileType = tile.TileType;
+            if (!WorldGen.noTileActions && tile.HasTile && (tileType == Type))
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
-                    if (tile3 != null && !tile3.active())
+                    if (tile3 != null && !tile3.HasTile)
                     {
-                        bool flag18 = !(tile2.active() && (TileID.Sets.BasicChest[tile2.type] || TileID.Sets.BasicChestFake[tile2.type] || tile2.type == 323 || TileLoader.IsDresser(tile2.type)));
+                        bool flag18 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
                         if (flag18)
                         {
                             int damage = 10;
                             int projectileType = 0;
                             if (tileType == Type)
                             {
-                                projectileType = mod.ProjectileType("TorchsandBall");
+                                projectileType = Mod.Find<ModProjectile>("TorchsandBall").Type;
                                 damage = 0;
                             }
                             tile.ClearTile();
@@ -55,20 +55,20 @@ namespace AAMod.Tiles
                         }
                     }
                 }
-                else if (Main.netMode == NetmodeID.Server && tile3 != null && !tile3.active())
+                else if (Main.netMode == NetmodeID.Server && tile3 != null && !tile3.HasTile)
                 {
-                    bool flag19 = !(tile2.active() && (TileID.Sets.BasicChest[tile2.type] || TileID.Sets.BasicChestFake[tile2.type] || tile2.type == 323 || TileLoader.IsDresser(tile2.type)));
+                    bool flag19 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
                     if (flag19)
                     {
                         int damage2 = 10;
                         int projectileType = 0;
                         if (tileType == Type)
                         {
-                            projectileType = mod.ProjectileType("TorchsandBall");
+                            projectileType = Mod.Find<ModProjectile>("TorchsandBall").Type;
                             damage2 = 0;
                         }
 
-                        tile.active(false);
+                        tile.HasTile = false;
                         bool flag20 = false;
                         for (int m = 0; m < 1000; m++)
                         {
@@ -94,10 +94,10 @@ namespace AAMod.Tiles
             return true;
         }
 
-        public override int SaplingGrowthType(ref int style)
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return mod.TileType("RazePalmSapling");
+            return Mod.Find<ModTile>("RazePalmSapling").Type;
         }
     }
 }

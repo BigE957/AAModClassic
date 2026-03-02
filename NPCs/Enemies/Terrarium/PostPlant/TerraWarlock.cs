@@ -24,29 +24,29 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
             Player player = Main.LocalPlayer;
             if (!player.GetModPlayer<AAPlayer>().Terrarium)
             {
-                npc.life = 0;
+                NPC.life = 0;
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Warlock");
-            Main.npcFrameCount[npc.type] = 15;
+            // DisplayName.SetDefault("Terra Warlock");
+            Main.npcFrameCount[NPC.type] = 15;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 600;
-            npc.defense = 40;
-            npc.damage = 120;
-            npc.width = 38;
-            npc.height = 60;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            banner = npc.type;
-			bannerItem = mod.ItemType("TerraWarlockBanner");
+            NPC.lifeMax = 600;
+            NPC.defense = 40;
+            NPC.damage = 120;
+            NPC.width = 38;
+            NPC.height = 60;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("TerraWarlockBanner").Type;
 
         }
       
@@ -57,35 +57,35 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         public override void AI()
         {
             
-            Player player = Main.player[npc.target]; // makes it so you can reference the player the npc is targetting
-            npc.frameCounter++;
+            Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
+            NPC.frameCounter++;
             if (internalAI[1] != AISTATE_SUMMON) //walk or charge
             {
-				if (npc.frameCounter >= 10)
+				if (NPC.frameCounter >= 10)
 				{
-					npc.frameCounter = 0;
-					npc.frame.Y += 60;
-					if (npc.frame.Y > (60 * 7))
+					NPC.frameCounter = 0;
+					NPC.frame.Y += 60;
+					if (NPC.frame.Y > (60 * 7))
 					{
-						npc.frameCounter = 0;
-						npc.frame.Y = 0;
+						NPC.frameCounter = 0;
+						NPC.frame.Y = 0;
 					}
 				}
-                if(npc.velocity.Y != 0)
+                if(NPC.velocity.Y != 0)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
             else //jump
             {
-                if (npc.frameCounter >= 10)
+                if (NPC.frameCounter >= 10)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += 60;
-                    if (npc.frame.Y > (60 * 14))
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 60;
+                    if (NPC.frame.Y > (60 * 14))
                     {
 
-                        Vector2 spawnAt = npc.Center + new Vector2(0f, npc.height / 2f);
+                        Vector2 spawnAt = NPC.Center + new Vector2(0f, NPC.height / 2f);
                         if (Main.expertMode)
                         {
                             SummonThis = Main.rand.Next(4);
@@ -93,35 +93,35 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                             switch (SummonThis)
                             {
                                 case 0:
-                                    SummonThis = mod.NPCType("Minion1");
+                                    SummonThis = Mod.Find<ModNPC>("Minion1").Type;
                                     break;
                                 case 1:
-                                    SummonThis = mod.NPCType("Minion2");
+                                    SummonThis = Mod.Find<ModNPC>("Minion2").Type;
                                     break;
                                 case 2:
-                                    SummonThis = mod.NPCType("Minion3");
+                                    SummonThis = Mod.Find<ModNPC>("Minion3").Type;
                                     break;
                                 default:
-                                    SummonThis = mod.NPCType("Minion4");
+                                    SummonThis = Mod.Find<ModNPC>("Minion4").Type;
                                     break;
                             }
                             NPC.NewNPC((int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);
                         }
                         internalAI[1] = AISTATE_WALK;
                     }
-                    if (npc.frame.Y > (60 * 14) || npc.frame.Y < (60 * 8))
+                    if (NPC.frame.Y > (60 * 14) || NPC.frame.Y < (60 * 8))
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 60 * 8;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 60 * 8;
                     }
                 }
             }
-            if (player.Center.X > npc.Center.X) // so it faces the player
+            if (player.Center.X > NPC.Center.X) // so it faces the player
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }else
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
 			if(Main.netMode != 1)
 			{
@@ -137,43 +137,43 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                     {
                         internalAI[1] = AISTATE_SUMMON;
                     }
-					npc.ai = new float[4];
-					npc.netUpdate = true;
+					NPC.ai = new float[4];
+					NPC.netUpdate = true;
 				}
 			}
 			if(internalAI[1] == AISTATE_WALK) //fighter
 			{
-                BaseAI.AIZombie(npc, ref npc.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);				
+                BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);				
 			}
             else
 			{
-                npc.velocity.X = 0;
+                NPC.velocity.X = 0;
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWarlockGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWarlockGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWarlockGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWarlockGore4"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWarlockGore5"), 1f);
-                npc.position.X = npc.position.X + npc.width / 2;
-                npc.position.Y = npc.position.Y + npc.height / 2;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.position.X - npc.width / 2;
-                npc.position.Y = npc.position.Y - npc.height / 2;
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWarlockGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWarlockGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWarlockGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWarlockGore4"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWarlockGore5"), 1f);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<Dusts.SummonDust>();
                 int dust2 = ModContent.DustType<Dusts.SummonDust>();
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -182,19 +182,19 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         }
 
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
             }
             if (Main.rand.Next(20) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Summoning.TerraGauntlet>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Summoning.TerraGauntlet>());
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
         }

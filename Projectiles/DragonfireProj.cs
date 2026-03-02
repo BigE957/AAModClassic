@@ -9,49 +9,49 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Breath");
+            // DisplayName.SetDefault("Dragon's Breath");
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.ranged = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 60;
-            projectile.timeLeft = 60;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 60;
+            Projectile.timeLeft = 60;
         }
 
         public override void AI()
         {
-            if (projectile.timeLeft > 60)
+            if (Projectile.timeLeft > 60)
             {
-                projectile.timeLeft = 60;
+                Projectile.timeLeft = 60;
             }
-            if (projectile.ai[0] > .5f)
+            if (Projectile.ai[0] > .5f)
             {
                 float num296 = 1f;
-                if (projectile.ai[0] == 1f)
+                if (Projectile.ai[0] == 1f)
                 {
                     num296 = 0.25f;
                 }
-                else if (projectile.ai[0] == 1.5f)
+                else if (Projectile.ai[0] == 1.5f)
                 {
                     num296 = 0.5f;
                 }
-                else if (projectile.ai[0] == 2f)
+                else if (Projectile.ai[0] == 2f)
                 {
                     num296 = 0.75f;
                 }
-                projectile.ai[0] += 1f;
+                Projectile.ai[0] += 1f;
                 int num297 = ModContent.DustType<Dusts.DragonflameDust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 3; num298++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num297, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100);
+                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, num297, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                         if (Main.rand.Next(3) == 0)
                         {
                             Main.dust[num299].noGravity = true;
@@ -67,7 +67,7 @@ namespace AAMod.Projectiles
                         Dust expr_DE02_cp_0 = Main.dust[num299];
                         expr_DE02_cp_0.velocity.Y *= 1.2f;
                         Main.dust[num299].scale *= num296;
-                        Main.dust[num299].velocity += projectile.velocity;
+                        Main.dust[num299].velocity += Projectile.velocity;
                         if (!Main.dust[num299].noGravity)
                         {
                             Main.dust[num299].velocity *= 0.5f;
@@ -77,14 +77,14 @@ namespace AAMod.Projectiles
             }
             else
             {
-                projectile.ai[0] += 1f;
+                Projectile.ai[0] += 1f;
             }
-            projectile.rotation += 0.3f * projectile.direction;
+            Projectile.rotation += 0.3f * Projectile.direction;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(mod.BuffType("DragonFire"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
         }
     }
 }

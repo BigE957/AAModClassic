@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,54 +13,53 @@ namespace AAMod.Items.Dev
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Conflagrate Scythe");
-            Tooltip.SetDefault(@"Summons a spinning construct that shreds through enemies
-Conflagrate Staff EX");
+            // DisplayName.SetDefault("Conflagrate Scythe");
+            /* Tooltip.SetDefault(@"Summons a spinning construct that shreds through enemies
+Conflagrate Staff EX"); */
 
-            Item.staff[item.type] = true;
+            Item.staff[Item.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 400;
-			item.summon = true;
-			item.mana = 20;
-			item.width = 64;
-			item.height = 64;
-			item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.noMelee = true;
-			item.knockBack = 3;
-			item.value = Item.sellPrice(0, 20, 0, 0);
-            item.shoot = mod.ProjectileType("EnderMinionEX");
-            item.buffType = mod.BuffType("EnderMinionBuffEX");
-            item.rare = 8;
-            item.expert = true; item.expertOnly = true;
-			item.UseSound = SoundID.Item44;
-			item.shootSpeed = 7f;	//The buff added to player after used the item
+			Item.damage = 400;
+			Item.DamageType = DamageClass.Summon;
+			Item.mana = 20;
+			Item.width = 64;
+			Item.height = 64;
+			Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.noMelee = true;
+			Item.knockBack = 3;
+			Item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.shoot = Mod.Find<ModProjectile>("EnderMinionEX").Type;
+            Item.buffType = Mod.Find<ModBuff>("EnderMinionBuffEX").Type;
+            Item.rare = 8;
+            Item.expert = true; Item.expertOnly = true;
+			Item.UseSound = SoundID.Item44;
+			Item.shootSpeed = 7f;	//The buff added to player after used the item
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
             glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EnderStaff");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
 
@@ -68,12 +68,12 @@ Conflagrate Staff EX");
             return true;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             return player.altFunctionUse != 2;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (player.altFunctionUse == 2)
             {

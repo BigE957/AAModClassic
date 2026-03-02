@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -11,31 +12,31 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
 
-            item.damage = 10;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 40;
-            item.useAnimation = 40;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.knockBack = 0;
-            item.value = 2000;
-            item.rare = 2;
-            item.UseSound = SoundID.Item11;
-            item.shootSpeed = 12f;
+            Item.damage = 10;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 40;
+            Item.useAnimation = 40;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.knockBack = 0;
+            Item.value = 2000;
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item11;
+            Item.shootSpeed = 12f;
 
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Trishot");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Hydra Trishot");
+            // Tooltip.SetDefault("");
         }
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
             for (int i = 0; i < 3; i++)
             {
@@ -52,11 +53,10 @@ namespace AAMod.Items.Ranged
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "AbyssiumBar", 8);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class DepthsandHardenedWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("AbyssiumDust");
+			DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
 			AddMapEntry(new Color(0, 10, 150));
             Terraria.ID.WallID.Sets.Conversion.HardenedSand[Type] = true;
 

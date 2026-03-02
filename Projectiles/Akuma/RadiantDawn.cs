@@ -1,5 +1,7 @@
 ﻿using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -15,57 +17,57 @@ namespace AAMod.Projectiles.Akuma
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radiant Dawn");
+            // DisplayName.SetDefault("Radiant Dawn");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 64;
-            projectile.height = 32;
-            projectile.friendly = false;
-            projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
+            Projectile.width = 64;
+            Projectile.height = 32;
+            Projectile.friendly = false;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
         }
 
         public Color GlowColor = AAColor.Akuma;
 
         public override void AI()
         {
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			
 			float num = 1.57079637f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			projectile.ai[0] += 1f;
+			Projectile.ai[0] += 1f;
 			int num2 = 0;
-			if (projectile.ai[0] >= 30f)
+			if (Projectile.ai[0] >= 30f)
 			{
 				num2++;
 			}
-			if (projectile.ai[0] >= 60f)
+			if (Projectile.ai[0] >= 60f)
 			{
 				num2++;
 			}
-			if (projectile.ai[0] >= 90f)
+			if (Projectile.ai[0] >= 90f)
 			{
 				num2++;
 			}
 			int num3 = 24;
 			int num4 = 6;
-			projectile.ai[1] += 1f;
+			Projectile.ai[1] += 1f;
 			bool flag = false;
-			if (projectile.ai[1] >= (num3 - num4 * num2))
+			if (Projectile.ai[1] >= (num3 - num4 * num2))
 			{
-				projectile.ai[1] = 0f;
+				Projectile.ai[1] = 0f;
 				flag = true;
 			}
-			if (flag && Main.myPlayer == projectile.owner)
+			if (flag && Main.myPlayer == Projectile.owner)
 			{
 				if (player.channel && !player.noItems && !player.CCed)
 				{
-					float scaleFactor = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
+					float scaleFactor = player.inventory[player.selectedItem].shootSpeed * Projectile.scale;
 					Vector2 vector3 = vector;
 					Vector2 value2 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY) - vector3;
 					if (player.gravDir == -1f)
@@ -78,16 +80,16 @@ namespace AAMod.Projectiles.Akuma
 						vector4 = -Vector2.UnitY;
 					}
 					vector4 *= scaleFactor;
-					if (vector4.X != projectile.velocity.X || vector4.Y != projectile.velocity.Y)
+					if (vector4.X != Projectile.velocity.X || vector4.Y != Projectile.velocity.Y)
 					{
-						projectile.netUpdate = true;
+						Projectile.netUpdate = true;
 					}
-					projectile.velocity = vector4;
+					Projectile.velocity = vector4;
 					float scaleFactor2 = 14f;
 					int num7 = 7;
 				
-					vector3 = projectile.Center + new Vector2(Main.rand.Next(-num7, num7 + 1), Main.rand.Next(-num7, num7 + 1));
-					Vector2 vector5 = Vector2.Normalize(projectile.velocity) * scaleFactor2;
+					vector3 = Projectile.Center + new Vector2(Main.rand.Next(-num7, num7 + 1), Main.rand.Next(-num7, num7 + 1));
+					Vector2 vector5 = Vector2.Normalize(Projectile.velocity) * scaleFactor2;
 					vector5 = vector5.RotatedBy(Main.rand.NextDouble() * 0.19634954631328583 - 0.098174773156642914, default);
 					if (float.IsNaN(vector5.X) || float.IsNaN(vector5.Y))
 					{
@@ -95,15 +97,15 @@ namespace AAMod.Projectiles.Akuma
 					}
 				}
 			}
-			projectile.position = player.RotatedRelativePoint(player.MountedCenter, true) - projectile.Size / 2f;
-			projectile.rotation = projectile.velocity.ToRotation() + num;
-			projectile.spriteDirection = projectile.direction;
-			projectile.timeLeft = 2;
-			player.ChangeDir(projectile.direction);
-			player.heldProj = projectile.whoAmI;
+			Projectile.position = player.RotatedRelativePoint(player.MountedCenter, true) - Projectile.Size / 2f;
+			Projectile.rotation = Projectile.velocity.ToRotation() + num;
+			Projectile.spriteDirection = Projectile.direction;
+			Projectile.timeLeft = 2;
+			player.ChangeDir(Projectile.direction);
+			player.heldProj = Projectile.whoAmI;
 			player.itemTime = 2;
 			player.itemAnimation = 2;
-			player.itemRotation = (float)Math.Atan2(projectile.velocity.Y * projectile.direction, projectile.velocity.X * projectile.direction);
+			player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * Projectile.direction, Projectile.velocity.X * Projectile.direction);
 
 			counter++;
 
@@ -124,14 +126,14 @@ namespace AAMod.Projectiles.Akuma
 
             if (!player.channel)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-			Player player = Main.player[projectile.owner];
-            if (projectile.owner == Main.myPlayer)
+			Player player = Main.player[Projectile.owner];
+            if (Projectile.owner == Main.myPlayer)
             {
 				int type = 0;
 				for (int i = 54; i < 58; i++)
@@ -148,15 +150,15 @@ namespace AAMod.Projectiles.Akuma
 				switch (chargeLevel)
 				{
 					case 0:
-						Main.PlaySound(SoundID.Item5, projectile.Center);
+						SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
 						num122 = 1;
 						break;
 					case 1:
-						Main.PlaySound(SoundID.Item5, projectile.Center);
+						SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
 						num122 = 3;
 						break;
 					case 2:
-						Main.PlaySound(SoundID.Item5, projectile.Center);
+						SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
 						num122 = 6;
 						break;
 				}
@@ -200,18 +202,18 @@ namespace AAMod.Projectiles.Akuma
                     {
                         vector15 -= vector14;
                     }
-                    int num125 = Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, projectile.damage, 1f, player.whoAmI, 0.0f, 0.0f);
+                    int num125 = Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, Projectile.damage, 1f, player.whoAmI, 0.0f, 0.0f);
                     Main.projectile[num125].noDropItem = true;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/RadiantDawnP_Glow");
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 1, frame, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 1, frame, GlowColor, true);
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/RadiantDawnP_Glow");
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);
             return false;
         }
     }

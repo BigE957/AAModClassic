@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Djinn
 {
@@ -8,29 +9,29 @@ namespace AAMod.Items.Boss.Djinn
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Djinnerang");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Djinnerang");
+            // Tooltip.SetDefault("");
         }
 
         public override void SetDefaults()
 		{
 
-            item.damage = 30;            
-            item.melee = true;
-            item.width = 30;
-            item.height = 30;
-			item.useTime = 12;
-			item.useAnimation = 12;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-			item.knockBack = 0;
-			item.value = 8;
-			item.rare = 6;
-			item.shootSpeed = 6f;
-			item.shoot = mod.ProjectileType ("Djinnerang");
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.value = 50000;
+            Item.damage = 30;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 30;
+            Item.height = 30;
+			Item.useTime = 12;
+			Item.useAnimation = 12;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+			Item.knockBack = 0;
+			Item.value = 8;
+			Item.rare = 6;
+			Item.shootSpeed = 6f;
+			Item.shoot = Mod.Find<ModProjectile>("Djinnerang").Type;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.value = 50000;
         }
 
     
@@ -39,7 +40,7 @@ namespace AAMod.Items.Boss.Djinn
         {
             for (int i = 0; i < 1000; ++i)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
                 {
                     return false;
                 }

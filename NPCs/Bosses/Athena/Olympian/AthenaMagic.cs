@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,67 +14,67 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Varian Burst");
-            Main.projFrames[projectile.type] = 3;
+            // DisplayName.SetDefault("Varian Burst");
+            Main.projFrames[Projectile.type] = 3;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 32;
-			projectile.height = 36;
-			projectile.friendly = false; 
-			projectile.hostile = true;
-			projectile.melee = true;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 600;
-			projectile.alpha = 20;
-            projectile.tileCollide = false;
-			projectile.ignoreWater = true;
-            projectile.tileCollide = true;
+			Projectile.width = 32;
+			Projectile.height = 36;
+			Projectile.friendly = false; 
+			Projectile.hostile = true;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 600;
+			Projectile.alpha = 20;
+            Projectile.tileCollide = false;
+			Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
         }
 
         public override void AI()
         {
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = 1;
+                Projectile.spriteDirection = 1;
             }
             else
             {
-                projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
-            projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X);
+            Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X);
 
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 2)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 2)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 3, 0, 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 3, frame, Color.White, false);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 3, 0, 0);
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 3, frame, Color.White, false);
             return false;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-            int p = Projectile.NewProjectile((int)projectile.Center.X, (int)projectile.Center.Y, 0, 0, ProjectileID.Electrosphere, 20, projectile.knockBack, Main.myPlayer);
-            Main.projectile[p].Center = projectile.Center;
+			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ProjectileID.Electrosphere, 20, Projectile.knockBack, Main.myPlayer);
+            Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].friendly = false;
             Main.projectile[p].hostile = true;
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustID.Electric, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Electric, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }

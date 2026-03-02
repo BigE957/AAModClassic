@@ -8,38 +8,37 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Javelin");
-            Tooltip.SetDefault("Explodes on contact");
+            // DisplayName.SetDefault("Chaos Javelin");
+            // Tooltip.SetDefault("Explodes on contact");
         }
 
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("ChaosJavelin");
-            item.shootSpeed = 15f;
-            item.damage = 105;
-            item.knockBack = 5f;
-            item.ranged = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 22;
-            item.useTime = 22;
-            item.width = 30;
-            item.height = 30;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = Item.sellPrice(0, 20, 0, 0);
-            item.rare = 8;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosJavelin").Type;
+            Item.shootSpeed = 15f;
+            Item.damage = 105;
+            Item.knockBack = 5f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 22;
+            Item.useTime = 22;
+            Item.width = 30;
+            Item.height = 30;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.rare = 8;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "PrimevalJavelin");
             recipe.AddIngredient(null, "ChaosCrystal");
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

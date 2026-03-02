@@ -10,24 +10,24 @@ namespace AAMod.Items.Boss.Equinox
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blessing of the Stars");
-            Tooltip.SetDefault(@"It sparkles like the stars in the sky
-Can only be used if there arent many radium stars in the world.");	
+			// DisplayName.SetDefault("Blessing of the Stars");
+            /* Tooltip.SetDefault(@"It sparkles like the stars in the sky
+Can only be used if there arent many radium stars in the world."); */	
 		}
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 30;
-            item.rare = 7;
-			item.expert = true;
-            item.value = BaseUtility.CalcValue(0, 15, 0, 0);
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 30;
+            Item.rare = 7;
+			Item.expert = true;
+            Item.value = BaseUtility.CalcValue(0, 15, 0, 0);
 
-			item.useStyle = 1;
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.consumable = true;		
+			Item.useStyle = 1;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.consumable = true;		
         }
 
         public override bool CanUseItem(Player player)
@@ -40,7 +40,7 @@ Can only be used if there arent many radium stars in the world.");
                 int num4 = 5;
                 while (num4 < Main.worldSurface)
                 {
-                    if (Main.tile[j, num4].active() && Main.tile[j, num4].type == (ushort)ModContent.TileType<Tiles.Ore.RadiumOre>())
+                    if (Main.tile[j, num4].HasTile && Main.tile[j, num4].TileType == (ushort)ModContent.TileType<Tiles.Ore.RadiumOre>())
                     {
                         num++;
                         if (num > num3)
@@ -62,7 +62,7 @@ Can only be used if there arent many radium stars in the world.");
             return true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedEquinoxInfo"), Color.Violet);

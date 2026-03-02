@@ -9,34 +9,34 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bunnysplosion");     
-            Main.projFrames[projectile.type] = 5;     
+            // DisplayName.SetDefault("Bunnysplosion");     
+            Main.projFrames[Projectile.type] = 5;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 176;
-            projectile.height = 176;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 300;
+            Projectile.width = 176;
+            Projectile.height = 176;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 300;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 5)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 5)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -44,14 +44,14 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
             return new Color(Color.White.R, Color.White.G, Color.White.B, 120);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 300);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
     }
 }

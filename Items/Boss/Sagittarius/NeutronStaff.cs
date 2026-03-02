@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Sagittarius
 {
@@ -7,29 +8,29 @@ namespace AAMod.Items.Boss.Sagittarius
     {
         public override void SetDefaults()
         {
-            item.damage = 30;
-            item.magic = true;
-            item.width = 38;
-            item.height = 38;
-            item.useTime = 25;
-            item.useAnimation = 25;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 2;
-            item.value = 10000;
-            item.rare = 2;
-            item.mana = 2;
-            item.UseSound = SoundID.Item20;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType ("SagStar");
-            item.shootSpeed = 7f;
+            Item.damage = 30;
+            Item.DamageType = DamageClass.Magic;
+            Item.width = 38;
+            Item.height = 38;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.knockBack = 2;
+            Item.value = 10000;
+            Item.rare = 2;
+            Item.mana = 2;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("SagStar").Type;
+            Item.shootSpeed = 7f;
         }   
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Neutron Rod");
-            Tooltip.SetDefault("Fires spinning stars that bounce on walls");
-            Item.staff[item.type] = true;
+            // DisplayName.SetDefault("Neutron Rod");
+            // Tooltip.SetDefault("Fires spinning stars that bounce on walls");
+            Item.staff[Item.type] = true;
         }
     }
 }

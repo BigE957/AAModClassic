@@ -7,41 +7,41 @@ namespace AAMod.NPCs.Bosses.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shockwave");     
-            Main.projFrames[projectile.type] = 6;     
+            // DisplayName.SetDefault("Shockwave");     
+            Main.projFrames[Projectile.type] = 6;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 102;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
+            Projectile.width = 26;
+            Projectile.height = 102;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 6)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 6)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
     }

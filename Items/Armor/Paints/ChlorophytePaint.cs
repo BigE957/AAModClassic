@@ -11,28 +11,28 @@ namespace AAMod.Items.Armor.Paints
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chlorophyte Face Paint");
-			Tooltip.SetDefault(@"38% increased minion damage
-+80 mana");
+			// DisplayName.SetDefault("Chlorophyte Face Paint");
+			/* Tooltip.SetDefault(@"38% increased minion damage
++80 mana"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 28;
-			item.value = 60000;
-			item.rare = 7;
-			item.defense = 5;
+			Item.width = 30;
+			Item.height = 28;
+			Item.value = 60000;
+			Item.rare = 7;
+			Item.defense = 5;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-            player.minionDamage += .38f;
+            player.GetDamage(DamageClass.Summon) += .38f;
             player.statManaMax2 += 80;
 		}
 
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -52,12 +52,11 @@ namespace AAMod.Items.Armor.Paints
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ChlorophyteBar, 6);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.BewitchingTable);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Boss
 {
 	public class Throne : ModTile
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = false;
@@ -25,12 +26,12 @@ namespace AAMod.Tiles.Boss
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-            dustType = 7;
-            minPick = 500;
-            mineResist = 10f;
-            disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Throne of Evil");
+            DustType = 7;
+            MinPick = 500;
+            MineResist = 10f;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Throne of Evil");
             AddMapEntry(new Color(130, 110, 100));
         }
         public override void NearbyEffects(int i, int j, bool closer)
@@ -39,13 +40,13 @@ namespace AAMod.Tiles.Boss
             var dist = (int)Vector2.Distance(player.Center / 16, new Vector2(i, j));
             if (dist <= 100)
             {
-                if (!NPC.AnyNPCs(mod.NPCType("LuciferSitting")))
+                if (!NPC.AnyNPCs(Mod.Find<ModNPC>("LuciferSitting").Type))
                 {
                     i += 2;
                     i *= 16;
                     j += 5;
                     j *= 16;
-                    int n = NPC.NewNPC(i + 1, j + 1, mod.NPCType("LuciferSitting"));
+                    int n = NPC.NewNPC(i + 1, j + 1, Mod.Find<ModNPC>("LuciferSitting").Type);
                     if (Main.netMode == NetmodeID.Server)
                     {
                         NetMessage.SendData(23, -1, -1, null, n);

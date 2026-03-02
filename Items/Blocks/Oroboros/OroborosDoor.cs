@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,31 +8,30 @@ namespace AAMod.Items.Blocks.Oroboros
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oroboros Door");
+            // DisplayName.SetDefault("Oroboros Door");
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 34;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("OroborosDoorClosed");
+            Item.width = 20;
+            Item.height = 34;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("OroborosDoorClosed").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("OroborosWood"), 6);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("OroborosWood").Type, 6);
             //recipe.AddIngredient(ItemID.Torch, 3);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
 

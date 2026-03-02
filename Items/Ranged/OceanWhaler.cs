@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,21 +11,21 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.noMelee = true;
-            item.useStyle = 5;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.knockBack = 6f;
-            item.width = 30;
-            item.height = 10;
-            item.damage = 34;
-            item.shoot = ModContent.ProjectileType<Projectiles.OceanWhaler>();
-            item.shootSpeed = 11f;
-            item.UseSound = SoundID.Item10;
-            item.rare = 2;
-            item.value = 27000;
-            item.ranged = true;
+            Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.knockBack = 6f;
+            Item.width = 30;
+            Item.height = 10;
+            Item.damage = 34;
+            Item.shoot = ModContent.ProjectileType<Projectiles.OceanWhaler>();
+            Item.shootSpeed = 11f;
+            Item.UseSound = SoundID.Item10;
+            Item.rare = 2;
+            Item.value = 27000;
+            Item.DamageType = DamageClass.Ranged;
         }
 
 		public override Vector2? HoldoutOffset()
@@ -32,11 +33,11 @@ namespace AAMod.Items.Ranged
             return new Vector2(-2, 0);
         }
 		
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             for (int num17 = 0; num17 < 1000; num17++)
             {
-                if (Main.projectile[num17].active && Main.projectile[num17].owner == Main.myPlayer && Main.projectile[num17].type == item.shoot)
+                if (Main.projectile[num17].active && Main.projectile[num17].owner == Main.myPlayer && Main.projectile[num17].type == Item.shoot)
                 {
                     return false;
                 }
@@ -46,12 +47,11 @@ namespace AAMod.Items.Ranged
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Coral, 6);
             recipe.AddIngredient(ItemID.Harpoon);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

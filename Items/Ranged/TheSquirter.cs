@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,22 +12,22 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
 
-            item.damage = 84;
-            item.noMelee = true;
+            Item.damage = 84;
+            Item.noMelee = true;
 
-            item.ranged = true;
-            item.width = 38;
-            item.height = 26;
-            item.useTime = 13;
-            item.useAnimation = 13;
-            item.useStyle = 5;
-            item.shoot = mod.ProjectileType ("Squirt");
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 6;
-            item.UseSound = SoundID.Item34;
-            item.autoReuse = false;
-            item.shootSpeed = 14f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 38;
+            Item.height = 26;
+            Item.useTime = 13;
+            Item.useAnimation = 13;
+            Item.useStyle = 5;
+            Item.shoot = Mod.Find<ModProjectile>("Squirt").Type;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 6;
+            Item.UseSound = SoundID.Item34;
+            Item.autoReuse = false;
+            Item.shootSpeed = 14f;
 
         }
 		
@@ -35,7 +36,7 @@ namespace AAMod.Items.Ranged
             return new Vector2(2, -2);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -47,19 +48,18 @@ namespace AAMod.Items.Ranged
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Squirter");
-            Tooltip.SetDefault("Doesnt use ammo");
+            // DisplayName.SetDefault("The Squirter");
+            // Tooltip.SetDefault("Doesnt use ammo");
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.SlimeGun, 1);
             recipe.AddIngredient(ItemID.Gel, 200);
             recipe.AddIngredient(null, "DeepAbyssium", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

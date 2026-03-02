@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,34 +10,34 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Soul Shredder");
-            Tooltip.SetDefault(@"Left click to swing and release homing scythe
+			// DisplayName.SetDefault("Soul Shredder");
+            /* Tooltip.SetDefault(@"Left click to swing and release homing scythe
 Right click to do dashing hit
 You are immune during the dash and deal 15x damage in true melee
 Dashing ability has 5 seconds CD
 'Well, how many Grim Reapers have you met before, mate?'
 -Gregg
-Scythe of the Grim Reaper EX");
+Scythe of the Grim Reaper EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.autoReuse = true;
-			item.useStyle = 1;
-			item.useAnimation = 30;
-			item.useTime = 30;
-			item.knockBack = 6f;
-			item.width = 24;
-			item.height = 28;
-			item.damage = 225;
-			item.crit = 14;
-			item.scale = 1.15f;
-			item.UseSound = SoundID.Item71;
-			item.rare = 11;
-			item.shoot = mod.ProjectileType("GrimReaperScytheEX");
-			item.shootSpeed = 16f;
-			item.value = 1000000;
-			item.melee = true;
+			Item.autoReuse = true;
+			Item.useStyle = 1;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.knockBack = 6f;
+			Item.width = 24;
+			Item.height = 28;
+			Item.damage = 225;
+			Item.crit = 14;
+			Item.scale = 1.15f;
+			Item.UseSound = SoundID.Item71;
+			Item.rare = 11;
+			Item.shoot = Mod.Find<ModProjectile>("GrimReaperScytheEX").Type;
+			Item.shootSpeed = 16f;
+			Item.value = 1000000;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		}
 		
 		public override bool AltFunctionUse(Player player)
@@ -49,14 +50,14 @@ Scythe of the Grim Reaper EX");
 			int side = player.direction;
 			if (player.altFunctionUse != 2)
 			{
-				item.shoot = mod.ProjectileType("GrimReaperScytheEX");
+				Item.shoot = Mod.Find<ModProjectile>("GrimReaperScytheEX").Type;
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(mod.BuffType("ReaperCD")))
+			if (player.altFunctionUse == 2 && !player.HasBuff(Mod.Find<ModBuff>("ReaperCD").Type))
 			{
-				player.AddBuff(mod.BuffType("ReaperImmune2"), 60);
-				player.AddBuff(mod.BuffType("ReaperCD"), 300);
-				item.shoot = mod.ProjectileType("ReaperHitbox");
+				player.AddBuff(Mod.Find<ModBuff>("ReaperImmune2").Type, 60);
+				player.AddBuff(Mod.Find<ModBuff>("ReaperCD").Type, 300);
+				Item.shoot = Mod.Find<ModProjectile>("ReaperHitbox").Type;
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -66,9 +67,9 @@ Scythe of the Grim Reaper EX");
 			}
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == mod.ProjectileType("GrimReaperScytheEX"))
+			if (type == Mod.Find<ModProjectile>("GrimReaperScytheEX").Type)
 			{
 				float num121 = 0.99f;
 				int num122 = 3;
@@ -87,7 +88,7 @@ Scythe of the Grim Reaper EX");
 					{
 						vector15 -= vector14;
 					}
-					if (type == mod.ProjectileType("GrimReaperScytheEX") && player.HasBuff(mod.BuffType("ReaperImmune2")))
+					if (type == Mod.Find<ModProjectile>("GrimReaperScytheEX").Type && player.HasBuff(Mod.Find<ModBuff>("ReaperImmune2").Type))
 					{
 						Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage/15, knockBack, player.whoAmI);
 					}
@@ -97,7 +98,7 @@ Scythe of the Grim Reaper EX");
 					}
 				}
 			}
-			if (type == mod.ProjectileType("ReaperHitbox"))
+			if (type == Mod.Find<ModProjectile>("ReaperHitbox").Type)
 			{
 				return true;
 			}
@@ -106,12 +107,11 @@ Scythe of the Grim Reaper EX");
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "GrimReaperScythe", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

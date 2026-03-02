@@ -8,35 +8,34 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.damage = 10;
-            item.melee = true;
-            item.width = 40;
-            item.height = 30;
-            item.useTime = 22;
-            item.useAnimation = 30;
-            item.hammer = 50;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = Item.sellPrice(0, 0, 10, 0);
-            item.rare = 1;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 10;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 30;
+            Item.useTime = 22;
+            Item.useAnimation = 30;
+            Item.hammer = 50;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = Item.sellPrice(0, 0, 10, 0);
+            Item.rare = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mushmallet");
+            // DisplayName.SetDefault("Mushmallet");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Mushroom, 5);
             recipe.AddIngredient(null, "MushiumBar", 3);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

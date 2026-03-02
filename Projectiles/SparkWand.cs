@@ -1,5 +1,6 @@
 ﻿using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -13,69 +14,69 @@ namespace AAMod.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spark Wand");
+            // DisplayName.SetDefault("Spark Wand");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 52;
-            projectile.height = 58;
-            projectile.friendly = false;
-            projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
+            Projectile.width = 52;
+            Projectile.height = 58;
+            Projectile.friendly = false;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			
 			float num = 1.57f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			projectile.ai[0] += 1f;
+			Projectile.ai[0] += 1f;
 			int num2 = 0;
-			if (projectile.ai[0] >= 30f)
+			if (Projectile.ai[0] >= 30f)
 			{
 				num2++;
 			}
-			if (projectile.ai[0] >= 60f)
+			if (Projectile.ai[0] >= 60f)
 			{
 				num2++;
 			}
-			if (projectile.ai[0] >= 90f)
+			if (Projectile.ai[0] >= 90f)
 			{
 				num2++;
 			}
 			int num3 = 24;
 			int num4 = 6;
-			projectile.ai[1] += 1f;
+			Projectile.ai[1] += 1f;
 			bool flag = false;
-			if (projectile.ai[1] >= (num3 - num4 * num2))
+			if (Projectile.ai[1] >= (num3 - num4 * num2))
 			{
-				projectile.ai[1] = 0f;
+				Projectile.ai[1] = 0f;
 				flag = true;
 			}
-			if (projectile.ai[1] == 1f && projectile.ai[0] != 1f)
+			if (Projectile.ai[1] == 1f && Projectile.ai[0] != 1f)
 			{
 				Vector2 vector2 = Vector2.UnitX * 24f;
-				vector2 = vector2.RotatedBy(projectile.rotation - num);
-				Vector2 value = projectile.Center + vector2;
+				vector2 = vector2.RotatedBy(Projectile.rotation - num);
+				Vector2 value = Projectile.Center + vector2;
 				for (int i = 0; i < 3; i++)
 				{
-					int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, 6, projectile.velocity.X / 2f, projectile.velocity.Y / 2f, 100);
+					int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, 6, Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
 					Main.dust[num5].position.Y -= 0.3f;
 					Main.dust[num5].velocity *= 0.66f;
 					Main.dust[num5].noGravity = true;
 					Main.dust[num5].scale = 1.4f;
 				}
 			}
-			if (flag && Main.myPlayer == projectile.owner)
+			if (flag && Main.myPlayer == Projectile.owner)
 			{
 				if (player.channel && !player.noItems && !player.CCed)
 				{
-					float scaleFactor = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
+					float scaleFactor = player.inventory[player.selectedItem].shootSpeed * Projectile.scale;
 					Vector2 vector3 = vector;
 					Vector2 value2 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY) - vector3;
 					if (player.gravDir == -1f)
@@ -88,51 +89,51 @@ namespace AAMod.Projectiles
 						vector4 = -Vector2.UnitY;
 					}
 					vector4 *= scaleFactor;
-					if (vector4.X != projectile.velocity.X || vector4.Y != projectile.velocity.Y)
+					if (vector4.X != Projectile.velocity.X || vector4.Y != Projectile.velocity.Y)
 					{
-						projectile.netUpdate = true;
+						Projectile.netUpdate = true;
 					}
-					projectile.velocity = vector4;
+					Projectile.velocity = vector4;
 				}
 			}
-			projectile.position = player.RotatedRelativePoint(player.MountedCenter, true) - projectile.Size / 2f;
-			projectile.rotation = projectile.velocity.ToRotation() + num;
-			projectile.spriteDirection = projectile.direction;
-			projectile.timeLeft = 2;
-			player.ChangeDir(projectile.direction);
-			player.heldProj = projectile.whoAmI;
+			Projectile.position = player.RotatedRelativePoint(player.MountedCenter, true) - Projectile.Size / 2f;
+			Projectile.rotation = Projectile.velocity.ToRotation() + num;
+			Projectile.spriteDirection = Projectile.direction;
+			Projectile.timeLeft = 2;
+			player.ChangeDir(Projectile.direction);
+			player.heldProj = Projectile.whoAmI;
 			player.itemTime = 2;
 			player.itemAnimation = 2;
-			player.itemRotation = (float)Math.Atan2(projectile.velocity.Y * projectile.direction, projectile.velocity.X * projectile.direction);
+			player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * Projectile.direction, Projectile.velocity.X * Projectile.direction);
 
 			counter++;
 
             if (counter >= 80)
             {
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 13);
+				SoundEngine.PlaySound(SoundID.Item13, Projectile.position);
                 chargeLevel = 2;
             }
             else if (counter >= 40)
             {
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 13);
+				SoundEngine.PlaySound(SoundID.Item13, Projectile.position);
                 chargeLevel = 1;
             }
             else
             {
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 13);
+				SoundEngine.PlaySound(SoundID.Item13, Projectile.position);
                 chargeLevel = 0;
             }
 
             if (!player.channel)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-			Player player = Main.player[projectile.owner];
-            if (projectile.owner == Main.myPlayer)
+			Player player = Main.player[Projectile.owner];
+            if (Projectile.owner == Main.myPlayer)
             {
 				float num1 = 12f;
 				Vector2 vector2 = new Vector2(player.position.X + player.width * 0.5f, player.position.Y + player.height * 0.5f);
@@ -152,20 +153,20 @@ namespace AAMod.Projectiles
 					num5 = num1 / num4;
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
-                Main.PlaySound(SoundID.Item5, projectile.Center);
+                SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);
                 switch (chargeLevel)
                 {
                     case 0:
-						Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 8);
-						Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ProjectileID.Spark, projectile.damage, 1f, player.whoAmI);
+						SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
+						Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ProjectileID.Spark, Projectile.damage, 1f, player.whoAmI);
 						break;
 					case 1:
-						Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 88);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, mod.ProjectileType("Spark2"), (int)(projectile.damage * 1.5), 3f, player.whoAmI);
+						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("Spark2").Type, (int)(Projectile.damage * 1.5), 3f, player.whoAmI);
 						break;
 					case 2:
-						Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 88);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, mod.ProjectileType("Spark3"), projectile.damage * 2, 6f, player.whoAmI);
+						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("Spark3").Type, Projectile.damage * 2, 6f, player.whoAmI);
 						break;
                 }
             }

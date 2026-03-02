@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
@@ -9,27 +10,26 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Independence");
-			Tooltip.SetDefault("Shoots 3 firework rockets"
-			+"\nCelebration EX");
+			// DisplayName.SetDefault("Independence");
+			/* Tooltip.SetDefault("Shoots 3 firework rockets"
+			+"\nCelebration EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(3546);
-			item.damage = 375;
+			Item.CloneDefaults(3546);
+			Item.damage = 375;
          
 
         }
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(3546);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
 		public override Vector2? HoldoutOffset()
@@ -37,7 +37,7 @@ namespace AAMod.Items.Ranged
 			return new Vector2(-12, -6);
 		}
 		
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;

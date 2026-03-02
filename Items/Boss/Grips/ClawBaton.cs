@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using System;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Grips
 {
@@ -9,28 +11,28 @@ namespace AAMod.Items.Boss.Grips
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Claw Baton");
-            Tooltip.SetDefault(@"Summons a chaos claw to fight with you");
+            // DisplayName.SetDefault("Claw Baton");
+            // Tooltip.SetDefault(@"Summons a chaos claw to fight with you");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("ClawBaton");
-            item.damage = 14;
-            item.width = 52;
-            item.height = 52;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.knockBack = 5f;
-            item.rare = 3;
-            item.summon = true;
-            item.mana = 5;
-            item.noUseGraphic = true;
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("ClawBaton").Type;
+            Item.damage = 14;
+            Item.width = 52;
+            Item.height = 52;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.knockBack = 5f;
+            Item.rare = 3;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 5;
+            Item.noUseGraphic = true;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -38,7 +40,7 @@ namespace AAMod.Items.Boss.Grips
             return true;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
@@ -52,19 +54,19 @@ namespace AAMod.Items.Boss.Grips
                     switch (shootMe)
                     {
                         case 0:
-                            shootMe = mod.ProjectileType("HydraClaw");
+                            shootMe = Mod.Find<ModProjectile>("HydraClaw").Type;
                             break;
                         default:
-                            shootMe = mod.ProjectileType("DragonClaw");
+                            shootMe = Mod.Find<ModProjectile>("DragonClaw").Type;
                             break;
                     }
                 }
                 int i = Main.myPlayer;
-                float num72 = item.shootSpeed;
+                float num72 = Item.shootSpeed;
                 int num73 = damage;
                 float num74 = knockBack;
-                num74 = player.GetWeaponKnockback(item, num74);
-                player.itemTime = item.useTime;
+                num74 = player.GetWeaponKnockback(Item, num74);
+                player.itemTime = Item.useTime;
                 Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
                 float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
                 float num79 = Main.mouseY + Main.screenPosition.Y - vector2.Y;

@@ -10,30 +10,30 @@ namespace AAMod.Items.Magic
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Mana Rose");
-            Tooltip.SetDefault(@"Pretty in Pink
-Right Clicking fires a piercing rose");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+            // DisplayName.SetDefault("True Mana Rose");
+            /* Tooltip.SetDefault(@"Pretty in Pink
+Right Clicking fires a piercing rose"); */
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 100;
-			item.magic = true;
-			item.mana = 14;
-			item.width = 68;
-			item.height = 60;
-			item.useTime = 13;
-			item.useAnimation = 13;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 5;
-			item.value = 100000;
-			item.rare = 8;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("TrueManaShot");
-			item.shootSpeed = 10f;
+			Item.damage = 100;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 14;
+			Item.width = 68;
+			Item.height = 60;
+			Item.useTime = 13;
+			Item.useAnimation = 13;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 5;
+			Item.value = 100000;
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("TrueManaShot").Type;
+			Item.shootSpeed = 10f;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -45,32 +45,31 @@ Right Clicking fires a piercing rose");
         {
             if (player.altFunctionUse == 2)
             {
-                item.shoot = mod.ProjectileType("TrueManaRose");
-                item.damage = 30;
-                item.useTime = 40;
-                item.useAnimation = 40;
-                item.knockBack = 1;
+                Item.shoot = Mod.Find<ModProjectile>("TrueManaRose").Type;
+                Item.damage = 30;
+                Item.useTime = 40;
+                Item.useAnimation = 40;
+                Item.knockBack = 1;
             }
             else
             {
-                item.shoot = mod.ProjectileType("TrueManaShot");
-                item.damage = 100;
-                item.useTime = 13;
-                item.useAnimation = 13;
-                item.knockBack = 5;
+                Item.shoot = Mod.Find<ModProjectile>("TrueManaShot").Type;
+                Item.damage = 100;
+                Item.useTime = 13;
+                Item.useAnimation = 13;
+                Item.knockBack = 5;
             }
             return base.CanUseItem(player);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ManaRose", 1);
             recipe.AddIngredient(null, "PlanteraPetal", 10);
-            recipe.AddIngredient(mod, "HeroShards", 1);
+            recipe.AddIngredient(Mod, "HeroShards", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override Vector2? HoldoutOffset()

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -10,25 +11,25 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.HornetStinger);
-			projectile.magic = true;
-            projectile.penetrate = 3;  
-            projectile.width = 16;
-            projectile.height = 16;
+            Projectile.CloneDefaults(ProjectileID.HornetStinger);
+			Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = 3;  
+            Projectile.width = 16;
+            Projectile.height = 16;
         }
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			List<NPC> list = new List<NPC>();
 			for (int i = 0; i < 200; i++)
 			{
 				NPC nPC = Main.npc[i];
-				if (nPC.CanBeChasedBy(this, false) && projectile.Distance(nPC.Center) < 800f)
+				if (nPC.CanBeChasedBy(this, false) && Projectile.Distance(nPC.Center) < 800f)
 				{
 					list.Add(nPC);
 				}
 			}
-			Vector2 center = projectile.Center;
+			Vector2 center = Projectile.Center;
 			Vector2 value = Vector2.Zero;
 			if (list.Count > 0)
 			{
@@ -40,29 +41,29 @@ namespace AAMod.Projectiles
 			Vector2 vector = new Vector2(num * (4f + Main.rand.Next(3)), 0f);
 			Vector2 vector2 = center + new Vector2(-(float)num * 120, 0f);
 			vector += (center + value * 15f - vector2).SafeNormalize(Vector2.Zero) * 2f;
-			int p = Projectile.NewProjectile(vector2, vector, 700, projectile.damage/2, 0f, projectile.owner, 0f, 0f);
-			Main.projectile[p].melee = false;
-			Main.projectile[p].magic = true;
+			int p = Projectile.NewProjectile(vector2, vector, 700, Projectile.damage/2, 0f, Projectile.owner, 0f, 0f);
+			Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Main.projectile[p].DamageType = DamageClass.Magic;
 		}
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 6, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 6, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
                 Main.dust[num469].velocity *= 2f;
             }
         }
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("DragonP");
+            // DisplayName.SetDefault("DragonP");
     }
 
     }

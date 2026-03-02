@@ -7,20 +7,20 @@ namespace AAMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shark");
-			Main.projFrames[projectile.type] = 4;
+			// DisplayName.SetDefault("Shark");
+			Main.projFrames[Projectile.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(190);
-			projectile.aiStyle = 39;
-			aiType = 190;
+			Projectile.CloneDefaults(190);
+			Projectile.aiStyle = 39;
+			AIType = 190;
 		}
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 4;
+			target.immune[Projectile.owner] = 4;
 		}
 	}
 }

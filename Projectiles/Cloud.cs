@@ -7,17 +7,17 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Starfury);
-            projectile.penetrate = 14;  
-            projectile.width = 14;
-            projectile.height = 18;
-            projectile.melee = false;
-            projectile.magic = true;
+            Projectile.CloneDefaults(ProjectileID.Starfury);
+            Projectile.penetrate = 14;  
+            Projectile.width = 14;
+            Projectile.height = 18;
+            Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("CGP");
+            // DisplayName.SetDefault("CGP");
         }
 
 

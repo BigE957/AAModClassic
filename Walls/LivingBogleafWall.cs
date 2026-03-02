@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class LivingBogleafWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("BogleafDust");
+			DustType = Mod.Find<ModDust>("BogleafDust").Type;
 			AddMapEntry(new Color(100, 0, 150));
 		}
 

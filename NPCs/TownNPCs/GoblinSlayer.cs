@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -20,47 +21,47 @@ namespace AAMod.NPCs.TownNPCs
 
         public override string Texture => "AAMod/NPCs/TownNPCs/GoblinSlayer";
 
-        public override bool Autoload(ref string name)
+        public override bool IsLoadingEnabled(Mod mod)
 		{
 			name = "Goblin Slayer";
-			return mod.Properties.Autoload;
+			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		}
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Goblin Slayer");
-            Main.npcFrameCount[npc.type] = 26;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 10;
-            NPCID.Sets.AttackFrameCount[npc.type] = 5;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 40;
-            NPCID.Sets.AttackAverageChance[npc.type] = 20;
-            NPCID.Sets.HatOffsetY[npc.type] = 3;
+            // DisplayName.SetDefault("Goblin Slayer");
+            Main.npcFrameCount[NPC.type] = 26;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 5;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+            NPCID.Sets.HatOffsetY[NPC.type] = 3;
         }
 
         public override void SetDefaults()
 		{
-			npc.townNPC = true;
-			npc.friendly = true;
-            npc.height = 40;
-            npc.width = 18;
-			npc.height = 40;
-			npc.aiStyle = 7;
-			npc.damage = 80;
-			npc.defense = 98;
-			npc.lifeMax = 600;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.Guide;
+			NPC.townNPC = true;
+			NPC.friendly = true;
+            NPC.height = 40;
+            NPC.width = 18;
+			NPC.height = 40;
+			NPC.aiStyle = 7;
+			NPC.damage = 80;
+			NPC.defense = 98;
+			NPC.lifeMax = 600;
+			NPC.HitSound = SoundID.NPCHit1;
+			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.Guide;
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
 		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
             {
@@ -79,7 +80,7 @@ namespace AAMod.NPCs.TownNPCs
 			return false;
 		}
 
-		public override string TownNPCName()
+		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
 			return "Goblin Slayer";
 		}
@@ -183,7 +184,7 @@ namespace AAMod.NPCs.TownNPCs
             }
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
@@ -200,7 +201,7 @@ namespace AAMod.NPCs.TownNPCs
             }
 		}
 
-		public override void SetupShop(Chest shop, ref int nextSlot)
+		public override void ModifyActiveShop(string shopName, Item[] items)
 		{
             if (Goblin)
             {
@@ -752,9 +753,9 @@ namespace AAMod.NPCs.TownNPCs
             }
         }
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Melee.GoblinSlayer>());
+			Item.NewItem(NPC.getRect(), ModContent.ItemType<Items.Melee.GoblinSlayer>());
 		}
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)

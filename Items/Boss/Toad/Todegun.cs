@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Toad
 {
@@ -9,31 +11,31 @@ namespace AAMod.Items.Boss.Toad
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Frog Lob");
+            // DisplayName.SetDefault("Frog Lob");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 59;
-            item.useStyle = 5;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.reuseDelay = 10;
-            item.shootSpeed = 8f;
-            item.knockBack = 3f;
-            item.width = 16;
-            item.height = 16;
-            item.damage = 15;
-            item.UseSound = SoundID.DD2_BetsysWrathShot;
-            item.rare = 4;
-            item.value = Item.sellPrice(0, 0, 70, 0);
-            item.noMelee = true;
-            item.ranged = true;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("ToadShot");
+			Item.damage = 59;
+            Item.useStyle = 5;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.reuseDelay = 10;
+            Item.shootSpeed = 8f;
+            Item.knockBack = 3f;
+            Item.width = 16;
+            Item.height = 16;
+            Item.damage = 15;
+            Item.UseSound = SoundID.DD2_BetsysWrathShot;
+            Item.rare = 4;
+            Item.value = Item.sellPrice(0, 0, 70, 0);
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("ToadShot").Type;
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 45f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -43,7 +45,7 @@ namespace AAMod.Items.Boss.Toad
             for (int i = 0; i < 3; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
             }
             return false;
         }

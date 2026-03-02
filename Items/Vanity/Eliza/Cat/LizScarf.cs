@@ -11,8 +11,8 @@ namespace AAMod.Items.Vanity.Eliza.Cat
        
 		{
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Midnight Scarf");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Midnight Scarf");
+            // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
 		}
 
 
@@ -21,9 +21,9 @@ namespace AAMod.Items.Vanity.Eliza.Cat
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(121, 21, 214);
+                    line2.OverrideColor = new Color(121, 21, 214);
                 }
             }
         }
@@ -31,11 +31,11 @@ namespace AAMod.Items.Vanity.Eliza.Cat
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 18;
-            item.rare = 11;
-            item.vanity = true;
-            item.accessory = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.accessory = true;
         }
     }
 }

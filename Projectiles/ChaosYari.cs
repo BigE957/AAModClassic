@@ -8,71 +8,71 @@ namespace AAMod.Projectiles
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chaos Yari");
+			// DisplayName.SetDefault("Chaos Yari");
 		}
     	
         public override void SetDefaults()
         {
-			projectile.width = 40;  //The width of the .png file in pixels divided by 2.
-			projectile.aiStyle = 19;
-			projectile.melee = true;  //Dictates whether this is a melee-class weapon.
-			projectile.timeLeft = 90;
-			projectile.height = 40;  //The height of the .png file in pixels divided by 2.
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.tileCollide = false;
-			projectile.ignoreWater = true;
-			projectile.penetrate = -1;
-			projectile.ownerHitCheck = true;
-			projectile.hide = true;
+			Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
+			Projectile.aiStyle = 19;
+			Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
+			Projectile.timeLeft = 90;
+			Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.tileCollide = false;
+			Projectile.ignoreWater = true;
+			Projectile.penetrate = -1;
+			Projectile.ownerHitCheck = true;
+			Projectile.hide = true;
         }
 
         public override void AI()
         {
-        	Main.player[projectile.owner].direction = projectile.direction;
-        	Main.player[projectile.owner].heldProj = projectile.whoAmI;
-        	Main.player[projectile.owner].itemTime = Main.player[projectile.owner].itemAnimation;
-        	projectile.position.X = Main.player[projectile.owner].position.X + Main.player[projectile.owner].width / 2 - projectile.width / 2;
-        	projectile.position.Y = Main.player[projectile.owner].position.Y + Main.player[projectile.owner].height / 2 - projectile.height / 2;
-        	projectile.position += projectile.velocity * projectile.ai[0];
+        	Main.player[Projectile.owner].direction = Projectile.direction;
+        	Main.player[Projectile.owner].heldProj = Projectile.whoAmI;
+        	Main.player[Projectile.owner].itemTime = Main.player[Projectile.owner].itemAnimation;
+        	Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
+        	Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
+        	Projectile.position += Projectile.velocity * Projectile.ai[0];
         	if (Main.rand.Next(5) == 0)
             {
-            	Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
-        	if(projectile.ai[0] == 0f)
+        	if(Projectile.ai[0] == 0f)
         	{
-        		projectile.ai[0] = 3f;
-        		projectile.netUpdate = true;
+        		Projectile.ai[0] = 3f;
+        		Projectile.netUpdate = true;
         	}
-        	if(Main.player[projectile.owner].itemAnimation < Main.player[projectile.owner].itemAnimationMax / 3)
+        	if(Main.player[Projectile.owner].itemAnimation < Main.player[Projectile.owner].itemAnimationMax / 3)
         	{
-        		projectile.ai[0] -= 2.4f;
-				if (projectile.localAI[0] == 0f && Main.myPlayer == projectile.owner && !AAGlobalProjectile.AnyProjectiles(mod.ProjectileType("ChaosYariShot")))
+        		Projectile.ai[0] -= 2.4f;
+				if (Projectile.localAI[0] == 0f && Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(Mod.Find<ModProjectile>("ChaosYariShot").Type))
 				{
-					projectile.localAI[0] = 1f;
-					Projectile.NewProjectile(Main.player[projectile.owner].position.X, Main.player[projectile.owner].position.Y, projectile.velocity.X * 1.4f, projectile.velocity.Y * 1.4f, mod.ProjectileType("ChaosYariShot"), (int)((double)projectile.damage * 0.85f), projectile.knockBack * 0.85f, projectile.owner, 0f, 0f);
+					Projectile.localAI[0] = 1f;
+					Projectile.NewProjectile(Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, Projectile.velocity.X * 1.4f, Projectile.velocity.Y * 1.4f, Mod.Find<ModProjectile>("ChaosYariShot").Type, (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
 				}
         	}
         	else
         	{
-        		projectile.ai[0] += 0.95f;
+        		Projectile.ai[0] += 0.95f;
         	}
         	
-        	if(Main.player[projectile.owner].itemAnimation == 0)
+        	if(Main.player[Projectile.owner].itemAnimation == 0)
         	{
-        		projectile.Kill();
+        		Projectile.Kill();
         	}
         	
-        	projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 2.355f;
-        	if(projectile.spriteDirection == -1)
+        	Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 2.355f;
+        	if(Projectile.spriteDirection == -1)
         	{
-        		projectile.rotation -= 1.57f;
+        		Projectile.rotation -= 1.57f;
         	}
         }
         
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.immune[projectile.owner] = 5;
+        	target.immune[Projectile.owner] = 5;
         }
     }
 }

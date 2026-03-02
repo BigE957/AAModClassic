@@ -4,8 +4,8 @@ namespace AAMod.Items.Flasks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lovecraftian's Research List");
-            Tooltip.SetDefault(@"I need these things, please!
+            // DisplayName.SetDefault("Lovecraftian's Research List");
+            /* Tooltip.SetDefault(@"I need these things, please!
 1. Something from that biosphere underground. A crystal from it could work...
 2. Flesh samples from the corruption. I want to see what those things are made of.
 3. A bone sample from the crimson. I'm wondering how their bone structure works.
@@ -17,15 +17,15 @@ namespace AAMod.Items.Flasks
 9. A  piece of scrap metal from those floating islands west of here. That stuff looks interesting to make equipment with.
 10. An Ice machine would be kind of nice to have.
 11. Bunnies. Not for testing purposes, I just think they're cute and want a couple as pets.
-12. Something sparkly from the Hallow. I wonder if I can use it to make more potions...");
+12. Something sparkly from the Hallow. I wonder if I can use it to make more potions..."); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
-            item.value = 0;
-            item.rare = 0;
+            Item.width = 22;
+            Item.height = 22;
+            Item.value = 0;
+            Item.rare = 0;
         }
     }
 }

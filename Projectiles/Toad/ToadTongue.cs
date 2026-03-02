@@ -10,16 +10,16 @@ namespace AAMod.Projectiles.Toad
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Toad Tongue");
+			// DisplayName.SetDefault("Toad Tongue");
 		}
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 20;
-            projectile.friendly = true;
-            projectile.penetrate = -1; 
-            projectile.melee = true;
-            projectile.knockBack = 0;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1; 
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.knockBack = 0;
         }
 		
 		public override void AI()
@@ -28,104 +28,104 @@ namespace AAMod.Projectiles.Toad
             {
                 Dust dust1;
                 Dust dust2;
-                Vector2 position = projectile.position;
-                dust1 = Main.dust[Dust.NewDust(position, projectile.width, projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
-                dust2 = Main.dust[Dust.NewDust(position, projectile.width, projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
+                dust2 = Main.dust[Dust.NewDust(position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0, 0, 0, default, 1f)];
                 dust1.noGravity = true;
                 dust2.noGravity = true;
             }
-            if (projectile.timeLeft == 120)
+            if (Projectile.timeLeft == 120)
             {
-                projectile.ai[0] = 1f;
+                Projectile.ai[0] = 1f;
             }
 
-            if (Main.player[projectile.owner].dead)
+            if (Main.player[Projectile.owner].dead)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
 
-            Main.player[projectile.owner].itemAnimation = 5;
-            Main.player[projectile.owner].itemTime = 5;
+            Main.player[Projectile.owner].itemAnimation = 5;
+            Main.player[Projectile.owner].itemTime = 5;
 
-            if (projectile.alpha == 0)
+            if (Projectile.alpha == 0)
             {
-                if (projectile.position.X + (projectile.width / 2) > Main.player[projectile.owner].position.X + (Main.player[projectile.owner].width / 2))
+                if (Projectile.position.X + (Projectile.width / 2) > Main.player[Projectile.owner].position.X + (Main.player[Projectile.owner].width / 2))
                 {
-                    Main.player[projectile.owner].ChangeDir(1);
+                    Main.player[Projectile.owner].ChangeDir(1);
                 }
                 else
                 {
-                    Main.player[projectile.owner].ChangeDir(-1);
+                    Main.player[Projectile.owner].ChangeDir(-1);
                 }
             }
-            Vector2 vector14 = new Vector2(projectile.position.X + (projectile.width * 0.5f), projectile.position.Y + (projectile.height * 0.5f));
-            float num166 = Main.player[projectile.owner].position.X + (Main.player[projectile.owner].width / 2) - vector14.X;
-            float num167 = Main.player[projectile.owner].position.Y + (Main.player[projectile.owner].height / 2) - vector14.Y;
+            Vector2 vector14 = new Vector2(Projectile.position.X + (Projectile.width * 0.5f), Projectile.position.Y + (Projectile.height * 0.5f));
+            float num166 = Main.player[Projectile.owner].position.X + (Main.player[Projectile.owner].width / 2) - vector14.X;
+            float num167 = Main.player[Projectile.owner].position.Y + (Main.player[Projectile.owner].height / 2) - vector14.Y;
             float num168 = (float)Math.Sqrt((num166 * num166) + (num167 * num167));
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
                 if (num168 > 700f)
                 {
-                    projectile.ai[0] = 1f;
+                    Projectile.ai[0] = 1f;
                 }
                 else if (num168 > 500f)
                 {
-                    projectile.ai[0] = 1f;
+                    Projectile.ai[0] = 1f;
                 }
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-                projectile.ai[1] += 1f;
-                if (projectile.ai[1] > 5f)
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+                Projectile.ai[1] += 1f;
+                if (Projectile.ai[1] > 5f)
                 {
-                    projectile.alpha = 0;
+                    Projectile.alpha = 0;
                 }
-                if (projectile.ai[1] > 8f)
+                if (Projectile.ai[1] > 8f)
                 {
-                    projectile.ai[1] = 8f;
+                    Projectile.ai[1] = 8f;
                 }
-                if (projectile.ai[1] >= 10f)
+                if (Projectile.ai[1] >= 10f)
                 {
-                    projectile.ai[1] = 15f;
-                    projectile.velocity.Y = projectile.velocity.Y + 0.3f;
+                    Projectile.ai[1] = 15f;
+                    Projectile.velocity.Y = Projectile.velocity.Y + 0.3f;
                 }
-                if (projectile.velocity.X < 0f)
+                if (Projectile.velocity.X < 0f)
                 {
-                    projectile.spriteDirection = -1;
+                    Projectile.spriteDirection = -1;
                 }
                 else
                 {
-                    projectile.spriteDirection = 1;
+                    Projectile.spriteDirection = 1;
                 }
             }
-            else if (projectile.ai[0] == 1f)
+            else if (Projectile.ai[0] == 1f)
             {
-                projectile.tileCollide = false;
-                projectile.rotation = (float)Math.Atan2(num167, num166) - 1.57f;
+                Projectile.tileCollide = false;
+                Projectile.rotation = (float)Math.Atan2(num167, num166) - 1.57f;
                 float num169 = 30f;
 
                 if (num168 < 50f)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
                 num168 = num169 / num168;
                 num166 *= num168;
                 num167 *= num168;
-                projectile.velocity.X = num166;
-                projectile.velocity.Y = num167;
-                if (projectile.velocity.X < 0f)
+                Projectile.velocity.X = num166;
+                Projectile.velocity.Y = num167;
+                if (Projectile.velocity.X < 0f)
                 {
-                    projectile.spriteDirection = 1;
+                    Projectile.spriteDirection = 1;
                 }
                 else
                 {
-                    projectile.spriteDirection = -1;
+                    Projectile.spriteDirection = -1;
                 }
 
             }
             //Spew eyes
-            if ((int)projectile.ai[1] % 8 == 0 && projectile.owner == Main.myPlayer && Main.rand.Next(50) == 0) //higher # means later on in the attack
+            if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.Next(50) == 0) //higher # means later on in the attack
             {
-                Vector2 vector54 = Main.player[projectile.owner].Center - projectile.Center;
+                Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
                 Vector2 vector55 = vector54 * -1f;
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
@@ -134,13 +134,13 @@ namespace AAMod.Projectiles.Toad
             }
         }
 		
-		public override void OnHitNPC (NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             float TargetVelocity = 0;
             if (!target.boss)
             {
-                if (projectile.ai[0] == 1f)
+                if (Projectile.ai[0] == 1f)
                 {
                     if (player.Center.X > target.Center.X)
                     {
@@ -155,7 +155,7 @@ namespace AAMod.Projectiles.Toad
             }
         }
 		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 16;
             height = 16;
@@ -164,18 +164,18 @@ namespace AAMod.Projectiles.Toad
 		
 		public override bool OnTileCollide (Vector2 oldVelocity)
 		{
-			projectile.ai[0] = 1f;
+			Projectile.ai[0] = 1f;
 			return false;
 		}
 		
  
         // chain voodoo
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         { 
-            Texture2D texture = mod.GetTexture("Chains/ToadTongue_Chain");
+            Texture2D texture = Mod.GetTexture("Chains/ToadTongue_Chain");
  
-            Vector2 position = projectile.Center;
-            Vector2 mountedCenter = Main.player[projectile.owner].MountedCenter;
+            Vector2 position = Projectile.Center;
+            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
             Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             float num1 = texture.Height;
@@ -199,7 +199,7 @@ namespace AAMod.Projectiles.Toad
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
                     Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = projectile.GetAlpha(color2);
+                    color2 = Projectile.GetAlpha(color2);
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
                 }
             }

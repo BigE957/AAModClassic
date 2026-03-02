@@ -8,39 +8,39 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.penetrate = 2;  
-            projectile.width = 20;
-            projectile.height = 20;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 900;
-            projectile.melee = false;
-            projectile.ranged = true;
+            Projectile.penetrate = 2;  
+            Projectile.width = 20;
+            Projectile.height = 20;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 900;
+            Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 		
 		public override void AI()
 		{
-            int num469 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), -projectile.velocity.X * 0.2f,
-                       -projectile.velocity.Y * 0.2f, 46);
+            int num469 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
+                       -Projectile.velocity.Y * 0.2f, 46);
             Main.dust[num469].noGravity = true;
             Main.dust[num469].velocity *= 2f;
-            projectile.rotation += .02f;
+            Projectile.rotation += .02f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 10;
             const float desiredFlySpeedInPixelsPerFrame = 5;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -54,13 +54,13 @@ namespace AAMod.Projectiles
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -68,16 +68,16 @@ namespace AAMod.Projectiles
 
             return selectedTarget;
         }
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 46, default, 1.184211f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 46, default, 1.184211f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 46, default, 1.184211f);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 46, default, 1.184211f);
                 Main.dust[num469].velocity *= 2f;
             }
         }
@@ -85,7 +85,7 @@ namespace AAMod.Projectiles
 
         public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Vortex");
+		    // DisplayName.SetDefault("Vortex");
 		}
 
 

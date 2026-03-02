@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace AAMod
 {
@@ -105,7 +106,7 @@ namespace AAMod
 
         #endregion
 
-        public override bool Drop(int i, int j, int type)
+        public override void Drop(int i, int j, int type)/* tModPorter Suggestion: Use CanDrop to decide if items can drop, use this method to drop additional items. See documentation. */
         {
             if (type == TileID.Dirt && TileID.Sets.BreakableWhenPlacing[TileID.Dirt]) //placing grass
             {
@@ -186,12 +187,12 @@ namespace AAMod
 
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
-            if (Main.tile[i, j - 1].active() && (Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].type != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].type != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].active() && (Main.tile[i, j - 1].type == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].type == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].type != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].type != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
             {
                 return false;
             }
@@ -201,7 +202,7 @@ namespace AAMod
 
         public override bool CanExplode(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].active() && (Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].type != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].type != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
             {
                 return false;
             }
@@ -211,12 +212,12 @@ namespace AAMod
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].active() && (Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].type == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].type != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].type != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].active() && (Main.tile[i, j - 1].type == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].type == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].type != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].type != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
             {
                 return false;
             }
@@ -226,41 +227,41 @@ namespace AAMod
 
         public override void RandomUpdate(int i, int j, int type)
         {
-            if (Main.tile[i, j].type == TileID.MushroomGrass)
+            if (Main.tile[i, j].TileType == TileID.MushroomGrass)
             {
-                if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(1000) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1000) == 0)
                 {
                     int style = Main.rand.Next(5);
 
                     if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom>(), false, style))
                     {
-                        NetMessage.SendObjectPlacment(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
                     }
                 }
             }
 
-            if (Main.tile[i, j].type == TileID.Grass && Main.hardMode)
+            if (Main.tile[i, j].TileType == TileID.Grass && Main.hardMode)
             {
-                if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(800) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(800) == 0)
                 {
                     if (PlaceObject(i, j - 1, ModContent.TileType<Carrot>(), false, 0))
                     {
-                        NetMessage.SendObjectPlacment(-1, i, j - 1, ModContent.TileType<Carrot>(), 0, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot>(), 0, 0, -1, -1);
                     }
                 }
             }
 
             if(Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().StripeManSpawn)
             {
-                if(Main.rand.Next(800) == 0 && j >= WorldGen.worldSurfaceLow)
+                if(Main.rand.Next(800) == 0 && j >= GenVars.worldSurfaceLow)
                 {
-                    if (Main.tile[i, j + 1].active() && Main.tileSolid[Main.tile[i, j].type] && !Main.tile[i, j - 1].lava())
+                    if (Main.tile[i, j + 1].HasTile && Main.tileSolid[Main.tile[i, j].TileType] && !Main.tile[i, j - 1].lava())
                     {
                         int style = WorldGen.genRand.Next(0, 4);
                         int tiletype = 0;
                         if (j < Main.maxTilesY - 5)
                         {
-                            tiletype = Main.tile[i, j + 1].type;
+                            tiletype = Main.tile[i, j + 1].TileType;
                         }
                         if (tiletype == 147 || tiletype == 161 || tiletype == 162)
                         {
@@ -270,7 +271,7 @@ namespace AAMod
                         {
                             style = WorldGen.genRand.Next(7, 10);
                         }
-                        if (Main.wallDungeon[Main.tile[i, j].wall])
+                        if (Main.wallDungeon[Main.tile[i, j].WallType])
                         {
                             style = WorldGen.genRand.Next(10, 13);
                         }
@@ -300,7 +301,7 @@ namespace AAMod
                         }
                         if (WorldGen.PlacePot(i, j, 28, style))
                         {
-                            NetMessage.SendObjectPlacment(-1, i, j, 28, 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacement(-1, i, j, 28, 0, 0, -1, -1);
                         }
                     }
                 }
@@ -366,7 +367,7 @@ namespace AAMod
                         k -= 1;
                     }
                 }
-                else if (Main.tile[i, j].liquid > 0)
+                else if (Main.tile[i, j].LiquidAmount > 0)
                 {
                     int rand = WorldGen.genRand.Next(3);
                     if (rand == 0)
@@ -752,7 +753,7 @@ namespace AAMod
 				float chance = Config.LuckyOre[itemtype];
                 chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
                 chance = chance/ChanceBalance * 100f;
-                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == mod.ItemType("Abyssium") || itemtype == mod.ItemType("Incinerite") || itemtype == mod.ItemType("Apocalyptite")))
+                if(chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == Mod.Find<ModItem>("Abyssium").Type || itemtype == Mod.Find<ModItem>("Incinerite").Type || itemtype == Mod.Find<ModItem>("Apocalyptite").Type))
                 {
                     if(Utils.NextFloat(Main.rand, SecondDrop) < 1)
                     {
@@ -772,23 +773,23 @@ namespace AAMod
                         return itemtype;
                     }
                 }
-                else if(itemtype == mod.ItemType("Abyssium"))
+                else if(itemtype == Mod.Find<ModItem>("Abyssium").Type)
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == mod.TileType("Depthstone"))
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Depthstone").Type)
                     {
                         return itemtype;
                     }
                 }
-                else if(itemtype == mod.ItemType("Incinerite"))
+                else if(itemtype == Mod.Find<ModItem>("Incinerite").Type)
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == mod.TileType("Torchstone"))
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Torchstone").Type)
                     {
                         return itemtype;
                     }
                 }
-                else if(itemtype == mod.ItemType("Apocalyptite"))
+                else if(itemtype == Mod.Find<ModItem>("Apocalyptite").Type)
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == mod.TileType("Doomstone") && AAWorld.downedZero)
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == Mod.Find<ModTile>("Doomstone").Type && AAWorld.downedZero)
                     {
                         return itemtype;
                     }

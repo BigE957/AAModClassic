@@ -4,7 +4,7 @@
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blade of Abyssal Wrath");
+			// DisplayName.SetDefault("Blade of Abyssal Wrath");
 		}
 
         public override void SetDefaults()

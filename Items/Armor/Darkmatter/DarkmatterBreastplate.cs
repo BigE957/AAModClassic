@@ -13,21 +13,21 @@ namespace AAMod.Items.Armor.Darkmatter
         public override void SetStaticDefaults()
         {
             
-			DisplayName.SetDefault("Darkmatter Breastplate");
-			Tooltip.SetDefault(@"20% increased damage
-Dark, yet still barely visible");
+			// DisplayName.SetDefault("Darkmatter Breastplate");
+			/* Tooltip.SetDefault(@"20% increased damage
+Dark, yet still barely visible"); */
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -41,11 +41,11 @@ Dark, yet still barely visible");
 
         public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 300000;
-			item.defense = 36;
-            item.rare = 9;
+			Item.width = 30;
+			Item.height = 20;
+			Item.value = 300000;
+			Item.defense = 36;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -53,26 +53,25 @@ Dark, yet still barely visible");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-			player.allDamage += .20f;
+			player.GetDamage(DamageClass.Generic) += .20f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "DarkMatter", 30);
             recipe.AddIngredient(null, "DarkEnergy", 20);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

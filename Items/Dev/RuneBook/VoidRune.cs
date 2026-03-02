@@ -9,36 +9,36 @@ namespace AAMod.Items.Dev.RuneBook
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Rune");
+            // DisplayName.SetDefault("Void Rune");
         }
         public override void SetDefaults()
         {
-            projectile.width = 24;
-            projectile.height = 20;
-            projectile.timeLeft = 18000;
-            projectile.timeLeft *= 5;
-            projectile.minionSlots = 0f;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.timeLeft *= 5;
-            projectile.minion = true;
-            projectile.netImportant = true;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.damage = 100;
+            Projectile.width = 24;
+            Projectile.height = 20;
+            Projectile.timeLeft = 18000;
+            Projectile.timeLeft *= 5;
+            Projectile.minionSlots = 0f;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft *= 5;
+            Projectile.minion = true;
+            Projectile.netImportant = true;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.damage = 100;
         }
         int maxlife = 0;
         int target = -1;
         public override void AI()
         {
-            Lighting.AddLight((int)(projectile.position.X + projectile.width / 2) / 16, (int)(projectile.position.Y + projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            bool flag64 = projectile.type == mod.ProjectileType("VoidRune");
-            Player player = Main.player[projectile.owner];
+            Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
+            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("VoidRune").Type;
+            Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(mod.BuffType("CCRune"), 3600);
+            player.AddBuff(Mod.Find<ModBuff>("CCRune").Type, 3600);
             if (!modPlayer.CCBookEX)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
             if (flag64)
@@ -49,7 +49,7 @@ namespace AAMod.Items.Dev.RuneBook
                 }
                 if (modPlayer.CCRune || modPlayer.CCBookEX)
                 {
-                    projectile.timeLeft = 2;
+                    Projectile.timeLeft = 2;
                 }
             }
             
@@ -60,41 +60,41 @@ namespace AAMod.Items.Dev.RuneBook
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == mod.ProjectileType("VoidRune");
-                if (num638 != projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == projectile.owner && flag23 && Math.Abs(projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num638].position.Y) < projectile.width)
+                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("VoidRune").Type;
+                if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
-                    if (projectile.position.X < Main.projectile[num638].position.X)
+                    if (Projectile.position.X < Main.projectile[num638].position.X)
                     {
-                        projectile.velocity.X = projectile.velocity.X - num637;
+                        Projectile.velocity.X = Projectile.velocity.X - num637;
                     }
                     else
                     {
-                        projectile.velocity.X = projectile.velocity.X + num637;
+                        Projectile.velocity.X = Projectile.velocity.X + num637;
                     }
-                    if (projectile.position.Y < Main.projectile[num638].position.Y)
+                    if (Projectile.position.Y < Main.projectile[num638].position.Y)
                     {
-                        projectile.velocity.Y = projectile.velocity.Y - num637;
+                        Projectile.velocity.Y = Projectile.velocity.Y - num637;
                     }
                     else
                     {
-                        projectile.velocity.Y = projectile.velocity.Y + num637;
+                        Projectile.velocity.Y = Projectile.velocity.Y + num637;
                     }
                 }
             }
             bool flag24 = false;
-            if (projectile.ai[0] == 2f)
+            if (Projectile.ai[0] == 2f)
             {
-                projectile.ai[1] += 1f;
-                projectile.extraUpdates = 1;
-                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                Projectile.ai[1] += 1f;
+                Projectile.extraUpdates = 1;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
                 
-                if (projectile.ai[1] > 40f)
+                if (Projectile.ai[1] > 40f)
                 {
-                    projectile.ai[1] = 1f;
-                    projectile.ai[0] = 0f;
-                    projectile.extraUpdates = 0;
-                    projectile.numUpdates = 0;
-                    projectile.netUpdate = true;
+                    Projectile.ai[1] = 1f;
+                    Projectile.ai[0] = 0f;
+                    Projectile.extraUpdates = 0;
+                    Projectile.numUpdates = 0;
+                    Projectile.netUpdate = true;
                 }
                 else
                 {
@@ -106,22 +106,22 @@ namespace AAMod.Items.Dev.RuneBook
                 return;
             }
             bool flag25 = false;
-            Vector2 vector46 = projectile.position;
-            if (projectile.ai[0] != 1f)
+            Vector2 vector46 = Projectile.position;
+            if (Projectile.ai[0] != 1f)
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
-            if (projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)projectile.Center.X / 16, (int)projectile.Center.Y / 16)))
+            if (Projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16)))
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
             for (int num645 = 0; num645 < 200; num645++)
             {
                 NPC nPC2 = Main.npc[num645];
-                if (nPC2.CanBeChasedBy(projectile, false))
+                if (nPC2.CanBeChasedBy(Projectile, false))
                 {
-                    float num646 = Vector2.Distance(nPC2.Center, projectile.Center);
-                    if ((num646 < num633 && Main.npc[num645].life > maxlife) && nPC2.active && nPC2.life > 0 && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
+                    if ((num646 < num633 && Main.npc[num645].life > maxlife) && nPC2.active && nPC2.life > 0 && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         maxlife = Main.npc[num645].life;
                         target = num645;
@@ -138,15 +138,15 @@ namespace AAMod.Items.Dev.RuneBook
             {
                 num647 = num635;
             }
-            if (Vector2.Distance(player.Center, projectile.Center) > num647)
+            if (Vector2.Distance(player.Center, Projectile.Center) > num647)
             {
-                projectile.ai[0] = 1f;
-                projectile.tileCollide = false;
-                projectile.netUpdate = true;
+                Projectile.ai[0] = 1f;
+                Projectile.tileCollide = false;
+                Projectile.netUpdate = true;
             }
-            if (flag25 && projectile.ai[0] == 0f)
+            if (flag25 && Projectile.ai[0] == 0f)
             {
-                Vector2 vector = vector46 - projectile.Center - new Vector2(0, 50f + Main.npc[target].height/2);
+                Vector2 vector = vector46 - Projectile.Center - new Vector2(0, 50f + Main.npc[target].height/2);
                 float num639 = 7f;
                 if (vector.Length() > 200f && num639 < 10f)
                 {
@@ -156,18 +156,18 @@ namespace AAMod.Items.Dev.RuneBook
                 {
                     vector.Normalize();
                     vector *= num639;
-                    projectile.velocity = (projectile.velocity * 40f + vector) / 41f;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
                 }
-                else if(vector.Length() < 40f && (projectile.velocity.X != 0f || projectile.velocity.Y != 0f))
+                else if(vector.Length() < 40f && (Projectile.velocity.X != 0f || Projectile.velocity.Y != 0f))
                 {
                     vector.Normalize();
                     vector *= num639;
-                    projectile.velocity = (projectile.velocity + vector * 40f) / 41f;
+                    Projectile.velocity = (Projectile.velocity + vector * 40f) / 41f;
                 }
-                if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+                if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
                 {
-                    projectile.velocity.X = -0.02f;
-                    projectile.velocity.Y = -0.01f;
+                    Projectile.velocity.X = -0.02f;
+                    Projectile.velocity.Y = -0.01f;
                 }
             }
             else
@@ -175,67 +175,67 @@ namespace AAMod.Items.Dev.RuneBook
                 bool flag26 = false;
                 if (!flag26)
                 {
-                    flag26 = projectile.ai[0] == 1f;
+                    flag26 = Projectile.ai[0] == 1f;
                 }
                 float num650 = 6f;
                 if (flag26)
                 {
                     num650 = 15f;
                 }
-                Vector2 center2 = projectile.Center;
+                Vector2 center2 = Projectile.Center;
                 Vector2 vector48 = player.Center - center2 + new Vector2(0f, -60f);
                 float num651 = vector48.Length();
                 if (num651 > 200f && num650 < 8f)
                 {
                     num650 = 8f;
                 }
-                if (num651 < num636 && flag26 && !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+                if (num651 < num636 && flag26 && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
                 {
-                    projectile.ai[0] = 0f;
-                    projectile.netUpdate = true;
+                    Projectile.ai[0] = 0f;
+                    Projectile.netUpdate = true;
                 }
                 if (num651 > 2000f)
                 {
-                    projectile.position.X = Main.player[projectile.owner].Center.X - projectile.width / 2;
-                    projectile.position.Y = Main.player[projectile.owner].Center.Y - projectile.height / 2;
-                    projectile.netUpdate = true;
+                    Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
+                    Projectile.netUpdate = true;
                 }
                 if (num651 > 70f)
                 {
                     vector48.Normalize();
                     vector48 *= num650;
-                    projectile.velocity = (projectile.velocity * 40f + vector48) / 41f;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector48) / 41f;
                 }
-                else if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+                else if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
                 {
-                    projectile.velocity.X = -0.15f;
-                    projectile.velocity.Y = -0.05f;
+                    Projectile.velocity.X = -0.15f;
+                    Projectile.velocity.Y = -0.05f;
                 }
             }
             
-            if (projectile.ai[1] > 0f)
+            if (Projectile.ai[1] > 0f)
             {
-                projectile.ai[1] += 1;
+                Projectile.ai[1] += 1;
             }
-            if (projectile.ai[1] > 300f)
+            if (Projectile.ai[1] > 300f)
             {
-                projectile.ai[1] = 0f;
-                projectile.netUpdate = true;
+                Projectile.ai[1] = 0f;
+                Projectile.netUpdate = true;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
                 float scaleFactor3 = 8f;
-				int num658 = mod.ProjectileType("CCRuneNovaRay");
-				if (flag25 && projectile.ai[1] == 0)
+				int num658 = Mod.Find<ModProjectile>("CCRuneNovaRay").Type;
+				if (flag25 && Projectile.ai[1] == 0)
 				{
-					projectile.ai[1] += 1f;
-					if (Main.myPlayer == projectile.owner && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, vector46, 0, 0))
+					Projectile.ai[1] += 1f;
+					if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
 					{
-						Vector2 value19 = vector46 - projectile.Center;
+						Vector2 value19 = vector46 - Projectile.Center;
 						value19.Normalize();
 						value19 *= scaleFactor3;
-						int num659 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value19.X, value19.Y, num658, projectile.damage, 0f, Main.myPlayer, projectile.whoAmI, target);
-						projectile.netUpdate = true;
+						int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
+						Projectile.netUpdate = true;
 					}
 				}
             }

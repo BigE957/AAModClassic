@@ -8,18 +8,18 @@ namespace AAMod.Items.Armor.Radium
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Radium Cuisses");
-			Tooltip.SetDefault(@"30% increased movement speed
-Shines with the light of a starry night sky");
+			// DisplayName.SetDefault("Radium Cuisses");
+			/* Tooltip.SetDefault(@"30% increased movement speed
+Shines with the light of a starry night sky"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 18;
-			item.value = 300000;
-			item.defense = 20;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 18;
+			Item.value = 300000;
+			Item.defense = 20;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -27,9 +27,9 @@ Shines with the light of a starry night sky");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -43,12 +43,11 @@ Shines with the light of a starry night sky");
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiumBar", 27);
             recipe.AddIngredient(null, "Stardust", 15);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

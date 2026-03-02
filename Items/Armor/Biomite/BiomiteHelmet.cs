@@ -10,21 +10,21 @@ namespace AAMod.Items.Armor.Biomite
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Biomite Helmet");
+			// DisplayName.SetDefault("Biomite Helmet");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 24;
-			item.height = 20;
-			item.value = 7500;
-			item.rare = 2;
-			item.defense = 5;
+			Item.width = 24;
+			Item.height = 20;
+			Item.value = 7500;
+			Item.rare = 2;
+			Item.defense = 5;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("BiomitePlate") && legs.type == mod.ItemType("BiomiteBoots");
+			return body.type == Mod.Find<ModItem>("BiomitePlate").Type && legs.type == Mod.Find<ModItem>("BiomiteBoots").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -34,11 +34,10 @@ namespace AAMod.Items.Armor.Biomite
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "TerraShard", 15);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
 		public string SetBonus(Player player)
@@ -89,7 +88,7 @@ namespace AAMod.Items.Armor.Biomite
 				player.buffImmune[BuffID.WindPushed] = true;
 				set += Lang.BiomiteArmor("BiomiteArmor10");
 			}
-			if (player.ZoneHoly)
+			if (player.ZoneHallow)
 			{
 				player.buffImmune[BuffID.Slow] = true;
 				player.lifeRegen += 3;
@@ -103,7 +102,7 @@ namespace AAMod.Items.Armor.Biomite
 			}
 			if (player.ZoneCrimson)
 			{
-				player.armorPenetration += 5;
+				player.GetArmorPenetration(DamageClass.Generic) += 5;
 				set += Lang.BiomiteArmor("BiomiteArmor13");
 			}
 			return set;

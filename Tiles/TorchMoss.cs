@@ -10,27 +10,27 @@ namespace AAMod.Tiles
     {
         public static int _type;
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            SetModTree(new RazewoodTree());
+            SetModTree(new RazewoodTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             TileID.Sets.Conversion.Grass[Type] = true;
             Main.tileBlendAll[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            dustType = mod.DustType("RazeleafDust");
+            DustType = Mod.Find<ModDust>("RazeleafDust").Type;
             AddMapEntry(new Color(255, 153, 51));
-            drop = ModContent.ItemType<Items.Blocks.Torchstone>();
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Blocks.Torchstone>();
         }
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(500) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
             {
-                PlaceObject(i, j - 1, mod.TileType("Hotshroom"));
-                NetMessage.SendObjectPlacment(-1, i, j - 1, mod.TileType("Hotshroom"), 0, 0, -1, -1);
+                PlaceObject(i, j - 1, Mod.Find<ModTile>("Hotshroom").Type);
+                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Hotshroom").Type, 0, 0, -1, -1);
 
             }
         }

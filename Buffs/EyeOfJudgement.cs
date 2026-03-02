@@ -5,26 +5,26 @@ namespace AAMod.Buffs
 {
     public class EyeOfJudgement : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Eye of Judgement");
-			Description.SetDefault(@"Eye of Judgement is protecting you
-Damage and speed are increased");
+			// DisplayName.SetDefault("Eye of Judgement");
+			/* Description.SetDefault(@"Eye of Judgement is protecting you
+Damage and speed are increased"); */
 			Main.debuff[Type] = false;
-			canBeCleared = true;
+			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = true;
         }
 		
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.meleeDamage += 0.2f;
-			player.rangedDamage += 0.2f;
-			player.magicDamage += 0.2f;
-			player.minionDamage += 0.2f;
-			player.thrownDamage += 0.2f;
+			player.GetDamage(DamageClass.Melee) += 0.2f;
+			player.GetDamage(DamageClass.Ranged) += 0.2f;
+			player.GetDamage(DamageClass.Magic) += 0.2f;
+			player.GetDamage(DamageClass.Summon) += 0.2f;
+			player.GetDamage(DamageClass.Throwing) += 0.2f;
 			player.moveSpeed += 0.25f;
-			if (player.ownedProjectileCounts[mod.ProjectileType("EyeOfJudgement")] <= 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EyeOfJudgement").Type] <= 0)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y-90, 0f, 0f, mod.ProjectileType("EyeOfJudgement"), 100, 0, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X, player.Center.Y-90, 0f, 0f, Mod.Find<ModProjectile>("EyeOfJudgement").Type, 100, 0, player.whoAmI);
 			}
 		}
 	}

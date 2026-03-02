@@ -8,38 +8,37 @@ namespace AAMod.Items.Melee
     {
         public override void SetDefaults()
         {
-            item.useTime = 25;
-            item.CloneDefaults(ItemID.CrimsonYoyo);
+            Item.useTime = 25;
+            Item.CloneDefaults(ItemID.CrimsonYoyo);
 
-            item.damage = 19;
-            item.value = 10000;
-            item.rare = 2;
-            item.knockBack = 1;
-            item.channel = true;
-            item.useStyle = 5;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.shoot = mod.ProjectileType("Incineration");
+            Item.damage = 19;
+            Item.value = 10000;
+            Item.rare = 2;
+            Item.knockBack = 1;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.shoot = Mod.Find<ModProjectile>("Incineration").Type;
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 200);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Incineration");
-            Tooltip.SetDefault("Spinning Singe");
+            // DisplayName.SetDefault("Incineration");
+            // Tooltip.SetDefault("Spinning Singe");
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 12);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
     }

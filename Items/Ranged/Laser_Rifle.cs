@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -9,29 +10,29 @@ namespace AAMod.Items.Ranged
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Laser Carbine");
-			Tooltip.SetDefault("Uses energy cells as ammo");
+			// DisplayName.SetDefault("Laser Carbine");
+			// Tooltip.SetDefault("Uses energy cells as ammo");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 60;
-			item.ranged = true;
-			item.width = 46;
-			item.height = 22;
-			item.useAnimation = 14;
-			item.useTime = 14;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 4, 72, 0);
-			item.rare = 5;
-			item.UseSound = SoundID.Item12;
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 22f;
-			item.useAmmo = mod.ItemType("Energy_Cell");			
-			item.crit = 5;
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 46;
+			Item.height = 22;
+			Item.useAnimation = 14;
+			Item.useTime = 14;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 4, 72, 0);
+			Item.rare = 5;
+			Item.UseSound = SoundID.Item12;
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 22f;
+			Item.useAmmo = Mod.Find<ModItem>("Energy_Cell").Type;			
+			Item.crit = 5;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	

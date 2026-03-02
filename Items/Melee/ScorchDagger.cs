@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -7,25 +8,25 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Scorch Dagger");
+			// DisplayName.SetDefault("Scorch Dagger");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 26;
-			item.melee = true;
-			item.width = 34;
-			item.height = 34;
-			item.useTime = 7;
-			item.useAnimation = 7;
-			item.useStyle = 3;
-			item.knockBack = 3;
-			item.value = 2000;
-			item.rare = 1;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			Item.damage = 26;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 34;
+			Item.height = 34;
+			Item.useTime = 7;
+			Item.useAnimation = 7;
+			Item.useStyle = 3;
+			Item.knockBack = 3;
+			Item.value = 2000;
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = false;
         }
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }

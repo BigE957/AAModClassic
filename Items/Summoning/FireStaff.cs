@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,35 +10,35 @@ namespace AAMod.Items.Summoning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fire Staff");
-            Tooltip.SetDefault(@"Summons a baby phoenix to fight for you");
+            // DisplayName.SetDefault("Fire Staff");
+            // Tooltip.SetDefault(@"Summons a baby phoenix to fight for you");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("BabyPhoenix");
-            item.damage = 12;
-            item.width = 42;
-            item.height = 44;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 0, 27, 0);
-            item.knockBack = 7.5f;
-            item.rare = 1;
-            item.summon = true;
-            item.mana = 5;
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("BabyPhoenix").Type;
+            Item.damage = 12;
+            Item.width = 42;
+            Item.height = 44;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 0, 27, 0);
+            Item.knockBack = 7.5f;
+            Item.rare = 1;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 5;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
-            int num74 = item.shoot;
-            int num76 = item.damage;
-            float num77 = item.knockBack;
+            int num74 = Item.shoot;
+            int num76 = Item.damage;
+            float num77 = Item.knockBack;
             int num154 = (int)(Main.mouseX + Main.screenPosition.X) / 16;
             int num155 = (int)(Main.mouseY + Main.screenPosition.Y) / 16;
             if (player.gravDir == -1f)
@@ -52,11 +53,10 @@ namespace AAMod.Items.Summoning
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

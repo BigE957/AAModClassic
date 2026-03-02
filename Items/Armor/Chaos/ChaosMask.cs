@@ -11,34 +11,34 @@ namespace AAMod.Items.Armor.Chaos
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Chaos Mask");
-            Tooltip.SetDefault(@"Increases maximum mana by 80
+			// DisplayName.SetDefault("Chaos Mask");
+            /* Tooltip.SetDefault(@"Increases maximum mana by 80
 Increases magic damage by 20%
 Increases magic crit by 20%
-Allows you to breath underwater");
+Allows you to breath underwater"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 7;
-            item.defense = 18;
+			Item.width = 22;
+			Item.height = 24;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 7;
+            Item.defense = 18;
         }
 		
 		public override void UpdateEquip(Player player)
 		{
 			player.manaCost -= 0.3f;
-            player.magicDamage += 0.20f;
+            player.GetDamage(DamageClass.Magic) += 0.20f;
             player.gills = true;
-            player.magicCrit += 20;
+            player.GetCritChance(DamageClass.Magic) += 20;
 			player.statManaMax2 += 80;
 		}
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("ChaosDou") && legs.type == mod.ItemType("ChaosGreaves");
+            return body.type == Mod.Find<ModItem>("ChaosDou").Type && legs.type == Mod.Find<ModItem>("ChaosGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -46,7 +46,7 @@ Allows you to breath underwater");
 			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosMaskBonus");
 			if (player.wet)
 			{
-				player.AddBuff(mod.BuffType("ChaosBuff"), 2);
+				player.AddBuff(Mod.Find<ModBuff>("ChaosBuff").Type, 2);
             }
             player.accFlipper = true;
             player.ignoreWater = true;
@@ -54,12 +54,11 @@ Allows you to breath underwater");
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("AtlanteanHelm"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("AtlanteanHelm").Type);
 			recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -9,29 +9,29 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 28;
+            Main.projFrames[Projectile.type] = 28;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Arkhalis);
-            aiType = ProjectileID.Arkhalis;
-            projectile.width = 132;
-            projectile.height = 64;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.alpha = 120;
-            projectile.penetrate = -1;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 10;
+            Projectile.CloneDefaults(ProjectileID.Arkhalis);
+            AIType = ProjectileID.Arkhalis;
+            Projectile.width = 132;
+            Projectile.height = 64;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.alpha = 120;
+            Projectile.penetrate = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
             //return Color.White;
-            return new Color(0, 200, 0, 0) * (1f - (projectile.alpha / 255f));
+            return new Color(0, 200, 0, 0) * (1f - (Projectile.alpha / 255f));
         }
     }
 }

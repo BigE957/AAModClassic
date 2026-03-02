@@ -5,14 +5,14 @@ namespace AAMod.Buffs
 {
     public class Ronin : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ronin");
-            Description.SetDefault("You wont take any damage");
+            // DisplayName.SetDefault("Ronin");
+            // Description.SetDefault("You wont take any damage");
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = false;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

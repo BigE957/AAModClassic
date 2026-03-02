@@ -8,36 +8,35 @@ namespace AAMod.Items.Melee   //where is located
     {
         public override void SetDefaults()
         {
-			item.CloneDefaults(ItemID.SolarEruption);
+			Item.CloneDefaults(ItemID.SolarEruption);
 
-            item.damage = 52;            
-            item.melee = true;            
-            item.width = 56;              
-            item.height = 56;             
+            Item.damage = 52;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 56;              
+            Item.height = 56;             
 
-            item.knockBack = 6;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 7;
-            item.autoReuse = true;   
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("IllumantBall");
-            item.UseSound = SoundID.Item1;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 7;
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("IllumantBall").Type;
+            Item.UseSound = SoundID.Item1;
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Illuminant Flail");
+      // DisplayName.SetDefault("Illuminant Flail");
     }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.CrystalShard, 20);   
 			recipe.AddIngredient(ItemID.BlueMoon, 1);
 			recipe.AddIngredient(ItemID.SoulofLight, 10);
             recipe.AddTile(TileID.MythrilAnvil);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

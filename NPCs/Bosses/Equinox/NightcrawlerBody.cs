@@ -9,12 +9,12 @@ namespace AAMod.NPCs.Bosses.Equinox
 		public override void SetDefaults()
 		{
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
             nightcrawler = true;
-            npc.npcSlots = 0;
+            NPC.npcSlots = 0;
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
 		{
 			return false;
 		}

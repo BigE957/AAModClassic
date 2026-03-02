@@ -10,28 +10,28 @@ namespace AAMod.Items.Boss.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rabbit's Sash of Vengeance");
-            Tooltip.SetDefault(@"Every 10% of health lost gives you 8% extra attack power to your highest damage type boost
+            // DisplayName.SetDefault("Rajah Rabbit's Sash of Vengeance");
+            /* Tooltip.SetDefault(@"Every 10% of health lost gives you 8% extra attack power to your highest damage type boost
 40% increased movement speed
 Increased Jump Height and Speed
 Grants Autojump
-Immunity to fall damage");
+Immunity to fall damage"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = Item.sellPrice(0, 12, 0, 0);
-            item.rare = 9;
-            item.accessory = true;
-            item.expertOnly = true;
-            item.expert = true;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = Item.sellPrice(0, 12, 0, 0);
+            Item.rare = 9;
+            Item.accessory = true;
+            Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            Player player = Main.player[item.owner];
+            Player player = Main.player[Item.playerIndexTheItemIsReservedFor];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             Color damageColor = Color.Firebrick;
             string DamageType = "";
@@ -63,9 +63,9 @@ Immunity to fall damage");
             }
 
             string DamageAmount = (100 * DamageBoost(player)) + "% ";
-            TooltipLine DamageTooltip = new TooltipLine(mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageInfo"))
+            TooltipLine DamageTooltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageInfo"))
             {
-                overrideColor = damageColor
+                OverrideColor = damageColor
             };
             tooltips.Add(DamageTooltip);
 
@@ -84,23 +84,23 @@ Immunity to fall damage");
 
             if (modPlayer.MeleeHighest(player))
             {
-                player.meleeDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Melee) += DamageBoost(player);
             }
             else if (modPlayer.RangedHighest(player))
             {
-                player.rangedDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Ranged) += DamageBoost(player);
             }
             else if (modPlayer.MagicHighest(player))
             {
-                player.magicDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Magic) += DamageBoost(player);
             }
             else if (modPlayer.SummonHighest(player))
             {
-                player.minionDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Summon) += DamageBoost(player);
             }
             else if (modPlayer.ThrownHighest(player))
             {
-                player.thrownDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Throwing) += DamageBoost(player);
             }
         }
 

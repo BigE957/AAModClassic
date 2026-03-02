@@ -10,29 +10,29 @@ namespace AAMod.NPCs.Enemies.Void
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Null");
-            Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Null");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 		
 		public override void SetDefaults()
 		{
-            npc.CloneDefaults(NPCID.Poltergeist);
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-			npc.aiStyle = -1;
-            npc.width = 24;
-            npc.height = 40;
-            npc.damage = 50;
-            npc.defense = 9999999;
-            npc.lifeMax = 100;
-            npc.HitSound = mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Glitch");
-            npc.DeathSound = SoundID.NPCDeath6;
-            npc.alpha = 70;
-            npc.value = 7000f;
-            npc.knockBackResist = 0.7f;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("NullBanner");
+            NPC.CloneDefaults(NPCID.Poltergeist);
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+			NPC.aiStyle = -1;
+            NPC.width = 24;
+            NPC.height = 40;
+            NPC.damage = 50;
+            NPC.defense = 9999999;
+            NPC.lifeMax = 100;
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Glitch");
+            NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.alpha = 70;
+            NPC.value = 7000f;
+            NPC.knockBackResist = 0.7f;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("NullBanner").Type;
         }
 
 		public int frameCount = 0;
@@ -40,29 +40,29 @@ namespace AAMod.NPCs.Enemies.Void
 		public override void PostAI()
 		{
 			
-			npc.frame = new Rectangle(0, frameCount * 40, 36, 38);
-			npc.spriteDirection = npc.velocity.X > 0 ? -1 : 1;
-			npc.rotation = npc.velocity.X * 0.25f;
+			NPC.frame = new Rectangle(0, frameCount * 40, 36, 38);
+			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
+			NPC.rotation = NPC.velocity.X * 0.25f;
 		}
 
         public override void AI()
         {
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
             for (int m = 0; m < 2; m++)
             {
-                BaseAI.AIEye(npc, ref npc.ai, false, true, 0.13f, 0.08f, 2f, 1.1f, 1.2f, 1.2f);
-                BaseAI.Look(npc, 1);
+                BaseAI.AIEye(NPC, ref NPC.ai, false, true, 0.13f, 0.08f, 2f, 1.1f, 1.2f, 1.2f);
+                BaseAI.Look(NPC, 1);
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UnstableSingularity"), 1);
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("UnstableSingularity").Type, 1);
 
             if (Main.rand.Next(100) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ono"), 1);
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ono").Type, 1);
             }
         }
 

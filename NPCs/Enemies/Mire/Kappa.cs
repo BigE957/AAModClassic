@@ -11,122 +11,122 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Kappa");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
+			// DisplayName.SetDefault("Kappa");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
 		}
 
 		public override void SetDefaults()
 		{
-			npc.width = 18;
-			npc.height = 40;
-			npc.damage = 90;
-			npc.defense = 16;
-			npc.lifeMax = 300;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath2;
-			npc.value = 450f;
-			npc.aiStyle = 0;
-			animationType = NPCID.CreatureFromTheDeep;
-            banner = npc.type;
-			bannerItem = mod.ItemType("KappaBanner");
+			NPC.width = 18;
+			NPC.height = 40;
+			NPC.damage = 90;
+			NPC.defense = 16;
+			NPC.lifeMax = 300;
+			NPC.HitSound = SoundID.NPCHit1;
+			NPC.DeathSound = SoundID.NPCDeath2;
+			NPC.value = 450f;
+			NPC.aiStyle = 0;
+			AnimationType = NPCID.CreatureFromTheDeep;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("KappaBanner").Type;
 		}
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HydraToxin"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraToxin").Type);
         }
 
         public override void AI()
         {
-            if (npc.wet)
+            if (NPC.wet)
             {
-                npc.knockBackResist = 0f;
-                npc.ai[3] = -0.10101f;
-                npc.noGravity = true;
-                Vector2 center = npc.Center;
-                npc.width = 34;
-                npc.height = 24;
-                npc.position.X = center.X - npc.width / 2;
-                npc.position.Y = center.Y - npc.height / 2;
-                npc.TargetClosest(true);
-                if (npc.collideX)
+                NPC.knockBackResist = 0f;
+                NPC.ai[3] = -0.10101f;
+                NPC.noGravity = true;
+                Vector2 center = NPC.Center;
+                NPC.width = 34;
+                NPC.height = 24;
+                NPC.position.X = center.X - NPC.width / 2;
+                NPC.position.Y = center.Y - NPC.height / 2;
+                NPC.TargetClosest(true);
+                if (NPC.collideX)
                 {
-                    npc.velocity.X = -npc.oldVelocity.X;
+                    NPC.velocity.X = -NPC.oldVelocity.X;
                 }
-                if (npc.velocity.X < 0f)
+                if (NPC.velocity.X < 0f)
                 {
-                    npc.direction = -1;
+                    NPC.direction = -1;
                 }
-                if (npc.velocity.X > 0f)
+                if (NPC.velocity.X > 0f)
                 {
-                    npc.direction = 1;
+                    NPC.direction = 1;
                 }
-                if (Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].Center, 1, 1))
+                if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].Center, 1, 1))
                 {
-                    Vector2 value = Main.player[npc.target].Center - npc.Center;
+                    Vector2 value = Main.player[NPC.target].Center - NPC.Center;
                     value.Normalize();
                     value *= 5f;
-                    npc.velocity = (npc.velocity * 19f + value) / 20f;
+                    NPC.velocity = (NPC.velocity * 19f + value) / 20f;
                     return;
                 }
                 float num2 = 5f;
-                if (npc.velocity.Y > 0f)
+                if (NPC.velocity.Y > 0f)
                 {
                     num2 = 3f;
                 }
-                if (npc.velocity.Y < 0f)
+                if (NPC.velocity.Y < 0f)
                 {
                     num2 = 8f;
                 }
-                Vector2 value2 = new Vector2(npc.direction, -1f);
+                Vector2 value2 = new Vector2(NPC.direction, -1f);
                 value2.Normalize();
                 value2 *= num2;
                 if (num2 < 5f)
                 {
-                    npc.velocity = (npc.velocity * 24f + value2) / 25f;
+                    NPC.velocity = (NPC.velocity * 24f + value2) / 25f;
                         return;
                 }
-                npc.velocity = (npc.velocity * 9f + value2) / 10f;
+                NPC.velocity = (NPC.velocity * 9f + value2) / 10f;
                 return;
             }
             else
             {
-                npc.knockBackResist = 0.4f * Main.knockBackMultiplier;
-                npc.noGravity = false;
-                Vector2 center2 = npc.Center;
-                npc.width = 18;
-                npc.height = 40;
-                npc.position.X = center2.X - npc.width / 2;
-                npc.position.Y = center2.Y - npc.height / 2;
-                if (npc.ai[3] == -0.10101f)
+                NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
+                NPC.noGravity = false;
+                Vector2 center2 = NPC.Center;
+                NPC.width = 18;
+                NPC.height = 40;
+                NPC.position.X = center2.X - NPC.width / 2;
+                NPC.position.Y = center2.Y - NPC.height / 2;
+                if (NPC.ai[3] == -0.10101f)
                 {
-                    npc.ai[3] = 0f;
-                    float num3 = npc.velocity.Length();
+                    NPC.ai[3] = 0f;
+                    float num3 = NPC.velocity.Length();
                     num3 *= 2f;
                     if (num3 > 10f)
                     {
                         num3 = 10f;
                     }
-                    npc.velocity.Normalize();
-                    npc.velocity *= num3;
-                    if (npc.velocity.X < 0f)
+                    NPC.velocity.Normalize();
+                    NPC.velocity *= num3;
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.direction = -1;
+                        NPC.direction = -1;
                     }
-                    if (npc.velocity.X > 0f)
+                    if (NPC.velocity.X > 0f)
                     {
-                            npc.direction = 1;
+                            NPC.direction = 1;
                     }
-                    npc.spriteDirection = npc.direction;
+                    NPC.spriteDirection = NPC.direction;
                 }
             }
             
             bool flag4 = false;
-            if (npc.velocity.X == 0f)
+            if (NPC.velocity.X == 0f)
             {
                 flag4 = true;
             }
-            if (npc.justHit)
+            if (NPC.justHit)
             {
                 flag4 = false;
             }
@@ -138,126 +138,126 @@ namespace AAMod.NPCs.Enemies.Mire
             bool flag8 = true;
             if (!flag7 && flag8)
             {
-                if (npc.velocity.Y == 0f && ((npc.velocity.X > 0f && npc.direction < 0) || (npc.velocity.X < 0f && npc.direction > 0)))
+                if (NPC.velocity.Y == 0f && ((NPC.velocity.X > 0f && NPC.direction < 0) || (NPC.velocity.X < 0f && NPC.direction > 0)))
                 {
                     flag5 = true;
                 }
-                if (npc.position.X == npc.oldPosition.X || npc.ai[3] >= num36 || flag5)
+                if (NPC.position.X == NPC.oldPosition.X || NPC.ai[3] >= num36 || flag5)
                 {
-                    npc.ai[3] += 1f;
+                    NPC.ai[3] += 1f;
                 }
-                else if (Math.Abs(npc.velocity.X) > 0.9 && npc.ai[3] > 0f)
+                else if (Math.Abs(NPC.velocity.X) > 0.9 && NPC.ai[3] > 0f)
                 {
-                    npc.ai[3] -= 1f;
+                    NPC.ai[3] -= 1f;
                 }
-                if (npc.ai[3] > num36 * 10)
+                if (NPC.ai[3] > num36 * 10)
                 {
-                    npc.ai[3] = 0f;
+                    NPC.ai[3] = 0f;
                 }
-                if (npc.justHit)
+                if (NPC.justHit)
                 {
-                    npc.ai[3] = 0f;
+                    NPC.ai[3] = 0f;
                 }
-                if (npc.ai[3] == num36)
+                if (NPC.ai[3] == num36)
                 {
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
-            if (npc.ai[3] < num36 && (!Main.dayTime || npc.position.Y > Main.worldSurface * 16.0))
+            if (NPC.ai[3] < num36 && (!Main.dayTime || NPC.position.Y > Main.worldSurface * 16.0))
             {
                 
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            else if (npc.ai[2] <= 0f)
+            else if (NPC.ai[2] <= 0f)
             {
-                if (Main.dayTime && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
+                if (Main.dayTime && NPC.position.Y / 16f < Main.worldSurface && NPC.timeLeft > 10)
                 {
-                    npc.timeLeft = 10;
+                    NPC.timeLeft = 10;
                 }
-                if (npc.velocity.X == 0f)
+                if (NPC.velocity.X == 0f)
                 {
-                    if (npc.velocity.Y == 0f)
+                    if (NPC.velocity.Y == 0f)
                     {
-                        npc.ai[0] += 1f;
-                        if (npc.ai[0] >= 2f)
+                        NPC.ai[0] += 1f;
+                        if (NPC.ai[0] >= 2f)
                         {
-                            npc.direction *= -1;
-                            npc.spriteDirection = npc.direction;
-                            npc.ai[0] = 0f;
+                            NPC.direction *= -1;
+                            NPC.spriteDirection = NPC.direction;
+                            NPC.ai[0] = 0f;
                         }
                     }
                 }
                 else
                 {
-                    npc.ai[0] = 0f;
+                    NPC.ai[0] = 0f;
                 }
-                if (npc.direction == 0)
+                if (NPC.direction == 0)
                 {
-                    npc.direction = 1;
-                }
-            }
-            if (npc.velocity.X < -2f || npc.velocity.X > 2f)
-            {
-                if (npc.velocity.Y == 0f)
-                {
-                    npc.velocity *= 0.8f;
+                    NPC.direction = 1;
                 }
             }
-            else if (npc.velocity.X < 2f && npc.direction == 1)
+            if (NPC.velocity.X < -2f || NPC.velocity.X > 2f)
             {
-                npc.velocity.X = npc.velocity.X + 0.07f;
-                if (npc.velocity.X > 2f)
+                if (NPC.velocity.Y == 0f)
                 {
-                    npc.velocity.X = 2f;
+                    NPC.velocity *= 0.8f;
                 }
             }
-            else if (npc.velocity.X > -2f && npc.direction == -1)
+            else if (NPC.velocity.X < 2f && NPC.direction == 1)
             {
-                npc.velocity.X = npc.velocity.X - 0.07f;
-                if (npc.velocity.X < -2f)
+                NPC.velocity.X = NPC.velocity.X + 0.07f;
+                if (NPC.velocity.X > 2f)
                 {
-                    npc.velocity.X = -2f;
+                    NPC.velocity.X = 2f;
+                }
+            }
+            else if (NPC.velocity.X > -2f && NPC.direction == -1)
+            {
+                NPC.velocity.X = NPC.velocity.X - 0.07f;
+                if (NPC.velocity.X < -2f)
+                {
+                    NPC.velocity.X = -2f;
                 }
             }
 
             float num79 = 1f;
-            if (npc.velocity.X < -num79 || npc.velocity.X > num79)
+            if (NPC.velocity.X < -num79 || NPC.velocity.X > num79)
             {
-                if (npc.velocity.Y == 0f)
+                if (NPC.velocity.Y == 0f)
                 {
-                    npc.velocity *= 0.8f;
+                    NPC.velocity *= 0.8f;
                 }
             }
-            else if (npc.velocity.X < num79 && npc.direction == 1)
+            else if (NPC.velocity.X < num79 && NPC.direction == 1)
             {
-                npc.velocity.X = npc.velocity.X + 0.07f;
-                if (npc.velocity.X > num79)
+                NPC.velocity.X = NPC.velocity.X + 0.07f;
+                if (NPC.velocity.X > num79)
                 {
-                    npc.velocity.X = num79;
+                    NPC.velocity.X = num79;
                 }
             }
-            else if (npc.velocity.X > -num79 && npc.direction == -1)
+            else if (NPC.velocity.X > -num79 && NPC.direction == -1)
             {
-                npc.velocity.X = npc.velocity.X - 0.07f;
-                if (npc.velocity.X < -num79)
+                NPC.velocity.X = NPC.velocity.X - 0.07f;
+                if (NPC.velocity.X < -num79)
                 {
-                    npc.velocity.X = -num79;
+                    NPC.velocity.X = -num79;
                 }
             }
 
             bool flag23 = false;
-            if (npc.velocity.Y == 0f)
+            if (NPC.velocity.Y == 0f)
             {
-                int num167 = (int)(npc.position.Y + npc.height + 7f) / 16;
-                int num168 = (int)npc.position.X / 16;
-                int num169 = (int)(npc.position.X + npc.width) / 16;
+                int num167 = (int)(NPC.position.Y + NPC.height + 7f) / 16;
+                int num168 = (int)NPC.position.X / 16;
+                int num169 = (int)(NPC.position.X + NPC.width) / 16;
                 for (int num170 = num168; num170 <= num169; num170++)
                 {
                     if (Main.tile[num170, num167] == null)
                     {
                         return;
                     }
-                    if (Main.tile[num170, num167].nactive() && Main.tileSolid[Main.tile[num170, num167].type])
+                    if (Main.tile[num170, num167].HasUnactuatedTile && Main.tileSolid[Main.tile[num170, num167].TileType])
                     {
                         flag23 = true;
                         break;
@@ -265,21 +265,21 @@ namespace AAMod.NPCs.Enemies.Mire
                 }
             }
             
-            if (npc.velocity.Y >= 0f)
+            if (NPC.velocity.Y >= 0f)
             {
                 int num171 = 0;
-                if (npc.velocity.X < 0f)
+                if (NPC.velocity.X < 0f)
                 {
                     num171 = -1;
                 }
-                if (npc.velocity.X > 0f)
+                if (NPC.velocity.X > 0f)
                 {
                     num171 = 1;
                 }
-                Vector2 position2 = npc.position;
-                position2.X += npc.velocity.X;
-                int num172 = (int)((position2.X + npc.width / 2 + (npc.width / 2 + 1) * num171) / 16f);
-                int num173 = (int)((position2.Y + npc.height - 1f) / 16f);
+                Vector2 position2 = NPC.position;
+                position2.X += NPC.velocity.X;
+                int num172 = (int)((position2.X + NPC.width / 2 + (NPC.width / 2 + 1) * num171) / 16f);
+                int num173 = (int)((position2.Y + NPC.height - 1f) / 16f);
                 if (Main.tile[num172, num173] == null)
                 {
                     Main.tile[num172, num173] = new Tile();
@@ -304,32 +304,32 @@ namespace AAMod.NPCs.Enemies.Mire
                 {
                     Main.tile[num172 - num171, num173 - 3] = new Tile();
                 }
-                if (num172 * 16 < position2.X + npc.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].nactive() && !Main.tile[num172, num173].topSlope() && !Main.tile[num172, num173 - 1].topSlope() && Main.tileSolid[Main.tile[num172, num173].type] && !Main.tileSolidTop[Main.tile[num172, num173].type]) || (Main.tile[num172, num173 - 1].halfBrick() && Main.tile[num172, num173 - 1].nactive())) && (!Main.tile[num172, num173 - 1].nactive() || !Main.tileSolid[Main.tile[num172, num173 - 1].type] || Main.tileSolidTop[Main.tile[num172, num173 - 1].type] || (Main.tile[num172, num173 - 1].halfBrick() && (!Main.tile[num172, num173 - 4].nactive() || !Main.tileSolid[Main.tile[num172, num173 - 4].type] || Main.tileSolidTop[Main.tile[num172, num173 - 4].type]))) && (!Main.tile[num172, num173 - 2].nactive() || !Main.tileSolid[Main.tile[num172, num173 - 2].type] || Main.tileSolidTop[Main.tile[num172, num173 - 2].type]) && (!Main.tile[num172, num173 - 3].nactive() || !Main.tileSolid[Main.tile[num172, num173 - 3].type] || Main.tileSolidTop[Main.tile[num172, num173 - 3].type]) && (!Main.tile[num172 - num171, num173 - 3].nactive() || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].type]))
+                if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
                 {
                     float num174 = num173 * 16;
-                    if (Main.tile[num172, num173].halfBrick())
+                    if (Main.tile[num172, num173].IsHalfBlock)
                     {
                         num174 += 8f;
                     }
-                    if (Main.tile[num172, num173 - 1].halfBrick())
+                    if (Main.tile[num172, num173 - 1].IsHalfBlock)
                     {
                         num174 -= 8f;
                     }
-                    if (num174 < position2.Y + npc.height)
+                    if (num174 < position2.Y + NPC.height)
                     {
-                        float num175 = position2.Y + npc.height - num174;
+                        float num175 = position2.Y + NPC.height - num174;
                         float num176 = 16.1f;
                         if (num175 <= num176)
                         {
-                            npc.gfxOffY += npc.position.Y + npc.height - num174;
-                            npc.position.Y = num174 - npc.height;
+                            NPC.gfxOffY += NPC.position.Y + NPC.height - num174;
+                            NPC.position.Y = num174 - NPC.height;
                             if (num175 < 9f)
                             {
-                                npc.stepSpeed = 1f;
+                                NPC.stepSpeed = 1f;
                             }
                             else
                             {
-                                npc.stepSpeed = 2f;
+                                NPC.stepSpeed = 2f;
                             }
                         }
                     }
@@ -337,8 +337,8 @@ namespace AAMod.NPCs.Enemies.Mire
             }
             if (flag23)
             {
-                int num177 = (int)((npc.position.X + npc.width / 2 + 15 * npc.direction) / 16f);
-                int num178 = (int)((npc.position.Y + npc.height - 15f) / 16f);
+                int num177 = (int)((NPC.position.X + NPC.width / 2 + 15 * NPC.direction) / 16f);
+                int num178 = (int)((NPC.position.Y + NPC.height - 15f) / 16f);
                 
                 if (Main.tile[num177, num178] == null)
                 {
@@ -360,84 +360,84 @@ namespace AAMod.NPCs.Enemies.Mire
                 {
                     Main.tile[num177, num178 + 1] = new Tile();
                 }
-                if (Main.tile[num177 + npc.direction, num178 - 1] == null)
+                if (Main.tile[num177 + NPC.direction, num178 - 1] == null)
                 {
-                    Main.tile[num177 + npc.direction, num178 - 1] = new Tile();
+                    Main.tile[num177 + NPC.direction, num178 - 1] = new Tile();
                 }
-                if (Main.tile[num177 + npc.direction, num178 + 1] == null)
+                if (Main.tile[num177 + NPC.direction, num178 + 1] == null)
                 {
-                    Main.tile[num177 + npc.direction, num178 + 1] = new Tile();
+                    Main.tile[num177 + NPC.direction, num178 + 1] = new Tile();
                 }
-                if (Main.tile[num177 - npc.direction, num178 + 1] == null)
+                if (Main.tile[num177 - NPC.direction, num178 + 1] == null)
                 {
-                    Main.tile[num177 - npc.direction, num178 + 1] = new Tile();
+                    Main.tile[num177 - NPC.direction, num178 + 1] = new Tile();
                 }
-                Main.tile[num177, num178 + 1].halfBrick();
-                if (Main.tile[num177, num178 - 1].nactive() && (Main.tile[num177, num178 - 1].type == 10 || Main.tile[num177, num178 - 1].type == 388) && flag6)
+                Main.tile[num177, num178 + 1].IsHalfBlock;
+                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == 10 || Main.tile[num177, num178 - 1].TileType == 388) && flag6)
                 {
-                    npc.ai[2] += 1f;
-                    npc.ai[3] = 0f;
-                    if (npc.ai[2] >= 60f)
+                    NPC.ai[2] += 1f;
+                    NPC.ai[3] = 0f;
+                    if (NPC.ai[2] >= 60f)
                     {
                        
-                        npc.velocity.X = 0.5f * -npc.direction;
+                        NPC.velocity.X = 0.5f * -NPC.direction;
                         int num179 = 5;
-                        if (Main.tile[num177, num178 - 1].type == 388)
+                        if (Main.tile[num177, num178 - 1].TileType == 388)
                         {
                             num179 = 2;
                         }
-                        npc.ai[1] += num179;
+                        NPC.ai[1] += num179;
                         
-                        npc.ai[2] = 0f;
-                        if (npc.ai[1] >= 10f)
+                        NPC.ai[2] = 0f;
+                        if (NPC.ai[1] >= 10f)
                         {
-                            npc.ai[1] = 10f;
+                            NPC.ai[1] = 10f;
                         }
                         WorldGen.KillTile(num177, num178 - 1, true, false, false);
                     }
                 }
                 else
                 {
-                    int num180 = npc.spriteDirection;
-                    if ((npc.velocity.X < 0f && num180 == -1) || (npc.velocity.X > 0f && num180 == 1))
+                    int num180 = NPC.spriteDirection;
+                    if ((NPC.velocity.X < 0f && num180 == -1) || (NPC.velocity.X > 0f && num180 == 1))
                     {
-                        if (npc.height >= 32 && Main.tile[num177, num178 - 2].nactive() && Main.tileSolid[Main.tile[num177, num178 - 2].type])
+                        if (NPC.height >= 32 && Main.tile[num177, num178 - 2].HasUnactuatedTile && Main.tileSolid[Main.tile[num177, num178 - 2].TileType])
                         {
-                            if (Main.tile[num177, num178 - 3].nactive() && Main.tileSolid[Main.tile[num177, num178 - 3].type])
+                            if (Main.tile[num177, num178 - 3].HasUnactuatedTile && Main.tileSolid[Main.tile[num177, num178 - 3].TileType])
                             {
-                                npc.velocity.Y = -8f;
-                                npc.netUpdate = true;
+                                NPC.velocity.Y = -8f;
+                                NPC.netUpdate = true;
                             }
                             else
                             {
-                                npc.velocity.Y = -7f;
-                                npc.netUpdate = true;
+                                NPC.velocity.Y = -7f;
+                                NPC.netUpdate = true;
                             }
                         }
-                        else if (Main.tile[num177, num178 - 1].nactive() && Main.tileSolid[Main.tile[num177, num178 - 1].type])
+                        else if (Main.tile[num177, num178 - 1].HasUnactuatedTile && Main.tileSolid[Main.tile[num177, num178 - 1].TileType])
                         {
-                            npc.velocity.Y = -6f;
-                            npc.netUpdate = true;
+                            NPC.velocity.Y = -6f;
+                            NPC.netUpdate = true;
                         }
-                        else if (npc.position.Y + npc.height - num178 * 16 > 20f && Main.tile[num177, num178].nactive() && !Main.tile[num177, num178].topSlope() && Main.tileSolid[Main.tile[num177, num178].type])
+                        else if (NPC.position.Y + NPC.height - num178 * 16 > 20f && Main.tile[num177, num178].HasUnactuatedTile && !Main.tile[num177, num178].TopSlope && Main.tileSolid[Main.tile[num177, num178].TileType])
                         {
-                            npc.velocity.Y = -5f;
-                            npc.netUpdate = true;
+                            NPC.velocity.Y = -5f;
+                            NPC.netUpdate = true;
                         }
-                        else if (npc.directionY < 0 && (!Main.tile[num177, num178 + 1].nactive() || !Main.tileSolid[Main.tile[num177, num178 + 1].type]) && (!Main.tile[num177 + npc.direction, num178 + 1].nactive() || !Main.tileSolid[Main.tile[num177 + npc.direction, num178 + 1].type]))
+                        else if (NPC.directionY < 0 && (!Main.tile[num177, num178 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num177, num178 + 1].TileType]) && (!Main.tile[num177 + NPC.direction, num178 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num177 + NPC.direction, num178 + 1].TileType]))
                         {
-                            npc.velocity.Y = -8f;
-                            npc.velocity.X = npc.velocity.X * 1.5f;
-                            npc.netUpdate = true;
+                            NPC.velocity.Y = -8f;
+                            NPC.velocity.X = NPC.velocity.X * 1.5f;
+                            NPC.netUpdate = true;
                         }
                         else if (flag6)
                         {
-                            npc.ai[1] = 0f;
-                            npc.ai[2] = 0f;
+                            NPC.ai[1] = 0f;
+                            NPC.ai[2] = 0f;
                         }
-                        if (npc.velocity.Y == 0f && flag4 && npc.ai[3] == 1f)
+                        if (NPC.velocity.Y == 0f && flag4 && NPC.ai[3] == 1f)
                         {
-                            npc.velocity.Y = -5f;
+                            NPC.velocity.Y = -5f;
                         }
                     }
                     
@@ -445,8 +445,8 @@ namespace AAMod.NPCs.Enemies.Mire
             }
             else if (flag6)
             {
-                npc.ai[1] = 0f;
-                npc.ai[2] = 0f;
+                NPC.ai[1] = 0f;
+                NPC.ai[2] = 0f;
             }
         }
     }

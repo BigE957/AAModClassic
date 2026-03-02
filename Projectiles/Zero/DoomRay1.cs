@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Enums;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Zero
@@ -15,35 +16,35 @@ namespace AAMod.Projectiles.Zero
 
         public float Distance
         {
-            get => projectile.ai[0];
-            set => projectile.ai[0] = value;
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
         }
 
         public float Charge
         {
-            get => projectile.localAI[0];
-            set => projectile.localAI[0] = value;
+            get => Projectile.localAI[0];
+            set => Projectile.localAI[0] = value;
         }
 
         public bool IsAtMaxCharge => Charge == MAX_CHARGE;
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            projectile.hide = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.hide = true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             if (IsAtMaxCharge)
             {
-                DrawLaser(spriteBatch, Main.projectileTexture[projectile.type], Main.player[projectile.owner].Center,
-                    projectile.velocity, 10, projectile.damage, -1.57f, 1f, 1000f, AAColor.ZeroShield, (int)MOVE_DISTANCE);
+                DrawLaser(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, Main.player[Projectile.owner].Center,
+                    Projectile.velocity, 10, Projectile.damage, -1.57f, 1f, 1000f, AAColor.ZeroShield, (int)MOVE_DISTANCE);
             }
             return false;
         }
@@ -72,35 +73,35 @@ namespace AAMod.Projectiles.Zero
         {
             if (!IsAtMaxCharge) return false;
 
-            Player player = Main.player[projectile.owner];
-            Vector2 unit = projectile.velocity;
+            Player player = Main.player[Projectile.owner];
+            Vector2 unit = Projectile.velocity;
             float point = 0f;
             return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), player.Center,
                 player.Center + unit * Distance, 22, ref point);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.immune[projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
-            projectile.position = player.Center + projectile.velocity * MOVE_DISTANCE;
-            projectile.timeLeft = 2;
-            projectile.ai[1] ++;
+            Player player = Main.player[Projectile.owner];
+            Projectile.position = player.Center + Projectile.velocity * MOVE_DISTANCE;
+            Projectile.timeLeft = 2;
+            Projectile.ai[1] ++;
             float manadelay = 30f;
             bool manause = false;
-			if (projectile.ai[1] > 90f)
+			if (Projectile.ai[1] > 90f)
 			{
 				manadelay = 15f;
 			}
-			if (projectile.ai[1] > 120f)
+			if (Projectile.ai[1] > 120f)
 			{
 				manadelay = 5f;
 			}
-            if (projectile.ai[1] % manadelay == 0f)
+            if (Projectile.ai[1] % manadelay == 0f)
 			{
 				manause = true;
 			}
@@ -119,24 +120,24 @@ namespace AAMod.Projectiles.Zero
             }
             else
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
 
         private void SpawnDusts(Player player)
         {
-            Vector2 unit = projectile.velocity * -1;
-            Vector2 dustPos = player.Center + projectile.velocity * Distance;
+            Vector2 unit = Projectile.velocity * -1;
+            Vector2 dustPos = player.Center + Projectile.velocity * Distance;
 
             for (int i = 0; i < 2; ++i)
             {
-                float num1 = projectile.velocity.ToRotation() + (Main.rand.Next(2) == 1 ? -1.0f : 1.0f) * 1.57f;
+                float num1 = Projectile.velocity.ToRotation() + (Main.rand.Next(2) == 1 ? -1.0f : 1.0f) * 1.57f;
                 float num2 = (float)(Main.rand.NextDouble() * 0.8f + 1.0f);
                 Vector2 dustVel = new Vector2((float)Math.Cos(num1) * num2, (float)Math.Sin(num1) * num2);
                 Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, ModContent.DustType<Dusts.VoidDust>(), dustVel.X, dustVel.Y)];
                 dust.noGravity = true;
                 dust.scale = 1.2f;
-                dust = Dust.NewDustDirect(Main.player[projectile.owner].Center, 0, 0, ModContent.DustType<Dusts.VoidDust>(),
+                dust = Dust.NewDustDirect(Main.player[Projectile.owner].Center, 0, 0, ModContent.DustType<Dusts.VoidDust>(),
                     -unit.X * Distance, -unit.Y * Distance);
                 dust.fadeIn = 0f;
                 dust.noGravity = true;
@@ -146,13 +147,13 @@ namespace AAMod.Projectiles.Zero
 
             if (Main.rand.NextBool(5))
             {
-                Vector2 offset = projectile.velocity.RotatedBy(1.57f) * ((float)Main.rand.NextDouble() - 0.5f) * projectile.width;
+                Vector2 offset = Projectile.velocity.RotatedBy(1.57f) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
                 Dust dust = Main.dust[Dust.NewDust(dustPos + offset - Vector2.One * 4f, 8, 8, ModContent.DustType<Dusts.VoidDust>(), 0.0f, 0.0f, 100, new Color(), 1.5f)];
                 dust.velocity *= 0.5f;
                 dust.velocity.Y = -Math.Abs(dust.velocity.Y);
-                unit = dustPos - Main.player[projectile.owner].Center;
+                unit = dustPos - Main.player[Projectile.owner].Center;
                 unit.Normalize();
-                dust = Main.dust[Dust.NewDust(Main.player[projectile.owner].Center + 55 * unit, 8, 8, ModContent.DustType<Dusts.VoidDust>(), 0.0f, 0.0f, 100, new Color(), 1.5f)];
+                dust = Main.dust[Dust.NewDust(Main.player[Projectile.owner].Center + 55 * unit, 8, 8, ModContent.DustType<Dusts.VoidDust>(), 0.0f, 0.0f, 100, new Color(), 1.5f)];
                 dust.velocity *= 0.5f;
                 dust.velocity.Y = -Math.Abs(dust.velocity.Y);
             }
@@ -162,7 +163,7 @@ namespace AAMod.Projectiles.Zero
         {
             for (Distance = MOVE_DISTANCE; Distance <= 2200f; Distance += 5f)
             {
-                var start = player.Center + projectile.velocity * Distance;
+                var start = player.Center + Projectile.velocity * Distance;
                 if (!Collision.CanHit(player.Center, 1, 1, start, 1, 1))
                 {
                     Distance -= 5f;
@@ -175,11 +176,11 @@ namespace AAMod.Projectiles.Zero
         {
             if (!player.channel)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
             else
             {
-                Vector2 offset = projectile.velocity;
+                Vector2 offset = Projectile.velocity;
                 offset *= MOVE_DISTANCE - 20;
                 Vector2 pos = player.Center + offset - new Vector2(10, 10);
                 if (Charge < MAX_CHARGE)
@@ -188,12 +189,12 @@ namespace AAMod.Projectiles.Zero
                 }
                 int chargeFact = (int)(Charge / 20f);
                 Vector2 dustVelocity = Vector2.UnitX * 18f;
-                dustVelocity = dustVelocity.RotatedBy(projectile.rotation - 1.57f);
-                Vector2 spawnPos = projectile.Center + dustVelocity;
+                dustVelocity = dustVelocity.RotatedBy(Projectile.rotation - 1.57f);
+                Vector2 spawnPos = Projectile.Center + dustVelocity;
                 for (int k = 0; k < chargeFact + 1; k++)
                 {
                     Vector2 spawn = spawnPos + ((float)Main.rand.NextDouble() * 6.28f).ToRotationVector2() * (12f - chargeFact * 2);
-                    Dust dust = Main.dust[Dust.NewDust(pos, 20, 20, ModContent.DustType<Dusts.VoidDust>(), projectile.velocity.X / 2f, projectile.velocity.Y / 2f)];
+                    Dust dust = Main.dust[Dust.NewDust(pos, 20, 20, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f)];
                     dust.velocity = Vector2.Normalize(spawnPos - spawn) * 1.5f * (10f - chargeFact * 2f) / 10f;
                     dust.noGravity = true;
                     dust.scale = Main.rand.Next(10, 20) * 0.05f;
@@ -203,26 +204,26 @@ namespace AAMod.Projectiles.Zero
 
         private void UpdatePlayer(Player player)
         {
-            if (projectile.owner == Main.myPlayer)
+            if (Projectile.owner == Main.myPlayer)
             {
                 Vector2 diff = Main.MouseWorld - player.Center;
                 diff.Normalize();
-                projectile.velocity = diff;
-                projectile.direction = Main.MouseWorld.X > player.position.X ? 1 : -1;
-                projectile.netUpdate = true;
+                Projectile.velocity = diff;
+                Projectile.direction = Main.MouseWorld.X > player.position.X ? 1 : -1;
+                Projectile.netUpdate = true;
             }
-            int dir = projectile.direction;
+            int dir = Projectile.direction;
             player.ChangeDir(dir); 
-            player.heldProj = projectile.whoAmI;
+            player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = (float)Math.Atan2(projectile.velocity.Y * dir, projectile.velocity.X * dir); 
+            player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * dir, Projectile.velocity.X * dir); 
         }
 
         private void CastLights()
         {
             DelegateMethods.v3_1 = new Vector3(AAColor.ZeroShield.R / 255, AAColor.ZeroShield.G / 255, AAColor.ZeroShield.B / 255);
-            Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * (Distance - MOVE_DISTANCE), 26, DelegateMethods.CastLight);
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * (Distance - MOVE_DISTANCE), 26, DelegateMethods.CastLight);
         }
 
         public override bool ShouldUpdatePosition() => false;
@@ -230,8 +231,8 @@ namespace AAMod.Projectiles.Zero
         public override void CutTiles()
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-            Vector2 unit = projectile.velocity;
-            Utils.PlotTileLine(projectile.Center, projectile.Center + unit * Distance, (projectile.width + 16) * projectile.scale, DelegateMethods.CutTiles);
+            Vector2 unit = Projectile.velocity;
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * Distance, (Projectile.width + 16) * Projectile.scale, DelegateMethods.CutTiles);
         }
     }
 }

@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Pets
 {
@@ -9,26 +11,26 @@ namespace AAMod.Items.Pets
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
-			DisplayName.SetDefault("Moon Bee in a Jar");
-			Tooltip.SetDefault("Summons a Lunamini");
+			// DisplayName.SetDefault("Moon Bee in a Jar");
+			// Tooltip.SetDefault("Summons a Lunamini");
 
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(2, 2));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(2, 2));
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ZephyrFish);
-			item.shoot = mod.ProjectileType("Lunamini");
-            item.buffType = mod.BuffType("Lunamini");
-            item.noUseGraphic = true;
+			Item.CloneDefaults(ItemID.ZephyrFish);
+			Item.shoot = Mod.Find<ModProjectile>("Lunamini").Type;
+            Item.buffType = Mod.Find<ModBuff>("Lunamini").Type;
+            Item.noUseGraphic = true;
 		}
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
     }

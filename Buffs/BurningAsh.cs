@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class BurningAsh : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Burning Ash");
-			Description.SetDefault("Ash is melting your skin");
+			// DisplayName.SetDefault("Burning Ash");
+			// Description.SetDefault("Ash is melting your skin");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;

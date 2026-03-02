@@ -1,3 +1,4 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
     public class Torchsand : BaseAAItem
@@ -5,22 +6,22 @@ namespace AAMod.Items.Blocks
         public override void SetDefaults()
         {
 
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.rare = 2;
-            item.consumable = true;
-            item.createTile = mod.TileType("Torchsand"); //put your CustomBlock Tile name
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.rare = 2;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("Torchsand").Type; //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("Torchsand");
+          // DisplayName.SetDefault("Torchsand");
         }
 
     }

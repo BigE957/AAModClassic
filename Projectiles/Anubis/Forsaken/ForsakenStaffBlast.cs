@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Anubis.Forsaken
@@ -9,22 +11,22 @@ namespace AAMod.Projectiles.Anubis.Forsaken
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Forsaken Staff Blast");
+            // DisplayName.SetDefault("Forsaken Staff Blast");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.magic = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 600;
-            projectile.alpha = 20;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -34,18 +36,18 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 1f / 255f, (255 - projectile.alpha) * 0.7f / 255f, (255 - projectile.alpha) * 0f / 255f);
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 1f / 255f, (255 - Projectile.alpha) * 0.7f / 255f, (255 - Projectile.alpha) * 0f / 255f);
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             for (int num339 = 0; num339 < 2; num339++)
             {
                 Dust dust1;
-                dust1 = Main.dust[Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1.5f)];
+                dust1 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1.5f)];
                 dust1.noGravity = true;
             }
-			if (projectile.localAI[0] == 0f)
+			if (Projectile.localAI[0] == 0f)
 			{
-				AdjustMagnitude(ref projectile.velocity);
-				projectile.localAI[0] = 1f;
+				AdjustMagnitude(ref Projectile.velocity);
+				Projectile.localAI[0] = 1f;
 			}
 			Vector2 move = Vector2.Zero;
 			float distance = 200f;
@@ -54,7 +56,7 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			{
 				if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != 488)
 				{
-					Vector2 newMove = Main.npc[k].Center - projectile.Center;
+					Vector2 newMove = Main.npc[k].Center - Projectile.Center;
 					float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
 					if (distanceTo < distance)
 					{
@@ -67,8 +69,8 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			if (target)
 			{
 				AdjustMagnitude(ref move);
-				projectile.velocity = (10 * projectile.velocity + move) / 11f;
-				AdjustMagnitude(ref projectile.velocity);
+				Projectile.velocity = (10 * Projectile.velocity + move) / 11f;
+				AdjustMagnitude(ref Projectile.velocity);
 			}
 		}
 
@@ -81,14 +83,14 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 			}
 		}
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+            SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
             for (int num506 = 0; num506 < 15; num506++)
             {
                 Dust dust1;
-                Vector2 position = projectile.position;
-                dust1 = Main.dust[Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1f)];
+                Vector2 position = Projectile.position;
+                dust1 = Main.dust[Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1f)];
                 dust1.noGravity = true;
             }
 			for (int h = 0; h < 3; h++)
@@ -97,7 +99,7 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 8f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType("ForsakenFrag"), projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("ForsakenFrag").Type, Projectile.damage, 0, Main.myPlayer);
 			}
         }
     }

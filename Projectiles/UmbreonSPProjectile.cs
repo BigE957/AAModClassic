@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,19 +11,19 @@ namespace AAMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.width = 54;
-			projectile.height = 22;
-			projectile.friendly = true;
-			projectile.melee = true;
-			projectile.penetrate = 3;
-			projectile.aiStyle = -1;
-			projectile.timeLeft = 1200;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 2;
-			projectile.penetrate = 5;
-            projectile.tileCollide = false;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 8;
+			Projectile.width = 54;
+			Projectile.height = 22;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.penetrate = 3;
+			Projectile.aiStyle = -1;
+			Projectile.timeLeft = 1200;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+			Projectile.penetrate = 5;
+            Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 8;
 		}
 
         public short customGlowMask = 0;
@@ -30,17 +31,17 @@ namespace AAMod.Projectiles
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
 
-            DisplayName.SetDefault("Night Slash");
+            // DisplayName.SetDefault("Night Slash");
 		}
 		
 		public override Color? GetAlpha(Color lightColor)
@@ -48,10 +49,10 @@ namespace AAMod.Projectiles
 			return Color.White;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			projectile.ai[0] += 0.1f;
-			projectile.velocity *= 0.75f;
+			Projectile.ai[0] += 0.1f;
+			Projectile.velocity *= 0.75f;
 		}
 		
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
@@ -67,25 +68,25 @@ namespace AAMod.Projectiles
 		
 		public override void AI()
 		{
-			projectile.rotation =
-			projectile.velocity.ToRotation() +
+			Projectile.rotation =
+			Projectile.velocity.ToRotation() +
 			MathHelper.ToRadians(90f);
 			
 			if (Main.rand.Next(1) == 0)
 			{
-				int dustnumber = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.UmbreonSPDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.UmbreonSPDust>(), 0f, 0f, 200, default, 0.8f);
 				Main.dust[dustnumber].velocity *= 0.3f;
 			}
 		}
 		
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-            for (int k = 0; k < projectile.oldPos.Length; k++)
+            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+            for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-                Color color = projectile.GetAlpha(lightColor) * ((projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-                spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             return true;
         }

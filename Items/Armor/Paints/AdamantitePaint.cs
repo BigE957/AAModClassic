@@ -10,29 +10,25 @@ namespace AAMod.Items.Armor.Paints
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Adamantite Face Paint");
-            Tooltip.SetDefault(@"30% increased minion damage
-+80 mana");
+            // DisplayName.SetDefault("Adamantite Face Paint");
+            /* Tooltip.SetDefault(@"30% increased minion damage
++80 mana"); */
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = 50000;
-            item.rare = 4;
-            item.defense = 3;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = 50000;
+            Item.rare = 4;
+            Item.defense = 3;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.3f;
+            player.GetDamage(DamageClass.Summon) += 0.3f;
             player.statManaMax2 += 80;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawHair = true;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -52,12 +48,11 @@ namespace AAMod.Items.Armor.Paints
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.AdamantiteBar, 6);
                 recipe.AddIngredient(ItemID.BottledWater, 1);
                 recipe.AddTile(TileID.BewitchingTable);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

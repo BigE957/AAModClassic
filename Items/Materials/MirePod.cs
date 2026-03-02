@@ -4,14 +4,14 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire Pod");
+            // DisplayName.SetDefault("Mire Pod");
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 24;
-            item.maxStack = 99;
-            item.rare = 1;
+            Item.width = 20;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.rare = 1;
         }
     }
 }

@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
+using Terraria.ID;
 
 namespace AAMod.Tiles.Ore
 {
@@ -10,21 +12,20 @@ namespace AAMod.Tiles.Ore
     {
         public Texture2D glowTex;
         public bool glow = true;
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][mod.TileType("Doomstone")] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("Doomstone").Type] = true;
             Main.tileMergeDirt[Type] = false;
-            Main.tileValue[Type] = 860;
+            Main.tileOreFinderPriority[Type] = 860;
             Main.tileBlockLight[Type] = true;
-            SetModTree(new OroborosTree());
-            soundType = 21;
-            drop = mod.ItemType("Apocalyptite");   
-            dustType = mod.DustType("DoomDust");
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Apocalyptite Ore");
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(Mod.Find<ModItem>("Apocalyptite").Type);
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Apocalyptite Ore");
             AddMapEntry(new Color(70, 20, 20), name);
-			minPick = 225;
+			MinPick = 225;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
@@ -37,18 +38,11 @@ namespace AAMod.Tiles.Ore
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            if (glow && tile != null && tile.active() && tile.type == Type)
+            if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = mod.GetTexture("Glowmasks/ApocalyptiteTile_Glow");
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("Glowmasks/ApocalyptiteTile_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
-        }
-
-
-        public override int SaplingGrowthType(ref int style)
-        {
-            style = 0;
-            return mod.TileType("OroborosSapling");
         }
 
         public override bool CanExplode(int i, int j)

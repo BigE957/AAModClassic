@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,28 +10,28 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cursed Flamefury");
-			Tooltip.SetDefault("50% chance to not consume gel");
+			// DisplayName.SetDefault("Cursed Flamefury");
+			// Tooltip.SetDefault("50% chance to not consume gel");
 		}
 
 	    public override void SetDefaults()
 	    {
-			item.damage = 70;
-			item.ranged = true;
-			item.width = 80;
-			item.height = 38;
-			item.useTime = 5;
-			item.useAnimation = 10;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 4f;
-			item.UseSound = SoundID.Item34;
-            item.value = Item.buyPrice(0, 1, 0, 0);
-            item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ForsakenFlame");
-			item.shootSpeed = 10f;
-			item.useAmmo = 23;
-            item.rare = 9;
+			Item.damage = 70;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 80;
+			Item.height = 38;
+			Item.useTime = 5;
+			Item.useAnimation = 10;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 4f;
+			Item.UseSound = SoundID.Item34;
+            Item.value = Item.buyPrice(0, 1, 0, 0);
+            Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("ForsakenFlame").Type;
+			Item.shootSpeed = 10f;
+			Item.useAmmo = 23;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -38,14 +39,14 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 	        for (int index = 0; index < 2; ++index)
 	        {
@@ -56,7 +57,7 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 	    	return false;
 		}
 
-	    public override bool ConsumeAmmo(Player player)
+	    public override bool CanConsumeAmmo(Item ammo, Player player)
 	    {
 	    	if (Main.rand.Next(0, 100) < 50)
 	    		return false;
@@ -65,12 +66,11 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<SandstormThrower>(), 1);
 			recipe.AddIngredient(null, "SoulFragment", 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

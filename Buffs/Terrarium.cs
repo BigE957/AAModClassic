@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Terrarium : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra's Guidance");
-			Description.SetDefault(@"Your feet glow with the power of the terrarium, preventing fall damage");
+			// DisplayName.SetDefault("Terra's Guidance");
+			// Description.SetDefault(@"Your feet glow with the power of the terrarium, preventing fall damage");
 			Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

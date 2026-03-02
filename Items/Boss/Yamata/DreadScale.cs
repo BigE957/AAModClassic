@@ -10,27 +10,27 @@ namespace AAMod.Items.Boss.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dread Scale");
-            Tooltip.SetDefault("The power of the dread moon is in your hands");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 9));
+            // DisplayName.SetDefault("Dread Scale");
+            // Tooltip.SetDefault("The power of the dread moon is in your hands");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 34;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 9; AARarity = 13;
+            Item.width = 32;
+            Item.height = 34;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace AAMod.Items.Boss.Yamata
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

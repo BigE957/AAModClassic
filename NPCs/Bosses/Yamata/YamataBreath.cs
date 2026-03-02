@@ -9,23 +9,23 @@ namespace AAMod.NPCs.Bosses.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Wrath");
+            // DisplayName.SetDefault("Abyssal Wrath");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.hostile = true;
-            projectile.friendly = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 255;
-            projectile.timeLeft = 100;
-            projectile.aiStyle = -1;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 255;
+            Projectile.timeLeft = 100;
+            Projectile.aiStyle = -1;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
 
             return false;
@@ -33,28 +33,28 @@ namespace AAMod.NPCs.Bosses.Yamata
 
         public override void AI()
         {
-            if (projectile.ai[0] > 7f)
+            if (Projectile.ai[0] > 7f)
             {
                 float num296 = 1f;
-                if (projectile.ai[0] == 8f)
+                if (Projectile.ai[0] == 8f)
                 {
                     num296 = 0.25f;
                 }
-                else if (projectile.ai[0] == 9f)
+                else if (Projectile.ai[0] == 9f)
                 {
                     num296 = 0.5f;
                 }
-                else if (projectile.ai[0] == 10f)
+                else if (Projectile.ai[0] == 10f)
                 {
                     num296 = 0.75f;
                 }
-                projectile.ai[0] += 1f;
+                Projectile.ai[0] += 1f;
                 int num297 = ModContent.DustType<Dusts.YamataDust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 1; num298++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num297, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100);
+                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, num297, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                         if (Main.rand.Next(3) == 0)
                         {
                             Main.dust[num299].noGravity = true;
@@ -70,7 +70,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                         Dust expr_DE02_cp_0 = Main.dust[num299];
                         expr_DE02_cp_0.velocity.Y *= 1.2f;
                         Main.dust[num299].scale *= num296;
-                        Main.dust[num299].velocity += projectile.velocity;
+                        Main.dust[num299].velocity += Projectile.velocity;
                         if (!Main.dust[num299].noGravity)
                         {
                             Main.dust[num299].velocity *= 0.5f;
@@ -80,16 +80,16 @@ namespace AAMod.NPCs.Bosses.Yamata
             }
             else
             {
-                projectile.ai[0] += 1f;
-                projectile.width += 6;
-                projectile.height += 6;
+                Projectile.ai[0] += 1f;
+                Projectile.width += 6;
+                Projectile.height += 6;
             }
-            projectile.rotation += 0.3f * projectile.direction;
+            Projectile.rotation += 0.3f * Projectile.direction;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(mod.BuffType("HydraToxin"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 600);
         }
     }
 }

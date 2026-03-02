@@ -8,7 +8,7 @@ namespace AAMod.Tiles.Plants
 	{
 		public static int _type;
 
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = true;
@@ -16,8 +16,8 @@ namespace AAMod.Tiles.Plants
 			Main.tileMergeDirt[Type] = true;
 			Main.tileLighted[Type] = false;
 
-			dustType = ModContent.DustType<Dusts.BogwoodDust>();
-			soundType = 6;
+			DustType = ModContent.DustType<Dusts.BogwoodDust>();
+			HitSound = 6;
 
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			TileObjectData.newTile.LavaDeath = true;

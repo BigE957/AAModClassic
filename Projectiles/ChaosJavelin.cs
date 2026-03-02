@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,47 +10,47 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Javelin");
+            // DisplayName.SetDefault("Chaos Javelin");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.friendly = true;
-            projectile.aiStyle = -1;
-            projectile.ranged = true;
-            projectile.penetrate = 1;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.friendly = true;
+            Projectile.aiStyle = -1;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<ChaosBoom>(), projectile.damage, projectile.knockBack, Main.myPlayer, Main.rand.Next(2), 0);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<ChaosBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Main.rand.Next(2), 0);
         }
 
         public override void AI()
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 25;
+                Projectile.alpha -= 25;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.ai[1] += 1f;
-                if (projectile.ai[1] >= 45f)
+                Projectile.ai[1] += 1f;
+                if (Projectile.ai[1] >= 45f)
                 {
                     float num975 = 0.98f;
                     float num976 = 0.35f;
-                    projectile.ai[1] = 45f;
-                    projectile.velocity.X = projectile.velocity.X * num975;
-                    projectile.velocity.Y = projectile.velocity.Y + num976;
+                    Projectile.ai[1] = 45f;
+                    Projectile.velocity.X = Projectile.velocity.X * num975;
+                    Projectile.velocity.Y = Projectile.velocity.Y + num976;
                 }
-                projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             }
         }
     }

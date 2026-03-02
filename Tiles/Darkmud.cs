@@ -7,19 +7,19 @@ namespace AAMod.Tiles
 {
     public class Darkmud : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][mod.TileType("AbyssGrass")] = true;
-            Main.tileMerge[Type][mod.TileType("AbyssWoodSolid")] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssGrass").Type] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWoodSolid").Type] = true;
             Main.tileBlendAll[Type] = false;
 			Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            soundType = 21;
-            dustType = mod.DustType("DeepAbyssiumDust");
+            HitSound = 21;
+            DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
             AddMapEntry(new Color(0, 0, 100));
-			minPick = 65;
+			MinPick = 65;
         }
 
 

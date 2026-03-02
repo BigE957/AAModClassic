@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -11,28 +12,28 @@ namespace AAMod.Items.Boss.Zero
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Event Horizon");
+			// DisplayName.SetDefault("Event Horizon");
         }
 
         public override void SetDefaults()
         {
-            item.width = 38;
-            item.height = 54;
-            item.damage = 400;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.channel = true;
-            item.autoReuse = true;
-            item.melee = true;
-            item.useAnimation = 10;
-            item.useTime = 10;
-            item.useStyle = 5;
-            item.knockBack = 2f;
-            item.UseSound = SoundID.Item116;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.shoot = mod.ProjectileType("EventHorizon");
-            item.shootSpeed = 22f;
-            item.rare = 9; AARarity = 13;
+            Item.width = 38;
+            Item.height = 54;
+            Item.damage = 400;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.channel = true;
+            Item.autoReuse = true;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.useAnimation = 10;
+            Item.useTime = 10;
+            Item.useStyle = 5;
+            Item.knockBack = 2f;
+            Item.UseSound = SoundID.Item116;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.shoot = Mod.Find<ModProjectile>("EventHorizon").Type;
+            Item.shootSpeed = 22f;
+            Item.rare = 9; AARarity = 13;
         }
 
 
@@ -40,23 +41,23 @@ namespace AAMod.Items.Boss.Zero
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -70,16 +71,15 @@ namespace AAMod.Items.Boss.Zero
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
 			recipe.AddIngredient(null, "UnstableSingularity", 5);
 			recipe.AddIngredient(ItemID.SolarEruption);
 	        recipe.AddTile(null, "ACS");
-	        recipe.SetResult(this);
-	        recipe.AddRecipe();
+	        recipe.Register();
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
             float ai3 = (Main.rand.NextFloat() - 0.75f) * 0.7853982f;
             float spread = 45f * 0.0174f;
@@ -88,7 +88,7 @@ namespace AAMod.Items.Boss.Zero
             double deltaAngle = spread / 6f;
             double offsetAngle;
             offsetAngle = startAngle + (deltaAngle * 1);
-            Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), mod.ProjectileType("EventHorizon"), damage, knockBack, player.whoAmI, 0.0f, ai3);
+            Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("EventHorizon").Type, damage, knockBack, player.whoAmI, 0.0f, ai3);
             return false;
         }
 	}

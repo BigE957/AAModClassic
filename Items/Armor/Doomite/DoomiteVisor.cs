@@ -10,17 +10,17 @@ namespace AAMod.Items.Armor.Doomite
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doomite Visor");
-            Tooltip.SetDefault(@"+1 Minion slot");
+            // DisplayName.SetDefault("Doomite Visor");
+            // Tooltip.SetDefault(@"+1 Minion slot");
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 20;
-            item.rare = 4;
-            item.defense = 6;
-            item.value = 9000;
+            Item.width = 26;
+            Item.height = 20;
+            Item.rare = 4;
+            Item.defense = 6;
+            Item.value = 9000;
         }
 
         public override void UpdateEquip(Player player)
@@ -30,7 +30,7 @@ namespace AAMod.Items.Armor.Doomite
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("DoomiteBreastplate") && legs.type == mod.ItemType("DoomiteGreaves");
+            return body.type == Mod.Find<ModItem>("DoomiteBreastplate").Type && legs.type == Mod.Find<ModItem>("DoomiteGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -40,28 +40,27 @@ namespace AAMod.Items.Armor.Doomite
             player.GetModPlayer<AAPlayer>().doomite = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(mod.BuffType("Searcher")) == -1)
+                if (player.FindBuffIndex(Mod.Find<ModBuff>("Searcher").Type) == -1)
                 {
-                    player.AddBuff(mod.BuffType("Searcher"), 3600, true);
+                    player.AddBuff(Mod.Find<ModBuff>("Searcher").Type, 3600, true);
                 }
-                if (player.ownedProjectileCounts[mod.ProjectileType("Searcher")] < 1)
+                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Searcher").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("Searcher"), 30, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Searcher").Type, 30, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DoomiteUHelm");
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
             recipe.AddIngredient(null, "BroodScale", 5);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

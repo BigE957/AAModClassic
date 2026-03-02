@@ -9,17 +9,17 @@ namespace AAMod.Items.Accessories.Wings
 	{
 		public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zero Jet");
-            Tooltip.SetDefault("Allows flight and slow fall");
+            // DisplayName.SetDefault("Zero Jet");
+            // Tooltip.SetDefault("Allows flight and slow fall");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 20;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 2;
-			item.accessory = true;
+			Item.width = 22;
+			Item.height = 20;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 2;
+			Item.accessory = true;
             
         }
 		
@@ -66,21 +66,20 @@ namespace AAMod.Items.Accessories.Wings
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 15);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

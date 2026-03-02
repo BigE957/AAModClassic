@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,46 +13,46 @@ namespace AAMod.Projectiles.Yamata
     {
         public override void SetDefaults()
         {
-            projectile.width = 75;
-            projectile.height = 75;
-            projectile.scale = 1f;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.ownerHitCheck = true;
-            projectile.melee = true;
-            projectile.timeLeft = 90;
-            projectile.extraUpdates = 3;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 8;
+            Projectile.width = 75;
+            Projectile.height = 75;
+            Projectile.scale = 1f;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 90;
+            Projectile.extraUpdates = 3;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 8;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Yari");
+            // DisplayName.SetDefault("Abyssal Yari");
         }
 
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, Color.DarkRed.R / 100, Color.DarkRed.G / 100, Color.DarkRed.B / 180);
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            Lighting.AddLight(Projectile.Center, Color.DarkRed.R / 100, Color.DarkRed.G / 100, Color.DarkRed.B / 180);
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
             
-			if(projectile.timeLeft < 60)
+			if(Projectile.timeLeft < 60)
 			{
-				projectile.velocity.Y += projectile.velocity.Y > 0f ? 0.04f : -0.04f;
-				if(projectile.velocity.Y <= -8f) projectile.velocity.Y = -8f;
-				if(projectile.velocity.Y >= 8f) projectile.velocity.Y = 8f;
+				Projectile.velocity.Y += Projectile.velocity.Y > 0f ? 0.04f : -0.04f;
+				if(Projectile.velocity.Y <= -8f) Projectile.velocity.Y = -8f;
+				if(Projectile.velocity.Y >= 8f) Projectile.velocity.Y = 8f;
 			}
-			projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + .25f * (float)Math.PI;
+			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + .25f * (float)Math.PI;
 			for (int i = 0; i < 3; i++)
 			{
-				int d = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("YamataADust"), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100);
+				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("YamataADust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
 				if (Main.rand.Next(6) != 0)
 				{
 					Main.dust[d].noGravity = true;
@@ -65,71 +67,71 @@ namespace AAMod.Projectiles.Yamata
 			}
         }
 
-        public override void OnHitNPC (NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            target.AddBuff(mod.BuffType("Moonraze"), 500);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 500);
         }		
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.position = projectile.Center;
-            projectile.width = projectile.height = 80;
-            projectile.Center = projectile.position;
-            projectile.maxPenetrate = -1;
-            projectile.penetrate = -1;
-            projectile.Damage();
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            Vector2 position = projectile.Center + (Vector2.One * -20f);
+            Projectile.position = Projectile.Center;
+            Projectile.width = Projectile.height = 80;
+            Projectile.Center = Projectile.position;
+            Projectile.maxPenetrate = -1;
+            Projectile.penetrate = -1;
+            Projectile.Damage();
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            Vector2 position = Projectile.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 200, default, 3.7f);
-                Main.dust[num88].position = projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += projectile.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 100, default, 1.5f);
-                Main.dust[num88].position = projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Crimson * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += projectile.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(projectile.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += projectile.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += Projectile.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(projectile.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += projectile.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += Projectile.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-            for (int k = 0; k < projectile.oldPos.Length; k++)
+            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+            for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-                spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, new Color(Color.White.R, Color.White.G, Color.White.B, 20 * k), projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, new Color(Color.White.R, Color.White.G, Color.White.B, 20 * k), Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             return true;
         }

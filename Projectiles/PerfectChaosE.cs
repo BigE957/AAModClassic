@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,60 +13,60 @@ namespace AAMod.Projectiles
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/Toxibomb_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/Toxibomb_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            projectile.glowMask = customGlowMask;
-            DisplayName.SetDefault("Discordian Fury");     
-            Main.projFrames[projectile.type] = 7;     
+            Projectile.glowMask = customGlowMask;
+            // DisplayName.SetDefault("Discordian Fury");     
+            Main.projFrames[Projectile.type] = 7;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.melee = true;
-            projectile.timeLeft = 600;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 30;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 600;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 30;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 6)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 6)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
             target.AddBuff(BuffID.Daybreak, 600);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
     }

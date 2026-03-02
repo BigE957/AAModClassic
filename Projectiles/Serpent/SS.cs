@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,28 +9,28 @@ namespace AAMod.Projectiles.Serpent
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("SS");
+			// DisplayName.SetDefault("SS");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.Shuriken);
-			projectile.width = 15;
-			projectile.height = 15;
-            projectile.ranged = true;
+			Projectile.CloneDefaults(ProjectileID.Shuriken);
+			Projectile.width = 15;
+			Projectile.height = 15;
+            Projectile.DamageType = DamageClass.Ranged;
         }
         
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			if (Main.rand.Next(0, 4) == 0)
-				Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("SnowflakeSuriken"), 1, false, 0, false, false);
+				Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("SnowflakeSuriken").Type, 1, false, 0, false, false);
 
 			for (int i = 0; i < 5; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.IceDust>());
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.IceDust>());
 			}
-			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 
 	}

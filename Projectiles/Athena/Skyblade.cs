@@ -8,21 +8,21 @@ namespace AAMod.Projectiles.Athena
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 3;
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 360;
-            projectile.friendly = true;
-            projectile.tileCollide = true;
-            projectile.melee = true;
-            projectile.ignoreWater = true;
-            projectile.extraUpdates = 1;
-            projectile.aiStyle = -1;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 360;
+            Projectile.friendly = true;
+            Projectile.tileCollide = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.ignoreWater = true;
+            Projectile.extraUpdates = 1;
+            Projectile.aiStyle = -1;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -34,55 +34,55 @@ namespace AAMod.Projectiles.Athena
 
         public override void AI()
         {
-            if (projectile.frameCounter++ > 2)
+            if (Projectile.frameCounter++ > 2)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 2)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 2)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
             const float amountOfFramesToLerpBy = 10; // minimum of 1, please keep in full numbers even though it's a float!
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay;
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
 
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 76, 0f, 0f, 0, Color.White, 1f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 76, 0f, 0f, 0, Color.White, 1f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].alpha = 20;
             }
 
-            if (projectile.alpha % 15 == 0)
+            if (Projectile.alpha % 15 == 0)
             {
                 desiredFlySpeedInPixelsPerFrame--;
             }
 
-            if (projectile.alpha < 255)
+            if (Projectile.alpha < 255)
             {
-                projectile.alpha -= 3;
+                Projectile.alpha -= 3;
             }
             else
             {
-                projectile.active = false;
+                Projectile.active = false;
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             desiredFlySpeedInPixelsPerFrame--;
         }
@@ -96,13 +96,13 @@ namespace AAMod.Projectiles.Athena
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                     (
                         selectedTarget == -1 || //there is no selected target
-                        projectile.Distance(Main.npc[selectedTarget].Center) > distance)
+                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

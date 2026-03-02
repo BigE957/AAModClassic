@@ -13,37 +13,37 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 6;
-            projectile.height = 6;
-            projectile.friendly = true;
-            projectile.alpha = 255;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 2;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
+            Projectile.width = 6;
+            Projectile.height = 6;
+            Projectile.friendly = true;
+            Projectile.alpha = 255;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 2;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
             int dustType = ModContent.DustType<BroodmotherDust>();
-            projectile.velocity *= 0.95f;
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] == 180f)
+            Projectile.velocity *= 0.95f;
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] == 180f)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (projectile.ai[1] == 0f)
+            if (Projectile.ai[1] == 0f)
             {
-                projectile.ai[1] = 1f;
+                Projectile.ai[1] = 1f;
                 for (int num62 = 0; num62 < 30; num62++)
                 {
-                    Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, projectile.velocity.X, projectile.velocity.Y, 50);
+                    Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, Projectile.velocity.X, Projectile.velocity.Y, 50);
                 }
             }
-            int num63 = (int)(projectile.position.X / 16f) - 1;
-            int num64 = (int)((projectile.position.X + projectile.width) / 16f) + 2;
-            int num65 = (int)(projectile.position.Y / 16f) - 1;
-            int num66 = (int)((projectile.position.Y + projectile.height) / 16f) + 2;
+            int num63 = (int)(Projectile.position.X / 16f) - 1;
+            int num64 = (int)((Projectile.position.X + Projectile.width) / 16f) + 2;
+            int num65 = (int)(Projectile.position.Y / 16f) - 1;
+            int num66 = (int)((Projectile.position.Y + Projectile.height) / 16f) + 2;
             if (num63 < 0)
             {
                 num63 = 0;
@@ -60,9 +60,9 @@ namespace AAMod.Projectiles
             {
                 num66 = Main.maxTilesY;
             }
-            if (projectile.owner == Main.myPlayer)
+            if (Projectile.owner == Main.myPlayer)
             {
-                Convert((int)(projectile.position.X + projectile.width / 2) / 16, (int)(projectile.position.Y + projectile.height / 2) / 16);
+                Convert((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16);
             }
         }
 
@@ -74,59 +74,59 @@ namespace AAMod.Projectiles
                 {
                     if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
                     {
-                        int type = Main.tile[k, l].type;
-                        int wall = Main.tile[k, l].wall;
+                        int type = Main.tile[k, l].TileType;
+                        int wall = Main.tile[k, l].WallType;
                         if (type == (ushort)ModContent.WallType<DepthstoneWall>())
                         {
-                            Main.tile[k, l].wall = WallID.Stone;
+                            Main.tile[k, l].WallType = WallID.Stone;
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == (ushort)ModContent.WallType<DepthsandstoneWall>())
                         {
-                            Main.tile[k, l].wall = WallID.Sandstone;
+                            Main.tile[k, l].WallType = WallID.Sandstone;
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == (ushort)ModContent.WallType<DepthsandHardenedWall>())
                         {
-                            Main.tile[k, l].wall = WallID.HardenedSand;
+                            Main.tile[k, l].WallType = WallID.HardenedSand;
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Depthstone>())
                         {
-                            Main.tile[k, l].type = 1;
+                            Main.tile[k, l].TileType = 1;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<MireGrass>())
                         {
-                            Main.tile[k, l].type = 60;
+                            Main.tile[k, l].TileType = 60;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<IndigoIce>())
                         {
-                            Main.tile[k, l].type = 161;
+                            Main.tile[k, l].TileType = 161;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Depthsandstone>())
                         {
-                            Main.tile[k, l].type = 396;
+                            Main.tile[k, l].TileType = 396;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Depthsand>())
                         {
-                            Main.tile[k, l].type = 53;
+                            Main.tile[k, l].TileType = 53;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<DepthsandHardened>())
                         {
-                            Main.tile[k, l].type = 397;
+                            Main.tile[k, l].TileType = 397;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }

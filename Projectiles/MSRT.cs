@@ -7,36 +7,36 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Reality Tear");     
-            Main.projFrames[projectile.type] = 10;     
+            // DisplayName.SetDefault("Reality Tear");     
+            Main.projFrames[Projectile.type] = 10;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 42;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 30;
-            projectile.melee = true;
+            Projectile.width = 40;
+            Projectile.height = 42;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 30;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 8)
+            if (++Projectile.frameCounter >= 8)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 9)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 9)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 

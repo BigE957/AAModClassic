@@ -11,30 +11,30 @@ namespace AAMod.Items.Armor.Abyssal
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Abyssal Fukumen");
-            Tooltip.SetDefault(@"35% increased movement speed
+            // DisplayName.SetDefault("Abyssal Fukumen");
+            /* Tooltip.SetDefault(@"35% increased movement speed
 15% increased ranged damage
-Weightless as shadow itself");
+Weightless as shadow itself"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.rare = 4;
-			item.defense = 6;
+			Item.width = 20;
+			Item.height = 20;
+			Item.rare = 4;
+			Item.defense = 6;
 		}
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += .15f;
+            player.GetDamage(DamageClass.Ranged) += .15f;
             player.moveSpeed += .35f;
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .35f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("AbyssalGi") && legs.type == mod.ItemType("AbyssalHakama");
+			return body.type == Mod.Find<ModItem>("AbyssalGi").Type && legs.type == Mod.Find<ModItem>("AbyssalHakama").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -47,14 +47,13 @@ Weightless as shadow itself");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DepthFukumen", 1);
             recipe.AddIngredient(null, "RelicBar", 5);
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

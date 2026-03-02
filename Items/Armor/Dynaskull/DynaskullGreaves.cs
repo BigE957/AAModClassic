@@ -10,36 +10,35 @@ namespace AAMod.Items.Armor.Dynaskull
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dynaskull Greaves");
-            Tooltip.SetDefault("12% Increased ranged critical chance");
+			// DisplayName.SetDefault("Dynaskull Greaves");
+            // Tooltip.SetDefault("12% Increased ranged critical chance");
 
         }
 
 		public override void SetDefaults()
 		{
-            item.width = 30;
-			item.height = 28;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 7;
+            Item.width = 30;
+			Item.height = 28;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 7;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.rangedCrit += 12;
+			player.GetCritChance(DamageClass.Ranged) += 12;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FossilPants, 1);
             recipe.AddIngredient(null, "DynaskullOre", 15);
             recipe.AddIngredient(null, "Doomite", 6);
             recipe.AddIngredient(ItemID.Coral, 6);
             recipe.AddIngredient(null, "BroodScale", 6);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

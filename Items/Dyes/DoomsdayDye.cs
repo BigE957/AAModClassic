@@ -11,41 +11,40 @@ namespace AAMod.Items.Dyes
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doomsday Dye");
-            BaseUtility.AddTooltips(item, new string[] { "Adds a glitchy-look to whatever this dye is applied to" });
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 7));
+            // DisplayName.SetDefault("Doomsday Dye");
+            BaseUtility.AddTooltips(Item, new string[] { "Adds a glitchy-look to whatever this dye is applied to" });
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 7));
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 15;
-            item.height = 15;
-            item.maxStack = 99;
-            item.rare = 8;
-            item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(item.type);
-            item.value = BaseUtility.CalcValue(0, 10, 0, 0);
+            Item.width = 15;
+            Item.height = 15;
+            Item.maxStack = 99;
+            Item.rare = 8;
+            Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type);
+            Item.value = BaseUtility.CalcValue(0, 10, 0, 0);
         }
 
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "UnstableSingularity", 3);
             recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

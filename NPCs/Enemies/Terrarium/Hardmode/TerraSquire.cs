@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,48 +13,48 @@ namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Squire");
-            Main.npcFrameCount[npc.type] = 20;
+            // DisplayName.SetDefault("Terra Squire");
+            Main.npcFrameCount[NPC.type] = 20;
         }
         public override void SetDefaults()
         {
-            npc.width = 58;
-            npc.height = 70;
+            NPC.width = 58;
+            NPC.height = 70;
 
-            npc.damage = 40;
-            npc.friendly = false;
-            npc.defense = 18;
-            npc.lifeMax = 300;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 0f;
-            npc.knockBackResist = 0.05f;
-            npc.aiStyle = 3;
-            npc.lavaImmune = true;
-            aiType = NPCID.GraniteGolem;  //npc behavior
-            animationType = NPCID.GraniteGolem;
-            banner = npc.type;
-			bannerItem = mod.ItemType("TerraSquireBanner");
+            NPC.damage = 40;
+            NPC.friendly = false;
+            NPC.defense = 18;
+            NPC.lifeMax = 300;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 0f;
+            NPC.knockBackResist = 0.05f;
+            NPC.aiStyle = 3;
+            NPC.lavaImmune = true;
+            AIType = NPCID.GraniteGolem;  //npc behavior
+            AnimationType = NPCID.GraniteGolem;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("TerraSquireBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-                Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-                Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-                Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-                Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
             }
-            Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-            Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 107, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(npc.position), BaseDrawing.GetLightColor(npc.position), Color.LimeGreen, BaseDrawing.GetLightColor(npc.position), Color.LimeGreen, BaseDrawing.GetLightColor(npc.position));
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc, npc.dontTakeDamage ? color : dColor);
+            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position));
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.dontTakeDamage ? color : dColor);
             return false;
         }
     }

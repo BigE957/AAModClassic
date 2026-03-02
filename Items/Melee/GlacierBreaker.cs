@@ -8,37 +8,36 @@ namespace AAMod.Items.Melee   //where is located
     {
         public override void SetDefaults()
         {
-			item.CloneDefaults(ItemID.SolarEruption);
+			Item.CloneDefaults(ItemID.SolarEruption);
 
-            item.damage = 18;            
-            item.melee = true;            
-            item.width = 32;              
-            item.height = 46;             
+            Item.damage = 18;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 32;              
+            Item.height = 46;             
 
-            item.knockBack = 6;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 3;
-            item.autoReuse = true;   
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("GlacierBreaker");
-			item.UseSound = SoundID.Item18;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 3;
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("GlacierBreaker").Type;
+			Item.UseSound = SoundID.Item18;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Glacier Breaker");
-			Tooltip.SetDefault(@"Drops Icicles while the flail travels");
+			// DisplayName.SetDefault("Glacier Breaker");
+			// Tooltip.SetDefault(@"Drops Icicles while the flail travels");
 		}
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.BorealWood, 20);
 			recipe.AddIngredient(ItemID.IceBlock, 40);
-			recipe.AddIngredient(mod.ItemType("SnowMana"), 3);
+			recipe.AddIngredient(Mod.Find<ModItem>("SnowMana").Type, 3);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

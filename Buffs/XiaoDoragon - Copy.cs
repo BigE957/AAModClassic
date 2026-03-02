@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class XiaoDoragon : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Xiao Doragon");
-			Description.SetDefault("Summons a small chaos dragon to fight for you");
+			// DisplayName.SetDefault("Xiao Doragon");
+			// Description.SetDefault("Summons a small chaos dragon to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("XiaoDoragon")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("XiaoDoragon").Type] > 0)
 			{
 				modPlayer.Xiao = true;
 			}

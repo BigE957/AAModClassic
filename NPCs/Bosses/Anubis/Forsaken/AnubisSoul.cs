@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,50 +11,50 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 48;
-            projectile.height = 30;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            projectile.alpha = 0;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 900;
-            projectile.hostile = true;
+            Projectile.width = 48;
+            Projectile.height = 30;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.alpha = 0;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 900;
+            Projectile.hostile = true;
             
         }
 
         public override void AI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X);
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X);
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X);
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
             }
 
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.ForsakenDust>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.ForsakenDust>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.ForsakenDust>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.ForsakenDust>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId3].noGravity = true;
 
             const int aislotHomingCooldown = 0;
@@ -61,17 +62,17 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             const float desiredFlySpeedInPixelsPerFrame = 20;
             const float amountOfFramesToLerpBy = 30; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player n = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -86,10 +87,10 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                 Player n = Main.player[i];
                 if (!n.immune)
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
-                            selectedTarget == -1 ||  projectile.Distance(Main.player[selectedTarget].Center) > distance)
+                            selectedTarget == -1 ||  Projectile.Distance(Main.player[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -98,21 +99,21 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             return selectedTarget;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenExplosion>(), projectile.damage, projectile.knockBack, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenExplosion>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             int pieCut = 20;
-            Main.PlaySound(SoundID.Item14, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(projectile.Center.X - 1, projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 100, Color.White, 1.6f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 100, Color.White, 1.6f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;
             }
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(projectile.Center.X - 1, projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 100, Color.White, 2f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;

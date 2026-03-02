@@ -3,6 +3,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
@@ -13,75 +15,75 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Grip of Chaos");
-            Main.npcFrameCount[npc.type] = 14;
+            // DisplayName.SetDefault("Grip of Chaos");
+            Main.npcFrameCount[NPC.type] = 14;
         }
 
         public int damage = 0;
 
         public override void SetDefaults()
         {
-            npc.width = 66;
-            npc.height = 60;			
-            npc.aiStyle = -1;
-			npc.knockBackResist = 0f;	
-            npc.value = Item.sellPrice(0, 4, 50, 0);
-            npc.npcSlots = 1f;
-            npc.lavaImmune = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.netAlways = true;
-            npc.scale *= 1.4f;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Shen");
+            NPC.width = 66;
+            NPC.height = 60;			
+            NPC.aiStyle = -1;
+			NPC.knockBackResist = 0f;	
+            NPC.value = Item.sellPrice(0, 4, 50, 0);
+            NPC.npcSlots = 1f;
+            NPC.lavaImmune = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.netAlways = true;
+            NPC.scale *= 1.4f;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Shen");
         }
         
         public override void FindFrame(int frameHeight)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("Shen")))
+            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("Shen").Type))
             {
-                npc.life = 0;
+                NPC.life = 0;
             }
-            npc.frameCounter++;
-            if (npc.frameCounter > 9)
+            NPC.frameCounter++;
+            if (NPC.frameCounter > 9)
             {
-                npc.frame.Y += frameHeight;
-                npc.frameCounter = 0;
-                if (npc.ai[0] == 2 || npc.ai[0] == 3)
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
+                if (NPC.ai[0] == 2 || NPC.ai[0] == 3)
                 {
-                    if (npc.frame.Y < 4 * frameHeight || npc.frame.Y > 7 * frameHeight)
+                    if (NPC.frame.Y < 4 * frameHeight || NPC.frame.Y > 7 * frameHeight)
                     {
-                        npc.frame.Y = 4 * frameHeight;
+                        NPC.frame.Y = 4 * frameHeight;
                     }
 
                 }
-                else if (npc.ai[0] == 5)
+                else if (NPC.ai[0] == 5)
                 {
-                    if (npc.frame.Y < 8 * frameHeight || npc.frame.Y > 11 * frameHeight)
+                    if (NPC.frame.Y < 8 * frameHeight || NPC.frame.Y > 11 * frameHeight)
                     {
-                        npc.frame.Y = 8 * frameHeight;
+                        NPC.frame.Y = 8 * frameHeight;
                     }
                 }
-                else if (npc.ai[0] == 6)
+                else if (NPC.ai[0] == 6)
                 {
-                    npc.frame.Y = frameHeight * 8;
+                    NPC.frame.Y = frameHeight * 8;
                     if (internalAI[0] > 8)
-                    {npc.frame.Y = frameHeight * 9;}
+                    {NPC.frame.Y = frameHeight * 9;}
                     if (internalAI[0] > 16)
-                    {npc.frame.Y = frameHeight * 10;}
+                    {NPC.frame.Y = frameHeight * 10;}
                     if (internalAI[0] > 24)
-                    { npc.frame.Y = frameHeight * 11; }
+                    { NPC.frame.Y = frameHeight * 11; }
                     if (internalAI[0] > 32)
-                    { npc.frame.Y = frameHeight * 12; }
+                    { NPC.frame.Y = frameHeight * 12; }
                     if (internalAI[0] > 40)
-                    { npc.frame.Y = frameHeight * 13 ;}
+                    { NPC.frame.Y = frameHeight * 13 ;}
                 }
                 else
                 {
-                    if (npc.frame.Y > 3 * frameHeight)
+                    if (NPC.frame.Y > 3 * frameHeight)
                     {
-                        npc.frame.Y = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
@@ -105,19 +107,19 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
         }
 
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
 
 		public override void BossHeadRotation(ref float rotation)
 		{
-			rotation = npc.rotation;
+			rotation = NPC.rotation;
 		}
 		public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)
 		{
-			spriteEffects = npc.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			spriteEffects = NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 		}
 
 		public Vector2 offsetBasePoint = Vector2.Zero;
@@ -149,17 +151,17 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
             }
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if(npc.ai[0] == 3)
+            if(NPC.ai[0] == 3)
             {
-                if(npc.type == ModContent.NPCType<BlazeGrip>())
+                if(NPC.type == ModContent.NPCType<BlazeGrip>())
                 {
-                    BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
+                    BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
                 }
                 else
                 {
-                    BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                    BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
                 }
             }
             return false;
@@ -167,53 +169,53 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 
         public override void AI()
 		{
-            bool BlazeGrip = npc.type == ModContent.NPCType<BlazeGrip>();
+            bool BlazeGrip = NPC.type == ModContent.NPCType<BlazeGrip>();
 
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
-            npc.TargetClosest();
-			Player targetPlayer = Main.player[npc.target];
+            NPC.TargetClosest();
+			Player targetPlayer = Main.player[NPC.target];
 
-            float ChangingPosX = 350f * (targetPlayer.Center.X > npc.Center.X? 1:-1);
-            float ChangingPosY = 350f * (targetPlayer.Center.Y > npc.Center.Y? 1:-1);
+            float ChangingPosX = 350f * (targetPlayer.Center.X > NPC.Center.X? 1:-1);
+            float ChangingPosY = 350f * (targetPlayer.Center.Y > NPC.Center.Y? 1:-1);
 
-            if (Main.player[npc.target].dead || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+            if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
-                npc.TargetClosest(false);
+                NPC.TargetClosest(false);
                 DespawnHandler();
                 return;
             }
 
-			if(npc.ai[0] == 1) //move to starting charge position
+			if(NPC.ai[0] == 1) //move to starting charge position
 			{
 				moveSpeed = 14f;
 				Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -ChangingPosY);
 				MoveToPoint(point);
                 internalAI[0] ++;
-				if(Main.netMode != 1 && (Vector2.Distance(npc.Center, point) < 10f || internalAI[0] > 100))
+				if(Main.netMode != 1 && (Vector2.Distance(NPC.Center, point) < 10f || internalAI[0] > 100))
 				{
-                    npc.ai[0] = 4;
-                    npc.ai[1] = 0;
-                    npc.ai[2] = 0;
-					npc.ai[3] = 0;
+                    NPC.ai[0] = 4;
+                    NPC.ai[1] = 0;
+                    NPC.ai[2] = 0;
+					NPC.ai[3] = 0;
                     internalAI[0] = 0;
                     internalAI[1] = 0;
                     internalAI[2] = 0;
-					npc.netUpdate = true;
+					NPC.netUpdate = true;
 				}
-				BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);			
+				BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);			
 			}else
-			if(npc.ai[0] == 2) //dive prepare
+			if(NPC.ai[0] == 2) //dive prepare
 			{
                 if(internalAI[2] >= 1) internalAI[2] ++;
 				moveSpeed = 22f;
-				Vector2 targetCenter = new Vector2(npc.ai[1], npc.ai[2]);
+				Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
 				Vector2 point = targetCenter + new Vector2(ChangingPosX, ChangingPosY);
                 Keepmove = point;
                 if(Keepmove != new Vector2(0,0))
@@ -221,48 +223,48 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                     MoveToPoint(Keepmove);
                     if(Main.netMode != 1)
                     {
-                        Main.PlaySound(SoundID.Roar, npc.position, 0);
-                        npc.ai[0] = 3;			
-                        npc.netUpdate = true;
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.position);
+                        NPC.ai[0] = 3;			
+                        NPC.netUpdate = true;
                     }
                 } 
 				else
                 {
-                    npc.ai[0] = 0;
-                    npc.ai[3] = 0;				
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.ai[3] = 0;				
+                    NPC.netUpdate = true;
                 }
-				BaseAI.Look(npc, 0, 0f, 0.1f, false);				
+				BaseAI.Look(NPC, 0, 0f, 0.1f, false);				
 			}else
-			if(npc.ai[0] == 3) //diving
+			if(NPC.ai[0] == 3) //diving
 			{
                 if(internalAI[2] >= 1) internalAI[2] ++;
 				moveSpeed = 22f;
 				MoveToPoint(Keepmove);
-				if(Main.netMode != 1 && (Vector2.Distance(npc.Center, Keepmove) < 10f || npc.ai[3] ++ > 60))
+				if(Main.netMode != 1 && (Vector2.Distance(NPC.Center, Keepmove) < 10f || NPC.ai[3] ++ > 60))
 				{
-                    npc.ai[0] = 2;
-                    npc.ai[1] = targetPlayer.Center.X;
-                    npc.ai[2] = targetPlayer.Center.Y;
-                    npc.ai[3] = 0;
+                    NPC.ai[0] = 2;
+                    NPC.ai[1] = targetPlayer.Center.X;
+                    NPC.ai[2] = targetPlayer.Center.Y;
+                    NPC.ai[3] = 0;
                     if(internalAI[1] ++ > 4 && internalAI[2] == 0)
                     {
-                        npc.ai[0] = 0;
+                        NPC.ai[0] = 0;
                         internalAI[1] = 0;
                     }
                     if(internalAI[2] > 200)
                     {
-                        npc.ai[0] = 6;
+                        NPC.ai[0] = 6;
                         internalAI[1] = 0;
                         internalAI[2] = 0;
                     }
-					npc.netUpdate = true;
+					NPC.netUpdate = true;
 				}			
 			}else
-            if (npc.ai[0] == 4) //Projectile skill
+            if (NPC.ai[0] == 4) //Projectile skill
             {
-                npc.direction = npc.spriteDirection = npc.position.X < targetPlayer.position.X ? -1 : 1;
-                npc.rotation = npc.DirectionTo(targetPlayer.Center).ToRotation() + (npc.position.X < targetPlayer.position.X ? 0 : (float)Math.PI);
+                NPC.direction = NPC.spriteDirection = NPC.position.X < targetPlayer.position.X ? -1 : 1;
+                NPC.rotation = NPC.DirectionTo(targetPlayer.Center).ToRotation() + (NPC.position.X < targetPlayer.position.X ? 0 : (float)Math.PI);
                 moveSpeed = 14f;
 				Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(-ChangingPosX, 0);
 				MoveToPoint(point);
@@ -271,17 +273,17 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                 {
                     if(BlazeGrip)
                     {
-                        Projectile.NewProjectile(npc.Center + 50f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), mod.ProjectileType("BlazeCloneClaw"), damage / 2, 0f, Main.myPlayer, npc.whoAmI, 0);
-                        Projectile.NewProjectile(npc.Center + 50f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), mod.ProjectileType("BlazeCloneClaw"), damage / 2, 0f, Main.myPlayer, npc.whoAmI, 1f);
-                        Projectile.NewProjectile(npc.Center + 50f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), mod.ProjectileType("BlazeCloneClaw"), damage / 2, 0f, Main.myPlayer, npc.whoAmI, 2f);
-                        Projectile.NewProjectile(npc.Center + 50f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), mod.ProjectileType("BlazeCloneClaw"), damage / 2, 0f, Main.myPlayer, npc.whoAmI, -1f);
-                        Projectile.NewProjectile(npc.Center + 50f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(npc.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), mod.ProjectileType("BlazeCloneClaw"), damage / 2, 0f, Main.myPlayer, npc.whoAmI, -2f);
+                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 0);
+                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 1f);
+                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f);
+                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -1f);
+                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -2f);
                     }
                     else
                     {
                         for (int m = 0; m < 16; m++)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2(0, 0), mod.ProjectileType("AbyssGripOrbiter"), npc.damage / 2, 0f, Main.myPlayer, npc.whoAmI, 2f * (float)Math.PI / 16 * m);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0, 0), Mod.Find<ModProjectile>("AbyssGripOrbiter").Type, NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
                         }
                     }
                 }
@@ -290,41 +292,41 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                 {
                     if(Main.netMode != 1)
                     {
-                        npc.ai[0] = 5;
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 0;
+                        NPC.ai[0] = 5;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
                         internalAI[0] = 0;
                         internalAI[1] = 0;
                         internalAI[2] = 0;
                     }
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
             else
-            if (npc.ai[0] == 5) //Projectile skill2
+            if (NPC.ai[0] == 5) //Projectile skill2
             {
                 if(BlazeGrip)
                 {
                     if(internalAI[2] < 160)
                     {
-                        BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);
+                        BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
                         moveSpeed = 18f;
                         Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(0f, -ChangingPosY);
                         MoveToPoint(point);
                     }
                     else
                     {
-                        npc.direction = npc.spriteDirection = npc.position.X < targetPlayer.position.X ? -1 : 1;
-                        npc.rotation += (npc.DirectionTo(targetPlayer.Center).ToRotation()  + (npc.position.X < targetPlayer.position.X ? 0 : (float)Math.PI))/100f;
-                        npc.velocity = new Vector2(0,0);
+                        NPC.direction = NPC.spriteDirection = NPC.position.X < targetPlayer.position.X ? -1 : 1;
+                        NPC.rotation += (NPC.DirectionTo(targetPlayer.Center).ToRotation()  + (NPC.position.X < targetPlayer.position.X ? 0 : (float)Math.PI))/100f;
+                        NPC.velocity = new Vector2(0,0);
                     }
                     
 
                     internalAI[2] ++;
                     if(internalAI[2] == 160 && Main.netMode != 1)
                     {
-                        Vector2 dir = Vector2.Normalize(targetPlayer.Center - npc.Center);
+                        Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                         float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                         double startAngle = Math.Atan2(dir.X, dir.Y);
                         double deltaAngle = 45f * 0.0174f;
@@ -332,26 +334,26 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
                             Vector2 shootdir = new Vector2(baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle));
-                            Projectile.NewProjectile(npc.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGripRay>(), npc.damage / 4, 0f, Main.myPlayer, i, npc.whoAmI);
+                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGripRay>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
                         }
                     }
                     if(internalAI[2] > 200)
                     {
-                        npc.ai[0] = 6;
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 0;
+                        NPC.ai[0] = 6;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
                         internalAI[0] = 0;
                         internalAI[1] = 0;
                         internalAI[2] = 0;		
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
 
                 }
                 else
                 {
                     moveSpeed = 22f;
-                    Vector2 targetCenter = npc.position;
+                    Vector2 targetCenter = NPC.position;
                     Vector2 point = targetCenter + new Vector2(ChangingPosX, ChangingPosY);
                     Keepmove = point;
                     if(Keepmove != new Vector2(0,0))
@@ -359,11 +361,11 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                         MoveToPoint(Keepmove);
                         if(Main.netMode != 1)
                         {
-                            Main.PlaySound(SoundID.Roar, npc.position, 0);
-                            npc.ai[0] = 3;			
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.position);
+                            NPC.ai[0] = 3;			
                             internalAI[2] ++;
                             internalAI[1] = 0;
-                            npc.netUpdate = true;
+                            NPC.netUpdate = true;
                         }
                     } 
                     else
@@ -374,14 +376,14 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 
             }
             else
-            if (npc.ai[0] == 6) //Fire Projectile (Shen Grips)
+            if (NPC.ai[0] == 6) //Fire Projectile (Shen Grips)
             {
                 internalAI[0]++;
                 if(BlazeGrip && internalAI[0] < 40)
                 {
-                    npc.direction = npc.spriteDirection = npc.position.X < targetPlayer.position.X ? -1 : 1;
-                    npc.rotation += (npc.DirectionTo(targetPlayer.Center).ToRotation()  + (npc.position.X < targetPlayer.position.X ? 0 : (float)Math.PI))/100f;
-                    npc.velocity = new Vector2(0,0);
+                    NPC.direction = NPC.spriteDirection = NPC.position.X < targetPlayer.position.X ? -1 : 1;
+                    NPC.rotation += (NPC.DirectionTo(targetPlayer.Center).ToRotation()  + (NPC.position.X < targetPlayer.position.X ? 0 : (float)Math.PI))/100f;
+                    NPC.velocity = new Vector2(0,0);
                 }
                 else
                 {
@@ -391,20 +393,20 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                 }
                 if (internalAI[0] == 40)
                 {
-                    BaseAI.FireProjectile(targetPlayer.Center, npc.Center, BlazeGrip ? ModContent.ProjectileType<BlazeBomb>() : ModContent.ProjectileType<AbyssalBomb>(), damage, 2, 9f, -1, Main.myPlayer);
+                    BaseAI.FireProjectile(targetPlayer.Center, NPC.Center, BlazeGrip ? ModContent.ProjectileType<BlazeBomb>() : ModContent.ProjectileType<AbyssalBomb>(), damage, 2, 9f, -1, Main.myPlayer);
                 }
                 if (internalAI[0] > 50)
                 {
-                    npc.ai[0] = 2;
-                    npc.ai[1] = targetPlayer.Center.X;
-                    npc.ai[2] = targetPlayer.Center.Y;
-                    npc.ai[3] = 0;
+                    NPC.ai[0] = 2;
+                    NPC.ai[1] = targetPlayer.Center.X;
+                    NPC.ai[2] = targetPlayer.Center.Y;
+                    NPC.ai[3] = 0;
                     internalAI[0] = 0;
                     internalAI[1] = 0;
                     internalAI[2] = 0;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);
+                BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
             }
             else //standard movement
 			{
@@ -413,39 +415,39 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 				MoveToPoint(point);
 				if(Main.netMode != 1)
 				{
-					npc.ai[1]++;
-					if(npc.ai[1] > 90)
+					NPC.ai[1]++;
+					if(NPC.ai[1] > 90)
 					{
-						npc.ai[0] = 1;
-						npc.ai[1] = 0;	
-						npc.ai[2] = 0;
-						npc.ai[3] = 0;	
+						NPC.ai[0] = 1;
+						NPC.ai[1] = 0;	
+						NPC.ai[2] = 0;
+						NPC.ai[3] = 0;	
                         internalAI[1] = 0;
                         internalAI[2] = 0;			
-						npc.netUpdate = true;				
+						NPC.netUpdate = true;				
 					}
 				}		
-				BaseAI.LookAt(targetPlayer.Center, npc, 0, 0f, 0.1f, false);			
+				BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);			
 			}
-            if (npc.ai[0] == 0)
+            if (NPC.ai[0] == 0)
             {
-                if (npc.alpha >= 50)
+                if (NPC.alpha >= 50)
                 {
-                    npc.defense = 500;
+                    NPC.defense = 500;
                 }
             }
             else
             {
-                npc.alpha -= 5;
-                if (npc.alpha <= 0)
+                NPC.alpha -= 5;
+                if (NPC.alpha <= 0)
                 {
                     if (BlazeGrip)
                     {
-                        npc.defense = 110;
+                        NPC.defense = 110;
                     }
                     else
                     {
-                        npc.defense = 90;
+                        NPC.defense = 90;
                     }
                 }
             }
@@ -455,9 +457,9 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 
         public void MoveToPoint(Vector2 point)
 		{
-			if(moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+			if(moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
 			float velMultiplier = 1f;
-			Vector2 dist = point - npc.Center;
+			Vector2 dist = point - NPC.Center;
 			float length = dist == Vector2.Zero ? 0f : dist.Length();
 			if(length < moveSpeed)
 			{
@@ -475,19 +477,19 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 			{
 				moveSpeed *= 0.5f;
 			}
-			npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-			npc.velocity *= moveSpeed;
-			npc.velocity *= velMultiplier;
+			NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+			NPC.velocity *= moveSpeed;
+			NPC.velocity *= velMultiplier;
 		}
 
         private void DespawnHandler()
         {
-            npc.TargetClosest(false);
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest(false);
+            Player player = Main.player[NPC.target];
             if (!player.active || player.dead || Main.dayTime)        // If the player is dead and not active, the npc flies off-screen and despawns
             {
-                npc.velocity.X = 0;
-                npc.velocity.Y -= 1;
+                NPC.velocity.X = 0;
+                NPC.velocity.Y -= 1;
             }
         }
     }

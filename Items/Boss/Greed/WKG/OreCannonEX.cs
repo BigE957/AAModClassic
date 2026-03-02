@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
@@ -10,32 +11,32 @@ namespace AAMod.Items.Boss.Greed.WKG
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ultimate Ore Cannon");
-            Tooltip.SetDefault(@"Uses Any Ore as Ammunition
+            // DisplayName.SetDefault("Ultimate Ore Cannon");
+            /* Tooltip.SetDefault(@"Uses Any Ore as Ammunition
 Certain ores have special effects when shot
 Legendary Weapon
-OreCannonEX");
+OreCannonEX"); */
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 700;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 45;
-            item.useAnimation = 45;
-            item.useStyle = 5;
-            item.knockBack = 0;
-			item.shoot = 10;
-            item.UseSound = SoundID.Item14;
-            item.shootSpeed = 14f;
-            item.expert = true; 
-			item.expertOnly = true;
-            item.autoReuse = true;
-            item.rare = 9;
+            Item.damage = 700;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 45;
+            Item.useAnimation = 45;
+            Item.useStyle = 5;
+            Item.knockBack = 0;
+			Item.shoot = 10;
+            Item.UseSound = SoundID.Item14;
+            Item.shootSpeed = 14f;
+            Item.expert = true; 
+			Item.expertOnly = true;
+            Item.autoReuse = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -43,9 +44,9 @@ OreCannonEX");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -88,9 +89,9 @@ OreCannonEX");
             return false;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("OreChunk"), damage + Damage(), knockBack, player.whoAmI);
+            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("OreChunk").Type, damage + Damage(), knockBack, player.whoAmI);
             Main.projectile[p].ai[1] = projType;
             if (Main.projectile[p].ai[1] == ItemID.TinOre || Main.projectile[p].ai[1] == ItemID.CopperOre)
             {
@@ -135,7 +136,7 @@ OreCannonEX");
                     num92 *= Main.rand.Next(75, 150) * 0.01f;
                     vector2.X += Main.rand.Next(-50, 51);
                     Vector2 speedfinal = Vector2.Normalize(new Vector2(num92, speedY2)) * (new Vector2(speedX, speedY)).Length();
-                    Projectile.NewProjectile(vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, mod.ProjectileType("OreChunk"), damage + Damage(), knockBack, player.whoAmI, 0f, ItemID.Meteorite);
+                    Projectile.NewProjectile(vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, Mod.Find<ModProjectile>("OreChunk").Type, damage + Damage(), knockBack, player.whoAmI, 0f, ItemID.Meteorite);
                 }
             }
             else if (Main.projectile[p].ai[1] == ItemID.CobaltOre)
@@ -158,14 +159,14 @@ OreCannonEX");
                 for (int i = 0; i < 2; i++)
                 {
                     Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("OreChunk"), damage + (int)(Damage() * 0.8), knockBack, player.whoAmI, 0, ItemID.TitaniumOre);
+                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("OreChunk").Type, damage + (int)(Damage() * 0.8), knockBack, player.whoAmI, 0, ItemID.TitaniumOre);
                 }
             }
             else if(Main.projectile[p].ai[1] == ItemID.LunarOre)
             {
                 Main.projectile[p].velocity *= 2;
             }
-            else if(Main.projectile[p].ai[1] == mod.ItemType("RadiumOre"))
+            else if(Main.projectile[p].ai[1] == Mod.Find<ModItem>("RadiumOre").Type)
             {
                 Main.projectile[p].damage = (int)(Main.projectile[p].damage / 1.3);
                 Main.projectile[p].velocity /= 2;
@@ -192,12 +193,11 @@ OreCannonEX");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "OreCannon", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

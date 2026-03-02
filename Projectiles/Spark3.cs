@@ -11,59 +11,59 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spark");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Spark");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.magic = true;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
         }
 
         public override void AI()
         {
-            projectile.timeLeft --;
-            if (projectile.timeLeft <= 0)
+            Projectile.timeLeft --;
+            if (Projectile.timeLeft <= 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.9f / 255f, (255 - projectile.alpha) * .8f / 255f, 0);
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            if (projectile.ai[1] == 0f)
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.9f / 255f, (255 - Projectile.alpha) * .8f / 255f, 0);
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            if (Projectile.ai[1] == 0f)
             {
-                projectile.ai[1] = 1f;
-                Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 20);
+                Projectile.ai[1] = 1f;
+                SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
             }
 
-            int dustType = DustID.Fire;
+            int dustType = DustID.Torch;
             if (Main.rand.Next(3) == 0)
             {
                 for (int m = 0; m < 3; m++)
                 {
-                    int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
-                    Main.dust[dustID].velocity = -projectile.velocity * 0.5f;
+                    int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
+                    Main.dust[dustID].velocity = -Projectile.velocity * 0.5f;
                     Main.dust[dustID].noLight = false;
                     Main.dust[dustID].noGravity = true;
                 }
-                int dustID2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
-                Main.dust[dustID2].velocity = -projectile.velocity * 0.5f;
+                int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
+                Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;
                 Main.dust[dustID2].noLight = false;
                 Main.dust[dustID2].noGravity = true;
             }
 
-            if (projectile.frameCounter++ > 6)
+            if (Projectile.frameCounter++ > 6)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
@@ -73,16 +73,16 @@ namespace AAMod.Projectiles
             return new Color(Color.White.R, Color.White.G, Color.White.B, 120);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 300);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new LegacySoundStyle(2, 89, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(SoundID.Item89);
 
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("SparkBoom3"), projectile.damage, projectile.knockBack, projectile.owner, 0, 0f);
+            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("SparkBoom3").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
         }
     }
 }

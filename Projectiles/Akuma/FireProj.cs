@@ -12,33 +12,33 @@ namespace AAMod.Projectiles.Akuma
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.melee = true;
-            projectile.extraUpdates = 2;
-            projectile.aiStyle = 0;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.extraUpdates = 2;
+            Projectile.aiStyle = 0;
         }
 
         public override void AI()
         {
-			if (projectile.direction == 1) 	projectile.rotation += 0.1f;
-			else projectile.rotation -= 0.1f;
+			if (Projectile.direction == 1) 	Projectile.rotation += 0.1f;
+			else Projectile.rotation -= 0.1f;
 			
-            if (projectile.position.Y > Main.player[projectile.owner].position.Y - 300f)
+            if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            if (projectile.position.Y < Main.worldSurface * 16.0)
+            if (Projectile.position.Y < Main.worldSurface * 16.0)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            projectile.rotation = projectile.velocity.ToRotation() - 1.57079637f;
-            Vector2 position = projectile.Center + (Vector2.Normalize(projectile.velocity) * 10f);
+            Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
+            Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
                 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -46,36 +46,36 @@ namespace AAMod.Projectiles.Akuma
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for(int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("FireProjBoom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = mod.GetTexture("Projectiles/Akuma/FireProj1");
-			if (projectile.ai[0] == 2f) texture = mod.GetTexture("Projectiles/Akuma/FireProj2");
-			if (projectile.ai[0] == 3f) texture = mod.GetTexture("Projectiles/Akuma/FireProj3");
-			if (projectile.ai[0] == 4f) texture = mod.GetTexture("Projectiles/Akuma/FireProj4");
-			if (projectile.ai[0] == 5f) texture = mod.GetTexture("Projectiles/Akuma/FireProj5");
-            spriteBatch.Draw(texture, new Vector2(projectile.Center.X - Main.screenPosition.X, projectile.Center.Y - Main.screenPosition.Y + 2),
-                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, projectile.rotation,
-                        new Vector2(projectile.width * 0.5f, projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
+            Texture2D texture = Mod.GetTexture("Projectiles/Akuma/FireProj1");
+			if (Projectile.ai[0] == 2f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj2");
+			if (Projectile.ai[0] == 3f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj3");
+			if (Projectile.ai[0] == 4f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj4");
+			if (Projectile.ai[0] == 5f) texture = Mod.GetTexture("Projectiles/Akuma/FireProj5");
+            spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
+                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
+                        new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
             return false;
         }
     }

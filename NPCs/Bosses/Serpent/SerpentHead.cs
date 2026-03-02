@@ -3,6 +3,7 @@ using System.IO;
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,33 +16,33 @@ namespace AAMod.NPCs.Bosses.Serpent
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Subzero Serpent");
-            Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Subzero Serpent");
+            Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.npcSlots = 5f;
-            npc.width = 38;
-            npc.height = 38;
-            npc.damage = 35;
-            npc.defense = 25;
-            npc.lifeMax = 6000;
-            npc.value = 50000f;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
-            animationType = 10;
-            npc.behindTiles = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit5;
-            npc.DeathSound = SoundID.NPCDeath7;
-            npc.netAlways = true;
-            npc.boss = true;
-            bossBag = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
-            npc.alpha = 50;
-            npc.buffImmune[BuffID.Frostburn] = true;
+			NPC.npcSlots = 5f;
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.damage = 35;
+            NPC.defense = 25;
+            NPC.lifeMax = 6000;
+            NPC.value = 50000f;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            AnimationType = 10;
+            NPC.behindTiles = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit5;
+            NPC.DeathSound = SoundID.NPCDeath7;
+            NPC.netAlways = true;
+            NPC.boss = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            NPC.alpha = 50;
+            NPC.buffImmune[BuffID.Frostburn] = true;
         }
 
         private bool fireAttack;
@@ -84,14 +85,14 @@ namespace AAMod.NPCs.Bosses.Serpent
         public override void AI()
         {
             Rain();
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             RunAway(player);
             Attack(player);
 
-            int tileX = (int)(npc.position.X / 16f) - 1;
-            int tileCenterX = (int)(npc.Center.X / 16f) + 2;
-            int tileY = (int)(npc.position.Y / 16f) - 1;
-            int tileCenterY = (int)(npc.Center.Y / 16f) + 2;
+            int tileX = (int)(NPC.position.X / 16f) - 1;
+            int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
+            int tileY = (int)(NPC.position.Y / 16f) - 1;
+            int tileCenterY = (int)(NPC.Center.Y / 16f) + 2;
             if (tileX < 0) { tileX = 0; }
             if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
             if (tileY < 0) { tileY = 0; }
@@ -101,14 +102,14 @@ namespace AAMod.NPCs.Bosses.Serpent
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
                         tPos.Y = tY * 16;
-                        if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
+                        if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.nactive())
+                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -117,46 +118,46 @@ namespace AAMod.NPCs.Bosses.Serpent
                 }
             }
 
-            if (npc.ai[3] > 0f)
+            if (NPC.ai[3] > 0f)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            npc.velocity.Length();
+            NPC.velocity.Length();
             if (Main.netMode != 1)
             {
                 if (internalAI[4] != 1)
                 {
-                    npc.ai[3] = npc.whoAmI;
-                    npc.realLife = npc.whoAmI;
-                    int whoamI = npc.whoAmI;
+                    NPC.ai[3] = NPC.whoAmI;
+                    NPC.realLife = NPC.whoAmI;
+                    int whoamI = NPC.whoAmI;
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
-                        int type = mod.NPCType("SerpentBody");
+                        int type = Mod.Find<ModNPC>("SerpentBody").Type;
                         if (a == Length)
                         {
-                            type = mod.NPCType("SerpentTail");
+                            type = Mod.Find<ModNPC>("SerpentTail").Type;
                         }
-                        int segment = NPC.NewNPC((int)(npc.position.X + npc.width / 2), (int)(npc.position.Y + npc.height), type, npc.whoAmI, 0f, 0f, 0f, 0f, 255);
-                        Main.npc[segment].ai[3] = npc.whoAmI;
-                        Main.npc[segment].realLife = npc.whoAmI;
+                        int segment = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        Main.npc[segment].ai[3] = NPC.whoAmI;
+                        Main.npc[segment].realLife = NPC.whoAmI;
                         Main.npc[segment].ai[1] = whoamI;
                         Main.npc[whoamI].ai[0] = segment;
                         NetMessage.SendData(23, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
                         whoamI = segment;
                     }
                     internalAI[4] = 1;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
-            int posX = (int)(npc.position.X / 16f);
-            int centerX = (int)((npc.position.X + npc.width) / 16f);
-            int posY = (int)(npc.position.Y / 16f);
-            int centerY = (int)((npc.position.Y + npc.height) / 16f);
+            int posX = (int)(NPC.position.X / 16f);
+            int centerX = (int)((NPC.position.X + NPC.width) / 16f);
+            int posY = (int)(NPC.position.Y / 16f);
+            int centerY = (int)((NPC.position.Y + NPC.height) / 16f);
             if (posX < 0)
             {
                 posX = 0;
@@ -180,12 +181,12 @@ namespace AAMod.NPCs.Bosses.Serpent
                 {
                     for (int y = posY; y < centerY; y++)
                     {
-                        if (Main.tile[x, y] != null && ((Main.tile[x, y].nactive() && (Main.tileSolid[Main.tile[x, y].type] || (Main.tileSolidTop[Main.tile[x, y].type] && Main.tile[x, y].frameY == 0))) || Main.tile[x, y].liquid > 64))
+                        if (Main.tile[x, y] != null && ((Main.tile[x, y].HasUnactuatedTile && (Main.tileSolid[Main.tile[x, y].TileType] || (Main.tileSolidTop[Main.tile[x, y].TileType] && Main.tile[x, y].TileFrameY == 0))) || Main.tile[x, y].LiquidAmount > 64))
                         {
                             Vector2 vector2;
                             vector2.X = x * 16;
                             vector2.Y = y * 16;
-                            if (npc.position.X + npc.width > vector2.X && npc.position.X < vector2.X + 16f && npc.position.Y + npc.height > vector2.Y && npc.position.Y < vector2.Y + 16f)
+                            if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16f && NPC.position.Y + NPC.height > vector2.Y && NPC.position.Y < vector2.Y + 16f)
                             {
                                 inRange = true;
                                 break;
@@ -196,11 +197,11 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             if (!inRange)
             {
-                npc.localAI[1] = 1f;
-                Rectangle rectangle = new Rectangle((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height);
+                NPC.localAI[1] = 1f;
+                Rectangle rectangle = new Rectangle((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height);
                 int num46 = 1000;
                 bool flag3 = true;
-                if (npc.position.Y > Main.player[npc.target].position.Y)
+                if (NPC.position.Y > Main.player[NPC.target].position.Y)
                 {
                     for (int target = 0; target < 255; target++)
                     {
@@ -222,14 +223,14 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             else
             {
-                npc.localAI[1] = 0f;
+                NPC.localAI[1] = 0f;
             }
             float maxDistance = 16f;
             float num48 = 0.1f;
             float num49 = 0.15f;
-            Vector2 center = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-            float targetX = Main.player[npc.target].position.X + Main.player[npc.target].width / 2;
-            float targetY = Main.player[npc.target].position.Y + Main.player[npc.target].height / 2;
+            Vector2 center = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float targetX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+            float targetY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
             targetX = (int)(targetX / 16f) * 16;
             targetY = (int)(targetY / 16f) * 16;
             center.X = (int)(center.X / 16f) * 16;
@@ -237,73 +238,73 @@ namespace AAMod.NPCs.Bosses.Serpent
             targetX -= center.X;
             targetY -= center.Y;
             float num52 = (float)Math.Sqrt(targetX * targetX + targetY * targetY);
-            if (npc.ai[1] > 0f && npc.ai[1] < Main.npc.Length)
+            if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {
                 try
                 {
-                    center = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                    targetX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - center.X;
-                    targetY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - center.Y;
+                    center = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    targetX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - center.X;
+                    targetY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - center.Y;
                 }
                 catch
                 {
                 }
-                npc.rotation = (float)Math.Atan2(targetY, targetX) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(targetY, targetX) + 1.57f;
                 num52 = (float)Math.Sqrt(targetX * targetX + targetY * targetY);
-                int num53 = (int)(44f * npc.scale);
+                int num53 = (int)(44f * NPC.scale);
                 num52 = (num52 - num53) / num52;
                 targetX *= num52;
                 targetY *= num52;
-                npc.velocity = Vector2.Zero;
-                npc.position.X = npc.position.X + targetX;
-                npc.position.Y = npc.position.Y + targetY;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X = NPC.position.X + targetX;
+                NPC.position.Y = NPC.position.Y + targetY;
                 return;
             }
             if (!inRange)
             {
-                npc.TargetClosest(true);
-                npc.velocity.Y = npc.velocity.Y + 0.15f;
-                if (npc.velocity.Y > maxDistance)
+                NPC.TargetClosest(true);
+                NPC.velocity.Y = NPC.velocity.Y + 0.15f;
+                if (NPC.velocity.Y > maxDistance)
                 {
-                    npc.velocity.Y = maxDistance;
+                    NPC.velocity.Y = maxDistance;
                 }
-                if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < maxDistance * 0.4)
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < maxDistance * 0.4)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X - num48 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num48 * 1.1f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X + num48 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num48 * 1.1f;
                     }
                 }
-                else if (npc.velocity.Y == maxDistance)
+                else if (NPC.velocity.Y == maxDistance)
                 {
-                    if (npc.velocity.X < targetX)
+                    if (NPC.velocity.X < targetX)
                     {
-                        npc.velocity.X = npc.velocity.X + num48;
+                        NPC.velocity.X = NPC.velocity.X + num48;
                     }
-                    else if (npc.velocity.X > targetX)
+                    else if (NPC.velocity.X > targetX)
                     {
-                        npc.velocity.X = npc.velocity.X - num48;
+                        NPC.velocity.X = NPC.velocity.X - num48;
                     }
                 }
-                else if (npc.velocity.Y > 4f)
+                else if (NPC.velocity.Y > 4f)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X + num48 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X + num48 * 0.9f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X - num48 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X - num48 * 0.9f;
                     }
                 }
             }
             else
             {
-                if (npc.soundDelay == 0)
+                if (NPC.soundDelay == 0)
                 {
                     float num54 = num52 / 40f;
                     if (num54 < 10f)
@@ -314,8 +315,8 @@ namespace AAMod.NPCs.Bosses.Serpent
                     {
                         num54 = 20f;
                     }
-                    npc.soundDelay = (int)num54;
-                    Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 1, 1f, 0f);
+                    NPC.soundDelay = (int)num54;
+                    SoundEngine.PlaySound(SoundID.WormDig, NPC.position);
                 }
                 num52 = (float)Math.Sqrt(targetX * targetX + targetY * targetY);
                 float num55 = Math.Abs(targetX);
@@ -323,131 +324,131 @@ namespace AAMod.NPCs.Bosses.Serpent
                 float num57 = maxDistance / num52;
                 targetX *= num57;
                 targetY *= num57;
-                if (((npc.velocity.X > 0f && targetX > 0f) || (npc.velocity.X < 0f && targetX < 0f)) && ((npc.velocity.Y > 0f && targetY > 0f) || (npc.velocity.Y < 0f && targetY < 0f)))
+                if (((NPC.velocity.X > 0f && targetX > 0f) || (NPC.velocity.X < 0f && targetX < 0f)) && ((NPC.velocity.Y > 0f && targetY > 0f) || (NPC.velocity.Y < 0f && targetY < 0f)))
                 {
-                    if (npc.velocity.X < targetX)
+                    if (NPC.velocity.X < targetX)
                     {
-                        npc.velocity.X = npc.velocity.X + num49;
+                        NPC.velocity.X = NPC.velocity.X + num49;
                     }
-                    else if (npc.velocity.X > targetX)
+                    else if (NPC.velocity.X > targetX)
                     {
-                        npc.velocity.X = npc.velocity.X - num49;
+                        NPC.velocity.X = NPC.velocity.X - num49;
                     }
-                    if (npc.velocity.Y < targetY)
+                    if (NPC.velocity.Y < targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num49;
+                        NPC.velocity.Y = NPC.velocity.Y + num49;
                     }
-                    else if (npc.velocity.Y > targetY)
+                    else if (NPC.velocity.Y > targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num49;
+                        NPC.velocity.Y = NPC.velocity.Y - num49;
                     }
                 }
-                if ((npc.velocity.X > 0f && targetX > 0f) || (npc.velocity.X < 0f && targetX < 0f) || (npc.velocity.Y > 0f && targetY > 0f) || (npc.velocity.Y < 0f && targetY < 0f))
+                if ((NPC.velocity.X > 0f && targetX > 0f) || (NPC.velocity.X < 0f && targetX < 0f) || (NPC.velocity.Y > 0f && targetY > 0f) || (NPC.velocity.Y < 0f && targetY < 0f))
                 {
-                    if (npc.velocity.X < targetX)
+                    if (NPC.velocity.X < targetX)
                     {
-                        npc.velocity.X = npc.velocity.X + num48;
+                        NPC.velocity.X = NPC.velocity.X + num48;
                     }
-                    else if (npc.velocity.X > targetX)
+                    else if (NPC.velocity.X > targetX)
                     {
-                        npc.velocity.X = npc.velocity.X - num48;
+                        NPC.velocity.X = NPC.velocity.X - num48;
                     }
-                    if (npc.velocity.Y < targetY)
+                    if (NPC.velocity.Y < targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num48;
+                        NPC.velocity.Y = NPC.velocity.Y + num48;
                     }
-                    else if (npc.velocity.Y > targetY)
+                    else if (NPC.velocity.Y > targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num48;
+                        NPC.velocity.Y = NPC.velocity.Y - num48;
                     }
-                    if (Math.Abs(targetY) < maxDistance * 0.2 && ((npc.velocity.X > 0f && targetX < 0f) || (npc.velocity.X < 0f && targetX > 0f)))
+                    if (Math.Abs(targetY) < maxDistance * 0.2 && ((NPC.velocity.X > 0f && targetX < 0f) || (NPC.velocity.X < 0f && targetX > 0f)))
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num48 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y + num48 * 2f;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num48 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y - num48 * 2f;
                         }
                     }
-                    if (Math.Abs(targetX) < maxDistance * 0.2 && ((npc.velocity.Y > 0f && targetY < 0f) || (npc.velocity.Y < 0f && targetY > 0f)))
+                    if (Math.Abs(targetX) < maxDistance * 0.2 && ((NPC.velocity.Y > 0f && targetY < 0f) || (NPC.velocity.Y < 0f && targetY > 0f)))
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num48 * 2f;
+                            NPC.velocity.X = NPC.velocity.X + num48 * 2f;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num48 * 2f;
+                            NPC.velocity.X = NPC.velocity.X - num48 * 2f;
                         }
                     }
                 }
                 else if (num55 > num56)
                 {
-                    if (npc.velocity.X < targetX)
+                    if (NPC.velocity.X < targetX)
                     {
-                        npc.velocity.X = npc.velocity.X + num48 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num48 * 1.1f;
                     }
-                    else if (npc.velocity.X > targetX)
+                    else if (NPC.velocity.X > targetX)
                     {
-                        npc.velocity.X = npc.velocity.X - num48 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num48 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < maxDistance * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < maxDistance * 0.5)
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num48;
+                            NPC.velocity.Y = NPC.velocity.Y + num48;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num48;
+                            NPC.velocity.Y = NPC.velocity.Y - num48;
                         }
                     }
                 }
                 else
                 {
-                    if (npc.velocity.Y < targetY)
+                    if (NPC.velocity.Y < targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num48 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y + num48 * 1.1f;
                     }
-                    else if (npc.velocity.Y > targetY)
+                    else if (NPC.velocity.Y > targetY)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num48 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y - num48 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < maxDistance * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < maxDistance * 0.5)
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num48;
+                            NPC.velocity.X = NPC.velocity.X + num48;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num48;
+                            NPC.velocity.X = NPC.velocity.X - num48;
                         }
                     }
                 }
             }
-            npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+            NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
             if (inRange)
             {
-                if (npc.localAI[0] != 1f)
+                if (NPC.localAI[0] != 1f)
                 {
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                npc.localAI[0] = 1f;
+                NPC.localAI[0] = 1f;
             }
             else
             {
-                if (npc.localAI[0] != 0f)
+                if (NPC.localAI[0] != 0f)
                 {
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                npc.localAI[0] = 0f;
+                NPC.localAI[0] = 0f;
             }
-            if (((npc.velocity.X > 0f && npc.oldVelocity.X < 0f) || (npc.velocity.X < 0f && npc.oldVelocity.X > 0f) || (npc.velocity.Y > 0f && npc.oldVelocity.Y < 0f) || (npc.velocity.Y < 0f && npc.oldVelocity.Y > 0f)) && !npc.justHit)
+            if (((NPC.velocity.X > 0f && NPC.oldVelocity.X < 0f) || (NPC.velocity.X < 0f && NPC.oldVelocity.X > 0f) || (NPC.velocity.Y > 0f && NPC.oldVelocity.Y < 0f) || (NPC.velocity.Y < 0f && NPC.oldVelocity.Y > 0f)) && !NPC.justHit)
             {
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
         }
 
@@ -465,8 +466,8 @@ namespace AAMod.NPCs.Bosses.Serpent
                     if (tongueFlickCounter <= 0)
                     {
                         tongueFlickCounter = 8;
-                        npc.frame.Y -= npc.frame.Height;
-                        if (npc.frame.Y <= 0)
+                        NPC.frame.Y -= NPC.frame.Height;
+                        if (NPC.frame.Y <= 0)
                             tongueFlick = tongueFlickDir = false;
                     }
                 }
@@ -476,8 +477,8 @@ namespace AAMod.NPCs.Bosses.Serpent
                     if (tongueFlickCounter <= 0)
                     {
                         tongueFlickCounter = 8;
-                        npc.frame.Y += npc.frame.Height;
-                        if (npc.frame.Y >= (npc.frame.Height * 3))
+                        NPC.frame.Y += NPC.frame.Height;
+                        if (NPC.frame.Y >= (NPC.frame.Height * 3))
                             tongueFlickDir = true;
                     }
                 }
@@ -488,14 +489,14 @@ namespace AAMod.NPCs.Bosses.Serpent
         {
             if (player.dead || !player.active || !player.ZoneSnow)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
                 if (player.dead || !player.active || !player.ZoneSnow)
                 {
                     internalAI[0]++;
-                    npc.velocity.Y = npc.velocity.Y + 0.8f;
+                    NPC.velocity.Y = NPC.velocity.Y + 0.8f;
                     if (internalAI[0] >= 300)
                     {
-                        npc.active = false;
+                        NPC.active = false;
                     }
                 }
                 else
@@ -505,20 +506,20 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             else
             {
-                if (npc.alpha > 0)
+                if (NPC.alpha > 0)
                 {
-                    npc.alpha -= 4;
+                    NPC.alpha -= 4;
                 }
                 else
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
         }
 
         private void Rain()
         {
-            if (Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f || Main.player[npc.target].dead)
+            if (Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f || Main.player[NPC.target].dead)
             {
                 if (StopSnow == 0)
                 {
@@ -603,28 +604,28 @@ namespace AAMod.NPCs.Bosses.Serpent
         {
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
 
             if (internalAI[1]++ > 300)
             {
                 internalAI[1] = 0;
                 internalAI[2] = Main.rand.Next(3);
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             if (internalAI[2] == 0)
             {
                 if (NPC.CountNPCS(ModContent.NPCType<IceCrystal>()) < 3)
                 {
-                    NPC.NewNPC((int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, 0, 0, 0, 0, npc.target);
+                    NPC.NewNPC((int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, 0, 0, 0, 0, NPC.target);
                 }
                 internalAI[2] = 2;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
             else if (internalAI[2] == 1)
             {
@@ -633,22 +634,22 @@ namespace AAMod.NPCs.Bosses.Serpent
                 {
                     attackCounter = 0;
                     fireAttack = true;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                if (fireAttack == true && Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
+                if (fireAttack == true && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
                 {
                     attackTimer++;
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
-                        BaseAI.FireProjectile(Main.player[npc.target].Center, npc, ModContent.ProjectileType<IceBall2>(), damage, 3, 14f, 0, 0, -1);
-                        npc.netUpdate = true;
+                        BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<IceBall2>(), damage, 3, 14f, 0, 0, -1);
+                        NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
                     {
                         fireAttack = false;
                         attackTimer = 0;
                         attackCounter = 0;
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
             }
@@ -659,30 +660,30 @@ namespace AAMod.NPCs.Bosses.Serpent
                 {
                     attackCounter = 0;
                     fireAttack = true;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 if (fireAttack == true)
                 {
                     attackTimer++;
-                    if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !npc.HasBuff(103))
+                    if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(103))
                     {
                         for (int i = 0; i < 5; ++i)
                         {
                             float num433 = 6f;
-                            Vector2 PlayerDistance = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                            float PlayerPosX = Main.player[npc.target].position.X + (Main.player[npc.target].width / 2) - PlayerDistance.X;
-                            float PlayerPosY = Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - PlayerDistance.Y;
+                            Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                            float PlayerPosX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - PlayerDistance.X;
+                            float PlayerPosY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - PlayerDistance.Y;
                             float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
                             PlayerPos = num433 / PlayerPos;
                             PlayerPosX *= PlayerPos;
                             PlayerPosY *= PlayerPos;
                             PlayerPosY += Main.rand.Next(-40, 41) * 0.01f;
                             PlayerPosX += Main.rand.Next(-40, 41) * 0.01f;
-                            PlayerPosY += npc.velocity.Y * 0.5f;
-                            PlayerPosX += npc.velocity.X * 0.5f;
+                            PlayerPosY += NPC.velocity.Y * 0.5f;
+                            PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(PlayerDistance.X, PlayerDistance.Y, npc.velocity.X * 2f, npc.velocity.Y * 2f, mod.ProjectileType("SnowBreath"), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer);
                         }
                     }
                     if (attackTimer >= 80)
@@ -690,7 +691,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                         fireAttack = false;
                         attackTimer = 0;
                         attackCounter = 0;
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
             }
@@ -705,7 +706,7 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
         }
 
-        public override void OnHitPlayer(Player player, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
 			if (Main.expertMode)
 			{
@@ -729,61 +730,61 @@ namespace AAMod.NPCs.Bosses.Serpent
             return null;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			npc.lifeMax = (int)(npc.lifeMax * 0.75f * bossLifeScale);
-			npc.damage = (int)(npc.damage * 0.85f);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * bossLifeScale);
+			NPC.damage = (int)(NPC.damage * 0.85f);
 		}
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
-            if (npc.life == 0)
+            if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(npc.position, npc.velocity * 0.2f, mod.GetGoreSlot("Gores/SZSGoreHead"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreHead"), 1f);
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SerpentMask"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentMask").Type);
                 }
                 AAWorld.downedSerpent = true;
-                npc.DropLoot(mod.ItemType("SnowMana"), 10, 15);
+                NPC.DropLoot(Mod.Find<ModItem>("SnowMana").Type, 10, 15);
                 string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
                 int loot = Main.rand.Next(lootTable.Length);
-                npc.DropLoot(Items.Vanity.Mask.SerpentMask.type, 1f / 7);
+                NPC.DropLoot(Items.Vanity.Mask.SerpentMask.type, 1f / 7);
                 if (Main.rand.Next(9) == 0)
                 {
-                    npc.DropLoot(mod.ItemType("SnowflakeShuriken"), 90, 120);
+                    NPC.DropLoot(Mod.Find<ModItem>("SnowflakeShuriken").Type, 90, 120);
                 }
                 else
                 {
-                    npc.DropLoot(mod.ItemType(lootTable[loot]));
+                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
             }
             if (Main.expertMode)
             {
-                npc.DropBossBags();
+                NPC.DropBossBags();
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SerpentTrophy"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentTrophy").Type);
             }
-            npc.value = 0f;
-            npc.boss = false;
+            NPC.value = 0f;
+            NPC.boss = false;
         }
     }
 
@@ -791,40 +792,40 @@ namespace AAMod.NPCs.Bosses.Serpent
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Subzero Serpent");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Subzero Serpent");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.npcSlots = 5f;
-            npc.width = 38;
-            npc.height = 38;
-            npc.damage = 35;
-            npc.defense = 25;
-            npc.lifeMax = 6000;
-            npc.value = Item.buyPrice(0, 0, 0, 0);
-            npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
-            animationType = 10;
-            npc.behindTiles = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit5;
-            npc.DeathSound = SoundID.NPCDeath7;
-            npc.netAlways = true;
-            npc.boss = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
-            npc.alpha = 50;
-            npc.dontCountMe = true;
+            NPC.npcSlots = 5f;
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.damage = 35;
+            NPC.defense = 25;
+            NPC.lifeMax = 6000;
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            AnimationType = 10;
+            NPC.behindTiles = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit5;
+            NPC.DeathSound = SoundID.NPCDeath7;
+            NPC.netAlways = true;
+            NPC.boss = true;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            NPC.alpha = 50;
+            NPC.dontCountMe = true;
         }
 
         public override void AI()
         {
-            int tileX = (int)(npc.position.X / 16f) - 1;
-            int tileCenterX = (int)(npc.Center.X / 16f) + 2;
-            int tileY = (int)(npc.position.Y / 16f) - 1;
-            int tileCenterY = (int)(npc.Center.Y / 16f) + 2;
+            int tileX = (int)(NPC.position.X / 16f) - 1;
+            int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
+            int tileY = (int)(NPC.position.Y / 16f) - 1;
+            int tileCenterY = (int)(NPC.Center.Y / 16f) + 2;
             if (tileX < 0) { tileX = 0; }
             if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
             if (tileY < 0) { tileY = 0; }
@@ -834,14 +835,14 @@ namespace AAMod.NPCs.Bosses.Serpent
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
                         tPos.Y = tY * 16;
-                        if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
+                        if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.nactive())
+                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -850,34 +851,34 @@ namespace AAMod.NPCs.Bosses.Serpent
                 }
             }
 
-            if (npc.ai[3] > 0f)
+            if (NPC.ai[3] > 0f)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            npc.velocity.Length();
+            NPC.velocity.Length();
             bool flag = false;
-            if (npc.ai[1] <= 0f)
+            if (NPC.ai[1] <= 0f)
             {
                 flag = true;
             }
-            else if (Main.npc[(int)npc.ai[1]].life <= 0)
+            else if (Main.npc[(int)NPC.ai[1]].life <= 0)
             {
                 flag = true;
             }
             if (flag)
             {
-                npc.life = 0;
-                npc.HitEffect(0, 10.0);
-                npc.checkDead();
+                NPC.life = 0;
+                NPC.HitEffect(0, 10.0);
+                NPC.checkDead();
             }
-            int num12 = (int)(npc.position.X / 16f) - 1;
-            int num13 = (int)((npc.position.X + npc.width) / 16f) + 2;
-            int num14 = (int)(npc.position.Y / 16f) - 1;
-            int num15 = (int)((npc.position.Y + npc.height) / 16f) + 2;
+            int num12 = (int)(NPC.position.X / 16f) - 1;
+            int num13 = (int)((NPC.position.X + NPC.width) / 16f) + 2;
+            int num14 = (int)(NPC.position.Y / 16f) - 1;
+            int num15 = (int)((NPC.position.Y + NPC.height) / 16f) + 2;
             if (num12 < 0)
             {
                 num12 = 0;
@@ -901,12 +902,12 @@ namespace AAMod.NPCs.Bosses.Serpent
                 {
                     for (int l = num14; l < num15; l++)
                     {
-                        if (Main.tile[k, l] != null && ((Main.tile[k, l].nactive() && (Main.tileSolid[Main.tile[k, l].type] || (Main.tileSolidTop[Main.tile[k, l].type] && Main.tile[k, l].frameY == 0))) || Main.tile[k, l].liquid > 64))
+                        if (Main.tile[k, l] != null && ((Main.tile[k, l].HasUnactuatedTile && (Main.tileSolid[Main.tile[k, l].TileType] || (Main.tileSolidTop[Main.tile[k, l].TileType] && Main.tile[k, l].TileFrameY == 0))) || Main.tile[k, l].LiquidAmount > 64))
                         {
                             Vector2 vector2;
                             vector2.X = k * 16;
                             vector2.Y = l * 16;
-                            if (npc.position.X + npc.width > vector2.X && npc.position.X < vector2.X + 16f && npc.position.Y + npc.height > vector2.Y && npc.position.Y < vector2.Y + 16f)
+                            if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16f && NPC.position.Y + NPC.height > vector2.Y && NPC.position.Y < vector2.Y + 16f)
                             {
                                 flag2 = true;
                                 break;
@@ -917,28 +918,28 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             if (!flag2)
             {
-                npc.localAI[1] = 1f;
+                NPC.localAI[1] = 1f;
             }
             else
             {
-                npc.localAI[1] = 0f;
+                NPC.localAI[1] = 0f;
             }
             float num17 = 16f;
-            if (Main.player[npc.target].dead || Main.player[npc.target].position.Y < Main.rockLayer)
+            if (Main.player[NPC.target].dead || Main.player[NPC.target].position.Y < Main.rockLayer)
             {
                 flag2 = false;
-                npc.velocity.Y = npc.velocity.Y + 1f;
-                if (npc.position.Y > (double)((Main.maxTilesY - 200) * 16))
+                NPC.velocity.Y = NPC.velocity.Y + 1f;
+                if (NPC.position.Y > (double)((Main.maxTilesY - 200) * 16))
                 {
-                    npc.velocity.Y = npc.velocity.Y + 1f;
+                    NPC.velocity.Y = NPC.velocity.Y + 1f;
                     num17 = 32f;
                 }
-                if (npc.position.Y > (double)((Main.maxTilesY - 200) * 16))
+                if (NPC.position.Y > (double)((Main.maxTilesY - 200) * 16))
                 {
                     for (int a = 0; a < 200; a++)
                     {
-                        if (Main.npc[a].type == mod.NPCType("ArmoredDiggerHead") || Main.npc[a].type == mod.NPCType("ArmoredDiggerBody") ||
-                            Main.npc[a].type == mod.NPCType("ArmoredDiggerTail"))
+                        if (Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerHead").Type || Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerBody").Type ||
+                            Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerTail").Type)
                         {
                             Main.npc[a].active = false;
                         }
@@ -947,9 +948,9 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             float num18 = 0.1f;
             float num19 = 0.15f;
-            Vector2 vector3 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-            float num20 = Main.player[npc.target].position.X + Main.player[npc.target].width / 2;
-            float num21 = Main.player[npc.target].position.Y + Main.player[npc.target].height / 2;
+            Vector2 vector3 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float num20 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+            float num21 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
             num20 = (int)(num20 / 16f) * 16;
             num21 = (int)(num21 / 16f) * 16;
             vector3.X = (int)(vector3.X / 16f) * 16;
@@ -957,73 +958,73 @@ namespace AAMod.NPCs.Bosses.Serpent
             num20 -= vector3.X;
             num21 -= vector3.Y;
             float num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
-            if (npc.ai[1] > 0f && npc.ai[1] < Main.npc.Length)
+            if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {
                 try
                 {
-                    vector3 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                    num20 = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - vector3.X;
-                    num21 = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - vector3.Y;
+                    vector3 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    num20 = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - vector3.X;
+                    num21 = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - vector3.Y;
                 }
                 catch
                 {
                 }
-                npc.rotation = (float)Math.Atan2(num21, num20) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(num21, num20) + 1.57f;
                 num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
-                int num23 = (int)(44f * npc.scale);
+                int num23 = (int)(44f * NPC.scale);
                 num22 = (num22 - num23) / num22;
                 num20 *= num22;
                 num21 *= num22;
-                npc.velocity = Vector2.Zero;
-                npc.position.X = npc.position.X + num20;
-                npc.position.Y = npc.position.Y + num21;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X = NPC.position.X + num20;
+                NPC.position.Y = NPC.position.Y + num21;
                 return;
             }
             if (!flag2)
             {
-                npc.TargetClosest(true);
-                npc.velocity.Y = npc.velocity.Y + 0.15f;
-                if (npc.velocity.Y > num17)
+                NPC.TargetClosest(true);
+                NPC.velocity.Y = NPC.velocity.Y + 0.15f;
+                if (NPC.velocity.Y > num17)
                 {
-                    npc.velocity.Y = num17;
+                    NPC.velocity.Y = num17;
                 }
-                if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.4)
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.4)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 1.1f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 1.1f;
                     }
                 }
-                else if (npc.velocity.Y == num17)
+                else if (NPC.velocity.Y == num17)
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18;
+                        NPC.velocity.X = NPC.velocity.X + num18;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18;
+                        NPC.velocity.X = NPC.velocity.X - num18;
                     }
                 }
-                else if (npc.velocity.Y > 4f)
+                else if (NPC.velocity.Y > 4f)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 0.9f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 0.9f;
                     }
                 }
             }
             else
             {
-                if (npc.soundDelay == 0)
+                if (NPC.soundDelay == 0)
                 {
                     float num24 = num22 / 40f;
                     if (num24 < 10f)
@@ -1034,8 +1035,8 @@ namespace AAMod.NPCs.Bosses.Serpent
                     {
                         num24 = 20f;
                     }
-                    npc.soundDelay = (int)num24;
-                    Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 1, 1f, 0f);
+                    NPC.soundDelay = (int)num24;
+                    SoundEngine.PlaySound(SoundID.WormDig, NPC.position);
                 }
                 num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
                 float num25 = Math.Abs(num20);
@@ -1043,125 +1044,125 @@ namespace AAMod.NPCs.Bosses.Serpent
                 float num27 = num17 / num22;
                 num20 *= num27;
                 num21 *= num27;
-                if (((npc.velocity.X > 0f && num20 > 0f) || (npc.velocity.X < 0f && num20 < 0f)) && ((npc.velocity.Y > 0f && num21 > 0f) || (npc.velocity.Y < 0f && num21 < 0f)))
+                if (((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f)) && ((NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f)))
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num19;
+                        NPC.velocity.X = NPC.velocity.X + num19;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num19;
+                        NPC.velocity.X = NPC.velocity.X - num19;
                     }
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num19;
+                        NPC.velocity.Y = NPC.velocity.Y + num19;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num19;
+                        NPC.velocity.Y = NPC.velocity.Y - num19;
                     }
                 }
-                if ((npc.velocity.X > 0f && num20 > 0f) || (npc.velocity.X < 0f && num20 < 0f) || (npc.velocity.Y > 0f && num21 > 0f) || (npc.velocity.Y < 0f && num21 < 0f))
+                if ((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f) || (NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f))
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18;
+                        NPC.velocity.X = NPC.velocity.X + num18;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18;
+                        NPC.velocity.X = NPC.velocity.X - num18;
                     }
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num18;
+                        NPC.velocity.Y = NPC.velocity.Y + num18;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num18;
+                        NPC.velocity.Y = NPC.velocity.Y - num18;
                     }
-                    if (Math.Abs(num21) < num17 * 0.2 && ((npc.velocity.X > 0f && num20 < 0f) || (npc.velocity.X < 0f && num20 > 0f)))
+                    if (Math.Abs(num21) < num17 * 0.2 && ((NPC.velocity.X > 0f && num20 < 0f) || (NPC.velocity.X < 0f && num20 > 0f)))
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num18 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y + num18 * 2f;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num18 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y - num18 * 2f;
                         }
                     }
-                    if (Math.Abs(num20) < num17 * 0.2 && ((npc.velocity.Y > 0f && num21 < 0f) || (npc.velocity.Y < 0f && num21 > 0f)))
+                    if (Math.Abs(num20) < num17 * 0.2 && ((NPC.velocity.Y > 0f && num21 < 0f) || (NPC.velocity.Y < 0f && num21 > 0f)))
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num18 * 2f;
+                            NPC.velocity.X = NPC.velocity.X + num18 * 2f;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num18 * 2f;
+                            NPC.velocity.X = NPC.velocity.X - num18 * 2f;
                         }
                     }
                 }
                 else if (num25 > num26)
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 1.1f;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.5)
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num18;
+                            NPC.velocity.Y = NPC.velocity.Y + num18;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num18;
+                            NPC.velocity.Y = NPC.velocity.Y - num18;
                         }
                     }
                 }
                 else
                 {
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num18 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y + num18 * 1.1f;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num18 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y - num18 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.5)
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num18;
+                            NPC.velocity.X = NPC.velocity.X + num18;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num18;
+                            NPC.velocity.X = NPC.velocity.X - num18;
                         }
                     }
                 }
             }
-            npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+            NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.localAI[0] == 0)
+            if (NPC.localAI[0] == 0)
             {
-                npc.localAI[0] = 1;
-                npc.localAI[1] = Main.rand.Next(4);
+                NPC.localAI[0] = 1;
+                NPC.localAI[1] = Main.rand.Next(4);
             }
-            npc.frame.Y = (int)npc.localAI[1] * npc.frame.Height;
+            NPC.frame.Y = (int)NPC.localAI[1] * NPC.frame.Height;
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }
@@ -1180,20 +1181,20 @@ namespace AAMod.NPCs.Bosses.Serpent
             return true;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
-            if (npc.life == 0)
+            if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(npc.position, npc.velocity * 0.2f, mod.GetGoreSlot("Gores/SZSGoreBody"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreBody"), 1f);
             }
         }
     }
@@ -1202,42 +1203,42 @@ namespace AAMod.NPCs.Bosses.Serpent
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Subzero Serpent");
-            Main.npcFrameCount[npc.type] = 1;
+            // DisplayName.SetDefault("Subzero Serpent");
+            Main.npcFrameCount[NPC.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            npc.npcSlots = 5f;
-            npc.width = 38;
-            npc.height = 38;
-            npc.damage = 35;
-            npc.defense = 25;
-            npc.lifeMax = 6000;
-            npc.value = Item.buyPrice(0, 0, 0, 0);
-            npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
-            animationType = 10;
-            npc.behindTiles = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit5;
-            npc.DeathSound = SoundID.NPCDeath7;
-            npc.netAlways = true;
-            npc.boss = true;
-            bossBag = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
-            npc.alpha = 50;
-            npc.dontCountMe = true;
+            NPC.npcSlots = 5f;
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.damage = 35;
+            NPC.defense = 25;
+            NPC.lifeMax = 6000;
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            AnimationType = 10;
+            NPC.behindTiles = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit5;
+            NPC.DeathSound = SoundID.NPCDeath7;
+            NPC.netAlways = true;
+            NPC.boss = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
+            NPC.alpha = 50;
+            NPC.dontCountMe = true;
         }
 
 
         public override void AI()
         {
-            int tileX = (int)(npc.position.X / 16f) - 1;
-            int tileCenterX = (int)(npc.Center.X / 16f) + 2;
-            int tileY = (int)(npc.position.Y / 16f) - 1;
-            int tileCenterY = (int)(npc.Center.Y / 16f) + 2;
+            int tileX = (int)(NPC.position.X / 16f) - 1;
+            int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
+            int tileY = (int)(NPC.position.Y / 16f) - 1;
+            int tileCenterY = (int)(NPC.Center.Y / 16f) + 2;
             if (tileX < 0) { tileX = 0; }
             if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
             if (tileY < 0) { tileY = 0; }
@@ -1247,14 +1248,14 @@ namespace AAMod.NPCs.Bosses.Serpent
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
                         tPos.Y = tY * 16;
-                        if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
+                        if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.nactive())
+                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -1263,34 +1264,34 @@ namespace AAMod.NPCs.Bosses.Serpent
                 }
             }
 
-            if (npc.ai[3] > 0f)
+            if (NPC.ai[3] > 0f)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            npc.velocity.Length();
+            NPC.velocity.Length();
             bool headActive = false;
-            if (npc.ai[1] <= 0f)
+            if (NPC.ai[1] <= 0f)
             {
                 headActive = true;
             }
-            else if (Main.npc[(int)npc.ai[1]].life <= 0)
+            else if (Main.npc[(int)NPC.ai[1]].life <= 0)
             {
                 headActive = true;
             }
             if (headActive)
             {
-                npc.life = 0;
-                npc.HitEffect(0, 10.0);
-                npc.checkDead();
+                NPC.life = 0;
+                NPC.HitEffect(0, 10.0);
+                NPC.checkDead();
             }
-            int num12 = (int)(npc.position.X / 16f) - 1;
-            int num13 = (int)((npc.position.X + npc.width) / 16f) + 2;
-            int num14 = (int)(npc.position.Y / 16f) - 1;
-            int num15 = (int)((npc.position.Y + npc.height) / 16f) + 2;
+            int num12 = (int)(NPC.position.X / 16f) - 1;
+            int num13 = (int)((NPC.position.X + NPC.width) / 16f) + 2;
+            int num14 = (int)(NPC.position.Y / 16f) - 1;
+            int num15 = (int)((NPC.position.Y + NPC.height) / 16f) + 2;
             if (num12 < 0)
             {
                 num12 = 0;
@@ -1314,12 +1315,12 @@ namespace AAMod.NPCs.Bosses.Serpent
                 {
                     for (int l = num14; l < num15; l++)
                     {
-                        if (Main.tile[k, l] != null && ((Main.tile[k, l].nactive() && (Main.tileSolid[Main.tile[k, l].type] || (Main.tileSolidTop[Main.tile[k, l].type] && Main.tile[k, l].frameY == 0))) || Main.tile[k, l].liquid > 64))
+                        if (Main.tile[k, l] != null && ((Main.tile[k, l].HasUnactuatedTile && (Main.tileSolid[Main.tile[k, l].TileType] || (Main.tileSolidTop[Main.tile[k, l].TileType] && Main.tile[k, l].TileFrameY == 0))) || Main.tile[k, l].LiquidAmount > 64))
                         {
                             Vector2 vector2;
                             vector2.X = k * 16;
                             vector2.Y = l * 16;
-                            if (npc.position.X + npc.width > vector2.X && npc.position.X < vector2.X + 16f && npc.position.Y + npc.height > vector2.Y && npc.position.Y < vector2.Y + 16f)
+                            if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16f && NPC.position.Y + NPC.height > vector2.Y && NPC.position.Y < vector2.Y + 16f)
                             {
                                 flag2 = true;
                                 break;
@@ -1330,18 +1331,18 @@ namespace AAMod.NPCs.Bosses.Serpent
             }
             if (!flag2)
             {
-                npc.localAI[1] = 1f;
+                NPC.localAI[1] = 1f;
             }
             else
             {
-                npc.localAI[1] = 0f;
+                NPC.localAI[1] = 0f;
             }
             float num17 = 16f;
             float num18 = 0.1f;
             float num19 = 0.15f;
-            Vector2 vector3 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-            float num20 = Main.player[npc.target].position.X + Main.player[npc.target].width / 2;
-            float num21 = Main.player[npc.target].position.Y + Main.player[npc.target].height / 2;
+            Vector2 vector3 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float num20 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+            float num21 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
             num20 = (int)(num20 / 16f) * 16;
             num21 = (int)(num21 / 16f) * 16;
             vector3.X = (int)(vector3.X / 16f) * 16;
@@ -1349,73 +1350,73 @@ namespace AAMod.NPCs.Bosses.Serpent
             num20 -= vector3.X;
             num21 -= vector3.Y;
             float num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
-            if (npc.ai[1] > 0f && npc.ai[1] < Main.npc.Length)
+            if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {
                 try
                 {
-                    vector3 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                    num20 = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - vector3.X;
-                    num21 = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - vector3.Y;
+                    vector3 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    num20 = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - vector3.X;
+                    num21 = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - vector3.Y;
                 }
                 catch
                 {
                 }
-                npc.rotation = (float)Math.Atan2(num21, num20) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(num21, num20) + 1.57f;
                 num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
-                int num23 = (int)(44f * npc.scale);
+                int num23 = (int)(44f * NPC.scale);
                 num22 = (num22 - num23) / num22;
                 num20 *= num22;
                 num21 *= num22;
-                npc.velocity = Vector2.Zero;
-                npc.position.X = npc.position.X + num20;
-                npc.position.Y = npc.position.Y + num21;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X = NPC.position.X + num20;
+                NPC.position.Y = NPC.position.Y + num21;
                 return;
             }
             if (!flag2)
             {
-                npc.TargetClosest(true);
-                npc.velocity.Y = npc.velocity.Y + 0.15f;
-                if (npc.velocity.Y > num17)
+                NPC.TargetClosest(true);
+                NPC.velocity.Y = NPC.velocity.Y + 0.15f;
+                if (NPC.velocity.Y > num17)
                 {
-                    npc.velocity.Y = num17;
+                    NPC.velocity.Y = num17;
                 }
-                if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.4)
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.4)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 1.1f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 1.1f;
                     }
                 }
-                else if (npc.velocity.Y == num17)
+                else if (NPC.velocity.Y == num17)
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18;
+                        NPC.velocity.X = NPC.velocity.X + num18;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18;
+                        NPC.velocity.X = NPC.velocity.X - num18;
                     }
                 }
-                else if (npc.velocity.Y > 4f)
+                else if (NPC.velocity.Y > 4f)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 0.9f;
                     }
                     else
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 0.9f;
                     }
                 }
             }
             else
             {
-                if (npc.soundDelay == 0)
+                if (NPC.soundDelay == 0)
                 {
                     float num24 = num22 / 40f;
                     if (num24 < 10f)
@@ -1426,8 +1427,8 @@ namespace AAMod.NPCs.Bosses.Serpent
                     {
                         num24 = 20f;
                     }
-                    npc.soundDelay = (int)num24;
-                    Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 1, 1f, 0f);
+                    NPC.soundDelay = (int)num24;
+                    SoundEngine.PlaySound(SoundID.WormDig, NPC.position);
                 }
                 num22 = (float)Math.Sqrt(num20 * num20 + num21 * num21);
                 float num25 = Math.Abs(num20);
@@ -1435,115 +1436,115 @@ namespace AAMod.NPCs.Bosses.Serpent
                 float num27 = num17 / num22;
                 num20 *= num27;
                 num21 *= num27;
-                if (((npc.velocity.X > 0f && num20 > 0f) || (npc.velocity.X < 0f && num20 < 0f)) && ((npc.velocity.Y > 0f && num21 > 0f) || (npc.velocity.Y < 0f && num21 < 0f)))
+                if (((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f)) && ((NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f)))
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num19;
+                        NPC.velocity.X = NPC.velocity.X + num19;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num19;
+                        NPC.velocity.X = NPC.velocity.X - num19;
                     }
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num19;
+                        NPC.velocity.Y = NPC.velocity.Y + num19;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num19;
+                        NPC.velocity.Y = NPC.velocity.Y - num19;
                     }
                 }
-                if ((npc.velocity.X > 0f && num20 > 0f) || (npc.velocity.X < 0f && num20 < 0f) || (npc.velocity.Y > 0f && num21 > 0f) || (npc.velocity.Y < 0f && num21 < 0f))
+                if ((NPC.velocity.X > 0f && num20 > 0f) || (NPC.velocity.X < 0f && num20 < 0f) || (NPC.velocity.Y > 0f && num21 > 0f) || (NPC.velocity.Y < 0f && num21 < 0f))
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18;
+                        NPC.velocity.X = NPC.velocity.X + num18;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18;
+                        NPC.velocity.X = NPC.velocity.X - num18;
                     }
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num18;
+                        NPC.velocity.Y = NPC.velocity.Y + num18;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num18;
+                        NPC.velocity.Y = NPC.velocity.Y - num18;
                     }
-                    if (Math.Abs(num21) < num17 * 0.2 && ((npc.velocity.X > 0f && num20 < 0f) || (npc.velocity.X < 0f && num20 > 0f)))
+                    if (Math.Abs(num21) < num17 * 0.2 && ((NPC.velocity.X > 0f && num20 < 0f) || (NPC.velocity.X < 0f && num20 > 0f)))
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num18 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y + num18 * 2f;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num18 * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y - num18 * 2f;
                         }
                     }
-                    if (Math.Abs(num20) < num17 * 0.2 && ((npc.velocity.Y > 0f && num21 < 0f) || (npc.velocity.Y < 0f && num21 > 0f)))
+                    if (Math.Abs(num20) < num17 * 0.2 && ((NPC.velocity.Y > 0f && num21 < 0f) || (NPC.velocity.Y < 0f && num21 > 0f)))
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num18 * 2f;
+                            NPC.velocity.X = NPC.velocity.X + num18 * 2f;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num18 * 2f;
+                            NPC.velocity.X = NPC.velocity.X - num18 * 2f;
                         }
                     }
                 }
                 else if (num25 > num26)
                 {
-                    if (npc.velocity.X < num20)
+                    if (NPC.velocity.X < num20)
                     {
-                        npc.velocity.X = npc.velocity.X + num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + num18 * 1.1f;
                     }
-                    else if (npc.velocity.X > num20)
+                    else if (NPC.velocity.X > num20)
                     {
-                        npc.velocity.X = npc.velocity.X - num18 * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X - num18 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.5)
                     {
-                        if (npc.velocity.Y > 0f)
+                        if (NPC.velocity.Y > 0f)
                         {
-                            npc.velocity.Y = npc.velocity.Y + num18;
+                            NPC.velocity.Y = NPC.velocity.Y + num18;
                         }
                         else
                         {
-                            npc.velocity.Y = npc.velocity.Y - num18;
+                            NPC.velocity.Y = NPC.velocity.Y - num18;
                         }
                     }
                 }
                 else
                 {
-                    if (npc.velocity.Y < num21)
+                    if (NPC.velocity.Y < num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y + num18 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y + num18 * 1.1f;
                     }
-                    else if (npc.velocity.Y > num21)
+                    else if (NPC.velocity.Y > num21)
                     {
-                        npc.velocity.Y = npc.velocity.Y - num18 * 1.1f;
+                        NPC.velocity.Y = NPC.velocity.Y - num18 * 1.1f;
                     }
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num17 * 0.5)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num17 * 0.5)
                     {
-                        if (npc.velocity.X > 0f)
+                        if (NPC.velocity.X > 0f)
                         {
-                            npc.velocity.X = npc.velocity.X + num18;
+                            NPC.velocity.X = NPC.velocity.X + num18;
                         }
                         else
                         {
-                            npc.velocity.X = npc.velocity.X - num18;
+                            NPC.velocity.X = NPC.velocity.X - num18;
                         }
                     }
                 }
             }
-            npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+            NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }
@@ -1562,20 +1563,20 @@ namespace AAMod.NPCs.Bosses.Serpent
             return true;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
-            if (npc.life == 0)
+            if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(npc.position, npc.velocity * 0.2f, mod.GetGoreSlot("Gores/SZSGoreTail"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreTail"), 1f);
             }
         }
     }

@@ -47,7 +47,7 @@ namespace AAMod
                 projectile.velocity = reflectvelocity;
                 projectile.rotation += projectile.velocity.ToRotation() - oldvelocity.ToRotation();
             }
-            if (!projectile.minion && projectile.type > 0 && !projectile.melee && !projectile.magic && !projectile.ranged)
+            if (!projectile.minion && projectile.type > 0 && !projectile.CountsAsClass(DamageClass.Melee) && !projectile.CountsAsClass(DamageClass.Magic) && !projectile.CountsAsClass(DamageClass.Ranged))
             {
                 for (int j = 0; j < 1000; j++)
                 {
@@ -62,13 +62,13 @@ namespace AAMod
 			{
 				if (setDefMinionDamage)
 				{
-					DefMinionDamageMultiply = Main.player[projectile.owner].minionDamage;
+					DefMinionDamageMultiply = Main.player[projectile.owner].GetDamage(DamageClass.Summon);
 					DefMinionDamage = (int)(projectile.damage / DefMinionDamageMultiply);
 					setDefMinionDamage = false;
 				}
-				if (Main.player[projectile.owner].minionDamage != DefMinionDamageMultiply)
+				if (Main.player[projectile.owner].GetDamage(DamageClass.Summon) != DefMinionDamageMultiply)
 				{
-					int damage = (int)(DefMinionDamage * (Main.player[projectile.owner].minionDamage));
+					int damage = (int)(DefMinionDamage * (Main.player[projectile.owner].GetDamage(DamageClass.Summon)));
                     if(damage <= 0) damage = 1;
 					projectile.damage = damage;
 				}
@@ -154,7 +154,7 @@ namespace AAMod
                             {
                                 itemtype = 3204;
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneHoly)
+                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneHallow)
                             {
                                 itemtype = 3207;
                             }
@@ -168,23 +168,23 @@ namespace AAMod
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneSnow)
                             {
-                                itemtype = mod.ItemType("IceCrate");
+                                itemtype = Mod.Find<ModItem>("IceCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneDesert)
                             {
-                                itemtype = mod.ItemType("DesertCrate");
+                                itemtype = Mod.Find<ModItem>("DesertCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
                             {
-                                itemtype = mod.ItemType("InfernoCrate");
+                                itemtype = Mod.Find<ModItem>("InfernoCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
                             {
-                                itemtype = mod.ItemType("MireCrate");
+                                itemtype = Mod.Find<ModItem>("MireCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
                             {
-                                itemtype = mod.ItemType("VoidCrate");
+                                itemtype = Mod.Find<ModItem>("VoidCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
                             {
@@ -192,7 +192,7 @@ namespace AAMod
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneUnderworldHeight)
                             {
-                                itemtype = mod.ItemType("HellCrate");
+                                itemtype = Mod.Find<ModItem>("HellCrate").Type;
                             }
                             else if (Main.rand.Next(3) == 0 && WorldHeightType == 0)
                             {
@@ -228,7 +228,7 @@ namespace AAMod
                                 tileY = 0;
                             }
                         }
-                        while(itemtype == 0) {PlayerHooks.CatchFish(Main.player[projectile.owner], Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem], int.MaxValue, liquidtype, int.MaxValue, WorldHeightType, 0, ref itemtype, ref junk);}
+                        while(itemtype == 0) {PlayerLoader.CatchFish(Main.player[projectile.owner], Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem], int.MaxValue, liquidtype, int.MaxValue, WorldHeightType, 0, ref itemtype, ref junk);}
                         item.SetDefaults(itemtype, false);
                         ItemLoader.CaughtFishStack(item);
 						item.newAndShiny = true;
@@ -264,39 +264,39 @@ namespace AAMod
                 {
                     if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < 6)
                     {
-                        if (Main.tile[k, l].type == ModContent.TileType<InfernoGrass>() || Main.tile[k, l].type == ModContent.TileType<MireGrass>() || Main.tile[k, l].type == ModContent.TileType<Mycelium>() || Main.tile[k, l].type == ModContent.TileType<Doomgrass>())
+                        if (Main.tile[k, l].TileType == ModContent.TileType<InfernoGrass>() || Main.tile[k, l].TileType == ModContent.TileType<MireGrass>() || Main.tile[k, l].TileType == ModContent.TileType<Mycelium>() || Main.tile[k, l].TileType == ModContent.TileType<Doomgrass>())
                         {
-                            Main.tile[k, l].type = 2;
+                            Main.tile[k, l].TileType = 2;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
-                        else if (Main.tile[k, l].type == ModContent.TileType<Torchstone>() || Main.tile[k, l].type == ModContent.TileType<Depthstone>() || Main.tile[k, l].type == ModContent.TileType<DoomstoneB>())
+                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchstone>() || Main.tile[k, l].TileType == ModContent.TileType<Depthstone>() || Main.tile[k, l].TileType == ModContent.TileType<DoomstoneB>())
                         {
-                            Main.tile[k, l].type = 1;
+                            Main.tile[k, l].TileType = 1;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
-                        else if (Main.tile[k, l].type == ModContent.TileType<Torchsand>() || Main.tile[k, l].type == ModContent.TileType<Depthsand>())
+                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsand>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsand>())
                         {
-                            Main.tile[k, l].type = 53;
+                            Main.tile[k, l].TileType = 53;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
-                        else if (Main.tile[k, l].type == ModContent.TileType<TorchsandHardened>() || Main.tile[k, l].type == ModContent.TileType<DepthsandHardened>())
+                        else if (Main.tile[k, l].TileType == ModContent.TileType<TorchsandHardened>() || Main.tile[k, l].TileType == ModContent.TileType<DepthsandHardened>())
                         {
-                            Main.tile[k, l].type = 397;
+                            Main.tile[k, l].TileType = 397;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
-                        else if (Main.tile[k, l].type == ModContent.TileType<Torchsandstone>() || Main.tile[k, l].type == ModContent.TileType<Depthsandstone>())
+                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsandstone>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsandstone>())
                         {
-                            Main.tile[k, l].type = 396;
+                            Main.tile[k, l].TileType = 396;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
-                        else if (Main.tile[k, l].type == ModContent.TileType<Torchice>() || Main.tile[k, l].type == ModContent.TileType<IndigoIce>())
+                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchice>() || Main.tile[k, l].TileType == ModContent.TileType<IndigoIce>())
                         {
-                            Main.tile[k, l].type = 161;
+                            Main.tile[k, l].TileType = 161;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
@@ -305,7 +305,7 @@ namespace AAMod
             }
         }
 
-        public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
 		{
             if (projectile.type != 356 && (projectile.minion || projectile.sentry) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().CursedEyeofSoulBinder)
             {
@@ -374,7 +374,7 @@ namespace AAMod
 			num8 *= num10;
 			num9 *= num10;
 			int soul = Projectile.NewProjectile(Position.X, Position.Y, num8, num9, 356, num, 0f, projectile.owner, num6, 0f);
-            Main.projectile[soul].magic = false;
+            Main.projectile[soul].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[soul].minion = true;
 		}
         public Vector2 reflectvelocity = Vector2.Zero;

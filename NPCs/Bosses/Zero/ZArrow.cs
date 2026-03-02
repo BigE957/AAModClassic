@@ -2,6 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero
@@ -10,35 +13,35 @@ namespace AAMod.NPCs.Bosses.Zero
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Singularity Arrow");    
+            // DisplayName.SetDefault("Singularity Arrow");    
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 14;
-			projectile.aiStyle = 1;        
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.arrow = true;
-            projectile.extraUpdates = 2;
+			Projectile.width = 14;
+			Projectile.height = 14;
+			Projectile.aiStyle = 1;        
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.arrow = true;
+            Projectile.extraUpdates = 2;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, .5f, .5f, 6, false, 0f, 0f, AAColor.ZeroShield);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, .5f, 6, false, 0f, 0f, AAColor.ZeroShield);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return true;
         }
 
@@ -49,12 +52,12 @@ namespace AAMod.NPCs.Bosses.Zero
             if (Main.netMode != 1) a++;
             if (a == 40)
             {
-                projectile.tileCollide = true;
-                projectile.netUpdate = true;
+                Projectile.tileCollide = true;
+                Projectile.netUpdate = true;
             }
             if (a < 40)
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,26 +11,26 @@ namespace AAMod.Items.Hooks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Grip");
+            // DisplayName.SetDefault("Dragon's Grip");
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.IlluminantHook);
-            item.shootSpeed = 18f;
-            item.shoot = mod.ProjectileType("DragonsGripP");
+            Item.CloneDefaults(ItemID.IlluminantHook);
+            Item.shootSpeed = 18f;
+            Item.shoot = Mod.Find<ModProjectile>("DragonsGripP").Type;
         }
     }
     class DragonsGripP : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Grip");
+            // DisplayName.SetDefault("Dragon's Grip");
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.IlluminantHook);
+            Projectile.CloneDefaults(ProjectileID.IlluminantHook);
         }
 
         public override bool? CanUseGrapple(Player player)
@@ -37,7 +38,7 @@ namespace AAMod.Items.Hooks
             int hooksOut = 0;
             for (int l = 0; l < 1000; l++)
             {
-                if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == projectile.type)
+                if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == Projectile.type)
                 {
                     hooksOut++;
                 }
@@ -69,11 +70,11 @@ namespace AAMod.Items.Hooks
             speed = 8;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 playerCenter = Main.player[projectile.owner].MountedCenter;
-            Vector2 center = projectile.Center;
-            Vector2 distToProj = playerCenter - projectile.Center;
+            Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
+            Vector2 center = Projectile.Center;
+            Vector2 distToProj = playerCenter - Projectile.Center;
             float projRotation = distToProj.ToRotation() - 1.57f;
             float distance = distToProj.Length();
             while (distance > 30f && !float.IsNaN(distance))
@@ -85,9 +86,9 @@ namespace AAMod.Items.Hooks
                 distance = distToProj.Length();
                 Color drawColor = lightColor;
 
-                spriteBatch.Draw(mod.GetTexture("Items/Hooks/DragonsGrip_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
-                    new Rectangle(0, 0, Main.chain30Texture.Width, Main.chain30Texture.Height), drawColor, projRotation,
-                    new Vector2(Main.chain30Texture.Width * 0.5f, Main.chain30Texture.Height * 0.5f), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Mod.GetTexture("Items/Hooks/DragonsGrip_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
+                    new Rectangle(0, 0, TextureAssets.Chain30.Value.Width, TextureAssets.Chain30.Value.Height), drawColor, projRotation,
+                    new Vector2(TextureAssets.Chain30.Value.Width * 0.5f, TextureAssets.Chain30.Value.Height * 0.5f), 1f, SpriteEffects.None, 0f);
             }
             return true;
         }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,50 +10,49 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Angry Femur");
-            Tooltip.SetDefault("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            // DisplayName.SetDefault("Angry Femur");
+            // Tooltip.SetDefault("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
 
         public override void SetDefaults()
         {
-			item.useTime = 25;
-            item.CloneDefaults(ItemID.Bone);
-            item.maxStack = 1;
-            item.ranged = true;
-            item.damage = 120;                            
-            item.value = 600000;
-            item.rare = 11;
-            item.knockBack = 5;
-            item.useStyle = 1;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.shoot = mod.ProjectileType("GibsFemur");
-			item.width = 32;
-            item.height = 32;
-            item.noMelee = true;
-            item.shootSpeed = 10f;
-            item.consumable = false;
-            item.autoReuse = true;
+			Item.useTime = 25;
+            Item.CloneDefaults(ItemID.Bone);
+            Item.maxStack = 1;
+            Item.DamageType = DamageClass.Ranged;
+            Item.damage = 120;                            
+            Item.value = 600000;
+            Item.rare = 11;
+            Item.knockBack = 5;
+            Item.useStyle = 1;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.shoot = Mod.Find<ModProjectile>("GibsFemur").Type;
+			Item.width = 32;
+            Item.height = 32;
+            Item.noMelee = true;
+            Item.shootSpeed = 10f;
+            Item.consumable = false;
+            Item.autoReuse = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 128, 0);
+                    line2.OverrideColor = new Color(255, 128, 0);
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Skullshot");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

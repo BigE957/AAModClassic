@@ -9,29 +9,29 @@ namespace AAMod.Items.Materials
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Energy");
-            Tooltip.SetDefault("It's oddly weightless");
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            // DisplayName.SetDefault("Dark Energy");
+            // Tooltip.SetDefault("It's oddly weightless");
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
-			item.maxStack = 99;
-            item.rare = 11;
-            item.value = 10000;
+            Item.width = 22;
+            Item.height = 22;
+			Item.maxStack = 99;
+            Item.rare = 11;
+            Item.value = 10000;
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,

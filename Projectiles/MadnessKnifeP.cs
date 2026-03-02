@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,18 +10,18 @@ namespace AAMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.ThrowingKnife);
-			projectile.width = 14;
-			projectile.height = 32;
-			projectile.friendly = true;
-			projectile.timeLeft = 600;
-			projectile.ranged = true;
-			projectile.penetrate = 2;
-			projectile.friendly = true;
-			aiType = ProjectileID.ThrowingKnife;
+			Projectile.CloneDefaults(ProjectileID.ThrowingKnife);
+			Projectile.width = 14;
+			Projectile.height = 32;
+			Projectile.friendly = true;
+			Projectile.timeLeft = 600;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.penetrate = 2;
+			Projectile.friendly = true;
+			AIType = ProjectileID.ThrowingKnife;
 		}
 		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
 		{
 			width = height = 10;
 			return true;
@@ -27,20 +29,20 @@ namespace AAMod.Projectiles
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Madness Knife");
+			// DisplayName.SetDefault("Madness Knife");
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 200, projectile.oldVelocity.X * 0.1f, projectile.oldVelocity.Y * 0.1f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 200, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
-			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 			
 			if (Main.rand.NextBool(2))
 			{
-				Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("MadnessKnife"));
+				Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("MadnessKnife").Type);
 			};
 		}
 		private const int alphaReduction = 25;

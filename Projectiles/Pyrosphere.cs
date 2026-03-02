@@ -15,48 +15,48 @@ namespace AAMod.Projectiles
 
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 3600;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = true;
-            projectile.damage = 1;
-            projectile.penetrate = -1;
-            projectile.knockBack = 3;
-            projectile.melee = true;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 3600;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = true;
+            Projectile.damage = 1;
+            Projectile.penetrate = -1;
+            Projectile.knockBack = 3;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-            BaseAI.AIFlail(projectile, ref projectile.ai, false, 160);
-            projectile.direction = projectile.spriteDirection = Main.player[projectile.owner].direction;
-            if ((Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y)) / 2f > 0.52f)
+            BaseAI.AIFlail(Projectile, ref Projectile.ai, false, 160);
+            Projectile.direction = Projectile.spriteDirection = Main.player[Projectile.owner].direction;
+            if ((Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y)) / 2f > 0.52f)
             {
                 rot += (float)Math.PI / 16f;
             }
             else { rot *= 0.9f; if (rot < (float)Math.PI / 20f) { rot = 0f; } }
-            projectile.rotation += rot;
+            Projectile.rotation += rot;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }
 
         public override bool OnTileCollide(Vector2 value2)
         {
-            BaseAI.TileCollideFlail(projectile, ref value2);
+            BaseAI.TileCollideFlail(Projectile, ref value2);
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color dColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D chainTex = mod.GetTexture("Chains/Pyrosphere_Chain");
+            Texture2D chainTex = Mod.GetTexture("Chains/Pyrosphere_Chain");
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
-                    BaseDrawing.DrawChain(spriteBatch, chainTex, 0, projectile.Center, Main.player[projectile.owner].Center);
+                    BaseDrawing.DrawChain(spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
             return true;
         }
     }

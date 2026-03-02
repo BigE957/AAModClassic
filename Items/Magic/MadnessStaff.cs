@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,36 +8,35 @@ namespace AAMod.Items.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Staff");
+            // DisplayName.SetDefault("Madness Staff");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 14;
-            item.magic = true;
-            item.mana = 6;
-            item.width = 42;
-            item.height = 42;
-            item.useTime = 32;
-            item.useAnimation = 32;
-            item.useStyle = 1;
-            item.noMelee = true;
-            item.knockBack = 5;
-            item.value = 1000;
-            item.rare = 2;
-            item.UseSound = SoundID.Item20;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("MadnessSphere");
-            item.shootSpeed = 6f;
+            Item.damage = 14;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 6;
+            Item.width = 42;
+            Item.height = 42;
+            Item.useTime = 32;
+            Item.useAnimation = 32;
+            Item.useStyle = 1;
+            Item.noMelee = true;
+            Item.knockBack = 5;
+            Item.value = 1000;
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("MadnessSphere").Type;
+            Item.shootSpeed = 6f;
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "MadnessFragment", 5);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

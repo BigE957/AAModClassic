@@ -12,30 +12,30 @@ namespace AAMod.Items.Pets
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mini Probe"); // Automatic from .lang files
-			Main.projFrames[projectile.type] = 6;
-			Main.projPet[projectile.type] = true;
+			// DisplayName.SetDefault("Mini Probe"); // Automatic from .lang files
+			Main.projFrames[Projectile.type] = 6;
+			Main.projPet[Projectile.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.SuspiciousTentacle);
-            aiType = ProjectileID.SuspiciousTentacle;
-            projectile.width = 14;
-            projectile.height = 14;
+			Projectile.CloneDefaults(ProjectileID.SuspiciousTentacle);
+            AIType = ProjectileID.SuspiciousTentacle;
+            Projectile.width = 14;
+            Projectile.height = 14;
             
         }
 
         public override bool PreAI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			player.suspiciouslookingTentacle = false; // Relic from aiType
 			return true;
 		}
 
 		public override void AI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			if (player.dead)
 			{
@@ -43,7 +43,7 @@ namespace AAMod.Items.Pets
 			}
 			if (modPlayer.MiniProbe)
 			{
-				projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
 		}
 	}

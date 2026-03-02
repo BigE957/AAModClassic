@@ -8,31 +8,30 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.damage = 5;
-            item.melee = true;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 19;
-            item.useAnimation = 22;
-            item.pick = 100;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = Item.sellPrice(0, 0, 60, 0);
-            item.rare = 4;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 5;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 19;
+            Item.useAnimation = 22;
+            Item.pick = 100;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = Item.sellPrice(0, 0, 60, 0);
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DesertFossil, 15);
             recipe.AddIngredient(ItemID.Sandstone, 20);
             recipe.AddIngredient(null, "DesertMana", 5);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

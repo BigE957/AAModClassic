@@ -8,27 +8,27 @@ namespace AAMod.Items.Throwing
 	{
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.LightDisc);
-			item.melee = true;
-			item.shootSpeed = 16f;
-			item.stack = 1;
-			item.useTime = 12;
-			item.damage = 75;                            
-			item.value = 20;
-			item.rare = 5;
-			item.knockBack = 4;
-			item.useStyle = 1;
-			item.useAnimation = 12;
-			item.shoot = mod.ProjectileType("OrderDiscP");
-			item.width = 46;
-			item.height = 46;
-            item.noMelee = true;
+			Item.CloneDefaults(ItemID.LightDisc);
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.shootSpeed = 16f;
+			Item.stack = 1;
+			Item.useTime = 12;
+			Item.damage = 75;                            
+			Item.value = 20;
+			Item.rare = 5;
+			Item.knockBack = 4;
+			Item.useStyle = 1;
+			Item.useAnimation = 12;
+			Item.shoot = Mod.Find<ModProjectile>("OrderDiscP").Type;
+			Item.width = 46;
+			Item.height = 46;
+            Item.noMelee = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Order Disc");
-			Tooltip.SetDefault("Ignores enemy defense");
+			// DisplayName.SetDefault("Order Disc");
+			// Tooltip.SetDefault("Ignores enemy defense");
 		}
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
@@ -36,12 +36,12 @@ namespace AAMod.Items.Throwing
             int num16 = 0;
             for (int num17 = 0; num17 < 1000; num17++)
             {
-                if (Main.projectile[num17].active && Main.projectile[num17].owner == Main.myPlayer && Main.projectile[num17].type == item.shoot)
+                if (Main.projectile[num17].active && Main.projectile[num17].owner == Main.myPlayer && Main.projectile[num17].type == Item.shoot)
                 {
                     num16++;
                 }
             }
-            if (num16 >= item.stack)
+            if (num16 >= Item.stack)
             {
                 return false;
             }
@@ -50,12 +50,11 @@ namespace AAMod.Items.Throwing
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("OrderBar"), 15);
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("OrderBar").Type, 15);
 			recipe.AddIngredient(ItemID.Ectoplasm, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

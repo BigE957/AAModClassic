@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Pets
 {
@@ -9,26 +11,26 @@ namespace AAMod.Items.Pets
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
-			DisplayName.SetDefault("Zero Core");
-			Tooltip.SetDefault("Summons a creature-detecting ZER0 lite");
+			// DisplayName.SetDefault("Zero Core");
+			// Tooltip.SetDefault("Summons a creature-detecting ZER0 lite");
 
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ZephyrFish);
-			item.shoot = mod.ProjectileType("ZeroBab");
-            item.buffType = mod.BuffType("ZeroBab");
-            item.noUseGraphic = true;
+			Item.CloneDefaults(ItemID.ZephyrFish);
+			Item.shoot = Mod.Find<ModProjectile>("ZeroBab").Type;
+            Item.buffType = Mod.Find<ModBuff>("ZeroBab").Type;
+            Item.noUseGraphic = true;
 		}
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
     }

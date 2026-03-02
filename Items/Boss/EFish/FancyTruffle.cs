@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,29 +8,28 @@ namespace AAMod.Items.Boss.EFish
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fancy Truffle");
-			Tooltip.SetDefault("Attracts a royal creature which flourishes in water & combat");
+			// DisplayName.SetDefault("Fancy Truffle");
+			// Tooltip.SetDefault("Attracts a royal creature which flourishes in water & combat");
         }    
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ScalyTruffle);
-			item.width = 32;
-			item.height = 30;
-			item.value = 500000;
-			item.rare = 11;
-			item.mountType = mod.MountType("PrinceFishron");
+			Item.CloneDefaults(ItemID.ScalyTruffle);
+			Item.width = 32;
+			Item.height = 30;
+			Item.value = 500000;
+			Item.rare = 11;
+			Item.mountType = Mod.Find<ModMount>("PrinceFishron").Type;
 		}
 
 
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ShrimpyTruffle);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

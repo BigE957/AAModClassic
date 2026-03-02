@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,36 +9,35 @@ namespace AAMod.Items.Melee   //where is located
         public override void SetDefaults()
         {
 
-            item.damage = 13;            
-            item.melee = true;            
-            item.width = 78;              
-            item.height = 60;             
-            item.useTime = 30;          
-            item.useAnimation = 30;     
-            item.useStyle = 1;        
-            item.knockBack = 3;      
-            item.value = Terraria.Item.sellPrice(0, 0, 50, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = false;   
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("JungleReaperP");
-            item.shootSpeed = 8f;                                 
+            Item.damage = 13;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 78;              
+            Item.height = 60;             
+            Item.useTime = 30;          
+            Item.useAnimation = 30;     
+            Item.useStyle = 1;        
+            Item.knockBack = 3;      
+            Item.value = Terraria.Item.sellPrice(0, 0, 50, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = false;   
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("JungleReaperP").Type;
+            Item.shootSpeed = 8f;                                 
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Jungle Reaper");
-      Tooltip.SetDefault("It's a scythe. Calm down Welox.");
+      // DisplayName.SetDefault("Jungle Reaper");
+      // Tooltip.SetDefault("It's a scythe. Calm down Welox.");
     }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddRecipeGroup("AAMod:Gold", 15);
             recipe.AddTile(TileID.LivingLoom);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

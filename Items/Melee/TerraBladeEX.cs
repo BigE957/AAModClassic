@@ -10,28 +10,28 @@ namespace AAMod.Items.Melee
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Terra Blade");//<--- Item name here
-			Tooltip.SetDefault(@"Shoots homing projectiles that inflict terrablaze
-Terra Blade EX");
+			// DisplayName.SetDefault("True Terra Blade");//<--- Item name here
+			/* Tooltip.SetDefault(@"Shoots homing projectiles that inflict terrablaze
+Terra Blade EX"); */
         }
         public override void SetDefaults()
 		{
-			item.rare = 11;
-			item.UseSound = SoundID.Item1;
-			item.useStyle = 1;
-			item.damage = 1200;
-			item.useAnimation = 21;
-			item.useTime = 21;
-			item.width = 62;
-			item.height = 74;
-			item.shoot = mod.ProjectileType("TerraShotEX");
-			item.shootSpeed = 7f;
-			item.knockBack = 7f;
-			item.melee = true;
-			item.value = Item.sellPrice(0, 20, 0, 0);
-			item.autoReuse = true;
-			item.crit = 8;
-            item.expert = true; item.expertOnly = true;
+			Item.rare = 11;
+			Item.UseSound = SoundID.Item1;
+			Item.useStyle = 1;
+			Item.damage = 1200;
+			Item.useAnimation = 21;
+			Item.useTime = 21;
+			Item.width = 62;
+			Item.height = 74;
+			Item.shoot = Mod.Find<ModProjectile>("TerraShotEX").Type;
+			Item.shootSpeed = 7f;
+			Item.knockBack = 7f;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.value = Item.sellPrice(0, 20, 0, 0);
+			Item.autoReuse = true;
+			Item.crit = 8;
+            Item.expert = true; Item.expertOnly = true;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -40,18 +40,17 @@ Terra Blade EX");
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(mod.BuffType("Terrablaze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Terrablaze").Type, 600);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.TerraBlade);
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddIngredient(mod, "TerraCrystal", 1);
+            recipe.AddIngredient(Mod, "TerraCrystal", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

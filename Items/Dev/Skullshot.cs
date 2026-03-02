@@ -1,5 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,55 +13,55 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Super Skullshot");
-            Tooltip.SetDefault(@"fires a massive spread of bullets at your foes
+            // DisplayName.SetDefault("Super Skullshot");
+            /* Tooltip.SetDefault(@"fires a massive spread of bullets at your foes
 Right click to fire spinning bones at your foe
 Uses Bullets and Bones as ammo
 'I have an irrational hatred for gods`
--Gibs");
+-Gibs"); */
         }
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.knockBack = 7f;
-            item.useStyle = 5;
-            item.useAnimation = 34;
-            item.useTime = 34;
-            item.width = 46;
-            item.height = 20;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.UseSound = SoundID.Item36;
-            item.damage = 90;
-            item.shootSpeed = 6f;
-            item.noMelee = true;
-            item.value = 100000;
-            item.rare = 9;
-            item.ranged = true;
+            Item.autoReuse = true;
+            Item.knockBack = 7f;
+            Item.useStyle = 5;
+            Item.useAnimation = 34;
+            Item.useTime = 34;
+            Item.width = 46;
+            Item.height = 20;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.UseSound = SoundID.Item36;
+            Item.damage = 90;
+            Item.shootSpeed = 6f;
+            Item.noMelee = true;
+            Item.value = 100000;
+            Item.rare = 9;
+            Item.DamageType = DamageClass.Ranged;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 128, 0);
+                    line2.OverrideColor = new Color(255, 128, 0);
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name);
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name);
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 new Color(255, 128, 0),
@@ -81,29 +82,29 @@ Uses Bullets and Bones as ammo
         {
             if (player.altFunctionUse == 2)
             {
-                item.useAnimation = 15;
-                item.useTime = 5;
-                item.reuseDelay = 17;
-                item.useAmmo = AAMod.BoneAmmo;
-                item.damage = 375;
+                Item.useAnimation = 15;
+                Item.useTime = 5;
+                Item.reuseDelay = 17;
+                Item.useAmmo = AAMod.BoneAmmo;
+                Item.damage = 375;
             }
             else
             {
-                item.useAnimation = 28;
-                item.useTime = 28;
-                item.reuseDelay = 0;
-                item.useAmmo = AmmoID.Bullet;
-                item.damage = 95;
+                Item.useAnimation = 28;
+                Item.useTime = 28;
+                Item.reuseDelay = 0;
+                Item.useAmmo = AmmoID.Bullet;
+                Item.damage = 95;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
         {
-            return !(player.itemAnimation < item.useAnimation - 2) || player.altFunctionUse != 2;
+            return !(player.itemAnimation < Item.useAnimation - 2) || player.altFunctionUse != 2;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse != 2)
             {
@@ -122,19 +123,18 @@ Uses Bullets and Bones as ammo
             else
             {
                 int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.BoneGloveProj, damage, knockBack, Main.myPlayer, 0f, 0f);
-                Main.projectile[proj].thrown = false;
-                Main.projectile[proj].ranged = true;
+                Main.projectile[proj].thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "GibsFemur");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

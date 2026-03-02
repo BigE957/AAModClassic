@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
@@ -13,29 +14,29 @@ namespace AAMod.Items.BossSummons
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toadstool");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons the Truffle Toad
-Can only be used in a glowing mushroom biome");
+            // DisplayName.SetDefault("Toadstool");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons the Truffle Toad
+Can only be used in a glowing mushroom biome"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.value = 1000;
-            item.rare = 1;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.value = 1000;
+            Item.rare = 1;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("TruffleToad"), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.TruffleToad"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("TruffleToad").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.TruffleToad"), false);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -54,17 +55,16 @@ Can only be used in a glowing mushroom biome");
             return true;
         }
 
-        public override void UseStyle(Player p) { BaseUseStyle.SetStyleBoss(p, item, true, true); }
-        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, item); return true; }
+        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(p, Item, true, true); }
+        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); return true; }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "Mushium", 10);
             recipe.AddIngredient(null, "GlowingMushium", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

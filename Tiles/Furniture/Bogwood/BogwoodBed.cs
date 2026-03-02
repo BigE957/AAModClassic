@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodBed : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -16,16 +18,16 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Bogwood Bed");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Bogwood Bed");
             AddMapEntry(new Color(12, 62, 205), name);
-            dustType = mod.DustType("BogwoodDust");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Beds };
-			bed = true;
+            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Beds };
+			bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
 		}
 
-		public override bool HasSmartInteract()
+		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}
@@ -37,17 +39,17 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("BogwoodBed"));
+			Item.NewItem(i * 16, j * 16, 64, 32, Mod.Find<ModItem>("BogwoodBed").Type);
 		}
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];
-			int spawnX = i - tile.frameX / 18;
+			int spawnX = i - tile.TileFrameX / 18;
 			int spawnY = j + 2;
-			spawnX += tile.frameX >= 72 ? 5 : 2;
-			if (tile.frameY % 38 != 0)
+			spawnX += tile.TileFrameX >= 72 ? 5 : 2;
+			if (tile.TileFrameY % 38 != 0)
 			{
 				spawnY--;
 			}
@@ -69,8 +71,8 @@ namespace AAMod.Tiles.Furniture.Bogwood
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("Bogwood Bed");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("Bogwood Bed").Type;
 		}
 	}
 }

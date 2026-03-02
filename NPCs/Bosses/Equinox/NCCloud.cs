@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,24 +14,24 @@ namespace AAMod.NPCs.Bosses.Equinox
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Nightclawer Cloud");
-             Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Nightclawer Cloud");
+             Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 46;
-            npc.height = 46;
-            npc.friendly = false;
-            npc.damage = 80;
-            npc.lifeMax = 1500;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 46;
+            NPC.height = 46;
+            NPC.friendly = false;
+            NPC.damage = 80;
+            NPC.lifeMax = 1500;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
@@ -58,129 +59,129 @@ namespace AAMod.NPCs.Bosses.Equinox
         public float rotValue = -1f;
         public override void AI()
         {
-            if (npc.frameCounter++ > 5)
+            if (NPC.frameCounter++ > 5)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 46;
-                if (npc.frame.Y >= 46 * 4)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 46;
+                if (NPC.frame.Y >= 46 * 4)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
 
-            if (npc.alpha > 0)
+            if (NPC.alpha > 0)
             {
-                npc.alpha -= 10;
+                NPC.alpha -= 10;
             }
             else
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
 
-            if(npc.alpha == 205)
+            if(NPC.alpha == 205)
             {
                 SpawnDust();
             }
-            npc.noGravity = true;
+            NPC.noGravity = true;
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(npc.Center, mod.NPCType("NightcrawlerHead"), 120f, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("NightcrawlerHead").Type, 120f, null);
                 if (npcID >= 0) body = npcID;
             }
             if (body == -1) return;
 
             NPC NC = Main.npc[body];
-            if (NC == null || NC.life <= 0 || !NC.active || NC.type != mod.NPCType("NightcrawlerHead")) { npc.active = false; return; }
+            if (NC == null || NC.life <= 0 || !NC.active || NC.type != Mod.Find<ModNPC>("NightcrawlerHead").Type) { NPC.active = false; return; }
 
-            for (int m = npc.oldPos.Length - 1; m > 0; m--)
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {
-                npc.oldPos[m] = npc.oldPos[m - 1];
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
-            npc.oldPos[0] = npc.position;
+            NPC.oldPos[0] = NPC.position;
 
-            if (rotValue == -1f) rotValue = npc.ai[3];
+            if (rotValue == -1f) rotValue = NPC.ai[3];
             rotValue += 0.05f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
-            npc.Center = BaseUtility.RotateVector(NC.position, NC.position + new Vector2(140f, 0f), rotValue);
+            NPC.Center = BaseUtility.RotateVector(NC.position, NC.position + new Vector2(140f, 0f), rotValue);
 
             int aiTimerFire = 0;
 
-            npc.ai[1]++;
+            NPC.ai[1]++;
 
-            if (npc.ai[3] == 1 || npc.ai[3] == 4 || npc.ai[3] == 7 || npc.ai[3] == 10)
+            if (NPC.ai[3] == 1 || NPC.ai[3] == 4 || NPC.ai[3] == 7 || NPC.ai[3] == 10)
             {
                 aiTimerFire = 50;
             }
-            if (npc.ai[3] == 2 || npc.ai[3] == 5 || npc.ai[3] == 8 || npc.ai[3] == 11)
+            if (NPC.ai[3] == 2 || NPC.ai[3] == 5 || NPC.ai[3] == 8 || NPC.ai[3] == 11)
             {
                 aiTimerFire = 100;
             }
-            if (npc.ai[3] == 3 || npc.ai[3] == 6 || npc.ai[3] == 9 || npc.ai[3] == 12)
+            if (NPC.ai[3] == 3 || NPC.ai[3] == 6 || NPC.ai[3] == 9 || NPC.ai[3] == 12)
             {
                 aiTimerFire = 150;
             }
 
-            if (npc.ai[1] >= 150)
+            if (NPC.ai[1] >= 150)
             {
-                npc.ai[1] = 0;
+                NPC.ai[1] = 0;
             }
 
-            if (npc.ai[1] == aiTimerFire && Main.netMode != 1)
+            if (NPC.ai[1] == aiTimerFire && Main.netMode != 1)
             {
                 Vector2 speed = new Vector2(1f, 0f).RotatedBy((float)(Main.rand.NextDouble() * 3.1415f)) * 6f;
-                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, speed.X, speed.Y, mod.ProjectileType("NightcrawlerNothing"), npc.damage / 4, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, Mod.Find<ModProjectile>("NightcrawlerNothing").Type, NPC.damage / 4, 0, Main.myPlayer);
             }
 
             if (Main.dayTime)
             {
-                npc.active = false;
-                npc.NPCLoot();
+                NPC.active = false;
+                NPC.NPCLoot();
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             SpawnDust();
-            npc.active = false;
+            NPC.active = false;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
             target.AddBuff(163, 60);
         }
 
         public void SpawnDust()
         {
-            Vector2 position = npc.Center + (Vector2.One * -20f);
+            Vector2 position = NPC.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.NightcrawlerDust>(), 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 7; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.NightcrawlerDust>(), 0, 0, 100, new Color(), 2f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.NightcrawlerDust>(), 0, 0, 100, new Color(), 2f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Sag
@@ -11,56 +12,56 @@ namespace AAMod.NPCs.Bosses.Sag
 
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 11;
+            Main.projFrames[Projectile.type] = 11;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 26;
-            projectile.friendly = false;
-            projectile.tileCollide = true;
-            aiType = 48;
-            projectile.hostile = true;
-            projectile.penetrate = 1;
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.friendly = false;
+            Projectile.tileCollide = true;
+            AIType = 48;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;
         }
 
         public override void AI()
         {
-            projectile.rotation += projectile.velocity.Length() * 0.025f;
-            projectile.velocity.Y += .15f;
+            Projectile.rotation += Projectile.velocity.Length() * 0.025f;
+            Projectile.velocity.Y += .15f;
         }
         
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.FulguriteDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.FulguriteDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.FulguriteDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.FulguriteDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SagRing"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, 0, 0, Mod.Find<ModProjectile>("SagRing").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 10)
-                    projectile.frame = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 10)
+                    Projectile.frame = 0;
             }
 
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 11, 0, 0);
-            BaseDrawing.DrawTexture(sb, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 11, frame, lightColor, true);
-            BaseDrawing.DrawTexture(sb, mod.GetTexture("Glowmasks/SagBomb_Glow"), 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 11, frame, AAColor.ZeroShield, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 11, 0, 0);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, lightColor, true);
+            BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/SagBomb_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
             return false;
         }
 

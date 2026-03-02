@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 
 namespace AAMod.NPCs.Bosses.Anubis
 {
@@ -9,16 +10,16 @@ namespace AAMod.NPCs.Bosses.Anubis
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Uraeus");
+			// DisplayName.SetDefault("Uraeus");
         }
 
 		public override void SetDefaults()
 		{
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
 		}
 
-		public override bool PreNPCLoot()
+		public override bool PreKill()
 		{
 			return false;
 		}
@@ -28,9 +29,9 @@ namespace AAMod.NPCs.Bosses.Anubis
 			return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc, drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor, true);
             return false;
         }
     }

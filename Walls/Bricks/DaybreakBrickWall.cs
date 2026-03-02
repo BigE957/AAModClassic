@@ -7,18 +7,18 @@ namespace AAMod.Walls.Bricks
 {
     public class DaybreakBrickWall : ModWall
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            drop = mod.ItemType("DaybreakWall");
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DaybreakWall").Type;
             AddMapEntry(new Color(40, 12, 10));
-            dustType = mod.DustType("DaybreakIncineriteDust");
+            DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/DaybreakBrickWall_Glow");
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/DaybreakBrickWall_Glow");
             BaseDrawing.DrawWallTexture(sb, glowTex, x, y, false, AAGlobalTile.GetAkumaColorDim);
         }
     }

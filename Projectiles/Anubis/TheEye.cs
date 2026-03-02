@@ -10,43 +10,43 @@ namespace AAMod.Projectiles.Anubis
     {
         public override void SetDefaults()
         {
-            projectile.width = 56;
-            projectile.height = 42;
-			projectile.tileCollide = false;
-            projectile.timeLeft = Projectile.SentryLifeTime;
-            projectile.ignoreWater = true;
-            projectile.sentry = true;
-            ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+            Projectile.width = 56;
+            Projectile.height = 42;
+			Projectile.tileCollide = false;
+            Projectile.timeLeft = Projectile.SentryLifeTime;
+            Projectile.ignoreWater = true;
+            Projectile.sentry = true;
+            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The Eye");
+			// DisplayName.SetDefault("The Eye");
 		}
 	
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, Color.Gold.R / 255, Color.Gold.G / 255, Color.Gold.B / 255);
-            if (projectile.scale < 1f) projectile.scale += 0.01f;
-            if (projectile.alpha > 0) projectile.alpha -= 5;
+            Lighting.AddLight(Projectile.Center, Color.Gold.R / 255, Color.Gold.G / 255, Color.Gold.B / 255);
+            if (Projectile.scale < 1f) Projectile.scale += 0.01f;
+            if (Projectile.alpha > 0) Projectile.alpha -= 5;
 
-            if (projectile.ai[1] == 0)
+            if (Projectile.ai[1] == 0)
             {
-                projectile.velocity.Y += 0.005f;
-                if (projectile.velocity.Y > .2f)
+                Projectile.velocity.Y += 0.005f;
+                if (Projectile.velocity.Y > .2f)
                 {
-                    projectile.ai[1] = 1f;
-                    projectile.netUpdate = true;
+                    Projectile.ai[1] = 1f;
+                    Projectile.netUpdate = true;
                 }
             }
             else
-            if (projectile.ai[1] == 1)
+            if (Projectile.ai[1] == 1)
             {
-                projectile.velocity.Y -= 0.005f;
-                if (projectile.velocity.Y < -.2f)
+                Projectile.velocity.Y -= 0.005f;
+                if (Projectile.velocity.Y < -.2f)
                 {
-                    projectile.ai[1] = 0f;
-                    projectile.netUpdate = true;
+                    Projectile.ai[1] = 0f;
+                    Projectile.netUpdate = true;
                 }
             }
 
@@ -54,25 +54,25 @@ namespace AAMod.Projectiles.Anubis
             {
                 NPC target = Main.npc[i];
  
-                float shootToX = target.position.X + target.width * 0.5f - projectile.Center.X;
-                float shootToY = target.position.Y + target.height * 0.5f - projectile.Center.Y;
+                float shootToX = target.position.X + target.width * 0.5f - Projectile.Center.X;
+                float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
                 float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
 
-                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != 488 && Collision.CanHit(projectile.position, projectile.width, projectile.height, target.position, target.width, target.height))
+                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != 488 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
                 {
-                    if (projectile.ai[0] > 20f)
+                    if (Projectile.ai[0] > 20f)
                     {
                         distance = 1.6f / distance;
 
                         shootToX *= distance * 3;
                         shootToY *= distance * 3;
-                        int id = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, shootToX*4, shootToY*4, 668, projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        int id = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, shootToX*4, shootToY*4, 668, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                         Main.projectile[id].minion = true;
-                        projectile.ai[0] = 0f;
+                        Projectile.ai[0] = 0f;
                     }
                 }
             }
-            projectile.ai[0] += 1f;
+            Projectile.ai[0] += 1f;
 		}
 	}
 }

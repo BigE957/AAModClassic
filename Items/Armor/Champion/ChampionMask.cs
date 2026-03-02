@@ -9,38 +9,38 @@ namespace AAMod.Items.Armor.Champion
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion Mask");
-            Tooltip.SetDefault(@"55% increased ranged damage
+            // DisplayName.SetDefault("Champion Mask");
+            /* Tooltip.SetDefault(@"55% increased ranged damage
 44% increased ranged critical strike chance
 10% increased non-ranged damage
 25% reduced ammo consumption
-The armor of a champion feared across the land");
+The armor of a champion feared across the land"); */
         }
 
         public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 24;
-			item.value = Item.sellPrice(3, 0, 0, 0);
-            item.rare = 9;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.rare = 9;
             AARarity = 14;
-            item.defense = 34;
+            Item.defense = 34;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("ChampionChestplate") && legs.type == mod.ItemType("ChampionGreaves");
+			return body.type == Mod.Find<ModItem>("ChampionChestplate").Type && legs.type == Mod.Find<ModItem>("ChampionGreaves").Type;
 		}
 
         public override void UpdateArmorSet(Player player)
@@ -52,20 +52,19 @@ The armor of a champion feared across the land");
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += .45f;
-            player.rangedCrit += 44;
-            player.allDamage += .1f;
+            player.GetDamage(DamageClass.Ranged) += .45f;
+            player.GetCritChance(DamageClass.Ranged) += 44;
+            player.GetDamage(DamageClass.Generic) += .1f;
             player.ammoCost75 = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HoodlumHood", 1);
             recipe.AddIngredient(null, "ChampionPlate", 10);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

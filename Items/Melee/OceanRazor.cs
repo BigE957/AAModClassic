@@ -8,36 +8,35 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ocean Razor");
-			Tooltip.SetDefault("Salty");
+			// DisplayName.SetDefault("Ocean Razor");
+			// Tooltip.SetDefault("Salty");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 18;
-			item.melee = true;
-			item.width = 38;
-			item.height = 44;
-			item.useTime = 13;
-			item.useAnimation = 13;
-			item.useStyle = 3;
-			item.knockBack =6;
-			item.value = 2000;
-			item.rare = 1;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			Item.damage = 18;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 38;
+			Item.height = 44;
+			Item.useTime = 13;
+			Item.useAnimation = 13;
+			Item.useStyle = 3;
+			Item.knockBack =6;
+			Item.value = 2000;
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = false;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 15);
 			recipe.AddIngredient(ItemID.Starfish, 5);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Wet, 300);
         }

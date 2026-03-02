@@ -10,21 +10,21 @@ namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: Tu
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Breath");
+            // DisplayName.SetDefault("Dragon's Breath");
         }
 
         public override void SetDefaults()
         {
-            projectile.extraUpdates = 0;
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.aiStyle = 99;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.melee = true;
-            ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = 12f;
-            ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 300f;
-            ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 14f;
+            Projectile.extraUpdates = 0;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = 99;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
+            ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = 12f;
+            ProjectileID.Sets.YoyosMaximumRange[Projectile.type] = 300f;
+            ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 14f;
         }
 
         public float[] internalAI = new float[1];
@@ -48,11 +48,11 @@ namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: Tu
 
         public override void PostAI()
         {
-            int Target = BaseAI.GetNPC(projectile.Center, -1, 500);
+            int Target = BaseAI.GetNPC(Projectile.Center, -1, 500);
             if (Target != -1)
             {
                 NPC target = Main.npc[Target];
-                BaseAI.ShootPeriodic(projectile, target.position, target.width, target.height, ModContent.ProjectileType<DragonBreath>(), ref internalAI[0], 5, projectile.damage, 4, true);
+                BaseAI.ShootPeriodic(Projectile, target.position, target.width, target.height, ModContent.ProjectileType<DragonBreath>(), ref internalAI[0], 5, Projectile.damage, 4, true);
             }
         }
     }

@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -12,7 +13,7 @@ namespace AAMod.Tiles.Torches
 {
 	public class HydratoxinTorch : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileLighted[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -35,14 +36,14 @@ namespace AAMod.Tiles.Torches
 			TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Torch");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Torch");
 			AddMapEntry(new Color(20, 120, 160), name);
-			dustType = ModContent.DustType<Dusts.DragonflameDust>();
-			drop = mod.ItemType("HydratoxinTorch");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Torches };
-			torch = true;
+			DustType = ModContent.DustType<Dusts.DragonflameDust>();
+			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("HydratoxinTorch").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Torches };
+			torch/* tModPorter Note: Removed. Use TileID.Sets.Torch instead */ = true;
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -53,7 +54,7 @@ namespace AAMod.Tiles.Torches
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
 			Tile tile = Main.tile[i, j];
-			if (tile.frameX < 66)
+			if (tile.TileFrameX < 66)
 			{
 				r = 0f;
 				g = 0.3f;
@@ -61,7 +62,7 @@ namespace AAMod.Tiles.Torches
 			}
 		}
 
-		public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)
+		public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY)
 		{
 			offsetY = 0;
 			if (WorldGen.SolidTile(i, j - 1))
@@ -78,8 +79,8 @@ namespace AAMod.Tiles.Torches
 		{
 			ulong randSeed = Main.TileFrameSeed ^ Convert.ToUInt64(j << 32 | i);
             Color color = AAColor.BogToxin;
-			int frameX = Main.tile[i, j].frameX;
-			int frameY = Main.tile[i, j].frameY;
+			int frameX = Main.tile[i, j].TileFrameX;
+			int frameY = Main.tile[i, j].TileFrameY;
 			int width = 20;
 			int offsetY = 0;
 			int height = 20;
@@ -100,7 +101,7 @@ namespace AAMod.Tiles.Torches
 			{
 				float x = Utils.RandomInt(ref randSeed, -10, 11) * 0.15f;
 				float y = Utils.RandomInt(ref randSeed, -10, 1) * 0.35f;
-				Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/HydratoxinTorch_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/HydratoxinTorch_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
 			}
 		}
 	}

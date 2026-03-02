@@ -10,7 +10,7 @@ namespace AAMod.Water
         {
             Player player = Main.LocalPlayer;
 
-            if (Main.bgStyle == mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") || Main.bgStyle == mod.GetSurfaceBgStyleSlot("MireDesertBgStyle") || (player.ZoneSnow && player.GetModPlayer<AAPlayer>().ZoneMire))
+            if (Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") || Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireDesertBgStyle") || (player.ZoneSnow && player.GetModPlayer<AAPlayer>().ZoneMire))
             {
                 if (!Main.dayTime || AAWorld.downedYamata || player.position.Y > Main.worldSurface * 16.0)
                 {
@@ -22,17 +22,17 @@ namespace AAMod.Water
         
 		public override int ChooseWaterfallStyle()
 		{
-			return mod.GetWaterfallStyleSlot("MireWaterfallStyle");
+			return Mod.GetWaterfallStyleSlot("MireWaterfallStyle");
 		}
 
 		public override int GetSplashDust()
 		{
-			return mod.DustType("MireWaterSplash");
+			return Mod.Find<ModDust>("MireWaterSplash").Type;
 		}
 
 		public override int GetDropletGore()
 		{
-			return mod.GetGoreSlot("Water/MireDroplet");
+			return Mod.GetGoreSlot("Water/MireDroplet");
 		}
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)

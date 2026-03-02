@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Squirrel : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Squirrel");
-			Description.SetDefault("Throws nuts");
+			// DisplayName.SetDefault("Squirrel");
+			// Description.SetDefault("Throws nuts");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("Squirrel1")] + player.ownedProjectileCounts[mod.ProjectileType("Squirrel2")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Squirrel1").Type] + player.ownedProjectileCounts[Mod.Find<ModProjectile>("Squirrel2").Type] > 0)
 			{
 				modPlayer.Squirrel = true;
 			}

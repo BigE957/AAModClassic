@@ -14,19 +14,19 @@ namespace AAMod.Items.Armor.Radium
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Radium Helmet");
-			Tooltip.SetDefault(@"15% increased melee damage
-Shines with the light of a starry night sky");
+			// DisplayName.SetDefault("Radium Helmet");
+			/* Tooltip.SetDefault(@"15% increased melee damage
+Shines with the light of a starry night sky"); */
 
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 20;
-			item.value = 300000;
-			item.defense = 30;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 20;
+			Item.value = 300000;
+			Item.defense = 30;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -34,21 +34,21 @@ Shines with the light of a starry night sky");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-			player.meleeDamage += 0.15f;
+			player.GetDamage(DamageClass.Melee) += 0.15f;
         }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-            return body.type == mod.ItemType("RadiumPlatemail") && legs.type == mod.ItemType("RadiumCuisses");
+            return body.type == Mod.Find<ModItem>("RadiumPlatemail").Type && legs.type == Mod.Find<ModItem>("RadiumCuisses").Type;
         }
 
 		public override void UpdateArmorSet(Player player)
@@ -77,12 +77,11 @@ Shines with the light of a starry night sky");
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiumBar", 25);
             recipe.AddIngredient(null, "Stardust", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
     public class RadiumWeaken : GlobalNPC
@@ -107,25 +106,25 @@ Shines with the light of a starry night sky");
         {
             yetAnotherTrigCounter += (float)Math.PI / 60;
         }
-        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
             if(BrokenShield > 0)
             {
                 damage = (int)(damage * 1.4f);
             }
         }
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
             if (BrokenShield > 0)
             {
                 damage = (int)(damage * 1.4f);
             }
         }
-        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)
+        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if(BrokenShield > 0)
             {
-                Texture2D texture = mod.GetTexture("Items/Armor/Radium/RadiumShield");
+                Texture2D texture = Mod.GetTexture("Items/Armor/Radium/RadiumShield");
                 spriteBatch.Draw(texture, npc.Top + Vector2.UnitY * -30 - Main.screenPosition, null, Color.White, 0f, texture.Size() * .5f, 1f + (.1f * (float)Math.Sin(yetAnotherTrigCounter)), SpriteEffects.None, 0f);
             }
             

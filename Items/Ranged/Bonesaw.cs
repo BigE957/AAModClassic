@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -11,30 +12,30 @@ namespace AAMod.Items.Ranged
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Bonesaw");
-			Tooltip.SetDefault("Turns bullets into ichor bullets!"
-				+ "\n16% chance not to consume ammo.");
+			// DisplayName.SetDefault("Bonesaw");
+			/* Tooltip.SetDefault("Turns bullets into ichor bullets!"
+				+ "\n16% chance not to consume ammo."); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 23;
-			item.ranged = true;
-			item.width = 48;
-			item.height = 18;
-			item.useAnimation = 10;
-			item.useTime = 10;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 3, 75, 0);
-			item.rare = 4;
-			item.UseSound = SoundID.Item41;
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 16f;
-			item.useAmmo = AmmoID.Bullet;
-			item.crit = 3;
+			Item.damage = 23;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 48;
+			Item.height = 18;
+			Item.useAnimation = 10;
+			Item.useTime = 10;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 3, 75, 0);
+			Item.rare = 4;
+			Item.UseSound = SoundID.Item41;
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 16f;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.crit = 3;
 		}
 		
 		public override Vector2? HoldoutOffset()
@@ -44,18 +45,17 @@ namespace AAMod.Items.Ranged
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Ichor, 25);
 			recipe.AddIngredient(ItemID.SoulofNight, 15);
 			recipe.AddIngredient(ItemID.CrimtaneBar, 12);
 			recipe.AddIngredient(ItemID.TheUndertaker);
 			recipe.AddIngredient(ItemID.IllegalGunParts);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             type = ProjectileID.IchorBullet;
             return true;
@@ -64,14 +64,14 @@ namespace AAMod.Items.Ranged
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -85,7 +85,7 @@ namespace AAMod.Items.Ranged
 
         // What if I wanted this gun to have a 2% chance not to consume ammo?
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .16f;
 		}

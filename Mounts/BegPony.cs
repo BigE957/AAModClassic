@@ -6,22 +6,22 @@ using Terraria.ModLoader;
 
 namespace AAMod.Mounts
 {
-	public class BegPony : ModMountData
+	public class BegPony : ModMount
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            mountData.spawnDust = DustID.Smoke;
-            mountData.buff = ModContent.BuffType<Buffs.PrettyPony>();
-            mountData.heightBoost = 44;
-            mountData.flightTimeMax = 0;
-            mountData.fallDamage = 0f;
-            mountData.runSpeed = 6f;
-            mountData.dashSpeed = 16f;
-            mountData.acceleration = 0.5f;
-            mountData.jumpHeight = 14;
-            mountData.jumpSpeed = 9.01f;
-            mountData.totalFrames = 16;
-            int[] array = new int[mountData.totalFrames];
+            MountData.spawnDust = DustID.Smoke;
+            MountData.buff = ModContent.BuffType<Buffs.PrettyPony>();
+            MountData.heightBoost = 44;
+            MountData.flightTimeMax = 0;
+            MountData.fallDamage = 0f;
+            MountData.runSpeed = 6f;
+            MountData.dashSpeed = 16f;
+            MountData.acceleration = 0.5f;
+            MountData.jumpHeight = 14;
+            MountData.jumpSpeed = 9.01f;
+            MountData.totalFrames = 16;
+            int[] array = new int[MountData.totalFrames];
             for (int num6 = 0; num6 < array.Length; num6++)
             {
                 array[num6] = 28;
@@ -33,47 +33,47 @@ namespace AAMod.Mounts
             array[12] += 2;
             array[13] += 2;
             array[15] += 4;
-            mountData.playerYOffsets = array;
-            mountData.xOffset = 5;
-            mountData.bodyFrame = 3;
-            mountData.yOffset = 3;
-            mountData.playerHeadOffset = 31;
-            mountData.standingFrameCount = 1;
-            mountData.standingFrameDelay = 12;
-            mountData.standingFrameStart = 0;
-            mountData.runningFrameCount = 7;
-            mountData.runningFrameDelay = 15;
-            mountData.runningFrameStart = 1;
-            mountData.dashingFrameCount = 6;
-            mountData.dashingFrameDelay = 40;
-            mountData.dashingFrameStart = 9;
-            mountData.flyingFrameCount = 6;
-            mountData.flyingFrameDelay = 6;
-            mountData.flyingFrameStart = 1;
-            mountData.inAirFrameCount = 1;
-            mountData.inAirFrameDelay = 12;
-            mountData.inAirFrameStart = 15;
-            mountData.idleFrameCount = 0;
-            mountData.idleFrameDelay = 0;
-            mountData.idleFrameStart = 0;
-            mountData.idleFrameLoop = false;
-            mountData.swimFrameCount = mountData.inAirFrameCount;
-            mountData.swimFrameDelay = mountData.inAirFrameDelay;
-            mountData.swimFrameStart = mountData.inAirFrameStart;
+            MountData.playerYOffsets = array;
+            MountData.xOffset = 5;
+            MountData.bodyFrame = 3;
+            MountData.yOffset = 3;
+            MountData.playerHeadOffset = 31;
+            MountData.standingFrameCount = 1;
+            MountData.standingFrameDelay = 12;
+            MountData.standingFrameStart = 0;
+            MountData.runningFrameCount = 7;
+            MountData.runningFrameDelay = 15;
+            MountData.runningFrameStart = 1;
+            MountData.dashingFrameCount = 6;
+            MountData.dashingFrameDelay = 40;
+            MountData.dashingFrameStart = 9;
+            MountData.flyingFrameCount = 6;
+            MountData.flyingFrameDelay = 6;
+            MountData.flyingFrameStart = 1;
+            MountData.inAirFrameCount = 1;
+            MountData.inAirFrameDelay = 12;
+            MountData.inAirFrameStart = 15;
+            MountData.idleFrameCount = 0;
+            MountData.idleFrameDelay = 0;
+            MountData.idleFrameStart = 0;
+            MountData.idleFrameLoop = false;
+            MountData.swimFrameCount = MountData.inAirFrameCount;
+            MountData.swimFrameDelay = MountData.inAirFrameDelay;
+            MountData.swimFrameStart = MountData.inAirFrameStart;
             if (Main.netMode != 2)
             {
-                mountData.backTexture = mod.GetTexture("Mounts/BegPony");
-                mountData.backTextureExtra = null;
-                mountData.frontTexture = null;
-                mountData.frontTextureExtra = null;
-                mountData.textureWidth = mountData.backTexture.Width;
-                mountData.textureHeight = mountData.backTexture.Height;
+                MountData.backTexture = Mod.GetTexture("Mounts/BegPony");
+                MountData.backTextureExtra = null;
+                MountData.frontTexture = null;
+                MountData.frontTextureExtra = null;
+                MountData.textureWidth = MountData.backTexture.Width;
+                MountData.textureHeight = MountData.backTexture.Height;
             }
         }
 
 		public override void UpdateEffects(Player player)
 		{
-            player.doubleJumpUnicorn = true;
+            player.GetJumpState(ExtraJump.UnicornMount).Enabled = true/* tModPorter Suggestion: Call Enable() if setting this to true, otherwise call Disable(). */;
             if (Math.Abs(player.velocity.X) > player.mount.DashSpeed - player.mount.RunSpeed / 2f)
             {
                 player.noKnockback = true;

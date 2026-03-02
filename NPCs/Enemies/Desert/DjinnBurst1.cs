@@ -10,20 +10,20 @@ namespace AAMod.NPCs.Enemies.Desert
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Djinn Burst");     
-            Main.projFrames[projectile.type] = 7;     
+            // DisplayName.SetDefault("Djinn Burst");     
+            Main.projFrames[Projectile.type] = 7;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 18;
-            projectile.height = 32;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
+            Projectile.width = 18;
+            Projectile.height = 32;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,39 +33,39 @@ namespace AAMod.NPCs.Enemies.Desert
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 6)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 6)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 10)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 10)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
-                    projectile.frame = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return false;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(BuffID.Chilled, 600);
         }

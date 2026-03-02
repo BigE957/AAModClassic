@@ -14,26 +14,26 @@ namespace AAMod.Projectiles.Akuma
 		
 		public override void SetStaticDefaults()
 		{
-			Main.projFrames[projectile.type] = 4;
+			Main.projFrames[Projectile.type] = 4;
 		}
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.timeLeft = 300;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.penetrate = 1;
-            projectile.magic = true;
-            projectile.ignoreWater = true;		
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.timeLeft = 300;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = 1;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;		
         }
 
 		public void SetRot()
 		{
 			float oldInit = rotInit;
-			int[] projs = BaseAI.GetProjectiles(Main.player[projectile.owner].Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
 			rotInit = projs.Length == 0 ? 0f : ((float)Math.PI * 2f / projs.Length);
 
 			if (rotInit != oldInit)
@@ -41,7 +41,7 @@ namespace AAMod.Projectiles.Akuma
 				int projSlot = 0;
 				for(int m = 0; m < projs.Length; m++)
 				{
-					if (projs[m] == projectile.identity) { projSlot = m; }
+					if (projs[m] == Projectile.identity) { projSlot = m; }
 				}
 				rot = rotInit * (projSlot + 1f);
 			}
@@ -49,25 +49,25 @@ namespace AAMod.Projectiles.Akuma
 
         public override void AI()
         {
-			projectile.frameCounter++;
-            if (projectile.frameCounter >= 8)
+			Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 8)
             {
-                projectile.frameCounter = 0;
-                projectile.frame += 1;
+                Projectile.frameCounter = 0;
+                Projectile.frame += 1;
             }
-            if (projectile.frame > 3)
+            if (Projectile.frame > 3)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
 			
-			Player player = Main.player[projectile.owner];
-			if (player == Main.player[projectile.owner])
+			Player player = Main.player[Projectile.owner];
+			if (player == Main.player[Projectile.owner])
 			{
 				if (player.altFunctionUse == 2)
 				{
 					released = true;
 					float num1 = 12f;
-					Vector2 vector2 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+					Vector2 vector2 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
 					float f1 = Main.mouseX + Main.screenPosition.X - vector2.X;
 					float f2 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
 					if (player.gravDir == -1.0)
@@ -76,7 +76,7 @@ namespace AAMod.Projectiles.Akuma
 					float num5;
 					if (float.IsNaN(f1) && float.IsNaN(f2) || f1 == 0.0 && f2 == 0.0)
 					{
-						f1 = projectile.direction;
+						f1 = Projectile.direction;
 						f2 = 0.0f;
 						num5 = num1;
 					}
@@ -84,40 +84,40 @@ namespace AAMod.Projectiles.Akuma
 						num5 = num1 / num4;
 					float SpeedX = f1 * num5;
 					float SpeedY = f2 * num5;
-					projectile.velocity.X = SpeedX;
-					projectile.velocity.Y = SpeedY;
+					Projectile.velocity.X = SpeedX;
+					Projectile.velocity.Y = SpeedY;
 				}
 			}
-			projectile.ai[0]++;
-			if (projectile.ai[0] < 30 && !released)
+			Projectile.ai[0]++;
+			if (Projectile.ai[0] < 30 && !released)
             {
-				if (projectile.active) { SetRot(); }
-				BaseAI.AIRotate(projectile, ref projectile.rotation, ref rot, player.Center, true, 60f, 20f, 0.07f, true);
+				if (Projectile.active) { SetRot(); }
+				BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 60f, 20f, 0.07f, true);
 			}
-			if (projectile.ai[0] >= 30)
+			if (Projectile.ai[0] >= 30)
             {
 				int foundTarget1 = HomeOnTarget();
 				if (!released)
 				{
 					if (foundTarget1 == -1)
 					{
-						if (projectile.active) { SetRot(); }
-						BaseAI.AIRotate(projectile, ref projectile.rotation, ref rot, player.Center, true, 60f, 20f, 0.07f, true);
+						if (Projectile.active) { SetRot(); }
+						BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 60f, 20f, 0.07f, true);
 					}
 				}
 			}
-            if (projectile.position.HasNaNs())
+            if (Projectile.position.HasNaNs())
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
-            bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)projectile.position.X / 16, (int)projectile.position.Y / 16));
-            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
-            dust19.position = projectile.Center;
+            bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
+            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+            dust19.position = Projectile.Center;
             dust19.velocity = Vector2.Zero;
             dust19.noGravity = true;
-            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
-            dust18.position = projectile.Center;
+            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+            dust18.position = Projectile.Center;
             dust18.velocity = Vector2.Zero;
             dust18.noGravity = true;
             if (flag5)
@@ -125,29 +125,29 @@ namespace AAMod.Projectiles.Akuma
                 dust19.noLight = true;
                 dust18.noLight = true;
             }
-            if (projectile.ai[1] == -1f)
+            if (Projectile.ai[1] == -1f)
             {
-                projectile.velocity = Vector2.Zero;
-                projectile.tileCollide = false;
-                projectile.penetrate = -1;
-                projectile.position = projectile.Center;
-                projectile.width = projectile.height = 140;
-                projectile.Center = projectile.position;
+                Projectile.velocity = Vector2.Zero;
+                Projectile.tileCollide = false;
+                Projectile.penetrate = -1;
+                Projectile.position = Projectile.Center;
+                Projectile.width = Projectile.height = 140;
+                Projectile.Center = Projectile.position;
                 return;
             }
-            if (projectile.ai[0] > 30)
+            if (Projectile.ai[0] > 30)
             {
-                projectile.ai[0] = 30; 
+                Projectile.ai[0] = 30; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * 30;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / 30);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * 30;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / 30);
                 }
             }
-            if (projectile.numUpdates == 0)
+            if (Projectile.numUpdates == 0)
             {
                 int num185 = -1;
                 float num186 = 60f;
@@ -156,8 +156,8 @@ namespace AAMod.Projectiles.Akuma
                     NPC nPC2 = Main.npc[num187];
                     if (nPC2.CanBeChasedBy(this, false))
                     {
-                        float num188 = projectile.Distance(nPC2.Center);
-                        if (num188 < num186 && Collision.CanHitLine(projectile.Center, 0, 0, nPC2.Center, 0, 0))
+                        float num188 = Projectile.Distance(nPC2.Center);
+                        if (num188 < num186 && Collision.CanHitLine(Projectile.Center, 0, 0, nPC2.Center, 0, 0))
                         {
                             num186 = num188;
                             num185 = num187;
@@ -166,13 +166,13 @@ namespace AAMod.Projectiles.Akuma
                 }
                 if (num185 != -1)
                 {
-                    projectile.ai[1] = -1f;
-                    projectile.netUpdate = true;
+                    Projectile.ai[1] = -1f;
+                    Projectile.netUpdate = true;
                     return;
                 }
-				if (num185 == -1 && projectile.ai[1] == -1f)
+				if (num185 == -1 && Projectile.ai[1] == -1f)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
         }
@@ -186,13 +186,13 @@ namespace AAMod.Projectiles.Akuma
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -201,32 +201,32 @@ namespace AAMod.Projectiles.Akuma
             return selectedTarget;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            projectile.ai[1] = -1f;
-            projectile.netUpdate = true;
+            Projectile.ai[1] = -1f;
+            Projectile.netUpdate = true;
         }
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
-			int[] projs = BaseAI.GetProjectiles(projectile.Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
 			
-			bool flag = WorldGen.SolidTile(Framing.GetTileSafely((int)projectile.position.X / 16, (int)projectile.position.Y / 16));
+			bool flag = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
 
             for (int num58 = 0; num58 < 4; num58++)
             {
-                Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100, default, 1.5f);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100, default, 1.5f);
             }
             for (int num59 = 0; num59 < 4; num59++)
             {
-                int num60 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 2.5f);
+                int num60 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 2.5f);
                 Main.dust[num60].noGravity = true;
                 Main.dust[num60].velocity *= 3f;
                 if (flag)
                 {
                     Main.dust[num60].noLight = true;
                 }
-                num60 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100, default, 1.5f);
+                num60 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100, default, 1.5f);
                 Main.dust[num60].velocity *= 2f;
                 Main.dust[num60].noGravity = true;
                 if (flag)

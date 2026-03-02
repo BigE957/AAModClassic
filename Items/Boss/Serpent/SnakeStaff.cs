@@ -1,7 +1,9 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Serpent
 {
@@ -9,40 +11,40 @@ namespace AAMod.Items.Boss.Serpent
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Snake Staff");
-            Tooltip.SetDefault(@"Summons a Snow Serpent to fight for you
-Summons 2 segments for each minion slot");
+            // DisplayName.SetDefault("Snake Staff");
+            /* Tooltip.SetDefault(@"Summons a Snow Serpent to fight for you
+Summons 2 segments for each minion slot"); */
         }
 
         public override void SetDefaults()
         {
-            item.mana = 10;
-            item.damage = 11;
-            item.useStyle = 1;
-            item.shootSpeed = 10f;
-            item.shoot = mod.ProjectileType("SerpentHead");
-            item.width = 26;
-            item.height = 28;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 36;
-            item.useTime = 36;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.noMelee = true;
-            item.knockBack = 2f;
-            item.buffType = mod.BuffType("SnakeMinion");
-            item.summon = true;
+            Item.mana = 10;
+            Item.damage = 11;
+            Item.useStyle = 1;
+            Item.shootSpeed = 10f;
+            Item.shoot = Mod.Find<ModProjectile>("SerpentHead").Type;
+            Item.width = 26;
+            Item.height = 28;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 36;
+            Item.useTime = 36;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.noMelee = true;
+            Item.knockBack = 2f;
+            Item.buffType = Mod.Find<ModBuff>("SnakeMinion").Type;
+            Item.DamageType = DamageClass.Summon;
         }
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             //to fix tail disapearing meme
             float slotsUsed = 0;
@@ -59,8 +61,8 @@ Summons 2 segments for each minion slot");
                 Projectile proj = Main.projectile[i];
                 if (proj.active && proj.owner == player.whoAmI)
                 {
-                    if (headCheck == -1 && proj.type == mod.ProjectileType("SerpentHead")) headCheck = i;
-                    if (tailCheck == -1 && proj.type == mod.ProjectileType("SerpentTail")) tailCheck = i;
+                    if (headCheck == -1 && proj.type == Mod.Find<ModProjectile>("SerpentHead").Type) headCheck = i;
+                    if (tailCheck == -1 && proj.type == Mod.Find<ModProjectile>("SerpentTail").Type) tailCheck = i;
                     if (headCheck != -1 && tailCheck != -1) break;
                 }
             }
@@ -68,17 +70,17 @@ Summons 2 segments for each minion slot");
             //initial spawn
             if (headCheck == -1 && tailCheck == -1)
             {
-                int current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("SerpentHead"), damage, knockBack, player.whoAmI, 0f, 0f);
+                int current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("SerpentHead").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 
                 int previous = 0;
 
                 for (int i = 0; i < 3; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("SerpentBody"), damage, knockBack, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("SerpentBody").Type, damage, knockBack, player.whoAmI, current, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("SerpentTail"), damage, knockBack, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("SerpentTail").Type, damage, knockBack, player.whoAmI, current, 0f);
 
                 Main.projectile[previous].localAI[1] = current;
                 Main.projectile[previous].netUpdate = true;
@@ -91,7 +93,7 @@ Summons 2 segments for each minion slot");
 
                 for (int i = 0; i < 2; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("SerpentBody"), damage, knockBack, player.whoAmI,
+                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("SerpentBody").Type, damage, knockBack, player.whoAmI,
                         Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                     previous = current;

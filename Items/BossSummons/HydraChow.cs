@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,38 +14,37 @@ namespace AAMod.Items.BossSummons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Chow");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Just holding this makes you gag
+            // DisplayName.SetDefault("Hydra Chow");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Just holding this makes you gag
 Summons the Hydra
-Can only be used at night");
+Can only be used at night"); */
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 20;
-            item.rare = 2;
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 500;
-            item.consumable = true;
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 20;
+            Item.rare = 2;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 500;
+            Item.consumable = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "MirePod", 15);
             recipe.AddIngredient(null, "Moonpowder", 30);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Hydra"), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Hydra"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Hydra").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Hydra"), false);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
 		}
 
@@ -57,7 +57,7 @@ Can only be used at night");
             }
             if (player.GetModPlayer<AAPlayer>().ZoneMire)
 			{
-				if (NPC.AnyNPCs(mod.NPCType("Hydra")))
+				if (NPC.AnyNPCs(Mod.Find<ModNPC>("Hydra").Type))
 				{
 					if(player.whoAmI == Main.myPlayer) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.HydraChowFalse1"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
 					return false;

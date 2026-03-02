@@ -8,40 +8,39 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Perfect Shadow Drill");
-            Tooltip.SetDefault("Now that's more like it.");
+            // DisplayName.SetDefault("Perfect Shadow Drill");
+            // Tooltip.SetDefault("Now that's more like it.");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 50;
-			item.melee = true;
-			item.width = 50;
-			item.height = 18;
-			item.useTime = 6;
-			item.useAnimation = 15;
-			item.channel = true;
-			item.noUseGraphic = true;
-			item.noMelee = true;
-			item.pick = 205;
-			item.useStyle = 5;
-			item.knockBack = 0;
-            item.value = Item.sellPrice(0, 10);
-            item.rare = 7;
-			item.UseSound = SoundID.Item23;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("PShadowDrill");
-			item.shootSpeed = 40f;
+			Item.damage = 50;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 50;
+			Item.height = 18;
+			Item.useTime = 6;
+			Item.useAnimation = 15;
+			Item.channel = true;
+			Item.noUseGraphic = true;
+			Item.noMelee = true;
+			Item.pick = 205;
+			Item.useStyle = 5;
+			Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 10);
+            Item.rare = 7;
+			Item.UseSound = SoundID.Item23;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("PShadowDrill").Type;
+			Item.shootSpeed = 40f;
 		}
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "ShadowDrill");
-            recipe.AddIngredient(mod, "HeroShards");
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "ShadowDrill");
+            recipe.AddIngredient(Mod, "HeroShards");
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

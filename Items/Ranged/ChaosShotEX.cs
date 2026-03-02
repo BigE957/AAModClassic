@@ -1,5 +1,6 @@
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -10,31 +11,31 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Perfect Chaos Bustershot");
-            Tooltip.SetDefault(@"Fires a piercing dualblast as well as a spread of 10 bullets
-Chaos Bustershot EX");
+            // DisplayName.SetDefault("Perfect Chaos Bustershot");
+            /* Tooltip.SetDefault(@"Fires a piercing dualblast as well as a spread of 10 bullets
+Chaos Bustershot EX"); */
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 300;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 45;
-            item.useAnimation = 45;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(5, 0, 0, 0);
-            item.rare = 8;
-            item.UseSound = SoundID.Item14;
-            item.shootSpeed = 12f;
-            item.expert = true; item.expertOnly = true;
-            item.autoReuse = true;
+            Item.damage = 300;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 45;
+            Item.useAnimation = 45;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(5, 0, 0, 0);
+            Item.rare = 8;
+            Item.UseSound = SoundID.Item14;
+            Item.shootSpeed = 12f;
+            Item.expert = true; Item.expertOnly = true;
+            Item.autoReuse = true;
         }
 
         public override Vector2? HoldoutOffset()
@@ -42,7 +43,7 @@ Chaos Bustershot EX");
             return new Vector2(-2, -2);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 		    float spread = 20f * 0.0174f;
 		    float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -56,21 +57,20 @@ Chaos Bustershot EX");
             }
             for (int m = 0; m < 2; m++)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, m == 0 ? mod.ProjectileType("ChaosShot2") : mod.ProjectileType("ChaosShot3"), damage, knockBack, player.whoAmI, 0, 1);
+                Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockBack, player.whoAmI, 0, 1);
             }
 
-            Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, mod.ProjectileType("ChaosShot1"), damage, knockBack, player.whoAmI, 0, 1);
+            Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, Mod.Find<ModProjectile>("ChaosShot1").Type, damage, knockBack, player.whoAmI, 0, 1);
             return false;
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ChaosShot", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

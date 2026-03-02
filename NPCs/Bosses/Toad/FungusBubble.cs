@@ -8,19 +8,19 @@ namespace AAMod.NPCs.Bosses.Toad
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fungus Bubble");
+			// DisplayName.SetDefault("Fungus Bubble");
 		}
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.aiStyle = 0;
-            projectile.hostile = true;
-            projectile.friendly = false;
-            projectile.penetrate = 1;
-            projectile.alpha = 255;
-            projectile.timeLeft = 300;
-            projectile.noEnchantments = true;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = 0;
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 255;
+            Projectile.timeLeft = 300;
+            Projectile.noEnchantments = true;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -34,17 +34,17 @@ namespace AAMod.NPCs.Bosses.Toad
             const float desiredFlySpeedInPixelsPerFrame = 3;
             const float amountOfFramesToLerpBy = 30;
 
-            projectile.ai[0]++;
-            if (projectile.ai[0] > homingDelay)
+            Projectile.ai[0]++;
+            if (Projectile.ai[0] > homingDelay)
             {
-                projectile.ai[0] = homingDelay;
+                Projectile.ai[0] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player target = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -60,10 +60,10 @@ namespace AAMod.NPCs.Bosses.Toad
                 Player target = Main.player[i];
                 if (target.active && (!target.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(target.Center);
+                    float distance = Projectile.Distance(target.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                     (
-                        selectedTarget == -1 || projectile.Distance(Main.player[selectedTarget].Center) > distance)
+                        selectedTarget == -1 || Projectile.Distance(Main.player[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -72,21 +72,21 @@ namespace AAMod.NPCs.Bosses.Toad
             return selectedTarget;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
             target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), 180);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int dust = 0; dust <= 5; dust++)
             {
                 int dustType = ModContent.DustType<Dusts.ShroomDust>();
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, dustType, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, dustType, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
             }
         }
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 30;
             height = 30;
@@ -95,7 +95,7 @@ namespace AAMod.NPCs.Bosses.Toad
 
 		public override bool OnTileCollide (Vector2 oldVelocity)
 		{
-			projectile.ai[0] = 1f;
+			Projectile.ai[0] = 1f;
 			return false;
 		}
     }

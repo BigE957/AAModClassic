@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Gibs
 {
@@ -6,17 +7,17 @@ namespace AAMod.Items.Vanity.Gibs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Angry Revenant's Sarcophagus");
-            Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Raging Revenant!'");
+            // DisplayName.SetDefault("Angry Revenant's Sarcophagus");
+            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Raging Revenant!'");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;  
+            Item.maxStack = 1;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;  
         }
 
         public override bool CanRightClick()
@@ -26,12 +27,12 @@ namespace AAMod.Items.Vanity.Gibs
 
  		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("GibsSkull"));
-            player.QuickSpawnItem(mod.ItemType("GibsPlate"));
-            player.QuickSpawnItem(mod.ItemType("GibsShorts"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("GibsSkull").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("GibsPlate").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("GibsShorts").Type);
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(mod.ItemType("GibsJet"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("GibsJet").Type);
             }
         }
     }

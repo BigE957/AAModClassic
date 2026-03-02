@@ -12,89 +12,89 @@ namespace AAMod.NPCs.Bosses.Greed
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spark of Greed");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Spark of Greed");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 100;
-            npc.height = 100;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 100;
+            NPC.height = 100;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
         }
 
         public override void AI()
         {
-            npc.TargetClosest();
+            NPC.TargetClosest();
 
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(0, 300f));
 
             if (Main.netMode != 2) //clientside stuff
             {
-                if (npc.ai[0] > 175)
+                if (NPC.ai[0] > 175)
                 {
-                    npc.alpha -= 3;
-                    if (npc.alpha < 0)
+                    NPC.alpha -= 3;
+                    if (NPC.alpha < 0)
                     {
-                        npc.alpha = 0;
+                        NPC.alpha = 0;
                     }
                 }
             }
 
             if (Main.netMode != 1)
             {
-                npc.ai[0]++;
+                NPC.ai[0]++;
 
-                if (npc.ai[0] == 175)
+                if (NPC.ai[0] == 175)
                 {
                     if (Main.netMode != 1)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition1"), Color.Goldenrod);
                     }
-                    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GreedA");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GreedA");
 
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                else if (npc.ai[0] == 350)
+                else if (NPC.ai[0] == 350)
                 {
                     if (Main.netMode != 1)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition2"), Color.Goldenrod);
                     }
                 }
-                else if (npc.ai[0] == 500)
+                else if (NPC.ai[0] == 500)
                 {
                     if (Main.netMode != 1)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition3"), Color.Goldenrod);
                     }
 
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                else if (npc.ai[0] >= 610)
+                else if (NPC.ai[0] >= 610)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, mod.NPCType("GreedA"), true, npc.Center, Lang.BossChat("GreedAName"), false);
+                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("GreedA").Type, true, NPC.Center, Lang.BossChat("GreedAName"), false);
 
                     if (Main.netMode != 1)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition4"), Color.Goldenrod);
                     }
 
-                    npc.netUpdate = true;
-                    npc.active = false;
+                    NPC.netUpdate = true;
+                    NPC.active = false;
                 }
             }
         }
@@ -102,9 +102,9 @@ namespace AAMod.NPCs.Bosses.Greed
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)
         {
             float moveSpeed = 14f;
-            if (moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+            if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -122,39 +122,39 @@ namespace AAMod.NPCs.Bosses.Greed
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(mod.NPCType("GreedA")))
+            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type))
             {
                 return false;
             }
 
-            npc.active = false;
+            NPC.active = false;
             return true;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (++npc.frameCounter >= 4)
+            if (++NPC.frameCounter >= 4)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.frame.Y >= frameHeight * 3)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y >= frameHeight * 3)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 70, 70);
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture("NPCs/Bosses/Greed/GreedSpawn"), 0, npc.position + new Vector2(0, npc.gfxOffY), npc.width, npc.height, npc.scale, 0, npc.spriteDirection, 4, SunFrame, npc.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("NPCs/Bosses/Greed/GreedSpawn"), 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, 0, NPC.spriteDirection, 4, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
             return false;
         }
     }

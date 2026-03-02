@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
 	public class PrettyPony : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pretty Pony");
-			Description.SetDefault("Its a horse.");
+			// DisplayName.SetDefault("Pretty Pony");
+			// Description.SetDefault("Its a horse.");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}

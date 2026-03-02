@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
@@ -9,39 +10,38 @@ namespace AAMod.Items.Dyes
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Discordian Dye");
-            BaseUtility.AddTooltips(item, new string[] { "Gives a discordian touch to whatever this dye is applied to" });
+            // DisplayName.SetDefault("Discordian Dye");
+            BaseUtility.AddTooltips(Item, new string[] { "Gives a discordian touch to whatever this dye is applied to" });
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 15;
-            item.height = 15;
-            item.maxStack = 99;
-            item.rare = 8;
-            item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(item.type);
-            item.value = BaseUtility.CalcValue(0, 10, 0, 0);
+            Item.width = 15;
+            Item.height = 15;
+            Item.maxStack = 99;
+            Item.rare = 8;
+            Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type);
+            Item.value = BaseUtility.CalcValue(0, 10, 0, 0);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "BlazingDye", 1);
             recipe.AddIngredient(null, "AbyssalDye", 1);
             recipe.AddTile(Terraria.ID.TileID.DyeVat);
-            recipe.SetResult(this, 2);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

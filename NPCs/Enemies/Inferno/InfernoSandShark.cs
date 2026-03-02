@@ -8,24 +8,24 @@ namespace AAMod.NPCs.Enemies.Inferno
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Inferno Sand Shark");
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.SandShark];
+            // DisplayName.SetDefault("Inferno Sand Shark");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SandShark];
         }
 
         public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.SandShark);
-            animationType = NPCID.SandShark;
-            banner = npc.type;
-			bannerItem = mod.ItemType("InfernoSandSharkBanner");
+            NPC.CloneDefaults(NPCID.SandShark);
+            AnimationType = NPCID.SandShark;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("InfernoSandSharkBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int i = 0; i < 10; i++)
             {
                 int dustType = Main.rand.Next(139, 143);
-                int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
+                int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
             }
         }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,36 +8,35 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hydra Glove");
+			// DisplayName.SetDefault("Hydra Glove");
 		}
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 7;
-            item.useTime = 7;
-            item.width = 28;
-            item.height = 24;
-            item.damage = 19;
-            item.knockBack = 4f;
-            item.UseSound = SoundID.Item1;
-            item.scale = 1.35f;
-            item.melee = true;
-            item.rare = 3;
-            item.value = 50000;
-            item.melee = true;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 7;
+            Item.useTime = 7;
+            Item.width = 28;
+            Item.height = 24;
+            Item.damage = 19;
+            Item.knockBack = 4f;
+            Item.UseSound = SoundID.Item1;
+            Item.scale = 1.35f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.rare = 3;
+            Item.value = 50000;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "AbyssiumBar", 10);
-            recipe.AddIngredient(mod, "HydraClaw", 5);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "AbyssiumBar", 10);
+            recipe.AddIngredient(Mod, "HydraClaw", 5);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

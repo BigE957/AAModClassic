@@ -8,68 +8,68 @@ namespace AAMod.Projectiles.Greed.WKG
     {
         public override void SetStaticDefaults()
         {    
-            Main.projFrames[projectile.type] = 3;     
+            Main.projFrames[Projectile.type] = 3;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = 106;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.alpha = 255;
-            projectile.timeLeft = 3600;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.ranged = true;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = 106;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
+            Projectile.timeLeft = 3600;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override void AI()
         {
-            projectile.frame = (int)projectile.ai[1];
-            projectile.rotation += projectile.velocity.X * 0.02f;
-            if (projectile.velocity.X < 0f)
+            Projectile.frame = (int)Projectile.ai[1];
+            Projectile.rotation += Projectile.velocity.X * 0.02f;
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.rotation -= Math.Abs(projectile.velocity.Y) * 0.02f;
+                Projectile.rotation -= Math.Abs(Projectile.velocity.Y) * 0.02f;
             }
             else
             {
-                projectile.rotation += Math.Abs(projectile.velocity.Y) * 0.02f;
+                Projectile.rotation += Math.Abs(Projectile.velocity.Y) * 0.02f;
             }
-            projectile.velocity *= 0.98f;
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= 60f)
+            Projectile.velocity *= 0.98f;
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= 60f)
             {
-                if (projectile.alpha < 255)
+                if (Projectile.alpha < 255)
                 {
-                    projectile.alpha += 5;
-                    if (projectile.alpha > 255)
+                    Projectile.alpha += 5;
+                    if (Projectile.alpha > 255)
                     {
-                        projectile.alpha = 255;
+                        Projectile.alpha = 255;
                         return;
                     }
                 }
-                else if (projectile.owner == Main.myPlayer)
+                else if (Projectile.owner == Main.myPlayer)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                     return;
                 }
             }
-            else if (projectile.alpha > 80)
+            else if (Projectile.alpha > 80)
             {
-                projectile.alpha -= 30;
-                if (projectile.alpha < 80)
+                Projectile.alpha -= 30;
+                if (Projectile.alpha < 80)
                 {
-                    projectile.alpha = 80;
+                    Projectile.alpha = 80;
                     return;
                 }
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
     }
 }

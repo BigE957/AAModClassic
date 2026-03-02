@@ -1,6 +1,7 @@
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,40 +14,40 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Grip of Abyssal Wrath");
-            Main.npcFrameCount[npc.type] = 14;
+            // DisplayName.SetDefault("Grip of Abyssal Wrath");
+            Main.npcFrameCount[NPC.type] = 14;
         }
 
 	    public override void SetDefaults()
         {
 			base.SetDefaults();
-			npc.lifeMax = 60000;
-            npc.damage = 80;
-            npc.defense = 50;
-            npc.boss = true;
-            npc.buffImmune[BuffID.Poisoned] = true;
+			NPC.lifeMax = 60000;
+            NPC.damage = 80;
+            NPC.defense = 50;
+            NPC.boss = true;
+            NPC.buffImmune[BuffID.Poisoned] = true;
 
 			offsetBasePoint = new Vector2(280f, 0f);
         }
 		
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
             {
-                npc.position.X = npc.position.X + npc.width / 2;
-                npc.position.Y = npc.position.Y + npc.height / 2;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.position.X - npc.width / 2;
-                npc.position.Y = npc.position.Y - npc.height / 2;
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<Dusts.YamataDust>();
                 int dust2 = ModContent.DustType<Dusts.YamataDust>();
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -56,38 +57,38 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 
         public override Color? GetAlpha(Color lightColor)
         {
-            if (npc.alpha > 0)
+            if (NPC.alpha > 0)
             {
                 return AAColor.Yamata;
             }
             return lightColor;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/AbyssGrip_Glow");
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/AbyssGrip_Glow");
             int shader = 0;
-            if (npc.ai[0] == 0)
+            if (NPC.ai[0] == 0)
             {
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             }
-            if (npc.ai[0] != 0 || npc.ai[0] != 1 || npc.ai[0] != 5)
+            if (NPC.ai[0] != 0 || NPC.ai[0] != 1 || NPC.ai[0] != 5)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 2, npc.scale, 7, true, 0, 0, Color.Indigo, npc.frame);
+                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2, NPC.scale, 7, true, 0, 0, Color.Indigo, NPC.frame);
             }
 
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], shader, npc, dColor);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, shader, npc, Color.White);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, shader, NPC, dColor);
+            BaseDrawing.DrawTexture(spritebatch, glowTex, shader, NPC, Color.White);
             return false;
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }
 
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
         }

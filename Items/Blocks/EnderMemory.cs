@@ -1,28 +1,29 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
     public class EnderMemory : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eternal Memory");
-            Tooltip.SetDefault(@"An immense statue made to commemorate somebody
-A somber engraving is etched into the base.");
+            // DisplayName.SetDefault("Eternal Memory");
+            /* Tooltip.SetDefault(@"An immense statue made to commemorate somebody
+A somber engraving is etched into the base."); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 38;
-            item.maxStack = 1;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 9;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 0;
-            item.createTile = mod.TileType("EnderMemory");
+            Item.width = 18;
+            Item.height = 38;
+            Item.maxStack = 1;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 9;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 0;
+            Item.createTile = Mod.Find<ModTile>("EnderMemory").Type;
         }
     }
 }

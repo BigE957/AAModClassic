@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,23 +9,23 @@ namespace AAMod.Items.Throwing
 		public override void SetDefaults()
 		{
 
-            item.damage = 60;            
-            item.ranged = true;
-            item.width = 20;
-            item.height = 20;
-			item.useTime = 8;
-            item.maxStack = 999;
-			item.useAnimation = 8;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-			item.knockBack = 0;
-			item.shootSpeed = 15f;
-			item.shoot = mod.ProjectileType ("DMK");
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.consumable = true;
-            item.noMelee = true;
-            item.rare = 9;
+            Item.damage = 60;            
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 20;
+            Item.height = 20;
+			Item.useTime = 8;
+            Item.maxStack = 999;
+			Item.useAnimation = 8;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+			Item.knockBack = 0;
+			Item.shootSpeed = 15f;
+			Item.shoot = Mod.Find<ModProjectile>("DMK").Type;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.consumable = true;
+            Item.noMelee = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -32,26 +33,25 @@ namespace AAMod.Items.Throwing
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkmatter Kunai");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Darkmatter Kunai");
+            // Tooltip.SetDefault("");
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(50);
             recipe.AddIngredient(null, "DarkEnergy", 1);
             recipe.AddIngredient(null, "DarkMatter");
 		    recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
+            recipe.Register();
 		}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.UI;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAMod.Items.Currency
@@ -9,16 +10,16 @@ namespace AAMod.Items.Currency
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Coin");
-            Tooltip.SetDefault("A red and blue coin with an A engraved into it");
+            // DisplayName.SetDefault("Ancient Coin");
+            // Tooltip.SetDefault("A red and blue coin with an A engraved into it");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.rare = 6;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.rare = ItemRarityID.LightPurple;
         }
     }
 
@@ -30,7 +31,7 @@ namespace AAMod.Items.Currency
         {
         }
 
-        public override void GetPriceText(string[] lines, ref int currentLine, int price)
+        public override void GetPriceText(string[] lines, ref int currentLine, long price)
         {
             Color color2 = color * (Main.mouseTextColor / 255f);
             lines[currentLine++] = string.Format("[c/{0:X2}{1:X2}{2:X2}:{3} {4} {5}]", new object[]

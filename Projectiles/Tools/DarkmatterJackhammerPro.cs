@@ -9,26 +9,26 @@ namespace AAMod.Projectiles.Tools
         public override void SetDefaults()
         {
 
-            projectile.width = 22;
-            projectile.height = 52;
-            projectile.aiStyle = 20;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.hide = true;
-            projectile.ownerHitCheck = true;
-            projectile.melee = true;
+            Projectile.width = 22;
+            Projectile.height = 52;
+            Projectile.aiStyle = 20;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.hide = true;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkmatter Jackhammer");
+            // DisplayName.SetDefault("Darkmatter Jackhammer");
         }
 
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Electrified"), 500);
+            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
         }
     }
 }

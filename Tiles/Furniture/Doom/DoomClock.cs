@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Doom
 {
     public class DoomClock : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -25,14 +26,14 @@ namespace AAMod.Tiles.Furniture.Doom
                 16
             };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Example Clock"); // Automatic from .lang files
             AddMapEntry(new Color(200, 0, 0), name);
-            dustType = mod.DustType("DoomDust");
-            adjTiles = new int[] { TileID.GrandfatherClocks };
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            AdjTiles = new int[] { TileID.GrandfatherClocks };
         }
 
-        public override bool NewRightClick(int x, int y)
+        public override bool RightClick(int x, int y)
         {
             if (!AAWorld.downedZero)
             {
@@ -50,7 +51,7 @@ The number at the moment is so high you don't even know what the number is calle
         {
             if (closer)
             {
-                Main.clock = true;
+                Main.SceneMetrics.HasClock = true;
             }
         }
 
@@ -61,7 +62,7 @@ The number at the moment is so high you don't even know what the number is calle
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("DoomClock"));
+            Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomClock").Type);
         }
 
 
@@ -74,15 +75,15 @@ The number at the moment is so high you don't even know what the number is calle
                 zero = Vector2.Zero;
             }
             int height = 16;
-            Texture2D tex = mod.GetTexture("Tiles/Furniture/Doom/DoomClock");
-            Texture2D Glow = mod.GetTexture("Glowmasks/DoomClock_Glow");
+            Texture2D tex = Mod.GetTexture("Tiles/Furniture/Doom/DoomClock");
+            Texture2D Glow = Mod.GetTexture("Glowmasks/DoomClock_Glow");
             if (AAWorld.downedZero)
             {
-                tex = mod.GetTexture("Tiles/Furniture/Doom/DoomClock0");
-                Glow = mod.GetTexture("Glowmasks/DoomClock0_Glow");
+                tex = Mod.GetTexture("Tiles/Furniture/Doom/DoomClock0");
+                Glow = Mod.GetTexture("Glowmasks/DoomClock0_Glow");
             }
-            Main.spriteBatch.Draw(tex, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(Glow, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(tex, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Glow, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,32 +10,32 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ocean Trident");
-			Tooltip.SetDefault("Very slippery");
-			Item.staff[item.type] = true;
+			// DisplayName.SetDefault("Ocean Trident");
+			// Tooltip.SetDefault("Very slippery");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 14;
-			item.magic = true;
-			item.mana = 5;
-			item.width = 56;
-			item.height = 56;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = 1000;
-			item.rare = 2;
-			item.UseSound = SoundID.Item21;
-			item.autoReuse = true;
-			item.shoot = ProjectileID.WaterBolt;
-			item.shootSpeed = 7f;
+			Item.damage = 14;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 5;
+			Item.width = 56;
+			Item.height = 56;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = 1000;
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item21;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileID.WaterBolt;
+			Item.shootSpeed = 7f;
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
 			Main.projectile[proj].penetrate = 1;
@@ -43,14 +44,13 @@ namespace AAMod.Items.Magic
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Coral, 12);
 			recipe.AddIngredient(ItemID.Starfish);
 			recipe.AddIngredient(ItemID.Seashell);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

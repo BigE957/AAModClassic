@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod.Backgrounds
@@ -133,7 +134,7 @@ namespace AAMod.Backgrounds
                     int num4 = 0;
                     for (float num5 = 0f; num5 <= 1f; num5 += 0.03f)
                     {
-                        float num6 = 1f - (num5 + Main.GlobalTime * 0.02f + (float)Math.Sin((float)j)) % 1f;
+                        float num6 = 1f - (num5 + Main.GlobalTimeWrappedHourly * 0.02f + (float)Math.Sin((float)j)) % 1f;
                         spriteBatch.Draw(RockTextures[num4], vector + new Vector2((float)Math.Sin(num5 * 1582f) * (num3 * 0.5f) + num3 * 0.5f, num6 * 2000f), null, Color.White * num6 * scale * Intensity, num6 * 20f, new Vector2(RockTextures[num4].Width >> 1, RockTextures[num4].Height >> 1), 0.9f, SpriteEffects.None, 0f);
                         num4 = (num4 + 1) % RockTextures.Length;
                     }
@@ -192,7 +193,7 @@ namespace AAMod.Backgrounds
 
         private void UpdateYamataIndex()
         {
-            int YamataType = AAMod.instance.NPCType("YamataA");
+            int YamataType = AAMod.instance.Find<ModNPC>("YamataA").Type;
             if (YamataIndex >= 0 && Main.npc[YamataIndex].active && Main.npc[YamataIndex].type == YamataType)
             {
                 return;

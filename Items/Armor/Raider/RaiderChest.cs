@@ -12,21 +12,21 @@ namespace AAMod.Items.Armor.Raider
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Raider Chestplate");
+			// DisplayName.SetDefault("Raider Chestplate");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-			item.value = Item.sellPrice (0, 0, 5, 0);
-			item.rare = 4;
-			item.defense = 14;
+			Item.width = 22;
+			Item.height = 24;
+			Item.value = Item.sellPrice (0, 0, 5, 0);
+			Item.rare = 4;
+			Item.defense = 14;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == mod.ItemType("RaiderHelm") && legs.type == mod.ItemType("RaiderLegs");
+			return head.type == Mod.Find<ModItem>("RaiderHelm").Type && legs.type == Mod.Find<ModItem>("RaiderLegs").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -38,14 +38,13 @@ namespace AAMod.Items.Armor.Raider
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("VikingPlate"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("VikingPlate").Type);
             recipe.AddIngredient(ItemID.Coral, 8);
-            recipe.AddIngredient(mod.ItemType("HydraHide"), 8);
-            recipe.AddIngredient(mod.ItemType("Doomite"), 8);
+            recipe.AddIngredient(Mod.Find<ModItem>("HydraHide").Type, 8);
+            recipe.AddIngredient(Mod.Find<ModItem>("Doomite").Type, 8);
             recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

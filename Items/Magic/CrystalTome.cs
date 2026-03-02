@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,51 +11,50 @@ namespace AAMod.Items.Magic
         public override void SetDefaults()
         {
 
-            item.damage = 33;                   
-            item.magic = true;   
-            item.width = 24;
-            item.height = 28;
-            item.useTime = 14;     
-            item.useAnimation = 14; 
-            item.useStyle = 5;      
-            item.noMelee = true;    
-            item.knockBack = 1;  
-            item.value = Item.sellPrice(0, 5, 0, 0); 
-            item.rare = 7;   
-            item.mana = 9;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true; 
-            item.shoot = 89;    
-            item.shootSpeed = 8f;    
+            Item.damage = 33;                   
+            Item.DamageType = DamageClass.Magic;   
+            Item.width = 24;
+            Item.height = 28;
+            Item.useTime = 14;     
+            Item.useAnimation = 14; 
+            Item.useStyle = 5;      
+            Item.noMelee = true;    
+            Item.knockBack = 1;  
+            Item.value = Item.sellPrice(0, 5, 0, 0); 
+            Item.rare = 7;   
+            Item.mana = 9;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true; 
+            Item.shoot = 89;    
+            Item.shootSpeed = 8f;    
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Tome");
-			Tooltip.SetDefault("Casts crystals that shatter into pieces");
+			// DisplayName.SetDefault("Crystal Tome");
+			// Tooltip.SetDefault("Casts crystals that shatter into pieces");
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
               int numberProjectiles = 1 + Main.rand.Next(3); 
               for (int i = 0; i < numberProjectiles; i++)
               {
                   Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20)); 
                   int p = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-                  Main.projectile[p].magic = true;
+                  Main.projectile[p].DamageType = DamageClass.Magic;
               }
               return false;
         }  
 
 		public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.PixieDust, 18);   
 			recipe.AddIngredient(ItemID.CrystalShard, 16);
             recipe.AddIngredient(ItemID.CrystalStorm, 1);
             recipe.AddTile(TileID.Bookcases);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

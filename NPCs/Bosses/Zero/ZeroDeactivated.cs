@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -13,25 +14,25 @@ namespace AAMod.NPCs.Bosses.Zero
         public static int ZeroShieldStrength = 0;
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Strange Machine");
+			// DisplayName.SetDefault("Strange Machine");
         }
 		public override void SetDefaults()
 		{
-			npc.aiStyle = -1;
-			npc.lifeMax = 20000;
-			npc.damage = 0;
-			npc.defense = 20;
-			npc.knockBackResist = 0f;
-            npc.width = 206;
-            npc.height = 208;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-			npc.noGravity = true;
-			npc.noTileCollide = true;
-			npc.alpha = 0;
-			npc.dontTakeDamage = true;
-			npc.boss = false;
-            npc.npcSlots = 0;
+			NPC.aiStyle = -1;
+			NPC.lifeMax = 20000;
+			NPC.damage = 0;
+			NPC.defense = 20;
+			NPC.knockBackResist = 0f;
+            NPC.width = 206;
+            NPC.height = 208;
+            NPC.HitSound = SoundID.NPCHit1;
+			NPC.DeathSound = SoundID.NPCDeath1;
+			NPC.noGravity = true;
+			NPC.noTileCollide = true;
+			NPC.alpha = 0;
+			NPC.dontTakeDamage = true;
+			NPC.boss = false;
+            NPC.npcSlots = 0;
         }
 
 		public override bool CheckActive()
@@ -44,26 +45,26 @@ namespace AAMod.NPCs.Bosses.Zero
             RingRoatation += .01f;
             if (Main.netMode != 1 && AAWorld.zeroUS == true)
             {
-                npc.Transform(ModContent.NPCType<Zero>());
+                NPC.Transform(ModContent.NPCType<Zero>());
                 return;
             }
-            npc.timeLeft = 10;
-			if(npc.ai[0] == 0)
+            NPC.timeLeft = 10;
+			if(NPC.ai[0] == 0)
 			{
-				npc.velocity.Y += 0.003f;	
-				if(npc.velocity.Y > .3f)
+				NPC.velocity.Y += 0.003f;	
+				if(NPC.velocity.Y > .3f)
 				{
-					npc.ai[0] = 1f;
-					npc.netUpdate = true;
+					NPC.ai[0] = 1f;
+					NPC.netUpdate = true;
 				}	
 			}else
-			if(npc.ai[0] == 1)
+			if(NPC.ai[0] == 1)
 			{
-				npc.velocity.Y -= 0.003f;	
-				if(npc.velocity.Y < -.3f)
+				NPC.velocity.Y -= 0.003f;	
+				if(NPC.velocity.Y < -.3f)
 				{
-					npc.ai[0] = 0f;
-					npc.netUpdate = true;
+					NPC.ai[0] = 0f;
+					NPC.netUpdate = true;
 				}				
 			}
         }
@@ -80,46 +81,46 @@ namespace AAMod.NPCs.Bosses.Zero
         }
 
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D Shield = mod.GetTexture("NPCs/Bosses/Zero/ZeroShield");
-            Texture2D Ring = mod.GetTexture("NPCs/Bosses/Zero/ZeroShieldRing");
-            Texture2D RingGlow = mod.GetTexture("Glowmasks/ZeroShieldRing_Glow");
+            Texture2D Shield = Mod.GetTexture("NPCs/Bosses/Zero/ZeroShield");
+            Texture2D Ring = Mod.GetTexture("NPCs/Bosses/Zero/ZeroShieldRing");
+            Texture2D RingGlow = Mod.GetTexture("Glowmasks/ZeroShieldRing_Glow");
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc, drawColor);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             if (NPC.downedMoonlord)
             {
-                BaseDrawing.DrawTexture(spritebatch, mod.GetTexture("Glowmasks/ZeroDeactivated_Glow"), 0, npc, GetGlowAlpha());
+                BaseDrawing.DrawTexture(spritebatch, Mod.GetTexture("Glowmasks/ZeroDeactivated_Glow"), 0, NPC, GetGlowAlpha());
             }
-            BaseDrawing.DrawTexture(spritebatch, Shield, 0, npc.position, npc.width, npc.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
-            BaseDrawing.DrawTexture(spritebatch, Ring, 0, npc.position, npc.width, npc.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), drawColor, true);
-            BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, npc.position, npc.width, npc.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spritebatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
+            BaseDrawing.DrawTexture(spritebatch, Ring, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), drawColor, true);
+            BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), AAColor.COLOR_WHITEFADE1, true);
             
             return false;
         }
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             damage = 0;
             return false;
         }
     }
 
-    public class ZeroHandler : ModWorld
+    public class ZeroHandler : ModSystem
     {
         public static int ZX = -1;
         public static int ZY = -1;
         public static int Shield;
 
-        public override void Initialize()
+        public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
         {
             ZX = -1;
             ZY = -1;
         }
 
-        public override TagCompound Save()
+        public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
         {
             var tag = new TagCompound();
             if (ZX != -1)
@@ -130,7 +131,7 @@ namespace AAMod.NPCs.Bosses.Zero
             return tag;
         }
 
-        public override void Load(TagCompound tag)
+        public override void LoadWorldData(TagCompound tag)
         {
 			Reset(); //reset it so it doesn't fuck up between world loads	
             if (tag.ContainsKey("ZX"))
@@ -138,11 +139,11 @@ namespace AAMod.NPCs.Bosses.Zero
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
 				if(!AAWorld.downedZero)			
-					NPC.NewNPC(ZX, ZY, mod.NPCType("ZeroDeactivated"));
+					NPC.NewNPC(ZX, ZY, Mod.Find<ModNPC>("ZeroDeactivated").Type);
             }
         }
 
-        public override void PostUpdate()
+        public override void PostUpdateWorld()
         {
             if (Main.netMode != 1 && !AAWorld.downedZero)
             {
@@ -162,7 +163,7 @@ namespace AAMod.NPCs.Bosses.Zero
 			
 			Point spawnTilePos = new Point((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, VoidHeight);				
 			Vector2 spawnPos = new Vector2(spawnTilePos.X * 16, spawnTilePos.Y * 16);
-			bool anyZerosExist = NPC.AnyNPCs(mod.NPCType("ZeroDeactivated")) || NPC.AnyNPCs(mod.NPCType("Zero")) || NPC.AnyNPCs(mod.NPCType("ZeroProtocol"));			
+			bool anyZerosExist = NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("Zero").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type);			
 			if (!anyZerosExist)
 			{
                 int whoAmI = NPC.NewNPC((int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<ZeroDeactivated>());

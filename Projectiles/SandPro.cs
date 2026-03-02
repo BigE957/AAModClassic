@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -8,36 +10,36 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand");
+            // DisplayName.SetDefault("Sand");
         }
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.melee = true;
-            projectile.penetrate = 1;
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.tileCollide = true;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 200;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.tileCollide = true;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 200;
         }
 
         public override void AI()
         {
-            projectile.localAI[0] += 1f;
-            projectile.rotation += 0.06f;
-            projectile.velocity.Y += 0.3f;
+            Projectile.localAI[0] += 1f;
+            Projectile.rotation += 0.06f;
+            Projectile.velocity.Y += 0.3f;
 
-            if (projectile.localAI[0] > 130f) //projectile time left before disappears
+            if (Projectile.localAI[0] > 130f) //projectile time left before disappears
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Collision.HitTiles(projectile.position, oldVelocity, projectile.width, projectile.height);
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            Collision.HitTiles(Projectile.position, oldVelocity, Projectile.width, Projectile.height);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             return true;
         }
     }

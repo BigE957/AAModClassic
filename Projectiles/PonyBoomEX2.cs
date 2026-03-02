@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,44 +11,44 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ponysplosion");
+            // DisplayName.SetDefault("Ponysplosion");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 130;
-            projectile.height = 130;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.alpha = 255;
-            projectile.magic = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
+            Projectile.width = 130;
+            Projectile.height = 130;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
         }
 
         public override void AI()
         {
-            if (projectile.localAI[0] == 0f)
+            if (Projectile.localAI[0] == 0f)
             {
-                Main.PlaySound(SoundID.Item20, projectile.position);
-                projectile.localAI[0] += 1f;
+                SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+                Projectile.localAI[0] += 1f;
             }
-            projectile.ai[0] += 1f;
-            if (projectile.type == 296)
+            Projectile.ai[0] += 1f;
+            if (Projectile.type == 296)
             {
-                projectile.ai[0] += 3f;
+                Projectile.ai[0] += 3f;
             }
             float num461 = 25f;
-            if (projectile.ai[0] > 180f)
+            if (Projectile.ai[0] > 180f)
             {
-                num461 -= (projectile.ai[0] - 180f) / 2f;
+                num461 -= (Projectile.ai[0] - 180f) / 2f;
             }
             if (num461 <= 0f)
             {
                 num461 = 0f;
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (projectile.type == 296)
+            if (Projectile.type == 296)
             {
                 num461 *= 0.7f;
             }
@@ -61,10 +62,10 @@ namespace AAMod.Projectiles
                 num466 = num465 / num466;
                 num463 *= num466;
                 num464 *= num466;
-                int num467 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.5f);
+                int num467 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.5f);
                 Main.dust[num467].noGravity = true;
-                Main.dust[num467].position.X = projectile.Center.X;
-                Main.dust[num467].position.Y = projectile.Center.Y;
+                Main.dust[num467].position.X = Projectile.Center.X;
+                Main.dust[num467].position.Y = Projectile.Center.Y;
                 Dust expr_14B5B_cp_0 = Main.dust[num467];
                 expr_14B5B_cp_0.position.X += Main.rand.Next(-10, 11);
                 Dust expr_14B85_cp_0 = Main.dust[num467];

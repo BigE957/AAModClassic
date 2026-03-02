@@ -9,7 +9,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodClock : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -26,14 +26,14 @@ namespace AAMod.Tiles.Furniture.Bogwood
 				16
 			};
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
+			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Clock"); // Automatic from .lang files
 			AddMapEntry(new Color(70, 0, 10), name);
-			dustType = mod.DustType("BogDust");
-			adjTiles = new int[] { TileID.GrandfatherClocks };
+			DustType = Mod.Find<ModDust>("BogDust").Type;
+			AdjTiles = new int[] { TileID.GrandfatherClocks };
 		}
 
-		public override bool NewRightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			{
 				string text = "AM";
@@ -90,7 +90,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 		{
 			if (closer)
 			{
-				Main.clock = true;
+				Main.SceneMetrics.HasClock = true;
 			}
 		}
 
@@ -101,7 +101,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("BogwoodClock"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodClock").Type);
         }
     }
 }

@@ -11,22 +11,22 @@ namespace AAMod.Items.Armor.Bogwood
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bogwood Helmet");
+            // DisplayName.SetDefault("Bogwood Helmet");
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = 1000;
-            item.rare = 0;
-            item.defense = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = 1000;
+            Item.rare = 0;
+            Item.defense = 1;
         }
         
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("BogwoodChestplate") && legs.type == mod.ItemType("BogwoodBoots");
+            return body.type == Mod.Find<ModItem>("BogwoodChestplate").Type && legs.type == Mod.Find<ModItem>("BogwoodBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -37,11 +37,10 @@ namespace AAMod.Items.Armor.Bogwood
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Bogwood", 20);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Serpent
 {
@@ -7,34 +8,34 @@ namespace AAMod.Items.Boss.Serpent
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Serpent Spike");
+            // DisplayName.SetDefault("Serpent Spike");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 30; 
-            item.melee = true;
-            item.width = 132;
-            item.height = 132;
-            item.scale = 1.1f;
-            item.maxStack = 1;
-            item.useTime = 25; 
-            item.useAnimation = 25;
-            item.knockBack = 2f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 5, 0, 0); 
-            item.rare = 3;
-            item.shootSpeed = 5f;
-            item.shoot = mod.ProjectileType("SerpentSpike");  
-            item.autoReuse = true;
+            Item.damage = 30; 
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 132;
+            Item.height = 132;
+            Item.scale = 1.1f;
+            Item.maxStack = 1;
+            Item.useTime = 25; 
+            Item.useAnimation = 25;
+            Item.knockBack = 2f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 5, 0, 0); 
+            Item.rare = 3;
+            Item.shootSpeed = 5f;
+            Item.shoot = Mod.Find<ModProjectile>("SerpentSpike").Type;  
+            Item.autoReuse = true;
         }
 
         public override bool CanUseItem(Player player)
         {
-            return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
         }
     }
 }

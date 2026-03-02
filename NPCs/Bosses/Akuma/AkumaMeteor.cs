@@ -3,6 +3,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,68 +16,68 @@ namespace AAMod.NPCs.Bosses.Akuma
     	
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dayfire");
+			// DisplayName.SetDefault("Dayfire");
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.extraUpdates = 1;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.extraUpdates = 1;
         }
 
         public override void AI()
         {
-            projectile.velocity.Y += .01f;
-            if (projectile.position.Y > Main.player[projectile.owner].position.Y - 300f)
+            Projectile.velocity.Y += .01f;
+            if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            if (projectile.position.Y < Main.worldSurface * 16.0)
+            if (Projectile.position.Y < Main.worldSurface * 16.0)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            projectile.scale = projectile.ai[1];
-            projectile.rotation = projectile.velocity.ToRotation() - 1.57079637f;
+            Projectile.scale = Projectile.ai[1];
+            Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
             float spread = 45f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - (spread / 2);
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - (spread / 2);
             double deltaAngle = spread / 8f;
             if (Main.netMode != 1)
             {
-                int proj = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("AkumaBoom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AkumaBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].netUpdate = true;
             }
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            Vector2 Drawpos = projectile.Center - Main.screenPosition + new Vector2(0, projectile.gfxOffY);
+            Vector2 Drawpos = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
 
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], shader, projectile, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile, Color.White, true);
             return false;
         }
     }

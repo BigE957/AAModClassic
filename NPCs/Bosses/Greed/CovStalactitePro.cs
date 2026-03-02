@@ -7,40 +7,40 @@ namespace AAMod.NPCs.Bosses.Greed
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Covitite Stalactites");
-            Main.projFrames[projectile.type] = 3;
+            // DisplayName.SetDefault("Covitite Stalactites");
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()
 		{
-			projectile.width = 16;
-			projectile.height = 34;
-			projectile.hostile = true;
-			projectile.friendly = false;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 300;
-			projectile.alpha = 0;
-            projectile.tileCollide = false;
+			Projectile.width = 16;
+			Projectile.height = 34;
+			Projectile.hostile = true;
+			Projectile.friendly = false;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 300;
+			Projectile.alpha = 0;
+            Projectile.tileCollide = false;
         }
 
         public override void AI()
         {
-            if (projectile.ai[0] == 0)
+            if (Projectile.ai[0] == 0)
             {
                 int changeChoice = Main.rand.Next(3);
                 if (changeChoice == 0)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
                 if (changeChoice == 1)
                 {
-                    projectile.frame = 1;
+                    Projectile.frame = 1;
                 }
                 if (changeChoice == 2)
                 {
-                    projectile.frame = 2;
+                    Projectile.frame = 2;
                 }
-                projectile.ai[0] = 1;
+                Projectile.ai[0] = 1;
             }
         }
     }

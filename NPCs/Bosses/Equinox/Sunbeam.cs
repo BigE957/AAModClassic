@@ -6,12 +6,12 @@ namespace AAMod.NPCs.Bosses.Equinox
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sunbeam");
+			// DisplayName.SetDefault("Sunbeam");
 		}
 
 		public override void Effects()
 		{
-        	Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.5f / 255f, (255 - projectile.alpha) * 0.5f / 255f, (255 - projectile.alpha) * 0.05f / 255f);	
+        	Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0.05f / 255f);	
 		}
     }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,28 +12,28 @@ namespace AAMod.Items.BossSummons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lifescanner");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons Sagittarius
-Can only be used in the Void");
+            // DisplayName.SetDefault("Lifescanner");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons Sagittarius
+Can only be used in the Void"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.rare = 1;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.rare = 1;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Sag"), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Sagittarius"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Sag").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Sagittarius"), false);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -53,12 +54,11 @@ Can only be used in the Void");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DoomiteScrap", 10);
             recipe.AddIngredient(ItemID.Bone, 20);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAMod.NPCs.Bosses.Anubis;
@@ -13,27 +14,27 @@ namespace AAMod.Items.BossSummons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ra's Scepter");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons Anubis
+            // DisplayName.SetDefault("Ra's Scepter");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons Anubis
 Can only be used in the desert on the surface
-'I uh...borrowed this from a bird friend of mine.'");
+'I uh...borrowed this from a bird friend of mine.'"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.value = 0;
-            item.rare = 6;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 1;
-            item.noMelee = true;
-            item.consumable = false;
+            Item.width = 24;
+            Item.height = 22;
+            Item.value = 0;
+            Item.rare = 6;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 1;
+            Item.noMelee = true;
+            Item.consumable = false;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
             {
@@ -54,7 +55,7 @@ Can only be used in the desert on the surface
 
 
             int a = NPC.NewNPC((int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, ModContent.NPCType<Anubis>());
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
 
             NPC npc = Main.npc[a];
 

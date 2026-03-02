@@ -1,6 +1,7 @@
 using System;
 
 using Terraria;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Projectiles.AH
@@ -12,28 +13,28 @@ namespace AAMod.Projectiles.AH
 		
 		public override void SetStaticDefaults()
 		{
-			Main.projFrames[projectile.type] = 4;
+			Main.projFrames[Projectile.type] = 4;
 		}
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.timeLeft = 320;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.damage = 0;
-            projectile.penetrate = -1;
-            projectile.minion = true;
-            projectile.minionSlots = 1;
-            projectile.ignoreWater = true;		
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.timeLeft = 320;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.damage = 0;
+            Projectile.penetrate = -1;
+            Projectile.minion = true;
+            Projectile.minionSlots = 1;
+            Projectile.ignoreWater = true;		
         }
 
 		public void SetRot()
 		{
 			float oldInit = rotInit;
-			int[] projs = BaseAI.GetProjectiles(Main.player[projectile.owner].Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
 			rotInit = projs.Length == 0 ? 0f : ((float)Math.PI * 2f / projs.Length);
 
 			if (rotInit != oldInit)
@@ -41,7 +42,7 @@ namespace AAMod.Projectiles.AH
 				int projSlot = 0;
 				for(int m = 0; m < projs.Length; m++)
 				{
-					if (projs[m] == projectile.identity) { projSlot = m; }
+					if (projs[m] == Projectile.identity) { projSlot = m; }
 				}
 				rot = rotInit * (projSlot + 1f);
 			}
@@ -49,33 +50,33 @@ namespace AAMod.Projectiles.AH
 
         public override void AI()
 		{
-			projectile.frameCounter++;
-            if (projectile.frameCounter >= 8)
+			Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 8)
             {
-                projectile.frameCounter = 0;
-                projectile.frame += 1;
+                Projectile.frameCounter = 0;
+                Projectile.frame += 1;
             }
-            if (projectile.frame > 3)
+            if (Projectile.frame > 3)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
 			
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead || !player.HasBuff(mod.BuffType("Orbiters"))) projectile.Kill();
+            if (player.dead || !player.HasBuff(Mod.Find<ModBuff>("Orbiters").Type)) Projectile.Kill();
             if (modPlayer.Orbiters)
             {
-				projectile.timeLeft = 2;
-				player.AddBuff(mod.BuffType("Orbiters"), 2, true);
+				Projectile.timeLeft = 2;
+				player.AddBuff(Mod.Find<ModBuff>("Orbiters").Type, 2, true);
             }
 			
-            if (projectile.active) { SetRot(); }
-			BaseAI.AIRotate(projectile, ref projectile.rotation, ref rot, player.Center, true, 40f, 20f, 0.07f, true);
+            if (Projectile.active) { SetRot(); }
+			BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 40f, 20f, 0.07f, true);
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
-			int[] projs = BaseAI.GetProjectiles(projectile.Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
 		}
 	}
 }

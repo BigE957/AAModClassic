@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
@@ -14,10 +15,10 @@ namespace AAMod.Items.Dev.Invoker
 	{
 		public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aleister Staff");
-			Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Aleister Staff");
+			// Tooltip.SetDefault("");
 
-            Item.staff[item.type] = true;
+            Item.staff[Item.type] = true;
 
         }
 
@@ -37,71 +38,71 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				if (tooltipLine != null && tooltipLine.Name == "Damage")
 				{
-					string[] splitText = tooltipLine.text.Split(' ');
+					string[] splitText = tooltipLine.Text.Split(' ');
 					string damageValue = splitText.First();
 					string damageWord = splitText.Last();
 					if(Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw) 
 					{
-						tooltipLine.text = damageValue + " " + Language.GetTextValue("Mods.AAMod.Common.InvokerDamage1") + damageWord;
+						tooltipLine.Text = damageValue + " " + Language.GetTextValue("Mods.AAMod.Common.InvokerDamage1") + damageWord;
 					}
 				}
 				if (tooltipLine != null && tooltipLine.Name == "Tooltip0")
 				{
-					tooltipLine.text = text;
+					tooltipLine.Text = text;
 				}
 			}
 		}
 
         public override void SafeSetDefaults()
         {
-			item.scale = 0.65f;
-			item.width = 41;
-			item.height = 41;
-			item.rare = 11;
-			item.damage = 200;
-			item.noMelee = true;
-			item.autoReuse = true;
-			item.reuseDelay = 20;
-			item.useStyle = 5;
-			item.useTime = 16;
-			item.useAnimation = 16;
-			item.shoot = mod.ProjectileType("InvokerStaffproj"); 
-			item.shootSpeed = 40f;
-			item.value = Item.buyPrice(10, 36, 0, 0);
+			Item.scale = 0.65f;
+			Item.width = 41;
+			Item.height = 41;
+			Item.rare = 11;
+			Item.damage = 200;
+			Item.noMelee = true;
+			Item.autoReuse = true;
+			Item.reuseDelay = 20;
+			Item.useStyle = 5;
+			Item.useTime = 16;
+			Item.useAnimation = 16;
+			Item.shoot = Mod.Find<ModProjectile>("InvokerStaffproj").Type; 
+			Item.shootSpeed = 40f;
+			Item.value = Item.buyPrice(10, 36, 0, 0);
         }
 		public override bool CanUseItem(Player player)
 		{
 			if(!player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
-				item.noMelee = false;
-				Item.staff[item.type] = false;
-				item.useStyle = 1;
-				item.damage = (int)(200 * player.minionDamage);
-				item.summon = true;
+				Item.noMelee = false;
+				Item.staff[Item.type] = false;
+				Item.useStyle = 1;
+				Item.damage = (int)(200 * player.GetDamage(DamageClass.Summon));
+				Item.DamageType = DamageClass.Summon;
 				return true;
 			}
 			else if(player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
-				item.noMelee = true;
-				Item.staff[item.type] = true;
-				item.useStyle = 5;
+				Item.noMelee = true;
+				Item.staff[Item.type] = true;
+				Item.useStyle = 5;
 				return true;
 			}
 			return true;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (player.altFunctionUse != 2 && player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("InvokerStaffproj"), damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("InvokerStaffproj").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 			}
 			if (player.altFunctionUse == 2 && player.GetModPlayer<InvokerPlayer>().SpringInvoker)
 			{
 				if(!player.GetModPlayer<InvokerPlayer>().InvokerMadness)
 				{
-					player.AddBuff(mod.BuffType("InvokerofMadness"), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
-					player.GetModPlayer<InvokerPlayer>().BanishDamage = item.damage * 5;
+					player.AddBuff(Mod.Find<ModBuff>("InvokerofMadness").Type, player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
+					player.GetModPlayer<InvokerPlayer>().BanishDamage = Item.damage * 5;
 					player.GetModPlayer<InvokerPlayer>().banishing = true;
 				}
 			}
@@ -128,37 +129,37 @@ namespace AAMod.Items.Dev.Invoker
 		public sealed override void SetDefaults()
 		{
 			SafeSetDefaults();
-			item.melee = false;
-			item.ranged = false;
-			item.magic = false;
-			item.thrown = false;
-			item.summon = false;
+			Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.summon = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 		}
 
-		public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
 			mult *= InvokerPlayer.ModPlayer(player).BanishDamageMult;
 		}
 
-		public override void GetWeaponKnockback(Player player, ref float knockback)
+		public override void ModifyWeaponKnockback(Player player, ref StatModifier knockback)
 		{
 			knockback = 0;
 		}
 
-		public override void GetWeaponCrit(Player player, ref int crit)
+		public override void ModifyWeaponCrit(Player player, ref float crit)
 		{
 			crit = 0;
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			TooltipLine tt = tooltips.FirstOrDefault(x => x.Name == "Damage" && x.mod == "Terraria");
+			TooltipLine tt = tooltips.FirstOrDefault(x => x.Name == "Damage" && x.Mod == "Terraria");
 			if (tt != null)
 			{
-				string[] splitText = tt.text.Split(' ');
+				string[] splitText = tt.Text.Split(' ');
 				string damageValue = splitText.First();
 				string damageWord = splitText.Last();
-				tt.text = damageValue + " banish " + damageWord;
+				tt.Text = damageValue + " banish " + damageWord;
 			}
 		}
 	}
@@ -166,16 +167,16 @@ namespace AAMod.Items.Dev.Invoker
 	{
         public override void SetDefaults()
         {
-           	projectile.width = 41;
-           	projectile.height = 41;
-			projectile.aiStyle = -1;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.timeLeft = 6000;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = false;
-			projectile.penetrate = -1;
-			projectile.damage = 0;
+           	Projectile.width = 41;
+           	Projectile.height = 41;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.timeLeft = 6000;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
+			Projectile.penetrate = -1;
+			Projectile.damage = 0;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -185,53 +186,53 @@ namespace AAMod.Items.Dev.Invoker
         
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, (Main.DiscoR -projectile.alpha) * 0.8f / 255f, (Main.DiscoG -projectile.alpha) * 0.4f / 255f, (Main.DiscoB -projectile.alpha) * 0f / 255f);
-            Player projOwner = Main.player[projectile.owner];
-           	projectile.direction = projOwner.direction;
-           	projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(225f);
+            Lighting.AddLight(Projectile.Center, (Main.DiscoR -Projectile.alpha) * 0.8f / 255f, (Main.DiscoG -Projectile.alpha) * 0.4f / 255f, (Main.DiscoB -Projectile.alpha) * 0f / 255f);
+            Player projOwner = Main.player[Projectile.owner];
+           	Projectile.direction = projOwner.direction;
+           	Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(225f);
 
-            if (projectile.spriteDirection == -1)
+            if (Projectile.spriteDirection == -1)
             {
-               projectile.rotation -= MathHelper.ToRadians(90f);
+               Projectile.rotation -= MathHelper.ToRadians(90f);
             }
 
-			if (projectile.ai[0] == 0f)
+			if (Projectile.ai[0] == 0f)
 			{
-				float[] ai = projectile.ai;
+				float[] ai = Projectile.ai;
 				int num2 = 1;
 				float num3 = ai[num2];
 				ai[num2] = num3 + 1f;
-				if (projectile.ai[1] >= 45f)
+				if (Projectile.ai[1] >= 45f)
 				{
-					projectile.ai[1] = 45f;
-					if (projectile.velocity.X < 0f)
+					Projectile.ai[1] = 45f;
+					if (Projectile.velocity.X < 0f)
 					{
-						projectile.spriteDirection = -1;
-						projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(225f);
+						Projectile.spriteDirection = -1;
+						Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(225f);
 					}
 					else
 					{
-						projectile.spriteDirection = 1;
-						projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+						Projectile.spriteDirection = 1;
+						Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
 					}
 				}
 			}
-			if (projectile.ai[0] == 1f)
+			if (Projectile.ai[0] == 1f)
 			{
-				projectile.tileCollide = false;
+				Projectile.tileCollide = false;
 				int num6 = 15;
 				bool flag = false;
 				bool flag2 = false;
-				float[] localAI = projectile.localAI;
+				float[] localAI = Projectile.localAI;
 				int num7 = 0;
 				float num8 = localAI[num7];
 				localAI[num7] = num8 + 1f;
-				if (projectile.localAI[0] % 30f == 0f)
+				if (Projectile.localAI[0] % 30f == 0f)
 				{
 					flag2 = true;
 				}
-				int num9 = (int)projectile.ai[1];
-				if (projectile.localAI[0] >= 60 * num6)
+				int num9 = (int)Projectile.ai[1];
+				if (Projectile.localAI[0] >= 60 * num6)
 				{
 					flag = true;
 				}
@@ -241,9 +242,9 @@ namespace AAMod.Items.Dev.Invoker
 				}
 				else if (Main.npc[num9].active && !Main.npc[num9].dontTakeDamage)
 				{
-					projectile.Center = Main.npc[num9].Center - projectile.velocity * 2f;
-					projectile.gfxOffY = Main.npc[num9].gfxOffY;
-					projectile.alpha = Main.npc[num9].alpha;
+					Projectile.Center = Main.npc[num9].Center - Projectile.velocity * 2f;
+					Projectile.gfxOffY = Main.npc[num9].gfxOffY;
+					Projectile.alpha = Main.npc[num9].alpha;
 					if (flag2)
 					{
 						Main.npc[num9].HitEffect(0, 1.0);
@@ -259,29 +260,29 @@ namespace AAMod.Items.Dev.Invoker
 				}
 				if (flag)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 			}
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			Rectangle rectangle = new Rectangle((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height);
+			Rectangle rectangle = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
 
-			double Realdamage = Main.CalculateDamage(projectile.damage, 0);
+			double Realdamage = Main.CalculateDamage(Projectile.damage, 0);
 
-			if(Main.player[projectile.owner].GetModPlayer<InvokerPlayer>().SpringInvoker)
+			if(Main.player[Projectile.owner].GetModPlayer<InvokerPlayer>().SpringInvoker)
 			{
 				if (target.realLife >= 0)
 				{
-					if(Main.npc[target.realLife].StrikeNPC((int)(damage * .1f), knockback, hitDirection, crit, false, false) < .01f * projectile.damage && Realdamage < Main.npc[target.realLife].lifeMax * .01f)
+					if(Main.npc[target.realLife].StrikeNPC((int)(damage * .1f), knockback, hitDirection, crit, false, false) < .01f * Projectile.damage && Realdamage < Main.npc[target.realLife].lifeMax * .01f)
 					{
 						Realdamage = Main.npc[target.realLife].lifeMax * .034f;
 					}
 				}
 				else
 				{
-					if(target.StrikeNPC(damage, knockback, hitDirection, crit, false, false) < .01f * projectile.damage)
+					if(target.StrikeNPC(damage, knockback, hitDirection, crit, false, false) < .01f * Projectile.damage)
 					{
 						Realdamage = target.lifeMax * .034f;
 					}
@@ -291,7 +292,7 @@ namespace AAMod.Items.Dev.Invoker
 			Realdamage = Main.DamageVar((int)Realdamage);
 
 			//Main.player[Main.myPlayer].dpsDamage += (int)Realdamage;
-			Main.player[projectile.owner].addDPS((int)Realdamage);
+			Main.player[Projectile.owner].addDPS((int)Realdamage);
 
 			Color damagecolor = crit ? CombatText.DamagedHostileCrit : CombatText.DamagedHostile;
 			CombatText.NewText(new Rectangle((int)target.position.X, (int)target.position.Y, target.width, target.height), damagecolor, (int)Realdamage, false, false);
@@ -330,11 +331,11 @@ namespace AAMod.Items.Dev.Invoker
 				target.checkDead();
 			}
 
-			if (projectile.owner == Main.myPlayer)
+			if (Projectile.owner == Main.myPlayer)
 			{
 				for (int i = 0; i < 200; i++)
 				{
-					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((projectile.friendly && (!Main.npc[i].friendly || projectile.type == 318 || (Main.npc[i].type == 22 && projectile.owner < 255 && Main.player[projectile.owner].killGuide) || (Main.npc[i].type == 54 && projectile.owner < 255 && Main.player[projectile.owner].killClothier))) || (projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (projectile.owner < 0 || Main.npc[i].immune[projectile.owner] == 0 || projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !projectile.ownerHitCheck || projectile.CanHit(Main.npc[i])))
+					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == 318 || (Main.npc[i].type == 22 && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == 54 && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
 					{
 						bool flag;
 						if (Main.npc[i].type == 414)
@@ -345,30 +346,30 @@ namespace AAMod.Items.Dev.Invoker
 							rect.Y -= num;
 							rect.Width += num * 2;
 							rect.Height += num * 2;
-							flag = projectile.Colliding(rectangle, rect);
+							flag = Projectile.Colliding(rectangle, rect);
 						}
 						else
 						{
-							flag = projectile.Colliding(rectangle, Main.npc[i].getRect());
+							flag = Projectile.Colliding(rectangle, Main.npc[i].getRect());
 						}
 						if (flag)
 						{
-							if (Main.npc[i].reflectingProjectiles && projectile.CanReflect())
+							if (Main.npc[i].reflectingProjectiles && Projectile.CanReflect())
 							{
-								Main.npc[i].ReflectProjectile(projectile.whoAmI);
+								Main.npc[i].ReflectProjectile(Projectile.whoAmI);
 								return;
 							}
-							projectile.ai[0] = 1f;
-							projectile.ai[1] = i;
-							projectile.velocity = (Main.npc[i].Center - projectile.Center) * 0.75f;
-							projectile.netUpdate = true;
-							projectile.StatusNPC(i);
-							projectile.damage = 0;
+							Projectile.ai[0] = 1f;
+							Projectile.ai[1] = i;
+							Projectile.velocity = (Main.npc[i].Center - Projectile.Center) * 0.75f;
+							Projectile.netUpdate = true;
+							Projectile.StatusNPC(i);
+							Projectile.damage = 0;
 							Point[] array = new Point[10];
 							int num2 = 0;
 							for (int j = 0; j < 1000; j++)
 							{
-								if (j != projectile.whoAmI && Main.projectile[j].active && Main.projectile[j].owner == Main.myPlayer && Main.projectile[j].type == projectile.type && Main.projectile[j].ai[0] == 1f && Main.projectile[j].ai[1] == i)
+								if (j != Projectile.whoAmI && Main.projectile[j].active && Main.projectile[j].owner == Main.myPlayer && Main.projectile[j].type == Projectile.type && Main.projectile[j].ai[0] == 1f && Main.projectile[j].ai[1] == i)
 								{
 									array[num2++] = new Point(j, Main.projectile[j].timeLeft);
 									if (num2 >= array.Length)
@@ -404,18 +405,18 @@ namespace AAMod.Items.Dev.Invoker
 			return null;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(mod.BuffType("Invokedproj"), 3600);
+			target.AddBuff(Mod.Find<ModBuff>("Invokedproj").Type, 3600);
 		}
     }
 
 	public class Invokedproj : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Be Banished");
-			Description.SetDefault("You are marked by Invoked Magic");
+			// DisplayName.SetDefault("Be Banished");
+			// Description.SetDefault("You are marked by Invoked Magic");
 			Main.debuff[Type] = false;
 		}
 
@@ -459,7 +460,7 @@ namespace AAMod.Items.Dev.Invoker
 
 			if(BanishCount > 70 || npc.alpha >= 250 || npc.scale < 0.05f)
 			{
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("InvokedHeal"), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.lifeMax * 0.01f);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.lifeMax * 0.01f);
 				
 				if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 				{
@@ -521,7 +522,7 @@ namespace AAMod.Items.Dev.Invoker
 				{
 					InvokerPlayer.nohit = false;
 				}
-				bool flag = (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == mod.ItemType("InvokerStaff") || Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ItemID.RodofDiscord) && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw;
+				bool flag = (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == Mod.Find<ModItem>("InvokerStaff").Type || Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ItemID.RodofDiscord) && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw;
 				if(npc.life/npc.lifeMax > 0.95)
 				{
 					CaligulaSoulFight = true;
@@ -551,7 +552,7 @@ namespace AAMod.Items.Dev.Invoker
 				BanishCount ++;
 				if(BanishCount == 1)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("InvokedRune"), 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
 					
 					if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 					{
@@ -559,7 +560,7 @@ namespace AAMod.Items.Dev.Invoker
 						{
 							if(Main.npc[i].type == NPCID.MoonLordCore || Main.npc[i].type == NPCID.MoonLordHead || Main.npc[i].type == NPCID.MoonLordHand)
 							{
-								Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("InvokedRune"), 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+								Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
 							}
 						}
 					}
@@ -569,9 +570,9 @@ namespace AAMod.Items.Dev.Invoker
 			return;
 		}
 		
-		public override bool PreNPCLoot(NPC npc)
+		public override bool PreKill(NPC npc)
 		{
-			if(Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == mod.ItemType("InvokerStaff") && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw)
+			if(Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == Mod.Find<ModItem>("InvokerStaff").Type && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
             	//Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().BanishProjClear = true; // Just for test.
 				float nump7 = 4f;
@@ -617,14 +618,14 @@ namespace AAMod.Items.Dev.Invoker
 				{
 					num6 = array[Main.rand.Next(num3)];
 				}
-				if(npc.lifeMax >= 1000) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("InvokedHeal"), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
+				if(npc.lifeMax >= 1000) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
 				if(npc.damage != 0) 
 				{
-					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, mod.ProjectileType("InvokedDamage"), npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
+					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
 				}
-				if(npc.GetGlobalNPC<InvokedGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == mod.NPCType("ZeroProtocol") || npc.type == mod.NPCType("YamataA") || npc.type == mod.NPCType("AkumaA") || npc.type == mod.NPCType("ShenA") || npc.type == mod.NPCType("SupremeRajah")))
+				if(npc.GetGlobalNPC<InvokedGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == Mod.Find<ModNPC>("ZeroProtocol").Type || npc.type == Mod.Find<ModNPC>("YamataA").Type || npc.type == Mod.Find<ModNPC>("AkumaA").Type || npc.type == Mod.Find<ModNPC>("ShenA").Type || npc.type == Mod.Find<ModNPC>("SupremeRajah").Type))
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, mod.ProjectileType("InvokedDamage"), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
 				}
 			}
 			return true;
@@ -636,11 +637,11 @@ namespace AAMod.Items.Dev.Invoker
 	{
 		public override void SetDefaults()
         {
-           	projectile.width = 6;
-			projectile.height = 6;
-			projectile.alpha = 255;
-			projectile.tileCollide = false;
-			projectile.extraUpdates = 3;
+           	Projectile.width = 6;
+			Projectile.height = 6;
+			Projectile.alpha = 255;
+			Projectile.tileCollide = false;
+			Projectile.extraUpdates = 3;
         }
 
 		public override Color? GetAlpha(Color lightColor)
@@ -653,10 +654,10 @@ namespace AAMod.Items.Dev.Invoker
 			time += 1;
 			if (time >= 60)
 			{
-				if(projectile.ai[1] == 0f)
+				if(Projectile.ai[1] == 0f)
 				{
-					projectile.friendly = true;
-					int num568 = (int)projectile.ai[0];
+					Projectile.friendly = true;
+					int num568 = (int)Projectile.ai[0];
 					if (!Main.npc[num568].active)
 					{
 						int[] array2 = new int[200];
@@ -665,7 +666,7 @@ namespace AAMod.Items.Dev.Invoker
 						{
 							if (Main.npc[num570].CanBeChasedBy(this, true))
 							{
-								float num571 = Math.Abs(Main.npc[num570].position.X + Main.npc[num570].width / 2 - projectile.position.X + projectile.width / 2) + Math.Abs(Main.npc[num570].position.Y + Main.npc[num570].height / 2 - projectile.position.Y + projectile.height / 2);
+								float num571 = Math.Abs(Main.npc[num570].position.X + Main.npc[num570].width / 2 - Projectile.position.X + Projectile.width / 2) + Math.Abs(Main.npc[num570].position.Y + Main.npc[num570].height / 2 - Projectile.position.Y + Projectile.height / 2);
 								if (num571 < 800f)
 								{
 									array2[num569] = num570;
@@ -675,14 +676,14 @@ namespace AAMod.Items.Dev.Invoker
 						}
 						if (num569 == 0)
 						{
-							projectile.Kill();
+							Projectile.Kill();
 							return;
 						}
 						num568 = array2[Main.rand.Next(num569)];
-						projectile.ai[0] = num568;
+						Projectile.ai[0] = num568;
 					}
 					float num572 = 4f;
-					Vector2 vector44 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+					Vector2 vector44 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
 					float num573 = Main.npc[num568].Center.X - vector44.X;
 					float num574 = Main.npc[num568].Center.Y - vector44.Y;
 					float num575 = (float)Math.Sqrt(num573 * num573 + num574 * num574);
@@ -690,40 +691,40 @@ namespace AAMod.Items.Dev.Invoker
 					num573 *= num575;
 					num574 *= num575;
 					int num576 = 30;
-					projectile.velocity.X = (projectile.velocity.X * (num576 - 1) + num573) / num576;
-					projectile.velocity.Y = (projectile.velocity.Y * (num576 - 1) + num574) / num576;
+					Projectile.velocity.X = (Projectile.velocity.X * (num576 - 1) + num573) / num576;
+					Projectile.velocity.Y = (Projectile.velocity.Y * (num576 - 1) + num574) / num576;
 				}
 				else
 				{
 
-					int num492 = (int)projectile.ai[0];
+					int num492 = (int)Projectile.ai[0];
 					float num493 = 4f;
-					Vector2 vector39 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+					Vector2 vector39 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
 					float num494 = Main.player[num492].Center.X - vector39.X;
 					float num495 = Main.player[num492].Center.Y - vector39.Y;
 					float num496 = (float)Math.Sqrt(num494 * num494 + num495 * num495);
-					if (num496 < 50f && projectile.position.X < Main.player[num492].position.X + Main.player[num492].width && projectile.position.X + projectile.width > Main.player[num492].position.X && projectile.position.Y < Main.player[num492].position.Y + Main.player[num492].height && projectile.position.Y + projectile.height > Main.player[num492].position.Y)
+					if (num496 < 50f && Projectile.position.X < Main.player[num492].position.X + Main.player[num492].width && Projectile.position.X + Projectile.width > Main.player[num492].position.X && Projectile.position.Y < Main.player[num492].position.Y + Main.player[num492].height && Projectile.position.Y + Projectile.height > Main.player[num492].position.Y)
 					{
-						if (projectile.owner == Main.myPlayer)
+						if (Projectile.owner == Main.myPlayer)
 						{
 							Player player = Main.player[num492];
-							player.GetModPlayer<InvokerPlayer>().CaligulaSoul.Add((int)projectile.ai[1]) ;
+							player.GetModPlayer<InvokerPlayer>().CaligulaSoul.Add((int)Projectile.ai[1]) ;
 							CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.DarkGray, Language.GetTextValue("Mods.AAMod.Common.CaligulaSoul"), false, false);
 						}
-						projectile.Kill();
+						Projectile.Kill();
 					}
 					num496 = num493 / num496;
 					num494 *= num496;
 					num495 *= num496;
-					projectile.velocity.X = (projectile.velocity.X * 15f + num494) / 16f;
-					projectile.velocity.Y = (projectile.velocity.Y * 15f + num495) / 16f;
+					Projectile.velocity.X = (Projectile.velocity.X * 15f + num494) / 16f;
+					Projectile.velocity.Y = (Projectile.velocity.Y * 15f + num495) / 16f;
 				}
 			}
 			for (int num577 = 0; num577 < 5; num577 ++)
 			{
-				float num578 = projectile.velocity.X * 0.2f * num577;
-				float num579 = -(projectile.velocity.Y * 0.2f) * num577;
-				int num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 175, 0f, 0f, 20, Color.DarkBlue, 2f);
+				float num578 = Projectile.velocity.X * 0.2f * num577;
+				float num579 = -(Projectile.velocity.Y * 0.2f) * num577;
+				int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 20, Color.DarkBlue, 2f);
 				Main.dust[num580].noGravity = true;
 				Main.dust[num580].velocity *= 0f;
 				Main.dust[num580].position.X = Main.dust[num580].position.X - num578;
@@ -732,9 +733,9 @@ namespace AAMod.Items.Dev.Invoker
 			return;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			double Realdamage = Main.CalculateDamage(projectile.damage, 0);
+			double Realdamage = Main.CalculateDamage(Projectile.damage, 0);
 
 			Main.player[Main.myPlayer].dpsDamage += (int)Realdamage;
 
@@ -780,11 +781,11 @@ namespace AAMod.Items.Dev.Invoker
 	{
 		public override void SetDefaults()
         {
-           	projectile.width = 6;
-			projectile.height = 6;
-			projectile.alpha = 255;
-			projectile.tileCollide = false;
-			projectile.extraUpdates = 3;
+           	Projectile.width = 6;
+			Projectile.height = 6;
+			Projectile.alpha = 255;
+			Projectile.tileCollide = false;
+			Projectile.extraUpdates = 3;
         }
 		public override Color? GetAlpha(Color lightColor)
         {
@@ -792,17 +793,17 @@ namespace AAMod.Items.Dev.Invoker
         }
 		public override void AI()
         {
-			int num492 = (int)projectile.ai[0];
+			int num492 = (int)Projectile.ai[0];
 			float num493 = 4f;
-			Vector2 vector39 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+			Vector2 vector39 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
 			float num494 = Main.player[num492].Center.X - vector39.X;
 			float num495 = Main.player[num492].Center.Y - vector39.Y;
 			float num496 = (float)Math.Sqrt(num494 * num494 + num495 * num495);
-			if (num496 < 50f && projectile.position.X < Main.player[num492].position.X + Main.player[num492].width && projectile.position.X + projectile.width > Main.player[num492].position.X && projectile.position.Y < Main.player[num492].position.Y + Main.player[num492].height && projectile.position.Y + projectile.height > Main.player[num492].position.Y)
+			if (num496 < 50f && Projectile.position.X < Main.player[num492].position.X + Main.player[num492].width && Projectile.position.X + Projectile.width > Main.player[num492].position.X && Projectile.position.Y < Main.player[num492].position.Y + Main.player[num492].height && Projectile.position.Y + Projectile.height > Main.player[num492].position.Y)
 			{
-				if (projectile.owner == Main.myPlayer)
+				if (Projectile.owner == Main.myPlayer)
 				{
-					int num497 = (int)projectile.ai[1];
+					int num497 = (int)Projectile.ai[1];
 					Main.player[num492].HealEffect(num497, true);
 					Player player = Main.player[num492];
 					player.statLife += num497;
@@ -812,18 +813,18 @@ namespace AAMod.Items.Dev.Invoker
 					}
 					NetMessage.SendData(66, -1, -1, null, num492, num497, 0f, 0f, 0, 0, 0);
 				}
-				projectile.Kill();
+				Projectile.Kill();
 			}
 			num496 = num493 / num496;
 			num494 *= num496;
 			num495 *= num496;
-			projectile.velocity.X = (projectile.velocity.X * 15f + num494) / 16f;
-			projectile.velocity.Y = (projectile.velocity.Y * 15f + num495) / 16f;
+			Projectile.velocity.X = (Projectile.velocity.X * 15f + num494) / 16f;
+			Projectile.velocity.Y = (Projectile.velocity.Y * 15f + num495) / 16f;
 			for (int num502 = 0; num502 < 5; num502 ++)
 			{
-				float num503 = projectile.velocity.X * 0.2f * num502;
-				float num504 = -(projectile.velocity.Y * 0.2f) * num502;
-				int num505 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 175, 0f, 0f, 20, Color.OrangeRed, 1.3f);
+				float num503 = Projectile.velocity.X * 0.2f * num502;
+				float num504 = -(Projectile.velocity.Y * 0.2f) * num502;
+				int num505 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 20, Color.OrangeRed, 1.3f);
 				Main.dust[num505].noGravity = true;
 				Main.dust[num505].velocity *= 0f;
 				Main.dust[num505].position.X = Main.dust[num505].position.X - num503;
@@ -836,89 +837,89 @@ namespace AAMod.Items.Dev.Invoker
 	{
 		public override void SetDefaults()
         {
-			projectile.width = 86;
-			projectile.height = 86;
-			projectile.hostile = false;
-			projectile.alpha = 255;
-			projectile.penetrate = -1;
-			projectile.tileCollide = false;
-			projectile.timeLeft = 200;
-			projectile.damage = 0;
+			Projectile.width = 86;
+			Projectile.height = 86;
+			Projectile.hostile = false;
+			Projectile.alpha = 255;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.timeLeft = 200;
+			Projectile.damage = 0;
         }
 
 		private int count = 0;
 
 		public override void AI()
         {
-			Lighting.AddLight(projectile.Center, (Main.DiscoR -projectile.alpha) * 0.8f / 255f, (Main.DiscoG -projectile.alpha) * 0.4f / 255f, (Main.DiscoB -projectile.alpha) * 0f / 255f);
+			Lighting.AddLight(Projectile.Center, (Main.DiscoR -Projectile.alpha) * 0.8f / 255f, (Main.DiscoG -Projectile.alpha) * 0.4f / 255f, (Main.DiscoB -Projectile.alpha) * 0f / 255f);
 			
 			if(count < 13)
 			{
-				projectile.alpha -= 20;
+				Projectile.alpha -= 20;
 			}
 			else if(count >= 13)
 			{
-				projectile.alpha += 3;
-				if(projectile.alpha >= 250)
+				Projectile.alpha += 3;
+				if(Projectile.alpha >= 250)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 			}
 			
 			count ++;
 
-			int numa = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 175, 0f, 0f, 30, Color.OrangeRed, 1.3f);
+			int numa = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 30, Color.OrangeRed, 1.3f);
 			Main.dust[numa].noGravity = true;
 			Main.dust[numa].alpha ++;
 			
-			projectile.damage = 0;
-			projectile.netUpdate = true;
+			Projectile.damage = 0;
+			Projectile.netUpdate = true;
 
-			if(projectile.ai[0] == 1f)
+			if(Projectile.ai[0] == 1f)
 			{
-				int num9 = (int)projectile.ai[1];
+				int num9 = (int)Projectile.ai[1];
 				if(Main.npc[num9].active)
 				{
-					projectile.velocity = (Main.npc[num9].Center - projectile.Center) * 0.75f;
-					projectile.StatusNPC(num9);
-					projectile.Center = Main.npc[num9].Center - projectile.velocity * 2f;
-					projectile.gfxOffY = Main.npc[num9].gfxOffY;
+					Projectile.velocity = (Main.npc[num9].Center - Projectile.Center) * 0.75f;
+					Projectile.StatusNPC(num9);
+					Projectile.Center = Main.npc[num9].Center - Projectile.velocity * 2f;
+					Projectile.gfxOffY = Main.npc[num9].gfxOffY;
 				}
 				else if (num9 < 0 || num9 >= 200)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 				else
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 				
 				if(!Main.npc[num9].active && Main.npc[num9].life <= 0)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 			}
 			else
 			{
-				int num9 = (int)projectile.ai[1];
+				int num9 = (int)Projectile.ai[1];
 				if(Main.player[num9].active)
 				{
-					projectile.velocity = (Main.player[num9].Center - projectile.Center) * 0.75f;
-					projectile.Center = Main.player[num9].Center - projectile.velocity * 2f;
-					projectile.gfxOffY = Main.player[num9].gfxOffY;
+					Projectile.velocity = (Main.player[num9].Center - Projectile.Center) * 0.75f;
+					Projectile.Center = Main.player[num9].Center - Projectile.velocity * 2f;
+					Projectile.gfxOffY = Main.player[num9].gfxOffY;
 				}
 				else if (num9 < 0 || num9 >= 200)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 				else
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 				
 				if(!Main.player[num9].active)
 				{
-					projectile.Kill();
+					Projectile.Kill();
 				}
 			}
 			

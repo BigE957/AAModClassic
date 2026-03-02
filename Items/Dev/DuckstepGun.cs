@@ -10,32 +10,32 @@ namespace AAMod.Items.Dev
         
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Duckstep Launcher");
-            Tooltip.SetDefault(@"Quack.
--Aves");
+            // DisplayName.SetDefault("Duckstep Launcher");
+            /* Tooltip.SetDefault(@"Quack.
+-Aves"); */
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 130;
-			item.magic = true;
-            item.mana = 9;
-            item.width = 74;
-			item.height = 36;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 4;
-			item.value = 1000000;
-			item.rare = 2;
-            item.expert = true; item.expertOnly = true;
-			item.UseSound = new LegacySoundStyle(29, 10, Terraria.Audio.SoundType.Sound);
-            item.autoReuse = true;
-			item.shoot = 10; //idk why but all the guns in the vanilla source have this
-			item.shootSpeed = 12f;
-            item.shoot = mod.ProjectileType("Duck");
+			Item.damage = 130;
+			Item.DamageType = DamageClass.Magic;
+            Item.mana = 9;
+            Item.width = 74;
+			Item.height = 36;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4;
+			Item.value = 1000000;
+			Item.rare = 2;
+            Item.expert = true; Item.expertOnly = true;
+			Item.UseSound = new LegacySoundStyle(29, 10, Terraria.Audio.SoundType.Sound);
+            Item.autoReuse = true;
+			Item.shoot = 10; //idk why but all the guns in the vanilla source have this
+			Item.shootSpeed = 12f;
+            Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -46,9 +46,9 @@ namespace AAMod.Items.Dev
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(158, 255, 61);
+                    line2.OverrideColor = new Color(158, 255, 61);
                 }
             }
         }

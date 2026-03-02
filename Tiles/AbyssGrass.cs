@@ -9,16 +9,15 @@ namespace AAMod.Tiles
 	{
 		public static int _type;
 
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
-            SetModTree(new BogwoodTree());
 			Main.tileBlendAll[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            dustType = mod.DustType("YamataADust");
+            DustType = Mod.Find<ModDust>("YamataADust").Type;
 			AddMapEntry(new Color(100, 0, 30));
 		}
 
@@ -38,11 +37,5 @@ namespace AAMod.Tiles
             g = 0;
             b = 0f;
         }
-
-		public override int SaplingGrowthType(ref int style)
-		{
-			style = 0;
-			return mod.TileType("BogwoodSapling");
-		}
 	}
 }

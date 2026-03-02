@@ -6,29 +6,29 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Freedom Plasma Ball");
+            // DisplayName.SetDefault("Freedom Plasma Ball");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 100;
-            projectile.height = 100;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.alpha = 130;
-            projectile.tileCollide = false;
+            Projectile.width = 100;
+            Projectile.height = 100;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 130;
+            Projectile.tileCollide = false;
         }
 
         public override void AI()
         {
-            projectile.localAI[0] += 1f;
-            projectile.alpha += 10;
-            projectile.scale += 0.3f;
-            if (projectile.alpha >= 255)
+            Projectile.localAI[0] += 1f;
+            Projectile.alpha += 10;
+            Projectile.scale += 0.3f;
+            if (Projectile.alpha >= 255)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
     }

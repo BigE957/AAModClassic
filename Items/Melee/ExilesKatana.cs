@@ -9,23 +9,23 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Exile's Katana");
-			Tooltip.SetDefault("Formed with the unyielding wrath of the depths.");
+			// DisplayName.SetDefault("Exile's Katana");
+			// Tooltip.SetDefault("Formed with the unyielding wrath of the depths.");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 14;
-			item.melee = true;
-			item.width = 62;
-			item.height = 66;
-			item.useTime = 15;
-			item.useAnimation = 15;
-			item.useStyle = 1;
-			item.knockBack =3;
-			item.value = 3000;
-			item.rare = 2;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			Item.damage = 14;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 62;
+			Item.height = 66;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
+			Item.useStyle = 1;
+			Item.knockBack =3;
+			Item.value = 3000;
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = false;
 		}
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -41,14 +41,13 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "AbyssiumBar", 12);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		 public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		 public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Poisoned, 300);
         }

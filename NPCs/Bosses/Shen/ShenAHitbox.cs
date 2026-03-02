@@ -8,41 +8,41 @@ namespace AAMod.NPCs.Bosses.Shen
     {
         public override string Texture => "AAMod/BlankTex";
 
-        public override void ScaleExpertStats(int playerXPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = npc.lifeMax * 1;
-            npc.damage = (int)(npc.damage * .8f);
+            NPC.lifeMax = NPC.lifeMax * 1;
+            NPC.damage = (int)(NPC.damage * .8f);
         }
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shen Doragon Awakened");
+            // DisplayName.SetDefault("Shen Doragon Awakened");
         }
         public override void SetDefaults()
         {
-            npc.width = 100;
-            npc.height = 100;
-            npc.friendly = false;
-            npc.damage = 130;
-            npc.defense = 0;
-            npc.lifeMax = 1;
-            npc.value = 0f;
-            npc.knockBackResist = 0.0f;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.dontTakeDamage = true;
+            NPC.width = 100;
+            NPC.height = 100;
+            NPC.friendly = false;
+            NPC.damage = 130;
+            NPC.defense = 0;
+            NPC.lifeMax = 1;
+            NPC.value = 0f;
+            NPC.knockBackResist = 0.0f;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.dontTakeDamage = true;
         }
         public override bool PreAI()
         {
-            npc.TargetClosest(true);
-            int boss = (int)npc.ai[0];
-            if (boss < 0 || boss >= 200 || !Main.npc[boss].active || Main.npc[boss].type != mod.NPCType("ShenA"))
+            NPC.TargetClosest(true);
+            int boss = (int)NPC.ai[0];
+            if (boss < 0 || boss >= 200 || !Main.npc[boss].active || Main.npc[boss].type != Mod.Find<ModNPC>("ShenA").Type)
             {
-                npc.active = false;
+                NPC.active = false;
                 return false;
             }
-            npc.netUpdate = true;
-            npc.position.X = Main.npc[boss].Center.X - 50;
-            npc.position.Y = Main.npc[boss].position.Y;
+            NPC.netUpdate = true;
+            NPC.position.X = Main.npc[boss].Center.X - 50;
+            NPC.position.Y = Main.npc[boss].position.Y;
             return false;
         }
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

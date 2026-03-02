@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -10,7 +11,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 {
     public class RazewoodBookshelf : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -34,11 +35,11 @@ namespace AAMod.Tiles.Furniture.Razewood
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Razewood Bookcase");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Razewood Bookcase");
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("RazewoodDust");
-            adjTiles = new int[] { TileID.Bookcases };
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            AdjTiles = new int[] { TileID.Bookcases };
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -48,7 +49,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("RazewoodBookcase"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("RazewoodBookcase").Type);
 			Chest.DestroyChest(i, j);
 		}
 	}

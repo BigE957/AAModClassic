@@ -8,57 +8,57 @@ namespace AAMod.NPCs.Enemies.Snow
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Snow Serpent");
+			// DisplayName.SetDefault("Snow Serpent");
 		}
 
 		public override void SetDefaults()
 		{
-			npc.damage = 20;
-			npc.npcSlots = 5f;
-            npc.damage = 35;
-            npc.width = 20;
-            npc.height = 20;
-            npc.defense = 13;
-            npc.lifeMax = 250;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
-            animationType = 10;
-            npc.behindTiles = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = SoundID.NPCHit5;
-            npc.DeathSound = SoundID.NPCDeath7;
-            npc.netAlways = true;
-            npc.value = Item.sellPrice(0, 0, 10, 0);
-            npc.buffImmune[BuffID.Frostburn] = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("SnakeBanner");
+			NPC.damage = 20;
+			NPC.npcSlots = 5f;
+            NPC.damage = 35;
+            NPC.width = 20;
+            NPC.height = 20;
+            NPC.defense = 13;
+            NPC.lifeMax = 250;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            AnimationType = 10;
+            NPC.behindTiles = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit5;
+            NPC.DeathSound = SoundID.NPCDeath7;
+            NPC.netAlways = true;
+            NPC.value = Item.sellPrice(0, 0, 10, 0);
+            NPC.buffImmune[BuffID.Frostburn] = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("SnakeBanner").Type;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneSnow &&
+            return spawnInfo.Player.ZoneSnow &&
                 NPC.downedBoss3 && 
                 !Main.dayTime ? .1f : 0f;
         }
 
         public override void AI()
         {
-            Player player = Main.player[npc.target];
-			AAAI.AIWorm(npc, new int[]{ mod.NPCType("SnakeHead"), mod.NPCType("SnakeBody"), mod.NPCType("SnakeTail") }, 9, 8f, 12f, 0.1f, false, false);
+            Player player = Main.player[NPC.target];
+			AAAI.AIWorm(NPC, new int[]{ Mod.Find<ModNPC>("SnakeHead").Type, Mod.Find<ModNPC>("SnakeBody").Type, Mod.Find<ModNPC>("SnakeTail").Type }, 9, 8f, 12f, 0.1f, false, false);
             
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
 
             }
             else
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
         }
         
-		public override void OnHitPlayer(Player player, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
 			if (Main.expertMode)
 			{
@@ -70,34 +70,34 @@ namespace AAMod.NPCs.Enemies.Snow
 			}
 		}
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0);
             }
-            if (npc.life == 0)
+            if (NPC.life == 0)
             {
                 for (int k = 0; k < 5; k++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0);
                 }
             }
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             if (NPC.AnyNPCs(ModContent.NPCType<Bosses.Serpent.SerpentHead>()))
             {
                 return false;
             }
-            return base.PreNPCLoot();
+            return base.PreKill();
         }
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(4) == 0)
             {
-                npc.DropLoot(ModContent.ItemType<Items.BossSummons.SubzeroCrystal>());
+                NPC.DropLoot(ModContent.ItemType<Items.BossSummons.SubzeroCrystal>());
             }
         }
     }

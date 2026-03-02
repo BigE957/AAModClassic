@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,39 +8,38 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 40;
+            Item.width = 40;
+            Item.height = 40;
 
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.autoReuse = true;
-            item.width = 24;
-            item.height = 28;
-            item.damage = 7;
-            item.axe = 10;
-            item.UseSound = SoundID.Item1;
-            item.knockBack = 2.5f;
-            item.value = 10000;
-            item.melee = true;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.autoReuse = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.damage = 7;
+            Item.axe = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.knockBack = 2.5f;
+            Item.value = 10000;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Axe");
+            // DisplayName.SetDefault("Madness Axe");
         }
 
         public override void AddRecipes()  //How to craft item item
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "MadnessFragment", 6);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "MadnessFragment", 6);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

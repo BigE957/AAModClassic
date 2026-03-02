@@ -9,38 +9,37 @@ namespace AAMod.Items.Armor.Hoodlum
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hopping Hoodlum Paws");
-            Tooltip.SetDefault(@"10% increased movement speed
+			// DisplayName.SetDefault("Hopping Hoodlum Paws");
+            /* Tooltip.SetDefault(@"10% increased movement speed
 9% increased melee critical strike chance
 +1 Max Minion
 Enemies are more likely to target you
-Hopping Mad.");
+Hopping Mad."); */
         }
 
 		public override void SetDefaults()
 		{
-            item.width = 22;
-            item.height = 16;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.defense = 17;
-            item.rare = 8;
+            Item.width = 22;
+            Item.height = 16;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.defense = 17;
+            Item.rare = 8;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += .08f;
-            player.meleeCrit += 8;
+            player.GetCritChance(DamageClass.Melee) += 8;
             player.maxMinions += 1;
             player.aggro += 2;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RajahPelt", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

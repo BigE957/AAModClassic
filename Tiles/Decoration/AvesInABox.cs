@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,17 +12,17 @@ namespace AAMod.Tiles.Decoration
 {
     public class AvesInABox : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.Table | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Aves In A Box");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Aves In A Box");
 			AddMapEntry(new Color(100, 200, 100), name);
-			dustType = DustID.t_LivingWood;
-			disableSmartCursor = true;
+			DustType = DustID.t_LivingWood;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		}
 
         public bool Quack = false;
@@ -38,15 +40,15 @@ namespace AAMod.Tiles.Decoration
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("AvesInABox"));
+			Item.NewItem(i * 16, j * 16, 32, 32, Mod.Find<ModItem>("AvesInABox").Type);
 		}
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             if (Quack == false)
             {
                 QuackTimer = 90;
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/QUAK"));
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/QUAK"));
             }
             Quack = true;
             return true;

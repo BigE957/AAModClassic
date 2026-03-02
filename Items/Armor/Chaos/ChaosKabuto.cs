@@ -11,33 +11,33 @@ namespace AAMod.Items.Armor.Chaos
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Chaos Kabuto");
-			Tooltip.SetDefault(@"25% increased melee damage");
+			// DisplayName.SetDefault("Chaos Kabuto");
+			// Tooltip.SetDefault(@"25% increased melee damage");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 24;
-			item.height = 20;
-			item.value = 100000;
-            item.rare = 7;
-            item.defense = 26;
+			Item.width = 24;
+			Item.height = 20;
+			Item.value = 100000;
+            Item.rare = 7;
+            Item.defense = 26;
 		}
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += .25f;
+            player.GetDamage(DamageClass.Melee) += .25f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("ChaosDou") && legs.type == mod.ItemType("ChaosGreaves");
+            return body.type == Mod.Find<ModItem>("ChaosDou").Type && legs.type == Mod.Find<ModItem>("ChaosGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosKabutoBonus");
-            player.meleeSpeed += .1f;
+            player.GetAttackSpeed(DamageClass.Melee) += .1f;
             player.aggro += 4;
             player.GetModPlayer<AAPlayer>().kindledSet = true;
             player.GetModPlayer<AAPlayer>().ChaosMe = true;
@@ -45,19 +45,17 @@ namespace AAMod.Items.Armor.Chaos
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("BlazingKabuto"));
-            recipe.AddIngredient(mod.ItemType("ChaosCrystal"));
+            Recipe recipe;
+            recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("BlazingKabuto").Type);
+            recipe.AddIngredient(Mod.Find<ModItem>("ChaosCrystal").Type);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("RaiderHelm"));
-            recipe.AddIngredient(mod.ItemType("ChaosCrystal"));
+            recipe.Register();
+            recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("RaiderHelm").Type);
+            recipe.AddIngredient(Mod.Find<ModItem>("ChaosCrystal").Type);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

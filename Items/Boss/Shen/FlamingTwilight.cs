@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,43 +11,43 @@ namespace AAMod.Items.Boss.Shen
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 400;
-			item.ranged = true;
-			item.width = 76;
-			item.height = 36;
-			item.useTime = 14;
-			item.useAnimation = 14;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 6;
-			item.UseSound = SoundID.Item34;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.rare = 9;
+			Item.damage = 400;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 76;
+			Item.height = 36;
+			Item.useTime = 14;
+			Item.useAnimation = 14;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 6;
+			Item.UseSound = SoundID.Item34;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.rare = 9;
             AARarity = 14;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("DiscordianInfernoF");
-			item.shootSpeed = 11f;
-			item.useAmmo = AmmoID.Gel;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("DiscordianInfernoF").Type;
+			Item.shootSpeed = 11f;
+			Item.useAmmo = AmmoID.Gel;
 		}
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flaming Twilight");
-			Tooltip.SetDefault(@"Left click to blasts a discordian fireball at your foes 
+			// DisplayName.SetDefault("Flaming Twilight");
+			/* Tooltip.SetDefault(@"Left click to blasts a discordian fireball at your foes 
 Right click to rain fire and fury at your cursor position
 Consumes gel as ammo
-33% chance not to consume gel");
+33% chance not to consume gel"); */
         }
 
         public override bool AltFunctionUse(Player player)
@@ -54,7 +55,7 @@ Consumes gel as ammo
             return true;
         }
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .33;
 		}
@@ -64,12 +65,12 @@ Consumes gel as ammo
 			return new Vector2(-8, 0);
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = mod.ProjectileType("DiscordianInfernoF");
+            type = Mod.Find<ModProjectile>("DiscordianInfernoF").Type;
             if (player.altFunctionUse == 2)
             {
-                float num72 = item.shootSpeed;
+                float num72 = Item.shootSpeed;
                 int num112 = 5;
                 for (int num113 = 0; num113 < num112; num113++)
                 {
@@ -107,7 +108,7 @@ Consumes gel as ammo
                 for (int i = 0; i < 3; i++)
                 {
                     offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, Main.myPlayer);
+                    Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
                 }
             }
             return false;
@@ -115,14 +116,13 @@ Consumes gel as ammo
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Dawnstrike");
             recipe.AddIngredient(null, "Darksprayer");
             recipe.AddTile(null, "ACS");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

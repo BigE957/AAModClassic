@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Sag
@@ -9,20 +10,20 @@ namespace AAMod.NPCs.Bosses.Sag
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Static Shock");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Static Shock");
+            Main.projFrames[Projectile.type] = 4;
         }
         public override void SetDefaults()
         {
-            projectile.width = 12;
-            projectile.height = 12;
-            projectile.friendly = true;
-            projectile.penetrate = -1;               
-            projectile.hostile = true;
-            projectile.friendly = false;
-            projectile.tileCollide = true;       
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 900;
+            Projectile.width = 12;
+            Projectile.height = 12;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;               
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.tileCollide = true;       
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 900;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -32,25 +33,25 @@ namespace AAMod.NPCs.Bosses.Sag
 
         public override void AI()
         {
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] > 130f)
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            Projectile.localAI[0] += 1f;
+            if (Projectile.localAI[0] > 130f)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (++projectile.frameCounter >= 3)
+            if (++Projectile.frameCounter >= 3)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)projectile.Center.X, (int)projectile.Center.Y);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
         }
     }
 }

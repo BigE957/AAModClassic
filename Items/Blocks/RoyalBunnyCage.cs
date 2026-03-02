@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.Audio;
+using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -11,39 +12,38 @@ namespace AAMod.Items.Blocks
         public override void SetDefaults()
         {
 
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("RoyalBunnyCage"); //put your CustomBlock Tile name
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("RoyalBunnyCage").Type; //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Royal Bunny Cage");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Royal Bunny Cage");
+            // Tooltip.SetDefault("");
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "RoyalRabbit", 1);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "RoyalRabbit", 1);
             recipe.AddIngredient(ItemID.Terrarium, 1);
             recipe.AddRecipeGroup("AAMod:Gold", 20);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override void PostUpdate()
         {
-            if (item.lavaWet)
+            if (Item.lavaWet)
             {
-                Player player = Main.player[Player.FindClosest(item.Center, item.width, item.height)];
+                Player player = Main.player[Player.FindClosest(Item.Center, Item.width, Item.height)];
                 for (int i = 0; i < Main.maxPlayers; ++i)
                 {
                     if (player.active && !player.dead)
@@ -52,19 +52,19 @@ namespace AAMod.Items.Blocks
                         if (bunnyKills % 100 == 0 && bunnyKills < 1000)
                         {
                             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned1"), 107, 137, 179);
-                            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
 
                         }
                         if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
                         {
                             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned2") + player.name.ToUpper() + "!", 107, 137, 179);
-                            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
                         };
                     }
                 }
-                item.active = false;
+                Item.active = false;
             }
         }
     }

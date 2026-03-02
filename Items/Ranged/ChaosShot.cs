@@ -1,5 +1,6 @@
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -10,29 +11,29 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Bustershot");
-            Tooltip.SetDefault("Fires a piercing dualblast as well as a spread of 6 bullets");
+            // DisplayName.SetDefault("Chaos Bustershot");
+            // Tooltip.SetDefault("Fires a piercing dualblast as well as a spread of 6 bullets");
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 37;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 38;
-            item.useAnimation = 38;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 20, 0, 0);
-            item.rare = 8;
-            item.UseSound = SoundID.Item14;
-            item.shootSpeed = 20f;
-            item.autoReuse = true;
+            Item.damage = 37;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 38;
+            Item.useAnimation = 38;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.rare = 8;
+            Item.UseSound = SoundID.Item14;
+            Item.shootSpeed = 20f;
+            Item.autoReuse = true;
         }
 
         public override Vector2? HoldoutOffset()
@@ -40,7 +41,7 @@ namespace AAMod.Items.Ranged
             return new Vector2(-2, -2);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 		    float spread = 20f * 0.0174f;
 		    float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -54,19 +55,18 @@ namespace AAMod.Items.Ranged
             }
             for (int m = 0; m < 2; m++)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, m == 0 ? mod.ProjectileType("ChaosShot2") : mod.ProjectileType("ChaosShot3"), damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockBack, player.whoAmI);
             }
             return false;
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "AbyssalShadowshot", 1);
             recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

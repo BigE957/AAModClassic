@@ -8,24 +8,24 @@ namespace AAMod.Projectiles.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Soul");
+            // DisplayName.SetDefault("Dark Soul");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 6;
-            projectile.height = 6;
-            projectile.aiStyle = 59;
-            projectile.alpha = 255;
-            projectile.ranged = true;
-            projectile.tileCollide = false;
-            projectile.extraUpdates = 3;
-            projectile.timeLeft = 120 * 3;
+            Projectile.width = 6;
+            Projectile.height = 6;
+            Projectile.aiStyle = 59;
+            Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.tileCollide = false;
+            Projectile.extraUpdates = 3;
+            Projectile.timeLeft = 120 * 3;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
 
         NPC n = null;
@@ -33,17 +33,17 @@ namespace AAMod.Projectiles.Yamata
         {
             if (n == null)
             {
-                projectile.timeLeft--;
-                if (projectile.timeLeft <= 0)
+                Projectile.timeLeft--;
+                if (Projectile.timeLeft <= 0)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
             for (int num572 = 0; num572 < 5; num572++)
             {
-                float num573 = projectile.velocity.X * 0.2f * num572;
-                float num574 = -(projectile.velocity.Y * 0.2f) * num572;
-                int num575 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataDustLight>(), 0f, 0f, 100, default, 1.3f);
+                float num573 = Projectile.velocity.X * 0.2f * num572;
+                float num574 = -(Projectile.velocity.Y * 0.2f) * num572;
+                int num575 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDustLight>(), 0f, 0f, 100, default, 1.3f);
                 Main.dust[num575].noGravity = true;
                 Main.dust[num575].velocity *= 0f;
                 Dust expr_178B4_cp_0 = Main.dust[num575];
@@ -56,18 +56,18 @@ namespace AAMod.Projectiles.Yamata
             const float desiredFlySpeedInPixelsPerFrame = 15;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
+            Projectile.ai[aislotHomingCooldown]++;
 
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -81,13 +81,13 @@ namespace AAMod.Projectiles.Yamata
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }

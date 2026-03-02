@@ -9,24 +9,24 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Explosion");
+			// DisplayName.SetDefault("Explosion");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.thrown = true;
-            projectile.ranged = true;
-            projectile.hostile = false;
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.penetrate = -1;
-			projectile.timeLeft = 1;
-			projectile.tileCollide = false;
+			Projectile.DamageType = DamageClass.Throwing;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.hostile = false;
+			Projectile.width = 32;
+			Projectile.height = 32;
+			Projectile.penetrate = -1;
+			Projectile.timeLeft = 1;
+			Projectile.tileCollide = false;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 1;
+			target.immune[Projectile.owner] = 1;
 			target.AddBuff(BuffID.OnFire, 300);
 		}
 

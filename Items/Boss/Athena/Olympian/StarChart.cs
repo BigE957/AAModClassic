@@ -8,18 +8,18 @@ namespace AAMod.Items.Boss.Athena.Olympian
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Star Chart");
-            Tooltip.SetDefault("A map of the solar system up to this planet.");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 8));
+            // DisplayName.SetDefault("Star Chart");
+            // Tooltip.SetDefault("A map of the solar system up to this planet.");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
         }
 
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 10;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 11;
+            Item.width = 10;
+            Item.height = 10;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 11;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -29,7 +29,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.White.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.White.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

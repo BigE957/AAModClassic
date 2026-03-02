@@ -63,7 +63,7 @@ namespace AAMod.UI
                 buttonFrontFrame.Y += buttonFrontFrame.Height;
 
                 int index = i;
-                buttonList[i].OnClick += (evt, element) => ButtonClicked(index);
+                buttonList[i].OnLeftClick += (evt, element) => ButtonClicked(index);
                 buttonList[i].OnMouseOver += (evt, element) => ButtonHover(index);
                 buttonList[i].OnMouseOut += (evt, element) => ButtonLeave(index);
 

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
@@ -16,28 +17,28 @@ namespace AAMod.NPCs.Bosses.Yamata
 		public bool isAwakened = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yamata");
-            Main.npcFrameCount[npc.type] = 3;
-            NPCID.Sets.TechnicallyABoss[npc.type] = true;
+            // DisplayName.SetDefault("Yamata");
+            Main.npcFrameCount[NPC.type] = 3;
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.lifeMax = 30000;
-            npc.width = 64;
-            npc.height = 48;
-            npc.npcSlots = 0;
-            npc.dontCountMe = true;
-            npc.noTileCollide = true;
-            npc.boss = false;
-            npc.noGravity = true;
-            npc.damage = 80;
-            NPCID.Sets.TechnicallyABoss[npc.type] = true;
-            npc.DeathSound = mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.lifeMax = 30000;
+            NPC.width = 64;
+            NPC.height = 48;
+            NPC.npcSlots = 0;
+            NPC.dontCountMe = true;
+            NPC.noTileCollide = true;
+            NPC.boss = false;
+            NPC.noGravity = true;
+            NPC.damage = 80;
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
@@ -82,177 +83,177 @@ namespace AAMod.NPCs.Bosses.Yamata
 
         public override void AI()
         {
-            npc.defDamage = isAwakened ? 200 : 180;
+            NPC.defDamage = isAwakened ? 200 : 180;
             if (Body == null)
             {
-                NPC npcBody = Main.npc[(int)npc.ai[0]];
+                NPC npcBody = Main.npc[(int)NPC.ai[0]];
                 if (npcBody.type == ModContent.NPCType<Yamata>() || npcBody.type == ModContent.NPCType<YamataA>())
                 {
-                    Body = (Yamata)npcBody.modNPC;
+                    Body = (Yamata)npcBody.ModNPC;
                 }
             }
             if (Body == null)
                 return;			
 
-            npc.alpha = Body.npc.alpha;
+            NPC.alpha = Body.NPC.alpha;
 
-            if (npc.alpha > 0)
+            if (NPC.alpha > 0)
             {
-                npc.damage = 0;
+                NPC.damage = 0;
             }
             else
             {
-                npc.damage = npc.defDamage;
+                NPC.damage = NPC.defDamage;
             }
-            npc.TargetClosest();
-            Player targetPlayer = Main.player[npc.target];
+            NPC.TargetClosest();
+            Player targetPlayer = Main.player[NPC.target];
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
 
 
-            float playerDistance = targetPlayer == null ? 99999f : Vector2.Distance(targetPlayer.Center, npc.Center);
-            if (!Body.npc.active)
+            float playerDistance = targetPlayer == null ? 99999f : Vector2.Distance(targetPlayer.Center, NPC.Center);
+            if (!Body.NPC.active)
             {
                 if (Main.netMode != 1) //force a kill to prevent 'ghost hands'
                 {
-                    npc.life = 0;
-                    npc.checkDead();
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.checkDead();
+                    NPC.netUpdate = true;
                     killedbyplayer = false;
                 }
                 return;
             }
-            Vector2 nextTarget = Body.npc.Center + new Vector2(leftHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(npc.ai[2], npc.ai[3]);
-            float dist = Vector2.Distance(nextTarget, npc.Center);
+            Vector2 nextTarget = Body.NPC.Center + new Vector2(leftHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(NPC.ai[2], NPC.ai[3]);
+            float dist = Vector2.Distance(nextTarget, NPC.Center);
             if (YamataHead.EATTHELITTLEMAGGOT && playerDistance < 300f)
             {
-                BaseAI.AIFlier(npc, ref customAI, true, .5f, .8f, 5, 5, false, 300);
+                BaseAI.AIFlier(NPC, ref customAI, true, .5f, .8f, 5, 5, false, 300);
             }
             else
             if (dist < 40f)
             {
-                npc.velocity *= 0.9f;
-                if (Math.Abs(npc.velocity.X) < 0.05f) npc.velocity.X = 0f;
-                if (Math.Abs(npc.velocity.Y) < 0.05f) npc.velocity.Y = 0f;
+                NPC.velocity *= 0.9f;
+                if (Math.Abs(NPC.velocity.X) < 0.05f) NPC.velocity.X = 0f;
+                if (Math.Abs(NPC.velocity.Y) < 0.05f) NPC.velocity.Y = 0f;
             }
             else
             {
-                npc.velocity = Vector2.Normalize(nextTarget - npc.Center);
-                npc.velocity *= 5f;
+                NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
+                NPC.velocity *= 5f;
             }
-            npc.position += Body.npc.position - Body.npc.oldPosition;
-            npc.spriteDirection = -1;
+            NPC.position += Body.NPC.position - Body.NPC.oldPosition;
+            NPC.spriteDirection = -1;
             if (Body.TeleportMe1)
             {
                 Body.TeleportMe1 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 return;
             }
             if (Body.TeleportMe2)
             {
                 Body.TeleportMe2 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 return;
             }
             if (Body.TeleportMe3)
             {
                 Body.TeleportMe3 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 for (int i = 0; i < 5; ++i)
                 {
-                    Main.PlaySound(2, (int)npc.Center.X, (int)npc.Center.Y, 20);
-                    Vector2 dir = Vector2.Normalize(targetPlayer.Center - npc.Center);
+                    SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
+                    Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                     dir *= 5f;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, isAwakened ? mod.ProjectileType("YamataABreath") : mod.ProjectileType("YamataBreath"), npc.damage / 4, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? Mod.Find<ModProjectile>("YamataABreath").Type : Mod.Find<ModProjectile>("YamataBreath").Type, NPC.damage / 4, 0f, Main.myPlayer);
                 }
                 return;
             }
             if (Body.TeleportMe4)
             {
                 Body.TeleportMe4 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 return;
             }
             if (Body.TeleportMe5)
             {
                 Body.TeleportMe5 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 return;
             }
             if (Body.TeleportMe6)
             {
                 Body.TeleportMe6 = false;
-                npc.Center = Body.npc.Center;
+                NPC.Center = Body.NPC.Center;
                 return;
             }
 
             if (Main.netMode != 1 && !YamataHead.EATTHELITTLEMAGGOT)
             {
-                if (npc.alpha <= 0)
+                if (NPC.alpha <= 0)
                 {
-                    npc.ai[1]++; ;
+                    NPC.ai[1]++; ;
                 }
-                int aiTimerFire = npc.whoAmI % 3 == 0 ? 50 : npc.whoAmI % 2 == 0 ? 150 : 100;
+                int aiTimerFire = NPC.whoAmI % 3 == 0 ? 50 : NPC.whoAmI % 2 == 0 ? 150 : 100;
                 if (leftHead) aiTimerFire += 30;
-                if (targetPlayer != null && npc.ai[1] == aiTimerFire)
+                if (targetPlayer != null && NPC.ai[1] == aiTimerFire)
                 {
                     fireAttack = true;
                     for (int i = 0; i < 5; ++i)
                     {
-                        Main.PlaySound(2, (int)npc.Center.X, (int)npc.Center.Y, 20);
-                        Vector2 dir = Vector2.Normalize(targetPlayer.Center - npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
+                        Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                         dir *= 5f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, isAwakened ? mod.ProjectileType("YamataABreath") : mod.ProjectileType("YamataBreath"), npc.damage / 4, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? Mod.Find<ModProjectile>("YamataABreath").Type : Mod.Find<ModProjectile>("YamataBreath").Type, NPC.damage / 4, 0f, Main.myPlayer);
                     }
                 }
                 else
-                if (npc.ai[1] >= 200) //pick random spot to move head to
+                if (NPC.ai[1] >= 200) //pick random spot to move head to
                 {
                     fireAttack = false;
-                    npc.ai[1] = 0;
-                    npc.ai[2] = Main.rand.Next(-movementVariance, movementVariance);
-                    npc.ai[3] = Main.rand.Next(-movementVariance, movementVariance);
-                    npc.netUpdate = true;
+                    NPC.ai[1] = 0;
+                    NPC.ai[2] = Main.rand.Next(-movementVariance, movementVariance);
+                    NPC.ai[3] = Main.rand.Next(-movementVariance, movementVariance);
+                    NPC.netUpdate = true;
                 }
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
+            NPC.frameCounter++;
             if (fireAttack || YamataHead.EATTHELITTLEMAGGOT)
             {
-                if (npc.frameCounter < 5)
+                if (NPC.frameCounter < 5)
                 {
-                    npc.frame.Y = 1 * frameHeight;
+                    NPC.frame.Y = 1 * frameHeight;
                 }
-                else if (npc.frameCounter < 10)
+                else if (NPC.frameCounter < 10)
                 {
-                    npc.frame.Y = 2 * frameHeight;
+                    NPC.frame.Y = 2 * frameHeight;
                 }
             }
             else
             {
-                npc.frameCounter = 0;
+                NPC.frameCounter = 0;
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                CombatText.NewText(npc.getRect(), new Color(45, 46, 70), Lang.BossChat("YamataHead"), true, true);
+                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Lang.BossChat("YamataHead"), true, true);
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -273,7 +274,7 @@ namespace AAMod.NPCs.Bosses.Yamata
 
         public override void BossHeadRotation(ref float rotation)
         {
-            rotation = npc.rotation;
+            rotation = NPC.rotation;
         }
         
 		
@@ -297,11 +298,11 @@ namespace AAMod.NPCs.Bosses.Yamata
                 NPC n = Main.npc[i];
                 if (n.type == NPCID.Bunny)
                 {
-                    float distance = npc.Distance(n.Center);
+                    float distance = NPC.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            npc.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            NPC.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }

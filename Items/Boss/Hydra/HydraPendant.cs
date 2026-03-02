@@ -8,25 +8,25 @@ namespace AAMod.Items.Boss.Hydra
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Pendant");
-            Tooltip.SetDefault(@"7% Increased damage");
+            // DisplayName.SetDefault("Hydra Pendant");
+            // Tooltip.SetDefault(@"7% Increased damage");
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 50;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
+            Item.width = 26;
+            Item.height = 50;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.allDamage += .07f;
+            player.GetDamage(DamageClass.Generic) += .07f;
         }
 
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {

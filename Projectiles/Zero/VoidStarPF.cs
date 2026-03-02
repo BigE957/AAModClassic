@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,22 +11,22 @@ namespace AAMod.Projectiles.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Star Vortex");
+            // DisplayName.SetDefault("Star Vortex");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 60;
-            projectile.height = 60;
-            projectile.friendly = true;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 20;
-            projectile.scale = .01f;
-            projectile.alpha = 255;
-            projectile.tileCollide = false;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 15;
+            Projectile.width = 60;
+            Projectile.height = 60;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 20;
+            Projectile.scale = .01f;
+            Projectile.alpha = 255;
+            Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 15;
         }
 
         private float RingRotation = 0f;
@@ -34,35 +35,35 @@ namespace AAMod.Projectiles.Zero
         {
             RingRotation += 0.03f;
 
-            if (projectile.alpha > 80)
+            if (Projectile.alpha > 80)
             {
-                projectile.friendly = false;
-                projectile.alpha -= 3;
+                Projectile.friendly = false;
+                Projectile.alpha -= 3;
             }
             else
             {
-                projectile.friendly = true;
-                projectile.alpha = 80;
+                Projectile.friendly = true;
+                Projectile.alpha = 80;
             }
 
-            projectile.scale = projectile.penetrate / 20;
+            Projectile.scale = Projectile.penetrate / 20;
 
             const int aislotHomingCooldown = 0;
             const int homingDelay = 30;
             const float desiredFlySpeedInPixelsPerFrame = 5;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -76,13 +77,13 @@ namespace AAMod.Projectiles.Zero
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -91,13 +92,13 @@ namespace AAMod.Projectiles.Zero
             return selectedTarget;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D Tex = Main.projectileTexture[projectile.type];
-            Texture2D Vortex = mod.GetTexture("Projectiles/SingularityVortex1");
+            Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D Vortex = Mod.GetTexture("Projectiles/SingularityVortex1");
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawTexture(spritebatch, Vortex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, RingRotation, 0, 1, frame, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, -RingRotation, 0, 1, frame, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Vortex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

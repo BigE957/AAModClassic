@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,68 +12,68 @@ namespace AAMod.Projectiles     //We need this to basically indicate the folder 
     {
         public override void SetDefaults()
         {
-            projectile.width = 58;
-            projectile.height = 90;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.melee = true;
-            projectile.scale = 4f;
+            Projectile.width = 58;
+            Projectile.height = 90;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.scale = 4f;
             
         }
         public override void AI()
         {
-            projectile.soundDelay--;
-            if (projectile.soundDelay <= 0)
+            Projectile.soundDelay--;
+            if (Projectile.soundDelay <= 0)
             {
-                Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, 15);
-                projectile.soundDelay = 45;
+                SoundEngine.PlaySound(SoundID.Item15, Projectile.Center);
+                Projectile.soundDelay = 45;
             }
-            Player player = Main.player[projectile.owner];
-            if (Main.myPlayer == projectile.owner)
+            Player player = Main.player[Projectile.owner];
+            if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            Lighting.AddLight(projectile.Center, 0f, .1f, .5f); 
-            projectile.Center = player.MountedCenter;
-            projectile.position.X += player.width / 2 * player.direction;
-            projectile.spriteDirection = player.direction;
-            projectile.rotation += .3f * player.direction;
-            if (projectile.rotation > MathHelper.TwoPi)
+            Lighting.AddLight(Projectile.Center, 0f, .1f, .5f); 
+            Projectile.Center = player.MountedCenter;
+            Projectile.position.X += player.width / 2 * player.direction;
+            Projectile.spriteDirection = player.direction;
+            Projectile.rotation += .3f * player.direction;
+            if (Projectile.rotation > MathHelper.TwoPi)
             {
-                projectile.rotation -= MathHelper.TwoPi;
+                Projectile.rotation -= MathHelper.TwoPi;
             }
-            else if (projectile.rotation < 0)
+            else if (Projectile.rotation < 0)
             {
-                projectile.rotation += MathHelper.TwoPi;
+                Projectile.rotation += MathHelper.TwoPi;
             }
-            player.heldProj = projectile.whoAmI;
+            player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = projectile.rotation;
+            player.itemRotation = Projectile.rotation;
             if (Main.rand.Next(4) == 0)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Electric, 0, 0, 0, default, .1f);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0, 0, 0, default, .1f);
                 Main.dust[dust].velocity /= 2f;
             }
  
         }
 
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Electrified"), 500);
+            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)  //this make the projectile sprite rotate perfectaly around the player
+        public override bool PreDraw(ref Color lightColor)  //this make the projectile sprite rotate perfectaly around the player
         {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
-            spriteBatch.Draw(mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow"), projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            spriteBatch.Draw(Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow"), Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

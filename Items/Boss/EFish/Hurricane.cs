@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,39 +10,39 @@ namespace AAMod.Items.Boss.EFish
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hurricane");
-			Tooltip.SetDefault(@"Shoots 2 waves of 6 arrows
+            // DisplayName.SetDefault("Hurricane");
+			/* Tooltip.SetDefault(@"Shoots 2 waves of 6 arrows
 You have a chance to shoot Oceanic Arrow
 66% chance not to consume arrow
-Tsunami EX");
+Tsunami EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 20;
-            item.useTime = 10;
-            item.width = 30;
-            item.height = 62;
-            item.shoot = 1;
-            item.useAmmo = AmmoID.Arrow;
-            item.UseSound = SoundID.Item5;
-            item.damage = 100;
-            item.shootSpeed = 13f;
-            item.knockBack = 4f;
-            item.rare = 8;
-            item.noMelee = true;
-            item.value = 200000;
-            item.ranged = true;
-			item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 20;
+            Item.useTime = 10;
+            Item.width = 30;
+            Item.height = 62;
+            Item.shoot = 1;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.UseSound = SoundID.Item5;
+            Item.damage = 100;
+            Item.shootSpeed = 13f;
+            Item.knockBack = 4f;
+            Item.rare = 8;
+            Item.noMelee = true;
+            Item.value = 200000;
+            Item.DamageType = DamageClass.Ranged;
+			Item.autoReuse = true;
         }
 		
-		public override bool ConsumeAmmo(Player player)
+		public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .66;
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			float num121 = 0.314159274f;
 			int num122 = 5;
@@ -63,7 +64,7 @@ Tsunami EX");
 				}
 				if (Main.rand.NextBool(8))
 				{
-					type = mod.ProjectileType("OceanicArrow");
+					type = Mod.Find<ModProjectile>("OceanicArrow").Type;
 				}
 				else
 				{
@@ -77,12 +78,11 @@ Tsunami EX");
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Tsunami);
 			recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

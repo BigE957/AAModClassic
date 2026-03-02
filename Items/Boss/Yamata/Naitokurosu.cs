@@ -10,32 +10,32 @@ namespace AAMod.Items.Boss.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Naitokurosu");
-            Tooltip.SetDefault(@"8% increased ranged damage
+            // DisplayName.SetDefault("Naitokurosu");
+            /* Tooltip.SetDefault(@"8% increased ranged damage
 Grants you the abilities of a true master ninja
 Allows you to do a speedy dash
 You move twice as fast and your ranged attacks & minions inflict Venom
 While in the mire, you gain 18% increased ranged damage instead of 9%
-At night, you move three times as fast and your ranged attacks & minions inflict Moonraze");
+At night, you move three times as fast and your ranged attacks & minions inflict Moonraze"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 26;
-            item.value = Item.sellPrice(3, 0, 0, 0);
-            item.expert = true; item.expertOnly = true;
-            item.accessory = true;
-            item.rare = 9; AARarity = 13;
+            Item.width = 26;
+            Item.height = 26;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.expert = true; Item.expertOnly = true;
+            Item.accessory = true;
+            Item.rare = 9; AARarity = 13;
         }
 
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
-            Texture2D textureGlow = mod.GetTexture("Glowmasks/Naitokurosu_Glow");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
-            Texture2D texture2Glow = mod.GetTexture("Glowmasks/NaitokurosuA_Glow");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
+            Texture2D textureGlow = Mod.GetTexture("Glowmasks/Naitokurosu_Glow");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
+            Texture2D texture2Glow = Mod.GetTexture("Glowmasks/NaitokurosuA_Glow");
             if (Main.dayTime)
             {
                 spriteBatch.Draw
@@ -43,8 +43,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
                     texture,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -59,8 +59,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
                     textureGlow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -78,8 +78,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
                     texture2,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -94,8 +94,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
                     texture2Glow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -111,8 +111,8 @@ At night, you move three times as fast and your ranged attacks & minions inflict
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Yamata/Naitokurosu");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Yamata/NaitokurosuA");
             if (Main.dayTime)
             { 
                 spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
@@ -130,15 +130,15 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             player.dash = 1;
             player.spikedBoots = 2;
             player.GetModPlayer<AAPlayer>().Naitokurosu = true;
-            player.buffImmune[mod.BuffType("HydraToxin")] = true;
-            player.buffImmune[mod.BuffType("Clueless")] = true;
+            player.buffImmune[Mod.Find<ModBuff>("HydraToxin").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("Clueless").Type] = true;
             if (player.GetModPlayer<AAPlayer>().ZoneMire)
             {
-                player.rangedDamage += .18f;
+                player.GetDamage(DamageClass.Ranged) += .18f;
             }
             else
             {
-                player.rangedDamage += .09f;
+                player.GetDamage(DamageClass.Ranged) += .09f;
             }
             if (Main.dayTime)
             { 

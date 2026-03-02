@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
@@ -11,34 +12,34 @@ namespace AAMod.Items.Boss.Zero
 	{
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
-			item.autoReuse = true;
-			item.useAnimation = 2;
-			item.useTime = 5;
-            item.reuseDelay = 2;
-			item.width = 72;
-			item.height = 34;
-			item.shoot = 10;
-			item.useAmmo = AmmoID.Bullet;
-			item.UseSound = SoundID.Item41;
-			item.damage = 85;
-			item.shootSpeed = 32f;
-			item.noMelee = true;
-			item.value = Item.sellPrice(0, 30, 0, 0);
-			item.rare = 11;
-			item.knockBack = 3f;
-			item.ranged = true;
+			Item.useStyle = 5;
+			Item.autoReuse = true;
+			Item.useAnimation = 2;
+			Item.useTime = 5;
+            Item.reuseDelay = 2;
+			Item.width = 72;
+			Item.height = 34;
+			Item.shoot = 10;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.UseSound = SoundID.Item41;
+			Item.damage = 85;
+			Item.shootSpeed = 32f;
+			Item.noMelee = true;
+			Item.value = Item.sellPrice(0, 30, 0, 0);
+			Item.rare = 11;
+			Item.knockBack = 3f;
+			Item.DamageType = DamageClass.Ranged;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Omega Volley");
-			Tooltip.SetDefault(@"Shoots an insanely accurate volley of sonic bullets quickly
+			// DisplayName.SetDefault("Omega Volley");
+			/* Tooltip.SetDefault(@"Shoots an insanely accurate volley of sonic bullets quickly
 Every ten shots, it can shoot two extra bullets.
-33% chance to not consume ammo");
+33% chance to not consume ammo"); */
         }
 
-		public override bool ConsumeAmmo(Player player)
+		public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .77;
 		}
@@ -50,7 +51,7 @@ Every ten shots, it can shoot two extra bullets.
 
 		private int extraammocount = 0;
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f * 1.3f;
@@ -86,7 +87,7 @@ Every ten shots, it can shoot two extra bullets.
 						value9 -= vector7;
 					}
 					float keepspeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
-					int num121 = Projectile.NewProjectile(vector2.X + value9.X, vector2.Y + value9.Y, speedX, speedY, mod.ProjectileType("OmegaVolleyExtraAmmo"), damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+					int num121 = Projectile.NewProjectile(vector2.X + value9.X, vector2.Y + value9.Y, speedX, speedY, Mod.Find<ModProjectile>("OmegaVolleyExtraAmmo").Type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
 					Main.projectile[num121].noDropItem = true;
 				}
 				extraammocount = 0;
@@ -101,22 +102,21 @@ Every ten shots, it can shoot two extra bullets.
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
 			recipe.AddIngredient(null, "UnstableSingularity", 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(mod.TileType("ACS"));
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+            recipe.AddTile(Mod.Find<ModTile>("ACS").Type);
+			recipe.Register();
 		}
 	}
 }

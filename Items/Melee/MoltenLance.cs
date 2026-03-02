@@ -9,44 +9,43 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
         {
 
-            item.damage = 30;
-            item.melee = true;
-            item.width = 112;
-            item.height = 112;
-            item.scale = 1.1f;
-            item.maxStack = 1;
-            item.useTime = 21;
-            item.useAnimation = 21;
-            item.knockBack = 4.4f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useTurn = true;
-			item.autoReuse = false;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 2, 40, 0);
-            item.rare = 3;
-            item.shoot = mod.ProjectileType("MLP");  //put your Spear projectile name
-            item.shootSpeed = 5f;
+            Item.damage = 30;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 112;
+            Item.height = 112;
+            Item.scale = 1.1f;
+            Item.maxStack = 1;
+            Item.useTime = 21;
+            Item.useAnimation = 21;
+            Item.knockBack = 4.4f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useTurn = true;
+			Item.autoReuse = false;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 2, 40, 0);
+            Item.rare = 3;
+            Item.shoot = Mod.Find<ModProjectile>("MLP").Type;  //put your Spear projectile name
+            Item.shootSpeed = 5f;
         }
 		public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Molten Lance");
-            Tooltip.SetDefault("Makes instant barbeque shish kebabs!");
+            // DisplayName.SetDefault("Molten Lance");
+            // Tooltip.SetDefault("Makes instant barbeque shish kebabs!");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HellstoneBar, 12);   
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

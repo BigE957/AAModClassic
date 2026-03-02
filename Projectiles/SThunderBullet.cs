@@ -11,29 +11,29 @@ namespace AAMod.Projectiles
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Supercharged ThunderBullet");
+            // DisplayName.SetDefault("Supercharged ThunderBullet");
 		}
 		public override void SetDefaults()
 		{
-            projectile.width = 4;
-            projectile.height = 4;
-            projectile.aiStyle = 1;
-            projectile.friendly = true;
-            projectile.penetrate = 1;
-            projectile.light = 0.5f;
-            projectile.alpha = 30;
-            projectile.extraUpdates = 5;
-            projectile.scale = 1.3f;
-            projectile.timeLeft = 600;
-            projectile.ranged = true;
-            aiType = ProjectileID.Bullet;
+            Projectile.width = 4;
+            Projectile.height = 4;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+            Projectile.penetrate = 1;
+            Projectile.light = 0.5f;
+            Projectile.alpha = 30;
+            Projectile.extraUpdates = 5;
+            Projectile.scale = 1.3f;
+            Projectile.timeLeft = 600;
+            Projectile.DamageType = DamageClass.Ranged;
+            AIType = ProjectileID.Bullet;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             DropMeteor();
         }
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 30;
             height = 30;
@@ -44,13 +44,13 @@ namespace AAMod.Projectiles
         {
             //projectile.tileCollide = false;
             //projectile.timeLeft = 20;
-            projectile.ai[0] = 1f;
+            Projectile.ai[0] = 1f;
             return false;
         }
 
         public void DropMeteor()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             float num72 = 12f;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
@@ -95,7 +95,7 @@ namespace AAMod.Projectiles
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.02f);
-                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, ModContent.ProjectileType<TLThunder>(), projectile.damage, projectile.damage, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 2f));
+                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, ModContent.ProjectileType<TLThunder>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 2f));
             }
         }
     }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,35 +11,35 @@ namespace AAMod.Items.Boss.Anubis
 
         public override void SetDefaults()
         {
-            item.damage = 35;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 42;
-            item.height = 60;
+            Item.damage = 35;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 42;
+            Item.height = 60;
 
-            item.useTime = 25;
-            item.useAnimation = 25;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 2;
-            item.rare = 6;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shootSpeed = 25f;
-            item.value = Item.buyPrice(0, 1, 0, 0);
+            Item.useTime = 25;
+            Item.useAnimation = 25;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 2;
+            Item.rare = 6;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shootSpeed = 25f;
+            Item.value = Item.buyPrice(0, 1, 0, 0);
 
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Neith's String");
-            Tooltip.SetDefault(@"Shoots 2 arrows at once
+            // DisplayName.SetDefault("Neith's String");
+            /* Tooltip.SetDefault(@"Shoots 2 arrows at once
 Can occasionally shoot ``Judgement arrow``, which lowers enemy defense
-Converts wooden arrows into slower, but high-damaging mummy arrows");
+Converts wooden arrows into slower, but high-damaging mummy arrows"); */
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			float numberProjectiles = 2;
 			float rotation = MathHelper.ToRadians(3);
@@ -59,19 +60,18 @@ Converts wooden arrows into slower, but high-damaging mummy arrows");
 			}
 			if (Main.rand.NextBool(5))
 			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("AnubisArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("AnubisArrow").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 			}
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Ranged.FossilBoneslinger>(), 1);
             recipe.AddIngredient(null, "ForsakenFragment", 5);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

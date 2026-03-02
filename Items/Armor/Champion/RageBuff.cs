@@ -5,10 +5,10 @@ namespace AAMod.Items.Armor.Champion
 {
     public class RageBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Defender's Rage");
-            Description.SetDefault("A champion of Terraria never backs down");
+            // DisplayName.SetDefault("Defender's Rage");
+            // Description.SetDefault("A champion of Terraria never backs down");
             Main.buffNoSave[Type] = true;
         }
 

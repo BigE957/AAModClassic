@@ -9,47 +9,46 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
         {
 
-            item.damage = 30;
-            item.melee = true;
-            item.width = 124;
-            item.height = 124;
-            item.scale = 1.1f;
-            item.maxStack = 1;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.knockBack = 4.5f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useTurn = true;
-			item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 6, 0, 0);
-            item.rare = 3;
-            item.shoot = mod.ProjectileType("DBP");  //put your Spear projectile name
-            item.shootSpeed = 5f;
+            Item.damage = 30;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 124;
+            Item.height = 124;
+            Item.scale = 1.1f;
+            Item.maxStack = 1;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.knockBack = 4.5f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useTurn = true;
+			Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 6, 0, 0);
+            Item.rare = 3;
+            Item.shoot = Mod.Find<ModProjectile>("DBP").Type;  //put your Spear projectile name
+            Item.shootSpeed = 5f;
         }
 		public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Dusk Bringer");
-      Tooltip.SetDefault("");
+      // DisplayName.SetDefault("Dusk Bringer");
+      // Tooltip.SetDefault("");
     }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "MoltenLance", 1); 
 			recipe.AddIngredient(null, "AncientPoker", 1);
 			recipe.AddIngredient(null, "GrassSpear", 1);
 			recipe.AddIngredient(ItemID.DarkLance , 1);
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

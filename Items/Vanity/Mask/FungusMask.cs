@@ -8,18 +8,18 @@ namespace AAMod.Items.Vanity.Mask
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Feudal Fungus Mask");
+            // DisplayName.SetDefault("Feudal Fungus Mask");
 		}
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 26;
-            item.rare = 2;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 26;
+            Item.rare = 2;
+            Item.vanity = true;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = false;
         }

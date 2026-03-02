@@ -9,27 +9,27 @@ namespace AAMod.Items.Boss.Greed
     {
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Stone Slammer");
-            Tooltip.SetDefault(@"Hitting an airborne always crits and sends the target flying into the ground");
+            // DisplayName.SetDefault("Stone Slammer");
+            // Tooltip.SetDefault(@"Hitting an airborne always crits and sends the target flying into the ground");
         }
 		public override void SetDefaults()
 		{
-			item.damage = 60;
-			item.melee = true;
-			item.width = 40;
-			item.height = 42;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = 1;
-			item.knockBack = 14;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 8;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.scale *= 1.3f;
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 42;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = 1;
+			Item.knockBack = 14;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 8;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.scale *= 1.3f;
         }
 
-        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (target.velocity.Y != 0)
             {
@@ -37,7 +37,7 @@ namespace AAMod.Items.Boss.Greed
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.velocity.Y != 0 && target.knockBackResist > 0)
             {
@@ -88,18 +88,16 @@ namespace AAMod.Items.Boss.Greed
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.GoldHammer, 1);
             recipe.AddIngredient(null, "StoneShell", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
+            recipe.Register();
+            recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.PlatinumHammer, 1);
             recipe.AddIngredient(null, "StoneShell", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

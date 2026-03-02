@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,49 +11,49 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Game Raider");
-            Tooltip.SetDefault("Fires explosive Mooshroom Rockets");
+            // DisplayName.SetDefault("Game Raider");
+            // Tooltip.SetDefault("Fires explosive Mooshroom Rockets");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 150;
-            item.ranged = true;
-            item.width = 66;
-            item.height = 28;
-            item.useTime = 35;
-            item.useAnimation = 35;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 7.5f;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.UseSound = SoundID.Item11;
-            item.autoReuse = true;
-            item.shootSpeed = 25f;
-            item.shoot = mod.ProjectileType("GameRocket");
-            item.useAmmo = AmmoID.Rocket;
-            item.rare = 9;
+            Item.damage = 150;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 66;
+            Item.height = 28;
+            Item.useTime = 35;
+            Item.useAnimation = 35;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.knockBack = 7.5f;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.UseSound = SoundID.Item11;
+            Item.autoReuse = true;
+            Item.shootSpeed = 25f;
+            Item.shoot = Mod.Find<ModProjectile>("GameRocket").Type;
+            Item.useAmmo = AmmoID.Rocket;
+            Item.rare = 9;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(140, 42, 42);
+                    line2.OverrideColor = new Color(140, 42, 42);
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
             {
                 position += muzzleOffset;
             }
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("GameRocket"), damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("GameRocket").Type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
     }

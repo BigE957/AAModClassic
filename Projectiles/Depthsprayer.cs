@@ -9,43 +9,43 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 10;
-			projectile.height = 16;
-			projectile.aiStyle = -1;
-			projectile.friendly = true;
-			projectile.alpha = 255;
-			projectile.penetrate = 5;
-			projectile.extraUpdates = 2;
-			projectile.ignoreWater = true;
-			projectile.magic = true;
+            Projectile.width = 10;
+			Projectile.height = 16;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.alpha = 255;
+			Projectile.penetrate = 5;
+			Projectile.extraUpdates = 2;
+			Projectile.ignoreWater = true;
+			Projectile.DamageType = DamageClass.Magic;
             
         }
 		
         public override void AI()
         {
-			projectile.scale -= 0.001f;
-			if (projectile.scale <= 0f)
+			Projectile.scale -= 0.001f;
+			if (Projectile.scale <= 0f)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
-			if (projectile.ai[0] <= 3f)
+			if (Projectile.ai[0] <= 3f)
 			{
-				projectile.ai[0] += 1f;
+				Projectile.ai[0] += 1f;
 				return;
 			}
-			projectile.velocity.Y = projectile.velocity.Y + 0.075f;
+			Projectile.velocity.Y = Projectile.velocity.Y + 0.075f;
 			int num3;
 			for (int num153 = 0; num153 < 3; num153 = num3 + 1)
 			{
-				float num154 = projectile.velocity.X / 3f * num153;
-				float num155 = projectile.velocity.Y / 3f * num153;
+				float num154 = Projectile.velocity.X / 3f * num153;
+				float num155 = Projectile.velocity.Y / 3f * num153;
 				int num156 = 14;
-				int num157 = Dust.NewDust(new Vector2(projectile.position.X + num156, projectile.position.Y + num156), projectile.width - num156 * 2, projectile.height - num156 * 2, ModContent.DustType<Dusts.HydraDust>(), 0f, 0f, 100);
+				int num157 = Dust.NewDust(new Vector2(Projectile.position.X + num156, Projectile.position.Y + num156), Projectile.width - num156 * 2, Projectile.height - num156 * 2, ModContent.DustType<Dusts.HydraDust>(), 0f, 0f, 100);
 				Main.dust[num157].noGravity = true;
 				Dust dust = Main.dust[num157];
 				dust.velocity *= 0.1f;
 				dust = Main.dust[num157];
-				dust.velocity += projectile.velocity * 0.5f;
+				dust.velocity += Projectile.velocity * 0.5f;
 				Dust var_2_69A9_cp_0_cp_0 = Main.dust[num157];
 				var_2_69A9_cp_0_cp_0.position.X -= num154;
 				Dust var_2_69C3_cp_0_cp_0 = Main.dust[num157];
@@ -55,19 +55,19 @@ namespace AAMod.Projectiles
 			if (Main.rand.Next(8) == 0)
 			{
 				int num158 = 16;
-				int num159 = Dust.NewDust(new Vector2(projectile.position.X + num158, projectile.position.Y + num158), projectile.width - num158 * 2, projectile.height - num158 * 2, ModContent.DustType<Dusts.HydraDust>(), 0f, 0f, 100, default, 0.5f);
+				int num159 = Dust.NewDust(new Vector2(Projectile.position.X + num158, Projectile.position.Y + num158), Projectile.width - num158 * 2, Projectile.height - num158 * 2, ModContent.DustType<Dusts.HydraDust>(), 0f, 0f, 100, default, 0.5f);
 				Dust dust = Main.dust[num159];
 				dust.velocity *= 0.25f;
 				dust = Main.dust[num159];
-				dust.velocity += projectile.velocity * 0.5f;
+				dust.velocity += Projectile.velocity * 0.5f;
 				return;
 			}
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			target.immune[projectile.owner] = 6;
-            target.AddBuff(mod.BuffType("HydraToxin"), 300);
+			target.immune[Projectile.owner] = 6;
+            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 300);
         }
     }
 }

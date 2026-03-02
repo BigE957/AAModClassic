@@ -1,5 +1,6 @@
 
 using Microsoft.Xna.Framework;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
 using Terraria;
@@ -214,7 +215,7 @@ namespace AAMod
                 }
                 string[] lootTable = Loot;
                 int loot = Main.rand.Next(lootTable.Length);
-                npc.DropLoot(mod.ItemType(lootTable[loot]));
+                npc.DropLoot(mod.Find<ModItem>(lootTable[loot]).Type);
             }
         }
 
@@ -250,7 +251,7 @@ namespace AAMod
                 {
                     if (npc.localAI[0] == 0f)
                     {
-                        Main.PlaySound(SoundID.Item8, npc.Center);
+                        SoundEngine.PlaySound(SoundID.Item8, npc.Center);
                         npc.TargetClosest(true);
                         if (npc.direction > 0)
                         {
@@ -805,7 +806,7 @@ namespace AAMod
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
 						Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                        if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                        if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;
                             tPos.X = tX * 16;
@@ -813,7 +814,7 @@ namespace AAMod
                             if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
                             {
                                 canMove = true;
-                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.nactive())
+                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                                 {
                                     WorldGen.KillTile(tX, tY, true, true, false);
                                 }
@@ -915,7 +916,7 @@ namespace AAMod
                         if (distSoundDelay < 10f) { distSoundDelay = 10f; }
                         if (distSoundDelay > 20f) { distSoundDelay = 20f; }
                         npc.soundDelay = (int)distSoundDelay;
-                        Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 1);
+                        SoundEngine.PlaySound(SoundID.WormDig, npc.position);
                     }
                     dist = (float)Math.Sqrt(playerCenterX * playerCenterX + playerCenterY * playerCenterY);
                     float absPlayerCenterX = Math.Abs(playerCenterX);

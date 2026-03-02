@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Djinn
 {
@@ -6,34 +7,34 @@ namespace AAMod.Items.Boss.Djinn
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sandstorm Medallion");
-            Tooltip.SetDefault(@"Doubles your stats during a Sandstorm");
+            // DisplayName.SetDefault("Sandstorm Medallion");
+            // Tooltip.SetDefault(@"Doubles your stats during a Sandstorm");
         }
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 50;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
+            Item.width = 26;
+            Item.height = 50;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player p, bool hideVisual)
         {
 			if(p.ZoneSandstorm)
 			{
-				p.meleeDamage += 1f;
-				p.rangedDamage += 1f;
-				p.magicDamage += 1f;
-				p.minionDamage += 1f;
-				p.thrownDamage += 1f;
-				p.meleeCrit *= 2;
-				p.rangedCrit *= 2;
-				p.magicCrit *= 2;
-				p.thrownCrit *= 2;
+				p.GetDamage(DamageClass.Melee) += 1f;
+				p.GetDamage(DamageClass.Ranged) += 1f;
+				p.GetDamage(DamageClass.Magic) += 1f;
+				p.GetDamage(DamageClass.Summon) += 1f;
+				p.GetDamage(DamageClass.Throwing) += 1f;
+				p.GetCritChance(DamageClass.Melee) *= 2;
+				p.GetCritChance(DamageClass.Ranged) *= 2;
+				p.GetCritChance(DamageClass.Magic) *= 2;
+				p.GetCritChance(DamageClass.Throwing) *= 2;
 			}
         }
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {

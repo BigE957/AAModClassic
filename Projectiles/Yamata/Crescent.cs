@@ -10,26 +10,26 @@ namespace AAMod.Projectiles.Yamata   //The directory for your .cs and .png; Exam
         public override void SetStaticDefaults()
         {
 
-            DisplayName.SetDefault("Crescent");
+            // DisplayName.SetDefault("Crescent");
         }
 
         public override void SetDefaults()
         {
-            projectile.extraUpdates = 3;
-            projectile.width = 16;
-            projectile.height = 16; 
-            projectile.aiStyle = 99;
-            projectile.friendly = true; 
-            projectile.penetrate = -1;
-            projectile.melee = true;
-            ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = 60f;
-            ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 1000f;
-            ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 17f;
+            Projectile.extraUpdates = 3;
+            Projectile.width = 16;
+            Projectile.height = 16; 
+            Projectile.aiStyle = 99;
+            Projectile.friendly = true; 
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
+            ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = 60f;
+            ProjectileID.Sets.YoyosMaximumRange[Projectile.type] = 1000f;
+            ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 17f;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
         int ProjTimer = 0;
 
@@ -41,7 +41,7 @@ namespace AAMod.Projectiles.Yamata   //The directory for your .cs and .png; Exam
                 if (ProjTimer >= 50)
                 {
                     ProjTimer = 0;
-                    Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), projectile.damage, projectile.knockBack, projectile.owner);
+                    Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                 }
             }
         }

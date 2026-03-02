@@ -8,49 +8,49 @@ namespace AAMod.Projectiles.Rajah.Supreme
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bane of the Bunny");
+            // DisplayName.SetDefault("Bane of the Bunny");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 40;
-            projectile.aiStyle = 19;
-            projectile.melee = true;
-            projectile.timeLeft = 90;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.ownerHitCheck = true;
-            projectile.hide = true;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 3;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.aiStyle = 19;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 90;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.ownerHitCheck = true;
+            Projectile.hide = true;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 3;
         }
 
 
         public float MovementFactor // Change this value to alter how fast the spear moves
         {
-            get { return projectile.ai[0]; }
-            set { projectile.ai[0] = value; }
+            get { return Projectile.ai[0]; }
+            set { Projectile.ai[0] = value; }
         }
 
 
         public override void AI()
         {
-            Player projOwner = Main.player[projectile.owner];
+            Player projOwner = Main.player[Projectile.owner];
             Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
-            projectile.direction = projOwner.direction;
-            projOwner.heldProj = projectile.whoAmI;
+            Projectile.direction = projOwner.direction;
+            projOwner.heldProj = Projectile.whoAmI;
             projOwner.itemTime = projOwner.itemAnimation;
-            projectile.position.X = ownerMountedCenter.X - projectile.width / 2;
-            projectile.position.Y = ownerMountedCenter.Y - projectile.height / 2;
+            Projectile.position.X = ownerMountedCenter.X - Projectile.width / 2;
+            Projectile.position.Y = ownerMountedCenter.Y - Projectile.height / 2;
             if (!projOwner.frozen)
             {
                 if (MovementFactor == 0f)
                 {
                     MovementFactor = 3f;
-                    projectile.netUpdate = true;
+                    Projectile.netUpdate = true;
                 }
                 if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
                 {
@@ -61,15 +61,15 @@ namespace AAMod.Projectiles.Rajah.Supreme
                     MovementFactor += 2.1f;
                 }
             }
-            projectile.position += projectile.velocity * MovementFactor;
+            Projectile.position += Projectile.velocity * MovementFactor;
             if (projOwner.itemAnimation == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
-            if (projectile.spriteDirection == -1)
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+            if (Projectile.spriteDirection == -1)
             {
-                projectile.rotation -= MathHelper.ToRadians(90f);
+                Projectile.rotation -= MathHelper.ToRadians(90f);
             }
         }
     }

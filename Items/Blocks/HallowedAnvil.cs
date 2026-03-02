@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,37 +8,36 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hallowed Anvil");
-            Tooltip.SetDefault("A Holy Anvil");
+            // DisplayName.SetDefault("Hallowed Anvil");
+            // Tooltip.SetDefault("A Holy Anvil");
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 18;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 7;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 100000;
-            item.createTile = mod.TileType("HallowedAnvil");
+            Item.width = 28;
+            Item.height = 18;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 7;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 100000;
+            Item.createTile = Mod.Find<ModTile>("HallowedAnvil").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HallowedBar, 10);
             recipe.AddRecipeGroup("AAMod:HAnvil");
             recipe.AddIngredient(ItemID.PearlwoodWorkBench, 1);
             recipe.AddIngredient(ItemID.CrystalBall, 1);
             recipe.AddIngredient(ItemID.Autohammer, 1);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

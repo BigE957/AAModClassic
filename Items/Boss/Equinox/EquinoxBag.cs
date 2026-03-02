@@ -1,6 +1,7 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Equinox
 {
     public class EquinoxBag : BaseAAItem
@@ -8,26 +9,26 @@ namespace AAMod.Items.Boss.Equinox
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault(@"{$CommonItemTooltip.RightClickToOpen}
-Contained loot depends on the time of day");
+            // DisplayName.SetDefault("Treasure Bag");
+			/* Tooltip.SetDefault(@"{$CommonItemTooltip.RightClickToOpen}
+Contained loot depends on the time of day"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 32;
-			item.height = 36;
-			item.rare = 11;
-			item.expert = true; item.expertOnly = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 32;
+			Item.height = 36;
+			Item.rare = 11;
+			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => mod.NPCType("DaybringerHead");
+        public override int BossBagNPC => Mod.Find<ModNPC>("DaybringerHead").Type;
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Equinox/DBBag");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Equinox/NCBag");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Equinox/DBBag");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Equinox/NCBag");
             if (Main.dayTime)
             {
                 spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
@@ -41,10 +42,10 @@ Contained loot depends on the time of day");
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Equinox/DBBag");
-            Texture2D textureGlow = mod.GetTexture("Glowmasks/DBBag_Glow");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Equinox/NCBag");
-            Texture2D texture2Glow = mod.GetTexture("Glowmasks/NCBag_Glow");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Equinox/DBBag");
+            Texture2D textureGlow = Mod.GetTexture("Glowmasks/DBBag_Glow");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Equinox/NCBag");
+            Texture2D texture2Glow = Mod.GetTexture("Glowmasks/NCBag_Glow");
             if (Main.dayTime)
             {
                 spriteBatch.Draw
@@ -52,8 +53,8 @@ Contained loot depends on the time of day");
                     texture,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -68,8 +69,8 @@ Contained loot depends on the time of day");
                     textureGlow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -89,8 +90,8 @@ Contained loot depends on the time of day");
                     texture2,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -105,8 +106,8 @@ Contained loot depends on the time of day");
                     texture2Glow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -132,33 +133,33 @@ Contained loot depends on the time of day");
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(mod.ItemType("NCMask"));
+                    player.QuickSpawnItem(Mod.Find<ModItem>("NCMask").Type);
                 }
                 if (Main.rand.Next(20) == 0)
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();
                 }
-                player.QuickSpawnItem(mod.ItemType("DarkEnergy"), Main.rand.Next(40, 90));
-                player.QuickSpawnItem(mod.ItemType("DarkVoid"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("DarkEnergy").Type, Main.rand.Next(40, 90));
+                player.QuickSpawnItem(Mod.Find<ModItem>("DarkVoid").Type);
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(mod.ItemType("DBMask"));
+                    player.QuickSpawnItem(Mod.Find<ModItem>("DBMask").Type);
                 }
                 if (Main.rand.Next(20) == 0)
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();
                 }
-                player.QuickSpawnItem(mod.ItemType("Stardust"), Main.rand.Next(40, 90));
-                player.QuickSpawnItem(mod.ItemType("RadiantStar"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("Stardust").Type, Main.rand.Next(40, 90));
+                player.QuickSpawnItem(Mod.Find<ModItem>("RadiantStar").Type);
             }
             if (AAWorld.RadiumOre)
             {
-                player.QuickSpawnItem(mod.ItemType("StarIdol"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("StarIdol").Type);
             }
         }
 	}

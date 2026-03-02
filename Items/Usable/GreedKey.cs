@@ -4,17 +4,17 @@ namespace AAMod.Items.Usable
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gilded Key");
-			Tooltip.SetDefault("This probably unlocks...something?");
+			// DisplayName.SetDefault("Gilded Key");
+			// Tooltip.SetDefault("This probably unlocks...something?");
 		}
 
         public override void SetDefaults()
         {
-            item.width = item.height = 16;
-            item.rare = 6;
-            item.maxStack = 99;
-			item.value = 800000;
-            item.noMelee = true;
+            Item.width = Item.height = 16;
+            Item.rare = 6;
+            Item.maxStack = 99;
+			Item.value = 800000;
+            Item.noMelee = true;
         }
     }
 }

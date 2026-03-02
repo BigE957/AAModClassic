@@ -9,37 +9,37 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spark");     
-            Main.projFrames[projectile.type] = 5;     
+            // DisplayName.SetDefault("Spark");     
+            Main.projFrames[Projectile.type] = 5;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 176;
-            projectile.height = 176;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 300;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 10;
+            Projectile.width = 176;
+            Projectile.height = 176;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 300;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 5)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 5)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
@@ -48,14 +48,14 @@ namespace AAMod.Projectiles
             return new Color(Color.White.R, Color.White.G, Color.White.B, 120);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 300);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
     }
 }

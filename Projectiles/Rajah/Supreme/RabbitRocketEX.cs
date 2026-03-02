@@ -1,7 +1,9 @@
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Rajah.Supreme
 
@@ -10,7 +12,7 @@ namespace AAMod.Projectiles.Rajah.Supreme
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rocket");
+            // DisplayName.SetDefault("Rajah Rocket");
         }
 
         public override void SetDefaults()
@@ -18,27 +20,27 @@ namespace AAMod.Projectiles.Rajah.Supreme
             base.SetDefaults();
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            int p = Projectile.NewProjectile(projectile.Center, new Vector2(0, 0), Terraria.ModLoader.ModContent.ProjectileType<RabbitBoomEX>(), projectile.damage, projectile.knockBack, projectile.owner);
-            Main.projectile[p].magic = false;
-            Main.projectile[p].ranged = true;
-            Main.projectile[p].Center = projectile.Center;
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            int p = Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), Terraria.ModLoader.ModContent.ProjectileType<RabbitBoomEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Main.projectile[p].DamageType = DamageClass.Ranged;
+            Main.projectile[p].Center = Projectile.Center;
             float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 6;
             for (int i = 0; i < 3; i++)
             {
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("CarrotEX"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].melee = false;
-                Main.projectile[proj].magic = false;
-                Main.projectile[proj].ranged = true;
-                 proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("CarrotEX"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].melee = false;
-                Main.projectile[proj].magic = false;
-                Main.projectile[proj].ranged = true;
+                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("CarrotEX").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
+                 proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("CarrotEX").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
         }
     }

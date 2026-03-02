@@ -43,7 +43,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("MushroomMonarch"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("MushroomMonarch").Type);
 
                 // Feudal Fungus
                 yabhb.Call("hbStart");
@@ -59,7 +59,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("FeudalFungus"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("FeudalFungus").Type);
 
                 // Grip of Chaos (Red)
                 yabhb.Call("hbStart");
@@ -75,7 +75,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("GripOfChaosRed"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("GripOfChaosRed").Type);
 
                 // Grip of Chaos (Blue)
                 yabhb.Call("hbStart");
@@ -91,7 +91,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("GripOfChaosBlue"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("GripOfChaosBlue").Type);
 
                 // The Broodmother
                 yabhb.Call("hbStart");
@@ -107,7 +107,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Broodmother"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Broodmother").Type);
 
                 // Hydra
                 yabhb.Call("hbStart");
@@ -123,7 +123,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Hydra"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Hydra").Type);
 
                 // Subzero Serpent
                 yabhb.Call("hbStart");
@@ -139,7 +139,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("SerpentHead"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("SerpentHead").Type);
 
                 // Desert Djinn
                 yabhb.Call("hbStart");
@@ -155,7 +155,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Djinn"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Djinn").Type);
 
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
@@ -170,7 +170,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Sag"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Sag").Type);
 
                 //Anubis
                 yabhb.Call("hbStart");
@@ -186,7 +186,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Anubis"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Anubis").Type);
 
                 // Greed
                 yabhb.Call("hbStart");
@@ -202,7 +202,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Greed"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Greed").Type);
 
                 // Rajah
                     yabhb.Call("hbStart");
@@ -218,7 +218,7 @@ namespace AAMod.Globals
                     yabhb.Call("hbSetMidBarOffset", -30, 10);
                     yabhb.Call("hbSetBossHeadCentre", 50, 32);
                     yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                    yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Rajah"));
+                    yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Rajah").Type);
                 
                 //Forsaken Anubis
                 yabhb.Call("hbStart");
@@ -234,7 +234,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("ForsakenAnubis"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("ForsakenAnubis").Type);
 
                 // Worm King Greed
                 yabhb.Call("hbStart");
@@ -250,7 +250,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Greed"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Greed").Type);
 
                 // Daybringer
                 yabhb.Call("hbStart");
@@ -266,7 +266,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("DaybringerHead"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("DaybringerHead").Type);
 
                 // Nightcrawler
                 yabhb.Call("hbStart");
@@ -282,7 +282,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("NightcrawlerHead"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("NightcrawlerHead").Type);
 
                 // Haruka Yamata
                 yabhb.Call("hbStart");
@@ -298,7 +298,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Haruka"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Haruka").Type);
 
                 // Haruka Yamata (Awakened)
                 yabhb.Call("hbStart");
@@ -311,7 +311,7 @@ namespace AAMod.Globals
                     new Color(122, 157, 152),
                     new Color(122, 157, 152),
                     new Color(122, 157, 152));
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("HarukaY"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("HarukaY").Type);
 
                 // Wrath Haruka
                 yabhb.Call("hbStart");
@@ -324,7 +324,7 @@ namespace AAMod.Globals
                     new Color(122, 157, 152),
                     new Color(122, 157, 152),
                     new Color(122, 157, 152));
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("WrathHaruka"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("WrathHaruka").Type);
 
                 // Ashe Akuma
                 yabhb.Call("hbStart");
@@ -337,7 +337,7 @@ namespace AAMod.Globals
                     Color.OrangeRed,
                     Color.OrangeRed,
                     Color.OrangeRed);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("AsheA"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("AsheA").Type);
 
                 // Fury Ashe
                 yabhb.Call("hbStart");
@@ -350,7 +350,7 @@ namespace AAMod.Globals
                     Color.OrangeRed,
                     Color.OrangeRed,
                     Color.OrangeRed);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("FuryAshe"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("FuryAshe").Type);
 
                 // Yamata
                 yabhb.Call("hbStart");
@@ -366,7 +366,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Yamata"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Yamata").Type);
 
                 // Yamata Awakened
                 yabhb.Call("hbStart");
@@ -382,7 +382,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("YamataA"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("YamataA").Type);
 
                 // Akuma; Draconian Demon
                 yabhb.Call("hbStart");
@@ -398,7 +398,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Akuma"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Akuma").Type);
 
                 // Akuma Awakened; Blazing Fury Incarnate
                 yabhb.Call("hbStart");
@@ -414,7 +414,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("AkumaA"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("AkumaA").Type);
 
                 // Zero
                 yabhb.Call("hbStart");
@@ -430,7 +430,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Zero"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Zero").Type);
 
                 // ZER0 PR0T0C0L
                 yabhb.Call("hbStart");
@@ -446,7 +446,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("ZeroProtocol"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("ZeroProtocol").Type);
 
                 yabhb.Call("hbStart");
                 yabhb.Call("hbSetTexture",
@@ -461,7 +461,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("SupremeRajah"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("SupremeRajah").Type);
 
                 // Shen
                 yabhb.Call("hbStart");
@@ -477,7 +477,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("Shen"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("Shen").Type);
 
                 //Shen Awakened
                 yabhb.Call("hbStart");
@@ -493,7 +493,7 @@ namespace AAMod.Globals
                 yabhb.Call("hbSetMidBarOffset", -30, 10);
                 yabhb.Call("hbSetBossHeadCentre", 50, 32);
                 yabhb.Call("hbSetFillDecoOffsetSmall", 16);
-                yabhb.Call("hbFinishSingle", AAMod.instance.NPCType("ShenA"));
+                yabhb.Call("hbFinishSingle", AAMod.instance.Find<ModNPC>("ShenA").Type);
             }
         }
 
@@ -506,7 +506,7 @@ namespace AAMod.Globals
             if (bossChecklist != null)
             {
                 #region Mushroom Monarch
-                bossChecklist.Call("AddBoss", 0f, mod.NPCType("MushroomMonarch"), mod,
+                bossChecklist.Call("AddBoss", 0f, mod.Find<ModNPC>("MushroomMonarch").Type, mod,
                     Lang.BossCheck("MushroomMonarch"),
                     (Func<bool>)(() => AAWorld.downedMonarch),
                     ModContent.ItemType<IntimidatingMushroom>(),
@@ -530,7 +530,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Feudal Fungus
-                bossChecklist.Call("AddBoss", 0.1f, mod.NPCType("FeudalFungus"), mod,
+                bossChecklist.Call("AddBoss", 0.1f, mod.Find<ModNPC>("FeudalFungus").Type, mod,
                     Lang.BossCheck("FeudalFungus"),
                     (Func<bool>)(() => AAWorld.downedFungus),
                     ModContent.ItemType<ConfusingMushroom>(),
@@ -554,7 +554,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Grips
-                bossChecklist.Call("AddBoss", 2f, mod.NPCType("GripOfChaosRed"), mod,
+                bossChecklist.Call("AddBoss", 2f, mod.Find<ModNPC>("GripOfChaosRed").Type, mod,
                     Lang.BossCheck("GripsofChaos"),
                     (Func<bool>)(() => AAWorld.downedGrips),
                     ModContent.ItemType<CuriousClaw>(),
@@ -572,14 +572,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Grips.ClawOfChaos>(),
                         ModContent.ItemType<Items.Boss.Grips.ClawBaton>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("CuriousClaw") + "]" + Lang.BossCheck("or") + "[i:" + AAMod.instance.ItemType("InterestingClaw") + "]" + Lang.BossCheck("atnight"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]" + Lang.BossCheck("or") + "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]" + Lang.BossCheck("atnight"),
                     Lang.BossCheck("GripsofChaosInfo"),
                     "AAMod/CrossMod/BossChecklist/Grips",
                     "AAMod/CrossMod/BossChecklist/GripsHead");
                 #endregion
 
                 #region Truffle Toad
-                bossChecklist.Call("AddBoss", 2.5f, mod.NPCType("TruffleToad"), mod,
+                bossChecklist.Call("AddBoss", 2.5f, mod.Find<ModNPC>("TruffleToad").Type, mod,
                     Lang.BossCheck("TruffleToad"),
                     (Func<bool>)(() => AAWorld.downedToad),
                     ModContent.ItemType<Toadstool>(),
@@ -598,14 +598,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Toad.MushrockStaff>(),
                         ModContent.ItemType<GlowingSporeSac>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("Toadstool") + "]" + Lang.BossCheck("TruffleToadInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Toadstool").Type + "]" + Lang.BossCheck("TruffleToadInfo"),
                     Lang.BossCheck("TruffleToadInfo2"),
                     "AAMod/CrossMod/BossChecklist/Toad",
                     "AAMod/NPCs/Bosses/Toad/TruffleToad_Head_Boss");
                 #endregion
 
                 #region Broodmother
-                bossChecklist.Call("AddBoss", 3.5f, mod.NPCType("Broodmother"), mod,
+                bossChecklist.Call("AddBoss", 3.5f, mod.Find<ModNPC>("Broodmother").Type, mod,
                     Lang.BossCheck("Broodmother"),
                     (Func<bool>)(() => AAWorld.downedBrood),
                     ModContent.ItemType<DragonBell>(),
@@ -622,14 +622,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Broodmother.BroodScale>(),
                         ModContent.ItemType<Incinerite>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DragonBell") + "]" + Lang.BossCheck("BroodmotherInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DragonBell").Type + "]" + Lang.BossCheck("BroodmotherInfo"),
                     Lang.BossCheck("BroodmotherInfo2"),
                     "AAMod/CrossMod/BossChecklist/Brood",
                     "AAMod/NPCs/Bosses/Broodmother/Broodmother_Head_Boss");
                 #endregion
 
                 #region Hydra
-                bossChecklist.Call("AddBoss", 3.5f, mod.NPCType("Hydra"), mod,
+                bossChecklist.Call("AddBoss", 3.5f, mod.Find<ModNPC>("Hydra").Type, mod,
                     Lang.BossCheck("Hydra"),
                     (Func<bool>)(() => AAWorld.downedHydra),
                     ModContent.ItemType<HydraChow>(),
@@ -646,7 +646,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Hydra.HydraHide>(),
                         ModContent.ItemType<Abyssium>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("HydraChow") + "]" + Lang.BossCheck("HydraInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("HydraChow").Type + "]" + Lang.BossCheck("HydraInfo"),
                     Lang.BossCheck("HydraInfo2"),
                     "AAMod/CrossMod/BossChecklist/Hydra",
                     "AAMod/NPCs/Bosses/Hydra/HydraHead1_Head_Boss",
@@ -654,7 +654,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Serpent
-                bossChecklist.Call("AddBoss", 5.5f, mod.NPCType("SerpentHead"), mod,
+                bossChecklist.Call("AddBoss", 5.5f, mod.Find<ModNPC>("SerpentHead").Type, mod,
                     Lang.BossCheck("SubzeroSerpent"),
                     (Func<bool>)(() => AAWorld.downedSerpent),
                     ModContent.ItemType<SubzeroCrystal>(),
@@ -679,14 +679,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Serpent.SubzeroSlasher>(),
                         ModContent.ItemType<SnowMana>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("SubzeroCrystal") + "]" + Lang.BossCheck("SubzeroSerpentInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("SubzeroCrystal").Type + "]" + Lang.BossCheck("SubzeroSerpentInfo"),
                     Lang.BossCheck("SubzeroSerpentInfo2"),
                     "AAMod/CrossMod/BossChecklist/Serpent1",
                     "AAMod/NPCs/Bosses/Serpent/SerpentHead_Head_Boss");
                 #endregion
 
                 #region Djinn
-                bossChecklist.Call("AddBoss", 5.5f, mod.NPCType("Djinn"), mod,
+                bossChecklist.Call("AddBoss", 5.5f, mod.Find<ModNPC>("Djinn").Type, mod,
                     Lang.BossCheck("DesertDjinn"),
                     (Func<bool>)(() => AAWorld.downedDjinn),
                     ModContent.ItemType<DjinnLamp>(),
@@ -709,14 +709,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Djinn.SultanScimitar>(),
                         ModContent.ItemType<DesertMana>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DjinnLamp") + "]" + Lang.BossCheck("DesertDjinnInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DjinnLamp").Type + "]" + Lang.BossCheck("DesertDjinnInfo"),
                     Lang.BossCheck("DesertDjinnInfo2"),
                     "AAMod/CrossMod/BossChecklist/Djinn",
                     "AAMod/NPCs/Bosses/Djinn/Djinn_Head_Boss");
                 #endregion
 
                 #region Sagittarius
-                bossChecklist.Call("AddBoss", 5.7f, mod.NPCType("Sag"), mod,
+                bossChecklist.Call("AddBoss", 5.7f, mod.Find<ModNPC>("Sag").Type, mod,
                     Lang.BossCheck("Sagittarius"),
                     (Func<bool>)(() => AAWorld.downedSag),
                     ModContent.ItemType<Lifescanner>(),
@@ -735,14 +735,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Sagittarius.SagCore>(),
                         ModContent.ItemType<Doomite>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("Lifescanner") + "]" + Lang.BossCheck("SagittariusInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Lifescanner").Type + "]" + Lang.BossCheck("SagittariusInfo"),
                     Lang.BossCheck("SagittariusInfo2"),
                     "AAMod/CrossMod/BossChecklist/Sag",
                     "AAMod/NPCs/Bosses/Sagittarius/Sagittarius_Head_Boss");
                 #endregion
 
                 #region Anubis
-                bossChecklist.Call("AddBoss", 9.7f, mod.NPCType("Anubis"), mod,
+                bossChecklist.Call("AddBoss", 9.7f, mod.Find<ModNPC>("Anubis").Type, mod,
                     Lang.BossCheck("Anubis"),
                     (Func<bool>)(() => AAWorld.downedAnubis),
                     ModContent.ItemType<Scepter>(),
@@ -764,14 +764,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Anubis.SentryOfTheEye>(),
                         ModContent.ItemType<Items.Boss.Anubis.ForsakenFragment>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("Scepter") + "]" + Lang.BossCheck("AnubisInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Scepter").Type + "]" + Lang.BossCheck("AnubisInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Anubis",
                     "AAMod/NPCs/Bosses/Anubis/Anubis_Head_Boss");
                 #endregion
 
                 #region Athena
-                bossChecklist.Call("AddBoss", 11.5f, mod.NPCType("Athena"), mod,
+                bossChecklist.Call("AddBoss", 11.5f, mod.Find<ModNPC>("Athena").Type, mod,
                     Lang.BossCheck("Athena"),
                     (Func<bool>)(() => AAWorld.downedAthena),
                     ModContent.ItemType<Owl>(),
@@ -791,14 +791,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Athena.DivineWindCharm>(),
                         ModContent.ItemType<Items.Boss.Athena.GoddessFeather>()
                     },
-                    Lang.BossCheck("Usean") + "[i:" + AAMod.instance.ItemType("Owl") + "]" + Lang.BossCheck("AthenaInfo"),
+                    Lang.BossCheck("Usean") + "[i:" + AAMod.instance.Find<ModItem>("Owl").Type + "]" + Lang.BossCheck("AthenaInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Athena",
                     "AAMod/NPCs/Bosses/Athena/Athena_Head_Boss");
                 #endregion
 
                 #region Greed
-                bossChecklist.Call("AddBoss", 11.5f, mod.NPCType("Greed"), mod,
+                bossChecklist.Call("AddBoss", 11.5f, mod.Find<ModNPC>("Greed").Type, mod,
                     Lang.BossCheck("Greed"),
                     (Func<bool>)(() => AAWorld.downedGreed),
                     ModContent.ItemType<GoldenGrub>(),
@@ -818,14 +818,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Greed.Miner>(),
                         ModContent.ItemType<Items.Boss.Greed.StoneShell>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("GoldenGrub") + "]" + Lang.BossCheck("GreedInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenGrub").Type + "]" + Lang.BossCheck("GreedInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Greed",
                     "AAMod/NPCs/Bosses/Greed/Greed_Head_Boss");
                 #endregion
 
                 #region Rajah Rabbit
-                bossChecklist.Call("AddBoss", 11.5f, mod.NPCType("Rajah"), mod,
+                bossChecklist.Call("AddBoss", 11.5f, mod.Find<ModNPC>("Rajah").Type, mod,
                     Lang.BossCheck("RajahRabbit"),
                     (Func<bool>)(() => AAWorld.downedRajah),
                     ModContent.ItemType<GoldenCarrot>(),
@@ -847,14 +847,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Rajah.RabbitcopterEars>(),
                         ModContent.ItemType<Items.Boss.Rajah.RajahPelt>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("GoldenCarrot") + "]" + Lang.BossCheck("RajahRabbitInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenCarrot").Type + "]" + Lang.BossCheck("RajahRabbitInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Rajah",
                     "AAMod/NPCs/Bosses/Rajah/Rajah_Head_Boss");
                 #endregion
 
                 #region Forsaken Anubis
-                bossChecklist.Call("AddBoss", 15f, mod.NPCType("ForsakenAnubis"), mod,
+                bossChecklist.Call("AddBoss", 15f, mod.Find<ModNPC>("ForsakenAnubis").Type, mod,
                     Lang.BossCheck("AnubisA"),
                     (Func<bool>)(() => AAWorld.downedAnubisA),
                     ModContent.ItemType<Scepter>(),
@@ -883,7 +883,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Olympian Athena
-                bossChecklist.Call("AddBoss", 15.1f, mod.NPCType("AthenaA"), mod,
+                bossChecklist.Call("AddBoss", 15.1f, mod.Find<ModNPC>("AthenaA").Type, mod,
                     Lang.BossCheck("AthenaA"),
                     (Func<bool>)(() => AAWorld.downedAthenaA),
                     ModContent.ItemType<Owl>(),
@@ -909,7 +909,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Worm King Greed
-                bossChecklist.Call("AddBoss", 15.2f, mod.NPCType("GreedA"), mod,
+                bossChecklist.Call("AddBoss", 15.2f, mod.Find<ModNPC>("GreedA").Type, mod,
                     Lang.BossCheck("GreedA"),
                     (Func<bool>)(() => AAWorld.downedGreedA),
                     ModContent.ItemType<GoldenGrub>(),
@@ -935,7 +935,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Equinox Worms
-                bossChecklist.Call("AddBoss", 16f, mod.NPCType("DaybringerHead"), mod,
+                bossChecklist.Call("AddBoss", 16f, mod.Find<ModNPC>("DaybringerHead").Type, mod,
                     Lang.BossCheck("NightcrawlerDaybringer"),
                     (Func<bool>)(() => AAWorld.downedEquinox),
                     ModContent.ItemType<EquinoxWorm>(),
@@ -957,14 +957,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<DarkmatterOre>(),
                         ModContent.ItemType<RadiumOre>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("EquinoxWorm") + "]",
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("EquinoxWorm").Type + "]",
                     null,
                     "AAMod/CrossMod/BossChecklist/Equinox",
                     "AAMod/CrossMod/BossChecklist/EquinoxHead");
                 #endregion
 
                 #region Ashe & Haruka
-                bossChecklist.Call("AddBoss", 17f, mod.NPCType("Ashe"), mod,
+                bossChecklist.Call("AddBoss", 17f, mod.Find<ModNPC>("Ashe").Type, mod,
                     Lang.BossCheck("SistersofDiscord"),
                     (Func<bool>)(() => AAWorld.downedSisters),
                     ModContent.ItemType<FlamesOfAnarchy>(),
@@ -988,14 +988,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.AH.MizuArashi>(),
                         ModContent.ItemType<Items.Boss.AH.HarukaBox>()
                     },
-                    Lang.BossCheck("Usethe") + "[i:" + AAMod.instance.ItemType("FlamesOfAnarchy") + "]",
+                    Lang.BossCheck("Usethe") + "[i:" + AAMod.instance.Find<ModItem>("FlamesOfAnarchy").Type + "]",
                     null,
                     "AAMod/CrossMod/BossChecklist/AH",
                     "AAMod/CrossMod/BossChecklist/AHHead");
                 #endregion
 
                 #region Akuma
-                bossChecklist.Call("AddBoss", 18f, mod.NPCType("Akuma"), mod,
+                bossChecklist.Call("AddBoss", 18f, mod.Find<ModNPC>("Akuma").Type, mod,
                     Lang.BossCheck("Akuma"),
                     (Func<bool>)(() => AAWorld.downedAkuma),
                     ModContent.ItemType<DraconianSigil>(),
@@ -1023,12 +1023,12 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Akuma.AkumaTerratool>(),
                         ModContent.ItemType<Items.Boss.Akuma.CrucibleScale>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DraconianSigil") + "]" + Lang.BossCheck("AkumaInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianSigil").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Akuma",
                     "AAMod/NPCs/Bosses/Akuma/Akuma_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.05f, mod.NPCType("AkumaA"), mod,
+                bossChecklist.Call("AddBoss", 18.05f, mod.Find<ModNPC>("AkumaA").Type, mod,
                     Lang.BossCheck("AkumaA"),
                     (Func<bool>)(() => AAWorld.downedAkuma),
                     ModContent.ItemType<DraconianRune>(),
@@ -1043,7 +1043,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Akuma.AkumaBag>(),
                         ModContent.ItemType<Items.Boss.Akuma.TaiyangBaolei>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DraconianRune") + "]" + Lang.BossCheck("AkumaInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianRune").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/AkumaA",
                     "AAMod/NPCs/Bosses/Akuma/Awakened/AkumaA_Head_Boss",
@@ -1051,7 +1051,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Yamata
-                bossChecklist.Call("AddBoss", 18.1f, mod.NPCType("Yamata"), mod,
+                bossChecklist.Call("AddBoss", 18.1f, mod.Find<ModNPC>("Yamata").Type, mod,
                     Lang.BossCheck("Yamata"),
                     (Func<bool>)(() => AAWorld.downedYamata),
                     ModContent.ItemType<DreadSigil>(),
@@ -1078,12 +1078,12 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Yamata.YamataTerratool>(),
                         ModContent.ItemType<Items.Boss.Yamata.DreadScale>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DreadSigil") + "]" + Lang.BossCheck("YamataInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadSigil").Type + "]" + Lang.BossCheck("YamataInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Yamata",
                     "AAMod/NPCs/Bosses/Yamata/YamataHead_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.15f, mod.NPCType("YamataA"), mod,
+                bossChecklist.Call("AddBoss", 18.15f, mod.Find<ModNPC>("YamataA").Type, mod,
                     Lang.BossCheck("YamataA"),
                     (Func<bool>)(() => AAWorld.downedYamata),
                     ModContent.ItemType<DreadRune>(),
@@ -1098,7 +1098,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Yamata.YamataBag>(),
                         ModContent.ItemType<Items.Boss.Yamata.Naitokurosu>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DreadRune") + "]" + Lang.BossCheck("YamataInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadRune").Type + "]" + Lang.BossCheck("YamataInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/YamataA",
                     "AAMod/NPCs/Bosses/Yamata/Awakened/YamataAHead_Head_Boss",
@@ -1106,7 +1106,7 @@ namespace AAMod.Globals
                 #endregion
                 
                 #region Zero
-                bossChecklist.Call("AddBoss", 18.2f, mod.NPCType("Zero"), mod,
+                bossChecklist.Call("AddBoss", 18.2f, mod.Find<ModNPC>("Zero").Type, mod,
                     Lang.BossCheck("Zero"),
                     (Func<bool>)(() => AAWorld.downedZero),
                     ModContent.ItemType<ZeroTesseract>(),
@@ -1136,12 +1136,12 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Zero.ZeroTerratool>(),
                         ModContent.ItemType<Items.Boss.Zero.UnstableSingularity>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("ZeroTesseract") + "]" + Lang.BossCheck("ZeroInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroTesseract").Type + "]" + Lang.BossCheck("ZeroInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/Zero",
                     "AAMod/NPCs/Bosses/Zero/Zero_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.25f, mod.NPCType("ZeroProtocol"), mod,
+                bossChecklist.Call("AddBoss", 18.25f, mod.Find<ModNPC>("ZeroProtocol").Type, mod,
                     Lang.BossCheck("ZeroP"),
                     (Func<bool>)(() => AAWorld.downedZero),
                     ModContent.ItemType<ZeroRune>(),
@@ -1154,7 +1154,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Zero.ZeroBag>(),
                         ModContent.ItemType<Items.Boss.Zero.BrokenCode>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("ZeroRune") + "]" + Lang.BossCheck("ZeroInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroRune").Type + "]" + Lang.BossCheck("ZeroInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/ZeroProtocol",
                     "AAMod/NPCs/Bosses/Zero/Protocol/ZeroProtocol_Head_Boss",
@@ -1162,7 +1162,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Champion Rajah Rabbit
-                bossChecklist.Call("AddBoss", 19f, mod.NPCType("SupremeRajah"), mod,
+                bossChecklist.Call("AddBoss", 19f, mod.Find<ModNPC>("SupremeRajah").Type, mod,
                     Lang.BossCheck("RajahRabbitRevenge"),
                     (Func<bool>)(() => AAWorld.downedRajahsRevenge),
                     ModContent.ItemType<GoldenCarrot>(),
@@ -1184,14 +1184,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.CottonCaneEX>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.ChampionPlate>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("DiamondCarrot") + "]" + Lang.BossCheck("RajahRabbitRevengeInfo"),
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DiamondCarrot").Type + "]" + Lang.BossCheck("RajahRabbitRevengeInfo"),
                     null,
                     "AAMod/CrossMod/BossChecklist/CRajah",
                     "AAMod/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss");
                 #endregion
 
                 #region Shen
-                bossChecklist.Call("AddBoss", 20f, mod.NPCType("Shen"), mod,
+                bossChecklist.Call("AddBoss", 20f, mod.Find<ModNPC>("Shen").Type, mod,
                     Lang.BossCheck("ShenDoragon"),
                     (Func<bool>)(() => AAWorld.downedShen),
                     ModContent.ItemType<ChaosSigil>(),
@@ -1213,12 +1213,12 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Shen.ShenTerratool>(),
                         ModContent.ItemType<Items.Boss.Shen.ChaosScale>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("ChaosSigil") + "]",
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosSigil").Type + "]",
                     null,
                     "AAMod/CrossMod/BossChecklist/Shen",
                     "AAMod/NPCs/Bosses/Shen/Shen_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 20.1f, mod.NPCType("ShenA"), mod,
+                bossChecklist.Call("AddBoss", 20.1f, mod.Find<ModNPC>("ShenA").Type, mod,
                     Lang.BossCheck("ShenDoragonA"),
                     (Func<bool>)(() => AAWorld.downedShen),
                     ModContent.ItemType<ChaosRune>(),
@@ -1233,7 +1233,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Shen.ShenCache>(),
                         ModContent.ItemType<Items.Boss.Shen.ChaosSoul>()
                     },
-                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.ItemType("ChaosRune") + "]",
+                    Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosRune").Type + "]",
                     null,
                     "AAMod/CrossMod/BossChecklist/ShenA",
                     "AAMod/NPCs/Bosses/Shen/Protocol/ShenA_Head_Boss",
@@ -1267,13 +1267,13 @@ namespace AAMod.Globals
                 // If you localize your mod, pass in a localized string instead of just English.
                 //censusMod.Call("TownNPCCondition", mod.NPCType("Anubis"), $"Have [i:{ItemType<Items.ExampleItem>()}] or [i:{ItemType<Items.Placeable.ExampleBlock>()}] in inventory and build a house out of [i:{ItemType<Items.Placeable.ExampleBlock>()}] and [i:{ItemType<Items.Placeable.ExampleWall>()}]");
 
-                censusMod.Call("TownNPCCondition", mod.NPCType("Anubis"), Lang.CensusMod("Anubis"));
+                censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Anubis").Type, Lang.CensusMod("Anubis"));
                 if (!AAConfigClient.Instance.NoAATownNPC)
                 {
-                    censusMod.Call("TownNPCCondition", mod.NPCType("Mushman"), Lang.CensusMod("Mushman"));
-                    censusMod.Call("TownNPCCondition", mod.NPCType("Lovecraftian"), Lang.CensusMod("Lovecraftian"));
-                    censusMod.Call("TownNPCCondition", mod.NPCType("Samurai"), Lang.CensusMod("Samurai"));
-                    censusMod.Call("TownNPCCondition", mod.NPCType("Goblin Slayer"), Lang.CensusMod("GoblinSlayer"));
+                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Mushman").Type, Lang.CensusMod("Mushman"));
+                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Lovecraftian").Type, Lang.CensusMod("Lovecraftian"));
+                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Samurai").Type, Lang.CensusMod("Samurai"));
+                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Goblin Slayer").Type, Lang.CensusMod("GoblinSlayer"));
                 }
             }
         }

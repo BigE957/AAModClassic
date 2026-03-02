@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah.Supreme
 {
@@ -6,20 +7,20 @@ namespace AAMod.Items.Boss.Rajah.Supreme
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Cache");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Cache");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => mod.NPCType("SupremeRajah");
+        public override int BossBagNPC => Mod.Find<ModNPC>("SupremeRajah").Type;
 
         public override bool CanRightClick()
         {
@@ -30,7 +31,7 @@ namespace AAMod.Items.Boss.Rajah.Supreme
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("RajahMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("RajahMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -38,10 +39,10 @@ namespace AAMod.Items.Boss.Rajah.Supreme
                 modPlayer.SADevArmor();
             }
             player.QuickSpawnItem(Terraria.ModLoader.ModContent.ItemType<ChampionPlate>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(mod.ItemType("RajahCape"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("RajahCape").Type);
             string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath", "BaneOfTheBunnyEX", "CottonCaneEX", "PunisherEX", "RoyalScepterEX", "BunzookaEX"};
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
         }
     }
 }

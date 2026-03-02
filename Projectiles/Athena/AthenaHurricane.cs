@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,46 +15,46 @@ namespace AAMod.Projectiles.Athena
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Tornado");
+			// DisplayName.SetDefault("Tornado");
 		}
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 1200;
-            projectile.magic = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 1200;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override void AI()
         {
 			float num1125 = 600f;
-			if (projectile.soundDelay == 0)
+			if (Projectile.soundDelay == 0)
 			{
-				projectile.soundDelay = -1;
-				Main.PlaySound(2, projectile.Center, 122);
+				Projectile.soundDelay = -1;
+				SoundEngine.PlaySound(SoundID.Item122, Projectile.Center);
 			}
-			projectile.ai[0] += 1f;
-			if (projectile.ai[0] >= num1125)
+			Projectile.ai[0] += 1f;
+			if (Projectile.ai[0] >= num1125)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
-			if (projectile.localAI[0] >= 30f)
+			if (Projectile.localAI[0] >= 30f)
 			{
-				projectile.damage = 0;
-				if (projectile.ai[0] < num1125 - 120f)
+				Projectile.damage = 0;
+				if (Projectile.ai[0] < num1125 - 120f)
 				{
-					float num1126 = projectile.ai[0] % 60f;
-					projectile.ai[0] = num1125 - 120f + num1126;
-					projectile.netUpdate = true;
+					float num1126 = Projectile.ai[0] % 60f;
+					Projectile.ai[0] = num1125 - 120f + num1126;
+					Projectile.netUpdate = true;
 				}
 			}
 			float num1127 = 15f;
 			float num1128 = 15f;
-			Point point8 = projectile.Center.ToTileCoordinates();
+			Point point8 = Projectile.Center.ToTileCoordinates();
             Collision.ExpandVertically(point8.X, point8.Y, out int num1129, out int num1130, (int)num1127, (int)num1128);
             num1129++;
 			num1130--;
@@ -61,14 +63,14 @@ namespace AAMod.Projectiles.Athena
 			Vector2 vector146 = Vector2.Lerp(value72, value73, 0.5f);
 			Vector2 value74 = new Vector2(0f, value73.Y - value72.Y);
 			value74.X = value74.Y * 0.2f;
-			projectile.width = (int)(value74.X * 0.65f);
-			projectile.height = (int)value74.Y;
-			projectile.Center = vector146;
-			if (projectile.owner == Main.myPlayer)
+			Projectile.width = (int)(value74.X * 0.65f);
+			Projectile.height = (int)value74.Y;
+			Projectile.Center = vector146;
+			if (Projectile.owner == Main.myPlayer)
 			{
 				bool flag74 = false;
-				Vector2 center16 = Main.player[projectile.owner].Center;
-				Vector2 top = Main.player[projectile.owner].Top;
+				Vector2 center16 = Main.player[Projectile.owner].Center;
+				Vector2 top = Main.player[Projectile.owner].Top;
 				for (float num1131 = 0f; num1131 < 1f; num1131 += 0.05f)
 				{
 					Vector2 position2 = Vector2.Lerp(value72, value73, num1131);
@@ -78,14 +80,14 @@ namespace AAMod.Projectiles.Athena
 						break;
 					}
 				}
-				if (!flag74 && projectile.ai[0] < num1125 - 120f)
+				if (!flag74 && Projectile.ai[0] < num1125 - 120f)
 				{
-					float num1132 = projectile.ai[0] % 60f;
-					projectile.ai[0] = num1125 - 120f + num1132;
-					projectile.netUpdate = true;
+					float num1132 = Projectile.ai[0] % 60f;
+					Projectile.ai[0] = num1125 - 120f + num1132;
+					Projectile.netUpdate = true;
 				}
 			}
-			if (projectile.ai[0] < num1125 - 120f)
+			if (Projectile.ai[0] < num1125 - 120f)
 			{
 				for (int num1133 = 0; num1133 < 1; num1133++)
 				{
@@ -114,12 +116,12 @@ namespace AAMod.Projectiles.Athena
             {
                 NPC target = Main.npc[u];
 
-                if (target.type != NPCID.TargetDummy && target.active && !target.boss && target.chaseable && target.chaseable && Vector2.Distance(projectile.Center, target.Center) < 150)
+                if (target.type != NPCID.TargetDummy && target.active && !target.boss && target.chaseable && target.chaseable && Vector2.Distance(Projectile.Center, target.Center) < 150)
                 {
                     float num3 = 6f;
                     Vector2 vector = new Vector2(target.position.X + target.width / 2, target.position.Y + target.height / 2);
-                    float num4 = projectile.Center.X - vector.X;
-                    float num5 = projectile.Center.Y - vector.Y;
+                    float num4 = Projectile.Center.X - vector.X;
+                    float num5 = Projectile.Center.Y - vector.Y;
                     float num6 = (float)Math.Sqrt(num4 * num4 + num5 * num5);
                     num6 = num3 / num6;
                     num4 *= num6;
@@ -132,18 +134,18 @@ namespace AAMod.Projectiles.Athena
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
         	float num226 = 600f;
 			float num227 = 15f;
 			float num228 = 15f;
-			float num229 = projectile.ai[0];
+			float num229 = Projectile.ai[0];
 			float scale5 = MathHelper.Clamp(num229 / 30f, 0f, 1f);
 			if (num229 > num226 - 60f)
 			{
 				scale5 = MathHelper.Lerp(1f, 0f, (num229 - (num226 - 60f)) / 60f);
 			}
-            Point point5 = projectile.Center.ToTileCoordinates();
+            Point point5 = Projectile.Center.ToTileCoordinates();
             Collision.ExpandVertically(point5.X, point5.Y, out int num230, out int num231, (int)num227, (int)num228);
             num230++;
 			num231--;
@@ -154,7 +156,7 @@ namespace AAMod.Projectiles.Athena
 			Vector2 vector33 = new Vector2(0f, value33.Y - value32.Y);
 			vector33.X = vector33.Y * num232;
 			new Vector2(value32.X - vector33.X / 2f, value32.Y);
-			Texture2D texture2D23 = Main.projectileTexture[projectile.type];
+			Texture2D texture2D23 = TextureAssets.Projectile[Projectile.type].Value;
             Rectangle rectangle9 = texture2D23.Frame(1, 1, 0, 0);
 			Vector2 origin3 = rectangle9.Size() / 2f;
 			float num233 = -0.06283186f * num229;
@@ -193,69 +195,69 @@ namespace AAMod.Projectiles.Athena
         public override string Texture => "AAMod/Projectiles/Athena/Gale";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gale");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Gale");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 38;
-            projectile.height = 38;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.magic = true;
-            projectile.tileCollide = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 4;
-            projectile.timeLeft = 160;
-            projectile.aiStyle = -1;
-            projectile.penetrate = 1;
+            Projectile.width = 38;
+            Projectile.height = 38;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 4;
+            Projectile.timeLeft = 160;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = 1;
         }
 
         public override void AI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
             else
             {
-                projectile.spriteDirection = 1;
+                Projectile.spriteDirection = 1;
             }
             int num557 = 8;
 
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X + num557, projectile.position.Y + num557), projectile.width - num557 * 2, projectile.height - num557 * 2, 76, 0f, 0f, 0);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 76, 0f, 0f, 0);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X + num557, projectile.position.Y + num557), projectile.width - num557 * 2, projectile.height - num557 * 2, 76, 0f, 0f, 0);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 76, 0f, 0f, 0);
             Main.dust[dustId3].noGravity = true;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 
-            int h = Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<AthenaHurricane>(), projectile.damage, 0, Main.myPlayer);
-            if (projectile.minion)
+            int h = Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<AthenaHurricane>(), Projectile.damage, 0, Main.myPlayer);
+            if (Projectile.minion)
             {
-                Main.projectile[h].magic = false;
+                Main.projectile[h].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Main.projectile[h].minion = true;
             }
             for (int num579 = 0; num579 < 20; num579++)
             {
-                int num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 76, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 2f;
-                num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 76, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num580].velocity *= 2f;
             }
         }

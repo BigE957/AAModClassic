@@ -9,137 +9,137 @@ namespace AAMod.Items.Dev.RuneBook
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bunny Rune");
-            Main.projPet[projectile.type] = true;
+            // DisplayName.SetDefault("Bunny Rune");
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.netImportant = true;
-            projectile.friendly = true;
-            projectile.width = 8;
-            projectile.height = 12;
-            projectile.aiStyle = -1;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 18000;
-            projectile.timeLeft *= 5;
-            projectile.tileCollide = false;
-            projectile.timeLeft *= 5;
-            projectile.minion = true;
-            projectile.minionSlots = 0f;
-            projectile.damage = 1;
+            Projectile.netImportant = true;
+            Projectile.friendly = true;
+            Projectile.width = 8;
+            Projectile.height = 12;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 18000;
+            Projectile.timeLeft *= 5;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft *= 5;
+            Projectile.minion = true;
+            Projectile.minionSlots = 0f;
+            Projectile.damage = 1;
         }
 
         public override void AI()
         {
-            Lighting.AddLight((int)(projectile.position.X + projectile.width / 2) / 16, (int)(projectile.position.Y + projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            Player player = Main.player[projectile.owner];
+            Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
+            Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(mod.BuffType("CCRune"), 3600);
+            player.AddBuff(Mod.Find<ModBuff>("CCRune").Type, 3600);
             if (!modPlayer.CCBook)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
             if (player.dead)
             {
                 modPlayer.WeakCCRune = false;
             }
-            if (player.HasBuff(mod.BuffType("CCRune")))
+            if (player.HasBuff(Mod.Find<ModBuff>("CCRune").Type))
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
 
-            projectile.timeLeft ++;
+            Projectile.timeLeft ++;
 
             float num633 = 700f;
             float num634 = 800f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == mod.ProjectileType("BunnyRune");
-                if (num638 != projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == projectile.owner && flag23 && Math.Abs(projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num638].position.Y) < projectile.width)
+                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("BunnyRune").Type;
+                if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
-                    if (projectile.position.X < Main.projectile[num638].position.X)
+                    if (Projectile.position.X < Main.projectile[num638].position.X)
                     {
-                        projectile.velocity.X = projectile.velocity.X - 0.02f;
+                        Projectile.velocity.X = Projectile.velocity.X - 0.02f;
                     }
                     else
                     {
-                        projectile.velocity.X = projectile.velocity.X + 0.02f;
+                        Projectile.velocity.X = Projectile.velocity.X + 0.02f;
                     }
-                    if (projectile.position.Y < Main.projectile[num638].position.Y)
+                    if (Projectile.position.Y < Main.projectile[num638].position.Y)
                     {
-                        projectile.velocity.Y = projectile.velocity.Y - 0.02f;
+                        Projectile.velocity.Y = Projectile.velocity.Y - 0.02f;
                     }
                     else
                     {
-                        projectile.velocity.Y = projectile.velocity.Y + 0.02f;
+                        Projectile.velocity.Y = Projectile.velocity.Y + 0.02f;
                     }
                 }
             }
-            if (Vector2.Distance(player.Center, projectile.Center) > 400f)
+            if (Vector2.Distance(player.Center, Projectile.Center) > 400f)
 			{
-				projectile.ai[0] = 1f;
-				projectile.tileCollide = false;
-				projectile.netUpdate = true;
+				Projectile.ai[0] = 1f;
+				Projectile.tileCollide = false;
+				Projectile.netUpdate = true;
 			}
-			Vector2 vector = player.Center - projectile.Center - new Vector2(0, 50f);
+			Vector2 vector = player.Center - Projectile.Center - new Vector2(0, 50f);
             float num639 = 7f;
 			if (vector.Length() > 200f && num639 < 10f)
 			{
 				num639 = 10f;
 			}
-			if (vector.Length() < 100f && (projectile.ai[0] == 1f) && !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+			if (vector.Length() < 100f && (Projectile.ai[0] == 1f) && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
 			{
-				projectile.ai[0] = 0f;
-				projectile.netUpdate = true;
+				Projectile.ai[0] = 0f;
+				Projectile.netUpdate = true;
 			}
 			if (vector.Length() > 2000f)
 			{
-				projectile.position.X = Main.player[projectile.owner].Center.X - projectile.width / 2;
-				projectile.position.Y = Main.player[projectile.owner].Center.Y - projectile.height / 2;
-				projectile.netUpdate = true;
+				Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+				Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
+				Projectile.netUpdate = true;
 			}
 			else if (vector.Length() > 40f)
 			{
 				vector.Normalize();
 				vector *= num639;
-				projectile.velocity = (projectile.velocity * 40f + vector) / 41f;
+				Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
 			}
-			else if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+			else if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
 			{
-				projectile.velocity.X = -0.04f;
-				projectile.velocity.Y = -0.02f;
+				Projectile.velocity.X = -0.04f;
+				Projectile.velocity.Y = -0.02f;
 			}
 
-            if (projectile.ai[1] > 0f)
+            if (Projectile.ai[1] > 0f)
 			{
-				projectile.ai[1] += Main.rand.Next(1, 4);
+				Projectile.ai[1] += Main.rand.Next(1, 4);
 			}
-			if (projectile.ai[1] > 220f)
+			if (Projectile.ai[1] > 220f)
 			{
-				projectile.ai[1] = 0f;
-				projectile.netUpdate = true;
+				Projectile.ai[1] = 0f;
+				Projectile.netUpdate = true;
 			}
-            if (projectile.localAI[0] < 120f)
+            if (Projectile.localAI[0] < 120f)
 			{
-				projectile.localAI[0] += 1f;
+				Projectile.localAI[0] += 1f;
 			}
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                if (projectile.ai[1] == 0f && projectile.localAI[0] >= 120f)
+                if (Projectile.ai[1] == 0f && Projectile.localAI[0] >= 120f)
                 {
-                    projectile.ai[1] += 1f;
-                    if (Main.myPlayer == projectile.owner && Main.player[projectile.owner].statLife < Main.player[projectile.owner].statLifeMax2)
+                    Projectile.ai[1] += 1f;
+                    if (Main.myPlayer == Projectile.owner && Main.player[Projectile.owner].statLife < Main.player[Projectile.owner].statLifeMax2)
 					{
-                        Main.player[projectile.owner].HealEffect(1, false);
-                        Main.player[projectile.owner].statLife += 1;
-                        if (Main.player[projectile.owner].statLife > Main.player[projectile.owner].statLifeMax2)
+                        Main.player[Projectile.owner].HealEffect(1, false);
+                        Main.player[Projectile.owner].statLife += 1;
+                        if (Main.player[Projectile.owner].statLife > Main.player[Projectile.owner].statLifeMax2)
                         {
-                            Main.player[projectile.owner].statLife = Main.player[projectile.owner].statLifeMax2;
+                            Main.player[Projectile.owner].statLife = Main.player[Projectile.owner].statLifeMax2;
                         }
-                        NetMessage.SendData(66, -1, -1, null, projectile.owner, 1, 0f, 0f, 0, 0, 0);
-                        projectile.netUpdate = true;
+                        NetMessage.SendData(66, -1, -1, null, Projectile.owner, 1, 0f, 0f, 0, 0, 0);
+                        Projectile.netUpdate = true;
                     }
                 }
             }

@@ -10,73 +10,73 @@ namespace AAMod.Projectiles
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Death Dagger");
+			// DisplayName.SetDefault("Death Dagger");
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.friendly = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 300;
-            projectile.melee = true;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.friendly = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 300;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-        	projectile.ai[0] += 1f;
-			if (projectile.ai[0] >= 20f)
+        	Projectile.ai[0] += 1f;
+			if (Projectile.ai[0] >= 20f)
 			{
-				projectile.alpha += 3;
-				projectile.damage = (int)(projectile.damage * 0.95);
-				projectile.knockBack = (int)(projectile.knockBack * 0.95);
+				Projectile.alpha += 3;
+				Projectile.damage = (int)(Projectile.damage * 0.95);
+				Projectile.knockBack = (int)(Projectile.knockBack * 0.95);
 			}
-			if (projectile.ai[0] < 20f)
+			if (Projectile.ai[0] < 20f)
 			{
-				projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+				Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 			}
-			if (projectile.velocity.Y > 16f)
+			if (Projectile.velocity.Y > 16f)
 			{
-				projectile.velocity.Y = 16f;
+				Projectile.velocity.Y = 16f;
 			}
-        	float num472 = projectile.Center.X;
-			float num473 = projectile.Center.Y;
+        	float num472 = Projectile.Center.X;
+			float num473 = Projectile.Center.Y;
 			bool flag17 = false;
 			if (flag17)
 			{
 				float num483 = 18f;
-				Vector2 vector35 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+				Vector2 vector35 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
 				float num484 = num472 - vector35.X;
 				float num485 = num473 - vector35.Y;
 				float num486 = (float)Math.Sqrt(num484 * num484 + num485 * num485);
 				num486 = num483 / num486;
 				num484 *= num486;
 				num485 *= num486;
-				projectile.velocity.X = (projectile.velocity.X * 20f + num484) / 21f;
-				projectile.velocity.Y = (projectile.velocity.Y * 20f + num485) / 21f;
+				Projectile.velocity.X = (Projectile.velocity.X * 20f + num484) / 21f;
+				Projectile.velocity.Y = (Projectile.velocity.Y * 20f + num485) / 21f;
 				return;
 			}
             if (Main.rand.Next(6) == 0)
             {
-            	Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, ModContent.DustType<Dusts.AbyssDust>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
         }
         
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int num303 = 0; num303 < 3; num303++)
 			{
-				int num304 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, default, 0.8f);
+				int num304 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, default, 0.8f);
 				Main.dust[num304].noGravity = true;
 				Main.dust[num304].velocity *= 1.2f;
-				Main.dust[num304].velocity -= projectile.oldVelocity * 0.3f;
+				Main.dust[num304].velocity -= Projectile.oldVelocity * 0.3f;
 			}
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.AddBuff(mod.BuffType("HydraToxin"), 120);
+        	target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 120);
         	if (target.type == NPCID.TargetDummy)
 			{
 				return;
@@ -91,8 +91,8 @@ namespace AAMod.Projectiles
 				return;
 			}
 			Main.LocalPlayer.lifeSteal -= num;
-			int num2 = projectile.owner;
-			Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, mod.ProjectileType("DeathDaggerHeal"), 0, 0f, projectile.owner, num2, num);
+			int num2 = Projectile.owner;
+			Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, Mod.Find<ModProjectile>("DeathDaggerHeal").Type, 0, 0f, Projectile.owner, num2, num);
         }
     }
 }

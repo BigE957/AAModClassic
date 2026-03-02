@@ -10,23 +10,23 @@ namespace AAMod.Items.Armor.StripeMan
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stripeman's Lucky Shirt");
-            Tooltip.SetDefault(@"Displays everything
+			// DisplayName.SetDefault("Stripeman's Lucky Shirt");
+            /* Tooltip.SetDefault(@"Displays everything
 You have chance to get gold coins in stoneblocks
 You have more chance to meet with rare creatures.
 You have more chance to get better things in pots
 If you have enough money, you can resist an attack by losting all your money.
-Have the effect of Arctic Diving Gear");
+Have the effect of Arctic Diving Gear"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 50;
-			item.rare = -1;
-			item.defense = 1;
-            item.value = Item.sellPrice(0, 0, 0, 1);
+			Item.width = 30;
+			Item.height = 20;
+			Item.value = 50;
+			Item.rare = -1;
+			Item.defense = 1;
+            Item.value = Item.sellPrice(0, 0, 0, 1);
         }
 
 		public override void UpdateEquip(Player player)
@@ -92,7 +92,7 @@ Have the effect of Arctic Diving Gear");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.AncientGoldHelmet, 1);
 			recipe.AddIngredient(null, "AncientGoldBody", 1);
 			recipe.AddIngredient(null, "AncientGoldLeg", 1);
@@ -100,8 +100,7 @@ Have the effect of Arctic Diving Gear");
 			recipe.AddIngredient(ItemID.PDA, 1);
 			recipe.AddIngredient(null, "LuckyCracker", 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

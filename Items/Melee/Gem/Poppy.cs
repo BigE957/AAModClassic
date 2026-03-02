@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,30 +9,30 @@ namespace AAMod.Items.Melee.Gem   //where is located
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Poppy");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Poppy");
+            // Tooltip.SetDefault("");
         }
         public override void SetDefaults()
         {
 
-            item.damage = 32;            
-            item.melee = true;            
-            item.width = 44;              
-            item.height = 44;             
-            item.useTime = 20;          
-            item.useAnimation = 20;
-            item.useStyle = 1;        
-            item.knockBack = 3;      
-            item.value = 5000;        
-            item.rare = 4;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = true;   
-            item.useTurn = true;
+            Item.damage = 32;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 44;              
+            Item.height = 44;             
+            Item.useTime = 20;          
+            Item.useAnimation = 20;
+            Item.useStyle = 1;        
+            Item.knockBack = 3;      
+            Item.value = 5000;        
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = true;   
+            Item.useTurn = true;
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Ruby, 1);
             recipe.AddIngredient(ItemID.Sapphire, 1);
             recipe.AddIngredient(ItemID.Emerald, 1);
@@ -42,8 +43,7 @@ namespace AAMod.Items.Melee.Gem   //where is located
             recipe.AddIngredient(null, "Prism", 10);
             recipe.AddRecipeGroup("AAMod:Gold", 12);		
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

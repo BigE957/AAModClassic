@@ -1,3 +1,4 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.FishingItem
 {
     public class ToxinMonkfish : BaseAAItem
@@ -5,24 +6,24 @@ namespace AAMod.Items.FishingItem
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toxin Monkfish");
+            // DisplayName.SetDefault("Toxin Monkfish");
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 4;
+            Item.width = 32;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 4;
             AARarity = 6;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 128000;
-            item.createTile = mod.TileType("ToxinMonkfishTile");
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 128000;
+            Item.createTile = Mod.Find<ModTile>("ToxinMonkfishTile").Type;
         }
     }
 }

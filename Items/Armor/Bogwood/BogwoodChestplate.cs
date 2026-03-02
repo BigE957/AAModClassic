@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,25 +10,24 @@ namespace AAMod.Items.Armor.Bogwood
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bogwood Chestplate");
+            // DisplayName.SetDefault("Bogwood Chestplate");
         }
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 20;
-            item.value = 2000;
-            item.rare = 0;
-            item.defense = 2;
+            Item.width = 30;
+            Item.height = 20;
+            Item.value = 2000;
+            Item.rare = 0;
+            Item.defense = 2;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Bogwood", 30);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

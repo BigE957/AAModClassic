@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,19 +11,19 @@ namespace AAMod.Items.Melee   //where is located
         public override void SetDefaults()
         {
 
-            item.damage = 174;            
-            item.melee = true;            
-            item.width = 78;              
-            item.height = 78;             
-            item.useTime = 26;          
-            item.useAnimation = 26;     
-            item.useStyle = 1;        
-            item.knockBack = 4;      
-            item.value = 20;        
-            item.rare = 7;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = true;   
-            item.useTurn = true;
+            Item.damage = 174;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 78;              
+            Item.height = 78;             
+            Item.useTime = 26;          
+            Item.useAnimation = 26;     
+            Item.useStyle = 1;        
+            Item.knockBack = 4;      
+            Item.value = 20;        
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = true;   
+            Item.useTurn = true;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -31,18 +32,17 @@ namespace AAMod.Items.Melee   //where is located
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Guardian of the Depths");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Guardian of the Depths");
+            // Tooltip.SetDefault("");
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(null, "DeepAbyssium", 10);
 			recipe.AddIngredient(ItemID.Ectoplasm, 15);
             recipe.AddTile(TileID.MythrilAnvil);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

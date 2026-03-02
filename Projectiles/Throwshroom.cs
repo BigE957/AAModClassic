@@ -8,13 +8,13 @@ namespace AAMod.Projectiles
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Shuriken);
-            projectile.penetrate = -1;  
-            projectile.width = 20;
-            projectile.height = 22;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 150;
+            Projectile.CloneDefaults(ProjectileID.Shuriken);
+            Projectile.penetrate = -1;  
+            Projectile.width = 20;
+            Projectile.height = 22;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 150;
             
         }
     }

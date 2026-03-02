@@ -10,9 +10,9 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.DeathSickle);
-            projectile.tileCollide = true;
-            projectile.alpha = 40;
+            Projectile.CloneDefaults(ProjectileID.DeathSickle);
+            Projectile.tileCollide = true;
+            Projectile.alpha = 40;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -20,7 +20,7 @@ namespace AAMod.Projectiles
             return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
         }
         
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Ichor, 1000);
             target.AddBuff(BuffID.CursedInferno, 1000);

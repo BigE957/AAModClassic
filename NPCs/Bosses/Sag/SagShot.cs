@@ -2,6 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Sag
@@ -11,21 +14,21 @@ namespace AAMod.NPCs.Bosses.Sag
 
         public override void SetDefaults()
         {
-            projectile.width = 18;
-            projectile.height = 18;
-            projectile.damage = 10;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.penetrate = 1;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 600;
-            projectile.tileCollide = true;
+            Projectile.width = 18;
+            Projectile.height = 18;
+            Projectile.damage = 10;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 600;
+            Projectile.tileCollide = true;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            projectile.ai[0] += 0.1f;
-            projectile.velocity *= 0.75f;
+            Projectile.ai[0] += 0.1f;
+            Projectile.velocity *= 0.75f;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
@@ -42,26 +45,26 @@ namespace AAMod.NPCs.Bosses.Sag
         {
 			if(Main.netMode != 2 && !spawnSound)
 			{
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 33);				
+				SoundEngine.PlaySound(SoundID.Item33, Projectile.position);				
 				spawnSound = true;
 			}
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
 
             if (Main.rand.Next(1) == 0)
             {
-                int dustnumber = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default, 0.8f);
+                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustnumber].velocity *= 0.3f;
             }
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
         }
 
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 5;
+            Main.projFrames[Projectile.type] = 5;
         }
         
         public override Color? GetAlpha(Color lightColor)
@@ -69,21 +72,21 @@ namespace AAMod.NPCs.Bosses.Sag
             return Color.Violet;
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5) 
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5) 
             {
-                projectile.frame++; 
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4)
+                Projectile.frame++; 
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 5, 0, 0);
-            SagiStar.DrawAfterimage(sb, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.oldPos, projectile.scale, projectile.rotation, projectile.direction, 5, frame, 1.2f, 1f, 4, true, 0, 0, true, Color.White);
-            BaseDrawing.DrawTexture(sb, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 5, frame, Color.White, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 5, 0, 0);
+            SagiStar.DrawAfterimage(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, 1.2f, 1f, 4, true, 0, 0, true, Color.White);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, Color.White, true);
             return false;
         }
     }

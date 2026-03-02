@@ -1,5 +1,7 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace AAMod.Items.DevTools
 {
@@ -7,23 +9,23 @@ namespace AAMod.Items.DevTools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Ore Genner");
-            Tooltip.SetDefault(@"Generates AA worldgen ore");
+            // DisplayName.SetDefault("Ancient Ore Genner");
+            // Tooltip.SetDefault(@"Generates AA worldgen ore");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             GenOres();
             
@@ -36,10 +38,10 @@ namespace AAMod.Items.DevTools
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
             {
                 int tilesX = WorldGen.genRand.Next(0, Main.maxTilesX);
-                int tilesY = WorldGen.genRand.Next((int)WorldGen.rockLayerLow, Main.maxTilesY);
-                if (Main.tile[tilesX, tilesY].type == 1)
+                int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
+                if (Main.tile[tilesX, tilesY].TileType == 1)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)mod.TileType("IncineriteOre"));
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("IncineriteOre").Type);
                 }
             }
 
@@ -47,19 +49,19 @@ namespace AAMod.Items.DevTools
             {
                 int tilesX = WorldGen.genRand.Next(0, x);
                 int tilesY = WorldGen.genRand.Next(0, y);
-                if (Main.tile[tilesX, tilesY].type == 59)
+                if (Main.tile[tilesX, tilesY].TileType == 59)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)mod.TileType("EverleafRoot"));
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
                 }
             }
 
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
             {
                 int tilesX = WorldGen.genRand.Next(0, Main.maxTilesX);
-                int tilesY = WorldGen.genRand.Next((int)WorldGen.rockLayerLow, Main.maxTilesY);
-                if (Main.tile[tilesX, tilesY].type == 59)
+                int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
+                if (Main.tile[tilesX, tilesY].TileType == 59)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)mod.TileType("AbyssiumOre"));
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("AbyssiumOre").Type);
                 }
             }
             
@@ -67,9 +69,9 @@ namespace AAMod.Items.DevTools
             {
                 int tilesX = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int tilesY = WorldGen.genRand.Next(0, Main.maxTilesY);
-                if (Main.tile[tilesX, tilesY].type == TileID.IceBlock)
+                if (Main.tile[tilesX, tilesY].TileType == TileID.IceBlock)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)mod.TileType("RelicOre"));
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("RelicOre").Type);
                 }
             }
 
@@ -78,12 +80,12 @@ namespace AAMod.Items.DevTools
             {
                 int i = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int j = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
-                while (Main.tile[i, j].type != 1)
+                while (Main.tile[i, j].TileType != 1)
                 {
                     i = WorldGen.genRand.Next(0, Main.maxTilesX);
                     j = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
                 }
-                WorldGen.TileRunner(i, j, WorldGen.genRand.Next(2, 6), WorldGen.genRand.Next(3, 7), mod.TileType("PrismOre"));
+                WorldGen.TileRunner(i, j, WorldGen.genRand.Next(2, 6), WorldGen.genRand.Next(3, 7), Mod.Find<ModTile>("PrismOre").Type);
             }
         }
     }

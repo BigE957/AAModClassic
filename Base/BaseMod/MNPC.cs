@@ -8,7 +8,7 @@ namespace AAMod
 {
     public class MNPC : GlobalNPC
 	{
-		public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)
+		public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
 			BaseArmorData.lastShaderDrawObject = npc;			
 			return base.PreDraw(npc, spriteBatch, drawColor);

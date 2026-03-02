@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,36 +9,35 @@ namespace AAMod.Items.Tools
         public override void SetDefaults()
         {
 
-            item.damage = 7;
-            item.melee = true;
-            item.width = 40;
-            item.height = 40;
+            Item.damage = 7;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 40;
 
-            item.useTime = 12;
-            item.useAnimation = 20;
-            item.pick = 40;    //pickaxe power
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = 10;
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.useTime = 12;
+            Item.useAnimation = 20;
+            Item.pick = 40;    //pickaxe power
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = 10;
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Coral Pickaxe");
-            Tooltip.SetDefault("Because Blue Pickaxe was a boring name");
+            // DisplayName.SetDefault("Coral Pickaxe");
+            // Tooltip.SetDefault("Because Blue Pickaxe was a boring name");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Coral, 15);
             recipe.AddTile(TileID.WorkBenches);   
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

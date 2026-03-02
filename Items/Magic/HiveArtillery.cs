@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,20 +11,20 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hive Artillery");
-			Tooltip.SetDefault("Shoots dozens of terrifying bees"
+			// DisplayName.SetDefault("Hive Artillery");
+			/* Tooltip.SetDefault("Shoots dozens of terrifying bees"
 			+"\nBees ignore enemy invincibility frames"
-			+"\nBee Gun EX");
+			+"\nBee Gun EX"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.BeeGun);
-			item.damage = 40;
-			item.mana = 6;
-			item.useAnimation = 2;
-			item.useTime = 2;
-			item.scale = 1f;
+			Item.CloneDefaults(ItemID.BeeGun);
+			Item.damage = 40;
+			Item.mana = 6;
+			Item.useAnimation = 2;
+			Item.useTime = 2;
+			Item.scale = 1f;
 		}
 		
 		public override Vector2? HoldoutOffset()
@@ -31,7 +32,7 @@ namespace AAMod.Items.Magic
 			return new Vector2(-12, 0);
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
@@ -73,7 +74,7 @@ namespace AAMod.Items.Magic
 				num165 += Main.rand.Next(-35, 36) * 0.02f;
 				num166 += Main.rand.Next(-35, 36) * 0.02f;
 				int num167 = Projectile.NewProjectile(vector2.X, vector2.Y, num165, num166, BeeType(player), BeeDamage(damage), BeeKB(knockBack), player.whoAmI, 0f, 0f);
-				Main.projectile[num167].magic = true;
+				Main.projectile[num167].DamageType = DamageClass.Magic;
 				Main.projectile[num167].usesLocalNPCImmunity = true;
 				Main.projectile[num167].localNPCHitCooldown = 1;
 			}
@@ -113,13 +114,12 @@ namespace AAMod.Items.Magic
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BeeGun);
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

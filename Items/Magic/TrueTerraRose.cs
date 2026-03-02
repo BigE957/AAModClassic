@@ -9,33 +9,33 @@ namespace AAMod.Items.Magic
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Terra Rose");
-            Tooltip.SetDefault(@"Some say this staff was used by the legendary hero themselves
+            // DisplayName.SetDefault("True Terra Rose");
+            /* Tooltip.SetDefault(@"Some say this staff was used by the legendary hero themselves
 Projectiles explode on hit
 Projectiles go through walls
 Right Clicking fires a piercing rose
-Terra Rose EX");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+Terra Rose EX"); */
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 500;
-			item.magic = true;
-			item.mana = 15;
-			item.width = 68;
-			item.height = 60;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 6;
-			item.value = 500000;
-			item.rare = 11;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("TerraRoseShotEX");
-			item.shootSpeed = 20f;
+			Item.damage = 500;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 15;
+			Item.width = 68;
+			Item.height = 60;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 6;
+			Item.value = 500000;
+			Item.rare = 11;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("TerraRoseShotEX").Type;
+			Item.shootSpeed = 20f;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -47,31 +47,30 @@ Terra Rose EX");
         {
             if (player.altFunctionUse == 2)
             {
-                item.shoot = mod.ProjectileType("TrueTerraRose");
-                item.damage = 70;
-                item.useTime = 30;
-                item.useAnimation = 30;
-                item.knockBack = 2;
+                Item.shoot = Mod.Find<ModProjectile>("TrueTerraRose").Type;
+                Item.damage = 70;
+                Item.useTime = 30;
+                Item.useAnimation = 30;
+                Item.knockBack = 2;
             }
             else
             {
-                item.shoot = mod.ProjectileType("TerraRoseShotEX");
-                item.damage = 500;
-                item.useTime = 10;
-                item.useAnimation = 10;
-                item.knockBack = 6;
+                Item.shoot = Mod.Find<ModProjectile>("TerraRoseShotEX").Type;
+                Item.damage = 500;
+                Item.useTime = 10;
+                Item.useAnimation = 10;
+                Item.knockBack = 6;
             }
             return base.CanUseItem(player);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);      
-            recipe.AddIngredient(mod.ItemType("TerraRose"));
-			recipe.AddIngredient(mod.ItemType("EXSoul"));
+            Recipe recipe = CreateRecipe();      
+            recipe.AddIngredient(Mod.Find<ModItem>("TerraRose").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

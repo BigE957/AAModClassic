@@ -10,19 +10,19 @@ namespace AAMod.Items.Materials
         
         public override void SetStaticDefaults()
         {
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
-            DisplayName.SetDefault("Radiant Photon");
-            Tooltip.SetDefault("A shard of the heavenly cosmos");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
+            // DisplayName.SetDefault("Radiant Photon");
+            // Tooltip.SetDefault("A shard of the heavenly cosmos");
         }
         public override void SetDefaults()
         {
-            item.width = 48;
-            item.height = 48;
-            item.maxStack = 99;
-            item.rare = 11;
-            item.value = 10000;
+            Item.width = 48;
+            Item.height = 48;
+            Item.maxStack = 99;
+            Item.rare = 11;
+            Item.value = 10000;
         }
 
         public override Color? GetAlpha(Color lightColor)

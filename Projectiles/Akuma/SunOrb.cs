@@ -10,69 +10,69 @@ namespace AAMod.Projectiles.Akuma
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sun Portal");
-            Main.projFrames[projectile.type] = 1;
+            // DisplayName.SetDefault("Sun Portal");
+            Main.projFrames[Projectile.type] = 1;
         }
 
 		public override void SetDefaults()
 		{
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = Projectile.SentryLifeTime;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.sentry = true;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = Projectile.SentryLifeTime;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.sentry = true;
         }
 
         public float Rotation = 0;
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 64, 64);
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture("Projectiles/Akuma/SunOrb1"), 0, projectile.position + new Vector2(0, projectile.gfxOffY), projectile.width, projectile.height, projectile.scale, -projectile.rotation, projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture("Projectiles/Akuma/SunOrb"), 0, projectile.position + new Vector2(0, projectile.gfxOffY), projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb1"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
 
         public override void AI()
         {
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
             Rotation += .0008f;
-            projectile.rotation += .0008f;
-            projectile.velocity = Vector2.Zero;
-            if (projectile.direction == 0)
+            Projectile.rotation += .0008f;
+            Projectile.velocity = Vector2.Zero;
+            if (Projectile.direction == 0)
             {
-                    projectile.direction = Main.player[projectile.owner].direction;
+                    Projectile.direction = Main.player[Projectile.owner].direction;
             }
-            projectile.rotation -= projectile.direction * 6.28318548f / 120f;
-            projectile.scale = projectile.Opacity;
-            Lighting.AddLight(projectile.Center, new Vector3(0.3f, 0.9f, 0.7f) * projectile.Opacity);
+            Projectile.rotation -= Projectile.direction * 6.28318548f / 120f;
+            Projectile.scale = Projectile.Opacity;
+            Lighting.AddLight(Projectile.Center, new Vector3(0.3f, 0.9f, 0.7f) * Projectile.Opacity);
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector135 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust31 = Main.dust[Dust.NewDust(projectile.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust31 = Main.dust[Dust.NewDust(Projectile.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
                 dust31.noGravity = true;
-                dust31.position = projectile.Center - vector135 * Main.rand.Next(10, 21);
+                dust31.position = Projectile.Center - vector135 * Main.rand.Next(10, 21);
                 dust31.velocity = vector135.RotatedBy(1.5707963705062866, default) * 6f;
                 dust31.scale = 0.5f + Main.rand.NextFloat();
                 dust31.fadeIn = 0.5f;
-                dust31.customData = projectile.Center;
+                dust31.customData = Projectile.Center;
             }
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector136 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust32 = Main.dust[Dust.NewDust(projectile.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust32 = Main.dust[Dust.NewDust(Projectile.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
                 dust32.noGravity = true;
-                dust32.position = projectile.Center - vector136 * 30f;
+                dust32.position = Projectile.Center - vector136 * 30f;
                 dust32.velocity = vector136.RotatedBy(-1.5707963705062866, default) * 3f;
                 dust32.scale = 0.5f + Main.rand.NextFloat();
                 dust32.fadeIn = 0.5f;
-                dust32.customData = projectile.Center;
+                dust32.customData = Projectile.Center;
             }
-            if (projectile.ai[0] < 0f)
+            if (Projectile.ai[0] < 0f)
             {
-                Vector2 center15 = projectile.Center;
-                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<Dusts.AkumaADust>(), projectile.velocity.X / 2f, projectile.velocity.Y / 2f, 0);
+                Vector2 center15 = Projectile.Center;
+                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 0);
                 Main.dust[num1059].velocity *= 2f;
                 Main.dust[num1059].noGravity = true;
                 Main.dust[num1059].scale = Utils.SelectRandom(Main.rand, new float[]
@@ -82,11 +82,11 @@ namespace AAMod.Projectiles.Akuma
                 });
                 Main.dust[num1059].customData = this;
             }
-            if (projectile.ai[0] < 0f)
+            if (Projectile.ai[0] < 0f)
             {
-                projectile.ai[0] += 1f;
+                Projectile.ai[0] += 1f;
                 
-                    projectile.ai[1] -= projectile.direction * 0.3926991f / 50f;
+                    Projectile.ai[1] -= Projectile.direction * 0.3926991f / 50f;
                 
             }
 			
@@ -95,17 +95,17 @@ namespace AAMod.Projectiles.Akuma
             float num635 = 1200f;
             float num636 = 150f;
             bool flag24 = false;
-            if (projectile.ai[0] == 2f)
+            if (Projectile.ai[0] == 2f)
             {
-                projectile.ai[1] += 1f;
-                projectile.extraUpdates = 1;
-                if (projectile.ai[1] > 40f)
+                Projectile.ai[1] += 1f;
+                Projectile.extraUpdates = 1;
+                if (Projectile.ai[1] > 40f)
                 {
-                    projectile.ai[1] = 1f;
-                    projectile.ai[0] = 0f;
-                    projectile.extraUpdates = 0;
-                    projectile.numUpdates = 0;
-                    projectile.netUpdate = true;
+                    Projectile.ai[1] = 1f;
+                    Projectile.ai[0] = 0f;
+                    Projectile.extraUpdates = 0;
+                    Projectile.numUpdates = 0;
+                    Projectile.netUpdate = true;
                 }
                 else
                 {
@@ -116,23 +116,23 @@ namespace AAMod.Projectiles.Akuma
             {
                 return;
             }
-            Vector2 vector46 = projectile.position;
+            Vector2 vector46 = Projectile.position;
             bool flag25 = false;
-            if (projectile.ai[0] != 1f)
+            if (Projectile.ai[0] != 1f)
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
-            if (projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)projectile.Center.X / 16, (int)projectile.Center.Y / 16)))
+            if (Projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16)))
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
             for (int num645 = 0; num645 < 200; num645++)
             {
                 NPC nPC2 = Main.npc[num645];
-                if (nPC2.CanBeChasedBy(projectile, false))
+                if (nPC2.CanBeChasedBy(Projectile, false))
                 {
-                    float num646 = Vector2.Distance(nPC2.Center, projectile.Center);
-                    if (((Vector2.Distance(projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
+                    if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.Center;
@@ -145,28 +145,28 @@ namespace AAMod.Projectiles.Akuma
             {
                 num647 = num635;
             }
-            if (Vector2.Distance(player.Center, projectile.Center) > num647)
+            if (Vector2.Distance(player.Center, Projectile.Center) > num647)
             {
-                projectile.ai[0] = 1f;
-                projectile.tileCollide = false;
-                projectile.netUpdate = true;
+                Projectile.ai[0] = 1f;
+                Projectile.tileCollide = false;
+                Projectile.netUpdate = true;
             }
-            if (flag25 && projectile.ai[0] == 0f)
+            if (flag25 && Projectile.ai[0] == 0f)
             {
-                Vector2 vector47 = vector46 - projectile.Center;
+                Vector2 vector47 = vector46 - Projectile.Center;
                 float num648 = vector47.Length();
                 vector47.Normalize();
                 if (num648 > 200f)
                 {
                     float scaleFactor2 = 8f;
                     vector47 *= scaleFactor2;
-                    projectile.velocity = (projectile.velocity * 40f + vector47) / 41f;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
                 }
                 else
                 {
                     float num649 = 4f;
                     vector47 *= -num649;
-                    projectile.velocity = (projectile.velocity * 40f + vector47) / 41f;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
                 }
             }
             else
@@ -174,67 +174,67 @@ namespace AAMod.Projectiles.Akuma
                 bool flag26 = false;
                 if (!flag26)
                 {
-                    flag26 = projectile.ai[0] == 1f;
+                    flag26 = Projectile.ai[0] == 1f;
                 }
                 float num650 = 5f; //6
                 if (flag26)
                 {
                     num650 = 12f; //15
                 }
-                Vector2 center2 = projectile.Center;
+                Vector2 center2 = Projectile.Center;
                 Vector2 vector48 = player.Center - center2 + new Vector2(0f, -30f); //-60
                 float num651 = vector48.Length();
                 if (num651 > 200f && num650 < 6.5f) //200 and 8
                 {
                     num650 = 6.5f; //8
                 }
-                if (num651 < num636 && flag26 && !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+                if (num651 < num636 && flag26 && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
                 {
-                    projectile.ai[0] = 0f;
-                    projectile.netUpdate = true;
+                    Projectile.ai[0] = 0f;
+                    Projectile.netUpdate = true;
                 }
                 if (num651 > 2000f)
                 {
-                    projectile.position.X = Main.player[projectile.owner].Center.X - projectile.width / 2;
-                    projectile.position.Y = Main.player[projectile.owner].Center.Y - projectile.height / 2;
-                    projectile.netUpdate = true;
+                    Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
+                    Projectile.netUpdate = true;
                 }
                 if (num651 > 70f)
                 {
                     vector48.Normalize();
                     vector48 *= num650;
-                    projectile.velocity = (projectile.velocity * 40f + vector48) / 41f;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector48) / 41f;
                 }
-                else if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+                else if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
                 {
-                    projectile.velocity.X = -0.2f;
-                    projectile.velocity.Y = -0.1f;
+                    Projectile.velocity.X = -0.2f;
+                    Projectile.velocity.Y = -0.1f;
                 }
             }
-            if (projectile.ai[1] > 0f)
+            if (Projectile.ai[1] > 0f)
             {
-                projectile.ai[1] += Main.rand.Next(1, 4);
+                Projectile.ai[1] += Main.rand.Next(1, 4);
             }
-            if (projectile.ai[1] > 30f)
+            if (Projectile.ai[1] > 30f)
             {
-                projectile.ai[1] = 0f;
-                projectile.netUpdate = true;
+                Projectile.ai[1] = 0f;
+                Projectile.netUpdate = true;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
                 int num658 = ModContent.ProjectileType<FlamingMeteor>();
-                if (flag25 && projectile.ai[1] == 0f)
+                if (flag25 && Projectile.ai[1] == 0f)
                 {
-                    projectile.ai[1] += 1f;
-                    if (Main.myPlayer == projectile.owner && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, vector46, 0, 0))
+                    Projectile.ai[1] += 1f;
+                    if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
                     {
-                        Vector2 value19 = vector46 - projectile.Center;
+                        Vector2 value19 = vector46 - Projectile.Center;
                         value19.Normalize();
                         value19 *= 8;
 						Vector2 perturbedSpeed = value19.RotatedByRandom(MathHelper.ToRadians(10));
-                        int num659 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[num659].timeLeft = 300;
-                        projectile.netUpdate = true;
+                        Projectile.netUpdate = true;
                     }
                 }
             }

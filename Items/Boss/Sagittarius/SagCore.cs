@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Boss.Sagittarius
@@ -9,35 +11,35 @@ namespace AAMod.Items.Boss.Sagittarius
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Sagittarius Core");
-            BaseUtility.AddTooltips(item, new string[] { "Activates probes that orbit you and defend you from surrounding enemies" });			
+            // DisplayName.SetDefault("Sagittarius Core");
+            BaseUtility.AddTooltips(Item, new string[] { "Activates probes that orbit you and defend you from surrounding enemies" });			
 		}		
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 34;
-            item.maxStack = 1;
-            item.rare = 4;
-            item.value = BaseUtility.CalcValue(0, 0, 60, 0);
-            item.useStyle = 1;
-            item.useAnimation = 35;
-            item.useTime = 35;
-            item.UseSound = SoundID.Item8;
-            item.autoReuse = true;
-            item.noMelee = true;
-            item.summon = true;
-            item.shoot = mod.ProjType("OrbiterMinion");
-            item.shootSpeed = 5;
-            item.damage = 50;
-            item.mana = 10;
+            Item.width = 30;
+            Item.height = 34;
+            Item.maxStack = 1;
+            Item.rare = 4;
+            Item.value = BaseUtility.CalcValue(0, 0, 60, 0);
+            Item.useStyle = 1;
+            Item.useAnimation = 35;
+            Item.useTime = 35;
+            Item.UseSound = SoundID.Item8;
+            Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Summon;
+            Item.shoot = Mod.ProjType("OrbiterMinion");
+            Item.shootSpeed = 5;
+            Item.damage = 50;
+            Item.mana = 10;
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(mod.BuffType("SagOrbiter"), 2, true);
+				player.AddBuff(Mod.Find<ModBuff>("SagOrbiter").Type, 2, true);
 			}
 		}
     }

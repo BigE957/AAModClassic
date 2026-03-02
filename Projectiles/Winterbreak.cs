@@ -7,51 +7,51 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.friendly = true;
-            projectile.aiStyle = -1;
-            projectile.melee = true;
-            projectile.penetrate = 1;
-            projectile.extraUpdates = 1;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.friendly = true;
+            Projectile.aiStyle = -1;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.extraUpdates = 1;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.SnowDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.SnowDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.SnowDustLight>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SnowDustLight>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
         public override void AI()
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 25;
+                Projectile.alpha -= 25;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.ai[1] += 1f;
-                if (projectile.ai[1] >= 45f)
+                Projectile.ai[1] += 1f;
+                if (Projectile.ai[1] >= 45f)
                 {
                     float num975 = 0.98f;
                     float num976 = 0.35f;
-                    projectile.ai[1] = 45f;
-                    projectile.velocity.X = projectile.velocity.X * num975;
-                    projectile.velocity.Y = projectile.velocity.Y + num976;
+                    Projectile.ai[1] = 45f;
+                    Projectile.velocity.X = Projectile.velocity.X * num975;
+                    Projectile.velocity.Y = Projectile.velocity.Y + num976;
                 }
-                projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             }
         }
     }

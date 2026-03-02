@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -6,25 +7,25 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rusty Cutlass");
-			Tooltip.SetDefault("Even being rusty, it's still hard 'n sharp");
+			// DisplayName.SetDefault("Rusty Cutlass");
+			// Tooltip.SetDefault("Even being rusty, it's still hard 'n sharp");
 		}
 		
 		public override void SetDefaults()
 		{
-			item.damage = 21;
-			item.melee = true;
-			item.width = 34;
-			item.height = 40;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = 20000;
-			item.rare = 3;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.useTurn = true;  
+			Item.damage = 21;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 34;
+			Item.height = 40;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = 20000;
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+			Item.useTurn = true;  
 		}
 	}
 }

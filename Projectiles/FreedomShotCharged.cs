@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
@@ -11,58 +12,58 @@ namespace AAMod.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Freedom Charged Shot");
-            Main.projFrames[projectile.type] = 3;
+            // DisplayName.SetDefault("Freedom Charged Shot");
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
-            projectile.extraUpdates = 2;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
+            Projectile.extraUpdates = 2;
         }
 
         public override void AI()
         {
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, 74,
-					projectile.velocity.X, projectile.velocity.Y, 200, Scale: 1f);
-				dust.velocity += projectile.velocity * 0.3f;
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 74,
+					Projectile.velocity.X, Projectile.velocity.Y, 200, Scale: 1f);
+				dust.velocity += Projectile.velocity * 0.3f;
 				dust.velocity *= 0.2f;
 			}
-			if (++projectile.frameCounter >= 5)
+			if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 2)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 2)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            projectile.rotation = projectile.velocity.ToRotation(); // projectile faces sprite right
+            Projectile.rotation = Projectile.velocity.ToRotation(); // projectile faces sprite right
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (firstHit && projectile.owner == Main.myPlayer)
+            if (firstHit && Projectile.owner == Main.myPlayer)
             {
-                Projectile.NewProjectile(projectile.Center, new Vector2(0, 0), mod.ProjectileType("FreedomBall"), projectile.damage, 0f, projectile.owner);
+                Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), Mod.Find<ModProjectile>("FreedomBall").Type, Projectile.damage, 0f, Projectile.owner);
                 firstHit = false;
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
-			Main.PlaySound(SoundID.DD2_ExplosiveTrapExplode, projectile.position);
-			int p = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("DummyExplosionTerra"), projectile.damage, 0, Main.myPlayer);
-			Main.projectile[p].magic = false;
-			Main.projectile[p].ranged = true;
+			SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
+			int p = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
+			Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Main.projectile[p].DamageType = DamageClass.Ranged;
 			for (int index1 = 0; index1 < 30; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 74, 0.0f, 0.0f, 100, new Color(), 1f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 74, 0.0f, 0.0f, 100, new Color(), 1f);
 				Main.dust[index2].velocity *= 1.1f;
 				Main.dust[index2].scale *= 0.99f;
 			}

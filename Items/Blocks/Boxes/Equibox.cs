@@ -9,36 +9,36 @@ namespace AAMod.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Equinox Worms Music Box");
-            Tooltip.SetDefault(@"Plays 'Orbittal Equilibrium' by Charlie Debnam");
+			// DisplayName.SetDefault("Equinox Worms Music Box");
+            // Tooltip.SetDefault(@"Plays 'Orbittal Equilibrium' by Charlie Debnam");
         }
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 1;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.consumable = true;
-			item.createTile = mod.TileType("Equibox");
-            item.width = 72;
-			item.height = 36;
-			item.rare = 4;
-			item.value = 10000;
-			item.accessory = true;
+			Item.useStyle = 1;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("Equibox").Type;
+            Item.width = 72;
+			Item.height = 36;
+			Item.rare = 4;
+			Item.value = 10000;
+			Item.accessory = true;
         }
         
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/EquiBox_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/EquiBox_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -54,13 +54,12 @@ namespace AAMod.Items.Blocks.Boxes
         {
             if (Main.expertMode == true)
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.MusicBox);
                 recipe.AddIngredient(null, "DarkEnergy", 5);
                 recipe.AddIngredient(null, "Stardust", 5);
                 recipe.AddTile(TileID.Sawmill);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

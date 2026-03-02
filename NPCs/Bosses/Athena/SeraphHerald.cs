@@ -1,6 +1,7 @@
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Athena
@@ -11,40 +12,40 @@ namespace AAMod.NPCs.Bosses.Athena
 
         public override void SetDefaults()
         {
-            Main.npcFrameCount[npc.type] = 4;
-            npc.width = 60;
-            npc.height = 40;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            Main.npcFrameCount[NPC.type] = 4;
+            NPC.width = 60;
+            NPC.height = 40;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         int pos;
         public override bool PreAI()
         {
-            npc.TargetClosest();
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest();
+            Player player = Main.player[NPC.target];
 
-            if (player.Center.X > npc.Center.X)
+            if (player.Center.X > NPC.Center.X)
             {
                 pos = 250;
 
-                npc.direction = 1;
+                NPC.direction = 1;
             }
             else
             {
                 pos = -250;
 
-                npc.direction = -1;
+                NPC.direction = -1;
             }
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 200);
@@ -52,84 +53,84 @@ namespace AAMod.NPCs.Bosses.Athena
 
             if (Main.netMode != 2)
             {
-                npc.frameCounter++;
-                if (npc.frameCounter >= 6)
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 6)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += Main.npcTexture[npc.type].Height / 4;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += TextureAssets.Npc[NPC.type].Value.Height / 4;
                 }
-                if (npc.frame.Y > Main.npcTexture[npc.type].Height / 4 * 3)
+                if (NPC.frame.Y > TextureAssets.Npc[NPC.type].Value.Height / 4 * 3)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
             if (Main.netMode != 1)
             {
-                if (Vector2.Distance(player.Center, npc.Center) > 2200)
+                if (Vector2.Distance(player.Center, NPC.Center) > 2200)
                 {
-                    npc.position = new Vector2(pos, 200);
+                    NPC.position = new Vector2(pos, 200);
                     for (int i = 0; i < 5; i++)
                     {
-                        Dust d = Main.dust[Dust.NewDust(npc.position, npc.height, npc.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
-                        d.position = npc.Center;
+                        Dust d = Main.dust[Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
+                        d.position = NPC.Center;
                     }
                 }
-                npc.ai[0]++;
-                npc.alpha -= 15;
+                NPC.ai[0]++;
+                NPC.alpha -= 15;
 
-                if (npc.ai[0] == 1)
+                if (NPC.ai[0] == 1)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald1"), Color.CadetBlue);
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 else
-                if (npc.ai[0] == 120)
+                if (NPC.ai[0] == 120)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald2"), Color.CadetBlue);
                 }
                 else
-                if (npc.ai[0] == 240)
+                if (NPC.ai[0] == 240)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald3"), Color.CadetBlue);
                 }
                 else
-                if (npc.ai[0] == 360)
+                if (NPC.ai[0] == 360)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald4"), Color.CadetBlue);
                 }
                 if (!AAWorld.downedGreed)
                 {
-                    if (npc.ai[0] >= 480)
+                    if (NPC.ai[0] >= 480)
                     {
                         if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
 
                         for (int i = 0; i < 5; i++)
                         {
-                            Dust.NewDust(npc.position, npc.height, npc.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                         }
 
-                        npc.active = false;
-                        npc.netUpdate = true;
+                        NPC.active = false;
+                        NPC.netUpdate = true;
                     }
                 }
                 else
                 {
-                    if (npc.ai[0] == 480)
+                    if (NPC.ai[0] == 480)
                     {
                         if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald6"), Color.CadetBlue);
                     }
 
-                    if (npc.ai[0] >= 600)
+                    if (NPC.ai[0] >= 600)
                     {
                         if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
 
                         for (int i = 0; i < 5; i++)
                         {
-                            Dust.NewDust(npc.position, npc.height, npc.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                         }
 
-                        npc.active = false;
-                        npc.netUpdate = true;
+                        NPC.active = false;
+                        NPC.netUpdate = true;
                     }
                 }
             }
@@ -138,38 +139,38 @@ namespace AAMod.NPCs.Bosses.Athena
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.velocity.X > 0f)
+            if (NPC.velocity.X > 0f)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
-            npc.rotation = npc.velocity.X * 0.1f;
-            if (npc.type == 210 || npc.type == 211)
+            NPC.rotation = NPC.velocity.X * 0.1f;
+            if (NPC.type == 210 || NPC.type == 211)
             {
-                npc.frameCounter += 1.0;
-                npc.rotation = npc.velocity.X * 0.2f;
+                NPC.frameCounter += 1.0;
+                NPC.rotation = NPC.velocity.X * 0.2f;
             }
-            npc.frameCounter += 1.0;
-            if (npc.frameCounter >= 6.0)
+            NPC.frameCounter += 1.0;
+            if (NPC.frameCounter >= 6.0)
             {
-                npc.frame.Y = npc.frame.Y + frameHeight;
-                npc.frameCounter = 0.0;
+                NPC.frame.Y = NPC.frame.Y + frameHeight;
+                NPC.frameCounter = 0.0;
             }
-            if (npc.frame.Y >= frameHeight * Main.npcFrameCount[npc.type])
+            if (NPC.frame.Y >= frameHeight * Main.npcFrameCount[NPC.type])
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
         }
 
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)
         {
             float moveSpeed = 14f;
-            if (moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+            if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -187,9 +188,9 @@ namespace AAMod.NPCs.Bosses.Athena
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
     }
 }

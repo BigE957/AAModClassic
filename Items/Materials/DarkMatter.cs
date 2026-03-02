@@ -8,35 +8,35 @@ namespace AAMod.Items.Materials
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Matter");
-            Tooltip.SetDefault("The building blocks of physics itself");
+            // DisplayName.SetDefault("Dark Matter");
+            // Tooltip.SetDefault("The building blocks of physics itself");
         }
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 24;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("Darkmatter");
-            item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.width = 30;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("Darkmatter").Type;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -50,11 +50,10 @@ namespace AAMod.Items.Materials
 
         public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkmatterOre", 5);              //example of how to craft with a modded item
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

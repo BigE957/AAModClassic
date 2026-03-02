@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Doom
 {
     public class DoomLamp : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -37,30 +38,30 @@ namespace AAMod.Tiles.Furniture.Doom
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Doom Lamp");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Doom Lamp");
             AddMapEntry(new Color(200, 0, 0), name);
-            dustType = mod.DustType("DoomDust");
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 
 
         }
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].frameX / 18) % 1;
-            int top = j - (Main.tile[i, j].frameY / 18) % 3;
+            int left = i - (Main.tile[i, j].TileFrameX / 18) % 1;
+            int top = j - (Main.tile[i, j].TileFrameY / 18) % 3;
             for (int x = left; x < left + 1; x++)
             {
                 for (int y = top; y < top + 3; y++)
                 {
 
-                    if (Main.tile[x, y].frameX >= 18)
+                    if (Main.tile[x, y].TileFrameX >= 18)
                     {
-                        Main.tile[x, y].frameX -= 18;
+                        Main.tile[x, y].TileFrameX -= 18;
                     }
                     else
                     {
-                        Main.tile[x, y].frameX += 18;
+                        Main.tile[x, y].TileFrameX += 18;
                     }
                 }
             }
@@ -81,7 +82,7 @@ namespace AAMod.Tiles.Furniture.Doom
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 18)
+            if (tile.TileFrameX < 18)
             {
                 r = 0.9f;
                 g = 0.9f;
@@ -91,14 +92,14 @@ namespace AAMod.Tiles.Furniture.Doom
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("DoomLamp"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomLamp").Type);
 			Chest.DestroyChest(i, j);
 		}
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Color color = Color.White;
-            int frameX = Main.tile[i, j].frameX;
-            int frameY = Main.tile[i, j].frameY;
+            int frameX = Main.tile[i, j].TileFrameX;
+            int frameY = Main.tile[i, j].TileFrameY;
             int width = 20;
             int offsetY = 2;
             int height = 20;
@@ -110,7 +111,7 @@ namespace AAMod.Tiles.Furniture.Doom
             }
             for (int k = 0; k < 7; k++)
             {
-                Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/DoomLamp_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DoomLamp_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
             }
         }
     }

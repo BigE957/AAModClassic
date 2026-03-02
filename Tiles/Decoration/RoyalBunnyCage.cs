@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -7,24 +8,24 @@ namespace AAMod.Tiles.Decoration
 {
     public class RoyalBunnyCage : ModTile
     {
-        public override void SetDefaults() {
+        public override void SetStaticDefaults() {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileLavaDeath[Type] = false;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style6x3);
 			TileObjectData.addTile(Type);
-            disableSmartCursor = true;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 
-			animationFrameHeight = 54;
+			AnimationFrameHeight = 54;
 
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Royal Bunny Cage");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Royal Bunny Cage");
 			AddMapEntry(Color.Gold, name);
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, mod.ItemType("RoyalBunnyCage"));
+            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RoyalBunnyCage").Type);
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

@@ -8,7 +8,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 {
 	public class RazewoodPlatform : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileLighted[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -17,7 +17,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-            soundType = 21;
+            HitSound = 21;
 			TileID.Sets.Platforms[Type] = true;
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 16 };
 			TileObjectData.newTile.CoordinateWidth = 16;
@@ -30,10 +30,10 @@ namespace AAMod.Tiles.Furniture.Razewood
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            dustType = mod.DustType("RazewoodDust");
-			drop = mod.ItemType("RazewoodPlatform");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Platforms };
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RazewoodPlatform").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Platforms };
         }
 
         public override bool CreateDust(int i, int j, ref int type)

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodChair : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -25,12 +26,12 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			TileObjectData.addAlternate(1); //facing right will use the second texture style
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Bogwood Chair");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Bogwood Chair");
 			AddMapEntry(new Color(20, 0, 100), name);
-			dustType = mod.DustType("BogwoodDust");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Chairs };
+			DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Chairs };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -40,7 +41,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 32, mod.ItemType("BogwoodChair"));
+			Item.NewItem(i * 16, j * 16, 16, 32, Mod.Find<ModItem>("BogwoodChair").Type);
 		}
     }
 }

@@ -9,27 +9,27 @@ namespace AAMod.Items.Throwing
 
         public override void SetDefaults()
         {
-			item.useTime = 25;
-            item.CloneDefaults(ItemID.LightDisc);
-            item.melee = true;
-            item.maxStack = 5;
-            item.damage = 42;                            
-            item.value = 6;
-            item.rare = 5;
-            item.knockBack = 5;
-            item.useStyle = 1;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.shoot = mod.ProjectileType("HellBallP");
-			item.width = 56;
-            item.height = 56;
-            item.noMelee = true;
+			Item.useTime = 25;
+            Item.CloneDefaults(ItemID.LightDisc);
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.maxStack = 5;
+            Item.damage = 42;                            
+            Item.value = 6;
+            Item.rare = 5;
+            Item.knockBack = 5;
+            Item.useStyle = 1;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.shoot = Mod.Find<ModProjectile>("HellBallP").Type;
+			Item.width = 56;
+            Item.height = 56;
+            Item.noMelee = true;
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("Scorched Saw");
-          Tooltip.SetDefault("");
+          // DisplayName.SetDefault("Scorched Saw");
+          // Tooltip.SetDefault("");
         }
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
@@ -37,12 +37,12 @@ namespace AAMod.Items.Throwing
             int num = 0;
             for (int i = 0; i < 200; i++)
             {
-                if (Main.projectile[i].active && Main.projectile[i].type == mod.ProjectileType("HellBallP"))
+                if (Main.projectile[i].active && Main.projectile[i].type == Mod.Find<ModProjectile>("HellBallP").Type)
                 {
                     num++;
                 }
             }
-            if (num > item.stack)
+            if (num > Item.stack)
             {
                 return false;
             }
@@ -51,12 +51,11 @@ namespace AAMod.Items.Throwing
 
         public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HellstoneBar, 20);              //exeample of how to craft with a modded item
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

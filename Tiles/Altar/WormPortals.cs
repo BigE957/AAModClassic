@@ -10,99 +10,99 @@ namespace AAMod.Tiles.Altar
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bright Star");
+            // DisplayName.SetDefault("Bright Star");
         }
         public override void SetDefaults()
         {
-            npc.width = 46;
-            npc.height = 46;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 46;
+            NPC.height = 46;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            Texture2D DBPortal = mod.GetTexture("Tiles/Altar/DBPortal");
-            Texture2D DBPortalBack = mod.GetTexture("Tiles/Altar/DBPortalBack");
-            Texture2D DBEyes = mod.GetTexture("Tiles/Altar/DBPortalEyes");
+            Texture2D DBPortal = Mod.GetTexture("Tiles/Altar/DBPortal");
+            Texture2D DBPortalBack = Mod.GetTexture("Tiles/Altar/DBPortalBack");
+            Texture2D DBEyes = Mod.GetTexture("Tiles/Altar/DBPortalEyes");
 
-            BaseDrawing.DrawTexture(spritebatch, DBPortalBack, 0, npc.position, npc.width, npc.height, npc.scale * 1.2f, npc.rotation, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, DBPortal, 0, npc.position, npc.width, npc.height, npc.scale, -npc.rotation, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, DBEyes, 0, npc.position, npc.width, npc.height, npc.scale, 0, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, DBPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, DBPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, DBEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;
         }
 
         public override void AI()
         {
-            if (!npc.HasPlayerTarget)
+            if (!NPC.HasPlayerTarget)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
             }
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(200, 300f));
 
-            if (Vector2.Distance(npc.Center, player.Center) > 2000)
+            if (Vector2.Distance(NPC.Center, player.Center) > 2000)
             {
-                npc.alpha = 255;
-                npc.Center = player.Center - new Vector2(200, 300f);
+                NPC.alpha = 255;
+                NPC.Center = player.Center - new Vector2(200, 300f);
             }
 
-            npc.rotation += .1f;
+            NPC.rotation += .1f;
 
-            if (npc.ai[0] != 1)
+            if (NPC.ai[0] != 1)
             {
-                npc.Center = player.Center - new Vector2(200, 300f);
-                npc.ai[0] = 1;
+                NPC.Center = player.Center - new Vector2(200, 300f);
+                NPC.ai[0] = 1;
             }
 
-            npc.ai[1]++;
-            if (npc.ai[1] >= 1880)
+            NPC.ai[1]++;
+            if (NPC.ai[1] >= 1880)
             {
-                npc.timeLeft--;
-                npc.alpha += 5;
+                NPC.timeLeft--;
+                NPC.alpha += 5;
             }
             else
             {
-                if (npc.alpha > 100)
+                if (NPC.alpha > 100)
                 {
-                    npc.alpha -= 3;
+                    NPC.alpha -= 3;
                 }
                 else
                 {
-                    npc.alpha = 100;
+                    NPC.alpha = 100;
                 }
                 return;
             }
 
 
-            if (npc.alpha > 255)
+            if (NPC.alpha > 255)
             {
-                npc.active = false;
+                NPC.active = false;
             }
         }
 
         public void MoveToPoint(Vector2 point)
         {
             float moveSpeed = 14f;
-            if (moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+            if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -120,9 +120,9 @@ namespace AAMod.Tiles.Altar
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
     }
@@ -131,98 +131,98 @@ namespace AAMod.Tiles.Altar
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Black Void");
+            // DisplayName.SetDefault("Black Void");
         }
         public override void SetDefaults()
         {
-            npc.width = 46;
-            npc.height = 46;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 46;
+            NPC.height = 46;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
 
-            Texture2D NCPortal = mod.GetTexture("Tiles/Altar/NCPortal");
-            Texture2D NCPortalBack = mod.GetTexture("Tiles/Altar/NCPortalBack");
-            Texture2D NCEyes = mod.GetTexture("Tiles/Altar/NCPortalEyes");
+            Texture2D NCPortal = Mod.GetTexture("Tiles/Altar/NCPortal");
+            Texture2D NCPortalBack = Mod.GetTexture("Tiles/Altar/NCPortalBack");
+            Texture2D NCEyes = Mod.GetTexture("Tiles/Altar/NCPortalEyes");
 
-            BaseDrawing.DrawTexture(spritebatch, NCPortalBack, 0, npc.position, npc.width, npc.height, npc.scale * 1.2f, -npc.rotation, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, NCPortal, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, NCEyes, 0, npc.position, npc.width, npc.height, npc.scale, 0, 0, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, NCPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, NCPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, NCEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;
         }
 
         public override void AI()
         {
-            if (!npc.HasPlayerTarget)
+            if (!NPC.HasPlayerTarget)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
             }
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(-200, 300f));
 
-            if (Vector2.Distance(npc.Center, player.Center) > 2000)
+            if (Vector2.Distance(NPC.Center, player.Center) > 2000)
             {
-                npc.alpha = 255;
-                npc.Center = player.Center - new Vector2(-200, 300f);
+                NPC.alpha = 255;
+                NPC.Center = player.Center - new Vector2(-200, 300f);
             }
 
-            npc.rotation += .1f;
+            NPC.rotation += .1f;
 
-            if (npc.ai[0] != 1)
+            if (NPC.ai[0] != 1)
             {
-                npc.Center = player.Center - new Vector2(-200, 300f);
-                npc.ai[0] = 1;
+                NPC.Center = player.Center - new Vector2(-200, 300f);
+                NPC.ai[0] = 1;
             }
 
-            npc.ai[1]++;
-            if (npc.ai[1] >= 1880)
+            NPC.ai[1]++;
+            if (NPC.ai[1] >= 1880)
             {
-                npc.alpha += 5;
+                NPC.alpha += 5;
             }
             else
             {
-                if (npc.alpha > 100)
+                if (NPC.alpha > 100)
                 {
-                    npc.alpha -= 3;
+                    NPC.alpha -= 3;
                 }
                 else
                 {
-                    npc.alpha = 100;
+                    NPC.alpha = 100;
                 }
                 return;
             }
 
-            if (npc.alpha > 255)
+            if (NPC.alpha > 255)
             {
-                npc.active = false;
+                NPC.active = false;
             }
         }
 
         public void MoveToPoint(Vector2 point)
         {
             float moveSpeed = 14f;
-            if (moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+            if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -240,9 +240,9 @@ namespace AAMod.Tiles.Altar
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
     }

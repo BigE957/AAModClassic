@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,68 +14,68 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Archwitch Staff");
+            // DisplayName.SetDefault("Archwitch Staff");
         }
         public override void SetDefaults()
         {
-            projectile.width = 110;
-            projectile.height = 110;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;       
-            projectile.melee = true;
+            Projectile.width = 110;
+            Projectile.height = 110;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;       
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-            projectile.soundDelay--;
-            if (projectile.soundDelay <= 0)
+            Projectile.soundDelay--;
+            if (Projectile.soundDelay <= 0)
             {
-                Main.PlaySound(2, (int)projectile.Center.X, (int)projectile.Center.Y, 15);
-                projectile.soundDelay = 45;
+                SoundEngine.PlaySound(SoundID.Item15, Projectile.Center);
+                Projectile.soundDelay = 45;
             }
-            Player player = Main.player[projectile.owner];
-            if (Main.myPlayer == projectile.owner)
+            Player player = Main.player[Projectile.owner];
+            if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            Lighting.AddLight(projectile.Center, .6f, 0.6f, .7f);
-            projectile.Center = player.MountedCenter;
-            projectile.position.X += player.width / 2 * player.direction;
-            projectile.spriteDirection = player.direction;
-            projectile.rotation += 0.3f * player.direction;
-            if (projectile.rotation > MathHelper.TwoPi)
+            Lighting.AddLight(Projectile.Center, .6f, 0.6f, .7f);
+            Projectile.Center = player.MountedCenter;
+            Projectile.position.X += player.width / 2 * player.direction;
+            Projectile.spriteDirection = player.direction;
+            Projectile.rotation += 0.3f * player.direction;
+            if (Projectile.rotation > MathHelper.TwoPi)
             {
-                projectile.rotation -= MathHelper.TwoPi;
+                Projectile.rotation -= MathHelper.TwoPi;
             }
-            else if (projectile.rotation < 0)
+            else if (Projectile.rotation < 0)
             {
-                projectile.rotation += MathHelper.TwoPi;
+                Projectile.rotation += MathHelper.TwoPi;
             }
-            player.heldProj = projectile.whoAmI;
+            player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = projectile.rotation;
-            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Shadowflame);
+            player.itemRotation = Projectile.rotation;
+            int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame);
             Main.dust[dust].velocity /= 1f;
 
-            int Target = BaseAI.GetNPC(projectile.Center, -1, 500);
+            int Target = BaseAI.GetNPC(Projectile.Center, -1, 500);
             if (Target != -1)
             {
                 NPC target = Main.npc[Target];
-                int p = BaseAI.ShootPeriodic(projectile, target.position, target.width, target.height, ModContent.ProjectileType<ArchwitchStar>(), ref projectile.ai[0], 40, projectile.damage, 4, true);
+                int p = BaseAI.ShootPeriodic(Projectile, target.position, target.width, target.height, ModContent.ProjectileType<ArchwitchStar>(), ref Projectile.ai[0], 40, Projectile.damage, 4, true);
                 Main.projectile[p].ai[1] = target.whoAmI;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

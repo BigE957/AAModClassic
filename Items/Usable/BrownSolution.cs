@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Usable
 {
@@ -7,21 +8,21 @@ namespace AAMod.Items.Usable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Brown Solution");
-			Tooltip.SetDefault("Used by the Clentaminator"
-				+ "\nSpreads the Red Mushroom biome");
+			// DisplayName.SetDefault("Brown Solution");
+			/* Tooltip.SetDefault("Used by the Clentaminator"
+				+ "\nSpreads the Red Mushroom biome"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.shoot = mod.ProjectileType("SPORZ") - ProjectileID.PureSpray;
-			item.ammo = AmmoID.Solution;
-			item.width = 10;
-			item.height = 12;
-			item.value = Item.sellPrice(0, 0, 25, 0);
-			item.rare = 3;
-			item.maxStack = 999;
-			item.consumable = true;
+			Item.shoot = Mod.Find<ModProjectile>("SPORZ").Type - ProjectileID.PureSpray;
+			Item.ammo = AmmoID.Solution;
+			Item.width = 10;
+			Item.height = 12;
+			Item.value = Item.sellPrice(0, 0, 25, 0);
+			Item.rare = 3;
+			Item.maxStack = 999;
+			Item.consumable = true;
 		}
 	}
 }

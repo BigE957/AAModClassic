@@ -9,28 +9,28 @@ namespace AAMod.Items.Melee
     {
         public override void SetDefaults()
         {
-            item.damage = 260;
-            item.melee = true;
-            item.width = 90;
-            item.height = 90;
-            item.useTime = 45;
-            item.useAnimation = 45;     
-            item.useStyle = 1;
-            item.knockBack = 5;
-            item.value = 200000;        
-            item.rare = 6;
-            item.crit = 10;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
+            Item.damage = 260;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 90;
+            Item.height = 90;
+            Item.useTime = 45;
+            Item.useAnimation = 45;     
+            Item.useStyle = 1;
+            Item.knockBack = 5;
+            Item.value = 200000;        
+            Item.rare = 6;
+            Item.crit = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Carnal Crusher");
-            Tooltip.SetDefault("Critical Hits heal you");
+            // DisplayName.SetDefault("Carnal Crusher");
+            // Tooltip.SetDefault("Critical Hits heal you");
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             player.itemLocation +=
                 new Vector2(-8 * player.direction, 16 * player.gravDir).RotatedBy(player.itemRotation);
@@ -44,7 +44,7 @@ namespace AAMod.Items.Melee
 			}
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
             if (target.type == NPCID.TargetDummy)
             {
@@ -60,21 +60,20 @@ namespace AAMod.Items.Melee
                 return;
             }
             Main.LocalPlayer.lifeSteal -= num;
-            int num2 = item.owner;
+            int num2 = Item.playerIndexTheItemIsReservedFor;
             if (crit)
             {
-                Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, item.owner, num2, num);
+                Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, Item.playerIndexTheItemIsReservedFor, num2, num);
             }
         }
 		
         public override void AddRecipes()  //How to craft this sword
         {
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "FleshrendClaymore");
 			recipe.AddIngredient(ItemID.LunarTabletFragment, 30);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
         }
     }
 }

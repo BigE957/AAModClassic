@@ -21,32 +21,32 @@ namespace AAMod.Projectiles
             if (runOnce)
             {
                 runOnce = false;
-                projectile.localNPCImmunity[(int)projectile.ai[0]] = 0;
+                Projectile.localNPCImmunity[(int)Projectile.ai[0]] = 0;
             }
             if (effectPotency > 0)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, dust);
-                Player player = Main.player[projectile.owner];
-                projectile.velocity = (player.Center - projectile.Center).SafeNormalize(-Vector2.UnitY) * 12f;
-                if (Collision.CheckAABBvAABBCollision(player.position, player.Size, projectile.position, projectile.Size))
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dust);
+                Player player = Main.player[Projectile.owner];
+                Projectile.velocity = (player.Center - Projectile.Center).SafeNormalize(-Vector2.UnitY) * 12f;
+                if (Collision.CheckAABBvAABBCollision(player.position, player.Size, Projectile.position, Projectile.Size))
                 {
                     PlayerBenifit(effectPotency, player);
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             return false;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.immune[projectile.owner] = 0;
-            projectile.localNPCImmunity[target.whoAmI] = -1;
+            target.immune[Projectile.owner] = 0;
+            Projectile.localNPCImmunity[target.whoAmI] = -1;
             effectPotency = (int)(damage * potencyFactor);
             if (effectPotency > 0)
             {
-                projectile.timeLeft = 120;
+                Projectile.timeLeft = 120;
             }
 
 
@@ -57,19 +57,19 @@ namespace AAMod.Projectiles
 
         public override void SetDefaults()
         {
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.width = projectile.height = 4;
-            projectile.usesLocalNPCImmunity = true;
-            for (int i = 0; i < projectile.localNPCImmunity.Length; i++)
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.width = Projectile.height = 4;
+            Projectile.usesLocalNPCImmunity = true;
+            for (int i = 0; i < Projectile.localNPCImmunity.Length; i++)
             {
-                projectile.localNPCImmunity[i] = -1;
+                Projectile.localNPCImmunity[i] = -1;
             }
-            projectile.timeLeft = 3;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            dust = mod.DustType("DarkmatterDust");
+            Projectile.timeLeft = 3;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            dust = Mod.Find<ModDust>("DarkmatterDust").Type;
             potencyFactor = .02f;
         }
         public override void PlayerBenifit(int potency, Player player)
@@ -84,19 +84,19 @@ namespace AAMod.Projectiles
 
         public override void SetDefaults()
         {
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.width = projectile.height = 4;
-            projectile.usesLocalNPCImmunity = true;
-            for (int i = 0; i < projectile.localNPCImmunity.Length; i++)
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.width = Projectile.height = 4;
+            Projectile.usesLocalNPCImmunity = true;
+            for (int i = 0; i < Projectile.localNPCImmunity.Length; i++)
             {
-                projectile.localNPCImmunity[i] = -1;
+                Projectile.localNPCImmunity[i] = -1;
             }
-            projectile.timeLeft = 3;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            dust = mod.DustType("RadiumDust");
+            Projectile.timeLeft = 3;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            dust = Mod.Find<ModDust>("RadiumDust").Type;
             potencyFactor = .25f;
         }
         public override void PlayerBenifit(int potency, Player player)
@@ -122,18 +122,18 @@ namespace AAMod.Projectiles
             }
             if (overloadCount >0)
             {
-                if (player.HasBuff(mod.BuffType("ManaOverload")))
+                if (player.HasBuff(Mod.Find<ModBuff>("ManaOverload").Type))
                 {
 
-                    player.buffTime[player.FindBuffIndex(mod.BuffType("ManaOverload"))] += overloadCount * 2;
-                    if (player.buffTime[player.FindBuffIndex(mod.BuffType("ManaOverload"))] > 600)
+                    player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] += overloadCount * 2;
+                    if (player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] > 600)
                     {
-                        player.buffTime[player.FindBuffIndex(mod.BuffType("ManaOverload"))] = 600;
+                        player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] = 600;
                     }
                 }
                 else
                 {
-                    player.AddBuff(mod.BuffType("ManaOverload"), overloadCount * 2);
+                    player.AddBuff(Mod.Find<ModBuff>("ManaOverload").Type, overloadCount * 2);
                 }
                 CombatText.NewText(player.Hitbox, Color.Purple, overloadCount * 2);
             }

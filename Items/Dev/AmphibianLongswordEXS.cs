@@ -8,48 +8,46 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Amphibious Greatblade");
-            Tooltip.SetDefault(@"Amphibious Longsword EX");
+			// DisplayName.SetDefault("Amphibious Greatblade");
+            // Tooltip.SetDefault(@"Amphibious Longsword EX");
         }
 		public override void SetDefaults()
 		{
-			item.damage = 350;
-			item.melee = true;
-			item.width = 64;
-			item.height = 64;
-            item.useTime = 30;
-			item.useAnimation = 30;
-            item.useStyle = 1;
-			item.knockBack = 7;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("AmphibiousProjectileEXS");
-            item.shootSpeed = 18f;
-            item.expert = true; item.expertOnly = true;
+			Item.damage = 350;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 64;
+			Item.height = 64;
+            Item.useTime = 30;
+			Item.useAnimation = 30;
+            Item.useStyle = 1;
+			Item.knockBack = 7;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("AmphibiousProjectileEXS").Type;
+            Item.shootSpeed = 18f;
+            Item.expert = true; Item.expertOnly = true;
 		}
         
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Wet, 1000);
         }
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "AmphibianLongswordEX");
                 recipe.AddIngredient(null, "ShinyCharm");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "AmphibianLongswordS");
                 recipe.AddIngredient(null, "EXSoul");
                 recipe.AddTile(null, "QuantumFusionAccelerator");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

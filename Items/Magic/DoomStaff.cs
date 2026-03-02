@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
 {
@@ -6,27 +7,27 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Doom Rod");
+            // DisplayName.SetDefault("Doom Rod");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 14;
-			item.magic = true;
-			item.mana = 6;
-			item.width = 42;
-			item.height = 42;
-			item.useTime = 28;
-			item.useAnimation = 28;
-			item.useStyle = 1;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 1000;
-			item.rare = 2;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("DoomProj");
-			item.shootSpeed = 6f;
+			Item.damage = 14;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 6;
+			Item.width = 42;
+			Item.height = 42;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
+			Item.useStyle = 1;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 1000;
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("DoomProj").Type;
+			Item.shootSpeed = 6f;
 		}
 	}
 }

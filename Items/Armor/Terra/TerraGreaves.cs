@@ -9,33 +9,32 @@ namespace AAMod.Items.Armor.Terra
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Greaves");
-            Tooltip.SetDefault(@"10% increased movement speed
-5% increased damage");
+			// DisplayName.SetDefault("Terra Greaves");
+            /* Tooltip.SetDefault(@"10% increased movement speed
+5% increased damage"); */
         }
 
 		public override void SetDefaults()
 		{
-            item.width = 22;
-            item.height = 16;
-            item.defense = 22;
-            item.rare = 7;
+            Item.width = 22;
+            Item.height = 16;
+            Item.defense = 22;
+            Item.rare = 7;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.allDamage += .05f;
+            player.GetDamage(DamageClass.Generic) += .05f;
             player.moveSpeed += .1f;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAMod:TerraBoots");
             recipe.AddIngredient(null, "TerraCrystal");
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

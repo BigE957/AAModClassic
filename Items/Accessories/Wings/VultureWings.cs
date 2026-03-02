@@ -9,17 +9,17 @@ namespace AAMod.Items.Accessories.Wings
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Vulture Wings");
-            Tooltip.SetDefault("Allows slow fall");
+            // DisplayName.SetDefault("Vulture Wings");
+            // Tooltip.SetDefault("Allows slow fall");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 30;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
-			item.accessory = true;
+			Item.width = 26;
+			Item.height = 30;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 1;
+			Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -44,12 +44,11 @@ namespace AAMod.Items.Accessories.Wings
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "vulture_feather", 15);
             recipe.AddIngredient(null, "DesertMana", 5);
             recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

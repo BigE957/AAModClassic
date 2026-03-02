@@ -6,10 +6,10 @@ namespace AAMod.Buffs
 {
     public class SagShield : ModBuff
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-			DisplayName.SetDefault("Shields Up");
-            Description.SetDefault("They can't get in, but your weapons can't get out.");
+			// DisplayName.SetDefault("Shields Up");
+            // Description.SetDefault("They can't get in, but your weapons can't get out.");
         }
 
         public override void Update(Player player, ref int buffIndex)

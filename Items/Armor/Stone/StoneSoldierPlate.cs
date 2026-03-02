@@ -9,17 +9,17 @@ namespace AAMod.Items.Armor.Stone
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stone Soldier Breastplate");
-			Tooltip.SetDefault(@"Increases mining speed by 15%");
+			// DisplayName.SetDefault("Stone Soldier Breastplate");
+			// Tooltip.SetDefault(@"Increases mining speed by 15%");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-			item.value = Item.sellPrice (0, 5, 0, 0);
-			item.rare = 8;
-			item.defense = 16;
+			Item.width = 22;
+			Item.height = 24;
+			Item.value = Item.sellPrice (0, 5, 0, 0);
+			Item.rare = 8;
+			Item.defense = 16;
 		}
 		
 		public override void UpdateEquip(Player player)
@@ -29,12 +29,11 @@ namespace AAMod.Items.Armor.Stone
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningShirt);
             recipe.AddIngredient(null, "StoneShell", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

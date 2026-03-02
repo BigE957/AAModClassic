@@ -1,3 +1,4 @@
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -10,76 +11,76 @@ namespace AAMod.Projectiles.Ammo
         
         public override void SetDefaults()
         {
-            projectile.width = 4;
-            projectile.height = 4;
-            projectile.aiStyle = 1;
-            projectile.friendly = true;
-            projectile.penetrate = 1;
-            projectile.light = 0.5f;
-            projectile.alpha = 30;
-            projectile.extraUpdates = 2;
-            projectile.scale = 1.3f;
-            projectile.timeLeft = 600;
-            projectile.ranged = true;
-            aiType = ProjectileID.Bullet;
+            Projectile.width = 4;
+            Projectile.height = 4;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+            Projectile.penetrate = 1;
+            Projectile.light = 0.5f;
+            Projectile.alpha = 30;
+            Projectile.extraUpdates = 2;
+            Projectile.scale = 1.3f;
+            Projectile.timeLeft = 600;
+            Projectile.DamageType = DamageClass.Ranged;
+            AIType = ProjectileID.Bullet;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Antimatter");
+		    // DisplayName.SetDefault("Antimatter");
 		}
 
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, .1f, .5f, 1f);
+            Lighting.AddLight(Projectile.Center, .1f, .5f, 1f);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num565 = 0; num565 < 7; num565++)
             {
-                Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 1.5f);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 1.5f);
             }
             for (int num566 = 0; num566 < 3; num566++)
             {
-                int num567 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100);
+                int num567 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100);
                 Main.dust[num567].noGravity = true;
                 Main.dust[num567].velocity *= 3f;
-                num567 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100);
+                num567 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100);
                 Main.dust[num567].velocity *= 2f;
             }
-            int num568 = Gore.NewGore(new Vector2(projectile.position.X - 10f, projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
+            int num568 = Gore.NewGore(new Vector2(Projectile.position.X - 10f, Projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
             Main.gore[num568].velocity *= 0.3f;
             Gore expr_12836_cp_0 = Main.gore[num568];
             expr_12836_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
             Gore expr_12866_cp_0 = Main.gore[num568];
             expr_12866_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
-            if (projectile.owner == Main.myPlayer)
+            if (Projectile.owner == Main.myPlayer)
             {
-                projectile.localAI[1] = -1f;
-                projectile.maxPenetrate = 0;
-                projectile.position.X = projectile.position.X + (projectile.width / 2);
-                projectile.position.Y = projectile.position.Y + (projectile.height / 2);
-                projectile.width = 120;
-                projectile.height = 120;
-                projectile.position.X = projectile.position.X - (projectile.width / 2);
-                projectile.position.Y = projectile.position.Y - (projectile.height / 2);
-                projectile.Damage();
+                Projectile.localAI[1] = -1f;
+                Projectile.maxPenetrate = 0;
+                Projectile.position.X = Projectile.position.X + (Projectile.width / 2);
+                Projectile.position.Y = Projectile.position.Y + (Projectile.height / 2);
+                Projectile.width = 120;
+                Projectile.height = 120;
+                Projectile.position.X = Projectile.position.X - (Projectile.width / 2);
+                Projectile.position.Y = Projectile.position.Y - (Projectile.height / 2);
+                Projectile.Damage();
             }
         }
 
 
 
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.immune[projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
             { }
             target.AddBuff(BuffID.Daybreak, 200);
-            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("FireProjBoom"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-            Main.projectile[proj].melee = false;
-            Main.projectile[proj].ranged = true;
+            int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Main.projectile[proj].DamageType = DamageClass.Ranged;
 
         }
     }

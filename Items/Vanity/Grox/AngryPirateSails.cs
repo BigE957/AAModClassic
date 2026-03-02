@@ -11,27 +11,27 @@ namespace AAMod.Items.Vanity.Grox
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Angry Pirate's Skysails");
-            Tooltip.SetDefault(@"Allows flight and slow fall
-'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Angry Pirate's Skysails");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
+'Great for impersonating Ancients Awakened Devs!'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 7;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 7;
+			Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(89, 119, 71);
+                    line2.OverrideColor = new Color(89, 119, 71);
                 }
             }
         }

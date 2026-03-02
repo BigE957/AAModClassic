@@ -7,70 +7,70 @@ namespace AAMod.NPCs.Bosses.Toad
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glowing Mushroom");
-            Main.npcFrameCount[npc.type] = 7;
+            // DisplayName.SetDefault("Glowing Mushroom");
+            Main.npcFrameCount[NPC.type] = 7;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 48;
-            npc.height = 40;
-            npc.aiStyle = -1;
-            npc.damage = 30;
-            npc.defense = 40;
-            npc.lifeMax = 200;
-            npc.knockBackResist = 0f;
-            npc.npcSlots = 0f;
-            npc.aiStyle = -1;
-            npc.alpha = 255;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = false;
+            NPC.width = 48;
+            NPC.height = 40;
+            NPC.aiStyle = -1;
+            NPC.damage = 30;
+            NPC.defense = 40;
+            NPC.lifeMax = 200;
+            NPC.knockBackResist = 0f;
+            NPC.npcSlots = 0f;
+            NPC.aiStyle = -1;
+            NPC.alpha = 255;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = false;
         }
 
         public override void AI()
         {
             if (Main.netMode != 1)
             {
-                npc.ai[0]++;
+                NPC.ai[0]++;
             }
-            if (npc.ai[0] < 600)
+            if (NPC.ai[0] < 600)
             {
-                if (npc.alpha > 0)
+                if (NPC.alpha > 0)
                 {
-                    npc.alpha -= 4;
+                    NPC.alpha -= 4;
                 }
                 else
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
             else
             {
-                if (npc.alpha < 255)
+                if (NPC.alpha < 255)
                 {
-                    npc.alpha += 5;
+                    NPC.alpha += 5;
                 }
                 else
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.frameCounter++ > 5)
+            if (NPC.frameCounter++ > 5)
             {
-                npc.frame.Y += frameHeight;
-                npc.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
             }
-            if (npc.frame.Y > frameHeight * 4)
+            if (NPC.frame.Y > frameHeight * 4)
             {
-                npc.frame.Y = frameHeight * 4;
+                NPC.frame.Y = frameHeight * 4;
             }
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }

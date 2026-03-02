@@ -7,27 +7,27 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.penetrate = 1;
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.timeLeft = 900;
+            Projectile.penetrate = 1;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.timeLeft = 900;
         }
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.1f / 255f, (255 - projectile.alpha) * 0.5f / 255f, (255 - projectile.alpha) * 0f / 255f);
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.1f / 255f, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0f / 255f);
             if (Main.rand.NextFloat() < 1f)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 107, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 107, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
-            projectile.rotation += projectile.direction * 0.4f;
-            projectile.spriteDirection = projectile.direction;
+            Projectile.rotation += Projectile.direction * 0.4f;
+            Projectile.spriteDirection = Projectile.direction;
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("CGP");
+          // DisplayName.SetDefault("CGP");
         }
 
 

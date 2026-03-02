@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -11,21 +12,21 @@ namespace AAMod.Projectiles.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vortex");
+            // DisplayName.SetDefault("Vortex");
         }
 
         public override void SetDefaults()
         {
-            projectile.extraUpdates = 5;
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.aiStyle = 99;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.melee = true;
-            ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = 60f;
-            ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 1000f;
-            ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 15f;
+            Projectile.extraUpdates = 5;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.aiStyle = 99;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
+            ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = 60f;
+            ProjectileID.Sets.YoyosMaximumRange[Projectile.type] = 1000f;
+            ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 15f;
         }
         int ProjTimer = 0;
 
@@ -41,7 +42,7 @@ namespace AAMod.Projectiles.Zero
 
                     if (NPCTarget != -1 && AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<VortexProj>()) < 5)
                     {
-                        Projectile.NewProjectile(projectile.position, projectile.velocity, ModContent.ProjectileType<VortexProj>(), projectile.damage, projectile.knockBack, projectile.owner);
+                        Projectile.NewProjectile(Projectile.position, Projectile.velocity, ModContent.ProjectileType<VortexProj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                     }
                 }
             }
@@ -56,13 +57,13 @@ namespace AAMod.Projectiles.Zero
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -72,10 +73,10 @@ namespace AAMod.Projectiles.Zero
         }
 
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 1, frame, lightColor, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 0);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
             return false;
         }
     }

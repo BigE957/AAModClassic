@@ -5,10 +5,10 @@ namespace AAMod.Items.Armor.Champion.Carrot
 {
     public class CBoost2 : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion Boost");
-            Description.SetDefault("Increased stats");
+            // DisplayName.SetDefault("Champion Boost");
+            // Description.SetDefault("Increased stats");
             Main.buffNoSave[Type] = true;
         }
 
@@ -17,13 +17,13 @@ namespace AAMod.Items.Armor.Champion.Carrot
         {
             AAPlayer mplayer = player.GetModPlayer<AAPlayer>();
             player.manaRegenBonus += 30;
-            player.allDamage += 0.18f * mplayer.CarrotBuff;
+            player.GetDamage(DamageClass.Generic) += 0.18f * mplayer.CarrotBuff;
             player.lifeRegen += 12 * mplayer.CarrotBuff;
 
             if (player.buffTime[buffIndex] == 2)
             {
                 mplayer.CarrotBuff--;
-                player.buffType[buffIndex] = mod.BuffType("CBoost1");
+                player.buffType[buffIndex] = Mod.Find<ModBuff>("CBoost1").Type;
                 player.buffTime[buffIndex] = 480;
             }
         }

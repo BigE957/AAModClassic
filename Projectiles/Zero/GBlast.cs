@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Zero
@@ -10,21 +11,21 @@ namespace AAMod.Projectiles.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("01010011");
+            // DisplayName.SetDefault("01010011");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.extraUpdates = 2;
-            projectile.timeLeft = 1000;
-            cooldownSlot = 1;
-            projectile.ranged = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.extraUpdates = 2;
+            Projectile.timeLeft = 1000;
+            CooldownSlot = 1;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public bool playedSound = false;
@@ -36,18 +37,18 @@ namespace AAMod.Projectiles.Zero
                 playedSound = true;
             }
             Effects();
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)projectile.Center.X, (int)projectile.Center.Y);
-            Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<GBoom2>(), projectile.damage, 2, projectile.owner);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
+            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<GBoom2>(), Projectile.damage, 2, Projectile.owner);
         }
 
         public virtual void Effects()
         {
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.5f / 255f, (255 - projectile.alpha) * 0.05f / 255f, (255 - projectile.alpha) * 0.05f / 255f);
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0.05f / 255f, (255 - Projectile.alpha) * 0.05f / 255f);
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -55,7 +56,7 @@ namespace AAMod.Projectiles.Zero
             return AAColor.Oblivion;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             dontDrawDelay = Math.Max(0, dontDrawDelay - 1);
             return dontDrawDelay == 0;

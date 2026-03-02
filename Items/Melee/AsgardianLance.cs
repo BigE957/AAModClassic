@@ -1,3 +1,4 @@
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
@@ -9,36 +10,36 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Asgardian Lance");		
+			// DisplayName.SetDefault("Asgardian Lance");		
 		}
 
         public override void SetDefaults()
         {
-            item.damage = 80;
-            item.melee = true;
-            item.width = 40;
-            item.height = 40;
-            item.maxStack = 1;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.knockBack = 4f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 8;
-            item.shootSpeed = 10f;
-            item.shoot = mod.ProjectileType("AsgardianLance");  //put your Spear projectile name
+            Item.damage = 80;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 40;
+            Item.maxStack = 1;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.knockBack = 4f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 8;
+            Item.shootSpeed = 10f;
+            Item.shoot = Mod.Find<ModProjectile>("AsgardianLance").Type;  //put your Spear projectile name
         }
 
         public override bool CanUseItem(Player player)
         {
-            return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<Projectiles.AsgardianLanceShot>(), damage, knockBack, Main.myPlayer);
             return true;
@@ -46,12 +47,11 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "RaiderLance", 1);
-            recipe.AddIngredient(mod, "HeroShards", 1);
+			Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "RaiderLance", 1);
+            recipe.AddIngredient(Mod, "HeroShards", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
     }
 }

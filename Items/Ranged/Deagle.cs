@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,28 +9,28 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Deagle");
+			// DisplayName.SetDefault("Deagle");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 3;
-			item.ranged = true;
-			item.width = 24;
-			item.height = 16;
-			item.useAnimation = 8;
-			item.useTime = 8;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 1, 20, 0);
-			item.rare = 2;
-			item.UseSound = SoundID.Item11;
-			item.autoReuse = false;
-			item.shoot = 10;
-			item.shootSpeed = 16f;
-			item.useAmmo = AmmoID.Bullet;
-			item.crit = 1;
+			Item.damage = 3;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 24;
+			Item.height = 16;
+			Item.useAnimation = 8;
+			Item.useTime = 8;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 1, 20, 0);
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item11;
+			Item.autoReuse = false;
+			Item.shoot = 10;
+			Item.shootSpeed = 16f;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.crit = 1;
 		}
 
 		// What if I wanted it to shoot like a shotgun?

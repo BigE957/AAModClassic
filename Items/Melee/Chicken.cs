@@ -1,5 +1,7 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -8,28 +10,28 @@ namespace AAMod.Items.Melee
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rubber Chicken");
+			// DisplayName.SetDefault("Rubber Chicken");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 30;
-			item.melee = true;
-			item.width = 54;
-			item.height = 60;
-			item.useTime = 25;
-            item.useAnimation = 25;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = 1000;
-            item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.rare = 11;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 54;
+			Item.height = 60;
+			Item.useTime = 25;
+            Item.useAnimation = 25;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = 1000;
+            Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.rare = 11;
 		}
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Sounds/Chicken"), player.Center);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Sounds/Chicken"), player.Center);
         }
     }
 }

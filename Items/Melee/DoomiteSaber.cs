@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,32 +10,32 @@ namespace AAMod.Items.Melee
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doomite Saber");
+            // DisplayName.SetDefault("Doomite Saber");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 27;
-            item.useTime = 27;
-            item.width = 46;
-            item.height = 46;
-            item.damage = 32;
-            item.knockBack = 4f;
-            item.UseSound = SoundID.Item1;
-            item.melee = true;
-            item.rare = 3;
-            item.value = 5400;
-            item.melee = true;
-            item.shoot = mod.ProjectileType("DoomShot");
-            item.shootSpeed = 8f;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 27;
+            Item.useTime = 27;
+            Item.width = 46;
+            Item.height = 46;
+            Item.damage = 32;
+            Item.knockBack = 4f;
+            Item.UseSound = SoundID.Item1;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.rare = 3;
+            Item.value = 5400;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.shoot = Mod.Find<ModProjectile>("DoomShot").Type;
+            Item.shootSpeed = 8f;
         }
 
         private static int shoot;
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             shoot++;
             if (shoot % 3 != 0) return false;
@@ -44,11 +45,10 @@ namespace AAMod.Items.Melee
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "Doomite", 20);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "Doomite", 20);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

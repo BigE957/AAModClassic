@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,41 +10,41 @@ namespace AAMod.Projectiles.Greed.WKG
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
-            projectile.penetrate = 1;  
-            projectile.width = 44;
-            projectile.height = 44;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 300;
-            projectile.magic = true;
+            Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            Projectile.penetrate = 1;  
+            Projectile.width = 44;
+            Projectile.height = 44;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 300;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Ore Cluster");
+		    // DisplayName.SetDefault("Ore Cluster");
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            projectile.Kill();
+            Projectile.Kill();
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            projectile.Kill();
+            Projectile.Kill();
             return true;
         }
 
-        public override void Kill(int a)
+        public override void OnKill(int a)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int i = 0; i < Main.rand.Next(5, 10); i++)
             {
                 int x = Main.rand.Next(-6, 6);
                 int y = -Main.rand.Next(3, 5);
-                int p = Projectile.NewProjectile(projectile.position, new Vector2(x, y), ModContent.ProjectileType<OreChunkM>(), projectile.damage, projectile.knockBack, Main.myPlayer, 0, Main.rand.Next(23));
-                Main.projectile[p].Center = projectile.Center - new Vector2(0, 25);
+                int p = Projectile.NewProjectile(Projectile.position, new Vector2(x, y), ModContent.ProjectileType<OreChunkM>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, Main.rand.Next(23));
+                Main.projectile[p].Center = Projectile.Center - new Vector2(0, 25);
 
                 if (Main.projectile[p].ai[1] == 10)
                 {
@@ -54,8 +55,8 @@ namespace AAMod.Projectiles.Greed.WKG
                     for (int k = 0; k < 2; k++)
                     {
                         Vector2 perturbedSpeed = new Vector2(x, y).RotatedByRandom(MathHelper.ToRadians(20));
-                        int q = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<OreChunkM>(), projectile.damage, projectile.knockBack, Main.myPlayer, 5, 19);
-                        Main.projectile[q].Center = projectile.Center - new Vector2(0, 4);
+                        int q = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<OreChunkM>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 5, 19);
+                        Main.projectile[q].Center = Projectile.Center - new Vector2(0, 4);
                     }
                 }
             }

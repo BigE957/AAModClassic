@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,25 +11,25 @@ namespace AAMod.Items.Summoning.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Prism Shot");
+            // DisplayName.SetDefault("Prism Shot");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.minion = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 255;
-            projectile.timeLeft = 100;
-            projectile.aiStyle = -1;
-            projectile.tileCollide = false;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.minion = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 255;
+            Projectile.timeLeft = 100;
+            Projectile.aiStyle = -1;
+            Projectile.tileCollide = false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
 
             return false;
@@ -38,28 +39,28 @@ namespace AAMod.Items.Summoning.Minions
         {
             for (int num443 = 0; num443 < 2; num443++)
             {
-                Vector2 vector31 = projectile.position;
-                vector31 -= projectile.velocity * (num443 * 0.25f);
-                projectile.alpha = 255;
+                Vector2 vector31 = Projectile.position;
+                vector31 -= Projectile.velocity * (num443 * 0.25f);
+                Projectile.alpha = 255;
                 int num444 = Dust.NewDust(vector31, 1, 1, ModContent.DustType<Dusts.HallowedDustT>(), 0f, 0f, 0);
                 Main.dust[num444].noGravity = true;
                 Main.dust[num444].position = vector31;
                 Dust expr_13D2C_cp_0 = Main.dust[num444];
-                expr_13D2C_cp_0.position.X += projectile.width / 2;
+                expr_13D2C_cp_0.position.X += Projectile.width / 2;
                 Dust expr_13D50_cp_0 = Main.dust[num444];
-                expr_13D50_cp_0.position.Y += projectile.height / 2;
+                expr_13D50_cp_0.position.Y += Projectile.height / 2;
                 Main.dust[num444].color = Main.DiscoColor;
                 Main.dust[num444].scale = Main.rand.Next(70, 110) * 0.05f;
                 Main.dust[num444].velocity *= 0.2f;
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num585 = 0; num585 < 20; num585++)
             {
-                int num586 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 50, Main.DiscoColor);
+                int num586 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 50, Main.DiscoColor);
                 Main.dust[num586].noGravity = true;
                 Main.dust[num586].velocity *= 4f;
             }

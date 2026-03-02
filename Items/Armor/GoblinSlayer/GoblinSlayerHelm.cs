@@ -12,23 +12,23 @@ namespace AAMod.Items.Armor.GoblinSlayer
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Goblin Slayer's Helm");
-			Tooltip.SetDefault(@"An immense hatred of Goblinkind haunts this helm");
+			// DisplayName.SetDefault("Goblin Slayer's Helm");
+			// Tooltip.SetDefault(@"An immense hatred of Goblinkind haunts this helm");
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 22;
-			item.value = Item.sellPrice (0, 0, 5, 0);
-			item.rare = 3;
-			item.defense = 6;
+			Item.width = 26;
+			Item.height = 22;
+			Item.value = Item.sellPrice (0, 0, 5, 0);
+			Item.rare = 3;
+			Item.defense = 6;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("GoblinSlayerChest") && legs.type == mod.ItemType("GoblinSlayerGreaves");
+			return body.type == Mod.Find<ModItem>("GoblinSlayerChest").Type && legs.type == Mod.Find<ModItem>("GoblinSlayerGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)

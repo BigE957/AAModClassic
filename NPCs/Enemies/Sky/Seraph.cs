@@ -13,39 +13,39 @@ namespace AAMod.NPCs.Enemies.Sky
 	{
         public override void SetStaticDefaults()
 		{
-            Main.npcFrameCount[npc.type] = 4;		
+            Main.npcFrameCount[NPC.type] = 4;		
 		}			
 		
         public override void SetDefaults()
         {
-            npc.width = 60;
-            npc.height = 40;
-            npc.value = BaseUtility.CalcValue(0, 0, 10, 0);
-            npc.npcSlots = 1;
-			npc.aiStyle = -1;
-            npc.lifeMax = 500;
-            npc.defense = 20;
-            npc.damage = 55;
-            npc.knockBackResist = 0.3f;
-			npc.noGravity = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.noTileCollide = true;
-            if (npc.type == ModContent.NPCType<SeraphA>())
+            NPC.width = 60;
+            NPC.height = 40;
+            NPC.value = BaseUtility.CalcValue(0, 0, 10, 0);
+            NPC.npcSlots = 1;
+			NPC.aiStyle = -1;
+            NPC.lifeMax = 500;
+            NPC.defense = 20;
+            NPC.damage = 55;
+            NPC.knockBackResist = 0.3f;
+			NPC.noGravity = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.noTileCollide = true;
+            if (NPC.type == ModContent.NPCType<SeraphA>())
             {
-                npc.alpha = 255;
+                NPC.alpha = 255;
             }
-            banner = npc.type;
-			bannerItem = mod.ItemType("SeraphBanner");
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("SeraphBanner").Type;
         }
 
         public override bool PreAI()
         {
-            if (npc.type == ModContent.NPCType<SeraphA>() && !(NPC.AnyNPCs(ModContent.NPCType<Athena>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaA>())))
+            if (NPC.type == ModContent.NPCType<SeraphA>() && !(NPC.AnyNPCs(ModContent.NPCType<Athena>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaA>())))
             {
-                npc.velocity.Y -= .2f;
-                npc.velocity.X *= .95f;
-                if (npc.position.Y + npc.velocity.Y <= 0f && Main.netMode != 1) { BaseAI.KillNPC(npc); npc.netUpdate = true; }
+                NPC.velocity.Y -= .2f;
+                NPC.velocity.X *= .95f;
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
                 return false;
             }
             return true;
@@ -54,29 +54,29 @@ namespace AAMod.NPCs.Enemies.Sky
 		public override void AI()
 		{
 
-            if (!npc.HasPlayerTarget)
+            if (!NPC.HasPlayerTarget)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
             }
 
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
-            BaseAI.AIFlier(npc, ref npc.ai, true, 0.15f, 0.08f, 8f, 7f, false, 300);
+            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 8f, 7f, false, 300);
 
-            if (npc.alpha > 0)
+            if (NPC.alpha > 0)
             {
-                npc.alpha -= 4;
+                NPC.alpha -= 4;
             }
             else
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
 
-            if (npc.ai[3]++ > 30 && Main.netMode != 1)
+            if (NPC.ai[3]++ > 30 && Main.netMode != 1)
             {
                 int projType = ModContent.ProjectileType<SeraphFeather>();
                 float spread = 30f * 0.0174f;
-                Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
+                Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                 dir *= 14f;
                 float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                 double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -84,70 +84,70 @@ namespace AAMod.NPCs.Enemies.Sky
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, npc.damage / 4, 2, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 4, 2, Main.myPlayer);
                 }
-                npc.ai[3] = 0;
-                npc.netUpdate = true;
+                NPC.ai[3] = 0;
+                NPC.netUpdate = true;
             }
 
             if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
                 if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
                 {
                     if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {
-                        CombatText.NewText(npc.Hitbox, Color.CadetBlue, SeraphBitching(), true);
+                        CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                     }
                     else if (player.dead)
                     {
-                        CombatText.NewText(npc.Hitbox, Color.CadetBlue, SeraphBitchingKill(), true);
+                        CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingKill(), true);
                     }
                     for (int a = 0; a < 8; a++)
                     {
-                        Dust.NewDust(npc.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    BaseAI.KillNPC(npc);
+                    BaseAI.KillNPC(NPC);
                 }
             }
 
-            npc.spriteDirection = npc.direction;
-            npc.rotation = npc.velocity.X * 0.05f;
+            NPC.spriteDirection = NPC.direction;
+            NPC.rotation = NPC.velocity.X * 0.05f;
         }
 
 		public override void FindFrame(int frameHeight)
 		{
-            if (npc.velocity.X > 0f)
+            if (NPC.velocity.X > 0f)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
-            npc.rotation = npc.velocity.X * 0.1f;
-            npc.frameCounter += 1.0;
-            if (npc.frameCounter >= 6.0)
+            NPC.rotation = NPC.velocity.X * 0.1f;
+            NPC.frameCounter += 1.0;
+            if (NPC.frameCounter >= 6.0)
             {
-                npc.frame.Y = npc.frame.Y + frameHeight;
-                npc.frameCounter = 0.0;
+                NPC.frame.Y = NPC.frame.Y + frameHeight;
+                NPC.frameCounter = 0.0;
             }
-            if (npc.frame.Y >= frameHeight * Main.npcFrameCount[npc.type])
+            if (NPC.frame.Y >= frameHeight * Main.npcFrameCount[NPC.type])
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(30) <= SeraphChance.SeraphKills && !NPC.AnyNPCs(ModContent.NPCType<SeraphHurt>()))
             {
                 SeraphChance.SeraphKills = 0;
-                int a = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<SeraphHurt>());
-                Main.npc[a].velocity = npc.velocity;
+                int a = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SeraphHurt>());
+                Main.npc[a].velocity = NPC.velocity;
             }
             SeraphChance.SeraphKills++;
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SeraphFeather"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SeraphFeather").Type);
         }
 
         public string SeraphBitching()
@@ -174,16 +174,16 @@ namespace AAMod.NPCs.Enemies.Sky
         }
     }
 
-    public class SeraphChance : ModWorld
+    public class SeraphChance : ModSystem
     {
         public static int SeraphKills = 0;
 
-        public override void Initialize()
+        public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
         {
             SeraphKills = 0;
         }
 
-        public override void PostUpdate()
+        public override void PostUpdateWorld()
         {
             if (SeraphKills > 30)
             {

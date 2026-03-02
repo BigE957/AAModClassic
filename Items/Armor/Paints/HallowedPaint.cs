@@ -11,28 +11,28 @@ namespace AAMod.Items.Armor.Paints
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hallowed Face Paint");
-			Tooltip.SetDefault(@"32% increased minion damage
-+100 mana");
+			// DisplayName.SetDefault("Hallowed Face Paint");
+			/* Tooltip.SetDefault(@"32% increased minion damage
++100 mana"); */
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 28;
-			item.value = 50000;
-			item.rare = 5;
-			item.defense = 4;
+			Item.width = 30;
+			Item.height = 28;
+			Item.value = 50000;
+			Item.rare = 5;
+			Item.defense = 4;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-            player.minionDamage += .32f;
+            player.GetDamage(DamageClass.Summon) += .32f;
             player.statManaMax2 += 100;
 		}
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -52,12 +52,11 @@ namespace AAMod.Items.Armor.Paints
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HallowedBar, 6);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.BewitchingTable);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

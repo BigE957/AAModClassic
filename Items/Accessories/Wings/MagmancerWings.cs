@@ -10,18 +10,18 @@ namespace AAMod.Items.Accessories.Wings
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Magmancer Wings");
-            Tooltip.SetDefault("Allows flight and slow fall");
+            // DisplayName.SetDefault("Magmancer Wings");
+            // Tooltip.SetDefault("Allows flight and slow fall");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 6;
-			item.accessory = true;
-            item.alpha = 100;
+			Item.width = 42;
+			Item.height = 42;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 6;
+			Item.accessory = true;
+            Item.alpha = 100;
 		}
         
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -79,13 +79,12 @@ namespace AAMod.Items.Accessories.Wings
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.LavaBucket, 5);
             recipe.AddIngredient(ItemID.SoulofFlight, 20);
             recipe.AddIngredient(null, "SoulOfSmite", 25);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

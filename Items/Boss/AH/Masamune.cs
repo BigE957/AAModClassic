@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.AH
 {
@@ -6,31 +7,31 @@ namespace AAMod.Items.Boss.AH
     {
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Masamune");
-            Tooltip.SetDefault(@"Left click to quickly slash at your foes with the blade
+            // DisplayName.SetDefault("Masamune");
+            /* Tooltip.SetDefault(@"Left click to quickly slash at your foes with the blade
 Ignores invicibility frames
-Right click to shoot a blade wave");
+Right click to shoot a blade wave"); */
 		}
 
 		public override void SetDefaults()
 		{
-            item.damage = 350;
-            item.width = 70; 
-            item.height = 80;
-            item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.channel = true;
-            item.useAnimation = 25;
-            item.useTime = 15;
-            item.useStyle = 5;
-            item.useTime = 5;
-            item.knockBack = 4f;
-            item.autoReuse = false;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.shoot = mod.ProjectileType("Surasshu");
-            item.shootSpeed = 15f;
-            item.rare = 9;
+            Item.damage = 350;
+            Item.width = 70; 
+            Item.height = 80;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.channel = true;
+            Item.useAnimation = 25;
+            Item.useTime = 15;
+            Item.useStyle = 5;
+            Item.useTime = 5;
+            Item.knockBack = 4f;
+            Item.autoReuse = false;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
+            Item.shootSpeed = 15f;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -38,9 +39,9 @@ Right click to shoot a blade wave");
         {
             foreach (Terraria.ModLoader.TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -55,38 +56,38 @@ Right click to shoot a blade wave");
 
             if (player.altFunctionUse == 2)
             {
-                item.melee = true;
-                item.noMelee = false;
-                item.noUseGraphic = false;
-                item.damage = 250;
-                item.channel = false;
-                item.useAnimation = 15;
-                item.useTime = 15;
-                item.useStyle = 1;
-                item.autoReuse = true;
-                item.shoot = mod.ProjectileType("MasamuneSlash");
-                item.shootSpeed = 12f;
+                Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+                Item.noMelee = false;
+                Item.noUseGraphic = false;
+                Item.damage = 250;
+                Item.channel = false;
+                Item.useAnimation = 15;
+                Item.useTime = 15;
+                Item.useStyle = 1;
+                Item.autoReuse = true;
+                Item.shoot = Mod.Find<ModProjectile>("MasamuneSlash").Type;
+                Item.shootSpeed = 12f;
             }
             else
             {
-                item.damage = 350;
-                item.melee = true;
-                item.noMelee = true;
-                item.noUseGraphic = true;
-                item.channel = true;
-                item.useAnimation = 25;
-                item.useTime = 5;
-                item.useStyle = 5;
-                item.autoReuse = false;
-                item.shoot = mod.ProjectileType("Surasshu");
-                item.shootSpeed = 15f;
+                Item.damage = 350;
+                Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+                Item.noMelee = true;
+                Item.noUseGraphic = true;
+                Item.channel = true;
+                Item.useAnimation = 25;
+                Item.useTime = 5;
+                Item.useStyle = 5;
+                Item.autoReuse = false;
+                Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
+                Item.shootSpeed = 15f;
             }
             return base.CanUseItem(player);
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
     }
 }

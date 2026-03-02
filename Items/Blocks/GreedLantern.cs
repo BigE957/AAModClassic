@@ -6,23 +6,23 @@ namespace AAMod.Items.Blocks
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stone Lantern");
+			// DisplayName.SetDefault("Stone Lantern");
 		}
 
 
 		public override void SetDefaults()
 		{
-            item.width = 64;
-			item.height = 34;
-            item.value = 150;
-            item.maxStack = 99;
-            item.useStyle = 1;
-			item.useTime = 10;
-            item.useAnimation = 15;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.consumable = true;
-			item.createTile = mod.TileType("GreedLantern");
+            Item.width = 64;
+			Item.height = 34;
+            Item.value = 150;
+            Item.maxStack = 99;
+            Item.useStyle = 1;
+			Item.useTime = 10;
+            Item.useAnimation = 15;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("GreedLantern").Type;
 		}
 	}
 }

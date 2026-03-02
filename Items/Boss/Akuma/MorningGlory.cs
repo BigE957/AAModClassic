@@ -13,29 +13,29 @@ namespace AAMod.Items.Boss.Akuma
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Morning Glory");
-            Tooltip.SetDefault("Splits into 4 additional phantom piercing spears on throw");
+            // DisplayName.SetDefault("Morning Glory");
+            // Tooltip.SetDefault("Splits into 4 additional phantom piercing spears on throw");
         }
 
         public override void SetDefaults()
         {
 
-            item.shoot = mod.ProjectileType("MorningGlory");
-            item.shootSpeed = 24f;
-            item.damage = 197;
-            item.knockBack = 4f;
-            item.melee = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item20;
-            item.useAnimation = 19;
-            item.useTime = 19;
-            item.width = 30;
-            item.height = 30;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9;
+            Item.shoot = Mod.Find<ModProjectile>("MorningGlory").Type;
+            Item.shootSpeed = 24f;
+            Item.damage = 197;
+            Item.knockBack = 4f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item20;
+            Item.useAnimation = 19;
+            Item.useTime = 19;
+            Item.width = 30;
+            Item.height = 30;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -43,23 +43,23 @@ namespace AAMod.Items.Boss.Akuma
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -73,13 +73,12 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.DayBreak);
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -7,28 +7,28 @@ namespace AAMod.Projectiles.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crescent");
-            Main.projFrames[projectile.type] = 3;
+            // DisplayName.SetDefault("Crescent");
+            Main.projFrames[Projectile.type] = 3;
         }
         public override void SetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 26;
-            projectile.penetrate = -1;
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.penetrate = -1;
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 3)
+            if (++Projectile.frameCounter >= 3)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 3)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }

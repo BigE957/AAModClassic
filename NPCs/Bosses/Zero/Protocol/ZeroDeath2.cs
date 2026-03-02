@@ -8,34 +8,34 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zero");
-            Main.projFrames[projectile.type] = 30;
+            // DisplayName.SetDefault("Zero");
+            Main.projFrames[Projectile.type] = 30;
         }
         public override void SetDefaults()
         {
-            projectile.width = 1;
-            projectile.height = 1;
-            projectile.penetrate = -1;
-            projectile.hostile = false;
-            projectile.friendly = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 1000;
+            Projectile.width = 1;
+            Projectile.height = 1;
+            Projectile.penetrate = -1;
+            Projectile.hostile = false;
+            Projectile.friendly = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 1000;
         }
         public override void AI()
         {
             AAWorld.downedZero = true;
-            if (++projectile.frameCounter >= 10)
+            if (++Projectile.frameCounter >= 10)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 30)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 30)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y += 0.00f;
-            if (projectile.timeLeft == 913)
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y += 0.00f;
+            if (Projectile.timeLeft == 913)
             {
                 if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }

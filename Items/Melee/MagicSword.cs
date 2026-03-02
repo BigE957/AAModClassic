@@ -8,43 +8,41 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mana Blade");
-            Tooltip.SetDefault("Fires Homing projectiles at the cost of mana");
+			// DisplayName.SetDefault("Mana Blade");
+            // Tooltip.SetDefault("Fires Homing projectiles at the cost of mana");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 10;
-			item.magic = true;
-			item.mana = 5;
-			item.width = 46;
-			item.height = 46;
-			item.useTime = 30;
-			item.useAnimation = 15;
-			item.useStyle = 1;
-			item.shoot = mod.ProjectileType("MagicPro");
-			item.shootSpeed = 8f;
-			item.knockBack = 5;
-			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = 1;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 10;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 5;
+			Item.width = 46;
+			Item.height = 46;
+			Item.useTime = 30;
+			Item.useAnimation = 15;
+			Item.useStyle = 1;
+			Item.shoot = Mod.Find<ModProjectile>("MagicPro").Type;
+			Item.shootSpeed = 8f;
+			Item.knockBack = 5;
+			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaCrystal, 5);
 			recipe.AddIngredient(ItemID.SilverBar, 15);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe(); 
-			recipe = new ModRecipe(mod);
+			recipe.Register(); 
+			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaCrystal, 5);
 			recipe.AddIngredient(ItemID.TungstenBar, 15);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
         
 	}

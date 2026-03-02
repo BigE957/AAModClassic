@@ -6,23 +6,23 @@ namespace AAMod.Items.DevTools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hardmode Undowner");
-            Tooltip.SetDefault(@"Undowns all post-WOF bosses.
-Non-Consumable");
+            // DisplayName.SetDefault("Hardmode Undowner");
+            /* Tooltip.SetDefault(@"Undowns all post-WOF bosses.
+Non-Consumable"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             NPC.downedAncientCultist = false;
             NPC.downedChristmasIceQueen = false;

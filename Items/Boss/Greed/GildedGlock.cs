@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,26 +9,26 @@ namespace AAMod.Items.Boss.Greed
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gilded Glock");
-            Tooltip.SetDefault("Uses Coins as Ammo");
+            // DisplayName.SetDefault("Gilded Glock");
+            // Tooltip.SetDefault("Uses Coins as Ammo");
         }
         public override void SetDefaults()
         {
-            item.width = 44;
-            item.height = 30;
-            item.rare = 8;
-            item.useStyle = 5;
-            item.useAnimation = 28;
-            item.useTime = 28;
-            item.UseSound = SoundID.Item41;
-            item.damage = 70;
-            item.knockBack = 7;
-            item.ranged = true;
-            item.autoReuse = false;
-            item.noMelee = true;
-            item.shoot = 158;
-            item.shootSpeed = 12;
-            item.useAmmo = AmmoID.Coin;
+            Item.width = 44;
+            Item.height = 30;
+            Item.rare = 8;
+            Item.useStyle = 5;
+            Item.useAnimation = 28;
+            Item.useTime = 28;
+            Item.UseSound = SoundID.Item41;
+            Item.damage = 70;
+            Item.knockBack = 7;
+            Item.DamageType = DamageClass.Ranged;
+            Item.autoReuse = false;
+            Item.noMelee = true;
+            Item.shoot = 158;
+            Item.shootSpeed = 12;
+            Item.useAmmo = AmmoID.Coin;
         }
 
         public override Vector2? HoldoutOffset()
@@ -37,12 +38,11 @@ namespace AAMod.Items.Boss.Greed
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.FlintlockPistol, 1);
             recipe.AddIngredient(null, "StoneShell", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

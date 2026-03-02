@@ -11,34 +11,33 @@ namespace AAMod.Items.Armor.Fleshrend
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Fleshrend Plate");
-			Tooltip.SetDefault("7% Increased melee damage");
+			// DisplayName.SetDefault("Fleshrend Plate");
+			// Tooltip.SetDefault("7% Increased melee damage");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 34;
-			item.height = 34;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 9;
+			Item.width = 34;
+			Item.height = 34;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 9;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.meleeDamage += .07f;
+			player.GetDamage(DamageClass.Melee) += .07f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.CrimsonScalemail, 1);
             recipe.AddIngredient(ItemID.JungleSpores, 8);
             recipe.AddIngredient(ItemID.Bone, 8);
             recipe.AddIngredient(null, "DevilSilk", 8);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

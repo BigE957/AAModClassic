@@ -7,34 +7,34 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(106);
-			projectile.melee = false;
-            projectile.ranged = true;
-            projectile.penetrate = -1;  
-            projectile.width = 22;
-            projectile.height = 32;
-			projectile.aiStyle = 3;
-			aiType = 106;
+            Projectile.CloneDefaults(106);
+			Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = -1;  
+            Projectile.width = 22;
+            Projectile.height = 32;
+			Projectile.aiStyle = 3;
+			AIType = 106;
         }
 
 		public override void SetStaticDefaults()
 		{
-		  DisplayName.SetDefault("Dracorang");
+		  // DisplayName.SetDefault("Dracorang");
 		}
 		
 		public override void AI()
 		{
 			int type = Main.rand.Next(326,328);
-			int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, type, projectile.damage/3, 0, Main.myPlayer);
+			int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, type, Projectile.damage/3, 0, Main.myPlayer);
 			Main.projectile[proj].hostile = false;
 			Main.projectile[proj].friendly = true;
 			Main.projectile[proj].penetrate = 1;
 			Main.projectile[proj].timeLeft = 15;
 		}
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 5;
+			target.immune[Projectile.owner] = 5;
 		}
     }
 }

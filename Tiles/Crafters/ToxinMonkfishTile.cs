@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +11,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class ToxinMonkfishTile : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileLighted[Type] = true;
             Main.tileSolidTop[Type] = false;
@@ -24,17 +26,17 @@ namespace AAMod.Tiles.Crafters
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Toxin Monkfish");
-            dustType = ModContent.DustType<Dusts.RadiumDust>();
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Toxin Monkfish");
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(93, 163, 79), name);
-            disableSmartCursor = false;
-            adjTiles = new int[]
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = false;
+            AdjTiles = new int[]
             {
                 TileID.AlchemyTable,
-                mod.TileType("ToxinMonkfishTile")
+                Mod.Find<ModTile>("ToxinMonkfishTile").Type
             };
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -58,11 +60,11 @@ namespace AAMod.Tiles.Crafters
             b = 0.31f;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(mod.BuffType("HydratoxinFlaskBuff"), 36000, true);
-			Main.PlaySound(7, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
+            player.AddBuff(Mod.Find<ModBuff>("HydratoxinFlaskBuff").Type, 36000, true);
+			SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }
 
@@ -70,13 +72,13 @@ namespace AAMod.Tiles.Crafters
         {
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("ToxinMonkfish");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("ToxinMonkfish").Type;
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("ToxinMonkfish"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("ToxinMonkfish").Type);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -12,38 +13,38 @@ namespace AAMod.Items.Boss.Zero
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Reality Cannon");
-            Tooltip.SetDefault("Rapidly Fires a spread of dark lasers");
+			// DisplayName.SetDefault("Reality Cannon");
+            // Tooltip.SetDefault("Rapidly Fires a spread of dark lasers");
         }
 
         public override void SetDefaults()
         {
             
-            item.useStyle = 5;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.shootSpeed = 16f;
-            item.knockBack = 0f;
-            item.width = 48;
-            item.height = 26;
-            item.damage = 300;
-            item.UseSound = SoundID.Item12;
-            item.shoot = mod.ProjectileType("RealityLaser");
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.noMelee = true;
-            item.ranged = true;
-            item.autoReuse = true;
-            item.noUseGraphic = false;
-            item.rare = 9; AARarity = 13;
+            Item.useStyle = 5;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.shootSpeed = 16f;
+            Item.knockBack = 0f;
+            Item.width = 48;
+            Item.height = 26;
+            Item.damage = 300;
+            Item.UseSound = SoundID.Item12;
+            Item.shoot = Mod.Find<ModProjectile>("RealityLaser").Type;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.autoReuse = true;
+            Item.noUseGraphic = false;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -51,14 +52,14 @@ namespace AAMod.Items.Boss.Zero
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -70,7 +71,7 @@ namespace AAMod.Items.Boss.Zero
             );
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 45f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -87,13 +88,12 @@ namespace AAMod.Items.Boss.Zero
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
 			recipe.AddIngredient(null, "UnstableSingularity", 5);
 			recipe.AddIngredient(ItemID.StarCannon);
 	        recipe.AddTile(null, "ACS");
-	        recipe.SetResult(this);
-	        recipe.AddRecipe();
+	        recipe.Register();
 		}
 	}
 }

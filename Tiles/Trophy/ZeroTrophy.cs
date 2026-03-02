@@ -8,7 +8,7 @@ namespace AAMod.Tiles.Trophy
 {
     public class ZeroTrophy : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -16,10 +16,10 @@ namespace AAMod.Tiles.Trophy
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);
-            dustType = 7;
-			disableSmartCursor = true;
+            DustType = 7;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			AddMapEntry(new Color(120, 85, 60));
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -39,13 +39,13 @@ namespace AAMod.Tiles.Trophy
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/ZeroTrophy_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), AAColor.COLOR_WHITEFADE1, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/ZeroTrophy_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.COLOR_WHITEFADE1, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("ZeroTrophy"));
+            Item.NewItem(i * 16, j * 16, 48, 48, Mod.Find<ModItem>("ZeroTrophy").Type);
         }
 	}
 }

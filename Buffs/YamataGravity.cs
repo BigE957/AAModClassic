@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class YamataGravity : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Abyssal Gravity");
-			Description.SetDefault("'YOU AIN'T GETTIN' AWAY FROM ME, PUNK!'");
+			// DisplayName.SetDefault("Abyssal Gravity");
+			// Description.SetDefault("'YOU AIN'T GETTIN' AWAY FROM ME, PUNK!'");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Audio;
 using log4net;
 
 using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.Utilities;
 using Terraria.ModLoader;
@@ -70,18 +73,18 @@ namespace AAMod
 			Main.mouseRightRelease = false;
 			int left = i;
 			int top = j;
-			if(tile.frameX % 36 != 0) left--;
-			if(tile.frameY != 0) top--;
+			if(tile.TileFrameX % 36 != 0) left--;
+			if(tile.TileFrameY != 0) top--;
 			if(player.sign >= 0)
 			{
-				Main.PlaySound(11, -1, -1, 1);
+				SoundEngine.PlaySound(SoundID.MenuClose);
 				player.sign = -1;
 				Main.editSign = false;
 				Main.npcChatText = "";
 			}
 			if(Main.editChest)
 			{
-				Main.PlaySound(12, -1, -1, 1);
+				SoundEngine.PlaySound(SoundID.MenuTick);
 				Main.editChest = false;
 				Main.npcChatText = "";
 			}
@@ -96,7 +99,7 @@ namespace AAMod
 				{
 					player.chest = -1;
 					Recipe.FindRecipes();
-					Main.PlaySound(11, -1, -1, 1);
+					SoundEngine.PlaySound(SoundID.MenuClose);
 				}else
 				{
 					NetMessage.SendData(31, -1, -1, NetworkText.FromLiteral(""), left, (float)top, 0f, 0f, 0, 0, 0);
@@ -111,7 +114,7 @@ namespace AAMod
 					if(chest == player.chest)
 					{
 						player.chest = -1;
-						Main.PlaySound(11, -1, -1, 1);
+						SoundEngine.PlaySound(SoundID.MenuClose);
 					}else
 					{
 						player.chest = chest;
@@ -119,7 +122,7 @@ namespace AAMod
 						Main.recBigList = false;
 						player.chestX = left;
 						player.chestY = top;
-						Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+						SoundEngine.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
 					}
 					Recipe.FindRecipes();
 				}
@@ -175,7 +178,7 @@ namespace AAMod
 
         public static void AddTooltips(Item item, string[] tooltips)
         {
-			AddTooltips(item.modItem, tooltips);
+			AddTooltips(item.ModItem, tooltips);
         }	
 		
         public static void AddTooltips(ModItem item, string[] tooltips)
@@ -185,7 +188,7 @@ namespace AAMod
 			{
 				supertip += (tooltips[m] + (m == tooltips.Length - 1 ? "" : "\n"));
 			}	
-			item.Tooltip.SetDefault(supertip);
+			// item.Tooltip.SetDefault(supertip);
         }			
 
         #region ByName calls
@@ -203,7 +206,7 @@ namespace AAMod
                 {
                     Mod mod = ModLoader.GetMod(name);
                     ModNPC m = mod.GetNPC(n);
-                    if (m != null) return m.npc;
+                    if (m != null) return m.NPC;
                 }
             }
             return null;
@@ -223,7 +226,7 @@ namespace AAMod
                 {
                     Mod mod = ModLoader.GetMod(name);
                     ModItem m = mod.GetItem(n);
-                    if (m != null) return m.item;
+                    if (m != null) return m.Item;
                 }
             }
             return null;
@@ -244,7 +247,7 @@ namespace AAMod
                 {
                     Mod mod = ModLoader.GetMod(name);
                     ModProjectile m = mod.GetProjectile(n);
-                    if (m != null) return m.projectile;
+                    if (m != null) return m.Projectile;
                 }
             }
             return null;
@@ -890,7 +893,7 @@ namespace AAMod
         {
             if (Main.netMode == 0) { Main.NewText(s, colorR, colorG, colorB); }else
 			if (Main.netMode == 1) { Main.NewText(s, colorR, colorG, colorB); }else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-            if (sync && Main.netMode == 2) { NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
+            if (sync && Main.netMode == 2) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
         }
 
         public static Vector2[] ChainVector2(Vector2 start, Vector2 end, float jump = 0f)

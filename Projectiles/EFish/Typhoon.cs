@@ -9,13 +9,13 @@ namespace AAMod.Projectiles.EFish
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ultiblade Typhoon");
+            // DisplayName.SetDefault("Ultiblade Typhoon");
 
-            Main.projFrames[projectile.type] = 3;
+            Main.projFrames[Projectile.type] = 3;
         }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Typhoon);
+            Projectile.CloneDefaults(ProjectileID.Typhoon);
         }
 		
 		

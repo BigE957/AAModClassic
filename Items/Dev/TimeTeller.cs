@@ -11,46 +11,46 @@ namespace AAMod.Items.Dev
     {
         public override void SetDefaults()
         {
-            item.useTime = 25;
-            item.CloneDefaults(ItemID.Terrarian);
+            Item.useTime = 25;
+            Item.CloneDefaults(ItemID.Terrarian);
 
-            item.damage = 200;
-            item.value = 1000000;
-            item.rare = 11;
-            item.knockBack = 1;
-            item.channel = true;
-            item.useStyle = 5;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.shoot = mod.ProjectileType("TimeTeller");
+            Item.damage = 200;
+            Item.value = 1000000;
+            Item.rare = 11;
+            Item.knockBack = 1;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.shoot = Mod.Find<ModProjectile>("TimeTeller").Type;
         }
 
-        public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= ((ModSupportPlayer)player.GetModPlayer(mod, "ModSupportPlayer")).Thorium_radiantBoost;
+            mult *= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantBoost;
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Chilled, 1000);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Time Teller");
-            Tooltip.SetDefault("Damage changes based on time of day\n" +
+            // DisplayName.SetDefault("Time Teller");
+            /* Tooltip.SetDefault("Damage changes based on time of day\n" +
 				               "Damage is greatest at Midday and Midnight\n" +
                                "'Time to Die!'\n" +
-                               "-Dallin");
+                               "-Dallin"); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(181, 38, 38);
+                    line2.OverrideColor = new Color(181, 38, 38);
                 }
             }
         }

@@ -9,26 +9,26 @@ namespace AAMod.NPCs.Enemies.Inferno
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Infernal Ghoul");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul];
+			// DisplayName.SetDefault("Infernal Ghoul");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
 		}
 
 		public override void SetDefaults()
 		{
-            npc.CloneDefaults(NPCID.DesertGhoul);
-            animationType = NPCID.DesertGhoul;
-            npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-			banner = npc.type;
-			bannerItem = mod.ItemType("InfernoGhoulBanner");
+            NPC.CloneDefaults(NPCID.DesertGhoul);
+            AnimationType = NPCID.DesertGhoul;
+            NPC.lavaImmune = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
+			Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("InfernoGhoulBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = Main.rand.Next(139, 143);
-				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IncineriteDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IncineriteDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}

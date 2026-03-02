@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Doom
@@ -6,29 +7,28 @@ namespace AAMod.Items.Blocks.Doom
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doom Workbench");
+            // DisplayName.SetDefault("Doom Workbench");
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 18;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("DoomWorkbench");
+            Item.width = 32;
+            Item.height = 18;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("DoomWorkbench").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("ApocalyptitePlate"), 10);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 10);
+            recipe.Register();
 
         }
 

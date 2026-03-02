@@ -9,26 +9,26 @@ namespace AAMod.Items.Blocks
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragonfire Torch");
+			// DisplayName.SetDefault("Dragonfire Torch");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 10;
-			item.height = 12;
-			item.maxStack = 99;
-			item.holdStyle = 1;
-			item.noWet = true;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createTile = mod.TileType("DragonfireTorch");
-			item.flame = true;
-            item.rare = 3;
-            item.value = Item.sellPrice(0, 0, 1, 0);
+			Item.width = 10;
+			Item.height = 12;
+			Item.maxStack = 99;
+			Item.holdStyle = 1;
+			Item.noWet = true;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("DragonfireTorch").Type;
+			Item.flame = true;
+            Item.rare = 3;
+            Item.value = Item.sellPrice(0, 0, 1, 0);
 		}
 
 		public override void HoldItem(Player player)
@@ -43,24 +43,23 @@ namespace AAMod.Items.Blocks
 
 		public override void PostUpdate()
 		{
-			if (!item.wet)
+			if (!Item.wet)
 			{
-				Lighting.AddLight((int)((item.position.X + item.width / 2) / 16f), (int)((item.position.Y + item.height / 2) / 16f), AAColor.DragonFire.R / 255, AAColor.DragonFire.G / 255, AAColor.DragonFire.B / 255);
+				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.DragonFire.R / 255, AAColor.DragonFire.G / 255, AAColor.DragonFire.B / 255);
 			}
 		}
 
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)
+		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
 		{
 			dryTorch = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(33);
 			recipe.AddIngredient(ItemID.Torch, 33);
 			recipe.AddIngredient(null, "DragonFire");
-			recipe.SetResult(this, 33);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

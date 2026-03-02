@@ -15,21 +15,21 @@ namespace AAMod.Items.Armor.Darkmatter
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkmatter Helmet");
-			Tooltip.SetDefault(@"10% increased melee damage
-Dark, yet still barely visible");
+            // DisplayName.SetDefault("Darkmatter Helmet");
+			/* Tooltip.SetDefault(@"10% increased melee damage
+Dark, yet still barely visible"); */
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -43,11 +43,11 @@ Dark, yet still barely visible");
 
         public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 20;
-			item.value = 300000;
-			item.defense = 34;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 20;
+			Item.value = 300000;
+			Item.defense = 34;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -55,21 +55,21 @@ Dark, yet still barely visible");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-			player.meleeDamage += 0.10f;
+			player.GetDamage(DamageClass.Melee) += 0.10f;
         }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("DarkmatterBreastplate") && legs.type == mod.ItemType("DarkmatterGreaves");
+			return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -91,12 +91,11 @@ Dark, yet still barely visible");
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkMatter", 25);
             recipe.AddIngredient(null, "DarkEnergy", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
     public class HelmetEffects : ModPlayer
@@ -126,7 +125,7 @@ Dark, yet still barely visible");
                 ShieldCoolDown = 0;
             }
         }
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        public override void ModifyHurt(ref Player.HurtModifiers modifiers)
         {
             if (ShieldTime>0)
             {
@@ -141,9 +140,9 @@ Dark, yet still barely visible");
                 }
                 
             }
-            return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
+            return base.ModifyHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
-        public static readonly PlayerLayer drawShield = new PlayerLayer("AAMod", "drawShield", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawInfo drawInfo)
+        public static readonly PlayerLayer drawShield = new PlayerLayer("AAMod", "drawShield", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
 
             Player drawPlayer = drawInfo.drawPlayer;
@@ -155,10 +154,10 @@ Dark, yet still barely visible");
             }
             if (drawPlayer.GetModPlayer<HelmetEffects>().ShieldTime>0)
             {
-                Vector2 Center = drawInfo.position + new Vector2(drawPlayer.width / 2, 0) + Vector2.UnitY*-30 - Main.screenPosition;
+                Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, 0) + Vector2.UnitY*-30 - Main.screenPosition;
 
                 DrawData data = new DrawData(texture, Center, null, Color.White, 0f, texture.Size() * .5f, 1f + (.1f * (float)Math.Sin(drawPlayer.GetModPlayer<HelmetEffects>().yetAnotherTrigCounter)), SpriteEffects.None, 0);
-                data.shader = drawInfo.bodyArmorShader;
+                data.shader = drawInfo.cBody;
                 Main.playerDrawData.Add(data);
             }
         });

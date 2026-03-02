@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,59 +13,59 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashe Akuma");     
-            Main.npcFrameCount[npc.type] = 17;     
+            // DisplayName.SetDefault("Ashe Akuma");     
+            Main.npcFrameCount[NPC.type] = 17;     
         }
 
         public override void SetDefaults()
         {
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.width = 82;
-            npc.height = 82;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.width = 82;
+            NPC.height = 82;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
 
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         public override void AI()
         {
-            npc.velocity.X *= 0.97f;
-            npc.velocity.Y *= 0.97f;
+            NPC.velocity.X *= 0.97f;
+            NPC.velocity.Y *= 0.97f;
 
-            if (++npc.frameCounter >= 5)
+            if (++NPC.frameCounter >= 5)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 88;
-                if (npc.frame.Y > (88 * 13))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 88;
+                if (NPC.frame.Y > (88 * 13))
                 {
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/AsheVanish_Glow2");
-            Texture2D eyeTex = mod.GetTexture("Glowmasks/AsheVanish_Glow1");
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/AsheVanish_Glow2");
+            Texture2D eyeTex = Mod.GetTexture("Glowmasks/AsheVanish_Glow1");
 
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 17, npc.frame, dColor, true);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, red, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 17, npc.frame, Color.White, true);
-            BaseDrawing.DrawTexture(spritebatch, eyeTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 17, npc.frame, Color.White, true);
-            BaseDrawing.DrawAfterimage(spritebatch, eyeTex, 0, npc, 0.8f, 1f, 4, true, 0f, 0f, Color.White);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, dColor, true);
+            BaseDrawing.DrawTexture(spritebatch, glowTex, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
+            BaseDrawing.DrawTexture(spritebatch, eyeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
+            BaseDrawing.DrawAfterimage(spritebatch, eyeTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White);
             return false;
         }
     }

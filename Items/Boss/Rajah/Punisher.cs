@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah
 {
@@ -8,26 +9,26 @@ namespace AAMod.Items.Boss.Rajah
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Punisher");
+            // DisplayName.SetDefault("The Punisher");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 17;
-            item.useTime = 17;
-            item.autoReuse = true;
-            item.knockBack = 6.5f;
-            item.width = 30;
-            item.height = 10;
-            item.damage = 90;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Punisher>();
-            item.shootSpeed = 15f;
-            item.UseSound = SoundID.Item1;
-            item.rare = 8;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.melee = true;
-            item.noUseGraphic = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 17;
+            Item.useTime = 17;
+            Item.autoReuse = true;
+            Item.knockBack = 6.5f;
+            Item.width = 30;
+            Item.height = 10;
+            Item.damage = 90;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Punisher>();
+            Item.shootSpeed = 15f;
+            Item.UseSound = SoundID.Item1;
+            Item.rare = 8;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noUseGraphic = true;
         }
     }
 }

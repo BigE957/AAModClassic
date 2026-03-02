@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,26 +8,26 @@ namespace AAMod.Items.Boss.Greed.WKG
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ore Staff");
+            // DisplayName.SetDefault("Ore Staff");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 160;
-            item.magic = true;
-            item.mana = 10;
-            item.width = 38;
-            item.height = 44;
-            item.useStyle = 1;
-            item.noMelee = true;
-            item.knockBack = 5;
-            item.UseSound = SoundID.Item20;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("OreBomb");
-            item.useTime = 25;
-            item.useAnimation = 25;
-            item.shootSpeed = 12;
-            item.rare = 9;
+            Item.damage = 160;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 10;
+            Item.width = 38;
+            Item.height = 44;
+            Item.useStyle = 1;
+            Item.noMelee = true;
+            Item.knockBack = 5;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("OreBomb").Type;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
+            Item.shootSpeed = 12;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -34,21 +35,20 @@ namespace AAMod.Items.Boss.Greed.WKG
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "GoldDigger", 1);
             recipe.AddIngredient(null, "CovetiteBar", 10);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

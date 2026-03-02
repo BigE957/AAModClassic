@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -13,50 +15,49 @@ namespace AAMod.Items.BossSummons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dread Moon Sigil");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"A ragged old tablet said to contain the dark magic of a new moon
+            // DisplayName.SetDefault("Dread Moon Sigil");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"A ragged old tablet said to contain the dark magic of a new moon
 Summons Yamata
 Can only be used at night in the mire
-Non-Consumable");
+Non-Consumable"); */
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.rare = 2;
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 500;
-            item.consumable = false;
-            item.rare = 10;
+            Item.width = 20;
+            Item.height = 20;
+            Item.rare = 2;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 500;
+            Item.consumable = false;
+            Item.rare = 10;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "EventideAbyssium", 10);
             recipe.AddIngredient(null, "DarkMatter", 5);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
             SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Yamata.Yamata>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAMod.Common.Yamata"));
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), player.position);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), player.position);
             if (!AAWorld.downedYamata)
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadSigilTrue1"), new Color(45, 46, 70));
@@ -83,12 +84,12 @@ Non-Consumable");
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadSigilMireFalse"), new Color(45, 46, 70), false);
                     return false;
                 }
-				if (NPC.AnyNPCs(mod.NPCType("Yamata")))
+				if (NPC.AnyNPCs(Mod.Find<ModNPC>("Yamata").Type))
 				{
 					if(player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadFalse2"), new Color(45, 46, 70), false);
 					return false;
 				}
-                if (NPC.AnyNPCs(mod.NPCType("YamataA")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadFalse2"), new Color(146, 30, 68), false);
                     return false;
@@ -98,7 +99,7 @@ Non-Consumable");
                 {
                     return false;
                 }
-                if (NPC.AnyNPCs(mod.NPCType("YamataTransition")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataTransition").Type))
                 {
                     return false;
                 }
@@ -121,15 +122,15 @@ Non-Consumable");
                 if (spawnMessage)
                 {
                     string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : overrideDisplayName;
-                    if ((npcName == null || npcName.Equals("")) && Main.npc[npcID].modNPC != null)
-                        npcName = Main.npc[npcID].modNPC.DisplayName.GetDefault();
+                    if ((npcName == null || npcName.Equals("")) && Main.npc[npcID].ModNPC != null)
+                        npcName = Main.npc[npcID].ModNPC.DisplayName.GetDefault();
                     if (namePlural)
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != 1) BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken"), 175, 75, 255, false); }
                         else
                         if (Main.netMode == NetmodeID.Server)
                         {
-                            NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(npcName + " " + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + " " + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
                         }
                     }
                     else
@@ -138,7 +139,7 @@ Non-Consumable");
                         else
                         if (Main.netMode == NetmodeID.Server)
                         {
-                            NetMessage.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
                             {
                             NetworkText.FromLiteral(npcName)
                             }), new Color(175, 75, 255), -1);

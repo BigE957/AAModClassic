@@ -11,8 +11,8 @@ namespace AAMod
 			if(useItem)
 			{
 				useItem = false;
-				player.delayUseItem = false;
-				player.controlUseItem = true;
+				Player.delayUseItem = false;
+				Player.controlUseItem = true;
 			}
 		}
     }

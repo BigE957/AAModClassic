@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -8,35 +9,34 @@ namespace AAMod.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sagittarius Music Box");
+			// DisplayName.SetDefault("Sagittarius Music Box");
 
-            Tooltip.SetDefault(@"Plays 'Event Horizon' by SpectralAves");
+            // Tooltip.SetDefault(@"Plays 'Event Horizon' by SpectralAves");
         }
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 1;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.consumable = true;
-			item.createTile = mod.TileType("SagBox");
-            item.width = 72;
-			item.height = 36;
-			item.rare = 4;
-			item.value = 10000;
-			item.accessory = true;
+			Item.useStyle = 1;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("SagBox").Type;
+            Item.width = 72;
+			Item.height = 36;
+			Item.rare = 4;
+			Item.value = 10000;
+			Item.accessory = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddIngredient(ItemID.MusicBox);
             recipe.AddTile(TileID.Sawmill);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

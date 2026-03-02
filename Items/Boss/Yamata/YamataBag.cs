@@ -1,6 +1,7 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Yamata
 {
     public class YamataBag : BaseAAItem
@@ -8,32 +9,32 @@ namespace AAMod.Items.Boss.Yamata
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.rare = 10;
-            item.expert = true; item.expertOnly = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.rare = 10;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => mod.NPCType("YamataA");
+        public override int BossBagNPC => Mod.Find<ModNPC>("YamataA").Type;
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -54,18 +55,18 @@ namespace AAMod.Items.Boss.Yamata
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("YamataMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("YamataMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(mod.ItemType("DreadScale"), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(mod.ItemType("Naitokurosu"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("DreadScale").Type, Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Mod.Find<ModItem>("Naitokurosu").Type);
             string[] lootTable = { "Flairdra", "Crescent", "Hydraslayer", "AbyssArrow", "HydraStabber", "MidnightWrath", "YamataTerratool", "Sevenshot"};
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Zero
@@ -8,45 +9,45 @@ namespace AAMod.Items.Boss.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gigataser");
-            Tooltip.SetDefault(@"Fires void lightning");
+            // DisplayName.SetDefault("Gigataser");
+            // Tooltip.SetDefault(@"Fires void lightning");
         }
 
         public override void SetDefaults()
         {
-            item.noUseGraphic = false;
-            item.damage = 100;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 74;
-            item.height = 24;
-            item.useTime = 45;
-            item.useAnimation = 45; 
-            item.useStyle = 5;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Shock");
-            item.shoot = mod.ProjectileType("ZeroTaze");
-            item.knockBack = 12;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9;
-            item.shootSpeed = 12f;
-            item.crit += 5;
-            item.rare = 9;
+            Item.noUseGraphic = false;
+            Item.damage = 100;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 74;
+            Item.height = 24;
+            Item.useTime = 45;
+            Item.useAnimation = 45; 
+            Item.useStyle = 5;
+            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Shock");
+            Item.shoot = Mod.Find<ModProjectile>("ZeroTaze").Type;
+            Item.knockBack = 12;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9;
+            Item.shootSpeed = 12f;
+            Item.crit += 5;
+            Item.rare = 9;
             AARarity = 13;
-            item.autoReuse = true;
+            Item.autoReuse = true;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             for (int num842 = 0; num842 < 3; num842++)
             {
@@ -60,12 +61,11 @@ namespace AAMod.Items.Boss.Zero
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 5);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

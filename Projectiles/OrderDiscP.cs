@@ -2,6 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -11,41 +14,41 @@ namespace AAMod.Projectiles
 		public static int defense = 0;
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(106);
-			projectile.melee = false;
-            projectile.ranged = true;
-            projectile.penetrate = -1;  
-            projectile.width = 22;
-            projectile.height = 32;
-			projectile.aiStyle = 3;
-			aiType = 106;
+            Projectile.CloneDefaults(106);
+			Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = -1;  
+            Projectile.width = 22;
+            Projectile.height = 32;
+			Projectile.aiStyle = 3;
+			AIType = 106;
         }
 
 		public override void SetStaticDefaults()
 		{
-		  DisplayName.SetDefault("Order Disc");
+		  // DisplayName.SetDefault("Order Disc");
 		}
 		
 		public override void AI()
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, 211,
-				projectile.velocity.X * .5f, projectile.velocity.Y * .5f, 200, Scale: 1.1f);
-				dust.velocity += projectile.velocity * 0.4f;
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 211,
+				Projectile.velocity.X * .5f, Projectile.velocity.Y * .5f, 200, Scale: 1.1f);
+				dust.velocity += Projectile.velocity * 0.4f;
 				dust.velocity *= 0.3f;
 			}
 		}
 		
-		public override void ModifyHitNPC (NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		public override void ModifyHitNPC (NPC target, ref NPC.HitModifiers modifiers)
 		{
 			defense = target.defense;
 			target.defense = 0;
 		}
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 5;
+			target.immune[Projectile.owner] = 5;
 			target.defense = defense;
 		}
 
@@ -53,17 +56,17 @@ namespace AAMod.Projectiles
         {
             if (Main.netMode != 2)
             {
-                Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+                Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             }
-            BaseAI.TileCollideBoomerang(projectile, ref velocityChange, true);
+            BaseAI.TileCollideBoomerang(Projectile, ref velocityChange, true);
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame, Color.White, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Color.White, true);
             return false;
         }
     }

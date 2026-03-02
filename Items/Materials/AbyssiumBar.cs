@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,34 +9,33 @@ namespace AAMod.Items.Materials
         public override void SetDefaults()
         {
 
-            item.width = 30;
-            item.height = 24;
-            item.maxStack = 99;
-			item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.value = 16000;
-            item.rare = 2;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("AbyssiumBar");
+            Item.width = 30;
+            Item.height = 24;
+            Item.maxStack = 99;
+			Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.value = 16000;
+            Item.rare = 2;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("AbyssiumBar").Type;
 			
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssium Bar");
-            Tooltip.SetDefault("Solid Darkness");
+            // DisplayName.SetDefault("Abyssium Bar");
+            // Tooltip.SetDefault("Solid Darkness");
         }
 
 		public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Abyssium", 3);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -2,6 +2,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.EFish
@@ -10,88 +12,88 @@ namespace AAMod.Projectiles.EFish
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Emperor Flairon");
+            // DisplayName.SetDefault("Emperor Flairon");
         }
         public override void SetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 26;
-            projectile.aiStyle = 69;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.alpha = 255;
-            projectile.melee = true;
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.aiStyle = 69;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-            Vector2 vector54 = Main.player[projectile.owner].Center - projectile.Center;
-            projectile.rotation = vector54.ToRotation() - 1.57f;
-            if (Main.player[projectile.owner].dead)
+            Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
+            Projectile.rotation = vector54.ToRotation() - 1.57f;
+            if (Main.player[Projectile.owner].dead)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
-            Main.player[projectile.owner].itemAnimation = 10;
-            Main.player[projectile.owner].itemTime = 10;
+            Main.player[Projectile.owner].itemAnimation = 10;
+            Main.player[Projectile.owner].itemTime = 10;
             if (vector54.X < 0f)
             {
-                Main.player[projectile.owner].ChangeDir(1);
-                projectile.direction = 1;
+                Main.player[Projectile.owner].ChangeDir(1);
+                Projectile.direction = 1;
             }
             else
             {
-                Main.player[projectile.owner].ChangeDir(-1);
-                projectile.direction = -1;
+                Main.player[Projectile.owner].ChangeDir(-1);
+                Projectile.direction = -1;
             }
-            Main.player[projectile.owner].itemRotation = (vector54 * -1f * projectile.direction).ToRotation();
-            projectile.spriteDirection = (vector54.X > 0f) ? -1 : 1;
-            if (projectile.ai[0] == 0f && vector54.Length() > 400f)
+            Main.player[Projectile.owner].itemRotation = (vector54 * -1f * Projectile.direction).ToRotation();
+            Projectile.spriteDirection = (vector54.X > 0f) ? -1 : 1;
+            if (Projectile.ai[0] == 0f && vector54.Length() > 400f)
             {
-                projectile.ai[0] = 1f;
+                Projectile.ai[0] = 1f;
             }
-            if (projectile.ai[0] == 1f || projectile.ai[0] == 2f)
+            if (Projectile.ai[0] == 1f || Projectile.ai[0] == 2f)
             {
                 float num687 = vector54.Length();
                 if (num687 > 1500f)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                     return;
                 }
                 if (num687 > 600f)
                 {
-                    projectile.ai[0] = 2f;
+                    Projectile.ai[0] = 2f;
                 }
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
                 float num688 = 20f;
-                if (projectile.ai[0] == 2f)
+                if (Projectile.ai[0] == 2f)
                 {
                     num688 = 40f;
                 }
-                projectile.velocity = Vector2.Normalize(vector54) * num688;
+                Projectile.velocity = Vector2.Normalize(vector54) * num688;
                 if (vector54.Length() < num688)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                     return;
                 }
             }
-            projectile.ai[1] += 1f;
-            if (projectile.ai[1] > 5f)
+            Projectile.ai[1] += 1f;
+            if (Projectile.ai[1] > 5f)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if ((int)projectile.ai[1] % 3 == 0 && projectile.owner == Main.myPlayer)
+            if ((int)Projectile.ai[1] % 3 == 0 && Projectile.owner == Main.myPlayer)
             {
                 Vector2 vector55 = vector54 * -1f;
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, 405, projectile.damage, projectile.knockBack, projectile.owner, -10f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, 405, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			for (int h = 0; h < 6; h++)
 			{
@@ -99,7 +101,7 @@ namespace AAMod.Projectiles.EFish
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, 405, projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage, 0, Main.myPlayer);
 			}
 		}
 
@@ -111,36 +113,36 @@ namespace AAMod.Projectiles.EFish
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, 405, projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage, 0, Main.myPlayer);
 			}
-            Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-            if (projectile.type == 33 || projectile.type == 106)
+            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+            if (Projectile.type == 33 || Projectile.type == 106)
             {
-                if (projectile.velocity.X != oldVelocity.X)
+                if (Projectile.velocity.X != oldVelocity.X)
                 {
-                    projectile.velocity.X = -oldVelocity.X;
+                    Projectile.velocity.X = -oldVelocity.X;
                 }
-                if (projectile.velocity.Y != oldVelocity.Y)
+                if (Projectile.velocity.Y != oldVelocity.Y)
                 {
-                    projectile.velocity.Y = -oldVelocity.Y;
+                    Projectile.velocity.Y = -oldVelocity.Y;
                 }
             }
             else
             {
-                projectile.ai[0] = 1f;
+                Projectile.ai[0] = 1f;
             }
-            projectile.netUpdate = true;
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1, 1f, 0f);
+            Projectile.netUpdate = true;
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             return false;
 		}
 		
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
 
-            Texture2D texture = mod.GetTexture("Chains/EFlairon_Chain");
+            Texture2D texture = Mod.GetTexture("Chains/EFlairon_Chain");
 
-            Vector2 position = projectile.Center;
-            Vector2 mountedCenter = Main.player[projectile.owner].MountedCenter;
+            Vector2 position = Projectile.Center;
+            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
             Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             float num1 = texture.Height;
@@ -164,7 +166,7 @@ namespace AAMod.Projectiles.EFish
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
                     Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = projectile.GetAlpha(color2);
+                    color2 = Projectile.GetAlpha(color2);
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
                 }
             }

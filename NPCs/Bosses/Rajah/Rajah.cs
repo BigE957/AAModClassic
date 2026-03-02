@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,27 +21,27 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rabbit");
-            Main.npcFrameCount[npc.type] = 8;
+            // DisplayName.SetDefault("Rajah Rabbit");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 130;
-            npc.height = 220;
-            npc.aiStyle = -1;
-            npc.damage = 130;
-            npc.defense = 90;
-            npc.lifeMax = 65000;
-            npc.knockBackResist = 0f;
-            npc.npcSlots = 1000f;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/Rajah");
-            npc.value = Item.sellPrice(0, 1, 10, 0);
-            npc.boss = true;
-            npc.netAlways = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
-            bossBag = mod.ItemType("RajahBag");
+            NPC.width = 130;
+            NPC.height = 220;
+            NPC.aiStyle = -1;
+            NPC.damage = 130;
+            NPC.defense = 90;
+            NPC.lifeMax = 65000;
+            NPC.knockBackResist = 0f;
+            NPC.npcSlots = 1000f;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/Rajah");
+            NPC.value = Item.sellPrice(0, 1, 10, 0);
+            NPC.boss = true;
+            NPC.netAlways = true;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RajahBag").Type;
         }
 
         public bool isSupreme = false;
@@ -96,13 +97,13 @@ namespace AAMod.NPCs.Bosses.Rajah
         public void Roar(int timer)
         {
             roarTimer = timer;
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), npc.Center);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;
         public Vector2 StaffPos;
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             if (isSupreme)
             {
@@ -113,27 +114,27 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public float ProjSpeed()
         {
-            if (npc.life < (npc.lifeMax * .85f)) //The lower the health, the more damage is done
+            if (NPC.life < (NPC.lifeMax * .85f)) //The lower the health, the more damage is done
             {
                 return isSupreme ? 12f : 10f;
             }
-            if (npc.life < (npc.lifeMax * .7f))
+            if (NPC.life < (NPC.lifeMax * .7f))
             {
                 return isSupreme ? 13f : 11f;
             }
-            if (npc.life < (npc.lifeMax * .65f))
+            if (NPC.life < (NPC.lifeMax * .65f))
             {
                 return isSupreme ? 14f : 12f;
             }
-            if (npc.life < (npc.lifeMax * .4f))
+            if (NPC.life < (NPC.lifeMax * .4f))
             {
                 return isSupreme ? 15f : 13f;
             }
-            if (npc.life < (npc.lifeMax * .25f))
+            if (NPC.life < (NPC.lifeMax * .25f))
             {
                 return isSupreme ? 16f : 14f;
             }
-            if (npc.life < (npc.lifeMax * .1f))
+            if (NPC.life < (NPC.lifeMax * .1f))
             {
                 return isSupreme ? 16f : 15f;
             }
@@ -147,32 +148,32 @@ namespace AAMod.NPCs.Bosses.Rajah
         {
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
-            AAModGlobalNPC.Rajah = npc.whoAmI;
-            WeaponPos = new Vector2(npc.Center.X + (npc.direction == 1 ? -78 : 78), npc.Center.Y - 9);
-            StaffPos = new Vector2(npc.Center.X + (npc.direction == 1 ? 78 : -78), npc.Center.Y - 9);
+            AAModGlobalNPC.Rajah = NPC.whoAmI;
+            WeaponPos = new Vector2(NPC.Center.X + (NPC.direction == 1 ? -78 : 78), NPC.Center.Y - 9);
+            StaffPos = new Vector2(NPC.Center.X + (NPC.direction == 1 ? 78 : -78), NPC.Center.Y - 9);
             if (Roaring) roarTimer--;
 
-            if (Main.netMode != 1 && npc.type == ModContent.NPCType<SupremeRajah>() && isSupreme == false)
+            if (Main.netMode != 1 && NPC.type == ModContent.NPCType<SupremeRajah>() && isSupreme == false)
             {
                 isSupreme = true;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             if (isSupreme)
             {
-                if (npc.ai[3] != 0 && !DefenseLine && !AAWorld.downedRajahsRevenge && Main.netMode != 1)
+                if (NPC.ai[3] != 0 && !DefenseLine && !AAWorld.downedRajahsRevenge && Main.netMode != 1)
                 {
                     DefenseLine = true;
                     BaseUtility.Chat(Lang.BossChat("SupremeRajahChat"), Color.MediumPurple);
 
                 }
-                if (npc.life <= npc.lifeMax / 7 && !SayLine && Main.netMode != 1)
+                if (NPC.life <= NPC.lifeMax / 7 && !SayLine && Main.netMode != 1)
                 {
                     SayLine = true;
                     string Name;
@@ -198,22 +199,22 @@ namespace AAMod.NPCs.Bosses.Rajah
                         }
                     }
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah5") + Name.ToUpper() + Lang.BossChat("Rajah6"), 107, 137, 179);
-                    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
                 }
             }
 
-            Player player = Main.player[npc.target];
-            if (npc.target >= 0 && Main.player[npc.target].dead)
+            Player player = Main.player[NPC.target];
+            if (NPC.target >= 0 && Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
-                if (Main.player[npc.target].dead)
+                NPC.TargetClosest(true);
+                if (Main.player[NPC.target].dead)
                 {
                     if (isSupreme)
                     {
                         if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah7"), 107, 137, 179);
                         if (Main.netMode != 1)
                         {
-                            Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
                     else
@@ -221,165 +222,165 @@ namespace AAMod.NPCs.Bosses.Rajah
                         if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah2"), 107, 137, 179);
                         if (Main.netMode != 1)
                         {
-                            Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
-                    npc.active = false;
-                    npc.noTileCollide = true;
-                    npc.netUpdate = true;
+                    NPC.active = false;
+                    NPC.noTileCollide = true;
+                    NPC.netUpdate = true;
                     return;
                 }
             }
 
-            if (Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) + Math.Abs(npc.Center.Y - Main.player[npc.target].Center.Y) > 10000)
+            if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 10000)
             {
-                npc.TargetClosest(true);
-                if (Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) + Math.Abs(npc.Center.Y - Main.player[npc.target].Center.Y) > 10000)
+                NPC.TargetClosest(true);
+                if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 10000)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah3"), 107, 137, 179);
                     if (Main.netMode != 1)
                     {
                         if (isSupreme)
                         {
-                            Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer); //Originally 100 damage
+                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer); //Originally 100 damage
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
-                    npc.active = false;
-                    npc.noTileCollide = true;
-                    npc.netUpdate = true;
+                    NPC.active = false;
+                    NPC.noTileCollide = true;
+                    NPC.netUpdate = true;
                     return;
                 }
             }
 
 
-            if (player.Center.X < npc.Center.X)
+            if (player.Center.X < NPC.Center.X)
             {
-                npc.direction = 1;
+                NPC.direction = 1;
             }
             else
             {
-                npc.direction = -1;
+                NPC.direction = -1;
             }
 
             if (internalAI[4] == 0)
             {
-                if(player.Center.Y + player.height / 2 < npc.Center.Y + npc.height / 2 - 30f || Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) + Math.Abs(npc.Center.Y - Main.player[npc.target].Center.Y) > 2000 || isDashing)
+                if(player.Center.Y + player.height / 2 < NPC.Center.Y + NPC.height / 2 - 30f || Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 2000 || isDashing)
                 {
-                    npc.noTileCollide = true;
-                    npc.noGravity = true;
+                    NPC.noTileCollide = true;
+                    NPC.noGravity = true;
                     internalAI[4] = 2f;
-                    npc.ai[0] = 0;
+                    NPC.ai[0] = 0;
                     return;
                 }
                 else
                 {
-                    npc.noTileCollide = true;
-                    npc.noGravity = false;
+                    NPC.noTileCollide = true;
+                    NPC.noGravity = false;
                     isDashing = false;
                     JumpAI();
                 }
             }
             else if(internalAI[4] == 1f)
             {
-                npc.noTileCollide = true;
-                npc.noGravity = true;
+                NPC.noTileCollide = true;
+                NPC.noGravity = true;
                 isDashing = false;
-                if (player.Center.Y + player.height / 2 <= npc.Center.Y + npc.height / 2 + 20f) 
+                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
                 {
-                    if(npc.collideY && npc.velocity.Y > 0)
+                    if(NPC.collideY && NPC.velocity.Y > 0)
                     {
-                        Main.PlaySound(SoundID.Item14, npc.position);
-                        for (int num622 = (int)npc.position.X - 20; num622 < (int)npc.position.X + npc.width + 40; num622 += 20)
+                        SoundEngine.PlaySound(SoundID.Item14, NPC.position);
+                        for (int num622 = (int)NPC.position.X - 20; num622 < (int)NPC.position.X + NPC.width + 40; num622 += 20)
                         {
                             for (int num623 = 0; num623 < 4; num623++)
                             {
-                                int num624 = Dust.NewDust(new Vector2(npc.position.X - 20f, npc.position.Y + npc.height), npc.width + 20, 4, 31, 0f, 0f, 100);
+                                int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, 31, 0f, 0f, 100);
                                 Main.dust[num624].velocity *= 0.2f;
                             }
-                            Projectile.NewProjectile(num622 - 20, npc.position.Y + npc.height - 8f, 0, 0, ModContent.ProjectileType<RajahStomp>(), damage, 6, Main.myPlayer, 0, 0);
-                            int num625 = Gore.NewGore(new Vector2(num622 - 20, npc.position.Y + npc.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                            Projectile.NewProjectile(num622 - 20, NPC.position.Y + NPC.height - 8f, 0, 0, ModContent.ProjectileType<RajahStomp>(), damage, 6, Main.myPlayer, 0, 0);
+                            int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
                             Main.gore[num625].velocity *= 0.4f;
                         }
                     }
-                    npc.noTileCollide = false;
-                    npc.velocity.X *= .2f;
-                    npc.velocity.Y = -2f;
+                    NPC.noTileCollide = false;
+                    NPC.velocity.X *= .2f;
+                    NPC.velocity.Y = -2f;
                     internalAI[4] = 0f;
-                    npc.ai[0] = 0;
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.netUpdate = true;
                     return;
                 }
-                if(Math.Abs(npc.Center.Y - Main.player[npc.target].Center.Y) > 1000)
+                if(Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 1000)
                 {
-                    npc.noTileCollide = true;
-                    npc.noGravity = true;
+                    NPC.noTileCollide = true;
+                    NPC.noGravity = true;
                     internalAI[4] = 2f;
-                    npc.ai[0] = 0;
+                    NPC.ai[0] = 0;
                 }
             }
             else if(internalAI[4] == 2f)
             {
-                npc.noTileCollide = true;
-                npc.noGravity = true;
+                NPC.noTileCollide = true;
+                NPC.noGravity = true;
                 FlyAI();
-                if(Math.Abs(npc.Center.X - player.Center.X) < 50f && player.position.Y > npc.Center.Y + npc.height / 2)
+                if(Math.Abs(NPC.Center.X - player.Center.X) < 50f && player.position.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     internalAI[4] = 3f;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
             else if(internalAI[4] == 3f)
             {
-                npc.noTileCollide = true;
-                npc.noGravity = true;
+                NPC.noTileCollide = true;
+                NPC.noGravity = true;
                 isDashing = true;
                 if(player.velocity.X == 0)
                 {
-                    npc.velocity = (player.Center - npc.Center) * .06f;
+                    NPC.velocity = (player.Center - NPC.Center) * .06f;
                 }
                 else
                 {
-                    npc.velocity = (player.Center + new Vector2(100f * (player.velocity.X > 0? 1 : -1), 0) - npc.Center) * .06f;
+                    NPC.velocity = (player.Center + new Vector2(100f * (player.velocity.X > 0? 1 : -1), 0) - NPC.Center) * .06f;
                 }
-                npc.velocity = Vector2.Normalize(npc.velocity) * 26f;
-                if(npc.velocity.X > 10f) npc.velocity.X = 10f;
+                NPC.velocity = Vector2.Normalize(NPC.velocity) * 26f;
+                if(NPC.velocity.X > 10f) NPC.velocity.X = 10f;
                 internalAI[0] = 0f;
                 internalAI[4] = 1f;
             }
             else if(internalAI[4] == 4f)
             {
-                npc.noTileCollide = true;
-                npc.noGravity = false;
+                NPC.noTileCollide = true;
+                NPC.noGravity = false;
                 isDashing = false;
-                if (player.Center.Y + player.height / 2 <= npc.Center.Y + npc.height / 2 + 20f) 
+                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
                 {
                     internalAI[0] = 0f;
                     internalAI[4] = 1f;
                 }
             }
 
-            if (npc.target <= 0 || npc.target == 255 || Main.player[npc.target].dead)
+            if (NPC.target <= 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
             if (Main.netMode != 1)
             {
-                npc.ai[2]++;
+                NPC.ai[2]++;
                 internalAI[3]++;
             }
-            if (npc.ai[2] >= 500)
+            if (NPC.ai[2] >= 500)
             {
                 internalAI[3] = 0;
-                npc.ai[2] = 0;
-                npc.ai[3] = 0;
-                npc.netUpdate = true;
+                NPC.ai[2] = 0;
+                NPC.ai[3] = 0;
+                NPC.netUpdate = true;
             }
-            else if (npc.ai[3] == 0 && npc.ai[2] >= ChangeRate())
+            else if (NPC.ai[3] == 0 && NPC.ai[2] >= ChangeRate())
             {
                 if (Main.rand.Next(5) == 0)
                 {
@@ -388,29 +389,29 @@ namespace AAMod.NPCs.Bosses.Rajah
                 if (Main.netMode != 1)
                 {
                     internalAI[3] = 0;
-                    npc.ai[2] = 0;
+                    NPC.ai[2] = 0;
                     if (ModSupport.GetMod("ThoriumMod") != null && Main.rand.Next(7) == 0)
                     {
-                        npc.ai[3] = 7;
+                        NPC.ai[3] = 7;
                     }
                     else
                     {
                         if (isSupreme)
                         {
-                            npc.ai[3] = Main.rand.Next(7);
+                            NPC.ai[3] = Main.rand.Next(7);
                         }
                         else
                         {
-                            npc.ai[3] = Main.rand.Next(4);
+                            NPC.ai[3] = Main.rand.Next(4);
                         }
                     }
                 }
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             if (Main.netMode != 1)
             {
-                if (npc.ai[3] == 0) //Minion Phase
+                if (NPC.ai[3] == 0) //Minion Phase
                 {
                     if (internalAI[3] >= 80)
                     {
@@ -419,54 +420,54 @@ namespace AAMod.NPCs.Bosses.Rajah
                         {
                             if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
                             {
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 200, (int)npc.Center.X + 200), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 200, (int)npc.Center.X + 200), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 200, (int)npc.Center.X + 200), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                             }
-                            npc.netUpdate = true;
+                            NPC.netUpdate = true;
                         }
                         else
                         {
-                            if (npc.ai[1] > 2)
+                            if (NPC.ai[1] > 2)
                             {
-                                npc.ai[1] = 0;
+                                NPC.ai[1] = 0;
                             }
-                            if (npc.ai[1] == 0)
+                            if (NPC.ai[1] == 0)
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
-                            else if (npc.ai[1] == 1)
+                            else if (NPC.ai[1] == 1)
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon2>()) < 5)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
-                            else if (npc.ai[1] == 2)
+                            else if (NPC.ai[1] == 2)
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<BunnyBattler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon3>()) < 8)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)npc.Center.X - 500, (int)npc.Center.X + 500), Main.rand.Next((int)npc.Center.Y - 200, (int)npc.Center.Y - 50));
+                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
-                            npc.ai[1] += 1;
-                            npc.netUpdate = true;
+                            NPC.ai[1] += 1;
+                            NPC.netUpdate = true;
                         }
                     }
                 }
-                else if (npc.ai[3] == 1) //Bunzooka
+                else if (NPC.ai[3] == 1) //Bunzooka
                 {
                     if (internalAI[3] > 40)
                     {
@@ -475,13 +476,13 @@ namespace AAMod.NPCs.Bosses.Rajah
                         Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                         dir *= ProjSpeed();
                         Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Rocket, damage, 5, Main.myPlayer);
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
-                else if (npc.ai[3] == 2) //Royal Scepter
+                else if (NPC.ai[3] == 2) //Royal Scepter
                 {
                     int carrots = isSupreme ? 5 : 3;
-                    int carrotType = isSupreme ? mod.ProjectileType("CarrotEXR") : mod.ProjectileType("CarrotHostile");
+                    int carrotType = isSupreme ? Mod.Find<ModProjectile>("CarrotEXR").Type : Mod.Find<ModProjectile>("CarrotHostile").Type;
                     float spread = 45f * 0.0174f * .5f;
                     Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                     dir *= ProjSpeed() + (isSupreme? 3 : 1);
@@ -496,10 +497,10 @@ namespace AAMod.NPCs.Bosses.Rajah
                             double offsetAngle = startAngle + deltaAngle * (i - (int)(carrots * .5f));
                             Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), carrotType, damage, 5, Main.myPlayer, 0);
                         }
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
-                else if (npc.ai[3] == 3) //Javelin
+                else if (NPC.ai[3] == 3) //Javelin
                 {
                     int Javelin = isSupreme ? ModContent.ProjectileType<BaneTEXR>() : ModContent.ProjectileType<BaneR>();
                     if (internalAI[3] == (isSupreme ? 40 : 60))
@@ -513,9 +514,9 @@ namespace AAMod.NPCs.Bosses.Rajah
                     {
                         internalAI[3] = 0;
                     }
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                else if (npc.ai[3] == 4) //Excalihare
+                else if (NPC.ai[3] == 4) //Excalihare
                 {
                     if (internalAI[3] > 20)
                     {
@@ -523,10 +524,10 @@ namespace AAMod.NPCs.Bosses.Rajah
                         Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                         dir *= ProjSpeed() + 3f;
                         Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<ExcalihareR>(), damage, 5, Main.myPlayer);
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
-                else if (npc.ai[3] == 5) //Fluffy Fury
+                else if (NPC.ai[3] == 5) //Fluffy Fury
                 {
                     int Arrows = Main.rand.Next(2, 4);
                     float spread = 45f * 0.0174f * .3f;
@@ -543,12 +544,12 @@ namespace AAMod.NPCs.Bosses.Rajah
                         for (int i = 0; i < Arrows; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), mod.ProjectileType("CarrowR"), damage, 5, Main.myPlayer);
+                            Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("CarrowR").Type, damage, 5, Main.myPlayer);
                         }
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
-                else if (npc.ai[3] == 6) //Rabbits Wrath
+                else if (NPC.ai[3] == 6) //Rabbits Wrath
                 {
                     if (internalAI[3] > 5)
                     {
@@ -577,61 +578,61 @@ namespace AAMod.NPCs.Bosses.Rajah
                             int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<CarrotEXR>(), damage, 6, Main.myPlayer, 0, 0);
                             Main.projectile[p].tileCollide = false;
                         }
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
-                else if (npc.ai[3] == 7) //Carrot Farmer
+                else if (NPC.ai[3] == 7) //Carrot Farmer
                 {
                     if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<CarrotFarmerR>()))
                     {
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerR>(), damage, 3f, Main.myPlayer, npc.whoAmI);
-                        npc.netUpdate = true;
+                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerR>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
+                        NPC.netUpdate = true;
                     }
                 }
             }
 
             if (Main.expertMode)
             {
-                if (npc.life < (npc.lifeMax * .85f)) //The lower the health, the more damage is done
+                if (NPC.life < (NPC.lifeMax * .85f)) //The lower the health, the more damage is done
                 {
-                    npc.damage = (int)(npc.defDamage * 1.1f);
+                    NPC.damage = (int)(NPC.defDamage * 1.1f);
                 }
-                if (npc.life < (npc.lifeMax * .7f))
+                if (NPC.life < (NPC.lifeMax * .7f))
                 {
-                    npc.damage = (int)(npc.defDamage * 1.3f);
+                    NPC.damage = (int)(NPC.defDamage * 1.3f);
                 }
-                if (npc.life < (npc.lifeMax * .65f))
+                if (NPC.life < (NPC.lifeMax * .65f))
                 {
-                    npc.damage = (int)(npc.defDamage * 1.5f);
+                    NPC.damage = (int)(NPC.defDamage * 1.5f);
                 }
-                if (npc.life < (npc.lifeMax * .4f))
+                if (NPC.life < (NPC.lifeMax * .4f))
                 {
-                    npc.damage = (int)(npc.defDamage * 1.7f);
+                    NPC.damage = (int)(NPC.defDamage * 1.7f);
                 }
-                if (npc.life < (npc.lifeMax * .25f))
+                if (NPC.life < (NPC.lifeMax * .25f))
                 {
-                    npc.damage = (int)(npc.defDamage * 1.9f);
+                    NPC.damage = (int)(NPC.defDamage * 1.9f);
                 }
-                if (npc.life < (npc.lifeMax / 7))
+                if (NPC.life < (NPC.lifeMax / 7))
                 {
-                    npc.damage = (int)(npc.defDamage * 2.2f);
+                    NPC.damage = (int)(NPC.defDamage * 2.2f);
                 }
             }
             else
             {
-                if (npc.life == npc.lifeMax / 7)
+                if (NPC.life == NPC.lifeMax / 7)
                 {
-                    npc.damage = (int)(npc.defDamage * 1.5f);
+                    NPC.damage = (int)(NPC.defDamage * 1.5f);
                 }
             }
 
-            npc.rotation = 0;
+            NPC.rotation = 0;
         }
 
         public bool TileBelowEmpty()
         {
-            int tileX = (int)(npc.Center.X / 16f) + npc.direction * 2;
-            int tileY = (int)((npc.position.Y + npc.height) / 16f);
+            int tileX = (int)(NPC.Center.X / 16f) + NPC.direction * 2;
+            int tileY = (int)((NPC.position.Y + NPC.height) / 16f);
 
             for (int tY = tileY; tY < tileY + 17; tY++)
             {
@@ -639,7 +640,7 @@ namespace AAMod.NPCs.Bosses.Rajah
                 {
                     Main.tile[tileX, tY] = new Tile();
                 }
-                if ((Main.tile[tileX, tY].nactive() && Main.tileSolid[Main.tile[tileX, tY].type] && !TileID.Sets.Platforms[Main.tile[tileX, tY].type]) || Main.tile[tileX, tY].liquid > 0)
+                if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType] && !TileID.Sets.Platforms[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     return false;
                 }
@@ -649,27 +650,27 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public string WeaponTexture()
         {
-            if (npc.ai[3] == 1) //Bunzooka
+            if (NPC.ai[3] == 1) //Bunzooka
             {
                 return "NPCs/Bosses/Rajah/RajahArmsB";
             }
-            else if (npc.ai[3] == 2) //Scepter
+            else if (NPC.ai[3] == 2) //Scepter
             {
                 return "NPCs/Bosses/Rajah/RajahArmsR";
             }
-            else if (npc.ai[3] == 3 && internalAI[3] <= (isSupreme ? 40 : 60)) //Javelin
+            else if (NPC.ai[3] == 3 && internalAI[3] <= (isSupreme ? 40 : 60)) //Javelin
             {
                 return "NPCs/Bosses/Rajah/RajahArmsS";
             }
-            else if (npc.ai[3] == 4) //Excalihare
+            else if (NPC.ai[3] == 4) //Excalihare
             {
                 return "NPCs/Bosses/Rajah/Supreme/Excalihare";
             }
-            else if (npc.ai[3] == 5) //Fluffy Fury
+            else if (NPC.ai[3] == 5) //Fluffy Fury
             {
                 return "NPCs/Bosses/Rajah/Supreme/FluffyFury";
             }
-            else if (npc.ai[3] == 6) //Rabbits Wrath
+            else if (NPC.ai[3] == 6) //Rabbits Wrath
             {
                 return "NPCs/Bosses/Rajah/Supreme/RabbitsWrath";
             }
@@ -682,41 +683,41 @@ namespace AAMod.NPCs.Bosses.Rajah
         public void JumpAI()
         {
             internalAI[1] = 1;
-            if (npc.ai[0] == 0f)
+            if (NPC.ai[0] == 0f)
             {
-                npc.noTileCollide = false;
-                if (npc.velocity.Y == 0f)
+                NPC.noTileCollide = false;
+                if (NPC.velocity.Y == 0f)
                 {
-                    npc.velocity.X = npc.velocity.X * 0.8f;
+                    NPC.velocity.X = NPC.velocity.X * 0.8f;
                     internalAI[2] += 1f;
                     if (internalAI[2] > 0f)
                     {
-                        if (npc.life < (npc.lifeMax * .85f)) //The lower the health, the more frequent the jumps
+                        if (NPC.life < (NPC.lifeMax * .85f)) //The lower the health, the more frequent the jumps
                         {
                             internalAI[2] += 2;
                         }
-                        if (npc.life < (npc.lifeMax * .7f))
+                        if (NPC.life < (NPC.lifeMax * .7f))
                         {
                             internalAI[2] += 2;
                         }
-                        if (npc.life < (npc.lifeMax * .65f))
+                        if (NPC.life < (NPC.lifeMax * .65f))
                         {
                             internalAI[2] += 2;
                         }
-                        if (npc.life < (npc.lifeMax * .4f))
+                        if (NPC.life < (NPC.lifeMax * .4f))
                         {
                             internalAI[2] += 2;
                         }
-                        if (npc.life < (npc.lifeMax * .25f))
+                        if (NPC.life < (NPC.lifeMax * .25f))
                         {
                             internalAI[2] += 2;
                         }
-                        if (npc.life < (npc.lifeMax * .1f))
+                        if (NPC.life < (NPC.lifeMax * .1f))
                         {
                             internalAI[2] += 2;
                         }
                     }
-                    if (Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) > 800f)
+                    if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) > 800f)
                     {
                         internalAI[2] = -1f;
                     }
@@ -726,86 +727,86 @@ namespace AAMod.NPCs.Bosses.Rajah
                     }
                     else if (internalAI[2] == -1f)
                     {
-                        npc.TargetClosest(true);
-                        float longth = Math.Abs(npc.Center.X - Main.player[npc.target].Center.X);
-                        npc.velocity.X = (6 + longth * .01f) * npc.direction;
-                        npc.velocity.Y = -12.1f;
-                        npc.ai[0] = 1f;
+                        NPC.TargetClosest(true);
+                        float longth = Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X);
+                        NPC.velocity.X = (6 + longth * .01f) * NPC.direction;
+                        NPC.velocity.Y = -12.1f;
+                        NPC.ai[0] = 1f;
                         internalAI[2] = 0f;
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
             }
-            else if (npc.ai[0] == 1f)
+            else if (NPC.ai[0] == 1f)
             {
-                if (npc.velocity.Y == 0f)
+                if (NPC.velocity.Y == 0f)
                 {
-                    Main.PlaySound(SoundID.Item14, npc.position);
-                    npc.ai[0] = 0f;
-                    for (int num622 = (int)npc.position.X - 20; num622 < (int)npc.position.X + npc.width + 40; num622 += 20)
+                    SoundEngine.PlaySound(SoundID.Item14, NPC.position);
+                    NPC.ai[0] = 0f;
+                    for (int num622 = (int)NPC.position.X - 20; num622 < (int)NPC.position.X + NPC.width + 40; num622 += 20)
                     {
                         for (int num623 = 0; num623 < 4; num623++)
                         {
-                            int num624 = Dust.NewDust(new Vector2(npc.position.X - 20f, npc.position.Y + npc.height), npc.width + 20, 4, 31, 0f, 0f, 100);
+                            int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, 31, 0f, 0f, 100);
                             Main.dust[num624].velocity *= 0.2f;
                         }
-                        int num625 = Gore.NewGore(new Vector2(num622 - 20, npc.position.Y + npc.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                        int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
                         Main.gore[num625].velocity *= 0.4f;
                     }
                 }
                 else
                 {
-                    npc.TargetClosest(true);
-                    if (npc.position.X < Main.player[npc.target].position.X && npc.position.X + npc.width > Main.player[npc.target].position.X + Main.player[npc.target].width)
+                    NPC.TargetClosest(true);
+                    if (NPC.position.X < Main.player[NPC.target].position.X && NPC.position.X + NPC.width > Main.player[NPC.target].position.X + Main.player[NPC.target].width)
                     {
-                        npc.velocity.X = npc.velocity.X * 0.9f;
-                        npc.velocity.Y = npc.velocity.Y + 0.4f;
+                        NPC.velocity.X = NPC.velocity.X * 0.9f;
+                        NPC.velocity.Y = NPC.velocity.Y + 0.4f;
                     }
                     else
                     {
                         
                         float num626 = 3f;
-                        float longth = Math.Abs(npc.Center.X - Main.player[npc.target].Center.X);
+                        float longth = Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X);
                         num626 = 3f + longth * .056f;
                         
-                        if (Main.player[npc.target].velocity.X != 0)
+                        if (Main.player[NPC.target].velocity.X != 0)
                         {
-                            num626 += Math.Abs(Main.player[npc.target].velocity.X);
+                            num626 += Math.Abs(Main.player[NPC.target].velocity.X);
                         }
 
-                        if (npc.direction < 0)
+                        if (NPC.direction < 0)
                         {
-                            npc.velocity.X = npc.velocity.X - 0.2f;
+                            NPC.velocity.X = NPC.velocity.X - 0.2f;
                         }
-                        else if (npc.direction > 0)
+                        else if (NPC.direction > 0)
                         {
-                            npc.velocity.X = npc.velocity.X + 0.2f;
+                            NPC.velocity.X = NPC.velocity.X + 0.2f;
                         }
 
-                        if (npc.velocity.X < -num626)
+                        if (NPC.velocity.X < -num626)
                         {
-                            npc.velocity.X = -num626;
+                            NPC.velocity.X = -num626;
                         }
-                        if (npc.velocity.X > num626)
+                        if (NPC.velocity.X > num626)
                         {
-                            npc.velocity.X = num626;
+                            NPC.velocity.X = num626;
                         }
                     }
                 }
 
-                Player player = Main.player[npc.target];
-                if(player.Center.Y + player.height / 2 <= npc.Center.Y + npc.height / 2 + 20f && npc.velocity.Y > 0)
+                Player player = Main.player[NPC.target];
+                if(player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f && NPC.velocity.Y > 0)
                 {
                     internalAI[4] = 4f;
-                    npc.ai[0] = 0;
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.netUpdate = true;
                     return;
                 }
-                else if(Math.Abs(npc.Center.X - player.Center.X) < 50f && player.position.Y > npc.Center.Y + npc.height / 2)
+                else if(Math.Abs(NPC.Center.X - player.Center.X) < 50f && player.position.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     internalAI[4] = 3f;
-                    npc.ai[0] = 0;
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.netUpdate = true;
                     return;
                 }
             }
@@ -817,7 +818,7 @@ namespace AAMod.NPCs.Bosses.Rajah
             float speed = 14f;
             if (isSupreme)
             {
-                if (Math.Abs(npc.Center.X - Main.player[npc.target].Center.X) + Math.Abs(npc.Center.Y - Main.player[npc.target].Center.Y) > 1000)
+                if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 1000)
                 {
                     speed = 50f;
                     isDashing = true;
@@ -828,31 +829,31 @@ namespace AAMod.NPCs.Bosses.Rajah
                     isDashing = false;
                 }
             }
-            else if (npc.life < (npc.lifeMax * .85f)) //The lower the health, the more damage is done
+            else if (NPC.life < (NPC.lifeMax * .85f)) //The lower the health, the more damage is done
             {
                 speed = 15f;
             }
-            else if (npc.life < (npc.lifeMax * .7f))
+            else if (NPC.life < (NPC.lifeMax * .7f))
             {
                 speed = 16f;
             }
-            else if (npc.life < (npc.lifeMax * .65f))
+            else if (NPC.life < (NPC.lifeMax * .65f))
             {
                 speed = 17f;
             }
-            else if (npc.life < (npc.lifeMax * .4f))
+            else if (NPC.life < (NPC.lifeMax * .4f))
             {
                 speed = 18f;
             }
-            else if (npc.life < (npc.lifeMax * .25f))
+            else if (NPC.life < (NPC.lifeMax * .25f))
             {
                 speed = 19f;
             }
-            else if (npc.life < (npc.lifeMax * .1f))
+            else if (NPC.life < (NPC.lifeMax * .1f))
             {
                 speed = 20f;
             }
-            AISpaceOctopus(npc, Main.player[npc.target].Center, .35f, speed, 300);
+            AISpaceOctopus(NPC, Main.player[NPC.target].Center, .35f, speed, 300);
             internalAI[1] = 0;
         }
 
@@ -924,7 +925,7 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public int ChangeRate()
         {
-            if (npc.type == ModContent.NPCType<SupremeRajah>())
+            if (NPC.type == ModContent.NPCType<SupremeRajah>())
             {
                 return 120;
             }
@@ -936,100 +937,100 @@ namespace AAMod.NPCs.Bosses.Rajah
             if (internalAI[1] == 0)
             {
                 WeaponFrame = frameHeight * 5;
-                if (npc.frameCounter++ > 3)
+                if (NPC.frameCounter++ > 3)
                 {
-                    npc.frame.Y += frameHeight;
-                    npc.frameCounter = 0;
-                    if (npc.frame.Y > frameHeight * 7)
+                    NPC.frame.Y += frameHeight;
+                    NPC.frameCounter = 0;
+                    if (NPC.frame.Y > frameHeight * 7)
                     {
-                        npc.frame.Y = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
             else
             {
-                WeaponFrame = npc.frame.Y;
-                if (npc.ai[0] == 0f)
+                WeaponFrame = NPC.frame.Y;
+                if (NPC.ai[0] == 0f)
                 {
                     if (internalAI[2] < -17f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                     }
                     else if (internalAI[2] < -14f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = frameHeight;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight;
                     }
                     else if (internalAI[2] < -11f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = frameHeight * 2;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight * 2;
                     }
                     else if (internalAI[2] < -8f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = frameHeight * 3;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight * 3;
                     }
                     else if (internalAI[2] < -5f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = frameHeight * 4;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight * 4;
                     }
                     else if (internalAI[2] < -2f)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = frameHeight * 5;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = frameHeight * 5;
                     }
                     else
                     {
-                        if (npc.frameCounter++ > 7.5f)
+                        if (NPC.frameCounter++ > 7.5f)
                         {
-                            npc.frameCounter = 0;
-                            npc.frame.Y += frameHeight;
-                            if (npc.frame.Y > frameHeight * 2)
+                            NPC.frameCounter = 0;
+                            NPC.frame.Y += frameHeight;
+                            if (NPC.frame.Y > frameHeight * 2)
                             {
-                                npc.frame.Y = 0;
+                                NPC.frame.Y = 0;
                             }
                         }
                     }
                 }
-                else if (npc.ai[0] == 1f)
+                else if (NPC.ai[0] == 1f)
                 {
-                    if (npc.velocity.Y != 0f)
+                    if (NPC.velocity.Y != 0f)
                     {
-                        npc.frame.Y = frameHeight * 5;
+                        NPC.frame.Y = frameHeight * 5;
                     }
                     else
                     {
-                        npc.frameCounter++;
-                        if  (npc.frame.Y > 3)
+                        NPC.frameCounter++;
+                        if  (NPC.frame.Y > 3)
                         {
-                            if (npc.frameCounter > 0)
+                            if (NPC.frameCounter > 0)
                             {
-                                npc.frameCounter = 0;
-                                npc.frame.Y = frameHeight * 6;
+                                NPC.frameCounter = 0;
+                                NPC.frame.Y = frameHeight * 6;
                             }
-                            else if (npc.frameCounter > 4)
+                            else if (NPC.frameCounter > 4)
                             {
-                                npc.frameCounter = 0;
-                                npc.frame.Y = frameHeight * 7;
+                                NPC.frameCounter = 0;
+                                NPC.frame.Y = frameHeight * 7;
                             }
-                            else if (npc.frameCounter > 8)
+                            else if (NPC.frameCounter > 8)
                             {
-                                npc.frameCounter = 0;
-                                npc.frame.Y = 0;
+                                NPC.frameCounter = 0;
+                                NPC.frame.Y = 0;
                             }
                         }
                         else
                         {
-                            if (npc.frameCounter > 7.5f)
+                            if (NPC.frameCounter > 7.5f)
                             {
-                                npc.frameCounter = 0;
-                                npc.frame.Y += frameHeight;
-                                if (npc.frame.Y > frameHeight * 2)
+                                NPC.frameCounter = 0;
+                                NPC.frame.Y += frameHeight;
+                                if (NPC.frame.Y > frameHeight * 2)
                                 {
-                                    npc.frame.Y = 0;
+                                    NPC.frame.Y = 0;
                                 }
                             }
                         }
@@ -1038,21 +1039,21 @@ namespace AAMod.NPCs.Bosses.Rajah
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RajahTrophy"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahTrophy").Type);
             }
             if (isSupreme)
             {
-                Gore.NewGore(npc.Center, npc.velocity, mod.GetGoreSlot("Gores/SupremeRajahHelmet1"), 1f);
-                Gore.NewGore(npc.Center, npc.velocity, mod.GetGoreSlot("Gores/SupremeRajahHelmet2"), 1f);
-                Gore.NewGore(npc.Center, npc.velocity, mod.GetGoreSlot("Gores/SupremeRajahHelmet3"), 1f);
+                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet1"), 1f);
+                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet2"), 1f);
+                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet3"), 1f);
                 if (!AAWorld.downedRajahsRevenge)
                 {
-                    int n = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<SupremeRajahDefeat>());
-                    Main.npc[n].Center = npc.Center;
+                    int n = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SupremeRajahDefeat>());
+                    Main.npc[n].Center = NPC.Center;
                 }
                 else
                 {
@@ -1066,19 +1067,19 @@ namespace AAMod.NPCs.Bosses.Rajah
                         Name = Main.LocalPlayer.name;
                     }
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah8") + Name + Lang.BossChat("Rajah9"), 107, 137, 179, true);
-                    int p = Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 100, 0, Main.myPlayer);
-                    Main.projectile[p].Center = npc.Center;
+                    int p = Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 100, 0, Main.myPlayer);
+                    Main.projectile[p].Center = NPC.Center;
                 }
                 if (Main.expertMode)
                 {
-                    npc.DropBossBags();
+                    NPC.DropBossBags();
                 }
                 else
                 {
-                    npc.DropLoot(ModContent.ItemType<Items.Boss.Rajah.Supreme.ChampionPlate>(), Main.rand.Next(15, 31));
+                    NPC.DropLoot(ModContent.ItemType<Items.Boss.Rajah.Supreme.ChampionPlate>(), Main.rand.Next(15, 31));
                     string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath" };
                     int loot = Main.rand.Next(lootTable.Length);
-                    npc.DropLoot(mod.ItemType(lootTable[loot]));
+                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
             }
             else
@@ -1088,26 +1089,26 @@ namespace AAMod.NPCs.Bosses.Rajah
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Rajah4"), 107, 137, 179, true);
                 }
-                Projectile.NewProjectile(npc.position, npc.velocity, ModContent.ProjectileType<RajahBookIt>(), 100, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), 100, 0, Main.myPlayer);
                 if (!Main.expertMode)
                 {
                     if (Main.rand.Next(7) == 0)
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RajahMask"));
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahMask").Type);
                     }
-                    npc.DropLoot(ModContent.ItemType<RajahPelt>(), Main.rand.Next(10, 26));
+                    NPC.DropLoot(ModContent.ItemType<RajahPelt>(), Main.rand.Next(10, 26));
                     string[] lootTableA = { "BaneOfTheBunny", "Bunnyzooka", "RoyalScepter", "Punisher", "RabbitcopterEars" };
                     int lootA = Main.rand.Next(lootTableA.Length);
-                    npc.DropLoot(mod.ItemType(lootTableA[lootA]));
+                    NPC.DropLoot(Mod.Find<ModItem>(lootTableA[lootA]).Type);
                 }
                 else
                 {
-                    npc.DropBossBags();
+                    NPC.DropBossBags();
                 }
             }
             AAWorld.downedRajah = true;
-            npc.value = 0f;
-            npc.boss = false;
+            NPC.value = 0f;
+            NPC.boss = false;
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -1120,10 +1121,10 @@ namespace AAMod.NPCs.Bosses.Rajah
             potionType = ItemID.GreaterHealingPotion;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);  //boss life scale in expertmode
-            npc.damage = (int)(npc.damage * .6f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);  //boss life scale in expertmode
+            NPC.damage = (int)(NPC.damage * .6f);
         }
 
         public void RajahTexture()
@@ -1132,71 +1133,71 @@ namespace AAMod.NPCs.Bosses.Rajah
             string Supreme = isSupreme ? "Supreme/Supreme" : "";
             if (internalAI[1] == 0)
             {
-                RajahTex = mod.GetTexture("NPCs/Bosses/Rajah/" + Supreme + "Rajah" + IsRoaring + "_Fly");
-                Glow = mod.GetTexture("Glowmasks/Rajah" + IsRoaring + "_Fly_Glow");
-                SupremeGlow = mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow");
-                SupremeEyes = mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes");
+                RajahTex = Mod.GetTexture("NPCs/Bosses/Rajah/" + Supreme + "Rajah" + IsRoaring + "_Fly");
+                Glow = Mod.GetTexture("Glowmasks/Rajah" + IsRoaring + "_Fly_Glow");
+                SupremeGlow = Mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Glow");
+                SupremeEyes = Mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Fly_Eyes");
             }
             else
             {
-                RajahTex = mod.GetTexture("NPCs/Bosses/Rajah/" + Supreme + "Rajah" + IsRoaring);
-                Glow = mod.GetTexture("Glowmasks/Rajah" + IsRoaring + "_Glow");
-                SupremeGlow = mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Glow");
-                SupremeEyes = mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Eyes");
+                RajahTex = Mod.GetTexture("NPCs/Bosses/Rajah/" + Supreme + "Rajah" + IsRoaring);
+                Glow = Mod.GetTexture("Glowmasks/Rajah" + IsRoaring + "_Glow");
+                SupremeGlow = Mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Glow");
+                SupremeEyes = Mod.GetTexture("Glowmasks/SupremeRajah" + IsRoaring + "_Eyes");
             }
         }
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            bool RageMode = !isSupreme && npc.life < npc.lifeMax / 7;
-            bool SupremeRageMode = isSupreme && npc.life < npc.lifeMax / 7;
+            bool RageMode = !isSupreme && NPC.life < NPC.lifeMax / 7;
+            bool SupremeRageMode = isSupreme && NPC.life < NPC.lifeMax / 7;
             RajahTexture();
             if (isSupreme && isDashing)
             {
-                BaseDrawing.DrawAfterimage(spriteBatch, RajahTex, 0, npc, 1f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
+                BaseDrawing.DrawAfterimage(spriteBatch, RajahTex, 0, NPC, 1f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
             }
             if (RageMode)
             {
                 Color RageColor = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Firebrick, drawColor, Color.Firebrick);
-                BaseDrawing.DrawAura(spriteBatch, RajahTex, 0, npc.position, npc.width, npc.height, auraPercent, 1f, 1f, 0f, npc.direction, 8, npc.frame, 0f, -5f, RageColor);
+                BaseDrawing.DrawAura(spriteBatch, RajahTex, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, RageColor);
             }
             else if (SupremeRageMode)
             {
-                BaseDrawing.DrawAura(spriteBatch, RajahTex, 0, npc.position, npc.width, npc.height, auraPercent, 1f, 1f, 0f, npc.direction, 8, npc.frame, 0f, -5f, Main.DiscoColor);
+                BaseDrawing.DrawAura(spriteBatch, RajahTex, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
             }
-            if (npc.ai[3] != 0 && npc.ai[3] < 6) //If holding a weapon
+            if (NPC.ai[3] != 0 && NPC.ai[3] < 6) //If holding a weapon
             {
-                ArmTex = mod.GetTexture(WeaponTexture());
+                ArmTex = Mod.GetTexture(WeaponTexture());
                 Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
-                BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, WeaponRectangle, drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
             }
-            BaseDrawing.DrawTexture(spriteBatch, RajahTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, drawColor, true);
-            if (npc.ai[3] == 6) //If Rabbits Wrath
+            BaseDrawing.DrawTexture(spriteBatch, RajahTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, drawColor, true);
+            if (NPC.ai[3] == 6) //If Rabbits Wrath
             {
-                ArmTex = mod.GetTexture("NPCs/Bosses/Rajah/Supreme/RabbitsWrath");
+                ArmTex = Mod.GetTexture("NPCs/Bosses/Rajah/Supreme/RabbitsWrath");
                 Rectangle WeaponRectangle = new Rectangle(0, WeaponFrame, 300, 220);
-                BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, WeaponRectangle, drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, ArmTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, WeaponRectangle, drawColor, true);
             }
             if (RageMode)
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-                BaseDrawing.DrawTexture(spriteBatch, Glow, shader, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, Color.White, true);
+                BaseDrawing.DrawTexture(spriteBatch, Glow, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Color.White, true);
             }
             if (SupremeRageMode)
             {
-                BaseDrawing.DrawTexture(spriteBatch, Glow, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, Main.DiscoColor, true);
-                BaseDrawing.DrawAura(spriteBatch, Glow, 0, npc.position, npc.width, npc.height, auraPercent, 1f, 1f, 0f, npc.direction, 8, npc.frame, 0f, -5f, Main.DiscoColor);
-                BaseDrawing.DrawTexture(spriteBatch, SupremeGlow, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, Main.DiscoColor, true);
-                BaseDrawing.DrawAura(spriteBatch, SupremeGlow, 0, npc.position, npc.width, npc.height, auraPercent, 1f, 1f, 0f, npc.direction, 8, npc.frame, 0f, -5f, Main.DiscoColor);
+                BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
+                BaseDrawing.DrawAura(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
+                BaseDrawing.DrawTexture(spriteBatch, SupremeGlow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
+                BaseDrawing.DrawAura(spriteBatch, SupremeGlow, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, 0f, NPC.direction, 8, NPC.frame, 0f, -5f, Main.DiscoColor);
                 return false;
             }
             else if (isSupreme)
             {
-                BaseDrawing.DrawTexture(spriteBatch, SupremeEyes, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 8, npc.frame, Main.DiscoColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, SupremeEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, Main.DiscoColor, true);
             }
             return false;
         }
@@ -1206,16 +1207,16 @@ namespace AAMod.NPCs.Bosses.Rajah
         public void MoveToPoint(Vector2 point)
         {
             float moveSpeed = 30f;
-            if (moveSpeed == 0f || npc.Center == point) return;
+            if (moveSpeed == 0f || NPC.Center == point) return;
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             if(internalAI[4] == 4f || internalAI[4] == 2f || internalAI[4] == 1f)
             {
@@ -1232,22 +1233,22 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rabbit; Champion of the Innocent");
-            Main.npcFrameCount[npc.type] = 8;
+            // DisplayName.SetDefault("Rajah Rabbit; Champion of the Innocent");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.damage = 150;
-            npc.defense = 0;
-            npc.lifeMax = 1200000;
-            npc.life = 1200000;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Rajah");
-            bossBag = mod.ItemType("RajahCache");
+            NPC.damage = 150;
+            NPC.defense = 0;
+            NPC.lifeMax = 1200000;
+            NPC.life = 1200000;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Rajah");
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RajahCache").Type;
             isSupreme = true;
-            npc.value = Item.sellPrice(3, 0, 0, 0);
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
+            NPC.value = Item.sellPrice(3, 0, 0, 0);
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
         }
         public override string BossHeadTexture => "AAMod/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss";
     }

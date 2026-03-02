@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Greed
 {
@@ -6,20 +7,20 @@ namespace AAMod.Items.Boss.Greed
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 
 		public override void SetDefaults()
 		{
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 32;
-			item.height = 36;
-			item.rare = 11;
-			item.expert = true; item.expertOnly = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 32;
+			Item.height = 36;
+			Item.rare = 11;
+			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => mod.NPCType("Greed");
+        public override int BossBagNPC => Mod.Find<ModNPC>("Greed").Type;
 
         public override bool CanRightClick()
 		{
@@ -28,10 +29,10 @@ namespace AAMod.Items.Boss.Greed
 
 		public override void OpenBossBag(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("StoneShell"), Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(25, 30));
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("GreedMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("GreedMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -40,9 +41,9 @@ namespace AAMod.Items.Boss.Greed
             }
             string[] lootTable = { "GildedGlock", "Miner", "StoneSlammer", "GoldDigger"};
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
-            player.QuickSpawnItem(mod.ItemType("CovetiteCoin"), Main.rand.Next(60, 150));
-            player.QuickSpawnItem(mod.ItemType("DesireCharm"));
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("CovetiteCoin").Type, Main.rand.Next(60, 150));
+            player.QuickSpawnItem(Mod.Find<ModItem>("DesireCharm").Type);
         }
 	}
 }

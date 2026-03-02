@@ -9,53 +9,53 @@ namespace AAMod.NPCs.Bosses.Hydra
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Breath");
+            // DisplayName.SetDefault("Hydra Breath");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.hostile = true;
-            projectile.penetrate = -1;
-            projectile.scale = 1.1f;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.hostile = true;
+            Projectile.penetrate = -1;
+            Projectile.scale = 1.1f;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             return false;
         }
 
         public override void AI()
         {
-            projectile.tileCollide = false;
-            projectile.ai[1] += 1f;
-            if (projectile.ai[1] > 60f)
+            Projectile.tileCollide = false;
+            Projectile.ai[1] += 1f;
+            if (Projectile.ai[1] > 60f)
             {
-                projectile.ai[0] += 10f;
+                Projectile.ai[0] += 10f;
             }
-            if (projectile.ai[0] > 255f)
+            if (Projectile.ai[0] > 255f)
             {
-                projectile.Kill();
-                projectile.ai[0] = 255f;
+                Projectile.Kill();
+                Projectile.ai[0] = 255f;
             }
-            projectile.alpha = (int)(100.0 + projectile.ai[0] * 0.7);
-            projectile.rotation += projectile.velocity.X * 0.1f;
-            projectile.rotation += projectile.direction * 0.003f;
-            projectile.velocity *= 0.96f;
-            Rectangle rectangle5 = new Rectangle((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height);
+            Projectile.alpha = (int)(100.0 + Projectile.ai[0] * 0.7);
+            Projectile.rotation += Projectile.velocity.X * 0.1f;
+            Projectile.rotation += Projectile.direction * 0.003f;
+            Projectile.velocity *= 0.96f;
+            Rectangle rectangle5 = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
             for (int num886 = 0; num886 < 1000; num886++)
             {
-                if (num886 != projectile.whoAmI && Main.projectile[num886].active && Main.projectile[num886].type >= 511 && Main.projectile[num886].type <= 513)
+                if (num886 != Projectile.whoAmI && Main.projectile[num886].active && Main.projectile[num886].type >= 511 && Main.projectile[num886].type <= 513)
                 {
                     Rectangle value53 = new Rectangle((int)Main.projectile[num886].position.X, (int)Main.projectile[num886].position.Y, Main.projectile[num886].width, Main.projectile[num886].height);
                     if (rectangle5.Intersects(value53))
                     {
-                        Vector2 vector91 = Main.projectile[num886].Center - projectile.Center;
+                        Vector2 vector91 = Main.projectile[num886].Center - Projectile.Center;
                         if (vector91.X == 0f && vector91.Y == 0f)
                         {
-                            if (num886 < projectile.whoAmI)
+                            if (num886 < Projectile.whoAmI)
                             {
                                 vector91.X = -1f;
                                 vector91.Y = 1f;
@@ -68,16 +68,16 @@ namespace AAMod.NPCs.Bosses.Hydra
                         }
                         vector91.Normalize();
                         vector91 *= 0.005f;
-                        projectile.velocity -= vector91;
+                        Projectile.velocity -= vector91;
                         Main.projectile[num886].velocity += vector91;
                     }
                 }
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Poison"), 300);
+            target.AddBuff(Mod.Find<ModBuff>("Poison").Type, 300);
         }
     }
 }

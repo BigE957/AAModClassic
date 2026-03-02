@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Serpent
 {
@@ -7,20 +8,20 @@ namespace AAMod.Items.Boss.Serpent
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => mod.NPCType("SerpentHead");
+        public override int BossBagNPC => Mod.Find<ModNPC>("SerpentHead").Type;
 
         public override bool CanRightClick()
         {
@@ -31,25 +32,25 @@ namespace AAMod.Items.Boss.Serpent
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("SerpentMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("SerpentMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(mod.ItemType("SnowMana"), Main.rand.Next(15, 20));
+            player.QuickSpawnItem(Mod.Find<ModItem>("SnowMana").Type, Main.rand.Next(15, 20));
             string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
             int loot = Main.rand.Next(lootTable.Length);
             if (Main.rand.Next(9) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("SnowflakeShuriken"), Main.rand.Next(100, 130));
+                player.QuickSpawnItem(Mod.Find<ModItem>("SnowflakeShuriken").Type, Main.rand.Next(100, 130));
             }
             else
             {
-                player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+                player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
             }
-			player.QuickSpawnItem(mod.ItemType("ArcticMedallion"));			
+			player.QuickSpawnItem(Mod.Find<ModItem>("ArcticMedallion").Type);			
         }
     }
 }

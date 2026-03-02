@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero.Protocol
@@ -11,21 +12,21 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
 
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 5;
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 20;
-            projectile.hostile = true;
-            projectile.melee = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 320;
-            projectile.tileCollide = true;
-            projectile.aiStyle = 0;
-            projectile.damage = 22;
-            projectile.damage = 100;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.hostile = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 320;
+            Projectile.tileCollide = true;
+            Projectile.aiStyle = 0;
+            Projectile.damage = 22;
+            Projectile.damage = 100;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -35,42 +36,42 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
 
         public override void AI()
         {
-            if (projectile.timeLeft > 0)
+            if (Projectile.timeLeft > 0)
             {
-                projectile.timeLeft--;
+                Projectile.timeLeft--;
             }
-            if (projectile.timeLeft == 0)
+            if (Projectile.timeLeft == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 6)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 6)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 2)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 2)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
             const float desiredFlySpeedInPixelsPerFrame = 10;
             const float amountOfFramesToLerpBy = 30; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player target = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -86,11 +87,11 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                 Player target = Main.player[i];
                 if (target.active && (!target.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(target.Center);
+                    float distance = Projectile.Distance(target.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.player[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.player[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -99,35 +100,35 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             return selectedTarget;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)projectile.Center.X, (int)projectile.Center.Y);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
             float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double Angle = spread / 3f;
             double offsetAngle;
             int i;
-            if (projectile.owner == Main.myPlayer)
+            if (Projectile.owner == Main.myPlayer)
             {
                 for (i = 0; i < 3; i++)
                 {
                     offsetAngle = startAngle + Angle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 2f), (float)(Math.Cos(offsetAngle) * 6f), mod.ProjectileType("Static"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 2f), (float)(-Math.Cos(offsetAngle) * 6f), mod.ProjectileType("Static"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 2f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Static").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 2f), (float)(-Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Static").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 }
             }
 
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4)
-                    projectile.frame = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4)
+                    Projectile.frame = 0;
             }
             return true;
         }

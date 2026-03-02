@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,44 +12,43 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
 
-            item.damage = 14;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 30;
-            item.height = 60;
-            item.scale *= .8f;
-            item.useTime = 21;
-            item.useAnimation = 21;
-            item.useStyle = 5;
-            item.shoot = ModContent.ProjectileType<Projectiles.DragonArrow>();
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 2;
-            item.value = 1000;
-            item.rare = 2;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shootSpeed = 25f;
+            Item.damage = 14;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 30;
+            Item.height = 60;
+            Item.scale *= .8f;
+            Item.useTime = 21;
+            Item.useAnimation = 21;
+            Item.useStyle = 5;
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonArrow>();
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 2;
+            Item.value = 1000;
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shootSpeed = 25f;
 
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon Flamebow");
-            Tooltip.SetDefault("Transforms arrows into Dragon Arrows");
+            // DisplayName.SetDefault("Dragon Flamebow");
+            // Tooltip.SetDefault("Transforms arrows into Dragon Arrows");
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.DragonArrow>(), damage, knockBack, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 8);
 			recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -5,9 +5,9 @@ namespace AAMod.Buffs
 {
     public class TimeFrozen : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Time Frozen");
+            // DisplayName.SetDefault("Time Frozen");
             Main.buffNoSave[Type] = true;
         }
 

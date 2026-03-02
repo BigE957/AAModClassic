@@ -12,76 +12,76 @@ namespace AAMod
         {
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if(npc.type == mod.NPCType("Athena")) CalamityDR = 0.8f;
-                if(npc.type == mod.NPCType("OlympianDragon")) CalamityDR = 0.8f;
+                if(npc.type == Mod.Find<ModNPC>("Athena").Type) CalamityDR = 0.8f;
+                if(npc.type == Mod.Find<ModNPC>("OlympianDragon").Type) CalamityDR = 0.8f;
 
-                if(npc.type == mod.NPCType("Greed")) CalamityDR = 0.8f;
+                if(npc.type == Mod.Find<ModNPC>("Greed").Type) CalamityDR = 0.8f;
 
-                if(npc.type == mod.NPCType("ForsakenAnubis")) CalamityDR = 0.65f;
-                if(npc.type == mod.NPCType("CurseCircle")) CalamityDR = 0.65f;
-                if(npc.type == mod.NPCType("CursedScarab")) CalamityDR = 0.65f;
-                if(npc.type == mod.NPCType("CursedLocust")) CalamityDR = 0.65f;
-                if(npc.type == mod.NPCType("Naddaha")) CalamityDR = 0.65f;
-                if(npc.type == mod.NPCType("HorusSentry")) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("ForsakenAnubis").Type) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("CurseCircle").Type) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("CursedScarab").Type) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("CursedLocust").Type) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("Naddaha").Type) CalamityDR = 0.65f;
+                if(npc.type == Mod.Find<ModNPC>("HorusSentry").Type) CalamityDR = 0.65f;
 
-                if(npc.type == mod.NPCType("Ashe")) CalamityDR = 0.6f;
-                if(npc.type == mod.NPCType("AsheDragon")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("AsheOrbiter")) CalamityDR = 0.7f;
+                if(npc.type == Mod.Find<ModNPC>("Ashe").Type) CalamityDR = 0.6f;
+                if(npc.type == Mod.Find<ModNPC>("AsheDragon").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("AsheOrbiter").Type) CalamityDR = 0.7f;
 
-                if(npc.type == mod.NPCType("Haruka")) CalamityDR = 0.6f;
+                if(npc.type == Mod.Find<ModNPC>("Haruka").Type) CalamityDR = 0.6f;
 
-                if(npc.type == mod.NPCType("AkumaA")) CalamityDR = 0.4f;
-                if(npc.type == mod.NPCType("Akuma")) CalamityDR = 0.4f;
-                if(npc.type == mod.NPCType("AwakenedLung")) CalamityDR = 0.4f;
-                if(npc.type == mod.NPCType("AncientLung")) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("AkumaA").Type) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("Akuma").Type) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("AwakenedLung").Type) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("AncientLung").Type) CalamityDR = 0.4f;
 
-                if(npc.type == mod.NPCType("AthenaA")) CalamityDR = 0.7f;
-                if(npc.type == mod.NPCType("Seraph")) CalamityDR = 0.7f;
-                if(npc.type == mod.NPCType("SeraphA")) CalamityDR = 0.7f;
+                if(npc.type == Mod.Find<ModNPC>("AthenaA").Type) CalamityDR = 0.7f;
+                if(npc.type == Mod.Find<ModNPC>("Seraph").Type) CalamityDR = 0.7f;
+                if(npc.type == Mod.Find<ModNPC>("SeraphA").Type) CalamityDR = 0.7f;
 
-                if(npc.type == mod.NPCType("DaybringerHead")) CalamityDR = 0.4f;
-                if(npc.type == mod.NPCType("NightcrawlerHead")) CalamityDR = 0.4f;
-                if(npc.type == mod.NPCType("NCCloud")) CalamityDR = 0.6f;
+                if(npc.type == Mod.Find<ModNPC>("DaybringerHead").Type) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("NightcrawlerHead").Type) CalamityDR = 0.4f;
+                if(npc.type == Mod.Find<ModNPC>("NCCloud").Type) CalamityDR = 0.6f;
                 
-                if(npc.type == mod.NPCType("GreedA")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("GreedMinion")) CalamityDR = 0.7f;
+                if(npc.type == Mod.Find<ModNPC>("GreedA").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("GreedMinion").Type) CalamityDR = 0.7f;
 
-                if(npc.type == mod.NPCType("SupremeRajah")) CalamityDR = 0.6f;
+                if(npc.type == Mod.Find<ModNPC>("SupremeRajah").Type) CalamityDR = 0.6f;
 
-                if(npc.type == mod.NPCType("AbyssGrip")) CalamityDR = 0.2f;
-                if(npc.type == mod.NPCType("BlazeGrip")) CalamityDR = 0.2f;
-                if(npc.type == mod.NPCType("FuryAshe")) CalamityDR = 0.2f;
-                if(npc.type == mod.NPCType("WrathHaruka")) CalamityDR = 0.2f;
-                if(npc.type == mod.NPCType("Shen")) CalamityDR = 0.15f;
-                if(npc.type == mod.NPCType("ShenA")) CalamityDR = 0.1f;
-                if(npc.type == mod.NPCType("FuryAsheOrbiter")) CalamityDR = 0.2f;
-                if(npc.type == mod.NPCType("Shenling")) CalamityDR = 0.15f;
+                if(npc.type == Mod.Find<ModNPC>("AbyssGrip").Type) CalamityDR = 0.2f;
+                if(npc.type == Mod.Find<ModNPC>("BlazeGrip").Type) CalamityDR = 0.2f;
+                if(npc.type == Mod.Find<ModNPC>("FuryAshe").Type) CalamityDR = 0.2f;
+                if(npc.type == Mod.Find<ModNPC>("WrathHaruka").Type) CalamityDR = 0.2f;
+                if(npc.type == Mod.Find<ModNPC>("Shen").Type) CalamityDR = 0.15f;
+                if(npc.type == Mod.Find<ModNPC>("ShenA").Type) CalamityDR = 0.1f;
+                if(npc.type == Mod.Find<ModNPC>("FuryAsheOrbiter").Type) CalamityDR = 0.2f;
+                if(npc.type == Mod.Find<ModNPC>("Shenling").Type) CalamityDR = 0.15f;
 
-                if(npc.type == mod.NPCType("YamataA")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataAHead")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataAHeadF")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataAHeadF1")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataAHeadF2")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("Yamata")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataHead")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataHeadF")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataHeadF1")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("YamataHeadF2")) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataA").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataAHead").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataAHeadF").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataAHeadF1").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataAHeadF2").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("Yamata").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataHead").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataHeadF").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataHeadF1").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("YamataHeadF2").Type) CalamityDR = 0.5f;
 
-                if(npc.type == mod.NPCType("ZeroEcho")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("ZeroMini")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("ZeroProtocol")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("GenocideCannon")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("Neutralizer")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("NovaFocus")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("OmegaVolley")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("RealityCannon")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("RiftShredder")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("SearcherZero")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("Taser")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("TeslaHand")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("VoidStar")) CalamityDR = 0.5f;
-                if(npc.type == mod.NPCType("Zero")) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("ZeroEcho").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("ZeroMini").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("ZeroProtocol").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("GenocideCannon").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("Neutralizer").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("NovaFocus").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("OmegaVolley").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("RealityCannon").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("RiftShredder").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("SearcherZero").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("Taser").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("TeslaHand").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("VoidStar").Type) CalamityDR = 0.5f;
+                if(npc.type == Mod.Find<ModNPC>("Zero").Type) CalamityDR = 0.5f;
             }
         }
 
@@ -93,11 +93,11 @@ namespace AAMod
             }
         }
 
-        public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > 580 && npc.modNPC.mod == AAMod.instance && npc.boss)
+                if (npc.type > 580 && npc.ModNPC.Mod == AAMod.instance && npc.boss)
                 {
                     bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
@@ -113,20 +113,20 @@ namespace AAMod
             }
         }
 
-        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > 580 && npc.boss && npc.modNPC.mod == AAMod.instance)
+                if (npc.type > 580 && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
-                    if (item.type > 3930 && item.modItem.mod == ModLoader.GetMod("CalamityMod"))
+                    if (item.type > 3930 && item.ModItem.Mod == ModLoader.GetMod("CalamityMod"))
                     {
                         damage = (int)(damage * CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f));
                     }
                 }
-                if (npc.type > 580 && npc.boss && npc.modNPC.mod == ModLoader.GetMod("CalamityMod"))
+                if (npc.type > 580 && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
                 {
-                    if (item.type > 3930 && item.modItem.mod == AAMod.instance)
+                    if (item.type > 3930 && item.ModItem.Mod == AAMod.instance)
                     {
                         damage = (int)(damage * (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f));
                     }
@@ -134,20 +134,20 @@ namespace AAMod
             }
         }
 
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > 580 && npc.boss && npc.modNPC.mod == AAMod.instance)
+                if (npc.type > 580 && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
-                    if (projectile.type > 714 && projectile.modProjectile.mod == ModLoader.GetMod("CalamityMod"))
+                    if (projectile.type > 714 && projectile.ModProjectile.Mod == ModLoader.GetMod("CalamityMod"))
                     {
                         damage = (int)(damage * CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f));
                     }
                 }
-                if (npc.type > 580 && npc.boss && npc.modNPC.mod == ModLoader.GetMod("CalamityMod"))
+                if (npc.type > 580 && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
                 {
-                    if (projectile.type > 714 && projectile.modProjectile.mod == AAMod.instance)
+                    if (projectile.type > 714 && projectile.ModProjectile.Mod == AAMod.instance)
                     {
                         damage = (int)(damage * (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f));
                     }
@@ -158,11 +158,11 @@ namespace AAMod
 
     public class CalamityGlobalProjectile : GlobalProjectile
     {
-        public override void ModifyHitPlayer(Projectile projectile, Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (projectile.hostile && !projectile.friendly && projectile.type > 714 && projectile.modProjectile.mod == AAMod.instance)
+                if (projectile.hostile && !projectile.friendly && projectile.type > 714 && projectile.ModProjectile.Mod == AAMod.instance)
                 {
                     bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);

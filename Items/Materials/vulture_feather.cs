@@ -6,16 +6,16 @@ namespace AAMod.Items.Materials
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vulture Feather");
+			// DisplayName.SetDefault("Vulture Feather");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 14;
-			item.height = 34;
-			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 8, 0);
-			item.rare = 0;
+			Item.width = 14;
+			Item.height = 34;
+			Item.maxStack = 99;
+			Item.value = Item.sellPrice(0, 0, 8, 0);
+			Item.rare = 0;
 		}
 	}
 }

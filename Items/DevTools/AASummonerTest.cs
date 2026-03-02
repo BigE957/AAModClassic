@@ -8,19 +8,19 @@ namespace AAMod.Items.DevTools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("AA SummonerTest");
-            Tooltip.SetDefault(@"Test the minion's stat");
+            // DisplayName.SetDefault("AA SummonerTest");
+            // Tooltip.SetDefault(@"Test the minion's stat");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
         }
 
         public override bool CanUseItem(Player player)
@@ -34,7 +34,7 @@ namespace AAMod.Items.DevTools
             text += "Your max minionslots: " + Main.player[Main.myPlayer].maxMinions + "\n";
             text += "Used minionslots: " + Main.player[Main.myPlayer].slotsMinions;
 
-            TooltipLine line = new TooltipLine(mod, "newtooltip", text);
+            TooltipLine line = new TooltipLine(Mod, "newtooltip", text);
             list.Insert(2,line);
         } 
     }

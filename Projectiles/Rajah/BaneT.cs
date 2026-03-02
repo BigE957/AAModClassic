@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Rajah
 {
@@ -9,30 +11,30 @@ namespace AAMod.Projectiles.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bane of the Bunny");
+            // DisplayName.SetDefault("Bane of the Bunny");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.penetrate = 1;
-            projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
             maxStickingJavelins = 6;
             rotationOffset = (float)Math.PI / 4;
-            projectile.extraUpdates = 1;
+            Projectile.extraUpdates = 1;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, new Vector2(projectile.Center.X - Main.screenPosition.X, projectile.Center.Y - Main.screenPosition.Y + 2),
-                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, projectile.rotation,
-                        new Vector2(projectile.width * 0.5f, projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
+                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
+                        new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
             return false;
         }
     }

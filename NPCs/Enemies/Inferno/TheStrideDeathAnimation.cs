@@ -9,50 +9,50 @@ namespace AAMod.NPCs.Enemies.Inferno
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flamebrute");
-            Main.npcFrameCount[npc.type] = 6;
+            // DisplayName.SetDefault("Flamebrute");
+            Main.npcFrameCount[NPC.type] = 6;
         }
         public override void SetDefaults()
         {
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.width = 62;
-            npc.height = 88;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noGravity = false;
-            npc.aiStyle = -1;
-            npc.timeLeft = 48;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.width = 62;
+            NPC.height = 88;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noGravity = false;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 48;
 
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         public override void AI()
         {
-            if (npc.ai[0] > 0)
+            if (NPC.ai[0] > 0)
             {
                 TheStrideGore();
-                npc.life = 0;
+                NPC.life = 0;
             }
             base.AI();
         }
         public override void FindFrame(int frameHeight)
         {
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
-            if (npc.frameCounter++ > 7)
+            if (NPC.frameCounter++ > 7)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y = npc.frame.Y + frameHeight;
+                NPC.frameCounter = 0;
+                NPC.frame.Y = NPC.frame.Y + frameHeight;
             }
-            if (npc.frame.Y >= frameHeight * 6)
+            if (NPC.frame.Y >= frameHeight * 6)
             {
-                npc.ai[0]++;
-                npc.frame.Y = 0;
+                NPC.ai[0]++;
+                NPC.frame.Y = 0;
                 return;
             }
         }
@@ -60,14 +60,14 @@ namespace AAMod.NPCs.Enemies.Inferno
         {
           for(int i = 0; i<20; i++)
           {
-            int num = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.RealityDust>(), Main.rand.NextFloat(-6f, 6f), Main.rand.NextFloat(0, -10), 6, new Color(255, 0, 0, 255), 1f);
+            int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.RealityDust>(), Main.rand.NextFloat(-6f, 6f), Main.rand.NextFloat(0, -10), 6, new Color(255, 0, 0, 255), 1f);
             Main.dust[num].noGravity = false;
             Main.dust[num].velocity *= 2.5f;
             Main.dust[num].noLight = true;
           }
-            Projectile.NewProjectile(npc.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), mod.ProjectileType("FlamebruteProjectileGore5"), npc.damage/2, 4f);
-            Projectile.NewProjectile(npc.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), mod.ProjectileType("FlamebruteProjectileGore4"), npc.damage / 2, 4f);
-            Projectile.NewProjectile(npc.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), mod.ProjectileType("FlamebruteProjectileGore3"), npc.damage / 2, 4f);            
+            Projectile.NewProjectile(NPC.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore5").Type, NPC.damage/2, 4f);
+            Projectile.NewProjectile(NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore4").Type, NPC.damage / 2, 4f);
+            Projectile.NewProjectile(NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore3").Type, NPC.damage / 2, 4f);            
         }
 
 

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,19 +13,19 @@ namespace AAMod.Projectiles.Greed.WKG
     {
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-			projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
-            projectile.aiStyle = 14;
+            Projectile.width = 16;
+            Projectile.height = 16;
+			Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
+            Projectile.aiStyle = 14;
         }
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ore");
-            Main.projFrames[projectile.type] = 28;
+            // DisplayName.SetDefault("Ore");
+            Main.projFrames[Projectile.type] = 28;
         }
 
         public float rotationspeed = 0.2f;
@@ -32,22 +33,22 @@ namespace AAMod.Projectiles.Greed.WKG
         public override void AI()
         {
             OreEffect();
-            if (projectile.velocity.X > 0)
+            if (Projectile.velocity.X > 0)
             {
-                projectile.direction = 1;
+                Projectile.direction = 1;
             }
             else
             {
-                projectile.direction = -1;
+                Projectile.direction = -1;
             }
 
             bool flag = false;
-            Vector2 velocity = Collision.TileCollision(projectile.position, projectile.velocity, projectile.width, projectile.height, true, true, 1);;
-            if (velocity != projectile.velocity)
+            Vector2 velocity = Collision.TileCollision(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height, true, true, 1);;
+            if (velocity != Projectile.velocity)
             {
                 flag = true;
             }
-            if (flag && ProjectileLoader.OnTileCollide(projectile, projectile.velocity))
+            if (flag && ProjectileLoader.OnTileCollide(Projectile, Projectile.velocity))
             {
                 rotationspeed -= .021f;
             }
@@ -57,87 +58,87 @@ namespace AAMod.Projectiles.Greed.WKG
                 rotationspeed = 0f;
             }
 
-            projectile.rotation += rotationspeed * projectile.direction;
+            Projectile.rotation += rotationspeed * Projectile.direction;
 
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
         }
 
         public override void PostAI()
         {
-            projectile.frame = (int)projectile.ai[1];
+            Projectile.frame = (int)Projectile.ai[1];
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 28, 0, 0);
-            if (projectile.ai[1] == 9 || projectile.ai[1] == 11 || projectile.ai[1] == 22 || projectile.ai[1] == 26)
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 28, 0, 0);
+            if (Projectile.ai[1] == 9 || Projectile.ai[1] == 11 || Projectile.ai[1] == 22 || Projectile.ai[1] == 26)
             {
-                BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.oldPos, 1, projectile.rotation, projectile.direction, 28, frame, .8f, 1, 4, true, 0, 0, lightColor);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1, Projectile.rotation, Projectile.direction, 28, frame, .8f, 1, 4, true, 0, 0, lightColor);
             }
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 28, frame, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 28, frame, lightColor, true);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             int DustType = DType();
-            if (projectile.ai[1] == 8)
+            if (Projectile.ai[1] == 8)
             {
                 for (int num291 = 0; num291 < 5; num291++)
                 {
-                    int num292 = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 100, default, 2.1f);
+                    int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 2.1f);
                     Main.dust[num292].velocity *= 2f;
                     Main.dust[num292].noGravity = true;
                 };
             }
-            if (projectile.ai[1] == 21)
+            if (Projectile.ai[1] == 21)
             {
                 for (int s = 0; s < 3; s++)
                 {
-                    int a = Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<OreSpores>(), projectile.damage, projectile.knockBack, Main.myPlayer, 0, s);
-                    Main.projectile[a].ranged = false;
-                    Main.projectile[a].magic = true;
+                    int a = Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<OreSpores>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, s);
+                    Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                    Main.projectile[a].DamageType = DamageClass.Magic;
                 }
             }
-            if (projectile.ai[1] == 22)
+            if (Projectile.ai[1] == 22)
             {
-                int a = Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), projectile.damage, projectile.knockBack, Main.myPlayer, 0, 0);
-                Main.projectile[a].ranged = false;
-                Main.projectile[a].magic = true;
+                int a = Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, 0);
+                Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[a].DamageType = DamageClass.Magic;
             }
-            if (projectile.ai[1] == 25)
+            if (Projectile.ai[1] == 25)
             {
-                int a = Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), projectile.damage, projectile.knockBack * 3, Main.myPlayer, 0, 0);
-                Main.projectile[a].ranged = false;
-                Main.projectile[a].magic = true;
+                int a = Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
+                Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[a].DamageType = DamageClass.Magic;
             }
-            if (projectile.ai[1] == 27)
+            if (Projectile.ai[1] == 27)
             {
                 for (int v = 0; v < 4; v++)
                 {
                     int x = Main.rand.Next(-6, 6);
                     int y = -Main.rand.Next(3, 5);
-                    int p = Projectile.NewProjectile(projectile.position, new Vector2(x, y), ModContent.ProjectileType<AFrag>(), projectile.damage, 0, Main.myPlayer, 0, Main.rand.Next(23));
-                    Main.projectile[p].Center = projectile.Center;
-                    Main.projectile[p].ranged = false;
-                    Main.projectile[p].magic = true;
+                    int p = Projectile.NewProjectile(Projectile.position, new Vector2(x, y), ModContent.ProjectileType<AFrag>(), Projectile.damage, 0, Main.myPlayer, 0, Main.rand.Next(23));
+                    Main.projectile[p].Center = Projectile.Center;
+                    Main.projectile[p].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                    Main.projectile[p].DamageType = DamageClass.Magic;
                 }
             }
             for (int num468 = 0; num468 < 5; num468++)
             {
-                float VelX = -projectile.velocity.X * 0.2f;
-                float VelY = -projectile.velocity.Y * 0.2f;
-                num468 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustType, VelX, VelY);
+                float VelX = -Projectile.velocity.X * 0.2f;
+                float VelY = -Projectile.velocity.Y * 0.2f;
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustType, VelX, VelY);
             }
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            switch ((int)projectile.ai[1])
+            switch ((int)Projectile.ai[1])
             {
                 case 6:
                 case 7: target.AddBuff(BuffID.Midas, 180); break;
@@ -153,32 +154,32 @@ namespace AAMod.Projectiles.Greed.WKG
 
         public void OreEffect()
         {
-            switch ((int)projectile.ai[1])
+            switch ((int)Projectile.ai[1])
             {
                 case 9:
                 case 11:
                 case 24:
-                    projectile.extraUpdates = 1;
+                    Projectile.extraUpdates = 1;
                     break;
                 case 13:
                 case 14:
                     for (int num291 = 0; num291 < 5; num291++)
                     {
-                        int num292 = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 100);
+                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100);
                         Main.dust[num292].velocity *= 2f;
                         Main.dust[num292].noGravity = true;
                     };
                     break;
                 case 22:
                 case 26:
-                    projectile.extraUpdates = 2;
+                    Projectile.extraUpdates = 2;
                     break;
             }
         }
 
         public int Damage()
         {
-            switch ((int)projectile.ai[1])
+            switch ((int)Projectile.ai[1])
             {
                 case 0:
                     return 8;
@@ -242,7 +243,7 @@ namespace AAMod.Projectiles.Greed.WKG
 
         public int DType()
         {
-            switch ((int)projectile.ai[1])
+            switch ((int)Projectile.ai[1])
             {
                 case 0:
                     return DustID.Copper;
@@ -271,7 +272,7 @@ namespace AAMod.Projectiles.Greed.WKG
                 case 12:
                     return ModContent.DustType<AbyssiumDust>();
                 case 13:
-                    return DustID.Fire;
+                    return DustID.Torch;
                 case 14:
                     return 48;
                 case 15:

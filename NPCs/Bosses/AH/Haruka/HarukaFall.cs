@@ -9,104 +9,104 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Haruka Yamata");
-            Main.npcFrameCount[npc.type] = 8;
+			// DisplayName.SetDefault("Haruka Yamata");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-            npc.npcSlots = 1000;
-            npc.aiStyle = -1;
-            npc.defense = 1;
-            npc.knockBackResist = 0f;
-            npc.noGravity = false;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.boss = true;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.damage = 0;
-            npc.value = 0;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
-            bossBag = mod.ItemType("AHBag");
+            NPC.npcSlots = 1000;
+            NPC.aiStyle = -1;
+            NPC.defense = 1;
+            NPC.knockBackResist = 0f;
+            NPC.noGravity = false;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.boss = true;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.damage = 0;
+            NPC.value = 0;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AHBag").Type;
         }
 
         public override void AI()
         {
-            npc.dontTakeDamage = true;
+            NPC.dontTakeDamage = true;
 
-            if (npc.collideY)
+            if (NPC.collideY)
             {
-                npc.ai[0]++;
-                if (npc.frame.Y < 78 * 4)
+                NPC.ai[0]++;
+                if (NPC.frame.Y < 78 * 4)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 78 * 4;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 78 * 4;
                 }
 
-                if (npc.frame.Y < 78 * 6)
+                if (NPC.frame.Y < 78 * 6)
                 {
-                    if (npc.frameCounter++ > 5)
+                    if (NPC.frameCounter++ > 5)
                     {
-                        npc.frame.Y += 78;
-                        npc.frameCounter = 0;
+                        NPC.frame.Y += 78;
+                        NPC.frameCounter = 0;
                     }
                 }
 
-                if (npc.ai[0] == 60)
+                if (NPC.ai[0] == 60)
                 {
-                    CombatText.NewText(npc.Hitbox, new Color(72, 78, 117), "..?");
+                    CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "..?");
                 }
 
-                if (npc.ai[0] == 120)
+                if (NPC.ai[0] == 120)
                 {
-                    npc.frame.Y = 78 * 7;
+                    NPC.frame.Y = 78 * 7;
                 }
-                if (npc.ai[0] == 180)
+                if (NPC.ai[0] == 180)
                 {
-                    CombatText.NewText(npc.Hitbox, new Color(72, 78, 117), "...Ashe?");
-                    npc.frame.Y = 78 * 6;
+                    CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "...Ashe?");
+                    NPC.frame.Y = 78 * 6;
                 }
-                if (npc.ai[0] == 240)
+                if (NPC.ai[0] == 240)
                 {
-                    npc.frame.Y = 78 * 7;
+                    NPC.frame.Y = 78 * 7;
                 }
 
-                if (npc.ai[0] == 360)
+                if (NPC.ai[0] == 360)
                 {
-                    CombatText.NewText(npc.Hitbox, new Color(72, 78, 117), "...thanks for shutting her up.");
+                    CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "...thanks for shutting her up.");
 
                     if (Main.expertMode)
                     {
-                        npc.DropBossBags();
+                        NPC.DropBossBags();
                     }
 
                     if (!Main.expertMode)
                     {
                         string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };
                         int lootH = Main.rand.Next(lootTableH.Length);
-                        npc.DropLoot(mod.ItemType(lootTableH[lootH]));
+                        NPC.DropLoot(Mod.Find<ModItem>(lootTableH[lootH]).Type);
                     }
 
                     if (Main.rand.Next(10) == 0)
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HarukaTrophy"));
+                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
                     }
 
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<HarukaVanish>(), 0, 0, 4);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>(), 0, 0, 4);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
             else
             {
-                if (npc.frameCounter++ > 6)
+                if (NPC.frameCounter++ > 6)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += 78;
-                    if (npc.frame.Y > 78 * 3)
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 78;
+                    if (NPC.frame.Y > 78 * 3)
                     {
-                        npc.frame.Y = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }

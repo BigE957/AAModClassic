@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,28 +11,28 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Daystorm");
-            Tooltip.SetDefault(@"Incinerate your enemies in a storm of scorching fiery mayhem");
+            // DisplayName.SetDefault("Daystorm");
+            // Tooltip.SetDefault(@"Incinerate your enemies in a storm of scorching fiery mayhem");
         }       
 
         public override void SetDefaults()
 		{
-			item.damage = 225;
-			item.magic = true;
-			item.mana = 9;
-			item.width = 100;
-			item.height = 100;
-			item.useTime = 7;
-			item.useAnimation = 7;
-			item.useStyle = 5;
-			item.noMelee = true; 
-			item.knockBack = 0;
-            item.value = Item.sellPrice(0, 7, 0, 0);
-            item.rare = 8;
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Dayshot");
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 30;
+			Item.damage = 225;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 9;
+			Item.width = 100;
+			Item.height = 100;
+			Item.useTime = 7;
+			Item.useAnimation = 7;
+			Item.useStyle = 5;
+			Item.noMelee = true; 
+			Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 7, 0, 0);
+            Item.rare = 8;
+			Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Dayshot");
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 30;
         }
 
         public override Vector2? HoldoutOffset()
@@ -40,7 +41,7 @@ namespace AAMod.Items.Boss.Akuma
         }
 
         int shoot = 0;
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             //for (int i = 0; i < 3; i++)
             //{
@@ -52,7 +53,7 @@ namespace AAMod.Items.Boss.Akuma
             for (int i = 0; i < 4; i++)
             {
                 Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15)) * .5f;
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("Daystormbullet"), damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("Daystormbullet").Type, damage, knockBack, player.whoAmI);
             }
 
             if (Main.rand.Next(3) == 0)
@@ -63,7 +64,7 @@ namespace AAMod.Items.Boss.Akuma
                 for (int i = 0; i < Main.rand.Next(2); i++)
                 {
                     Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, mod.ProjectileType("DaystormbulletA"), (int)(damage * 1.5f), knockBack, player.whoAmI);
+                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, Mod.Find<ModProjectile>("DaystormbulletA").Type, (int)(damage * 1.5f), knockBack, player.whoAmI);
                 }
             }
             return false;
@@ -71,13 +72,12 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(ItemID.LaserMachinegun);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

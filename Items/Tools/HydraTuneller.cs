@@ -9,41 +9,40 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Hydra Tuneller");
-            Tooltip.SetDefault("Okay, this is getting rediculous. Hydras don't use drills.");
+            // DisplayName.SetDefault("Hydra Tuneller");
+            // Tooltip.SetDefault("Okay, this is getting rediculous. Hydras don't use drills.");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 6;
-			item.melee = true;
-			item.width = 50;
-			item.height = 18;
-			item.useTime = 10;
-			item.useAnimation = 15;
-			item.channel = true;
-			item.noUseGraphic = true;
-			item.noMelee = true;
-			item.pick = 65;
-			item.useStyle = 5;
-			item.knockBack = 0;
-			item.value = Item.sellPrice(0, 0, 30, 0);
-			item.rare = 1;
-			item.UseSound = SoundID.Item23;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("HydraTuneller");
-			item.shootSpeed = 40f;
+			Item.damage = 6;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 50;
+			Item.height = 18;
+			Item.useTime = 10;
+			Item.useAnimation = 15;
+			Item.channel = true;
+			Item.noUseGraphic = true;
+			Item.noMelee = true;
+			Item.pick = 65;
+			Item.useStyle = 5;
+			Item.knockBack = 0;
+			Item.value = Item.sellPrice(0, 0, 30, 0);
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item23;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("HydraTuneller").Type;
+			Item.shootSpeed = 40f;
 		}
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "AbyssiumBar", 12);
                 recipe.AddIngredient(null, "HydraHide", 6);
                 recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

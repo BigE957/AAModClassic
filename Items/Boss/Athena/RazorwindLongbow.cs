@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,31 +10,31 @@ namespace AAMod.Items.Boss.Athena
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Razorwind Longbow");
-            Tooltip.SetDefault("Replaces wooden arrows with wind arrows with high knockback");
+            // DisplayName.SetDefault("Razorwind Longbow");
+            // Tooltip.SetDefault("Replaces wooden arrows with wind arrows with high knockback");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 50; 
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 24;
-            item.height = 62;
-            item.useTime = 25;
-            item.useAnimation = 25;
-            item.useStyle = 5;
-            item.shoot = 1;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 8;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
-            item.shootSpeed = 14f;
+            Item.damage = 50; 
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 24;
+            Item.height = 62;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
+            Item.useStyle = 5;
+            Item.shoot = 1;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 8;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = false;
+            Item.shootSpeed = 14f;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
@@ -45,19 +46,17 @@ namespace AAMod.Items.Boss.Athena
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.SilverBow, 1);
             recipe.AddIngredient(null, "GoddessFeather", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
+            recipe.Register();
+            recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.TungstenBow, 1);
             recipe.AddIngredient(null, "GoddessFeather", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

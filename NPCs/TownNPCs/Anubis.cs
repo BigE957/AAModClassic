@@ -1,8 +1,10 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,23 +18,23 @@ namespace AAMod.NPCs.TownNPCs
 	{
         public override string Texture => "AAMod/NPCs/TownNPCs/Anubis";
 
-        public override bool Autoload(ref string name)
+        public override bool IsLoadingEnabled(Mod mod)
         {
             name = "Legendscribe";
-            return mod.Properties.Autoload;
+            return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			Main.npcFrameCount[npc.type] = 26;
-            npc.dontTakeDamageFromHostiles = true;
-			NPCID.Sets.ExtraFramesCount[npc.type] = 10;
-			NPCID.Sets.AttackFrameCount[npc.type] = 5;
-			NPCID.Sets.DangerDetectRange[npc.type] = 700;
-			NPCID.Sets.AttackType[npc.type] = 0;
-			NPCID.Sets.AttackTime[npc.type] = 40;
-			NPCID.Sets.AttackAverageChance[npc.type] = 20;
-			NPCID.Sets.HatOffsetY[npc.type] = 3;
+			Main.npcFrameCount[NPC.type] = 26;
+            NPC.dontTakeDamageFromHostiles = true;
+			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
+			NPCID.Sets.AttackFrameCount[NPC.type] = 5;
+			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+			NPCID.Sets.AttackType[NPC.type] = 0;
+			NPCID.Sets.AttackTime[NPC.type] = 40;
+			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+			NPCID.Sets.HatOffsetY[NPC.type] = 3;
 		}
 
         public float internalAI = 0;
@@ -57,30 +59,30 @@ namespace AAMod.NPCs.TownNPCs
 
         public override void SetDefaults()
 		{
-			npc.townNPC = true;
-			npc.friendly = true;
-			npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-			npc.damage = 10;
-			npc.defense = 68;
-			npc.lifeMax = 160000;
-            npc.HitSound = SoundID.NPCHit23;
-            npc.DeathSound = SoundID.NPCDeath39;
-            npc.knockBackResist = 0f;
-			animationType = NPCID.Guide;
-            npc.lavaImmune = true;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+			NPC.townNPC = true;
+			NPC.friendly = true;
+			NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+			NPC.damage = 10;
+			NPC.defense = 68;
+			NPC.lifeMax = 160000;
+            NPC.HitSound = SoundID.NPCHit23;
+            NPC.DeathSound = SoundID.NPCDeath39;
+            NPC.knockBackResist = 0f;
+			AnimationType = NPCID.Guide;
+            NPC.lavaImmune = true;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
 		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             for (int k = 0; k < 255; k++)
             {
@@ -96,7 +98,7 @@ namespace AAMod.NPCs.TownNPCs
             return false;
 		}
 
-		public override string TownNPCName()
+		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
             return "Anubis";
         }
@@ -352,7 +354,7 @@ namespace AAMod.NPCs.TownNPCs
             RajahC = false;
         }
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+		public override void OnChatButtonClicked(bool firstButton, ref string shopName)
 		{
 			if (firstButton)
 			{
@@ -378,7 +380,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = Lang.TownNPCAnubis("GetBookChat");
                     player.QuickSpawnItem(ModContent.ItemType<Items.Magic.AnubisBlockBook>(), 1);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 Main.npcChatText = BossChat();
@@ -393,21 +395,21 @@ namespace AAMod.NPCs.TownNPCs
                 NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
             {
                 TPDust();
-                npc.active = false;
+                NPC.active = false;
             }
-            if (Vector2.Distance(npc.position, new Vector2(npc.homeTileX, npc.homeTileY)) > 3000 && internalAI < 240 && !npc.homeless)
+            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && internalAI < 240 && !NPC.homeless)
             {
                 internalAI++;
                 if (internalAI >= 240)
                 {
                     bool flag4 = true;
-                    int num3 = npc.homeTileY;
+                    int num3 = NPC.homeTileY;
                     for (int k = 0; k < 2; k++)
                     {
-                        Rectangle rectangle = new Rectangle((int)(npc.position.X + npc.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(npc.position.Y + npc.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                        Rectangle rectangle = new Rectangle((int)(NPC.position.X + NPC.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(NPC.position.Y + NPC.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
                         if (k == 1)
                         {
-                            rectangle = new Rectangle(npc.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num3 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                            rectangle = new Rectangle(NPC.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, num3 * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
                         }
                         for (int l = 0; l < 255; l++)
                         {
@@ -428,15 +430,15 @@ namespace AAMod.NPCs.TownNPCs
                     }
                     if (flag4)
                     {
-                        if (!Collision.SolidTiles(npc.homeTileX - 1, npc.homeTileX + 1, num3 - 3, num3 - 1))
+                        if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, num3 - 3, num3 - 1))
                         {
                             TPDust();
-                            CombatText.NewText(npc.Hitbox, Color.Gold, Lang.TownNPCAnubis("CombatTextChat"));
-                            npc.velocity.X = 0f;
-                            npc.velocity.Y = 0f;
-                            npc.position.X = npc.homeTileX * 16 + 8 - npc.width / 2;
-                            npc.position.Y = num3 * 16 - npc.height - 0.1f;
-                            npc.netUpdate = true;
+                            CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.TownNPCAnubis("CombatTextChat"));
+                            NPC.velocity.X = 0f;
+                            NPC.velocity.Y = 0f;
+                            NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
+                            NPC.position.Y = num3 * 16 - NPC.height - 0.1f;
+                            NPC.netUpdate = true;
                             internalAI = 0;
                         }
                     }
@@ -445,58 +447,58 @@ namespace AAMod.NPCs.TownNPCs
             return true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D t = mod.GetTexture(AAWorld.downedAnubisA ? "NPCs/TownNPCs/AnubisF" : "NPCs/TownNPCs/Anubis");
-            Texture2D g = mod.GetTexture(AAWorld.downedAnubisA ? "Glowmasks/AnubisF_Glow" : "Glowmasks/Anubis_Glow");
-            BaseDrawing.DrawTexture(spriteBatch, t, 0, npc, drawColor);
-            BaseDrawing.DrawTexture(spriteBatch, g, 0, npc, Color.White);
+            Texture2D t = Mod.GetTexture(AAWorld.downedAnubisA ? "NPCs/TownNPCs/AnubisF" : "NPCs/TownNPCs/Anubis");
+            Texture2D g = Mod.GetTexture(AAWorld.downedAnubisA ? "Glowmasks/AnubisF_Glow" : "Glowmasks/Anubis_Glow");
+            BaseDrawing.DrawTexture(spriteBatch, t, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, g, 0, NPC, Color.White);
             return false;
         }
 
         public void TPDust()
         {
-            Vector2 position = npc.Center + (Vector2.One * -20f);
+            Vector2 position = NPC.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, DustID.GoldCoin, 0f, 0f, 50, default, 3.7f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, DustID.GoldCoin, 0f, 0f, 25, default, 1.5f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, DustID.GoldCoin, 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += npc.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, DustID.GoldCoin, 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += npc.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
 
@@ -673,10 +675,10 @@ namespace AAMod.NPCs.TownNPCs
             Mod Thorium = ModSupport.GetMod("ThoriumMod");
 
             //int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("GRealm", "HordeZombie").npc.type);
-            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Fargowiltas", "Mutant").npc.type);
-            int Newb = Redemption == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Redemption", "Newb").npc.type);
-            int Cobbler = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "Cobbler").npc.type);
-            int ConfusedZombie = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "ConfusedZombie").npc.type);
+            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Fargowiltas", "Mutant").NPC.type);
+            int Newb = Redemption == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("Redemption", "Newb").NPC.type);
+            int Cobbler = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "Cobbler").NPC.type);
+            int ConfusedZombie = Thorium == null ? -1 : NPC.FindFirstNPC(ModSupport.GetModNPC("ThoriumMod", "ConfusedZombie").NPC.type);
 
             WeightedRandom<string> chat = new WeightedRandom<string>();
 

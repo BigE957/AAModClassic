@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class CrimeraMinion : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crimtane Crimera");
-			Description.SetDefault("Summons a crimtane crimera to fight for you");
+			// DisplayName.SetDefault("Crimtane Crimera");
+			// Description.SetDefault("Summons a crimtane crimera to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("CrimeraMinion")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("CrimeraMinion").Type] > 0)
 			{
 				modPlayer.CrimeraMinion = true;
 			}

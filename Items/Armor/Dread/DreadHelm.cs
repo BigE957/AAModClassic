@@ -11,21 +11,21 @@ namespace AAMod.Items.Armor.Dread
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dread Moon Fukumen");
-			Tooltip.SetDefault(@"24% increased ranged critical chance
+			// DisplayName.SetDefault("Dread Moon Fukumen");
+			/* Tooltip.SetDefault(@"24% increased ranged critical chance
 20% increased movement speed
 +15 Max Life
-The abyssal wrath of the Mire rests in this armor");
+The abyssal wrath of the Mire rests in this armor"); */
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 24;
-			item.height = 22;
-			item.value = 3000000;
-			item.defense = 36;
-            item.rare = 9;
+			Item.width = 24;
+			Item.height = 22;
+			Item.value = 3000000;
+			Item.defense = 36;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -33,16 +33,16 @@ The abyssal wrath of the Mire rests in this armor");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedCrit += 24;
+            player.GetCritChance(DamageClass.Ranged) += 24;
             player.moveSpeed += .2f;
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .2f;
             player.statLifeMax2 += 15;
@@ -50,7 +50,7 @@ The abyssal wrath of the Mire rests in this armor");
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("DreadPlate") && legs.type == mod.ItemType("DreadBoots");
+			return body.type == Mod.Find<ModItem>("DreadPlate").Type && legs.type == Mod.Find<ModItem>("DreadBoots").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -68,13 +68,12 @@ The abyssal wrath of the Mire rests in this armor");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 15);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "DepthFukumen", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

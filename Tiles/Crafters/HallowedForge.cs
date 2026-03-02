@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class HallowedForge : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -21,18 +22,18 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Hallowed Forge");
-            dustType = mod.DustType("DaybreakIncineriteDust");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Hallowed Forge");
+            DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
             AddMapEntry(new Color(50, 50, 50), name);
-            disableSmartCursor = true;
-            adjTiles = new int[]
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[]
             { TileID.Hellforge,
               TileID.Furnaces,
               TileID.AdamantiteForge,
               TileID.ImbuingStation
               };
-            animationFrameHeight = 38;
+            AnimationFrameHeight = 38;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
@@ -43,8 +44,8 @@ namespace AAMod.Tiles.Crafters
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/HallowedForge_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/HallowedForge_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -61,7 +62,7 @@ namespace AAMod.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("HallowedForge"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("HallowedForge").Type);
         }
     }
 }

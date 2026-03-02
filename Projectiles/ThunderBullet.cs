@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,20 +12,20 @@ namespace AAMod.Projectiles
         //Thank you Qwerty3.14 for letting us use his Oricalcum bullet code.
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Thundershot");
+            // DisplayName.SetDefault("Thundershot");
 		}
 
 		public override void SetDefaults()
 		{
-            projectile.aiStyle = 1;
-            aiType = ProjectileID.Bullet;
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.penetrate = 5;
-            projectile.ranged = true;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.extraUpdates = 8;
+            Projectile.aiStyle = 1;
+            AIType = ProjectileID.Bullet;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.penetrate = 5;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.extraUpdates = 8;
         }
 
         public bool runOnce = true;
@@ -33,12 +34,12 @@ namespace AAMod.Projectiles
         {
             if (Main.rand.Next(3) == 0)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustID.Electric, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Electric, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].noGravity = false;
             }
             if (runOnce)
             {
-                maxSpeed = projectile.velocity.Length();
+                maxSpeed = Projectile.velocity.Length();
                 runOnce = false;
             }
         }
@@ -49,40 +50,40 @@ namespace AAMod.Projectiles
         float distance;
         float maxDistance = 2000;
         bool foundTarget;
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            projectile.localNPCImmunity[target.whoAmI] = -1;
-            target.immune[projectile.owner] = 0;
-            target.AddBuff(mod.BuffType("Electrified"), 500);
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            Projectile.localNPCImmunity[target.whoAmI] = -1;
+            target.immune[Projectile.owner] = 0;
+            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
             if(target.life<=0)
            {
-              Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("ThunderBoom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);             
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+              Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("ThunderBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
            }
             for (int k = 0; k < 200; k++)
             {
                 possibleTarget = Main.npc[k];
-                distance = (possibleTarget.Center - projectile.Center).Length();
-                if (distance < maxDistance && possibleTarget.active && !possibleTarget.dontTakeDamage && projectile.localNPCImmunity[k] >= 0 && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && Collision.CanHit(projectile.Center, 0, 0, possibleTarget.Center, 0, 0))
+                distance = (possibleTarget.Center - Projectile.Center).Length();
+                if (distance < maxDistance && possibleTarget.active && !possibleTarget.dontTakeDamage && Projectile.localNPCImmunity[k] >= 0 && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && Collision.CanHit(Projectile.Center, 0, 0, possibleTarget.Center, 0, 0))
                 {
                     ConfirmedTarget = Main.npc[k];
                     foundTarget = true;
 
 
-                    maxDistance = (ConfirmedTarget.Center - projectile.Center).Length();
+                    maxDistance = (ConfirmedTarget.Center - Projectile.Center).Length();
                 }
 
             }
             if (foundTarget)
             {
-                projectile.velocity = PolarVector(maxSpeed, (ConfirmedTarget.Center - projectile.Center).ToRotation());
+                Projectile.velocity = PolarVector(maxSpeed, (ConfirmedTarget.Center - Projectile.Center).ToRotation());
 
             }
             else
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
             foundTarget = false;
             maxDistance = 1000;
@@ -93,16 +94,16 @@ namespace AAMod.Projectiles
             return new Vector2((float)Math.Cos(theta), (float)Math.Sin(theta)) * radius;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustID.Electric, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Electric, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 0f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustID.Electric, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Electric, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].velocity *= 2f;
             }
         }

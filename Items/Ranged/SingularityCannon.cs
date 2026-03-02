@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -7,27 +8,27 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            item.damage = 55;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 36;
-            item.height = 64;
-            item.useTime = 40;
-            item.useAnimation = 30;
-            item.useStyle = 5;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Singularity>();
-            item.knockBack = 5;
-            item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
-            item.rare = 11;
-            item.UseSound = SoundID.Item12;
-            item.autoReuse = true;
-            item.shootSpeed = 22f;
+            Item.damage = 55;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 36;
+            Item.height = 64;
+            Item.useTime = 40;
+            Item.useAnimation = 30;
+            Item.useStyle = 5;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Singularity>();
+            Item.knockBack = 5;
+            Item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 11;
+            Item.UseSound = SoundID.Item12;
+            Item.autoReuse = true;
+            Item.shootSpeed = 22f;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Singularity Cannon");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Singularity Cannon");
+            // Tooltip.SetDefault("");
         }
     }
 }

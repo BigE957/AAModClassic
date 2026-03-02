@@ -1,5 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,31 +11,31 @@ namespace AAMod.Items.Melee.Gem   //where is located
         public override void SetDefaults()
         {
 
-            item.damage = 26;            
-            item.melee = true;            
-            item.width = 58;              
-            item.height = 60;
-            item.useTime = 30;
-            item.useAnimation = 30;
-            item.useStyle = 1;        
-            item.knockBack = 5;      
-            item.value = 3000;        
-            item.rare = 4;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = false;   
-            item.useTurn = true;
-            item.shoot = ModContent.ProjectileType<Projectiles.GemShot.TopazShot>();
-            item.shootSpeed = 6f;
+            Item.damage = 26;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 58;              
+            Item.height = 60;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = 1;        
+            Item.knockBack = 5;      
+            Item.value = 3000;        
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = false;   
+            Item.useTurn = true;
+            Item.shoot = ModContent.ProjectileType<Projectiles.GemShot.TopazShot>();
+            Item.shootSpeed = 6f;
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("Topaz Greatsword");
-          Tooltip.SetDefault("");
+          // DisplayName.SetDefault("Topaz Greatsword");
+          // Tooltip.SetDefault("");
         }
 
         static int shoot = 0;
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             shoot++;
             if (shoot % 3 != 0) return false;
@@ -45,12 +46,11 @@ namespace AAMod.Items.Melee.Gem   //where is located
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(null, "TopazSaber", 1);
 			recipe.AddIngredient(ItemID.LargeTopaz, 1);			
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,29 +10,29 @@ namespace AAMod.Items.Melee
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Firestorm");
-			Tooltip.SetDefault("Launches bouncing fireballs on swing");
+			// DisplayName.SetDefault("Firestorm");
+			// Tooltip.SetDefault("Launches bouncing fireballs on swing");
         }
 		
 		public override void SetDefaults()
 		{
-			item.damage = 64;
-			item.melee = true;
-			item.width = 64;
-			item.height = 64;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = 50000;
-			item.rare = 5;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.shoot = 15;
-			item.shootSpeed = 10f;
+			Item.damage = 64;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 64;
+			Item.height = 64;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = 50000;
+			Item.rare = 5;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+			Item.shoot = 15;
+			Item.shootSpeed = 10f;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			float numberProjectiles = 3;
 			float rotation = MathHelper.ToRadians(10);
@@ -54,14 +55,13 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiantIncinerite", 15);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }

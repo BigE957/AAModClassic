@@ -1,6 +1,7 @@
 
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Usable
@@ -9,31 +10,31 @@ namespace AAMod.Items.Usable
 	{
 		public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dank Seeds");
-            Tooltip.SetDefault("Plants Mire grass"); ;	
+            // DisplayName.SetDefault("Dank Seeds");
+            // Tooltip.SetDefault("Plants Mire grass"); ;	
 		}		
 		
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.rare = 8;
-            item.value = BaseUtility.CalcValue(0, 0, 0, 5);
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.rare = 8;
+            Item.value = BaseUtility.CalcValue(0, 0, 0, 5);
 
-            item.useStyle = 1;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.createTile = mod.TileType("MireGrass");
-            item.consumable = true;		
+            Item.useStyle = 1;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.createTile = Mod.Find<ModTile>("MireGrass").Type;
+            Item.consumable = true;		
         }
 
 		public override bool CanUseItem(Player p)
 		{
 			Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
-			if(tile != null && tile.active() && tile.type == TileID.Mud)
+			if(tile != null && tile.HasTile && tile.TileType == TileID.Mud)
 			{
 				WorldGen.destroyObject = true;
 				TileID.Sets.BreakableWhenPlacing[TileID.Mud] = true;
@@ -42,7 +43,7 @@ namespace AAMod.Items.Usable
 			return false;
 		}
 
-		public override bool UseItem(Player p)
+		public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
 		{
 			WorldGen.destroyObject = false;
 			TileID.Sets.BreakableWhenPlacing[TileID.Mud] = false;		

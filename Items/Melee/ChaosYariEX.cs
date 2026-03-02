@@ -8,45 +8,44 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Perfect Chaos Yari");
-            Tooltip.SetDefault("Chaos Yari EX");
+			// DisplayName.SetDefault("Perfect Chaos Yari");
+            // Tooltip.SetDefault("Chaos Yari EX");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 180;
-            item.melee = true;
-            item.width = 40;
-            item.height = 40;
-            item.maxStack = 1;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.knockBack = 4f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(5, 0, 0, 0);
-            item.rare = 11;
-            item.expert = true; item.expertOnly = true;
-            item.shootSpeed = 12f;
-            item.shoot = mod.ProjectileType("ChaosYariEX");
+            Item.damage = 180;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 40;
+            Item.maxStack = 1;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.knockBack = 4f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(5, 0, 0, 0);
+            Item.rare = 11;
+            Item.expert = true; Item.expertOnly = true;
+            Item.shootSpeed = 12f;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosYariEX").Type;
         }
 
         public override bool CanUseItem(Player player)
         {
-            return player.ownedProjectileCounts[item.shoot] < 1;
+            return player.ownedProjectileCounts[Item.shoot] < 1;
         }
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "ChaosYari", 1);
-            recipe.AddIngredient(mod, "EXSoul", 1);
+			Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "ChaosYari", 1);
+            recipe.AddIngredient(Mod, "EXSoul", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
     }
 }

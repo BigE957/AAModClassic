@@ -11,22 +11,22 @@ namespace AAMod.Items.Armor.Razewood
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Razewood Helmet");
+            // DisplayName.SetDefault("Razewood Helmet");
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = 1000;
-            item.rare = 0;
-            item.defense = 1;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = 1000;
+            Item.rare = 0;
+            Item.defense = 1;
         }
         
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("RazewoodChestplate") && legs.type == mod.ItemType("RazewoodBoots");
+            return body.type == Mod.Find<ModItem>("RazewoodChestplate").Type && legs.type == Mod.Find<ModItem>("RazewoodBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -37,11 +37,10 @@ namespace AAMod.Items.Armor.Razewood
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Razewood", 20);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

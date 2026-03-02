@@ -8,25 +8,25 @@ namespace AAMod.Items.DevTools
 	{
 		public override void SetStaticDefaults()
 		{	
-			DisplayName.SetDefault("[DEV] Chaos Converter");
-            BaseUtility.AddTooltips(item, new string[] { "Converts a strand of Mire or Inferno down below you." });					
+			// DisplayName.SetDefault("[DEV] Chaos Converter");
+            BaseUtility.AddTooltips(Item, new string[] { "Converts a strand of Mire or Inferno down below you." });					
 		}			
 		
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 1;
-            item.rare = 10;
-            item.value = 0;
-			item.useStyle = 1;
-            item.useAnimation = 45;
-            item.useTime = 45;		
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 1;
+            Item.rare = 10;
+            Item.value = 0;
+			Item.useStyle = 1;
+            Item.useAnimation = 45;
+            Item.useTime = 45;		
         }
 
         public bool flag = false;
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (flag)
             {

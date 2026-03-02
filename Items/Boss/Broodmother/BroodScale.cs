@@ -8,31 +8,31 @@ namespace AAMod.Items.Boss.Broodmother
         public override void SetDefaults()
         {
 
-            item.width = 22;
-            item.height = 24;
-            item.maxStack = 99;
-            item.rare = 1;
+            Item.width = 22;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.rare = 1;
 			
         }
 
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scorched Scale");
-            Tooltip.SetDefault("The scale of a formidable foe");
+            // DisplayName.SetDefault("Scorched Scale");
+            // Tooltip.SetDefault("The scale of a formidable foe");
         }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,

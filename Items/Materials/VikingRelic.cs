@@ -6,17 +6,17 @@ namespace AAMod.Items.Materials
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Viking Relic");
-			Tooltip.SetDefault("");
+			// DisplayName.SetDefault("Viking Relic");
+			// Tooltip.SetDefault("");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 14;
-			item.height = 34;
-			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 8, 0);
-			item.rare = 1;
+			Item.width = 14;
+			Item.height = 34;
+			Item.maxStack = 99;
+			Item.value = Item.sellPrice(0, 0, 8, 0);
+			Item.rare = 1;
 		}
 	}
 }

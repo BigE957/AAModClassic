@@ -7,28 +7,28 @@ namespace AAMod.Items.Boss.AH
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Heart of Passion");
-            Tooltip.SetDefault(@"Your magic attacks and minions grow stronger the less health you have
+            // DisplayName.SetDefault("Heart of Passion");
+            /* Tooltip.SetDefault(@"Your magic attacks and minions grow stronger the less health you have
 Magic attacks and Minions inflict 'On Fire!'
 Below 2/3 of your maximum life, Your mana regenerates much faster
-Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken instead of 'On Fire'");
+Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken instead of 'On Fire'"); */
         }
         public override void SetDefaults()
         {
-            item.width = 66;
-            item.height = 78;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
-            item.defense = 3;
+            Item.width = 66;
+            Item.height = 78;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
+            Item.defense = 3;
         }
         
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.magicDamage += 1 - player.statLife / player.statLifeMax;
-            player.minionDamage += 1 - player.statLife / player.statLifeMax;
+            player.GetDamage(DamageClass.Magic) += 1 - player.statLife / player.statLifeMax;
+            player.GetDamage(DamageClass.Summon) += 1 - player.statLife / player.statLifeMax;
             player.GetModPlayer<AAPlayer>().HeartP = true;
 
             if (player.statLife > (player.statLifeMax * (2/3)))
@@ -37,7 +37,7 @@ Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken
             }
         }
 
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {
@@ -57,9 +57,9 @@ Below 1/3 of your maximum life, your magic attacks and minions inflict Daybroken
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -10,50 +11,50 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sock Puppet Staff");
-            Tooltip.SetDefault(@"Summons a sock puppet to fight with you");
+            // DisplayName.SetDefault("Sock Puppet Staff");
+            // Tooltip.SetDefault(@"Summons a sock puppet to fight with you");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("SockPuppet");
-            item.damage = 130;
-            item.width = 60;
-            item.height = 56;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.knockBack = 5f;
-            item.rare = 8;
-            item.summon = true;
-            item.mana = 20;
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("SockPuppet").Type;
+            Item.damage = 130;
+            Item.width = 60;
+            Item.height = 56;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.knockBack = 5f;
+            Item.rare = 8;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 20;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(89, 119, 71);
+                    line2.OverrideColor = new Color(89, 119, 71);
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
             float num74 = knockBack;
-            num74 = player.GetWeaponKnockback(item, num74);
-            player.itemTime = item.useTime;
+            num74 = player.GetWeaponKnockback(Item, num74);
+            player.itemTime = Item.useTime;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(vector2.X, vector2.Y, 0, 0, mod.ProjectileType("SockPuppet"), damage, num74, i, 0f, 0f);
+            Projectile.NewProjectile(vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("SockPuppet").Type, damage, num74, i, 0f, 0f);
             return false;
         }
     }

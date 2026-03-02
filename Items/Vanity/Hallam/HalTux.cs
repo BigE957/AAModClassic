@@ -10,27 +10,27 @@ namespace AAMod.Items.Vanity.Hallam
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Hallam's Fancy Tux");
-            Tooltip.SetDefault(
+            // DisplayName.SetDefault("Hallam's Fancy Tux");
+            /* Tooltip.SetDefault(
 @"This tux was woven with pure class
-'Great for impersonating Ancients Awakened Devs!'");
+'Great for impersonating Ancients Awakened Devs!'"); */
         }
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 8, 251);
+                    line2.OverrideColor = new Color(255, 8, 251);
                 }
             }
         }
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 24;
-            item.rare = 9;
-            item.vanity = true;
+            Item.width = 30;
+            Item.height = 24;
+            Item.rare = 9;
+            Item.vanity = true;
         }
     }
 }

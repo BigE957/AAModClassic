@@ -8,22 +8,22 @@ namespace AAMod.Projectiles.Shen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skyfall");
+            // DisplayName.SetDefault("Skyfall");
 
-            Main.projFrames[projectile.type] = 7;
+            Main.projFrames[Projectile.type] = 7;
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.tileCollide = false;
-            projectile.extraUpdates = 5;
-            projectile.penetrate = 1;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.alpha = 255;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.tileCollide = false;
+            Projectile.extraUpdates = 5;
+            Projectile.penetrate = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.alpha = 255;
         }
 
 
@@ -32,22 +32,22 @@ namespace AAMod.Projectiles.Shen
 
         public override void AI()
         {
-            if (projectile.position.Y > Main.player[projectile.owner].position.Y - 300f)
+            if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            if (projectile.position.Y < Main.worldSurface * 16.0)
+            if (Projectile.position.Y < Main.worldSurface * 16.0)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            Vector2 position = projectile.Center + (Vector2.Normalize(projectile.velocity) * 10f);
-            bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)projectile.position.X / 16, (int)projectile.position.Y / 16));
-            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
-            dust19.position = projectile.Center;
+            Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
+            bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
+            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+            dust19.position = Projectile.Center;
             dust19.velocity = Vector2.Zero;
             dust19.noGravity = true;
-            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
-            dust18.position = projectile.Center;
+            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
+            dust18.position = Projectile.Center;
             dust18.velocity = Vector2.Zero;
             dust18.noGravity = true;
             if (flag5)
@@ -63,33 +63,33 @@ namespace AAMod.Projectiles.Shen
             return true;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             EnemyHit = true;
             target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 600);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
             if (TileHit)
             {
-                int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 30, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("MeteorStrikeBlue"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].ranged = true;
+                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorStrikeBlue").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             if (EnemyHit)
             {
-                int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 30, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("MeteorBoomBlue"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].ranged = true;
+                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorBoomBlue").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
         }
     }

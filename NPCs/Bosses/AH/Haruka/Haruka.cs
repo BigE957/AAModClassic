@@ -1,5 +1,6 @@
 using Terraria;
 using System;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -15,35 +16,35 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Haruka Yamata");
-            Main.npcFrameCount[npc.type] = 28;
+            // DisplayName.SetDefault("Haruka Yamata");
+            Main.npcFrameCount[NPC.type] = 28;
         }
 
         public override void SetDefaults()
         {
             internalAI[0] = 3;
-            npc.width = 50;
-            npc.height = 60;
-            npc.friendly = false;
-            npc.damage = 140;
-            npc.defense = 120;
-            npc.lifeMax = 180000;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.value = Item.sellPrice(0, 12, 0, 0);
-            npc.knockBackResist = 0f;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 50;
+            NPC.height = 60;
+            NPC.friendly = false;
+            NPC.damage = 140;
+            NPC.defense = 120;
+            NPC.lifeMax = 180000;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.value = Item.sellPrice(0, 12, 0, 0);
+            NPC.knockBackResist = 0f;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.lavaImmune = true;
-            npc.boss = true;
-            npc.netAlways = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            bossBag = mod.ItemType("AHBag");
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.lavaImmune = true;
+            NPC.boss = true;
+            NPC.netAlways = true;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AHBag").Type;
         }
 
 
@@ -140,9 +141,9 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
         public float pos = 250f;
 
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, ModContent.DustType<Dusts.AcidDust>(), npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
@@ -151,35 +152,35 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             return null;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            int Ashe = NPC.CountNPCS(mod.NPCType("Ashe"));
+            int Ashe = NPC.CountNPCS(Mod.Find<ModNPC>("Ashe").Type);
             if (Ashe == 0)
             {
-                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<AHDeath>());
+                NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
                 if (Main.expertMode)
                 {
-                    npc.DropBossBags();
+                    NPC.DropBossBags();
                 }
             }
             if (!Main.expertMode)
             {
                 string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };
                 int lootH = Main.rand.Next(lootTableH.Length);
-                npc.DropLoot(mod.ItemType(lootTableH[lootH]));
+                NPC.DropLoot(Mod.Find<ModItem>(lootTableH[lootH]).Type);
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HarukaTrophy"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
             }
             if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("HarukaDowned"), new Color(72, 78, 117));
-            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<HarukaVanish>());
+            NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>());
 
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.7f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.7f);
         }
 
         public bool SetMovePos = false;
@@ -190,76 +191,76 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 
         public override void AI()
         {
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
 
-            int Ashe = NPC.CountNPCS(mod.NPCType("Ashe"));
-            bool flag = player.dead || !player.active || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f;
+            int Ashe = NPC.CountNPCS(Mod.Find<ModNPC>("Ashe").Type);
+            bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;
             if (Ashe == 0)
             {
-                if (npc.life < npc.lifeMax / 4)
+                if (NPC.life < NPC.lifeMax / 4)
                 {
                     if (internalAI[9]++ >= 480 && AAWorld.downedSisters)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<HarukaFall>());
-                        npc.active = false;
-                        npc.netUpdate = true;
+                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaFall>());
+                        NPC.active = false;
+                        NPC.netUpdate = true;
                         return;
                     }
                 }
                 if (flag)
                 {
-                    npc.TargetClosest(false);
+                    NPC.TargetClosest(false);
                     if (Main.netMode != 1)
                     {
-                        int DeathAnim = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<HarukaVanish>(), 0);
-                        Main.npc[DeathAnim].velocity = npc.velocity;
+                        int DeathAnim = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>(), 0);
+                        Main.npc[DeathAnim].velocity = NPC.velocity;
                         Main.npc[DeathAnim].netUpdate = true;
-                        npc.active = false;
-                        npc.netUpdate = true;
+                        NPC.active = false;
+                        NPC.netUpdate = true;
                     }
                     return;
                 }
             }
 
-            npc.direction = npc.spriteDirection = npc.position.X < player.position.X ? 1 : -1;
+            NPC.direction = NPC.spriteDirection = NPC.position.X < player.position.X ? 1 : -1;
 
             if (SHADOWCONTER <= 0)
             {
-                npc.dontTakeDamage = false;
+                NPC.dontTakeDamage = false;
                 SHADOWCONTER = 0;
                 Shadowdashcounter = 0;
             }
 
             if (Invisible)
             {
-                if (npc.alpha < 255)
+                if (NPC.alpha < 255)
                 {
-                    npc.alpha += 5;
+                    NPC.alpha += 5;
                 }
                 else
                 {
-                    npc.chaseable = false;
-                    npc.alpha = 255;
+                    NPC.chaseable = false;
+                    NPC.alpha = 255;
                 }
             }
             else
             {
-                if (npc.alpha > 0)
+                if (NPC.alpha > 0)
                 {
-                    npc.alpha -= 8;
+                    NPC.alpha -= 8;
                 }
                 else
                 {
-                    npc.chaseable = true;
-                    npc.alpha = 0;
+                    NPC.chaseable = true;
+                    NPC.alpha = 0;
                 }
             }
 
@@ -276,7 +277,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 
             int InvisTimer2 = 1300;
 
-            if (npc.life < npc.lifeMax * .66f)
+            if (NPC.life < NPC.lifeMax * .66f)
             {
                 InvisTimer1 = 800;
 
@@ -284,7 +285,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 
                 if(Main.expertMode) internalAI[6]++;
             }
-            if (npc.life < npc.lifeMax * .33f)
+            if (NPC.life < NPC.lifeMax * .33f)
             {
                 InvisTimer1 = 600;
 
@@ -297,7 +298,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 if (!Invisible)
                 {
                     Invisible = true;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
             if (internalAI[5] > InvisTimer2 && Main.netMode != 1 && internalAI[0] != AISTATE_Shadowkilling)
@@ -305,12 +306,12 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 Invisible = false;
                 Backstab();
                 Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
-                Vector2 fireTarget = npc.Center;
+                Vector2 fireTarget = NPC.Center;
                 int projType = ModContent.ProjectileType<HarukaProj>();
                 BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 12f);
                 internalAI[0] = Main.rand.Next(2);
                 internalAI[5] = 0;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             if (internalAI[6] >= 6000)
@@ -330,24 +331,24 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             
             if (Invisible)
             {
-                npc.dontTakeDamage = true;
+                NPC.dontTakeDamage = true;
                 internalAI[0] = 3;
             }
             else
             {
-                npc.dontTakeDamage = false;
+                NPC.dontTakeDamage = false;
             }
 
-            if (npc.alpha >= 200)
+            if (NPC.alpha >= 200)
             {
-                npc.dontTakeDamage = true;
+                NPC.dontTakeDamage = true;
             }
             else
             {
-                npc.dontTakeDamage = false;
+                NPC.dontTakeDamage = false;
             }
 
-            if(Shadowkill && npc.alpha > 250)
+            if(Shadowkill && NPC.alpha > 250)
             {
                 internalAI[0] = AISTATE_Shadowkilling;
                 internalAI[1] = 0;
@@ -384,7 +385,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 for(int i=0 ; i < 1000; i++)
                 {
-                    if(npc.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
+                    if(NPC.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
                     {
                         if(internalAI[6] >= 3500)
                         {
@@ -406,7 +407,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             if(SHADOWDOG)
             {
                 SHADOWCONTER ++;
-                npc.dontTakeDamage = true;
+                NPC.dontTakeDamage = true;
                 internalAI[0] = AISTATE_IDLE;
                 if(InvisTimer1 - internalAI[5] <= 360)
                 {
@@ -447,7 +448,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                             internalAI[0] = AISTATE_SPIN;
                             internalAI[6] -= 500;
                         }
-                        npc.ai = new float[4];
+                        NPC.ai = new float[4];
                     }
                     else if(internalAI[3] >= 95)
                     {
@@ -474,7 +475,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                         repeat -= 1;
                         int projType = ModContent.ProjectileType<HarukaKunai>();
                         float spread = 45f * 0.0174f;
-                        Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
+                        Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                         dir *= 14f;
                         float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                         double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -482,7 +483,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage*1, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage*1, 5, Main.myPlayer);
                         }
                     }
                     if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != 1) 
@@ -492,7 +493,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     }
                     if (repeat <= 0)
                     {
-                        npc.frameCounter = 0;
+                        NPC.frameCounter = 0;
                         Frame = 0;
                         if (Main.netMode != 1)
                         {
@@ -503,7 +504,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                             internalAI[4] = 0;
                             ProjectileShoot -= 1;
                             repeat = 12;
-                            npc.ai = new float[4];
+                            NPC.ai = new float[4];
                         }
                     }
                 }
@@ -537,19 +538,19 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     if (internalAI[2] == 8 && internalAI[1] == 4 && Main.netMode != 1)
                     {
                         Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
-                        Vector2 fireTarget = npc.Center;
+                        Vector2 fireTarget = NPC.Center;
                         int projType = ModContent.ProjectileType<HarukaProj>();
                         BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 14f);
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                     if (isSlashing && internalAI[2] > 9 && Main.netMode != 1)
                     {
                         isSlashing = false;
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                     if (internalAI[3] > 300)
                     {
-                        npc.frameCounter = 0;
+                        NPC.frameCounter = 0;
                         Frame = 0;
                         if (Main.netMode != 1)
                         {
@@ -559,7 +560,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                             internalAI[3] = 0;
                             internalAI[4] = 0;
                             ProjectileShoot -= 1;
-                            npc.ai = new float[4];
+                            NPC.ai = new float[4];
                         }
                     }
                 }
@@ -587,7 +588,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     }
                     if (internalAI[4] > 5)
                     {
-                        npc.frameCounter = 0;
+                        NPC.frameCounter = 0;
                         Frame = 0;
                         if (Main.netMode != 1)
                         {
@@ -605,7 +606,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                             {
                                 internalAI[0] = 3;
                             }
-                            npc.ai = new float[4];
+                            NPC.ai = new float[4];
                         }
                     }
                 }
@@ -645,7 +646,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 {
                     for(int i=0 ; i < 1000; i++)
                     {
-                        if(npc.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
+                        if(NPC.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
                         {
                             strikebackproj ++;
                             break;
@@ -658,7 +659,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 {
                     int projType = ModContent.ProjectileType<HarukaProj>();
                     float spread = 45f * 0.0174f;
-                    Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
+                    Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                     dir *= 14f;
                     float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -669,7 +670,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
                         }
                         if(strikebackproj != 0)
                         {
@@ -678,14 +679,14 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                             for (int i = 0; i < strikebackproj; i++)
                             {
                                 double offsetAngle = startAngle + (deltaAngle * i);
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<HarukaArrow>(), damage, 0, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<HarukaArrow>(), damage, 0, Main.myPlayer);
                             }
                         }
                     }
                     
                     strikebackproj = 0;
 
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 0;
 
                     if(internalAI[6] >= 1500 && internalAI[8] >= 1200 && Main.expertMode)
@@ -709,7 +710,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     internalAI[3] = 0;
                     internalAI[4] = 0;
                     pos *= -1f;
-                    npc.ai = new float[4];
+                    NPC.ai = new float[4];
                 }
                 else if(internalAI[4] > 100)
                 {
@@ -718,9 +719,9 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             }
             else if (internalAI[0] == AISTATE_Shadowkilling)
             {
-                ShadowNPC[0] = npc.whoAmI;
+                ShadowNPC[0] = NPC.whoAmI;
                 internalAI[4]++;
-                if(npc.alpha >= 255)
+                if(NPC.alpha >= 255)
                 {
                     SpawnClone = true;
                 }
@@ -734,24 +735,24 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     internalAI[1] = 0;
                     internalAI[2] = 0;
                     internalAI[3] = 0;
-                    npc.ai = new float[4];
+                    NPC.ai = new float[4];
                 }
             }
 
             if (internalAI[0] == AISTATE_SLASH || internalAI[0] == AISTATE_SPIN) //Melee Damage/Speed boost
             {
-                npc.damage = 140;
-                npc.defense = 300;
+                NPC.damage = 140;
+                NPC.defense = 300;
             }
             else if (internalAI[0] == AISTATE_Shadowkilling) //Melee Damage/Speed boost
             {
-                npc.damage = 150;
-                npc.defense = 9999;
+                NPC.damage = 150;
+                NPC.defense = 9999;
             }
             else //Reset Stats
             {
-                npc.defense = npc.defDefense;
-                npc.damage = npc.defDamage;
+                NPC.defense = NPC.defDefense;
+                NPC.damage = NPC.defDamage;
             }
 
 
@@ -778,27 +779,27 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     MoveToPoint(player.Center);
                 }
             }
-            npc.rotation = 0;
+            NPC.rotation = 0;
 
-            npc.noTileCollide = true;
+            NPC.noTileCollide = true;
         }
 
         public override void PostAI()
         {
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             if (internalAI[0] == AISTATE_ASHEGAG || internalAI[9] >= 480)
             {
                 return;
             }
             if (internalAI[0] != AISTATE_SPIN && internalAI[0] != AISTATE_Shadowkilling)
             {
-                if (player.Center.X > npc.Center.X) //If NPC's X position is higher than the player's
+                if (player.Center.X > NPC.Center.X) //If NPC's X position is higher than the player's
                 {
                     if (pos == -250)
                     {
                         pos = 250;
                     }
-                    npc.direction = 1;
+                    NPC.direction = 1;
                 }
                 else //If NPC's X position is lower than the player's
                 {
@@ -806,39 +807,39 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     {
                         pos = -250;
                     }
-                    npc.direction = -1;
+                    NPC.direction = -1;
                 }
             }
             else
             {
-                npc.direction = npc.velocity.X > 0 ? 1 : -1;
+                NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
+            NPC.frameCounter++;
             if (internalAI[0] == AISTATE_ASHEGAG)
             {
-                if (npc.frameCounter > 12)
+                if (NPC.frameCounter > 12)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame++;
                 }
             }
             else if (ProjectileShoot == 0 || internalAI[0] == AISTATE_SLASH || internalAI[0] == AISTATE_SPIN)
             {
-                if (npc.frameCounter > 4)
+                if (NPC.frameCounter > 4)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame++;
                 }
             }
             else
             {
-                if (npc.frameCounter > 8)
+                if (NPC.frameCounter > 8)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame++;
                 }
             }
@@ -846,7 +847,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 if (Frame > 3)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 0;
                 }
             }
@@ -856,7 +857,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 {
                     if (Frame < 4 || Frame > 6)
                     {
-                        npc.frameCounter = 0;
+                        NPC.frameCounter = 0;
                         Frame = 4;
                     }
                 }
@@ -867,7 +868,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     {
                         if (Frame < 7 || Frame > 9) //Sets to frame 16
                         {
-                            npc.frameCounter = 0;
+                            NPC.frameCounter = 0;
                             Frame = 7;
                         }
                     }
@@ -875,7 +876,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                     {
                         if (Frame > 3)
                         {
-                            npc.frameCounter = 0;
+                            NPC.frameCounter = 0;
                             Frame = 0;
                         }
                     }
@@ -885,12 +886,12 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 if (Frame < 17)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 17;
                 }
                 if (Frame > 26)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 17;
                 }
             }
@@ -898,12 +899,12 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 if (Frame < 10)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 10;
                 }
                 if (Frame > 16)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 13;
                 }
             }
@@ -911,17 +912,17 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 if (Frame != 27)
                 {
-                    npc.frameCounter = 0;
+                    NPC.frameCounter = 0;
                     Frame = 27;
                 }
             }
-            npc.frame.Y = Frame * frameHeight;
+            NPC.frame.Y = Frame * frameHeight;
         }
 
         public void Shadowkilling()
         {
             double Pi = Math.PI;
-            Vector2 playerLocation = Main.player[npc.target].position + new Vector2(Main.player[npc.target].width * 0.5f, Main.player[npc.target].height * 0.5f);
+            Vector2 playerLocation = Main.player[NPC.target].position + new Vector2(Main.player[NPC.target].width * 0.5f, Main.player[NPC.target].height * 0.5f);
             
             Vector2[] spawnpoint = new Vector2[3];
             spawnpoint[0] = playerLocation + 275f * new Vector2((float)Math.Sin(0.5f * Pi), (float)Math.Cos(0.5f * Pi));
@@ -933,10 +934,10 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 return;
             }
 
-            if(npc.alpha >= 255 && SpawnClone)
+            if(NPC.alpha >= 255 && SpawnClone)
             {
                 int k = Main.rand.Next(3);
-                npc.position = spawnpoint[k];
+                NPC.position = spawnpoint[k];
                 int k1 = k + 1;
                 if (k1 >= 3)
                 {
@@ -949,17 +950,17 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 }
                 if(Main.netMode != 1)
                 {
-                    ShadowNPC[1] = NPC.NewNPC((int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<HarukaClone>(), 0, npc.whoAmI);
+                    ShadowNPC[1] = NPC.NewNPC((int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<HarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(23, -1, -1, null, ShadowNPC[1], 0f, 0f, 0f, 0, 0, 0);
-                    ShadowNPC[2] = NPC.NewNPC((int)spawnpoint[k2].X, (int)spawnpoint[k2].Y, ModContent.NPCType<HarukaClone>(), 0, npc.whoAmI);
+                    ShadowNPC[2] = NPC.NewNPC((int)spawnpoint[k2].X, (int)spawnpoint[k2].Y, ModContent.NPCType<HarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(23, -1, -1, null, ShadowNPC[2], 0f, 0f, 0f, 0, 0, 0);
                 }
-                npc.netUpdate = true;
-                npc.alpha = 250;
+                NPC.netUpdate = true;
+                NPC.alpha = 250;
                 if(ShadowNPC[1] != -1 && ShadowNPC[2] != -1)
                 {
-                    Main.npc[ShadowNPC[1]].alpha = npc.alpha;
-                    Main.npc[ShadowNPC[2]].alpha = npc.alpha;
+                    Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
+                    Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
                     Main.npc[ShadowNPC[1]].boss = true;
                     Main.npc[ShadowNPC[2]].boss = true;
                     Main.npc[ShadowNPC[1]].life = Main.npc[ShadowNPC[0]].life;
@@ -967,23 +968,23 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 }
                 SpawnClone = false;
             }
-            else if (npc.alpha > 0)
+            else if (NPC.alpha > 0)
             {
-                npc.velocity = Main.player[npc.target].velocity;
-                Main.npc[ShadowNPC[1]].velocity = Main.player[npc.target].velocity;
-                Main.npc[ShadowNPC[2]].velocity = Main.player[npc.target].velocity;
+                NPC.velocity = Main.player[NPC.target].velocity;
+                Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
+                Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
 
                 
 
-                npc.alpha -= 8;
-                Main.npc[ShadowNPC[1]].alpha = npc.alpha;
-                Main.npc[ShadowNPC[2]].alpha = npc.alpha;
+                NPC.alpha -= 8;
+                Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
+                Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
             }
-            else if(!npc.active || npc.life <= 0)
+            else if(!NPC.active || NPC.life <= 0)
             {
-                npc.velocity = Main.player[npc.target].velocity;
-                Main.npc[ShadowNPC[1]].velocity = Main.player[npc.target].velocity;
-                Main.npc[ShadowNPC[2]].velocity = Main.player[npc.target].velocity;
+                NPC.velocity = Main.player[NPC.target].velocity;
+                Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
+                Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
 
                 Main.npc[ShadowNPC[1]].active = false;
                 Main.npc[ShadowNPC[2]].active = false;
@@ -992,23 +993,23 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 if(internalAI[4] < 90)
                 {
-                    npc.velocity = Main.player[npc.target].velocity;
-                    Main.npc[ShadowNPC[1]].velocity = Main.player[npc.target].velocity;
-                    Main.npc[ShadowNPC[2]].velocity = Main.player[npc.target].velocity;
+                    NPC.velocity = Main.player[NPC.target].velocity;
+                    Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
+                    Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
                     
                     ShadowkingPosition = playerLocation;
                 }
                 else
                 {
-                    npc.alpha = 0;
-                    Main.npc[ShadowNPC[1]].alpha = npc.alpha;
-                    Main.npc[ShadowNPC[2]].alpha = npc.alpha;
+                    NPC.alpha = 0;
+                    Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
+                    Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
                     Vector2[] dist = new Vector2[3];
                     int k = 0;
                     while(k < 3)
                     {
                         dist[k] = ShadowkingPosition - Main.npc[ShadowNPC[k]].Center;
-                        if(k == 0) npc.velocity = Vector2.Normalize(dist[k]) * 15f;
+                        if(k == 0) NPC.velocity = Vector2.Normalize(dist[k]) * 15f;
                         else Main.npc[ShadowNPC[k]].velocity = Vector2.Normalize(dist[k]) * 15f;
                         if (ShadowkingPosition.X > Main.npc[ShadowNPC[k]].Center.X)
                         {
@@ -1049,28 +1050,28 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 internalAI[4] = 0;
                 ShadowkingPosition = Vector2.Zero;
                 internalAI[0] = 3;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
         }
 
         public void Backstab()
         {
-            Vector2 playerLocation = Main.player[npc.target].Center;
-            Vector2 playerVelocity = Main.player[npc.target].velocity;
+            Vector2 playerLocation = Main.player[NPC.target].Center;
+            Vector2 playerVelocity = Main.player[NPC.target].velocity;
             if(playerVelocity.X < 0)
             {
-                npc.position.X = playerLocation.X - 250f;
-                npc.position.Y = playerLocation.Y;
+                NPC.position.X = playerLocation.X - 250f;
+                NPC.position.Y = playerLocation.Y;
             }
             else if(playerVelocity.X > 0)
             {
-                npc.position.X = playerLocation.X + 250f;
-                npc.position.Y = playerLocation.Y;
+                NPC.position.X = playerLocation.X + 250f;
+                NPC.position.Y = playerLocation.Y;
             }
             else
             {
-                npc.position.X = playerLocation.X - Main.player[npc.target].direction * 250f;
-                npc.position.Y = playerLocation.Y;
+                NPC.position.X = playerLocation.X - Main.player[NPC.target].direction * 250f;
+                NPC.position.Y = playerLocation.Y;
             }
         }
 
@@ -1091,12 +1092,12 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 Shadowdashcounter = 0;
             }
 
-            if(Math.Abs(npc.Center.Y - point1.Y) < 150f)
+            if(Math.Abs(NPC.Center.Y - point1.Y) < 150f)
             {
                 MoveToPoint(point2);
                 Shadowdashcounter = 0;
             }
-            else if(Math.Abs(npc.Center.Y - point2.Y) < 150f)
+            else if(Math.Abs(NPC.Center.Y - point2.Y) < 150f)
             {
                 MoveToPoint(point1);
                 Shadowdashcounter = 41;
@@ -1111,7 +1112,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 moveSpeed = 20f;
             }
-            if (Vector2.Distance(npc.Center, point) > 500)
+            if (Vector2.Distance(NPC.Center, point) > 500)
             {
                 moveSpeed = 25f;
             }
@@ -1124,7 +1125,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                 }
             }
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -1146,9 +1147,9 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             {
                 moveSpeed *= 0.01f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -1156,7 +1157,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             potionType = 0;
         }
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             if(strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
             {
@@ -1165,25 +1166,25 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/Haruka_Glow");
-            Texture2D Slash = mod.GetTexture("NPCs/Bosses/AH/Haruka/HarukaSlash");
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/Haruka_Glow");
+            Texture2D Slash = Mod.GetTexture("NPCs/Bosses/AH/Haruka/HarukaSlash");
             if (internalAI[0] == AISTATE_SPIN)
             {
                 if(strikebackproj > 0)
-                BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
+                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
                 else
-                BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
             else if(internalAI[0] == AISTATE_Shadowkilling)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
 
                 if(internalAI[4] < 90)
                 {
-                    Vector2 playerLocation = Main.player[npc.target].Center;
-                    Texture2D texture = mod.GetTexture("NPCs/Bosses/AH/Haruka/Danger!");
+                    Vector2 playerLocation = Main.player[NPC.target].Center;
+                    Texture2D texture = Mod.GetTexture("NPCs/Bosses/AH/Haruka/Danger!");
                     float scaleFactor = 1f + internalAI[4] / 30f;
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
                     if(scaleFactor < 2.2f)
@@ -1193,33 +1194,33 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
                         Alpha.G = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.B = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.A = (byte)((float)(255 - internalAI[4] * 3));
-                        spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[npc.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), npc.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
+                        spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
                     }
-                    spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[npc.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), npc.GetAlpha(dColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
+                    spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(dColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
                 }
             }
             else if(SHADOWDOG && !Invisible)
             {
-                Vector2 Position = npc.position;
-                Position.X = npc.position.X + (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                Vector2 Position = NPC.position;
+                Position.X = NPC.position.X + (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
                 Color Alpha = dColor;
                 Alpha.R = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.G = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.B = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.A = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
-                BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, Position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 28, npc.frame, npc.GetAlpha(Alpha), false);
-                Position.X = npc.position.X - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
-                BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, Position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 28, npc.frame, npc.GetAlpha(Alpha), false);
+                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
+                Position.X = NPC.position.X - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
             }
             if(internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 28, npc.frame, npc.GetAlpha(dColor), false);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(dColor), false);
             if (Invisible) return false;
             
-            BaseDrawing.DrawTexture(spritebatch, Slash, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 28, npc.frame, dColor, false);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 28, npc.frame, Color.White, false);
+            BaseDrawing.DrawTexture(spritebatch, Slash, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, dColor, false);
+            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, Color.White, false);
             return false;
         }
     }

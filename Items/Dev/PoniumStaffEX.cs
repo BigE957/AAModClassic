@@ -10,41 +10,41 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Ponium Ultiscepter");
-            Tooltip.SetDefault(@"Ponium Staff EX");
-			Item.staff[item.type] = true;
+            // DisplayName.SetDefault("Ponium Ultiscepter");
+            // Tooltip.SetDefault(@"Ponium Staff EX");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 350;
-			item.magic = true;
-			item.mana = 8;
-			item.width = 88;
-			item.height = 88;
-			item.useTime = 15;
-			item.useAnimation = 15;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 3;
-			item.value = 1000000;
-			item.rare = 11;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("PonyBoomEX");
-			item.shootSpeed = 9f;
+			Item.damage = 350;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 8;
+			Item.width = 88;
+			Item.height = 88;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 3;
+			Item.value = 1000000;
+			Item.rare = 11;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("PonyBoomEX").Type;
+			Item.shootSpeed = 9f;
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/PoniumStaff_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/PoniumStaff_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Main.DiscoColor,
@@ -58,18 +58,17 @@ namespace AAMod.Items.Dev
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/PoniumStaff_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/PoniumStaff_Glow");
             spriteBatch.Draw(texture, position, null, Main.DiscoColor, 0, origin, scale, SpriteEffects.None, 0f);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "PoniumStaff", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
     }

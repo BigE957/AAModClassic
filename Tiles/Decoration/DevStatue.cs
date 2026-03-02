@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Decoration
 {
 	public class DevStatue : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -19,10 +20,10 @@ namespace AAMod.Tiles.Decoration
             TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.StyleWrapLimit = 36;
 			TileObjectData.addTile(Type);
-			dustType = 2;
-			disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Statue");
+			DustType = 2;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Statue");
 			AddMapEntry(new Color(120, 120, 120), name);
 		}
 
@@ -32,55 +33,55 @@ namespace AAMod.Tiles.Decoration
 			switch (frameX / 36)
 			{
 				case 0:
-					item = mod.ItemType("AlphakipStatue");
+					item = Mod.Find<ModItem>("AlphakipStatue").Type;
 					break;
 				case 1:
-					item = mod.ItemType("LizStatue");
+					item = Mod.Find<ModItem>("LizStatue").Type;
 					break;
 				case 2:
-					item = mod.ItemType("HallamStatue");
+					item = Mod.Find<ModItem>("HallamStatue").Type;
 					break;
 				case 3:
-					item = mod.ItemType("FazerStatue");
+					item = Mod.Find<ModItem>("FazerStatue").Type;
 					break;
                 case 4:
-                    item = mod.ItemType("DallinStatue");
+                    item = Mod.Find<ModItem>("DallinStatue").Type;
                     break;
                 case 5:
-                    item = mod.ItemType("AvesStatue");
+                    item = Mod.Find<ModItem>("AvesStatue").Type;
                     break;
                 case 6:
-                    item = mod.ItemType("GroxStatue");
+                    item = Mod.Find<ModItem>("GroxStatue").Type;
                     break;
                 case 7:
-                    item = mod.ItemType("MoonStatue");
+                    item = Mod.Find<ModItem>("MoonStatue").Type;
                     break;
                 case 8:
-                    item = mod.ItemType("SauceStatue");
+                    item = Mod.Find<ModItem>("SauceStatue").Type;
                     break;
                 case 9:
-                    item = mod.ItemType("KyuuStatue");
+                    item = Mod.Find<ModItem>("KyuuStatue").Type;
                     break;
                 case 10:
-                    item = mod.ItemType("BegStatue");
+                    item = Mod.Find<ModItem>("BegStatue").Type;
                     break;
                 case 11:
-                    item = mod.ItemType("FargoStatue");
+                    item = Mod.Find<ModItem>("FargoStatue").Type;
                     break;
                 case 12:
-                    item = mod.ItemType("TailsStatue");
+                    item = Mod.Find<ModItem>("TailsStatue").Type;
                     break;
                 case 13:
-                    item = mod.ItemType("CharlieStatue");
+                    item = Mod.Find<ModItem>("CharlieStatue").Type;
                     break;
                 case 14:
-                    item = mod.ItemType("FerretStatue");
+                    item = Mod.Find<ModItem>("FerretStatue").Type;
                     break;
                 case 15:
-                    item = mod.ItemType("LCSStatue");
+                    item = Mod.Find<ModItem>("LCSStatue").Type;
                     break;
                 case 16:
-                    item = mod.ItemType("EnderStatue");
+                    item = Mod.Find<ModItem>("EnderStatue").Type;
                     break;
             }
 			if (item > 0)

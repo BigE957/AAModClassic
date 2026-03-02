@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,44 +8,42 @@ namespace AAMod.Items.Boss.Anubis
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Jackal's Wrath");
-            Tooltip.SetDefault("Shoots out a wall-piercing returning phantom blade on swing");
+			// DisplayName.SetDefault("Jackal's Wrath");
+            // Tooltip.SetDefault("Shoots out a wall-piercing returning phantom blade on swing");
         }
 
 		public override void SetDefaults()
 		{
-			item.autoReuse = true;
-			item.useStyle = 1;
-			item.useAnimation = 20;
-			item.useTime = 20;
-			item.knockBack = 5f;
-			item.width = 24;
-			item.height = 28;
-			item.damage = 30;
-			item.UseSound = SoundID.Item71;
-			item.rare = 6;
-			item.shoot = mod.ProjectileType("PhantomBlade");
-			item.shootSpeed = 14f;
-			item.value = 10000;
-			item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
+			Item.autoReuse = true;
+			Item.useStyle = 1;
+			Item.useAnimation = 20;
+			Item.useTime = 20;
+			Item.knockBack = 5f;
+			Item.width = 24;
+			Item.height = 28;
+			Item.damage = 30;
+			Item.UseSound = SoundID.Item71;
+			Item.rare = 6;
+			Item.shoot = Mod.Find<ModProjectile>("PhantomBlade").Type;
+			Item.shootSpeed = 14f;
+			Item.value = 10000;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.GoldAxe, 1);
 			recipe.AddIngredient(null, "ForsakenFragment", 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe(); 
-			recipe = new ModRecipe(mod);
+			recipe.Register(); 
+			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PlatinumAxe, 1);
 			recipe.AddIngredient(null, "ForsakenFragment", 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -10,55 +10,55 @@ namespace AAMod.Projectiles.Anubis.Forsaken
     {
         public override void SetDefaults()
         {
-            projectile.width = 56;
-            projectile.height = 42;
-			projectile.tileCollide = false;
-            projectile.timeLeft = 900;
-            projectile.ignoreWater = true;
-            projectile.sentry = true;
-            ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+            Projectile.width = 56;
+            Projectile.height = 42;
+			Projectile.tileCollide = false;
+            Projectile.timeLeft = 900;
+            Projectile.ignoreWater = true;
+            Projectile.sentry = true;
+            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Eye of the Forsaken");
+			// DisplayName.SetDefault("Eye of the Forsaken");
 		}
 	
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, Color.DarkSeaGreen.R / 255, Color.DarkSeaGreen.G / 255, Color.DarkSeaGreen.B / 255);
-            Player player = Main.player[projectile.owner];
-			projectile.Center = player.Center;
-			projectile.position.Y = player.Center.Y-90;
-			projectile.spriteDirection = player.direction;
-			if (player.dead || !player.HasBuff(mod.BuffType("EyeOfForsaken")))
+            Lighting.AddLight(Projectile.Center, Color.DarkSeaGreen.R / 255, Color.DarkSeaGreen.G / 255, Color.DarkSeaGreen.B / 255);
+            Player player = Main.player[Projectile.owner];
+			Projectile.Center = player.Center;
+			Projectile.position.Y = player.Center.Y-90;
+			Projectile.spriteDirection = player.direction;
+			if (player.dead || !player.HasBuff(Mod.Find<ModBuff>("EyeOfForsaken").Type))
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
 			for (int i = 0; i < 200; i++)
             {
                 NPC target = Main.npc[i];
  
-                float shootToX = target.position.X + target.width * 0.5f - projectile.Center.X;
-                float shootToY = target.position.Y + target.height * 0.5f - projectile.Center.Y;
+                float shootToX = target.position.X + target.width * 0.5f - Projectile.Center.X;
+                float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
                 float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
 
                 if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != 488)
                 {
-                    if (projectile.ai[0] > 30f) // Time in (60 = 1 second) 
+                    if (Projectile.ai[0] > 30f) // Time in (60 = 1 second) 
                     {
                         distance = 1.6f / distance;
 
                         shootToX *= distance * 3;
                         shootToY *= distance * 3;
-                        int id = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, shootToX*4, shootToY*4, mod.ProjectileType("ForsakenFrag"), projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
-                        Main.projectile[id].magic = false;
+                        int id = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, shootToX*4, shootToY*4, Mod.Find<ModProjectile>("ForsakenFrag").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        Main.projectile[id].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                         Main.projectile[id].minion = true;
-                        projectile.ai[0] = 0f;
+                        Projectile.ai[0] = 0f;
                     }
                 }
             }
-            projectile.ai[0] += 1f;
+            Projectile.ai[0] += 1f;
 		}
 	}
 }

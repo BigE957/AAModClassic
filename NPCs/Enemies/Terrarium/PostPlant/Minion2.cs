@@ -10,56 +10,56 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Crawler");
-			Main.npcFrameCount[npc.type] = 5;
+			// DisplayName.SetDefault("Terra Crawler");
+			Main.npcFrameCount[NPC.type] = 5;
 		}
 
 		public override void SetDefaults()
 		{
-            npc.lifeMax =  350;
-            npc.defense = 20;
-            npc.damage = 50;
-            npc.width = 26;
-            npc.height = 20;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            npc.alpha = 255;
-            banner = npc.type;
-			bannerItem = mod.ItemType("TerraCrawlerBanner");
+            NPC.lifeMax =  350;
+            NPC.defense = 20;
+            NPC.damage = 50;
+            NPC.width = 26;
+            NPC.height = 20;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            NPC.alpha = 255;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("TerraCrawlerBanner").Type;
         }
 
         public override void AI()
         {
-            if (npc.alpha != 0)
+            if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, mod.DustType("SummonDust"), 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
             }
-            npc.alpha -= 12;
-            if (npc.alpha < 0)
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
-            BaseAI.AIZombie(npc, ref npc.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
-            if (npc.frameCounter >= 10)
+            BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 20;
-                if (npc.frame.Y > (20 * 4))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 20;
+                if (NPC.frame.Y > (20 * 4))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
         }

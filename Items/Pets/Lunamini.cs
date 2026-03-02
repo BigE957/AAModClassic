@@ -12,23 +12,23 @@ namespace AAMod.Items.Pets
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Lunamini"); // Automatic from .lang files
-			Main.projFrames[projectile.type] = 4;
-			Main.projPet[projectile.type] = true;
+			// DisplayName.SetDefault("Lunamini"); // Automatic from .lang files
+			Main.projFrames[Projectile.type] = 4;
+			Main.projPet[Projectile.type] = true;
         }
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.BabyHornet);
-			aiType = ProjectileID.BabyHornet;
-            projectile.width = 48;
-            projectile.height = 42;
+			Projectile.CloneDefaults(ProjectileID.BabyHornet);
+			AIType = ProjectileID.BabyHornet;
+            Projectile.width = 48;
+            Projectile.height = 42;
             
         }
 
 		public override bool PreAI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			player.hornet = false; // Relic from aiType
 			return true;
 		}
@@ -36,7 +36,7 @@ namespace AAMod.Items.Pets
 
         public override void AI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			if (player.dead)
 			{
@@ -44,7 +44,7 @@ namespace AAMod.Items.Pets
 			}
 			if (modPlayer.Lunamini)
 			{
-				projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
         }
 	}

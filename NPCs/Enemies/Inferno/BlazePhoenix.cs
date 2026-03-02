@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,62 +13,62 @@ namespace AAMod.NPCs.Enemies.Inferno
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blaze Phoenix");
-            Main.npcFrameCount[npc.type] = 8;
+            // DisplayName.SetDefault("Blaze Phoenix");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-			npc.width = 30;
-			npc.height = 30;
-            npc.aiStyle = -1;
-            npc.npcSlots = 1;
-            npc.value = BaseUtility.CalcValue(0, 1, 25, 0);
-            npc.lifeMax = 200;
-            npc.defense = 5;
-            npc.noGravity = true;
-			npc.noTileCollide = true;
-			npc.knockBackResist = 0f;
-            npc.lavaImmune = true;
-			npc.buffImmune[BuffID.OnFire] = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.damage = 70;
-            banner = npc.type;
-			bannerItem = mod.ItemType("BlazePhoenixBanner");
+			NPC.width = 30;
+			NPC.height = 30;
+            NPC.aiStyle = -1;
+            NPC.npcSlots = 1;
+            NPC.value = BaseUtility.CalcValue(0, 1, 25, 0);
+            NPC.lifeMax = 200;
+            NPC.defense = 5;
+            NPC.noGravity = true;
+			NPC.noTileCollide = true;
+			NPC.knockBackResist = 0f;
+            NPC.lavaImmune = true;
+			NPC.buffImmune[BuffID.OnFire] = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.damage = 70;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("BlazePhoenixBanner").Type;
         }
 
         public override void AI()
         {
-            Lighting.AddLight(npc.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
-			AAAI.AIShadowflameGhost(npc, ref npc.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
-			npc.spriteDirection = npc.velocity.X > 0 ? -1 : 1;
-			BaseAI.LookAt(npc.Center + npc.velocity, npc, 0);
-            npc.frameCounter++;
-            if (npc.frameCounter > 3)
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+			AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
+			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
+			BaseAI.LookAt(NPC.Center + NPC.velocity, NPC, 0);
+            NPC.frameCounter++;
+            if (NPC.frameCounter > 3)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 76;
-                if (npc.frame.Y > 76 * 7)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 76;
+                if (NPC.frame.Y > 76 * 7)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
             float num1276 = 120f;
-            if (npc.localAI[0] < num1276)
+            if (NPC.localAI[0] < num1276)
             {
-                npc.localAI[0] += 1f;
-                float num1279 = 1f - npc.localAI[0] / num1276;
+                NPC.localAI[0] += 1f;
+                float num1279 = 1f - NPC.localAI[0] / num1276;
                 float num1280 = num1279 * 20f;
                 int num1281 = 0;
                 while (num1281 < num1280)
                 {
                     if (Main.rand.Next(5) == 0)
                     {
-                        int num1282 = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.DragonflameDust>(), 0f, 0f, 0);
+                        int num1282 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DragonflameDust>(), 0f, 0f, 0);
                         Main.dust[num1282].alpha = 100;
                         Main.dust[num1282].velocity *= 0.3f;
-                        Main.dust[num1282].velocity += npc.velocity * 0.75f;
+                        Main.dust[num1282].velocity += NPC.velocity * 0.75f;
                         Main.dust[num1282].noGravity = true;
                     }
                     num1281++;
@@ -82,49 +83,49 @@ namespace AAMod.NPCs.Enemies.Inferno
             return new Color(220, 150, 150) * (Main.mouseTextColor / 255f);
         }
         
-        public override void NPCLoot()
+        public override void OnKill()
         {
 			if(Main.netMode != 1)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DragonFire"), 1 + Main.rand.Next(2));
+				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonFire").Type, 1 + Main.rand.Next(2));
 			}
         }
 
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 0.8f, 1f, 4, false, 0f, 0f, GetGlowAlpha());
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc, Color.White);			
+            BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, GetGlowAlpha());
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);			
             return false;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(mod.BuffType("DragonFire"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = npc.life <= 0;
+			bool isDead = NPC.life <= 0;
             if (isDead)
             {
 				for (int m = 0; m < 30; m++)
 				{
-					int dustID = Dust.NewDust(new Vector2(npc.Center.X, npc.Center.Y), npc.width, 1, DustID.Fire, -npc.velocity.X * 0.2f,
-						-npc.velocity.Y * 0.2f, 100, default, 2f);
+					int dustID = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, DustID.Torch, -NPC.velocity.X * 0.2f,
+						-NPC.velocity.Y * 0.2f, 100, default, 2f);
 					Main.dust[dustID].velocity *= 2f;
-					dustID = Dust.NewDust(new Vector2(npc.Center.X, npc.Center.Y), npc.width, npc.height, ModContent.DustType<Dusts.BroodmotherDust>(), -npc.velocity.X * 0.2f,
-						-npc.velocity.Y * 0.2f, 100, default);
+					dustID = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.BroodmotherDust>(), -NPC.velocity.X * 0.2f,
+						-NPC.velocity.Y * 0.2f, 100, default);
 					Main.dust[dustID].velocity *= 2f;
 				}
             }
 			for (int m = 0; m < 5; m++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, DustID.Fire, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, 1.3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.3f);
 			}
         }	
     }

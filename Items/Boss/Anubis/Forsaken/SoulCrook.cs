@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Boss.Anubis.Forsaken
@@ -8,34 +9,34 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crook of the Soul Judge");	
-            BaseUtility.AddTooltips(item, new string[] { "Phases through tiles", "Every hit the crook makes heals you when it returns" });			
+			// DisplayName.SetDefault("Crook of the Soul Judge");	
+            BaseUtility.AddTooltips(Item, new string[] { "Phases through tiles", "Every hit the crook makes heals you when it returns" });			
 		}
 
         public override void SetDefaults()
         {
-            item.width = 50;
-            item.height = 50;
-            item.useStyle = 1;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.UseSound = SoundID.Item1;
-            item.damage = 160;
-            item.knockBack = 10;
-            item.melee = true;
-            item.autoReuse = true;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.shoot = mod.ProjType("Crook");
-            item.shootSpeed = 15;
-            item.rare = 11;
+            Item.width = 50;
+            Item.height = 50;
+            Item.useStyle = 1;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.UseSound = SoundID.Item1;
+            Item.damage = 160;
+            Item.knockBack = 10;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.autoReuse = true;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.shoot = Mod.ProjType("Crook");
+            Item.shootSpeed = 15;
+            Item.rare = 11;
         }
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {
             for (int i = 0; i < 1000; ++i)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
                 {
                     return false;
                 }

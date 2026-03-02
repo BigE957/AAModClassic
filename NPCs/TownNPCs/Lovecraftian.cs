@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -10,45 +12,45 @@ namespace AAMod.NPCs.TownNPCs
 	{
         public override string Texture => "AAMod/NPCs/TownNPCs/Lovecraftian";
 
-        public override bool Autoload(ref string name)
+        public override bool IsLoadingEnabled(Mod mod)
 		{
 			name = "Lovecraftian";
-			return mod.Properties.Autoload;
+			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		}
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[npc.type] = 26;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 10;
-            NPCID.Sets.AttackFrameCount[npc.type] = 5;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 40;
-            NPCID.Sets.AttackAverageChance[npc.type] = 20;
-            NPCID.Sets.HatOffsetY[npc.type] = 3;
+            Main.npcFrameCount[NPC.type] = 26;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 5;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+            NPCID.Sets.HatOffsetY[NPC.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-            npc.damage = 40;
-            npc.defense = 38;
-            npc.lifeMax = 600;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.Guide;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 40;
+            NPC.defense = 38;
+            NPC.lifeMax = 600;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.Guide;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
             {
@@ -67,7 +69,7 @@ namespace AAMod.NPCs.TownNPCs
             return false;
         }
 
-        public override string TownNPCName()
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
 			switch (WorldGen.genRand.Next(4))
 			{
@@ -76,9 +78,9 @@ namespace AAMod.NPCs.TownNPCs
 				case 1:
 					return "C'thalpa";
 				case 2:
-					return "D’endrrah";
+					return "D�endrrah";
                 case 3:
-                    return "Ycnàgnnisssz";
+                    return "Ycnagnnisssz";
                 default:
                     return "Yidhra";				
 			}
@@ -93,8 +95,8 @@ namespace AAMod.NPCs.TownNPCs
 
 
             int Pirate = NPC.FindFirstNPC(NPCID.Pirate);
-            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(Fargos.NPCType("Mutant"));
-            int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(GRealm.NPCType("HordeZombie"));
+            int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
+            int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
 
             chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat1"));
 
@@ -148,7 +150,7 @@ namespace AAMod.NPCs.TownNPCs
             button2 = Lang.TownNPCLovecraftian("button2");
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             Player player = Main.LocalPlayer;
             AAPlayer p = player.GetModPlayer<AAPlayer>();
@@ -160,9 +162,9 @@ namespace AAMod.NPCs.TownNPCs
 
             if (!firstButton)
             {
-                Main.PlaySound(12, -1, -1, 1);
+                SoundEngine.PlaySound(SoundID.MenuTick);
 
-                int Mushman = NPC.FindFirstNPC(mod.NPCType("Mushman"));
+                int Mushman = NPC.FindFirstNPC(Mod.Find<ModNPC>("Mushman").Type);
 
                 int Item1 = player.FindItem(ModContent.ItemType<Items.Materials.TerraShard>());
                 int Item2 = player.FindItem(ModContent.ItemType<Items.Materials.DragonScale>());
@@ -189,8 +191,8 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid1 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("PurityFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("PurityFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("PurityFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("PurityFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("PurityFlask").Type;
                     }
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -198,7 +200,7 @@ namespace AAMod.NPCs.TownNPCs
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)1);
                     }
                     AAWorld.squid1++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item2 >= 0 && AAWorld.squid2 < 5) //Item 2: 3 Teal Mushrooms
                 {
@@ -211,8 +213,8 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid2 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("AshJarChat");
-                        player.QuickSpawnItem(mod.ItemType("AshJar"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("AshJar");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("AshJar").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("AshJar").Type;
                     }
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -220,7 +222,7 @@ namespace AAMod.NPCs.TownNPCs
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)2);
                     }
                     AAWorld.squid2++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item3 >= 0 && AAWorld.squid3 < 5)
                 {
@@ -233,8 +235,8 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid3 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("DarkwaterFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("DarkwaterFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("DarkwaterFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("DarkwaterFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("DarkwaterFlask").Type;
                     }
 
 					if(Main.netMode == NetmodeID.MultiplayerClient)
@@ -242,7 +244,7 @@ namespace AAMod.NPCs.TownNPCs
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)3);
 					}
                     AAWorld.squid3++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item4 >= 0 && AAWorld.squid4 < 5)
                 {
@@ -255,8 +257,8 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid4 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("CorruptionFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("CorruptionFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("CorruptionFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("CorruptionFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("CorruptionFlask").Type;
                     }
 
 					if(Main.netMode == NetmodeID.MultiplayerClient)
@@ -264,7 +266,7 @@ namespace AAMod.NPCs.TownNPCs
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)4);
 					}
                     AAWorld.squid4++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item5 >= 0 && AAWorld.squid5 < 5)
                 {
@@ -277,15 +279,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid5 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("CrimsonFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("CrimsonFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("CrimsonFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("CrimsonFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("CrimsonFlask").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)5);
 					}
                     AAWorld.squid5++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item6 >= 0 && AAWorld.squid6 < 5)
                 {
@@ -298,15 +300,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid6 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("HallowFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("HallowFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("HallowFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("HallowFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("HallowFlask").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)6);
 					}
                     AAWorld.squid6++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item7 >= 0 && AAWorld.squid7 < 5)
                 {
@@ -319,15 +321,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid7 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("VoidFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("VoidFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("Z");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("VoidFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("Z").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)7);
 					}
                     AAWorld.squid7++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item8 >= 0 && AAWorld.squid8 < 5)
                 {
@@ -340,15 +342,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid8 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("FungicideChat");
-                        player.QuickSpawnItem(mod.ItemType("Fungicide"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("Fungicide");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("Fungicide").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("Fungicide").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)8);
 					}
                     AAWorld.squid8++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item9 >= 0 && AAWorld.squid9 < 5 && Mushman >= 0)
                 {
@@ -361,15 +363,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid9 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("SporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("SporeSacChat2");
-                        player.QuickSpawnItem(mod.ItemType("SporeSac"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("SporeSac");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("SporeSac").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("SporeSac").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)9);
 					}
                     AAWorld.squid9++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item10 >= 0 && AAWorld.squid10 < 5 && Mushman >= 0)
                 {
@@ -382,15 +384,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid10 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("GlowingSporeSacChat2");
-                        player.QuickSpawnItem(mod.ItemType("GlowingSporeSac"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("GlowingSporeSac");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("GlowingSporeSac").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("GlowingSporeSac").Type;
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
 						AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)10);
 					}
                     AAWorld.squid10++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item11 >= 0 && AAWorld.squid11 < 5)
                 {
@@ -403,15 +405,15 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid11 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("JungleFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("JungleFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("JungleFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("JungleFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("JungleFlask").Type;
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)11);
                     }
                     AAWorld.squid11++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item12 >= 0 && AAWorld.squid12 < 1)
                 {
@@ -424,16 +426,16 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid12 == 0)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("IceFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("IceFlask"), 3);
-                        player.QuickSpawnItem(mod.ItemType("IcemeltFlask"), 3);
-                        Main.npcChatCornerItem = mod.ItemType("IceFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("IceFlask").Type, 3);
+                        player.QuickSpawnItem(Mod.Find<ModItem>("IcemeltFlask").Type, 3);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("IceFlask").Type;
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)12);
                     }
                     AAWorld.squid12++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else if (Item13 >= 0 && AAWorld.squid13 < 5)
                 {
@@ -446,22 +448,22 @@ namespace AAMod.NPCs.TownNPCs
                     if (AAWorld.squid13 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("ForestFlaskChat");
-                        player.QuickSpawnItem(mod.ItemType("ForestFlask"), 5);
-                        Main.npcChatCornerItem = mod.ItemType("ForestFlask");
+                        player.QuickSpawnItem(Mod.Find<ModItem>("ForestFlask").Type, 5);
+                        Main.npcChatCornerItem = Mod.Find<ModItem>("ForestFlask").Type;
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
                         AANet.SendNetMessage(AANet.UpdateLovecraftianCount, (byte)13);
                     }
                     AAWorld.squid13++;
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                 }
                 else
                 {
                     if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.Flasks.SquidList>()))
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("SquidListChat");
-                        int itemID = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, mod.ItemType("SquidList"), 1, false, 0, false, false);
+                        int itemID = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("SquidList").Type, 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             NetMessage.SendData(21, -1, -1, null, itemID, 1f, 0f, 0f, 0, 0, 0);
@@ -472,13 +474,13 @@ namespace AAMod.NPCs.TownNPCs
                         Main.npcChatText = Lang.TownNPCLovecraftian("NothingChat");
                     }
                     Main.npcChatCornerItem = 0;
-                    Main.PlaySound(12, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.MenuTick);
                 }
             }
         }
 
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
             if (AAWorld.squid1 >= 5)
             {

@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class GripMinion : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Grips of Chaos");
-			Description.SetDefault("Summons a chaos claw to fight for you");
+			// DisplayName.SetDefault("Grips of Chaos");
+			// Description.SetDefault("Summons a chaos claw to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("DragonClaw")] > 0 || player.ownedProjectileCounts[mod.ProjectileType("HydraClaw")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonClaw").Type] > 0 || player.ownedProjectileCounts[Mod.Find<ModProjectile>("HydraClaw").Type] > 0)
             {
 				modPlayer.GripMinion = true;
 			}

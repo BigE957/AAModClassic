@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,33 +43,33 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Feudal Fungus");
-            Main.npcFrameCount[npc.type] = 8;
+            // DisplayName.SetDefault("Feudal Fungus");
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 1200;   //boss life
-            npc.damage = 24;  //boss damage
-            npc.defense = 12;    //boss defense
-            npc.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            npc.value = Item.sellPrice(0, 0, 50, 0);
-            npc.aiStyle = 26;
-            npc.width = 74;
-            npc.height = 108;
-            npc.npcSlots = 1f;
-            npc.boss = true;
-            npc.lavaImmune = true;
-            npc.noGravity = false;
-            npc.buffImmune[46] = true;
-            npc.buffImmune[47] = true;
-            npc.netAlways = true;
-            npc.noGravity = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            bossBag = mod.ItemType("FungusBag");
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fungus");
-            npc.alpha = 255;
+            NPC.lifeMax = 1200;   //boss life
+            NPC.damage = 24;  //boss damage
+            NPC.defense = 12;    //boss defense
+            NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
+            NPC.value = Item.sellPrice(0, 0, 50, 0);
+            NPC.aiStyle = 26;
+            NPC.width = 74;
+            NPC.height = 108;
+            NPC.npcSlots = 1f;
+            NPC.boss = true;
+            NPC.lavaImmune = true;
+            NPC.noGravity = false;
+            NPC.buffImmune[46] = true;
+            NPC.buffImmune[47] = true;
+            NPC.netAlways = true;
+            NPC.noGravity = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("FungusBag").Type;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fungus");
+            NPC.alpha = 255;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -84,53 +85,53 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
         {
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
              
             if ((Main.dayTime && player.position.Y < Main.worldSurface) || !player.ZoneGlowshroom)
             {
-                npc.velocity *= 0;
+                NPC.velocity *= 0;
 
-                if (npc.velocity.X <= .1f && npc.velocity.X >= -.1f)
+                if (NPC.velocity.X <= .1f && NPC.velocity.X >= -.1f)
                 {
-                    npc.velocity.X = 0;
+                    NPC.velocity.X = 0;
                 }
-                if (npc.velocity.Y <= .1f && npc.velocity.Y >= -.1f)
+                if (NPC.velocity.Y <= .1f && NPC.velocity.Y >= -.1f)
                 {
-                    npc.velocity.Y = 0;
+                    NPC.velocity.Y = 0;
                 }
 
-                npc.alpha += 10;
+                NPC.alpha += 10;
 
-                if (npc.alpha >= 255)
+                if (NPC.alpha >= 255)
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
                 return;
             }
-            npc.alpha -= 10;
-            if (npc.alpha < 0)
+            NPC.alpha -= 10;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 90;
-                if (npc.frame.Y > (90 * 7))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 90;
+                if (NPC.frame.Y > (90 * 7))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
 
-            npc.noTileCollide = true;
+            NPC.noTileCollide = true;
 
             if (Main.netMode != 1 && internalAI[1] != AISTATE_SHOOT)
 			{
@@ -139,21 +140,21 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                 {
                     internalAI[0] = 0;
                     internalAI[1] = Main.rand.Next(3);
-                    npc.ai = new float[4];
-                    npc.netUpdate = true;
+                    NPC.ai = new float[4];
+                    NPC.netUpdate = true;
                 }
             }
 			if(internalAI[1] == AISTATE_HOVER) 
             {
-                BaseAI.AISpaceOctopus(npc, ref npc.ai, player.Center, 0.15f, 4f, 170, 56f, FireMagic);
+                BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 56f, FireMagic);
             }
             else if (internalAI[1] == AISTATE_FLIER) 
             {
-                BaseAI.AIFlier(npc, ref npc.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
             }
             else if (internalAI[1] == AISTATE_SHOOT)
             {
-                BaseAI.AISpaceOctopus(npc, ref npc.ai, player.Center, 0.15f, 4f, 170, 56f, null);
+                BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 56f, null);
                 if (Main.netMode != 1)
                 {
                     internalAI[0]++;
@@ -164,18 +165,18 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                     internalAI[1] = Main.rand.Next(3);
                     internalAI[0] = 0;
                     FungusAttack(attack);
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
 
-            npc.rotation = 0;
+            NPC.rotation = 0;
 
             if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != 1)
             {
                 internalAI[4] = 0;
                 Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));
                 Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
-                int proj = Projectile.NewProjectile(pos.X, pos.Y, velocity.X, velocity.Y, mod.ProjectileType("FungusCloud"), damage, 0, Main.myPlayer, 0f, 0f);
+                int proj = Projectile.NewProjectile(pos.X, pos.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].timeLeft = 720;
                 Main.projectile[proj].alpha = 255;
             }
@@ -187,37 +188,37 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
         public void FireMagic(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, mod.ProjType("Mushshot"), ref shootAI[0], 5, damage, 8f, false, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, Mod.ProjType("Mushshot"), ref shootAI[0], 5, damage, 8f, false, new Vector2(20f, 15f));
         }
 
         public override void BossLoot(ref string name, ref int potionType)
         {   //boss drops
             potionType = ItemID.ManaPotion;
             AAWorld.downedFungus = true;
-            Projectile.NewProjectile(npc.Center, npc.velocity, mod.ProjectileType("FungusIGoNow"), 0, 0, 255, npc.scale);
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GlowingSporeSac"), Main.rand.Next(30, 35));
+            Projectile.NewProjectile(NPC.Center, NPC.velocity, Mod.Find<ModProjectile>("FungusIGoNow").Type, 0, 0, 255, NPC.scale);
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingSporeSac").Type, Main.rand.Next(30, 35));
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FungusTrophy"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusTrophy").Type);
             }
             if (Main.expertMode)
             {
-                npc.DropBossBags();
+                NPC.DropBossBags();
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FungusMask"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusMask").Type);
                 }
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GlowingMushium"), Main.rand.Next(25, 35));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingMushium").Type, Main.rand.Next(25, 35));
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
-            npc.damage = (int)(npc.damage * 0.6f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
+            NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
         public void FungusAttack(int Attack)
@@ -228,19 +229,19 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                 {
                     for (int i = 0; i < (Main.expertMode ? 3 : 2); i++)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Mushling>());
+                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Mushling>());
                     }
                 }
                 else
                 {
                     float spread = 12f * 0.0174f;
-                    double startAngle = Math.Atan2(npc.velocity.X, npc.velocity.Y) - spread / 2;
+                    double startAngle = Math.Atan2(NPC.velocity.X, NPC.velocity.Y) - spread / 2;
                     double deltaAngle = spread / (Main.expertMode ? 5 : 4);
                     double offsetAngle;
                     for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), mod.ProjectileType("FungusCloud"), damage, 0, Main.myPlayer, 0f, 1f);
+                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
                     }
                 }
             }
@@ -248,26 +249,26 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FungusFlier>());
+                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusFlier>());
                 }
             }
             else if (Attack == 2)
             {
                 float spread = 12f * 0.0174f;
-                double startAngle = Math.Atan2(npc.velocity.X, npc.velocity.Y) - spread / 2;
+                double startAngle = Math.Atan2(NPC.velocity.X, NPC.velocity.Y) - spread / 2;
                 double deltaAngle = spread / (Main.expertMode ? 5 : 4);
                 double offsetAngle;
                 for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), mod.ProjectileType("FungusCloud"), damage, 0, Main.myPlayer, 0f, 1f);
+                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
                 }
             }
             else
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FungusSpore>(), 0, i);
+                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusSpore>(), 0, i);
                 }
             }
         }
@@ -275,9 +276,9 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)
         {
             float moveSpeed = 4f;
-            if (moveSpeed == 0f || npc.Center == point) return; //don't move if you have no move speed
+            if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -295,16 +296,16 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/FeudalFungus_Glow");
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, 0, 8, npc.frame, npc.GetAlpha(dColor), true);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, 0, 8, npc.frame, AAColor.Glow, true);
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/FeudalFungus_Glow");
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 8, NPC.frame, NPC.GetAlpha(dColor), true);
+            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 8, NPC.frame, AAColor.Glow, true);
             return false;
         }
     }

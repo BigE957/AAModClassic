@@ -6,7 +6,7 @@ using System.IO;
 
 namespace AAMod
 {
-    public class DownedBools : ModWorld
+    public class DownedBools : ModSystem
     {
         public static bool downedGobSummoner = false;
 
@@ -15,7 +15,7 @@ namespace AAMod
 
         public static bool downedMoth = false;
 
-        public override void Initialize()
+        public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
         {
             downedGobSummoner = false;
             downedOgre = false;
@@ -23,7 +23,7 @@ namespace AAMod
             downedMoth = false;
         }
 
-        public override TagCompound Save()
+        public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
         {
             var downed = new List<string>();
             if (downedGobSummoner) downed.Add("GS");
@@ -37,7 +37,7 @@ namespace AAMod
             };
         }
 
-        public override void Load(TagCompound tag)
+        public override void LoadWorldData(TagCompound tag)
         {
             var downed = tag.GetList<string>("downed");
 

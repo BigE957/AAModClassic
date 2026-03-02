@@ -11,42 +11,41 @@ namespace AAMod.Items.Armor.Olympian
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Olympian Helmet");
+			// DisplayName.SetDefault("Olympian Helmet");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-			item.rare = 6;
-            item.defense = 8;
+			Item.width = 22;
+			Item.height = 24;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+			Item.rare = 6;
+            Item.defense = 8;
         }
 		
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("OlympianPlate") && legs.type == mod.ItemType("OlympianBoots");
+			return body.type == Mod.Find<ModItem>("OlympianPlate").Type && legs.type == Mod.Find<ModItem>("OlympianBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.OlympianHelmBonus");
 
-			player.meleeCrit += 60;
-			player.rangedCrit += 60;
-			player.magicCrit += 60;
-			player.thrownCrit += 60;
+			player.GetCritChance(DamageClass.Melee) += 60;
+			player.GetCritChance(DamageClass.Ranged) += 60;
+			player.GetCritChance(DamageClass.Magic) += 60;
+			player.GetCritChance(DamageClass.Throwing) += 60;
         }
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GladiatorHelmet);
             recipe.AddIngredient(null, "GoddessFeather", 6);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

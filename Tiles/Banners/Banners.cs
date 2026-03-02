@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
@@ -12,7 +13,7 @@ namespace AAMod.Tiles.Banners
 {
     public class Banners : ModTile
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -24,10 +25,10 @@ namespace AAMod.Tiles.Banners
 			TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);			
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
-			dustType = -1;
-			disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Banner");
+			DustType = -1;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);			
         }
 
@@ -255,7 +256,7 @@ namespace AAMod.Tiles.Banners
             string dropName = GetBannerName(frameX);
             if (!string.IsNullOrEmpty(dropName))
             {
-                Item.NewItem(x * 16, y * 16, 16, 16, mod.ItemType(dropName + "Banner"), 1, false, -1, false);
+                Item.NewItem(x * 16, y * 16, 16, 16, Mod.Find<ModItem>(dropName + "Banner").Type, 1, false, -1, false);
             }
         }
 
@@ -263,12 +264,12 @@ namespace AAMod.Tiles.Banners
         {
             if (closer)
             {
-				string name = GetBannerName(Main.tile[x, y].frameX, true);
+				string name = GetBannerName(Main.tile[x, y].TileFrameX, true);
 				if(name == null) return;
 
                 Player player = Main.LocalPlayer;	
-				player.NPCBannerBuff[mod.NPCType(name)] = true;
-				if(name == "MushroomZombie") player.NPCBannerBuff[mod.NPCType("MushroomZombie2")] = true;
+				player.NPCBannerBuff[Mod.Find<ModNPC>(name).Type] = true;
+				if(name == "MushroomZombie") player.NPCBannerBuff[Mod.Find<ModNPC>("MushroomZombie2").Type] = true;
                 player.hasBanner = true;
             }
         }

@@ -1,6 +1,7 @@
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -12,37 +13,37 @@ namespace AAMod.Items.Melee   //where is located
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Lolkat");
-            Tooltip.SetDefault(@"WHAT DOES IT MEAN?!?!?!111!!11
-Meowmere EX");
+            // DisplayName.SetDefault("The Lolkat");
+            /* Tooltip.SetDefault(@"WHAT DOES IT MEAN?!?!?!111!!11
+Meowmere EX"); */
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 550;
-            item.melee = true;
-            item.width = 64;
-            item.height = 70;
-            item.useTime = 10;
-            item.useAnimation = 10;     
-            item.useStyle = 1;
-            item.knockBack = 4;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 11;
-            item.UseSound = new LegacySoundStyle(2, 57, Terraria.Audio.SoundType.Sound);
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.expert = true; item.expertOnly = true;
-			item.shoot = 502;
-			item.shootSpeed = 12f;
+            Item.damage = 550;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 64;
+            Item.height = 70;
+            Item.useTime = 10;
+            Item.useAnimation = 10;     
+            Item.useStyle = 1;
+            Item.knockBack = 4;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 11;
+            Item.UseSound = new LegacySoundStyle(2, 57, Terraria.Audio.SoundType.Sound);
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.expert = true; Item.expertOnly = true;
+			Item.shoot = 502;
+			Item.shootSpeed = 12f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
             glowmaskDrawType = GLOWMASKTYPE_SWORD;
             glowmaskDrawColor = Color.White;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 30f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -52,19 +53,18 @@ Meowmere EX");
             for (int i = 0; i < 2; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
             }
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Meowmere);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -5,23 +5,23 @@ namespace AAMod.Buffs
 {
     public class ReaperImmune : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Reaper Scythe immunity");
-			Description.SetDefault("You are immune to damage and deal 10x damage");
+			// DisplayName.SetDefault("Reaper Scythe immunity");
+			// Description.SetDefault("You are immune to damage and deal 10x damage");
 			Main.debuff[Type] = false;
-			canBeCleared = true;
+			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = true;
         }
 		
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (player.HeldItem.type != mod.ItemType("GrimReaperScythe"))
+			if (player.HeldItem.type != Mod.Find<ModItem>("GrimReaperScythe").Type)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;
 			}
 			player.immune = true;
-			player.meleeDamage += 10f;
+			player.GetDamage(DamageClass.Melee) += 10f;
 		}
 	}
 }

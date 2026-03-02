@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Athena
 {
@@ -6,23 +7,23 @@ namespace AAMod.Items.Boss.Athena
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Seraph Harp");
-			Tooltip.SetDefault(@"Summons a seraph to fight for you
-Seraph is boosted by minion damage");
+			// DisplayName.SetDefault("Seraph Harp");
+			/* Tooltip.SetDefault(@"Summons a seraph to fight for you
+Seraph is boosted by minion damage"); */
 		}
 
 	    public override void SetDefaults()
 	    {
-	        item.width = 20;
-	        item.height = 26;
-            item.value = Item.buyPrice(0, 15, 0, 0);
-            item.rare = 8;
-	        item.accessory = true;
-            item.expert = true;
-            item.expertOnly = true;
+	        Item.width = 20;
+	        Item.height = 26;
+            Item.value = Item.buyPrice(0, 15, 0, 0);
+            Item.rare = 8;
+	        Item.accessory = true;
+            Item.expert = true;
+            Item.expertOnly = true;
         }
 
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             if (modPlayer.Athena)
@@ -38,13 +39,13 @@ Seraph is boosted by minion damage");
 			{
                 if (!hideVisual)
                 {
-                    if (player.FindBuffIndex(mod.BuffType("Seraph")) == -1)
+                    if (player.FindBuffIndex(Mod.Find<ModBuff>("Seraph").Type) == -1)
                     {
-                        player.AddBuff(mod.BuffType("Seraph"), 3600, true);
+                        player.AddBuff(Mod.Find<ModBuff>("Seraph").Type, 3600, true);
                     }
-                    if (player.ownedProjectileCounts[mod.ProjectileType("Seraph")] < 1)
+                    if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Seraph").Type] < 1)
                     {
-                        Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("Seraph"), (int)(60f * player.minionDamage), 2f, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Seraph").Type, (int)(60f * player.GetDamage(DamageClass.Summon)), 2f, Main.myPlayer, 0f, 0f);
                     }
                 }
 			}

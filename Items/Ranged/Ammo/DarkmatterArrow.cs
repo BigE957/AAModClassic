@@ -8,23 +8,23 @@ namespace AAMod.Items.Ranged.Ammo
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Darkmatter Arrow");
+            // DisplayName.SetDefault("Darkmatter Arrow");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 14;
-			item.ranged = true;
-			item.width = 14;
-			item.height = 32;
-			item.maxStack = 999;
-			item.consumable = true;             //You need to set the item consumable so that the ammo would automatically consumed
-			item.knockBack = 4f;
-			item.value = 30;
-			item.shoot = mod.ProjectileType("DarkmatterArrow");   //The projectile shoot when your weapon using this ammo
-			item.shootSpeed = 1f;                  //The speed of the projectile
-			item.ammo = AmmoID.Arrow;
-			item.rare = 9;
+			Item.damage = 14;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 14;
+			Item.height = 32;
+			Item.maxStack = 999;
+			Item.consumable = true;             //You need to set the item consumable so that the ammo would automatically consumed
+			Item.knockBack = 4f;
+			Item.value = 30;
+			Item.shoot = Mod.Find<ModProjectile>("DarkmatterArrow").Type;   //The projectile shoot when your weapon using this ammo
+			Item.shootSpeed = 1f;                  //The speed of the projectile
+			Item.ammo = AmmoID.Arrow;
+			Item.rare = 9;
 			AARarity = 12;
 		}
 
@@ -32,26 +32,25 @@ namespace AAMod.Items.Ranged.Ammo
 		{
 			foreach (TooltipLine line2 in list)
 			{
-				if (line2.mod == "Terraria" && line2.Name == "ItemName")
+				if (line2.Mod == "Terraria" && line2.Name == "ItemName")
 				{
-					line2.overrideColor = AAColor.Rarity12;
+					line2.OverrideColor = AAColor.Rarity12;
 				}
 			}
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Electrified, 300);
         }
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(400);
             recipe.AddIngredient(null, "DarkEnergy", 1);
             recipe.AddIngredient(null, "DarkMatter", 3);
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this, 400);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

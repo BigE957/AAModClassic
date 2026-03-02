@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Sag
@@ -10,64 +11,64 @@ namespace AAMod.NPCs.Bosses.Sag
     {
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.aiStyle = 0;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.timeLeft = 180;
-            projectile.penetrate = 1;
-            projectile.tileCollide = true;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.timeLeft = 180;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Nova Star");
+		    // DisplayName.SetDefault("Nova Star");
 
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
 		}
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            if (projectile.velocity.X != oldVelocity.X)
+            if (Projectile.velocity.X != oldVelocity.X)
             {
-                projectile.position.X = projectile.position.X + projectile.velocity.X;
-                projectile.velocity.X = -oldVelocity.X;
+                Projectile.position.X = Projectile.position.X + Projectile.velocity.X;
+                Projectile.velocity.X = -oldVelocity.X;
             }
-            if (projectile.velocity.Y != oldVelocity.Y)
+            if (Projectile.velocity.Y != oldVelocity.Y)
             {
-                projectile.position.Y = projectile.position.Y + projectile.velocity.Y;
-                projectile.velocity.Y = -oldVelocity.Y;
+                Projectile.position.Y = Projectile.position.Y + Projectile.velocity.Y;
+                Projectile.velocity.Y = -oldVelocity.Y;
             }
             return false; // return false because we are handling collision
         }
 
         public override void AI()
         {
-            projectile.rotation += .1f;
+            Projectile.rotation += .1f;
 
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frame += 1;
-                projectile.frameCounter = 0;
+                Projectile.frame += 1;
+                Projectile.frameCounter = 0;
             }
-            if (projectile.frame > 3)
+            if (Projectile.frame > 3)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
 
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 4, 0, 0);
-            DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.oldPos, projectile.scale, projectile.rotation, projectile.direction, 4, frame, .8f, 1f, 9, true, 0, 0, true, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150));
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 4, frame, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150), true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
+            DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, .8f, 1f, 9, true, 0, 0, true, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150));
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150), true);
             return false;
         }
 

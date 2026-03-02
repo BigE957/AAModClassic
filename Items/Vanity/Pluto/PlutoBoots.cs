@@ -10,27 +10,27 @@ namespace AAMod.Items.Vanity.Pluto
 		public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Outer God's Greaves");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Outer God's Greaves");
+            // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(0, 190, 15);
+                    line2.OverrideColor = new Color(0, 190, 15);
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 18;
-            item.rare = 9;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.rare = 9;
+            Item.vanity = true;
         }
     }
 }

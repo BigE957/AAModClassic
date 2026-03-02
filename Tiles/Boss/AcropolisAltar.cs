@@ -4,6 +4,7 @@ using AAMod.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Chat;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
@@ -14,12 +15,12 @@ namespace AAMod.Tiles.Boss
 {
     public class AcropolisAltar : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            dustType = DustID.BlueCrystalShard;
+            DustType = DustID.BlueCrystalShard;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Direction = TileObjectDirection.None;
@@ -27,16 +28,16 @@ namespace AAMod.Tiles.Boss
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Owl Altar");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Owl Altar");
             AddMapEntry(new Color(0, 50, 150), name);
-            disableSmartCursor = true;
-            animationFrameHeight = 54;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (NPC.AnyNPCs(mod.NPCType("Athena")))
+            if (NPC.AnyNPCs(Mod.Find<ModNPC>("Athena").Type))
             {
                 frame = 1;
             }
@@ -54,15 +55,15 @@ namespace AAMod.Tiles.Boss
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D glowTex = mod.GetTexture("Glowmasks/AcropolisAltar_Glow");
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/AcropolisAltar_Glow");
 
-            int frameY = tile != null && tile.active() ? tile.frameY + (Main.tileFrame[Type] * 54) : 0;
-            BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.frameX, frameY, false, false, false, null, White);
+            int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
+            BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);
         }
 
         public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<Items.BossSummons.Owl>();
@@ -102,7 +103,7 @@ namespace AAMod.Tiles.Boss
                 Main.npc[npcID].Center = npcCenter;
                 Main.npc[npcID].netUpdate = true;
 
-                ((Athena)Main.npc[npcID].modNPC).Seen = seen;
+                ((Athena)Main.npc[npcID].ModNPC).Seen = seen;
 
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
@@ -113,7 +114,7 @@ namespace AAMod.Tiles.Boss
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.BroadcastChatMessage(
+                    ChatHelper.BroadcastChatMessage(
                         NetworkText.FromKey("Announcement.HasAwoken", new object[] { NetworkText.FromLiteral(name) }),
                         new Color(175, 75, 255)
                     );
@@ -141,8 +142,8 @@ namespace AAMod.Tiles.Boss
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("Owl");
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = Mod.Find<ModItem>("Owl").Type;
         }
     }
 }

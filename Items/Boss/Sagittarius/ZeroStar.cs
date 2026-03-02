@@ -8,34 +8,34 @@ namespace AAMod.Items.Boss.Sagittarius
     {
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Stalion's Star");
-            Tooltip.SetDefault("A spinning blade of doom");
+            // DisplayName.SetDefault("Stalion's Star");
+            // Tooltip.SetDefault("A spinning blade of doom");
         }
 		public override void SetDefaults()
 		{
-	        item.damage = 25;
-	        item.width = 46;
-	        item.height = 46;
-	        item.useTime = 30;
-	        item.useAnimation = 30;
-	        item.useStyle = 1;
-	        item.knockBack = 6;
-	        item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = SoundID.Item1;
-	        item.autoReuse = true;
-            item.melee = true;
-            item.shoot = mod.ProjectileType("ZeroStarP");
-            item.shootSpeed = 10f;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.rare = 4;
+	        Item.damage = 25;
+	        Item.width = 46;
+	        Item.height = 46;
+	        Item.useTime = 30;
+	        Item.useAnimation = 30;
+	        Item.useStyle = 1;
+	        Item.knockBack = 6;
+	        Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = SoundID.Item1;
+	        Item.autoReuse = true;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.shoot = Mod.Find<ModProjectile>("ZeroStarP").Type;
+            Item.shootSpeed = 10f;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.rare = 4;
         }
 
         public override bool CanUseItem(Player player)
         {
             for (int i = 0; i < 1000; ++i)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
                 {
                     return false;
                 }
@@ -46,12 +46,11 @@ namespace AAMod.Items.Boss.Sagittarius
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "Doomite", 25);
                 recipe.AddIngredient(null, "DoomiteScrap", 15);
                 recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

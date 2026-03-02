@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,29 +11,29 @@ namespace AAMod.Items.Boss.Shen
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ikari");
-            Tooltip.SetDefault(@"Unleashes explosive blades of chaos to smite your foes
+			// DisplayName.SetDefault("Ikari");
+            /* Tooltip.SetDefault(@"Unleashes explosive blades of chaos to smite your foes
 blades go through tiles
-Chaos Slayer EX");
+Chaos Slayer EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 85;
-            item.height = 85;
-            item.value = Item.sellPrice(3, 0, 0, 0);
-            item.useStyle = 1;
-            item.useAnimation = 40;
-            item.useTime = 40;
-            item.UseSound = SoundID.Item103;
-            item.damage = 666;
-            item.knockBack = 12;
-            item.melee = true;
-            item.expert = true; item.expertOnly = true;
-            item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ChaosSlayerSwordEX");
-			item.shootSpeed = 7;
-            item.useTurn = true;
+            Item.width = 85;
+            Item.height = 85;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.useStyle = 1;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
+            Item.UseSound = SoundID.Item103;
+            Item.damage = 666;
+            Item.knockBack = 12;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.expert = true; Item.expertOnly = true;
+            Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("ChaosSlayerSwordEX").Type;
+			Item.shootSpeed = 7;
+            Item.useTurn = true;
             AARarity = 14;
         }
 
@@ -40,32 +41,31 @@ Chaos Slayer EX");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 shootPos, ref float speedX, ref float speedY, ref int projType, ref int damage, ref float knockback)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX, speedY, projType, damage, knockback, player.whoAmI);
 			for (int m = 0; m < 2; m++)
 			{
-				Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX * 1f, speedY * 1f, m == 0 ? mod.ProjectileType("ChaosSlayerSwordRedEX") : mod.ProjectileType("ChaosSlayerSwordBlueEX"), damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRedEX").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlueEX").Type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ChaosSlayer");
             recipe.AddIngredient(null, "PerfectChaos");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

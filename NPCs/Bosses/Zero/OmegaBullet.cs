@@ -8,16 +8,16 @@ namespace AAMod.NPCs.Bosses.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Omega Bullet");
+            // DisplayName.SetDefault("Omega Bullet");
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Bullet);
-            projectile.friendly = false;
-            projectile.hostile = true;
-            aiType = ProjectileID.Bullet;
-            projectile.tileCollide = false;
+            Projectile.CloneDefaults(ProjectileID.Bullet);
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            AIType = ProjectileID.Bullet;
+            Projectile.tileCollide = false;
         }
 
         int a = 0;
@@ -27,12 +27,12 @@ namespace AAMod.NPCs.Bosses.Zero
             if (Main.netMode != 1) a++;
             if (a == 40)
             {
-                projectile.tileCollide = true;
-                projectile.netUpdate = true;
+                Projectile.tileCollide = true;
+                Projectile.netUpdate = true;
             }
             if (a < 40)
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
         }
     }

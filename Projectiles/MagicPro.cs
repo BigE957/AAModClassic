@@ -9,21 +9,21 @@ namespace AAMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 14;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 1;
-			projectile.aiStyle = 27;
-			projectile.magic = true;
-			projectile.timeLeft = 1200;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 2;
+			Projectile.width = 14;
+			Projectile.height = 14;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true;
+			Projectile.penetrate = 1;
+			Projectile.aiStyle = 27;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.timeLeft = 1200;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
 		}
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mana Star");
+			// DisplayName.SetDefault("Mana Star");
 		}
 		
 		public override Color? GetAlpha(Color lightColor)
@@ -40,13 +40,13 @@ namespace AAMod.Projectiles
 			for (int i = 0; i < Main.maxNPCs; i++)
 			{
 				NPC n = Main.npc[i];
-				if(n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+				if(n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
 				{
-					float distance = projectile.Distance(n.Center);
+					float distance = Projectile.Distance(n.Center);
 					if(distance <= homingMaximumRangeInPixels &&
 						(
 						selectedTarget == -1 ||  //there is no selected target
-						projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+						Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
 						)
 					{
 						selectedTarget = i;
@@ -60,7 +60,7 @@ namespace AAMod.Projectiles
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				int dustnumber = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.MagicDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.MagicDust>(), 0f, 0f, 200, default, 0.8f);
 				Main.dust[dustnumber].velocity *= 0.3f;
 			}
 			
@@ -69,17 +69,17 @@ namespace AAMod.Projectiles
 			const float desiredFlySpeedInPixelsPerFrame = 10; 
 			const float amountOfFramesToLerpBy = 5; 
 
-			projectile.ai[aislotHomingCooldown]++;
-			if(projectile.ai[aislotHomingCooldown] > homingDelay)
+			Projectile.ai[aislotHomingCooldown]++;
+			if(Projectile.ai[aislotHomingCooldown] > homingDelay)
 			{
-				projectile.ai[aislotHomingCooldown] = homingDelay; 
+				Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
 				int foundTarget = HomeOnTarget();
 				if(foundTarget != -1)
 				{
 					NPC n = Main.npc[foundTarget];
-					Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-					projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+					Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+					Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
 				}
 			}
 		}

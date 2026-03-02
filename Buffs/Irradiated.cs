@@ -5,14 +5,14 @@ namespace AAMod.Buffs
 {
     public class Irradiated : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Irradiated");
-			Description.SetDefault("Your health is burning away");
+			// DisplayName.SetDefault("Irradiated");
+			// Description.SetDefault("Your health is burning away");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
-			longerExpertDebuff = true;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
 		}
 
         public override void Update(NPC npc, ref int buffIndex)

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,39 +12,39 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fury Forger");
-			Tooltip.SetDefault(@"Striking enemies causes sparks to fly from them");
+			// DisplayName.SetDefault("Fury Forger");
+			// Tooltip.SetDefault(@"Striking enemies causes sparks to fly from them");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 100;
-			item.melee = true;
-			item.width = 48;
-			item.height = 52;
-			item.useTime = 32;
-			item.useAnimation = 32;
-			item.useStyle = 1;
-			item.knockBack = 4;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 9;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 100;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 48;
+			Item.height = 52;
+			Item.useTime = 32;
+			Item.useAnimation = 32;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 9;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(128, 56, 56);
+                    line2.OverrideColor = new Color(128, 56, 56);
                 }
             }
         }
         
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Forge"));
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Forge"));
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(player.velocity.X, player.velocity.Y) - spread / 2;
             double deltaAngle = spread / 8f;
@@ -52,8 +53,8 @@ namespace AAMod.Items.Dev
                 for (int i = 0; i < 4; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("SparkFury"), item.damage, 1.25f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("SparkFury"), item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
                 }
             }
             target.AddBuff(BuffID.OnFire, 200);

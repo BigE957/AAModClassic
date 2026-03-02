@@ -10,39 +10,39 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Gentleman's Rapier");
-            Tooltip.SetDefault(@"Shoots spooky dapper top hats
+            // DisplayName.SetDefault("Gentleman's Rapier");
+            /* Tooltip.SetDefault(@"Shoots spooky dapper top hats
 Right clicking thrusts the blade forward
 Left clicking swings the blade
 'Spoopy'
--Tied");
+-Tied"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 200;
-			item.melee = true;
-			item.width = 64;
-			item.height = 66;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = 100000;
-			item.rare = 11;
-            item.shoot = mod.ProjectileType("TopHat");
-            item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.shootSpeed = 12f;
+			Item.damage = 200;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 64;
+			Item.height = 66;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = 100000;
+			Item.rare = 11;
+            Item.shoot = Mod.Find<ModProjectile>("TopHat").Type;
+            Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.shootSpeed = 12f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(0, 105, 0);
+                    line2.OverrideColor = new Color(0, 105, 0);
                 }
             }
         }
@@ -56,11 +56,11 @@ Left clicking swings the blade
 		{
             if (player.altFunctionUse == 2)
             {
-                item.useStyle = 3;
+                Item.useStyle = 3;
             }
             else
             {
-                item.useStyle = 1;
+                Item.useStyle = 1;
             }
             return base.CanUseItem(player);
 		}

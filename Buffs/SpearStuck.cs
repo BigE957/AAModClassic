@@ -5,15 +5,15 @@ namespace AAMod.Buffs
 {
     public class SpearStuck : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Speared");
-			Description.SetDefault("There's a spear stuck in you. Ouch.");
+			// DisplayName.SetDefault("Speared");
+			// Description.SetDefault("There's a spear stuck in you. Ouch.");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
-			longerExpertDebuff = true;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

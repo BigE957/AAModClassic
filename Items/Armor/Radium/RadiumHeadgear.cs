@@ -12,19 +12,19 @@ namespace AAMod.Items.Armor.Radium
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radium Headgear");
-            Tooltip.SetDefault(@"20% increased Ranged damage
-Shines with the light of a starry night sky");
+            // DisplayName.SetDefault("Radium Headgear");
+            /* Tooltip.SetDefault(@"20% increased Ranged damage
+Shines with the light of a starry night sky"); */
 
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.value = 300000;
-            item.defense = 22;
-            item.rare = 9;
+            Item.width = 18;
+            Item.height = 14;
+            Item.value = 300000;
+            Item.defense = 22;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -32,22 +32,22 @@ Shines with the light of a starry night sky");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.20f;
+            player.GetDamage(DamageClass.Ranged) += 0.20f;
             player.AddBuff(BuffID.Shine, 2);
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("RadiumPlatemail") && legs.type == mod.ItemType("RadiumCuisses");
+            return body.type == Mod.Find<ModItem>("RadiumPlatemail").Type && legs.type == Mod.Find<ModItem>("RadiumCuisses").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -62,12 +62,11 @@ Shines with the light of a starry night sky");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiumBar", 25);
             recipe.AddIngredient(null, "Stardust", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

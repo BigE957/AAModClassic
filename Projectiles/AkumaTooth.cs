@@ -4,12 +4,12 @@
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Akuma Tooth");
+            // DisplayName.SetDefault("Akuma Tooth");
         }
 
         public override void SetDefaults() // Clones the bullet defaults
         {
-            projectile.CloneDefaults(Terraria.ModLoader.ModContent.ProjectileType<ShenTooth>());
+            Projectile.CloneDefaults(Terraria.ModLoader.ModContent.ProjectileType<ShenTooth>());
             type = 1;
         }
     }

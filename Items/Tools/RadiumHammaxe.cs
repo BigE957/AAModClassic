@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,21 +9,21 @@ namespace AAMod.Items.Tools
         public override void SetDefaults()
         {
 
-            item.damage = 70;
-            item.melee = true;
-            item.width = 44;
-            item.height = 40;
-            item.useTime = 10;
-            item.useAnimation = 20;
-            item.axe = 50;
-            item.hammer = 45;
-            item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = 10;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.rare = 9;
+            Item.damage = 70;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 44;
+            Item.height = 40;
+            Item.useTime = 10;
+            Item.useAnimation = 20;
+            Item.axe = 50;
+            Item.hammer = 45;
+            Item.useStyle = 1;
+            Item.knockBack = 6;
+            Item.value = 10;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -30,26 +31,25 @@ namespace AAMod.Items.Tools
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radium Hammaxe");
+            // DisplayName.SetDefault("Radium Hammaxe");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Stardust", 5);
             recipe.AddIngredient(null, "RadiumBar", 12);
             recipe.AddTile(null, "QuantumFusionAccelerator");   
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

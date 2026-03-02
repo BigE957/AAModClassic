@@ -10,17 +10,17 @@ namespace AAMod.Items.Armor.Radium
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Radium Platemail");
-			Tooltip.SetDefault("25% increased damage \n" + "Shines with the light of a starry night sky");
+			// DisplayName.SetDefault("Radium Platemail");
+			// Tooltip.SetDefault("25% increased damage \n" + "Shines with the light of a starry night sky");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 300000;
-			item.defense = 28;
-			item.rare = 9;
+			Item.width = 30;
+			Item.height = 20;
+			Item.value = 300000;
+			Item.defense = 28;
+			Item.rare = 9;
 			AARarity = 12;
 		}
 
@@ -28,27 +28,26 @@ namespace AAMod.Items.Armor.Radium
 		{
 			foreach (TooltipLine line2 in list)
 			{
-				if (line2.mod == "Terraria" && line2.Name == "ItemName")
+				if (line2.Mod == "Terraria" && line2.Name == "ItemName")
 				{
-					line2.overrideColor = AAColor.Rarity12;
+					line2.OverrideColor = AAColor.Rarity12;
 				}
 			}
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.allDamage += .25f;
+			player.GetDamage(DamageClass.Generic) += .25f;
             Lighting.AddLight(player.Center, 1.0f, 1.0f, 1.0f);
         }
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "RadiumBar", 30);
             recipe.AddIngredient(null, "Stardust", 20);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

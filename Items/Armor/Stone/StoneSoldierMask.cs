@@ -11,18 +11,18 @@ namespace AAMod.Items.Armor.Stone
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Stone Soldier Helmet");
-			Tooltip.SetDefault(@"Increases mining speed by 10%
-Provides light & spelunker effect when worn");
+			// DisplayName.SetDefault("Stone Soldier Helmet");
+			/* Tooltip.SetDefault(@"Increases mining speed by 10%
+Provides light & spelunker effect when worn"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 8;
-            item.defense = 16;
+			Item.width = 22;
+			Item.height = 24;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 8;
+            Item.defense = 16;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -35,7 +35,7 @@ Provides light & spelunker effect when worn");
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("StoneSoldierPlate") && legs.type == mod.ItemType("StoneSoldierGreaves");
+			return body.type == Mod.Find<ModItem>("StoneSoldierPlate").Type && legs.type == Mod.Find<ModItem>("StoneSoldierGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -45,19 +45,18 @@ Provides light & spelunker effect when worn");
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			modPlayer.StoneSoldier = true;
 
-			player.discount = true;
+			player.discountAvailable = true;
 			player.coins = true;
 			player.goldRing = true;
 		}
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningHelmet);
             recipe.AddIngredient(null, "StoneShell", 6);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

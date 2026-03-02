@@ -10,19 +10,19 @@ namespace AAMod.Items.Armor.GlowingMushium
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Glowing Mushium Pants");
-            Tooltip.SetDefault("2% increased mana regeneration");
+			// DisplayName.SetDefault("Glowing Mushium Pants");
+            // Tooltip.SetDefault("2% increased mana regeneration");
 
         }
 
 		public override void SetDefaults()
 		{
-            item.width = 22;
-			item.height = 18;
-			item.value = 50;
-			item.rare = 1;
-            item.value = Item.sellPrice(0, 0, 25, 0);
-            item.defense = 2;
+            Item.width = 22;
+			Item.height = 18;
+			Item.value = 50;
+			Item.rare = 1;
+            Item.value = Item.sellPrice(0, 0, 25, 0);
+            Item.defense = 2;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -32,11 +32,10 @@ namespace AAMod.Items.Armor.GlowingMushium
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "GlowingMushiumBar", 5);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

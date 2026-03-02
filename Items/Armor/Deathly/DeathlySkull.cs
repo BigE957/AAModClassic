@@ -11,27 +11,27 @@ namespace AAMod.Items.Armor.Deathly
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deathly Skull");
-            Tooltip.SetDefault("9% Increased ranged damage");
+            // DisplayName.SetDefault("Deathly Skull");
+            // Tooltip.SetDefault("9% Increased ranged damage");
         }
 
         public override void SetDefaults()
         {
-            item.width = 38;
-            item.height = 34;
-            item.value = 90000;
-            item.rare = 4;
-            item.defense = 6;
+            Item.width = 38;
+            Item.height = 34;
+            Item.value = 90000;
+            Item.rare = 4;
+            Item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.09f;
+            player.GetDamage(DamageClass.Ranged) += 0.09f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("DeathlyRibguard") && legs.type == mod.ItemType("DeathlyGreaves");
+            return body.type == Mod.Find<ModItem>("DeathlyRibguard").Type && legs.type == Mod.Find<ModItem>("DeathlyGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -46,24 +46,22 @@ namespace AAMod.Items.Armor.Deathly
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.NecroHelmet, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
                 recipe.AddIngredient(null, "DevilSilk", 5);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.NecroHelmet, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);
                 recipe.AddIngredient(null, "DevilSilk", 5);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

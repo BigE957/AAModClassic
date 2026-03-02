@@ -10,69 +10,69 @@ namespace AAMod.NPCs.Bosses.Akuma
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 4;      
+            Main.projFrames[Projectile.type] = 4;      
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.LaserMachinegunLaser);
-            projectile.width = 5;
-            projectile.height = 5;
-            projectile.aiStyle = 1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.alpha = 50;
-            projectile.scale = 1f;
-            projectile.timeLeft = 100;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
+            Projectile.CloneDefaults(ProjectileID.LaserMachinegunLaser);
+            Projectile.width = 5;
+            Projectile.height = 5;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.alpha = 50;
+            Projectile.scale = 1f;
+            Projectile.timeLeft = 100;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
             
         }
 
         public override void AI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 4)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 4)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 2)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 2)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X);
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X);
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X);
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
             }
 
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
             Main.dust[dustId3].noGravity = true;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("Flare"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("Flare").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         

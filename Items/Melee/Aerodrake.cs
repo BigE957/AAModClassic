@@ -9,35 +9,35 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Aerodrake");
-			Tooltip.SetDefault("Flying Dragon EX");
+			// DisplayName.SetDefault("Aerodrake");
+			// Tooltip.SetDefault("Flying Dragon EX");
 		}
 
 		public override void SetDefaults()
 		{
-            item.rare = 9;
-            item.UseSound = SoundID.DD2_SonicBoomBladeSlash;
-            item.useStyle = 1;
-            item.damage = 1250;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.width = 82;
-            item.height = 102;
-            item.knockBack = 5.5f;
-            item.melee = true;
-            item.value = Item.sellPrice(1, 0, 0, 0);
-            item.autoReuse = true;
-            item.useTurn = false;
-            item.shoot = ModContent.ProjectileType<Projectiles.Aerodrake>();
-            item.shootSpeed = 17f;
-            item.expert = true; item.expertOnly = true;
+            Item.rare = 9;
+            Item.UseSound = SoundID.DD2_SonicBoomBladeSlash;
+            Item.useStyle = 1;
+            Item.damage = 1250;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.width = 82;
+            Item.height = 102;
+            Item.knockBack = 5.5f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.value = Item.sellPrice(1, 0, 0, 0);
+            Item.autoReuse = true;
+            Item.useTurn = false;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Aerodrake>();
+            Item.shootSpeed = 17f;
+            Item.expert = true; Item.expertOnly = true;
 
             glowmaskDrawType = GLOWMASKTYPE_SWORD;
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
             glowmaskDrawColor = AAColor.COLOR_WHITEFADE1;
         }
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             player.itemLocation +=
                 new Vector2(-4 * player.direction, 16 * player.gravDir).RotatedBy(player.itemRotation);
@@ -45,12 +45,11 @@ namespace AAMod.Items.Melee
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
-			recipe.AddIngredient(mod, "EXSoul", 1);
+			recipe.AddIngredient(Mod, "EXSoul", 1);
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -63,7 +62,7 @@ namespace AAMod.Items.Melee
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 400);
         }

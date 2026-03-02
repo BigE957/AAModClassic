@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.FishingItem.Crate
 {
@@ -6,23 +7,23 @@ namespace AAMod.Items.FishingItem.Crate
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 2;
-            item.maxStack = 99;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.autoReuse = true;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.createTile = mod.TileType("InfernoCrate");
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 2;
+            Item.maxStack = 99;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.autoReuse = true;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.createTile = Mod.Find<ModTile>("InfernoCrate").Type;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Inferno Crate");
-            Tooltip.SetDefault("Right click to open");
+            // DisplayName.SetDefault("Inferno Crate");
+            // Tooltip.SetDefault("Right click to open");
         }
 
         public override bool CanRightClick()

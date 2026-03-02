@@ -4,14 +4,14 @@ using Terraria.ModLoader.IO;
 
 namespace AAMod.Items.Dev.DevTile
 {
-    public class DevWorld : ModWorld
+    public class DevWorld : ModSystem
 	{
-        public override void Initialize()
+        public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
 		{
             InvokerBookSetOK = true;
             CCBoxSetOK = true;
         }
-        public override TagCompound Save()
+        public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
 		{
 			List<string> list = new List<string>();
 			if (InvokerBookSetOK) list.Add("InvokerBookSetOK");
@@ -21,7 +21,7 @@ namespace AAMod.Items.Dev.DevTile
 			return tagCompound;
         }
 
-        public override void Load(TagCompound tag)
+        public override void LoadWorldData(TagCompound tag)
 		{
             IList<string> list = tag.GetList<string>("DevTileSet");
             InvokerBookSetOK = list.Contains("InvokerBookSetOK");

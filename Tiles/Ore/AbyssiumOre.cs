@@ -2,30 +2,31 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Ore
 {
     public class AbyssiumOre : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
-            Main.tileValue[Type] = 330; 
+            Main.tileOreFinderPriority[Type] = 330; 
             Main.tileSpelunker[Type] = true;
-            Main.tileMerge[Type][mod.TileType("Depthstone")] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("Depthstone").Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            soundType = 21;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            drop = mod.ItemType("Abyssium");   
-            dustType = mod.DustType("AbyssiumDust");
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Abyssium Ore");
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Abyssium").Type;   
+            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Abyssium Ore");
             AddMapEntry(new Color(0, 0, 51), name);
-			minPick = 65;
+			MinPick = 65;
         }
 
 
@@ -42,8 +43,8 @@ namespace AAMod.Tiles.Ore
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/AbyssiumOre_glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/AbyssiumOre_glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

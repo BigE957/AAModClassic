@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,30 +10,30 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Soulsplitter");
-            Tooltip.SetDefault("Shoots out a trio of wall-piercing returning phantom blades on swing");
+			// DisplayName.SetDefault("Soulsplitter");
+            // Tooltip.SetDefault("Shoots out a trio of wall-piercing returning phantom blades on swing");
         }
 
 		public override void SetDefaults()
 		{
-			item.autoReuse = true;
-			item.useStyle = 1;
-			item.useAnimation = 20;
-			item.useTime = 20;
-			item.knockBack = 5f;
-			item.width = 24;
-			item.height = 28;
-			item.damage = 183;
-			item.UseSound = SoundID.Item71;
-			item.shoot = mod.ProjectileType("Soulsplitter");
-			item.shootSpeed = 14f;
-			item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-			item.rare = 11;
+			Item.autoReuse = true;
+			Item.useStyle = 1;
+			Item.useAnimation = 20;
+			Item.useTime = 20;
+			Item.knockBack = 5f;
+			Item.width = 24;
+			Item.height = 28;
+			Item.damage = 183;
+			Item.UseSound = SoundID.Item71;
+			Item.shoot = Mod.Find<ModProjectile>("Soulsplitter").Type;
+			Item.shootSpeed = 14f;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+			Item.rare = 11;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			float numberProjectiles = 3;
 			float rotation = MathHelper.ToRadians(6);
@@ -47,12 +48,11 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<JackalsWrath>(), 1);
             recipe.AddIngredient(null, "SoulFragment", 5);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

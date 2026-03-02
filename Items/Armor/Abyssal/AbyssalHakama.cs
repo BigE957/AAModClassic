@@ -10,17 +10,17 @@ namespace AAMod.Items.Armor.Abyssal
 		public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Abyssal Hakama");
-            Tooltip.SetDefault(@"30% increased movement speed
-Weightless as shadow itself");
+            // DisplayName.SetDefault("Abyssal Hakama");
+            /* Tooltip.SetDefault(@"30% increased movement speed
+Weightless as shadow itself"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 18;
-			item.rare = 4;
-			item.defense = 6;
+			Item.width = 22;
+			Item.height = 18;
+			Item.rare = 4;
+			Item.defense = 6;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -31,14 +31,13 @@ Weightless as shadow itself");
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DepthHakama", 1);
             recipe.AddIngredient(null, "RelicBar", 6);
             recipe.AddIngredient(ItemID.Coral, 6);
             recipe.AddIngredient(null, "Doomite", 6);
             recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

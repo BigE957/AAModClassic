@@ -12,34 +12,34 @@ namespace AAMod.Items.BossSummons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ten Carat Carrot");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"The fury of the Raging Rajah can be felt radiating from this ornate carrot...
-Non-consumable");
+            // DisplayName.SetDefault("Ten Carat Carrot");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"The fury of the Raging Rajah can be felt radiating from this ornate carrot...
+Non-consumable"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 24;
-            item.rare = 9;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = 9;
             AARarity = 14;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
-            item.noUseGraphic = true;
-            item.consumable = false;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah");
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
+            Item.noUseGraphic = true;
+            Item.consumable = false;
+            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
@@ -50,7 +50,7 @@ Non-consumable");
                 NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (!AAWorld.downedRajahsRevenge)
             {
@@ -70,31 +70,29 @@ Non-consumable");
                 if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
             }
             int overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("SupremeRajah"), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAMod.Common.SupremeRajah"));
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("SupremeRajah").Type, false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAMod.Common.SupremeRajah"));
             return true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "GoldenCarrot", 1);
             recipe.AddIngredient(null, "UnstableSingularity", 3);
             recipe.AddIngredient(null, "CrucibleScale", 3);
             recipe.AddIngredient(null, "DreadScale", 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
+            recipe.Register();
+            recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "PlatinumCarrot", 1);
             recipe.AddIngredient(null, "UnstableSingularity", 3);
             recipe.AddIngredient(null, "CrucibleScale", 3);
             recipe.AddIngredient(null, "DreadScale", 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -11,18 +11,18 @@ namespace AAMod.Items.Armor.Radium
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Radium Hat");
-			Tooltip.SetDefault(@"35% increased minion damage
-Shines with the light of a starry night sky");
+			// DisplayName.SetDefault("Radium Hat");
+			/* Tooltip.SetDefault(@"35% increased minion damage
+Shines with the light of a starry night sky"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 24;
-			item.value = 300000;
-			item.defense = 18;
-            item.rare = 9;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = 300000;
+			Item.defense = 18;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -30,37 +30,36 @@ Shines with the light of a starry night sky");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-			player.minionDamage += 0.35f;
+			player.GetDamage(DamageClass.Summon) += 0.35f;
         }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("RadiumPlatemail") && legs.type == mod.ItemType("RadiumCuisses");
+            return body.type == Mod.Find<ModItem>("RadiumPlatemail").Type && legs.type == Mod.Find<ModItem>("RadiumCuisses").Type;
         }
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(DarkMinions.baseBlastDamage * player.minionDamage) + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
+            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(DarkMinions.baseBlastDamage * player.GetDamage(DamageClass.Summon)) + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
             player.GetModPlayer<HatEffects>().setBonus = true;
         }
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RadiumBar", 25);
             recipe.AddIngredient(null, "Stardust", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
     public class HatEffects : ModPlayer
@@ -115,11 +114,11 @@ Shines with the light of a starry night sky");
             for (int i = 0; i < 100; i++)
             {
                 float theta = Main.rand.NextFloat(-(float)Math.PI, (float)Math.PI);
-                Dust dust = Dust.NewDustPerfect(projectile.Center, mod.DustType("RadiumDust"), PolarVector(radius / 30, theta));
+                Dust dust = Dust.NewDustPerfect(projectile.Center, Mod.Find<ModDust>("RadiumDust").Type, PolarVector(radius / 30, theta));
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);
-            Projectile.NewProjectile(projectile.Center, Vector2.Zero, mod.ProjectileType("RadiumSetbonusBlast"), (int)(baseBlastDamage * Main.player[projectile.owner].minionDamage), 0f, projectile.owner, radius);
+            Projectile.NewProjectile(projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("RadiumSetbonusBlast").Type, (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)), 0f, projectile.owner, radius);
             
         }
         public static Vector2 PolarVector(float radius, float theta)

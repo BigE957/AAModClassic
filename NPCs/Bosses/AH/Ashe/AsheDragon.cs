@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,87 +14,87 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
-            Main.npcFrameCount[npc.type] = 3;
+            // DisplayName.SetDefault("Ashen Dragon");
+            Main.npcFrameCount[NPC.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            npc.noTileCollide = true;
-            npc.npcSlots = 5f;
-            npc.width = 32;
-            npc.height = 32;
-            npc.aiStyle = 6;
-            npc.netAlways = true;
-            npc.damage = 100;
-            npc.defense = 40;
-            npc.lifeMax = 10000;
-            npc.HitSound = SoundID.NPCHit56;
-            npc.DeathSound = SoundID.NPCDeath60;
-            npc.noGravity = true;
-            npc.knockBackResist = 0f;
-            npc.value = 0f;
-            npc.scale = 1f;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.noTileCollide = true;
+            NPC.npcSlots = 5f;
+            NPC.width = 32;
+            NPC.height = 32;
+            NPC.aiStyle = 6;
+            NPC.netAlways = true;
+            NPC.damage = 100;
+            NPC.defense = 40;
+            NPC.lifeMax = 10000;
+            NPC.HitSound = SoundID.NPCHit56;
+            NPC.DeathSound = SoundID.NPCDeath60;
+            NPC.noGravity = true;
+            NPC.knockBackResist = 0f;
+            NPC.value = 0f;
+            NPC.scale = 1f;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
         public override void AI()
         {
-            if (npc.localAI[3] == 0f)
+            if (NPC.localAI[3] == 0f)
             {
-                Main.PlaySound(SoundID.Item119, npc.position);
-                npc.localAI[3] = 1f;
+                SoundEngine.PlaySound(SoundID.Item119, NPC.position);
+                NPC.localAI[3] = 1f;
             }
 
-            npc.dontTakeDamage = npc.alpha > 0;
-            if (npc.dontTakeDamage)
+            NPC.dontTakeDamage = NPC.alpha > 0;
+            if (NPC.dontTakeDamage)
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    int dust = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 228, 0f, 0f, 100, default, 2f);
+                    int dust = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 228, 0f, 0f, 100, default, 2f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].noLight = true;
                 }
             }
 
-            npc.alpha -= 42;
-            if (npc.alpha < 0)
+            NPC.alpha -= 42;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
 
             bool flag = true;
             float speedY = 0.2f;
 
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead || (flag && Main.player[npc.target].position.Y < Main.worldSurface * 16.0))
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || (flag && Main.player[NPC.target].position.Y < Main.worldSurface * 16.0))
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead || (flag && Main.player[npc.target].position.Y < Main.worldSurface * 16.0))
+            if (Main.player[NPC.target].dead || (flag && Main.player[NPC.target].position.Y < Main.worldSurface * 16.0))
             {
-                if (npc.timeLeft > 300)
+                if (NPC.timeLeft > 300)
                 {
-                    npc.timeLeft = 300;
+                    NPC.timeLeft = 300;
                 }
 
                 if (flag)
                 {
-                    npc.velocity.Y += speedY;
+                    NPC.velocity.Y += speedY;
                 }
             }
 
             if (Main.netMode != 1)
             {
-                if (npc.ai[0] == 0f)
+                if (NPC.ai[0] == 0f)
                 {
-                    npc.ai[3] = npc.whoAmI;
-                    npc.realLife = npc.whoAmI;
-                    int npcWhoAmI = npc.whoAmI;
+                    NPC.ai[3] = NPC.whoAmI;
+                    NPC.realLife = NPC.whoAmI;
+                    int npcWhoAmI = NPC.whoAmI;
 
                     for (int l = 0; l < 30; l++)
                     {
@@ -116,24 +118,24 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
                         if(Main.netMode != 1)
                         {
-                            int newNPC = NPC.NewNPC((int)npc.Center.X, (int)(npc.position.Y + npc.height), type, npc.whoAmI, 0f, 0f, 0f, 0f, 255);
+                            int newNPC = NPC.NewNPC((int)NPC.Center.X, (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                             if (Main.netMode == 2 && newNPC < 200) NetMessage.SendData(23, -1, -1, null, newNPC);
-                            Main.npc[newNPC].ai[3] = npc.whoAmI;
-                            Main.npc[newNPC].realLife = npc.whoAmI;
+                            Main.npc[newNPC].ai[3] = NPC.whoAmI;
+                            Main.npc[newNPC].realLife = NPC.whoAmI;
                             Main.npc[newNPC].ai[1] = npcWhoAmI;
 
                             Main.npc[npcWhoAmI].ai[0] = newNPC;
                             npcWhoAmI = newNPC;
                         }
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
             }
 
-            int npcLeftPos = (int)(npc.position.X / 16f) - 1;
-            int npcRightPos = (int)((npc.position.X + npc.width) / 16f) + 2;
-            int npcBottomPos = (int)(npc.position.Y / 16f) - 1;
-            int npcTopPos = (int)((npc.position.Y + npc.height) / 16f) + 2;
+            int npcLeftPos = (int)(NPC.position.X / 16f) - 1;
+            int npcRightPos = (int)((NPC.position.X + NPC.width) / 16f) + 2;
+            int npcBottomPos = (int)(NPC.position.Y / 16f) - 1;
+            int npcTopPos = (int)((NPC.position.Y + NPC.height) / 16f) + 2;
 
             if (npcLeftPos < 0)
             {
@@ -155,14 +157,14 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 npcTopPos = Main.maxTilesY;
             }
 
-            npc.direction = npc.velocity.X < 0f ? 1 : -1;
+            NPC.direction = NPC.velocity.X < 0f ? 1 : -1;
 
             float num37 = 20f;
             float num38 = 0.55f;
 
-            Vector2 NPCCenter = npc.Center;
-            float playerCenterX = Main.player[npc.target].Center.X;
-            float playerCenterY = Main.player[npc.target].Center.Y;
+            Vector2 NPCCenter = NPC.Center;
+            float playerCenterX = Main.player[NPC.target].Center.X;
+            float playerCenterY = Main.player[NPC.target].Center.Y;
 
             playerCenterX = (int)(playerCenterX / 16f) * 16;
             playerCenterY = (int)(playerCenterY / 16f) * 16;
@@ -172,26 +174,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             playerCenterY -= NPCCenter.Y;
 
             float num53 = (float)Math.Sqrt(playerCenterX * playerCenterX + playerCenterY * playerCenterY);
-            if (npc.ai[1] > 0f && npc.ai[1] < Main.npc.Length)
+            if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {
                 try
                 {
-                    NPCCenter = npc.Center;
-                    playerCenterX = Main.npc[(int)npc.ai[1]].Center.X - NPCCenter.X;
-                    playerCenterY = Main.npc[(int)npc.ai[1]].Center.Y - NPCCenter.Y;
+                    NPCCenter = NPC.Center;
+                    playerCenterX = Main.npc[(int)NPC.ai[1]].Center.X - NPCCenter.X;
+                    playerCenterY = Main.npc[(int)NPC.ai[1]].Center.Y - NPCCenter.Y;
                 }
                 catch
                 {
                 }
 
-                npc.rotation = (float)Math.Atan2(playerCenterY, playerCenterX) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(playerCenterY, playerCenterX) + 1.57f;
                 int num54 = 42;
                 num53 = (num53 - num54) / num53;
                 playerCenterX *= num53;
                 playerCenterY *= num53;
-                npc.velocity = Vector2.Zero;
-                npc.position.X += playerCenterX;
-                npc.position.Y += playerCenterY;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X += playerCenterX;
+                NPC.position.Y += playerCenterY;
             }
             else
             {
@@ -202,128 +204,128 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 playerCenterY *= num58;
                 bool flag6 = false;
 
-                if (((npc.velocity.X > 0f && playerCenterX < 0f) || (npc.velocity.X < 0f && playerCenterX > 0f) || (npc.velocity.Y > 0f && playerCenterY < 0f) || (npc.velocity.Y < 0f && playerCenterY > 0f)) && Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) > num38 / 2f && num53 < 300f)
+                if (((NPC.velocity.X > 0f && playerCenterX < 0f) || (NPC.velocity.X < 0f && playerCenterX > 0f) || (NPC.velocity.Y > 0f && playerCenterY < 0f) || (NPC.velocity.Y < 0f && playerCenterY > 0f)) && Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) > num38 / 2f && num53 < 300f)
                 {
                     flag6 = true;
 
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num37)
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num37)
                     {
-                        npc.velocity *= 1.1f;
+                        NPC.velocity *= 1.1f;
                     }
                 }
 
-                if (npc.position.Y > Main.player[npc.target].position.Y || Main.player[npc.target].dead)
+                if (NPC.position.Y > Main.player[NPC.target].position.Y || Main.player[NPC.target].dead)
                 {
                     flag6 = true;
 
-                    if (Math.Abs(npc.velocity.X) < num37 / 2f)
+                    if (Math.Abs(NPC.velocity.X) < num37 / 2f)
                     {
-                        if (npc.velocity.X == 0f)
+                        if (NPC.velocity.X == 0f)
                         {
-                            npc.velocity.X -= npc.direction;
+                            NPC.velocity.X -= NPC.direction;
                         }
 
-                        npc.velocity.X *= 1.1f;
+                        NPC.velocity.X *= 1.1f;
                     }
-                    else if (npc.velocity.Y > -num37)
+                    else if (NPC.velocity.Y > -num37)
                     {
-                        npc.velocity.Y -= num38;
+                        NPC.velocity.Y -= num38;
                     }
                 }
 
                 if (!flag6)
                 {
-                    if ((npc.velocity.X > 0f && playerCenterX > 0f) || (npc.velocity.X < 0f && playerCenterX < 0f) || (npc.velocity.Y > 0f && playerCenterY > 0f) || (npc.velocity.Y < 0f && playerCenterY < 0f))
+                    if ((NPC.velocity.X > 0f && playerCenterX > 0f) || (NPC.velocity.X < 0f && playerCenterX < 0f) || (NPC.velocity.Y > 0f && playerCenterY > 0f) || (NPC.velocity.Y < 0f && playerCenterY < 0f))
                     {
-                        if (npc.velocity.X < playerCenterX)
+                        if (NPC.velocity.X < playerCenterX)
                         {
-                            npc.velocity.X += num38;
+                            NPC.velocity.X += num38;
                         }
-                        else if (npc.velocity.X > playerCenterX)
+                        else if (NPC.velocity.X > playerCenterX)
                         {
-                            npc.velocity.X -= num38;
-                        }
-
-                        if (npc.velocity.Y < playerCenterY)
-                        {
-                            npc.velocity.Y += num38;
-                        }
-                        else if (npc.velocity.Y > playerCenterY)
-                        {
-                            npc.velocity.Y -= num38;
+                            NPC.velocity.X -= num38;
                         }
 
-                        if (Math.Abs(playerCenterY) < num37 * 0.2 && ((npc.velocity.X > 0f && playerCenterX < 0f) || (npc.velocity.X < 0f && playerCenterX > 0f)))
+                        if (NPC.velocity.Y < playerCenterY)
                         {
-                            npc.velocity.Y += npc.velocity.Y > 0f ? num38 * 2f : -num38 * 2f;
+                            NPC.velocity.Y += num38;
+                        }
+                        else if (NPC.velocity.Y > playerCenterY)
+                        {
+                            NPC.velocity.Y -= num38;
                         }
 
-                        if (Math.Abs(playerCenterX) < num37 * 0.2 && ((npc.velocity.Y > 0f && playerCenterY < 0f) || (npc.velocity.Y < 0f && playerCenterY > 0f)))
+                        if (Math.Abs(playerCenterY) < num37 * 0.2 && ((NPC.velocity.X > 0f && playerCenterX < 0f) || (NPC.velocity.X < 0f && playerCenterX > 0f)))
                         {
-                            npc.velocity.X += npc.velocity.X > 0f ? num38 * 2f : -num38 * 2f;
+                            NPC.velocity.Y += NPC.velocity.Y > 0f ? num38 * 2f : -num38 * 2f;
+                        }
+
+                        if (Math.Abs(playerCenterX) < num37 * 0.2 && ((NPC.velocity.Y > 0f && playerCenterY < 0f) || (NPC.velocity.Y < 0f && playerCenterY > 0f)))
+                        {
+                            NPC.velocity.X += NPC.velocity.X > 0f ? num38 * 2f : -num38 * 2f;
                         }
                     }
                     else if (num56 > num57)
                     {
-                        if (npc.velocity.X < playerCenterX)
+                        if (NPC.velocity.X < playerCenterX)
                         {
-                            npc.velocity.X += num38 * 1.1f;
+                            NPC.velocity.X += num38 * 1.1f;
                         }
-                        else if (npc.velocity.X > playerCenterX)
+                        else if (NPC.velocity.X > playerCenterX)
                         {
-                            npc.velocity.X -= num38 * 1.1f;
+                            NPC.velocity.X -= num38 * 1.1f;
                         }
 
-                        if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num37 * 0.5)
+                        if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num37 * 0.5)
                         {
-                            npc.velocity.Y += npc.velocity.Y > 0f ? num38 : -num38;
+                            NPC.velocity.Y += NPC.velocity.Y > 0f ? num38 : -num38;
                         }
                     }
                     else
                     {
-                        if (npc.velocity.Y < playerCenterY)
+                        if (NPC.velocity.Y < playerCenterY)
                         {
-                            npc.velocity.Y += num38 * 1.1f;
+                            NPC.velocity.Y += num38 * 1.1f;
                         }
-                        else if (npc.velocity.Y > playerCenterY)
+                        else if (NPC.velocity.Y > playerCenterY)
                         {
-                            npc.velocity.Y -= num38 * 1.1f;
+                            NPC.velocity.Y -= num38 * 1.1f;
                         }
 
-                        if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < num37 * 0.5)
+                        if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num37 * 0.5)
                         {
-                            npc.velocity.X += npc.velocity.X > 0f ? num38 : -num38;
+                            NPC.velocity.X += NPC.velocity.X > 0f ? num38 : -num38;
                         }
                     }
                 }
 
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
 
-                float num62 = Vector2.Distance(Main.player[npc.target].Center, npc.Center);
+                float num62 = Vector2.Distance(Main.player[NPC.target].Center, NPC.Center);
                 int num63 = 0;
-                if (Vector2.Normalize(Main.player[npc.target].Center - npc.Center).ToRotation().AngleTowards(npc.velocity.ToRotation(), (float)Math.PI / 2) == npc.velocity.ToRotation() && num62 < 350f)
+                if (Vector2.Normalize(Main.player[NPC.target].Center - NPC.Center).ToRotation().AngleTowards(NPC.velocity.ToRotation(), (float)Math.PI / 2) == NPC.velocity.ToRotation() && num62 < 350f)
                 {
                     num63 = 15;
                 }
 
-                if (num63 > npc.frameCounter)
+                if (num63 > NPC.frameCounter)
                 {
-                    npc.frameCounter += 1.0;
+                    NPC.frameCounter += 1.0;
                 }
 
-                if (num63 < npc.frameCounter)
+                if (num63 < NPC.frameCounter)
                 {
-                    npc.frameCounter -= 1.0;
+                    NPC.frameCounter -= 1.0;
                 }
 
-                if (npc.frameCounter < 0.0)
+                if (NPC.frameCounter < 0.0)
                 {
-                    npc.frameCounter = 0.0;
+                    NPC.frameCounter = 0.0;
                 }
 
-                if (npc.frameCounter > 15.0)
+                if (NPC.frameCounter > 15.0)
                 {
-                    npc.frameCounter = 15.0;
+                    NPC.frameCounter = 15.0;
                 }
             }
         }
@@ -331,11 +333,11 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
         public override void FindFrame(int frameHeight)
         {
             int Frame = 0;
-            if(npc.frameCounter < 5.0)
+            if(NPC.frameCounter < 5.0)
             {
                 Frame = 0;
             }
-            else if(npc.frameCounter < 10.0)
+            else if(NPC.frameCounter < 10.0)
             {
                 Frame = 1;
             }
@@ -343,26 +345,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             {
                 Frame = 2;
             }
-            npc.frame.Y = Frame * frameHeight;
+            NPC.frame.Y = Frame * frameHeight;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             for (int num468 = 0; num468 < 3; num468++)
             {
-                int num469 = Dust.NewDust(npc.Center, npc.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -npc.velocity.X * 0.2f, -npc.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(NPC.Center, NPC.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -NPC.velocity.X * 0.2f, -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
 
-                num469 = Dust.NewDust(npc.Center, npc.width, npc.height, ModContent.DustType<Dusts.AkumaDust>(), -npc.velocity.X * 0.2f, -npc.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), -NPC.velocity.X * 0.2f, -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
         //    int frameCount = /*npc.type == Terraria.ModLoader.ModContent.NPCType<AsheDragon>() ? 3 :*/ 1;
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, Main.npcFrameCount[npc.type], npc.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
 
             return false;
         }
@@ -374,13 +376,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
+            // DisplayName.SetDefault("Ashen Dragon");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -388,26 +390,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             return false;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
 
                 int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
 
                 int dust2 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -417,82 +419,82 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override bool PreAI()
         {
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
 
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
             {
-                npc.timeLeft = 300;
+                NPC.timeLeft = 300;
             }
 
-            npc.direction = npc.velocity.X < 0f ? -1 : 1;
+            NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.npc[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (Main.npc[(int)npc.ai[1]].alpha < 128)
+            if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
-                if (npc.alpha != 0)
+                if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, mod.DustType("AkumaDust"), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
 
-                npc.alpha -= 42;
-                if (npc.alpha < 0)
+                NPC.alpha -= 42;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].Center.X - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].Center.Y - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.npc[(int)NPC.ai[1]].Center.X - NPC.Center.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].Center.Y - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
 
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
-                npc.direction = dirX < 0f ? 1 : -1;
-                npc.position.X += posX;
-                npc.position.Y += posY;
+                NPC.direction = dirX < 0f ? 1 : -1;
+                NPC.position.X += posX;
+                NPC.position.Y += posY;
             }
 
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 1, npc.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -508,10 +510,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
 
@@ -521,13 +523,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
+            // DisplayName.SetDefault("Ashen Dragon");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -535,26 +537,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             return false;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
 
                 int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
 
                 int dust2 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -564,75 +566,75 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override bool PreAI()
         {
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
 
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
             {
-                npc.timeLeft = 300;
+                NPC.timeLeft = 300;
             }
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.npc[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (Main.npc[(int)npc.ai[1]].alpha < 128)
+            if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
-                if (npc.alpha != 0)
+                if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("AkumaDust"), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
 
-                npc.alpha -= 42;
-                if (npc.alpha < 0)
+                NPC.alpha -= 42;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
-            npc.direction = npc.velocity.X < 0f ? -1 : 1;
+            NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].Center.X - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].Center.Y - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.npc[(int)NPC.ai[1]].Center.X - NPC.Center.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].Center.Y - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
 
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
-                npc.direction = dirX < 0f ? 1 : -1;
-                npc.position.X += posX;
-                npc.position.Y += posY;
+                NPC.direction = dirX < 0f ? 1 : -1;
+                NPC.position.X += posX;
+                NPC.position.Y += posY;
             }
 
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -649,10 +651,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
 
@@ -662,13 +664,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
+            // DisplayName.SetDefault("Ashen Dragon");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -676,26 +678,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             return false;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
 
                 int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
 
                 int dust2 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -705,75 +707,75 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override bool PreAI()
         {
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
 
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
             {
-                npc.timeLeft = 300;
+                NPC.timeLeft = 300;
             }
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.npc[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (Main.npc[(int)npc.ai[1]].alpha < 128)
+            if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
-                if (npc.alpha != 0)
+                if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("AkumaDust"), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
 
-                npc.alpha -= 42;
-                if (npc.alpha < 0)
+                NPC.alpha -= 42;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
-            npc.direction = npc.velocity.X < 0f ? -1 : 1;
+            NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - NPC.Center.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
 
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
-                npc.direction = dirX < 0f ? 1 : -1;
-                npc.position.X += posX;
-                npc.position.Y += posY;
+                NPC.direction = dirX < 0f ? 1 : -1;
+                NPC.position.X += posX;
+                NPC.position.Y += posY;
             }
 
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -789,10 +791,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
 
@@ -802,13 +804,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
+            // DisplayName.SetDefault("Ashen Dragon");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -816,26 +818,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             return false;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
 
                 int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
 
                 int dust2 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -845,75 +847,75 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override bool PreAI()
         {
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
 
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
             {
-                npc.timeLeft = 300;
+                NPC.timeLeft = 300;
             }
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.npc[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (Main.npc[(int)npc.ai[1]].alpha < 128)
+            if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
-                if (npc.alpha != 0)
+                if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("AkumaDust"), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
 
-                npc.alpha -= 42;
-                if (npc.alpha < 0)
+                NPC.alpha -= 42;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
-            npc.direction = npc.velocity.X < 0f ? -1 : 1;
+            NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].Center.X - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].Center.Y - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.npc[(int)NPC.ai[1]].Center.X - NPC.Center.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].Center.Y - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
 
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
-                npc.direction = dirX < 0f ? 1 : -1;
-                npc.position.X += posX;
-                npc.position.Y += posY;
+                NPC.direction = dirX < 0f ? 1 : -1;
+                NPC.position.X += posX;
+                NPC.position.Y += posY;
             }
 
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -929,10 +931,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
 
@@ -942,13 +944,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashen Dragon");
+            // DisplayName.SetDefault("Ashen Dragon");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -956,26 +958,26 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             return false;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.Center.X;
-                npc.position.Y = npc.Center.Y;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.Center.X;
+                NPC.position.Y = NPC.Center.Y;
 
                 int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
 
                 int dust2 = ModContent.DustType<Dusts.AkumaDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -985,82 +987,82 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override bool PreAI()
         {
-            if (npc.ai[3] > 0)
+            if (NPC.ai[3] > 0)
             {
-                npc.realLife = (int)npc.ai[3];
+                NPC.realLife = (int)NPC.ai[3];
             }
 
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
 
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
             {
-                npc.timeLeft = 300;
+                NPC.timeLeft = 300;
             }
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[1]].active)
+                if (!Main.npc[(int)NPC.ai[1]].active)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (Main.npc[(int)npc.ai[1]].alpha < 128)
+            if (Main.npc[(int)NPC.ai[1]].alpha < 128)
             {
-                if (npc.alpha != 0)
+                if (NPC.alpha != 0)
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("AkumaDust"), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
                 }
 
-                npc.alpha -= 42;
-                if (npc.alpha < 0)
+                NPC.alpha -= 42;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
-            npc.direction = npc.velocity.X < 0f ? -1 : 1;
+            NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                float dirX = Main.npc[(int)npc.ai[1]].Center.X - npc.Center.X;
-                float dirY = Main.npc[(int)npc.ai[1]].Center.Y - npc.Center.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                float dirX = Main.npc[(int)NPC.ai[1]].Center.X - NPC.Center.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].Center.Y - NPC.Center.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
 
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
-                npc.direction = dirX < 0f ? 1 : -1;
-                npc.position.X += posX;
-                npc.position.Y += posY;
+                NPC.direction = dirX < 0f ? 1 : -1;
+                NPC.position.X += posX;
+                NPC.position.Y += posY;
             }
 
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 1, npc.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
             return false;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            Player player = Main.player[npc.target];
-            if (player.vortexStealthActive && projectile.ranged)
+            Player player = Main.player[NPC.target];
+            if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 damage /= 2;
                 crit = false;
@@ -1076,10 +1078,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             }
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.8f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
 }

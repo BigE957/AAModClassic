@@ -5,10 +5,10 @@ namespace AAMod.Items.Armor.Champion
 {
     public class RageCool : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah's Rage");
-            Description.SetDefault("A champion of Terraria never backs down");
+            // DisplayName.SetDefault("Rajah's Rage");
+            // Description.SetDefault("A champion of Terraria never backs down");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
         }

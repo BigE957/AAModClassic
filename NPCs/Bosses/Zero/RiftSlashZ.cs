@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero
@@ -10,29 +11,29 @@ namespace AAMod.NPCs.Bosses.Zero
     {
         public override void SetDefaults()
         {
-            projectile.width = 50;
-            projectile.height = 50;
-            projectile.aiStyle = 27;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 240;
+            Projectile.width = 50;
+            Projectile.height = 50;
+            Projectile.aiStyle = 27;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 240;
         }
 
         public override void PostAI()
         {
-            projectile.timeLeft--;
-            if (projectile.timeLeft <= 0)
+            Projectile.timeLeft--;
+            if (Projectile.timeLeft <= 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            Lighting.AddLight(projectile.Center, .5f, 0f, .1f);
+            Lighting.AddLight(Projectile.Center, .5f, 0f, .1f);
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spritebatch, Main.projectileTexture[projectile.type], 0, projectile, 1.5f, 1f, 5, false, 0f, 0f, projectile.GetAlpha(AAColor.ZeroShield));
+            BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1.5f, 1f, 5, false, 0f, 0f, Projectile.GetAlpha(AAColor.ZeroShield));
             return true;
         }
     }

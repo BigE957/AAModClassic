@@ -9,36 +9,35 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Abyssal Twilight");
-			Tooltip.SetDefault("The Eternal Dusk Beckons");
+			// DisplayName.SetDefault("Abyssal Twilight");
+			// Tooltip.SetDefault("The Eternal Dusk Beckons");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 19;
-			item.melee = true;
-			item.width = 60;
-			item.height = 60;
-			item.useTime = 14;
-			item.useAnimation = 14;
-			item.useStyle = 1;
-			item.knockBack = 2;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 3;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 19;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 60;
+			Item.height = 60;
+			Item.useTime = 14;
+			Item.useAnimation = 14;
+			Item.useStyle = 1;
+			Item.knockBack = 2;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 3;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod, "ExilesKatana", 1);
-			recipe.AddIngredient(mod, "OceanRazor", 1);
-			recipe.AddIngredient(mod, "DoomiteSaber", 1);
-			recipe.AddIngredient(mod, "IceLongsword", 1);
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod, "ExilesKatana", 1);
+			recipe.AddIngredient(Mod, "OceanRazor", 1);
+			recipe.AddIngredient(Mod, "DoomiteSaber", 1);
+			recipe.AddIngredient(Mod, "IceLongsword", 1);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -51,7 +50,7 @@ namespace AAMod.Items.Melee
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Poisoned, 400);
         }

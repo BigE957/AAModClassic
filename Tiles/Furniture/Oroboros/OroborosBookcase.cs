@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosBookcase : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -35,11 +36,11 @@ namespace AAMod.Tiles.Furniture.Oroboros
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Oroboros Bookcase");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Oroboros Bookcase");
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("DoomDust");
-            adjTiles = new int[] { TileID.Bookcases };
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            AdjTiles = new int[] { TileID.Bookcases };
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -49,7 +50,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("OroborosBookshelf"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("OroborosBookshelf").Type);
 			Chest.DestroyChest(i, j);
         }
         
@@ -61,8 +62,8 @@ namespace AAMod.Tiles.Furniture.Oroboros
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Oroboros/OroborosBookcase_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosBookcase_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

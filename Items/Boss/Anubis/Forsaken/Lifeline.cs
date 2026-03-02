@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,32 +11,32 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 
         public override void SetDefaults()
         {
-            item.damage = 92;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 42;
-            item.height = 60;
-            item.useTime = 14;
-            item.useAnimation = 14;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 2;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shootSpeed = 25f;
-            item.rare = 11;
+            Item.damage = 92;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 42;
+            Item.height = 60;
+            Item.useTime = 14;
+            Item.useAnimation = 14;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 2;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shootSpeed = 25f;
+            Item.rare = 11;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lifeline");
-            Tooltip.SetDefault(@"Shoots 2 enchanced Mummy arrows alongside with normal
+            // DisplayName.SetDefault("Lifeline");
+            /* Tooltip.SetDefault(@"Shoots 2 enchanced Mummy arrows alongside with normal
 Shoots ``Forsaken arrows`` burst if 2 enchanted arrows hit the target
-Forsaken arrows lower enemy contact damage");
+Forsaken arrows lower enemy contact damage"); */
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI); 
 			float numberProjectiles = 2;
@@ -58,12 +59,11 @@ Forsaken arrows lower enemy contact damage");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<NeithsString>(), 1);
             recipe.AddIngredient(null, "SoulFragment", 5);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

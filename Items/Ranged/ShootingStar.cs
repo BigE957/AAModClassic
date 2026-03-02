@@ -1,5 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,22 +12,22 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            item.damage = 100;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 36;
-            item.height = 64;
-            item.useTime = 14;
-            item.useAnimation = 14;
-            item.useStyle = 5;
-            item.shoot = 3;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 5;
-            item.value = 10000;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shootSpeed = 22f;
-            item.rare = 9;
+            Item.damage = 100;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 36;
+            Item.height = 64;
+            Item.useTime = 14;
+            Item.useAnimation = 14;
+            Item.useStyle = 5;
+            Item.shoot = 3;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 5;
+            Item.value = 10000;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shootSpeed = 22f;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -33,14 +35,14 @@ namespace AAMod.Items.Ranged
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 12f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -50,7 +52,7 @@ namespace AAMod.Items.Ranged
             for (int i = 0; i < 3; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), mod.ProjectileType("RadiumArrow"), damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("RadiumArrow").Type, damage, knockBack, Main.myPlayer);
             }
             return true;
         }
@@ -59,18 +61,17 @@ namespace AAMod.Items.Ranged
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shooting Star");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Shooting Star");
+            // Tooltip.SetDefault("");
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Stardust", 5);
             recipe.AddIngredient(null, "RadiumBar", 16);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

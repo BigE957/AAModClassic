@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class RabbitcopterSoldier : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rabbitcopter Soldier");
-			Description.SetDefault("Summons a Rabbitcopter Soldier to fight for you");
+			// DisplayName.SetDefault("Rabbitcopter Soldier");
+			// Description.SetDefault("Summons a Rabbitcopter Soldier to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("RabbitcopterSoldier")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("RabbitcopterSoldier").Type] > 0)
 			{
 				modPlayer.Rabbitcopter = true;
 			}

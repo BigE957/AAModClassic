@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,31 +8,30 @@ namespace AAMod.Items.Blocks.RazewoodF
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Razewood Bookcase");
+            // DisplayName.SetDefault("Razewood Bookcase");
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 34;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("RazewoodBookshelf");
+            Item.width = 32;
+            Item.height = 34;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("RazewoodBookshelf").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("Razewood"), 20);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("Razewood").Type, 20);
             recipe.AddIngredient(ItemID.Book, 10);
             recipe.AddTile(TileID.Sawmill);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
 

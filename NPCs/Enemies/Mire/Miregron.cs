@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,26 +10,26 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pigron");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[170];
+			// DisplayName.SetDefault("Pigron");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[170];
 		}
 
 		public override void SetDefaults()
         {
-            npc.width = 44;
-            npc.height = 36;
-            npc.aiStyle = -1;
-            npc.damage = 80;
-            npc.defense = 12;
-            npc.lifeMax = 210;
-            npc.HitSound = SoundID.NPCHit27;
-            npc.DeathSound = SoundID.NPCDeath30;
-            npc.knockBackResist = 0.5f;
-            npc.value = 2000f;
-            animationType = NPCID.PigronCorruption;
-            npc.buffImmune[31] = false;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MiregronBanner");
+            NPC.width = 44;
+            NPC.height = 36;
+            NPC.aiStyle = -1;
+            NPC.damage = 80;
+            NPC.defense = 12;
+            NPC.lifeMax = 210;
+            NPC.HitSound = SoundID.NPCHit27;
+            NPC.DeathSound = SoundID.NPCDeath30;
+            NPC.knockBackResist = 0.5f;
+            NPC.value = 2000f;
+            AnimationType = NPCID.PigronCorruption;
+            NPC.buffImmune[31] = false;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MiregronBanner").Type;
         }
 
 
@@ -36,143 +37,143 @@ namespace AAMod.NPCs.Enemies.Mire
         {
             if (Main.rand.Next(1000) == 0)
             {
-                Main.PlaySound(29, (int)npc.position.X, (int)npc.position.Y, 9, 1f, 0f);
+                SoundEngine.PlaySound(SoundID.Zombie9, NPC.position);
             }
-            npc.noGravity = true;
-            if (!npc.noTileCollide)
+            NPC.noGravity = true;
+            if (!NPC.noTileCollide)
             {
-                if (npc.collideX)
+                if (NPC.collideX)
                 {
-                    npc.velocity.X = npc.oldVelocity.X * -0.5f;
-                    if (npc.direction == -1 && npc.velocity.X > 0f && npc.velocity.X < 2f)
+                    NPC.velocity.X = NPC.oldVelocity.X * -0.5f;
+                    if (NPC.direction == -1 && NPC.velocity.X > 0f && NPC.velocity.X < 2f)
                     {
-                        npc.velocity.X = 2f;
+                        NPC.velocity.X = 2f;
                     }
-                    if (npc.direction == 1 && npc.velocity.X < 0f && npc.velocity.X > -2f)
+                    if (NPC.direction == 1 && NPC.velocity.X < 0f && NPC.velocity.X > -2f)
                     {
-                        npc.velocity.X = -2f;
+                        NPC.velocity.X = -2f;
                     }
                 }
-                if (npc.collideY)
+                if (NPC.collideY)
                 {
-                    npc.velocity.Y = npc.oldVelocity.Y * -0.5f;
-                    if (npc.velocity.Y > 0f && npc.velocity.Y < 1f)
+                    NPC.velocity.Y = NPC.oldVelocity.Y * -0.5f;
+                    if (NPC.velocity.Y > 0f && NPC.velocity.Y < 1f)
                     {
-                        npc.velocity.Y = 1f;
+                        NPC.velocity.Y = 1f;
                     }
-                    if (npc.velocity.Y < 0f && npc.velocity.Y > -1f)
+                    if (NPC.velocity.Y < 0f && NPC.velocity.Y > -1f)
                     {
-                        npc.velocity.Y = -1f;
+                        NPC.velocity.Y = -1f;
                     }
                 }
             }
-            npc.TargetClosest(true);
-            if (Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
+            NPC.TargetClosest(true);
+            if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
             {
-                if (npc.ai[1] > 0f && !Collision.SolidCollision(npc.position, npc.width, npc.height))
+                if (NPC.ai[1] > 0f && !Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
                 {
-                    npc.ai[1] = 0f;
-                    npc.ai[0] = 0f;
-                    npc.netUpdate = true;
+                    NPC.ai[1] = 0f;
+                    NPC.ai[0] = 0f;
+                    NPC.netUpdate = true;
                 }
             }
-            else if (npc.ai[1] == 0f)
+            else if (NPC.ai[1] == 0f)
             {
-                npc.ai[0] += 1f;
+                NPC.ai[0] += 1f;
             }
-            if (npc.ai[0] >= 300f)
+            if (NPC.ai[0] >= 300f)
             {
-                npc.ai[1] = 1f;
-                npc.ai[0] = 0f;
-                npc.netUpdate = true;
+                NPC.ai[1] = 1f;
+                NPC.ai[0] = 0f;
+                NPC.netUpdate = true;
             }
-            if (npc.ai[1] == 0f)
+            if (NPC.ai[1] == 0f)
             {
-                npc.alpha = 0;
-                npc.noTileCollide = false;
+                NPC.alpha = 0;
+                NPC.noTileCollide = false;
             }
             else
             {
-                npc.wet = false;
-                npc.alpha = 200;
-                npc.noTileCollide = true;
+                NPC.wet = false;
+                NPC.alpha = 200;
+                NPC.noTileCollide = true;
             }
-            npc.rotation = npc.velocity.Y * 0.1f * npc.direction;
-            npc.TargetClosest(true);
-            if (npc.direction == -1 && npc.velocity.X > -4f && npc.position.X > Main.player[npc.target].position.X + Main.player[npc.target].width)
+            NPC.rotation = NPC.velocity.Y * 0.1f * NPC.direction;
+            NPC.TargetClosest(true);
+            if (NPC.direction == -1 && NPC.velocity.X > -4f && NPC.position.X > Main.player[NPC.target].position.X + Main.player[NPC.target].width)
             {
-                npc.velocity.X = npc.velocity.X - 0.08f;
-                if (npc.velocity.X > 4f)
+                NPC.velocity.X = NPC.velocity.X - 0.08f;
+                if (NPC.velocity.X > 4f)
                 {
-                    npc.velocity.X = npc.velocity.X - 0.04f;
+                    NPC.velocity.X = NPC.velocity.X - 0.04f;
                 }
-                else if (npc.velocity.X > 0f)
+                else if (NPC.velocity.X > 0f)
                 {
-                    npc.velocity.X = npc.velocity.X - 0.2f;
+                    NPC.velocity.X = NPC.velocity.X - 0.2f;
                 }
-                if (npc.velocity.X < -4f)
+                if (NPC.velocity.X < -4f)
                 {
-                    npc.velocity.X = -4f;
-                }
-            }
-            else if (npc.direction == 1 && npc.velocity.X < 4f && npc.position.X + npc.width < Main.player[npc.target].position.X)
-            {
-                npc.velocity.X = npc.velocity.X + 0.08f;
-                if (npc.velocity.X < -4f)
-                {
-                    npc.velocity.X = npc.velocity.X + 0.04f;
-                }
-                else if (npc.velocity.X < 0f)
-                {
-                    npc.velocity.X = npc.velocity.X + 0.2f;
-                }
-                if (npc.velocity.X > 4f)
-                {
-                    npc.velocity.X = 4f;
+                    NPC.velocity.X = -4f;
                 }
             }
-            if (npc.directionY == -1 && npc.velocity.Y > -2.5 && npc.position.Y > Main.player[npc.target].position.Y + Main.player[npc.target].height)
+            else if (NPC.direction == 1 && NPC.velocity.X < 4f && NPC.position.X + NPC.width < Main.player[NPC.target].position.X)
             {
-                npc.velocity.Y = npc.velocity.Y - 0.1f;
-                if (npc.velocity.Y > 2.5)
+                NPC.velocity.X = NPC.velocity.X + 0.08f;
+                if (NPC.velocity.X < -4f)
                 {
-                    npc.velocity.Y = npc.velocity.Y - 0.05f;
+                    NPC.velocity.X = NPC.velocity.X + 0.04f;
                 }
-                else if (npc.velocity.Y > 0f)
+                else if (NPC.velocity.X < 0f)
                 {
-                    npc.velocity.Y = npc.velocity.Y - 0.15f;
+                    NPC.velocity.X = NPC.velocity.X + 0.2f;
                 }
-                if (npc.velocity.Y < -2.5)
+                if (NPC.velocity.X > 4f)
                 {
-                    npc.velocity.Y = -2.5f;
+                    NPC.velocity.X = 4f;
                 }
             }
-            else if (npc.directionY == 1 && npc.velocity.Y < 2.5 && npc.position.Y + npc.height < Main.player[npc.target].position.Y)
+            if (NPC.directionY == -1 && NPC.velocity.Y > -2.5 && NPC.position.Y > Main.player[NPC.target].position.Y + Main.player[NPC.target].height)
             {
-                npc.velocity.Y = npc.velocity.Y + 0.1f;
-                if (npc.velocity.Y < -2.5)
+                NPC.velocity.Y = NPC.velocity.Y - 0.1f;
+                if (NPC.velocity.Y > 2.5)
                 {
-                    npc.velocity.Y = npc.velocity.Y + 0.05f;
+                    NPC.velocity.Y = NPC.velocity.Y - 0.05f;
                 }
-                else if (npc.velocity.Y < 0f)
+                else if (NPC.velocity.Y > 0f)
                 {
-                    npc.velocity.Y = npc.velocity.Y + 0.15f;
+                    NPC.velocity.Y = NPC.velocity.Y - 0.15f;
                 }
-                if (npc.velocity.Y > 2.5)
+                if (NPC.velocity.Y < -2.5)
                 {
-                    npc.velocity.Y = 2.5f;
+                    NPC.velocity.Y = -2.5f;
+                }
+            }
+            else if (NPC.directionY == 1 && NPC.velocity.Y < 2.5 && NPC.position.Y + NPC.height < Main.player[NPC.target].position.Y)
+            {
+                NPC.velocity.Y = NPC.velocity.Y + 0.1f;
+                if (NPC.velocity.Y < -2.5)
+                {
+                    NPC.velocity.Y = NPC.velocity.Y + 0.05f;
+                }
+                else if (NPC.velocity.Y < 0f)
+                {
+                    NPC.velocity.Y = NPC.velocity.Y + 0.15f;
+                }
+                if (NPC.velocity.Y > 2.5)
+                {
+                    NPC.velocity.Y = 2.5f;
                 }
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
-            if (npc.life > 0)
+            if (NPC.life > 0)
             {
                 int num589 = 0;
-                while (num589 < damage / npc.lifeMax * 50.0)
+                while (num589 < damage / NPC.lifeMax * 50.0)
                 {
-                    int num590 = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1.5f);
+                    int num590 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1.5f);
                     Main.dust[num590].velocity *= 1.5f;
                     Main.dust[num590].noGravity = true;
                     num589++;
@@ -181,22 +182,22 @@ namespace AAMod.NPCs.Enemies.Mire
             }
             for (int num591 = 0; num591 < 10; num591++)
             {
-                int num592 = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1.5f);
+                int num592 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1.5f);
                 Main.dust[num592].velocity *= 2f;
                 Main.dust[num592].noGravity = true;
             }
             for (int num593 = 0; num593 < 4; num593++)
             {
-                int num594 = Gore.NewGore(new Vector2(npc.position.X, npc.position.Y + npc.height / 2 - 10f), new Vector2(hitDirection, 0f), 99, npc.scale);
+                int num594 = Gore.NewGore(new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hitDirection, 0f), 99, NPC.scale);
                 Main.gore[num594].velocity *= 0.3f;
             }
         }
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
             if (Main.rand.Next(3) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 3532, 1, false, 0, false, false);
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 3532, 1, false, 0, false, false);
             }
         }
 	}

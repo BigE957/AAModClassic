@@ -9,34 +9,34 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Carrot");
+            // DisplayName.SetDefault("Carrot");
 		}
 
 		public override void SetDefaults()
 		{
-            projectile.melee = true;
-			projectile.width = 10; 
-			projectile.height = 10;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.penetrate = 1;  
-			projectile.timeLeft = 600;  
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-            projectile.extraUpdates = 1;
+            Projectile.DamageType = DamageClass.Melee;
+			Projectile.width = 10; 
+			Projectile.height = 10;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;  
+			Projectile.timeLeft = 600;  
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
         }
 
         public override void PostAI()
         {
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustID.Gold, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Gold, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].velocity *= 2f;
             }
         }

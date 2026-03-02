@@ -3,9 +3,9 @@ using Terraria.ModLoader;
 
 namespace AAMod.Backgrounds
 {
-    class MushroomSurfaceBgStyle : ModSurfaceBgStyle
+    class MushroomSurfaceBgStyle : ModSurfaceBackgroundStyle
     {
-        public override bool ChooseBgStyle()
+        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
         {
             return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush;
         }
@@ -35,33 +35,33 @@ namespace AAMod.Backgrounds
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return mod.GetBackgroundSlot("Backgrounds/MushroomBG3");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomBG3");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return mod.GetBackgroundSlot("Backgrounds/MushroomBG2");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomBG2");
         }
 
         public override int ChooseFarTexture()
         {
-            return mod.GetBackgroundSlot("Backgrounds/MushroomBG1");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomBG1");
         }
     }
 
-    public class MushroomUgBgStyle : ModUgBgStyle
+    public class MushroomUgBgStyle : ModUndergroundBackgroundStyle
     {
-        public override bool ChooseBgStyle()
+        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override UndergroundBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
         {
             return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush;
         }
 
         public override void FillTextureArray(int[] textureSlots)
         {
-            textureSlots[0] = mod.GetBackgroundSlot("Backgrounds/MushroomUG2");
-            textureSlots[1] = mod.GetBackgroundSlot("Backgrounds/MushroomUG1");
-            textureSlots[2] = mod.GetBackgroundSlot("Backgrounds/MushroomUG4");
-            textureSlots[3] = mod.GetBackgroundSlot("Backgrounds/MushroomUG3");
+            textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomUG2");
+            textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomUG1");
+            textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomUG4");
+            textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MushroomUG3");
         }
     }
 }

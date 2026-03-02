@@ -9,61 +9,61 @@ namespace AAMod.Projectiles
       {
 	  public override void SetStaticDefaults() 
            {
-	     ProjectileID.Sets.TrailCacheLength[projectile.type] = 20;    //The length of old position to be recorded
-             ProjectileID.Sets.TrailingMode[projectile.type] = 0;        //The recording mode        
+	     ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;    //The length of old position to be recorded
+             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;        //The recording mode        
            }
 
         public override void SetDefaults()
          {
-	    projectile.aiStyle = -1;
-            projectile.width = 38;
-            projectile.height = 60;
-            projectile.aiStyle = 27;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.penetrate = 2;
-            projectile.timeLeft = 240;
-            projectile.tileCollide = false;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 10;
-            projectile.alpha = 254;
-            projectile.extraUpdates = 1;
+	    Projectile.aiStyle = -1;
+            Projectile.width = 38;
+            Projectile.height = 60;
+            Projectile.aiStyle = 27;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 2;
+            Projectile.timeLeft = 240;
+            Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
+            Projectile.alpha = 254;
+            Projectile.extraUpdates = 1;
          }
 
         public override void AI()
         {
-           projectile.rotation = (projectile.position.X + projectile.position.Y / 4) * 0.0150f;
-           Lighting.AddLight(projectile.Center, (0 - projectile.alpha) * 1f / 100f, (64 - projectile.alpha) * 1f / 100f, (45 - projectile.alpha) * 1f / 100f);
+           Projectile.rotation = (Projectile.position.X + Projectile.position.Y / 4) * 0.0150f;
+           Lighting.AddLight(Projectile.Center, (0 - Projectile.alpha) * 1f / 100f, (64 - Projectile.alpha) * 1f / 100f, (45 - Projectile.alpha) * 1f / 100f);
 
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 5;
+                Projectile.alpha -= 5;
             }
             const int aislotHomingCooldown = 0;
             const int homingDelay = 10;
             const float desiredFlySpeedInPixelsPerFrame = 60;
             const float amountOfFramesToLerpBy = 20; 
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
-          public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+          public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
           {
-                int num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -projectile.velocity.X * 0.6f, -projectile.velocity.Y * 0.6f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 1.5f;
-                num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -projectile.velocity.X * 0.6f, -projectile.velocity.Y * 0.6f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100);
                 Main.dust[num580].velocity *= 1.5f;
           }
 
@@ -76,13 +76,13 @@ namespace AAMod.Projectiles
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }

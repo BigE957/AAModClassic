@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAMod.NPCs.Enemies.Other
 {
@@ -9,52 +10,52 @@ namespace AAMod.NPCs.Enemies.Other
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Claw");
-            Main.npcFrameCount[npc.type] = 5;
+            // DisplayName.SetDefault("Hydra Claw");
+            Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
         {
-            aiType = NPCID.DemonEye;  //npc behavior
-            animationType = NPCID.DemonEye;
-            npc.width = 28;
-            npc.height = 24;
-            npc.friendly = false;
-            npc.damage = 13;
-            npc.defense = 2;
-            npc.lifeMax = 20;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 100f;
-            npc.knockBackResist = 0.6f;
-            npc.aiStyle = -1;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("HydraClawBanner");
+            AIType = NPCID.DemonEye;  //npc behavior
+            AnimationType = NPCID.DemonEye;
+            NPC.width = 28;
+            NPC.height = 24;
+            NPC.friendly = false;
+            NPC.damage = 13;
+            NPC.defense = 2;
+            NPC.lifeMax = 20;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 100f;
+            NPC.knockBackResist = 0.6f;
+            NPC.aiStyle = -1;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("HydraClawBanner").Type;
         }
 
         public override void AI()
         {
-            AAAI.AIClaw(npc, ref npc.ai, false, true, 0.1f, 0.04f, 5f, 2f, 1f, 1f);
-            if (npc.velocity.X > 0f)
+            AAAI.AIClaw(NPC, ref NPC.ai, false, true, 0.1f, 0.04f, 5f, 2f, 1f, 1f);
+            if (NPC.velocity.X > 0f)
             {
-                npc.spriteDirection = 1;
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X);
+                NPC.spriteDirection = 1;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X);
             }
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 3.14f;
+                NPC.spriteDirection = -1;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 3.14f;
             }
 
-            npc.frameCounter++;
-            if (npc.frameCounter >= 8)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 8)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 26;
-                if (npc.frame.Y > (26 * 4))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 26;
+                if (NPC.frame.Y > (26 * 4))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
@@ -63,27 +64,27 @@ namespace AAMod.NPCs.Enemies.Other
         {
             return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
         }
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HydraClawGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HydraClawGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/HydraClawGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/HydraClawGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/HydraClawGore3"), 1f);
             }
         }
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             target.AddBuff(BuffID.Poisoned, 180);
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if(Main.rand.NextBool())
             {
-                npc.DropLoot(mod.ItemType("HydraClaw"), 1);
+                NPC.DropLoot(Mod.Find<ModItem>("HydraClaw").Type, 1);
             }
             
         }

@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -11,29 +12,29 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Dark Dragoness' Hood");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Dark Dragoness' Hood");
+            // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(121, 21, 214);
+                    line2.OverrideColor = new Color(121, 21, 214);
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 20;
-            item.rare = 11;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 20;
+            Item.rare = 11;
+            Item.vanity = true;
         }
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = false;
             drawAltHair = true;
@@ -41,11 +42,10 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "LizEars");
             recipe.AddTile(TileID.Loom);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

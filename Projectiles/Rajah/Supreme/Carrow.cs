@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,58 +13,58 @@ namespace AAMod.Projectiles.Rajah.Supreme
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Carrow");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+            // DisplayName.SetDefault("Carrow");
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
 
 		public override void SetDefaults()
 		{
-            projectile.ranged = true;
-			projectile.width = 10; 
-			projectile.height = 10; 
-			projectile.aiStyle = 1;   
-			projectile.friendly = true; 
-			projectile.hostile = false;  
-			projectile.penetrate = 1;  
-			projectile.timeLeft = 600;  
-			projectile.ignoreWater = true;
-            projectile.extraUpdates = 1;
-			projectile.tileCollide = true;
-			aiType = ProjectileID.WoodenArrowFriendly;
-            projectile.noDropItem = true;
+            Projectile.DamageType = DamageClass.Ranged;
+			Projectile.width = 10; 
+			Projectile.height = 10; 
+			Projectile.aiStyle = 1;   
+			Projectile.friendly = true; 
+			Projectile.hostile = false;  
+			Projectile.penetrate = 1;  
+			Projectile.timeLeft = 600;  
+			Projectile.ignoreWater = true;
+            Projectile.extraUpdates = 1;
+			Projectile.tileCollide = true;
+			AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.noDropItem = true;
 		}
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             int Split = Main.rand.Next(2, 4);
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / Split;
             for (int i = 0; i < Split; i++)
             {
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("CarrowSplit"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("CarrowSplit"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("CarrowSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("CarrowSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].velocity *= 2f;
             }
         }
 
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-            for (int k = 0; k < projectile.oldPos.Length; k++)
+            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+            for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-                Color color = projectile.GetAlpha(lightColor) * ((projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-                spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             return true;
         }

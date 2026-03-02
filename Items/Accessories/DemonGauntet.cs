@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
@@ -14,30 +15,30 @@ namespace AAMod.Items.Accessories
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Demon Gauntlet");
-            Tooltip.SetDefault(
+            // DisplayName.SetDefault("Demon Gauntlet");
+            /* Tooltip.SetDefault(
 @"Enemies are more likely to target you
 14% Increased Melee Damage
 10% Increased melee speed
 Increased Melee Knockback
 Melee Attacks Inflict a different debuff depending on your world evil
-Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds");
+Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
             
         }
 
         public override void SetDefaults()
         {
-            item.width = 45;
-            item.height = 48;
-            item.value = Item.sellPrice(0, 12, 0, 0);
-            item.rare = 7;
-            item.accessory = true;
-            item.defense = 8;
+            Item.width = 45;
+            Item.height = 48;
+            Item.value = Item.sellPrice(0, 12, 0, 0);
+            Item.rare = 7;
+            Item.accessory = true;
+            Item.defense = 8;
             
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
             {
@@ -48,8 +49,8 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds");
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 GlowColor,
@@ -63,8 +64,8 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds");
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            Texture2D texture2 = Main.itemTexture[item.type];
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
             {
@@ -83,8 +84,8 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds");
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.meleeDamage += 0.14f;
-            player.meleeSpeed += 0.1f;
+            player.GetDamage(DamageClass.Melee) += 0.14f;
+            player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
             player.aggro += 5;
             player.GetModPlayer<AAPlayer>().demonGauntlet = true;
         }
@@ -92,24 +93,22 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds");
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.FireGauntlet, 1);
                 recipe.AddIngredient(ItemID.FleshKnuckles, 1);
                 recipe.AddIngredient(ItemID.SoulofNight, 10);
                 recipe.AddIngredient(ItemID.Ichor, 10);
                 recipe.AddTile(TileID.TinkerersWorkbench);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.FireGauntlet, 1);
                 recipe.AddIngredient(ItemID.PutridScent, 1);
                 recipe.AddIngredient(ItemID.SoulofNight, 10);
                 recipe.AddIngredient(ItemID.CursedFlame, 10);
                 recipe.AddTile(TileID.TinkerersWorkbench);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
 

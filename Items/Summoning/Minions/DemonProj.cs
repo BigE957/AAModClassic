@@ -7,16 +7,16 @@ namespace AAMod.Items.Summoning.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scythe");
+            // DisplayName.SetDefault("Scythe");
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.DemonScythe);
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.magic = false;
-            projectile.minion = true;
+            Projectile.CloneDefaults(ProjectileID.DemonScythe);
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.minion = true;
         }
 
     }

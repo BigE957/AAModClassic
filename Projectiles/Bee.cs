@@ -8,11 +8,11 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Bee);
-            Main.projFrames[projectile.type] = 4;
+            Projectile.CloneDefaults(ProjectileID.Bee);
+            Main.projFrames[Projectile.type] = 4;
         }
 
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             if (target.defense < 300 && !target.boss)
             {

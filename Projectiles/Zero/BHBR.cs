@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
@@ -10,44 +11,44 @@ namespace AAMod.Projectiles.Zero
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Void Rocket");
-            Main.projFrames[projectile.type] = 3;
+			// DisplayName.SetDefault("Void Rocket");
+            Main.projFrames[Projectile.type] = 3;
         }
 
 		public override void SetDefaults()
 		{
-            projectile.width = 14;
-			projectile.height = 14;
-			projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.penetrate = 1;
-            projectile.tileCollide = true;
-            projectile.timeLeft = 180;
-            projectile.ranged = true;
+            Projectile.width = 14;
+			Projectile.height = 14;
+			Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = true;
+            Projectile.timeLeft = 180;
+            Projectile.DamageType = DamageClass.Ranged;
 		}
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 3)
+            if (++Projectile.frameCounter >= 3)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 3)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.9f / 255f, (255 - projectile.alpha) * 0f / 255f, (255 - projectile.alpha) * 0.4f / 255f);
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.9f / 255f, (255 - Projectile.alpha) * 0f / 255f, (255 - Projectile.alpha) * 0.4f / 255f);
 
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            projectile.localAI[1]++;
-            if (projectile.localAI[1] >= 60)
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            Projectile.localAI[1]++;
+            if (Projectile.localAI[1] >= 60)
             {
 
-                if (projectile.localAI[0] == 0f)
+                if (Projectile.localAI[0] == 0f)
                 {
-                    AdjustMagnitude(ref projectile.velocity);
-                    projectile.localAI[0] = 1f;
+                    AdjustMagnitude(ref Projectile.velocity);
+                    Projectile.localAI[0] = 1f;
                 }
                 Vector2 move = Vector2.Zero;
                 float distance = 800f;
@@ -56,7 +57,7 @@ namespace AAMod.Projectiles.Zero
                 {
                     if (Main.npc[k].active)
                     {
-                        Vector2 newMove = Main.npc[k].Center - projectile.Center;
+                        Vector2 newMove = Main.npc[k].Center - Projectile.Center;
                         float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
                         if (distanceTo < distance)
                         {
@@ -69,8 +70,8 @@ namespace AAMod.Projectiles.Zero
                 if (target)
                 {
                     AdjustMagnitude(ref move);
-                    projectile.velocity = (10 * projectile.velocity + move) / 11f;
-                    AdjustMagnitude(ref projectile.velocity);
+                    Projectile.velocity = (10 * Projectile.velocity + move) / 11f;
+                    AdjustMagnitude(ref Projectile.velocity);
                 }
             }
         }
@@ -82,32 +83,32 @@ namespace AAMod.Projectiles.Zero
                 vector *= 12f / magnitude;
             }
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
        {
-            projectile.Kill();
+            Projectile.Kill();
         {
             if(target.life<=0)
            {
-              Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("CycloneF"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);   }
+              Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("CycloneF").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);   }
         } 
        }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            Projectile.NewProjectile((int)projectile.position.X, (int)projectile.position.Y, 0, 0, ModContent.ProjectileType<GBoom>(), projectile.damage, projectile.knockBack, Main.myPlayer);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            Projectile.NewProjectile((int)Projectile.position.X, (int)Projectile.position.Y, 0, 0, ModContent.ProjectileType<GBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             for (int i = 0; i < 20; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 235, 0f, 0f, 100);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 235, 0f, 0f, 100);
                 Main.dust[dustIndex].velocity *= 1.9f;
             }
             for (int i = 0; i < 10; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Fire, 0f, 0f, 100);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100);
                 Main.dust[dustIndex].velocity *= 1.6f;
             }
             for (int i = 0; i < 5; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Smoke, 0f, 0f, 100);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100);
                 Main.dust[dustIndex].velocity *= 1.4f;
             }
         }

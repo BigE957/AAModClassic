@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -6,29 +7,29 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Odin's Iceblade");
-            Tooltip.SetDefault(@"Looks like Greed accidentally snagged this at some point from someone");
+            // DisplayName.SetDefault("Odin's Iceblade");
+            // Tooltip.SetDefault(@"Looks like Greed accidentally snagged this at some point from someone");
         }
 
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("OdinsBlade");
-            item.shootSpeed = 10f;
-            item.damage = 70;
-            item.knockBack = 5f;
-            item.ranged = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.width = 20;
-            item.height = 20;
-            item.consumable = false;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = 100000;
-            item.rare = 7;
+            Item.shoot = Mod.Find<ModProjectile>("OdinsBlade").Type;
+            Item.shootSpeed = 10f;
+            Item.damage = 70;
+            Item.knockBack = 5f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.width = 20;
+            Item.height = 20;
+            Item.consumable = false;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = 100000;
+            Item.rare = 7;
         }
     }
 }

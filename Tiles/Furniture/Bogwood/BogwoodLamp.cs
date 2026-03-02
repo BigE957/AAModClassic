@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodLamp : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -37,30 +38,30 @@ namespace AAMod.Tiles.Furniture.Bogwood
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Bogwood Lamp");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Bogwood Lamp");
             AddMapEntry(new Color(12, 62, 205), name);
-            dustType = mod.DustType("BogwoodDust");
+            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 
 
         }
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].frameX / 18) % 1;
-            int top = j - (Main.tile[i, j].frameY / 18) % 3;
+            int left = i - (Main.tile[i, j].TileFrameX / 18) % 1;
+            int top = j - (Main.tile[i, j].TileFrameY / 18) % 3;
             for (int x = left; x < left + 1; x++)
             {
                 for (int y = top; y < top + 3; y++)
                 {
 
-                    if (Main.tile[x, y].frameX >= 18)
+                    if (Main.tile[x, y].TileFrameX >= 18)
                     {
-                        Main.tile[x, y].frameX -= 18;
+                        Main.tile[x, y].TileFrameX -= 18;
                     }
                     else
                     {
-                        Main.tile[x, y].frameX += 18;
+                        Main.tile[x, y].TileFrameX += 18;
                     }
                 }
             }
@@ -81,7 +82,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 18)
+            if (tile.TileFrameX < 18)
             {
                 r = 0.9f;
                 g = 0.9f;
@@ -91,7 +92,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("BogwoodLamp"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodLamp").Type);
 			Chest.DestroyChest(i, j);
 		}
 
@@ -103,8 +104,8 @@ namespace AAMod.Tiles.Furniture.Bogwood
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Bogwood/BogwoodLamp_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Bogwood/BogwoodLamp_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

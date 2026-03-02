@@ -7,36 +7,36 @@ namespace AAMod.Projectiles.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("b00m");     
-            Main.projFrames[projectile.type] = 7;     
+            // DisplayName.SetDefault("b00m");     
+            Main.projFrames[Projectile.type] = 7;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
-            projectile.ranged = true;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 6)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 6)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
         }
     }
 }

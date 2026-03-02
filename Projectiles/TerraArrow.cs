@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,26 +10,26 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 20;
-            projectile.aiStyle = 27;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 240;
-            projectile.tileCollide = true;
-            projectile.aiStyle = 1; //
-            aiType = ProjectileID.WoodenArrowFriendly;
-            projectile.arrow = true;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.aiStyle = 27;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 240;
+            Projectile.tileCollide = true;
+            Projectile.aiStyle = 1; //
+            AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.arrow = true;
         }
 
         public override void AI()
         {
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, 107, projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 107, Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, 107, projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 107, Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100);
             Main.dust[dustId3].noGravity = true;
 
             const int aislotHomingCooldown = 0;
@@ -36,17 +37,17 @@ namespace AAMod.Projectiles
             const float desiredFlySpeedInPixelsPerFrame = 60;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -60,13 +61,13 @@ namespace AAMod.Projectiles
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
-                    if (distance <= homingMaximumRangeInPixels && Collision.CanHit(projectile.position, projectile.width, projectile.height, n.position, n.width, n.height) &&
+                    float distance = Projectile.Distance(n.Center);
+                    if (distance <= homingMaximumRangeInPixels && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, n.position, n.width, n.height) &&
                     (
                         selectedTarget == -1 || //there is no selected target
-                        projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -75,21 +76,21 @@ namespace AAMod.Projectiles
             return selectedTarget;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 180);
         }
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 107, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 107, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 107, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 107, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }

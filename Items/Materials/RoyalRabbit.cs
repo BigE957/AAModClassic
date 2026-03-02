@@ -1,3 +1,4 @@
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
@@ -11,26 +12,26 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Royal Rabbit");
-            Tooltip.SetDefault("Under direct protection by the Pouncing Punisher");
+            // DisplayName.SetDefault("Royal Rabbit");
+            // Tooltip.SetDefault("Under direct protection by the Pouncing Punisher");
         }
 
         public override void SetDefaults()
         {
-            item.width = 36;
-            item.height = 30;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 8;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 36;
+            Item.height = 30;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 8;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            int num = NPC.NewNPC((int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), mod.NPCType("RoyalRabbit"));
+            int num = NPC.NewNPC((int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), Mod.Find<ModNPC>("RoyalRabbit").Type);
             if (Main.netMode == NetmodeID.Server && num < 200)
             {
                 NetMessage.SendData(23, -1, -1, null, num, 0f, 0f, 0f, 0, 0, 0);
@@ -40,9 +41,9 @@ namespace AAMod.Items.Materials
 
         public override void PostUpdate()
         {
-            if (item.lavaWet)
+            if (Item.lavaWet)
             {
-                Player player = Main.player[Player.FindClosest(item.Center, item.width, item.height)];
+                Player player = Main.player[Player.FindClosest(Item.Center, Item.width, Item.height)];
                 for (int i = 0; i < Main.maxPlayers; ++i)
                 {
                     if (player.active && !player.dead)
@@ -51,19 +52,19 @@ namespace AAMod.Items.Materials
                         if (bunnyKills % 100 == 0 && bunnyKills < 1000)
                         {
                             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned1"), 107, 137, 179);
-                            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
 
                         }
                         if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
                         {
                             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned2") + player.name.ToUpper() + "!", 107, 137, 179);
-                            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
                         };
                     }
                 }
-                item.active = false;
+                Item.active = false;
             }
         }
     }

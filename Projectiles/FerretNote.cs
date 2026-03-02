@@ -10,29 +10,29 @@ namespace AAMod.Projectiles
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Note of Furet");
-            Main.projFrames[projectile.type] = 4;
+			// DisplayName.SetDefault("Note of Furet");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.magic = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 150;
-            projectile.aiStyle = -1;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 150;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
-			HandleTargetingMovement(0.025f, 0.05f, projectile.velocity.Length(), 9f);
-			projectile.frame = projectile.whoAmI % 4;
-			projectile.rotation = projectile.velocity.X * 0.025f;
+			HandleTargetingMovement(0.025f, 0.05f, Projectile.velocity.Length(), 9f);
+			Projectile.frame = Projectile.whoAmI % 4;
+			Projectile.rotation = Projectile.velocity.X * 0.025f;
 
             //int num557 = 8;
             //dust!
@@ -51,9 +51,9 @@ namespace AAMod.Projectiles
 			if (target != -1)
 			{
 				Entity ent = Main.npc[target];
-				projectile.velocity += BaseUtility.RotateVector(default, new Vector2(maxSpeed, 0f), BaseUtility.RotationTo(projectile.Center, ent.Center)) * rotScalar;
-				if(Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) > maxSpeed){ projectile.velocity.Normalize(); projectile.velocity *= maxSpeed; }
-				projectile.position += ent.velocity * entVelScalar;
+				Projectile.velocity += BaseUtility.RotateVector(default, new Vector2(maxSpeed, 0f), BaseUtility.RotationTo(Projectile.Center, ent.Center)) * rotScalar;
+				if(Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y) > maxSpeed){ Projectile.velocity.Normalize(); Projectile.velocity *= maxSpeed; }
+				Projectile.position += ent.velocity * entVelScalar;
 			}	
 		}
 
@@ -61,9 +61,9 @@ namespace AAMod.Projectiles
 		{
 			targetDelay = Math.Max(0, targetDelay - 1);
 			if (target != -1 && !CanTarget(Main.npc[target])) { target = -1; }
-			if (target == -1 && targetDelay == 0 && projectile.timeLeft % 20 == 0)
+			if (target == -1 && targetDelay == 0 && Projectile.timeLeft % 20 == 0)
 			{
-				Vector2 startPos = projectile.Center;
+				Vector2 startPos = Projectile.Center;
 				int[] npcs = BaseAI.GetNPCs(startPos, -1, maxDistToAttack);
 				if (npcs.Length > 0)
 				{
@@ -83,14 +83,14 @@ namespace AAMod.Projectiles
 			return npc.active && npc.life > 0 && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5;
 		}	
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 1000);
         }
 
 		public override Color? GetAlpha(Color lightColor)
 		{
-			int percentile = (projectile.owner + projectile.whoAmI) % 4;
+			int percentile = (Projectile.owner + Projectile.whoAmI) % 4;
 			switch(percentile)
 			{
 				case 0: return new Color(255, 0, 0, 150);
@@ -100,16 +100,16 @@ namespace AAMod.Projectiles
 			}
 		}
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int m = 0; m < 10; m++)
             {
-                int dustID = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.AkumaDustLight>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int dustID = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[dustID].noGravity = true;
                 Main.dust[dustID].velocity *= 2f;
-                dustID = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDustLight>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[dustID].velocity *= 2f;
             }
         }		

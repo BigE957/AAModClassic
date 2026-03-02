@@ -7,14 +7,14 @@ namespace AAMod.Tiles
 {
     public class AcropolisBlock : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
             Main.tileMerge[Type][ModContent.TileType<AcropolisBlock2>()] = true;
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(66, 78, 92));
-            dustType = DustID.Marble;
+            DustType = DustID.Marble;
         }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

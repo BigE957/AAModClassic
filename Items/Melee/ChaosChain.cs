@@ -10,38 +10,37 @@ namespace AAMod.Items.Melee
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Chaos Chain");
-            Tooltip.SetDefault(@"Throws a volitile sphere of chaotic energy");
+            // DisplayName.SetDefault("Chaos Chain");
+            // Tooltip.SetDefault(@"Throws a volitile sphere of chaotic energy");
         }
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.useStyle = 5;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.knockBack = 15f;
-            item.width = 20;
-            item.height = 20;
-            item.damage = 90;
-            item.shoot = mod.ProjectileType("ChaosChain");
-            item.shootSpeed = 14f;
-            item.UseSound = SoundID.Item10;
-            item.rare = 8;
-            item.value = Item.sellPrice(0, 20, 0, 0);
-            item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
+            Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.knockBack = 15f;
+            Item.width = 20;
+            Item.height = 20;
+            Item.damage = 90;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosChain").Type;
+            Item.shootSpeed = 14f;
+            Item.UseSound = SoundID.Item10;
+            Item.rare = 8;
+            Item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "Ryusei", 1);
             recipe.AddIngredient(null, "ChaosCrystal",1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,44 +11,44 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Supreme Hellshot");
-            Tooltip.SetDefault(@"fires a massive spread of bullets at your foes
+            // DisplayName.SetDefault("Supreme Hellshot");
+            /* Tooltip.SetDefault(@"fires a massive spread of bullets at your foes
 Right click to fire hellskulls at your foe
 Uses Bullets & Bones as ammo
-Super Skullshot EX");
+Super Skullshot EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.knockBack = 7f;
-            item.useStyle = 5;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.width = 70;
-            item.height = 32;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.UseSound = SoundID.Item36;
-            item.damage = 90;
-            item.shootSpeed = 9f;
-            item.noMelee = true;
-            item.value = 100000;
-            item.rare = 9;
-            item.ranged = true;
-            item.expert = true; item.expertOnly = true;
+            Item.autoReuse = true;
+            Item.knockBack = 7f;
+            Item.useStyle = 5;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.width = 70;
+            Item.height = 32;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.UseSound = SoundID.Item36;
+            Item.damage = 90;
+            Item.shootSpeed = 9f;
+            Item.noMelee = true;
+            Item.value = 100000;
+            Item.rare = 9;
+            Item.DamageType = DamageClass.Ranged;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name);
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name);
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -68,26 +69,26 @@ Super Skullshot EX");
         {
             if (player.altFunctionUse == 2)
             {
-                item.useAmmo = AAMod.BoneAmmo;
-                item.damage = 900;
-                item.useAnimation = 20;
-                item.useTime = 9;
-                item.reuseDelay = 20;
-                item.shoot = ModContent.ProjectileType<Projectiles.Hellshot>();
+                Item.useAmmo = AAMod.BoneAmmo;
+                Item.damage = 900;
+                Item.useAnimation = 20;
+                Item.useTime = 9;
+                Item.reuseDelay = 20;
+                Item.shoot = ModContent.ProjectileType<Projectiles.Hellshot>();
             }
             else
             {
-                item.useAmmo = AmmoID.Bullet;
-                item.damage = 335;
-                item.useAnimation = 24;
-                item.useTime = 24;
-                item.reuseDelay = 0;
-                item.shoot = 10;
+                Item.useAmmo = AmmoID.Bullet;
+                Item.damage = 335;
+                Item.useAnimation = 24;
+                Item.useTime = 24;
+                Item.reuseDelay = 0;
+                Item.shoot = 10;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse != 2)
             {
@@ -100,18 +101,17 @@ Super Skullshot EX");
             else
             {
                 int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Hellshot>(), damage, knockBack, Main.myPlayer, 0f, 0f);
-                Main.projectile[proj].ranged = true;
+                Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "Skullshot", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -4,15 +4,15 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plantera Petal");
-            Tooltip.SetDefault("It's very pink");
+            // DisplayName.SetDefault("Plantera Petal");
+            // Tooltip.SetDefault("It's very pink");
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 99;
-            item.rare = 7;
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 99;
+            Item.rare = 7;
         }
     }
 }

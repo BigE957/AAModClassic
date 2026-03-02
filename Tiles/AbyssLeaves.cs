@@ -10,15 +10,15 @@ namespace AAMod.Tiles
     {
         public Texture2D glowTex;
         public bool glow = true;
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileSolidTop[Type] = false;
-            Main.tileMerge[Type][mod.TileType("AbyssWood")] = true;
-            soundType = 21;
+            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWood").Type] = true;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            dustType = DustID.Blood;
+            DustType = DustID.Blood;
             AddMapEntry(new Color(200, 0, 70));
         }
 
@@ -35,9 +35,9 @@ namespace AAMod.Tiles
         public override void PostDraw(int x, int y, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[x, y];
-            if (glow && tile != null && tile.active() && tile.type == Type)
+            if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = mod.GetTexture("Tiles/AbyssLeaves");
+                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/AbyssLeaves");
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetYamataColorDim);
             }
         }

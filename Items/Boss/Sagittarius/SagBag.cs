@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Sagittarius
 {
@@ -6,20 +7,20 @@ namespace AAMod.Items.Boss.Sagittarius
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => mod.NPCType("Sag");
+        public override int BossBagNPC => Mod.Find<ModNPC>("Sag").Type;
 
         public override bool CanRightClick()
         {
@@ -30,7 +31,7 @@ namespace AAMod.Items.Boss.Sagittarius
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("SagMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("SagMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -39,9 +40,9 @@ namespace AAMod.Items.Boss.Sagittarius
             }
             string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
-            player.QuickSpawnItem(mod.ItemType("Doomite"), Main.rand.Next(35, 45));
-			player.QuickSpawnItem(mod.ItemType("SagShield"));			
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("Doomite").Type, Main.rand.Next(35, 45));
+			player.QuickSpawnItem(Mod.Find<ModItem>("SagShield").Type);			
         }
     }
 }

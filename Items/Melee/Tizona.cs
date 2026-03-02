@@ -8,48 +8,46 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 66;           //The damage of your weapon
-			item.melee = true;          //Is your weapon a melee weapon?
-			item.width = 48;            //Weapon's texture's width
-			item.height = 48;           //Weapon's texture's height
-			item.useTime = 26;          //The time span of using the weapon. Remember in terraria, 60 frames is a second.
-			item.useAnimation = 26;         //The time span of the using animation of the weapon, suggest set it the same as useTime.
-			item.useStyle = 1;          //The use style of weapon, 1 for swinging, 2 for drinking, 3 act like shortsword, 4 for use like life crystal, 5 for use staffs or guns
-			item.knockBack = 4;         //The force of knockback of the weapon. Maximum is 20
-			item.value = Item.sellPrice(gold: 1);           //The value of the weapon
-			item.rare = 2;              //The rarity of the weapon, from -1 to 13
-			item.UseSound = SoundID.Item1;      //The sound when the weapon is using
-			item.autoReuse = true;          //Whether the weapon can use automatically by pressing mousebutton
+			Item.damage = 66;           //The damage of your weapon
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;          //Is your weapon a melee weapon?
+			Item.width = 48;            //Weapon's texture's width
+			Item.height = 48;           //Weapon's texture's height
+			Item.useTime = 26;          //The time span of using the weapon. Remember in terraria, 60 frames is a second.
+			Item.useAnimation = 26;         //The time span of the using animation of the weapon, suggest set it the same as useTime.
+			Item.useStyle = 1;          //The use style of weapon, 1 for swinging, 2 for drinking, 3 act like shortsword, 4 for use like life crystal, 5 for use staffs or guns
+			Item.knockBack = 4;         //The force of knockback of the weapon. Maximum is 20
+			Item.value = Item.sellPrice(gold: 1);           //The value of the weapon
+			Item.rare = 2;              //The rarity of the weapon, from -1 to 13
+			Item.UseSound = SoundID.Item1;      //The sound when the weapon is using
+			Item.autoReuse = true;          //Whether the weapon can use automatically by pressing mousebutton
 		}
 
 		public override void AddRecipes()
 		{
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.Excalibur);
                 recipe.AddIngredient(ItemID.AdamantiteBar, 15);
                 recipe.AddIngredient(ItemID.SoulofSight, 5);
                 recipe.AddIngredient(ItemID.SoulofMight, 5);
                 recipe.AddIngredient(ItemID.SoulofFright, 5);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe = new ModRecipe(mod);
+                Recipe recipe = Recipe.Create();
+                recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.Excalibur);
                 recipe.AddIngredient(ItemID.TitaniumBar, 15);
                 recipe.AddIngredient(ItemID.SoulofSight, 5);
                 recipe.AddIngredient(ItemID.SoulofMight, 5);
                 recipe.AddIngredient(ItemID.SoulofFright, 5);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			// Add Onfire buff to the NPC for 1 second
 			// 60 frames = 1 second

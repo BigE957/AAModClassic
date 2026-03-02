@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,28 +10,28 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flare Minigun");
-			Tooltip.SetDefault("Shoots dozens of flares in rapid succession"
+			// DisplayName.SetDefault("Flare Minigun");
+			/* Tooltip.SetDefault("Shoots dozens of flares in rapid succession"
 			+"\n33% chance not to consume flares"
-			+"\nRight-click to disable all flares");
+			+"\nRight-click to disable all flares"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ChainGun);
-			item.damage = 46;
-			item.ranged = true;
-			item.knockBack = 1;
-			item.width = 62;
-			item.height = 24;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.value = 200000;
-			item.rare = 5;
-			item.autoReuse = true;
-			item.shoot = 163;
-			item.useAmmo = AmmoID.Flare;
-			item.UseSound = SoundID.Item11;
+			Item.CloneDefaults(ItemID.ChainGun);
+			Item.damage = 46;
+			Item.DamageType = DamageClass.Ranged;
+			Item.knockBack = 1;
+			Item.width = 62;
+			Item.height = 24;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.value = 200000;
+			Item.rare = 5;
+			Item.autoReuse = true;
+			Item.shoot = 163;
+			Item.useAmmo = AmmoID.Flare;
+			Item.UseSound = SoundID.Item11;
 		}
 		
 		public override bool AltFunctionUse(Player player)
@@ -57,7 +58,7 @@ namespace AAMod.Items.Ranged
 			}
 		}
 		
-		public override bool ConsumeAmmo(Player player)
+		public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 		    return Main.rand.NextFloat() >= .33;
 		}
@@ -67,7 +68,7 @@ namespace AAMod.Items.Ranged
 			return new Vector2(-5, 0);
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5));
@@ -116,7 +117,7 @@ namespace AAMod.Items.Ranged
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FlareGun);
 			recipe.AddIngredient(ItemID.Minishark);
 			recipe.AddIngredient(ItemID.IllegalGunParts);
@@ -124,8 +125,7 @@ namespace AAMod.Items.Ranged
 			recipe.AddIngredient(ItemID.SoulofMight, 5);
 			recipe.AddIngredient(ItemID.SoulofFright, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

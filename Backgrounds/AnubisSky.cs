@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod.Backgrounds
@@ -53,7 +55,7 @@ namespace AAMod.Backgrounds
             }
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
+                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
             }
             int num = -1;
             int num2 = 0;
@@ -89,7 +91,7 @@ namespace AAMod.Backgrounds
                     int num4 = 0;
                     for (float num5 = 0f; num5 <= 1f; num5 += 0.03f)
                     {
-                        float num6 = 1f - (num5 + Main.GlobalTime * 0.02f + (float)Math.Sin((float)j)) % 1f;
+                        float num6 = 1f - (num5 + Main.GlobalTimeWrappedHourly * 0.02f + (float)Math.Sin((float)j)) % 1f;
                         spriteBatch.Draw(RuneTextures[num4], vector + new Vector2((float)Math.Sin(num5 * 1582f) * (num3 * 0.5f) + num3 * 0.5f, num6 * 2000f), null, Color.White * num6 * scale * Intensity, num6 * 20f, new Vector2(RuneTextures[num4].Width >> 1, RuneTextures[num4].Height >> 1), 0.9f, SpriteEffects.None, 0f);
                         num4 = (num4 + 1) % RuneTextures.Length;
                     }
@@ -147,7 +149,7 @@ namespace AAMod.Backgrounds
 
         private void UpdateAnuIndex()
         {
-            int anubis = AAMod.instance.NPCType("ForsakenAnubis");
+            int anubis = AAMod.instance.Find<ModNPC>("ForsakenAnubis").Type;
             if (anuIndex >= 0 && Main.npc[anuIndex].active && Main.npc[anuIndex].type == anubis)
             {
                 return;

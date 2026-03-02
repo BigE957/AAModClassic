@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Toad
 {
@@ -9,27 +10,27 @@ namespace AAMod.Items.Boss.Toad
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Toad Tongue");
-            Tooltip.SetDefault(@"Pulls enemies towards you when it retracts");
+            // DisplayName.SetDefault("Toad Tongue");
+            // Tooltip.SetDefault(@"Pulls enemies towards you when it retracts");
         }
 
         public override void SetDefaults()
         {
-            item.width = 54;
-            item.height = 44;
-            item.value = Item.sellPrice(0, 0, 70, 0);
-            item.rare = 4;
-            item.noMelee = true;
-            item.useStyle = 5;
-            item.useAnimation = 40;
-            item.useTime = 40;
-            item.knockBack = 8f;
-            item.damage = 30;
-            item.noUseGraphic = true;
-            item.shoot = mod.ProjectileType("ToadTongue");
-            item.shootSpeed = 14;
-            item.UseSound = SoundID.Item1;
-            item.melee = true;
+            Item.width = 54;
+            Item.height = 44;
+            Item.value = Item.sellPrice(0, 0, 70, 0);
+            Item.rare = 4;
+            Item.noMelee = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
+            Item.knockBack = 8f;
+            Item.damage = 30;
+            Item.noUseGraphic = true;
+            Item.shoot = Mod.Find<ModProjectile>("ToadTongue").Type;
+            Item.shootSpeed = 14;
+            Item.UseSound = SoundID.Item1;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
         }
     }
 }

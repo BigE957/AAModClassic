@@ -1,26 +1,27 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
     public class InfernoChest : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Inferno Chest");
+			// DisplayName.SetDefault("Inferno Chest");
 		}
 
 
 		public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 28;
-            item.value = 500;
-            item.maxStack = 99;
-            item.useStyle = 1;
-			item.useTime = 10;
-            item.useAnimation = 15;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.consumable = true;
-			item.createTile = mod.TileType("InfernoChest");
+			Item.width = 32;
+			Item.height = 28;
+            Item.value = 500;
+            Item.maxStack = 99;
+            Item.useStyle = 1;
+			Item.useTime = 10;
+            Item.useAnimation = 15;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("InfernoChest").Type;
 		}
 	}
 }

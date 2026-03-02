@@ -10,20 +10,20 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
     	
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("ERR0R");
-            Main.projFrames[projectile.type] = 4;
+			// DisplayName.SetDefault("ERR0R");
+            Main.projFrames[Projectile.type] = 4;
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -11;
-            projectile.extraUpdates = 1;
-            projectile.penetrate = -1;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -11;
+            Projectile.extraUpdates = 1;
+            Projectile.penetrate = -1;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,28 +33,28 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
 
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.5f / 255f, (255 - projectile.alpha) * 0.05f / 255f, (255 - projectile.alpha) * 0.05f / 255f);
-            projectile.velocity *= 0.98f;
-            projectile.alpha += 2;
-            if (projectile.alpha > 255)
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0.05f / 255f, (255 - Projectile.alpha) * 0.05f / 255f);
+            Projectile.velocity *= 0.98f;
+            Projectile.alpha += 2;
+            if (Projectile.alpha > 255)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            int dustId = Dust.NewDust(projectile.position, projectile.width, projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), projectile.velocity.X * 0.2f,
-					projectile.velocity.Y * 0.2f, 100);
+            int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X * 0.2f,
+					Projectile.velocity.Y * 0.2f, 100);
 				Main.dust[dustId].noGravity = true;
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

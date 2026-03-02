@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -8,49 +10,49 @@ namespace AAMod.Projectiles
 		public static int defense = 0;
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Order Arrow");
+			// DisplayName.SetDefault("Order Arrow");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(1);
-			projectile.width = 14;
-			projectile.height = 18;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 600;
-			aiType = 1;
-            projectile.arrow = true;
+			Projectile.CloneDefaults(1);
+			Projectile.width = 14;
+			Projectile.height = 18;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 600;
+			AIType = 1;
+            Projectile.arrow = true;
         }
 
 		public override void AI()
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.height, projectile.width, 107,
-				projectile.velocity.X * .5f, projectile.velocity.Y * .5f, 200, Scale: .6f);
-				dust.velocity += projectile.velocity * 0.4f;
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 107,
+				Projectile.velocity.X * .5f, Projectile.velocity.Y * .5f, 200, Scale: .6f);
+				dust.velocity += Projectile.velocity * 0.4f;
 				dust.velocity *= 0.3f;
 			}
 		}
 
-		public override void ModifyHitNPC (NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		public override void ModifyHitNPC (NPC target, ref NPC.HitModifiers modifiers)
 		{
 			target.defense = target.defDefense - 30;
 		}
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 1;
+			target.immune[Projectile.owner] = 1;
 			target.defense = defense;
 		}
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 107, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, .6f);
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 107, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, .6f);
             }
         }
 

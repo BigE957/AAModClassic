@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class EaterMinion : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Demon Eater");
-			Description.SetDefault("Summons a demonite eater to fight for you");
+			// DisplayName.SetDefault("Demon Eater");
+			// Description.SetDefault("Summons a demonite eater to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("DemonEater")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DemonEater").Type] > 0)
 			{
 				modPlayer.EaterMinion = true;
 			}

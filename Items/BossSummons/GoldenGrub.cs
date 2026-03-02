@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,30 +8,29 @@ namespace AAMod.Items.BossSummons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Golden Grub");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons Greed
+            // DisplayName.SetDefault("Golden Grub");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons Greed
 Can only be used in Greed's Hoard at the Altar of Desire
-'It's really shiny.'");
+'It's really shiny.'"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.rare = 6;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.rare = 6;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "CovetiteCrystal", 15);
             recipe.AddIngredient(ItemID.Topaz, 2);
             recipe.AddIngredient(ItemID.MechanicalWorm, 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

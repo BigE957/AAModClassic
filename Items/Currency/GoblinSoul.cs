@@ -11,26 +11,26 @@ namespace AAMod.Items.Currency
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Goblin Soul");
-            Tooltip.SetDefault("The soul of a goblin");
-            ItemID.Sets.AnimatesAsSoul[item.type] = true;
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            // DisplayName.SetDefault("Goblin Soul");
+            // Tooltip.SetDefault("The soul of a goblin");
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.ForestGreen.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.ForestGreen.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 3;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 3;
         }
 
         int counter = 0;
@@ -48,11 +48,11 @@ namespace AAMod.Items.Currency
                 }
             }
 
-            Texture2D itemTex = mod.GetTexture("Items/Currency/GoblinSoulA");
+            Texture2D itemTex = Mod.GetTexture("Items/Currency/GoblinSoulA");
 
             Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 4, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, itemTex, 0, item.position, item.width, item.height, scale, rotation, item.direction, 4, iframe, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, itemTex, 0, Item.position, Item.width, Item.height, scale, rotation, Item.direction, 4, iframe, lightColor, true);
             return false;
         }
     }

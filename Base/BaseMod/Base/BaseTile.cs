@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.Utilities;
@@ -28,8 +30,8 @@ namespace AAMod
 		
 		public static void AddMapEntry(ModTile tile, Color color, string name)
 		{
-			ModTranslation name2 = tile.CreateMapEntryName();
-			name2.SetDefault(name);
+			LocalizedText name2 = tile.CreateMapEntryName();
+			// name2.SetDefault(name);
 			tile.AddMapEntry(color, name2);			
 		}
 		
@@ -71,7 +73,7 @@ namespace AAMod
 				 int x = chest.x; int y = chest.y;
 				 if (distance != -1 && Vector2.Distance(origin, new Vector2((x * 16f) + 8f, (y * 16f) + 8f)) > distance){ continue; }
 				 Tile tile = Main.tile[x, y];
-				 if (tile == null || !tile.active() || tile.type != 21) { continue; } //if not a vanilla chest, ignore it
+				 if (tile == null || !tile.HasTile || tile.TileType != 21) { continue; } //if not a vanilla chest, ignore it
 				 if (chestStyles == default(int[]) || IsVanillaChestOfStyle(chest, chestStyles))
 				 {
 					 if (special == -1) 
@@ -79,9 +81,9 @@ namespace AAMod
 						 chests.Add(chest);
 					 }else
 					 {
-						 if (tile.frameY == 0) { y += 1; }
+						 if (tile.TileFrameY == 0) { y += 1; }
 						 if (y + 1 > Main.maxTilesY) { continue; }
-						 if (special == 0 && BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, Main.tile[x, y + 1].type)) //dungeon
+						 if (special == 0 && BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, Main.tile[x, y + 1].TileType)) //dungeon
 						 {
 							 chests.Add(chest);
 						 }
@@ -117,14 +119,14 @@ namespace AAMod
                 int x = chest.x; int y = chest.y;
                 if (y < minY || y > maxY) { continue; }
                 Tile tile = Main.tile[x, y];
-                if (tile == null || !tile.active() || tile.type != 21) { continue; } //if not a vanilla chest, ignore it
+                if (tile == null || !tile.HasTile || tile.TileType != 21) { continue; } //if not a vanilla chest, ignore it
                 if (chestStyles == default(int[]) || IsVanillaChestOfStyle(chest, chestStyles))
                 {
                     if (special == -1) { chests.Add(chest); }else
                     {
-                        if (tile.frameY == 0) { y += 1; }
+                        if (tile.TileFrameY == 0) { y += 1; }
                         if(y + 1 > Main.maxTilesY){ continue; }
-                        if (special == 0 && BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, Main.tile[x, y + 1].type)) //dungeon
+                        if (special == 0 && BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, Main.tile[x, y + 1].TileType)) //dungeon
                         {
                             chests.Add(chest);
                         }
@@ -147,11 +149,11 @@ namespace AAMod
             x = Math.Max(0, Math.Min(Main.maxTilesX, x));
             y = Math.Max(0, Math.Min(Main.maxTilesY, y));
             Tile tile = Main.tile[x, y];
-            if(tile != null && tile.active() && tile.type == 21)
+            if(tile != null && tile.HasTile && tile.TileType == 21)
             {
 				foreach (int chestStyle in chestStyles)
 				{
-					if (tile.frameX == (short)(36 * chestStyle) || tile.frameX == (short)(36 * chestStyle) + 18)
+					if (tile.TileFrameX == (short)(36 * chestStyle) || tile.TileFrameX == (short)(36 * chestStyle) + 18)
 					{
 						return true;
 					}
@@ -175,7 +177,7 @@ namespace AAMod
                 for (int y2 = y; y2 <= y + 1; y2++)
                 {
                     if (Main.tile[x2, y2] == null){ Main.tile[x2, y2] = new Tile(); }
-                    if ((Main.tile[x2, y2].frameX >= 72 && Main.tile[x2, y2].frameX <= 106) || (Main.tile[x2, y2].frameX >= 144 && Main.tile[x2, y2].frameX <= 178))
+                    if ((Main.tile[x2, y2].TileFrameX >= 72 && Main.tile[x2, y2].TileFrameX <= 106) || (Main.tile[x2, y2].TileFrameX >= 144 && Main.tile[x2, y2].TileFrameX <= 178))
                     {
                         return true;
                     }
@@ -189,14 +191,14 @@ namespace AAMod
 
 		public static void SetTileFrame(int x, int y, int tileWidth, int tileHeight, int frame, int tileFrameWidth = 16)
 		{
-			int type = Main.tile[x, y].type;
+			int type = Main.tile[x, y].TileType;
 			int frameWidth = (tileFrameWidth + 2) * tileWidth;
 			for (int x1 = 0; x1 < tileWidth; x1++)
 			{
 				for (int y1 = 0; y1 < tileHeight; y1++)
 				{
 					int x2 = x + x1; int y2 = y + y1;
-					Main.tile[x2, y2].frameX = (short)((frame * frameWidth) + ((tileFrameWidth + 2) * x1));
+					Main.tile[x2, y2].TileFrameX = (short)((frame * frameWidth) + ((tileFrameWidth + 2) * x1));
 				}
 			}
 		}
@@ -221,16 +223,16 @@ namespace AAMod
 				for (int y1 = leftY; y1 < rightY; y1++)
 				{
 					Tile tile = Main.tile[x1, y1];
-					if (tile != null && tile.active() && tile.type == type && (addTile == null || addTile(tile)) && (dist == -1 || Vector2.Distance(originalPos, new Vector2(x1, y1)) < dist))
+					if (tile != null && tile.HasTile && tile.TileType == type && (addTile == null || addTile(tile)) && (dist == -1 || Vector2.Distance(originalPos, new Vector2(x1, y1)) < dist))
 					{
 						dist = Vector2.Distance(originalPos, new Vector2(x1, y1));
-                        if (type == 21 || (TileObjectData.GetTileData(tile.type, 0) != null && (TileObjectData.GetTileData(tile.type, 0).Width > 1 || TileObjectData.GetTileData(tile.type, 0).Height > 1)))
+                        if (type == 21 || (TileObjectData.GetTileData(tile.TileType, 0) != null && (TileObjectData.GetTileData(tile.TileType, 0).Width > 1 || TileObjectData.GetTileData(tile.TileType, 0).Height > 1)))
 						{
 							int x2 = x1; int y2 = y1;
 							if (type == 21)
 							{
-								x2 -= (tile.frameX / 18) % 2;
-								y2 -= (tile.frameY / 18) % 2;
+								x2 -= (tile.TileFrameX / 18) % 2;
+								y2 -= (tile.TileFrameY / 18) % 2;
 							}else
 							{
 								Vector2 top = FindTopLeft(x2, y2);
@@ -256,9 +258,9 @@ namespace AAMod
         public static Vector2 FindTopLeft(int x, int y)
         {
             Tile tile = Main.tile[x, y]; if (tile == null) return new Vector2(x, y);
-            TileObjectData data = TileObjectData.GetTileData(tile.type, 0);
-            x -= (tile.frameX / 18) % data.Width;
-            y -= (tile.frameY / 18) % data.Height;
+            TileObjectData data = TileObjectData.GetTileData(tile.TileType, 0);
+            x -= (tile.TileFrameX / 18) % data.Width;
+            y -= (tile.TileFrameY / 18) % data.Height;
             return new Vector2(x, y);
         }
 
@@ -280,15 +282,15 @@ namespace AAMod
 				for (int y1 = leftY; y1 < rightY; y1++)
 				{
 					Tile tile = Main.tile[x1, y1];
-					if (tile != null && tile.active() && tile.type == type && (addTile == null || addTile(tile)))
+					if (tile != null && tile.HasTile && tile.TileType == type && (addTile == null || addTile(tile)))
 					{
 						if (type == 21 || TileObjectData.GetTileData(tile).Width > 1 || TileObjectData.GetTileData(tile).Height > 1)
 						{
 							int x2 = x1; int y2 = y1;
 							if (type == 21)
 							{
-								x2 -= (tile.frameX / 18) % 2;
-								y2 -= (tile.frameY / 18) % 2;
+								x2 -= (tile.TileFrameX / 18) % 2;
+								y2 -= (tile.TileFrameY / 18) % 2;
 							}else
 							{
 								Point p = FindTopLeftPoint(x2, y2); x2 = p.X; y2 = p.Y;
@@ -321,9 +323,9 @@ namespace AAMod
 				for (int y1 = leftY; y1 < rightY; y1++)
 				{
 					Tile tile = Main.tile[x1, y1];
-					if (tile != null && tile.liquid > 0 && (liquidType == 0 ? tile.water() : liquidType == 1 ? tile.lava() : tile.honey()))
+					if (tile != null && tile.LiquidAmount > 0 && (liquidType == 0 ? tile.water() : liquidType == 1 ? tile.lava() : tile.honey()))
 					{
-						liquidAmt += tile.liquid;
+						liquidAmt += tile.LiquidAmount;
 					}
 				}
 			}
@@ -347,9 +349,9 @@ namespace AAMod
         public static int GetTileDust(int x, int y)
         {
             Tile tile = Main.tile[x, y];
-            if (tile == null || !tile.active())
+            if (tile == null || !tile.HasTile)
                 return -1;
-            return GetTileDust(tile.type, tile.frameX, tile.frameY);
+            return GetTileDust(tile.TileType, tile.TileFrameX, tile.TileFrameY);
         }
 
         /*
@@ -1890,7 +1892,7 @@ namespace AAMod
 			}
             if (type >= 0 && TileLoader.GetTile(type) != null)
             {  
-                dustType = TileLoader.GetTile(type).dustType;
+                dustType = TileLoader.GetTile(type).DustType;
             }
             return dustType;
             #endregion
@@ -1903,9 +1905,9 @@ namespace AAMod
         public static int GetTileMinPick(int x, int y)
         {
             Tile tile = Main.tile[x, y];
-            if (tile == null || !tile.active())
+            if (tile == null || !tile.HasTile)
                 return -1;
-            return GetTileMinPick(tile.type);
+            return GetTileMinPick(tile.TileType);
         }
 
         /*
@@ -1981,7 +1983,7 @@ namespace AAMod
             }else
             {
 			    ModTile modTile = TileLoader.GetTile(type);
-                if (modTile != null) return modTile.minPick;
+                if (modTile != null) return modTile.MinPick;
             }
             return 0;
             #endregion
@@ -1990,7 +1992,7 @@ namespace AAMod
         public static int GetTileResist(int x, int y, int pickPower)
         {
             Tile tile = Main.tile[x, y];
-            int type = tile.type;
+            int type = tile.TileType;
             int tileResist = 0;
             if (Main.tileNoFail[type])
             {
@@ -2039,29 +2041,29 @@ namespace AAMod
             }
             if (type == 128 || type == 269)
             {
-                if (tile.frameX == 18 || tile.frameX == 54)
+                if (tile.TileFrameX == 18 || tile.TileFrameX == 54)
                 {
                     x--;
-                    tile = Main.tile[x, y]; type = tile.type;
+                    tile = Main.tile[x, y]; type = tile.TileType;
                 }
-                if (tile.frameX >= 100)
+                if (tile.TileFrameX >= 100)
                 {
                     tileResist = 0;
                 }
             }
             if (type == 334)
             {
-                if (tile.frameY == 0)
+                if (tile.TileFrameY == 0)
                 {
                     y++;
-                    tile = Main.tile[x, y]; type = tile.type;
+                    tile = Main.tile[x, y]; type = tile.TileType;
                 }
-                if (tile.frameY == 36)
+                if (tile.TileFrameY == 36)
                 {
                     y--;
-                    tile = Main.tile[x, y]; type = tile.type;
+                    tile = Main.tile[x, y]; type = tile.TileType;
                 }
-                int i = (int)tile.frameX;
+                int i = (int)tile.TileFrameX;
                 bool frameXOver5000 = i >= 5000;
                 bool cannotBreak = false;
                 if (!frameXOver5000)
@@ -2069,12 +2071,12 @@ namespace AAMod
                     int num2 = i / 18;
                     num2 %= 3;
                     x -= num2;
-                    tile = Main.tile[x, y]; type = tile.type;
-                    if (tile.frameX >= 5000) frameXOver5000 = true;
+                    tile = Main.tile[x, y]; type = tile.TileType;
+                    if (tile.TileFrameX >= 5000) frameXOver5000 = true;
                 }
                 if (frameXOver5000)
                 {
-                    i = (int)tile.frameX;
+                    i = (int)tile.TileFrameX;
                     int num3 = 0;
                     while (i >= 5000)
                     {
@@ -2163,7 +2165,7 @@ namespace AAMod
                         float distX = Math.Abs((float)x1 - position.X / 16f);
                         float distY = Math.Abs((float)y1 - position.Y / 16f);
                         double dist = Math.Sqrt((double)(distX * distX + distY * distY));
-                        if (dist < (double)explosionIntensity && Main.tile[x1, y1] != null && Main.tile[x1, y1].wall == 0)
+                        if (dist < (double)explosionIntensity && Main.tile[x1, y1] != null && Main.tile[x1, y1].WallType == 0)
                         {
                             updateWalls = true;
                             break;
@@ -2180,18 +2182,18 @@ namespace AAMod
                         if (dist < (double)explosionIntensity)
                         {
                             bool canExplode = true;
-                            if (Main.tile[x2, y2] != null && Main.tile[x2, y2].active())
+                            if (Main.tile[x2, y2] != null && Main.tile[x2, y2].HasTile)
                             {
-                                if (BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, (int)Main.tile[x2, y2].type) || Main.tile[x2, y2].type == 21 || Main.tile[x2, y2].type == 26 || Main.tile[x2, y2].type == 107 || Main.tile[x2, y2].type == 108 || Main.tile[x2, y2].type == 111)
+                                if (BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, (int)Main.tile[x2, y2].TileType) || Main.tile[x2, y2].TileType == 21 || Main.tile[x2, y2].TileType == 26 || Main.tile[x2, y2].TileType == 107 || Main.tile[x2, y2].TileType == 108 || Main.tile[x2, y2].TileType == 111)
                                 {
                                     canExplode = false;
                                 }
-                                if (!Main.hardMode && Main.tile[x2, y2].type == 58) { canExplode = false; }
+                                if (!Main.hardMode && Main.tile[x2, y2].TileType == 58) { canExplode = false; }
 
                                 if (canExplode)
                                 {
                                     WorldGen.KillTile(x2, y2, false, false, false);
-                                    if (sync && !Main.tile[x2, y2].active() && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 0, (float)x2, (float)y2, 0f, 0); }
+                                    if (sync && !Main.tile[x2, y2].HasTile && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 0, (float)x2, (float)y2, 0f, 0); }
                                 }
                             }
                             if (canExplode)
@@ -2200,10 +2202,10 @@ namespace AAMod
                                 {
                                     for (int y3 = y2 - 1; y3 <= y2 + 1; y3++)
                                     {
-                                        if (Main.tile[x3, y3] != null && Main.tile[x3, y3].wall > 0 && updateWalls)
+                                        if (Main.tile[x3, y3] != null && Main.tile[x3, y3].WallType > 0 && updateWalls)
                                         {
                                             WorldGen.KillWall(x3, y3, false);
-                                            if(sync && Main.tile[x3, y3].wall == 0 && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 2, (float)x3, (float)y3, 0f, 0); }
+                                            if(sync && Main.tile[x3, y3].WallType == 0 && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 2, (float)x3, (float)y3, 0f, 0); }
                                         }
                                     }
                                 }
@@ -2222,7 +2224,7 @@ namespace AAMod
             Tile tile = Main.tile[tileX, tileY];
             if(tile != null)
             {
-                PlayTileHitSound(tileX * 16, tileY * 16, tile.type);
+                PlayTileHitSound(tileX * 16, tileY * 16, tile.TileType);
             }
         }
 
@@ -2242,16 +2244,16 @@ namespace AAMod
             if (tileType >= 0 && TileLoader.GetTile(tileType) != null)
             {
                 ModTile tile = TileLoader.GetTile(tileType);
-                Main.PlaySound(tile.soundStyle, (int)x, (int)y, tile.soundType);
+                SoundEngine.PlaySound(tile.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */, (int)x, (int)y, tile.HitSound);
             }
             else if (tileType == 127)
-                Main.PlaySound(2, (int)x, (int)y, 27);
+                SoundEngine.PlaySound(SoundID.Item27, new Vector2(x, y));
             else if (AlchemyFlower((int)tileType) || tileType == 3 || tileType == 110 || tileType == 24 || tileType == 32 || tileType == 51 || tileType == 52 || tileType == 61 || tileType == 62 || tileType == 69 || tileType == 71 || tileType == 73 || tileType == 74 || tileType == 113 || tileType == 115)
-                Main.PlaySound(6, (int)x, (int)y, 1);
+                SoundEngine.PlaySound(SoundID.Grass, new Vector2(x, y));
             else if (tileType == 1 || tileType == 6 || tileType == 7 || tileType == 8 || tileType == 9 || tileType == 22 || tileType == 140 || tileType == 25 || tileType == 37 || tileType == 38 || tileType == 39 || tileType == 41 || tileType == 43 || tileType == 44 || tileType == 45 || tileType == 46 || tileType == 47 || tileType == 48 || tileType == 56 || tileType == 58 || tileType == 63 || tileType == 64 || tileType == 65 || tileType == 66 || tileType == 67 || tileType == 68 || tileType == 75 || tileType == 76 || tileType == 107 || tileType == 108 || tileType == 111 || tileType == 117 || tileType == 118 || tileType == 119 || tileType == 120 || tileType == 121 || tileType == 122)
-                Main.PlaySound(21, (int)x, (int)y, 1);
+                SoundEngine.PlaySound(SoundID.Tink, new Vector2(x, y));
             else if (tileType != 138)
-                Main.PlaySound(0, (int)x, (int)y, 1);
+                SoundEngine.PlaySound(SoundID.Dig, new Vector2(x, y));
         }
 
         /*
@@ -2263,7 +2265,7 @@ namespace AAMod
                 for (int y1 = y; y1 < y + height; y1++)
                 {
                     Tile tile = Main.tile[x1, y1];
-                    if(tile == null || !tile.active() || tile.type != type)
+                    if(tile == null || !tile.HasTile || tile.TileType != type)
                     {
                         return false;
                     }
@@ -2393,18 +2395,18 @@ namespace AAMod
                     Tile tile = Main.tile[x2, y2];
                     if (tile == null) { continue; }
                     addedTile = false;
-                    if (tile.active())
+                    if (tile.HasTile)
                     {
                         foreach (int i in tileTypes)
                         {
-                            if (tile.type == i) { tileCount++; addedTile = true; break; }
+                            if (tile.TileType == i) { tileCount++; addedTile = true; break; }
                         }
                     }
                     if (!addedTile)
                     {
                         foreach (int i in wallTypes)
                         {
-                            if (tile.wall == i) { tileCount++; break; }
+                            if (tile.WallType == i) { tileCount++; break; }
                         }
                     }
                     addedTile = false;
@@ -2430,7 +2432,7 @@ namespace AAMod
                     if (tile == null) { continue; }
                     foreach (int i in wallTypes)
                     {
-                        if (tile.wall == i) { wallCount++; break; }
+                        if (tile.WallType == i) { wallCount++; break; }
                     }
                 }
             }
@@ -2451,10 +2453,10 @@ namespace AAMod
                     int y2 = (int)tileCenter.Y + y;
                     if (x2 < 0 || y2 < 0 || x2 > Main.maxTilesX || y2 > Main.maxTilesY) { continue; }
                     Tile tile = Main.tile[x2, y2];
-                    if (tile == null || !tile.active()) { continue; }
+                    if (tile == null || !tile.HasTile) { continue; }
                     foreach (int i in tileTypes)
                     {
-                        if (tile.type == i) { tileCount++; break; }
+                        if (tile.TileType == i) { tileCount++; break; }
                     }
                 }
             }

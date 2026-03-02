@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Materials
@@ -14,27 +15,27 @@ namespace AAMod.Items.Materials
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            DisplayName.SetDefault("Discordium");
-            Tooltip.SetDefault("The World Chaoses melded together into a single, powerful bar");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 9));
+            // DisplayName.SetDefault("Discordium");
+            // Tooltip.SetDefault("The World Chaoses melded together into a single, powerful bar");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
@@ -42,28 +43,27 @@ namespace AAMod.Items.Materials
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 10;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 11;
-            item.glowMask = customGlowMask;
+            Item.width = 10;
+            Item.height = 10;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 11;
+            Item.glowMask = customGlowMask;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncinerite", 1);
             recipe.AddIngredient(null, "EventideAbyssium", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Magenta.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Magenta.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

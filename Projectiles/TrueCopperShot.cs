@@ -9,41 +9,41 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.LightBeam);
-            projectile.penetrate = 10;  
-            projectile.width = 30;
-            projectile.height = 30;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 900;
+            Projectile.CloneDefaults(ProjectileID.LightBeam);
+            Projectile.penetrate = 10;  
+            Projectile.width = 30;
+            Projectile.height = 30;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 900;
         }
         public override void AI()
 		{
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                Vector2 position = projectile.position;
+                Vector2 position = Projectile.position;
                 dust = Main.dust[Dust.NewDust(position, 30, 30, 177, 0f, 0f, 0, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 1.381579f)];
                 dust.noGravity = true;
             }
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                Vector2 position = projectile.position;
+                Vector2 position = Projectile.position;
                 dust = Main.dust[Dust.NewDust(position, 30, 30, 177, 0f, 0f, 0, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 1.381579f)];
                 dust.noGravity = true;
             }
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                Vector2 position = projectile.position;
+                Vector2 position = Projectile.position;
                 dust = Main.dust[Dust.NewDust(position, 30, 30, 177, 0f, 0f, 0, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 1.381579f)];
                 dust.noGravity = true;
             }
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                Vector2 position = projectile.position;
+                Vector2 position = Projectile.position;
                 dust = Main.dust[Dust.NewDust(position, 30, 30, 177, 0f, 0f, 0, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 1.381579f)];
                 dust.noGravity = true;
             }
@@ -54,7 +54,7 @@ namespace AAMod.Projectiles
             return Color.White;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 500);
         }

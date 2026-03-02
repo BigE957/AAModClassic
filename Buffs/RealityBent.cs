@@ -5,14 +5,14 @@ namespace AAMod.Buffs
 {
     public class RealityBent : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Riftbent");
-            Description.SetDefault("The space around you is being distorted");
+            // DisplayName.SetDefault("Riftbent");
+            // Description.SetDefault("The space around you is being distorted");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = true;
-			longerExpertDebuff = true;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Summoning
 {
@@ -8,28 +10,28 @@ namespace AAMod.Items.Summoning
     {
         public override void SetDefaults()
         {
-            item.damage = 80;
-            item.noMelee = true;
-            item.summon = true;
-            item.width = 18;
-            item.height = 42;
-            item.useTime = 30;
-            item.useAnimation = 30;
-            item.useStyle = 5;
-            item.shoot = mod.ProjectileType("Minion1");
-            item.buffType = mod.BuffType("TerraSummon");
-            item.knockBack = 2;
-            item.rare = 8;
-            item.UseSound = SoundID.Item44;
-            item.autoReuse = false;
-            item.shootSpeed = 1f;
-            item.mana = 10;
+            Item.damage = 80;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Summon;
+            Item.width = 18;
+            Item.height = 42;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = 5;
+            Item.shoot = Mod.Find<ModProjectile>("Minion1").Type;
+            Item.buffType = Mod.Find<ModBuff>("TerraSummon").Type;
+            Item.knockBack = 2;
+            Item.rare = 8;
+            Item.UseSound = SoundID.Item44;
+            Item.autoReuse = false;
+            Item.shootSpeed = 1f;
+            Item.mana = 10;
         }
 		
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Gauntlet");
-            Tooltip.SetDefault(@"Summons a Terra Squid, Terra Sphere, Terra Crawler, or Terra Weaver to Fight for you");
+            // DisplayName.SetDefault("Terra Gauntlet");
+            // Tooltip.SetDefault(@"Summons a Terra Squid, Terra Sphere, Terra Crawler, or Terra Weaver to Fight for you");
         }
 
         public override bool AltFunctionUse(Player player)
@@ -37,7 +39,7 @@ namespace AAMod.Items.Summoning
             return true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (player.altFunctionUse == 2)
             {
@@ -46,7 +48,7 @@ namespace AAMod.Items.Summoning
             return base.UseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
@@ -55,7 +57,7 @@ namespace AAMod.Items.Summoning
 			
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			modPlayer.TerraSummon = true;
-			player.AddBuff(mod.BuffType("TerraSummon"), 2, true);
+			player.AddBuff(Mod.Find<ModBuff>("TerraSummon").Type, 2, true);
 
 			Vector2 point = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
 
@@ -63,21 +65,21 @@ namespace AAMod.Items.Summoning
             switch (shootMe)
             {
                 case 0:
-                    shootMe = mod.ProjectileType("Minion1");
+                    shootMe = Mod.Find<ModProjectile>("Minion1").Type;
                     break;
                 case 1:
-                    shootMe = mod.ProjectileType("Minion2");
+                    shootMe = Mod.Find<ModProjectile>("Minion2").Type;
                     break;
                 case 2:
-                    shootMe = mod.ProjectileType("Minion3");
+                    shootMe = Mod.Find<ModProjectile>("Minion3").Type;
                     break;
             }
 
             int i = Main.myPlayer;
             int num73 = damage;
             float num74 = knockBack;
-            num74 = player.GetWeaponKnockback(item, num74);
-            player.itemTime = item.useTime;
+            num74 = player.GetWeaponKnockback(Item, num74);
+            player.itemTime = Item.useTime;
             int num78 = 0;
             int num79 = 0;
             Projectile.NewProjectile(point.X + Main.rand.Next(-50, 50), point.Y + Main.rand.Next(-50, 50), num78, num79, shootMe, num73, num74, i, 0f, 0f);

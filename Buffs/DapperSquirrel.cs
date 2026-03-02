@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class DapperSquirrel : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dapper Squirrel");
-			Description.SetDefault("Now with funny hats");
+			// DisplayName.SetDefault("Dapper Squirrel");
+			// Description.SetDefault("Now with funny hats");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("DapperSquirrel1")] + player.ownedProjectileCounts[mod.ProjectileType("DapperSquirrel2")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DapperSquirrel1").Type] + player.ownedProjectileCounts[Mod.Find<ModProjectile>("DapperSquirrel2").Type] > 0)
 			{
 				modPlayer.DapperSquirrel = true;
 			}

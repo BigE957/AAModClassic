@@ -13,55 +13,55 @@ namespace AAMod.Items.Boss.Akuma
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Sun Partisan");
-            Tooltip.SetDefault(@"One of two legendary spears used to divide time into day and night
-Inflicts daybroken");
+            // DisplayName.SetDefault("Sun Partisan");
+            /* Tooltip.SetDefault(@"One of two legendary spears used to divide time into day and night
+Inflicts daybroken"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 280;
-            item.melee = true;
-            item.width = 96;
-            item.height = 96;
-            item.scale = 1.1f;
-            item.useTime = 23;
-            item.useAnimation = 23;
-            item.knockBack = 4.7f;
-            item.UseSound = SoundID.Item20;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useTurn = true;
-			item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9;
+            Item.damage = 280;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 96;
+            Item.height = 96;
+            Item.scale = 1.1f;
+            Item.useTime = 23;
+            Item.useAnimation = 23;
+            Item.knockBack = 4.7f;
+            Item.UseSound = SoundID.Item20;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useTurn = true;
+			Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9;
             AARarity = 13;
-            item.shoot = mod.ProjectileType("SunSpear");  //put your Spear projectile name
-            item.shootSpeed = 7f;
+            Item.shoot = Mod.Find<ModProjectile>("SunSpear").Type;  //put your Spear projectile name
+            Item.shootSpeed = 7f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -75,18 +75,17 @@ Inflicts daybroken");
 
         public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(ItemID.NorthPole, 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

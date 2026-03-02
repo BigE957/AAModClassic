@@ -10,45 +10,45 @@ namespace AAMod.NPCs.Bosses.Hydra
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Bomb");     
-            Main.projFrames[projectile.type] = 5;     
+            // DisplayName.SetDefault("Hydra Bomb");     
+            Main.projFrames[Projectile.type] = 5;     
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;               
-			projectile.height = 14;              
-			projectile.aiStyle = 1;             
-			projectile.friendly = false;         
-			projectile.hostile = true;        
-			projectile.penetrate = 1;           
-			projectile.timeLeft = 600;          
-			projectile.alpha = 20;              
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;        
-			aiType = ProjectileID.WoodenArrowFriendly;
+			Projectile.width = 14;               
+			Projectile.height = 14;              
+			Projectile.aiStyle = 1;             
+			Projectile.friendly = false;         
+			Projectile.hostile = true;        
+			Projectile.penetrate = 1;           
+			Projectile.timeLeft = 600;          
+			Projectile.alpha = 20;              
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;        
+			AIType = ProjectileID.WoodenArrowFriendly;
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Poisoned, 600);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Gore.NewGore(projectile.Center, -projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(projectile.Center, -projectile.oldVelocity * 0.2f, 705, 1f);
-            if (projectile.owner == Main.myPlayer)
+            Gore.NewGore(Projectile.Center, -Projectile.oldVelocity * 0.2f, 704, 1f);
+            Gore.NewGore(Projectile.Center, -Projectile.oldVelocity * 0.2f, 705, 1f);
+            if (Projectile.owner == Main.myPlayer)
             {
                 int num319 = Main.rand.Next(20, 31);
                 for (int num320 = 0; num320 < num319; num320++)
@@ -56,7 +56,7 @@ namespace AAMod.NPCs.Bosses.Hydra
                     Vector2 value21 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                     value21.Normalize();
                     value21 *= Main.rand.Next(10, 201) * 0.01f;
-                    int a = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraMist>(), projectile.damage, 1f, projectile.owner, 0f, Main.rand.Next(-45, 1));
+                    int a = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraMist>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
                     Main.projectile[a].localAI[0] = Main.rand.Next(3);
                 }
             }

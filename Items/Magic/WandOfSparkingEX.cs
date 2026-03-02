@@ -8,40 +8,39 @@ namespace AAMod.Items.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Starburst Wand");
-            Tooltip.SetDefault(@"Hold to charge the wand
-Wand of Sparking EX");
+            // DisplayName.SetDefault("Starburst Wand");
+            /* Tooltip.SetDefault(@"Hold to charge the wand
+Wand of Sparking EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.mana = 8;
-            item.width = 74;
-            item.height = 34;
-            item.magic = true;
-            item.damage = 300;
-            item.shoot = mod.ProjectileType("SparkWand");
-            item.useTime = 10;
-            item.useAnimation = 10;
-            item.useStyle = 5;
-            item.channel = true;
+            Item.mana = 8;
+            Item.width = 74;
+            Item.height = 34;
+            Item.DamageType = DamageClass.Magic;
+            Item.damage = 300;
+            Item.shoot = Mod.Find<ModProjectile>("SparkWand").Type;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = 5;
+            Item.channel = true;
             Item.sellPrice(3, 0, 0, 0);
-            item.noMelee = true;
-			item.rare = 11;
-			item.shootSpeed = 12f;
-			item.noUseGraphic = true;
-            item.expert = true; item.expertOnly = true;
+            Item.noMelee = true;
+			Item.rare = 11;
+			Item.shootSpeed = 12f;
+			Item.noUseGraphic = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.WandofSparking);
                 recipe.AddIngredient(null, "EXSoul");
                 recipe.AddTile(null, "QuantumFusionAccelerator");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

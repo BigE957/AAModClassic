@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Serpent
 {
@@ -8,30 +9,30 @@ namespace AAMod.Items.Boss.Serpent
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Icepick");
+            // DisplayName.SetDefault("Icepick");
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 10;
-            item.melee = true;
-            item.width = 46;
-            item.height = 42;
-            item.useTime = 13;
-            item.useAnimation = 20;
-            item.pick = 105;
-            item.useStyle = 1;
-            item.knockBack = 3;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 3;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 10;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 46;
+            Item.height = 42;
+            Item.useTime = 13;
+            Item.useAnimation = 20;
+            Item.pick = 105;
+            Item.useStyle = 1;
+            Item.knockBack = 3;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 3;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Chilled, 120);
         }

@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using System;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Summoning
 {
@@ -9,28 +11,28 @@ namespace AAMod.Items.Summoning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skull Wand");
-            Tooltip.SetDefault(@"Summons a dungeon skull to fight with you");
+            // DisplayName.SetDefault("Skull Wand");
+            // Tooltip.SetDefault(@"Summons a dungeon skull to fight with you");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("SkullMinion");
-            item.buffType = mod.BuffType("SkullMinion");
-            item.damage = 19;
-            item.width = 44;
-            item.height = 44;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.knockBack = 5f;
-            item.rare = 1;
-            item.summon = true;
-            item.mana = 5;
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("SkullMinion").Type;
+            Item.buffType = Mod.Find<ModBuff>("SkullMinion").Type;
+            Item.damage = 19;
+            Item.width = 44;
+            Item.height = 44;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.knockBack = 5f;
+            Item.rare = 1;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 5;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -38,7 +40,7 @@ namespace AAMod.Items.Summoning
             return true;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
@@ -47,11 +49,11 @@ namespace AAMod.Items.Summoning
             else
             {
                 int i = Main.myPlayer;
-                float num72 = item.shootSpeed;
+                float num72 = Item.shootSpeed;
                 int num73 = damage;
                 float num74 = knockBack;
-                num74 = player.GetWeaponKnockback(item, num74);
-                player.itemTime = item.useTime;
+                num74 = player.GetWeaponKnockback(Item, num74);
+                player.itemTime = Item.useTime;
                 Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
                 float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
                 float num79 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
@@ -75,7 +77,7 @@ namespace AAMod.Items.Summoning
                 num79 = 0f;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, mod.ProjectileType("SkullMinion"), num73, num74, i, 0f, 0f);
+                Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("SkullMinion").Type, num73, num74, i, 0f, 0f);
             }
 
             return false;

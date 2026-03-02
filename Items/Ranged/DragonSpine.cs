@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,40 +8,39 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Spine");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Dragon's Spine");
+            // Tooltip.SetDefault("");
         }
 
         public override void SetDefaults()
         {
 
-            item.shoot = mod.ProjectileType("DragonSpine");
-            item.shootSpeed = 9f;
-            item.damage = 18;
-            item.knockBack = 4f;
-            item.ranged = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 28;
-            item.useTime = 28;
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = 40;
-            item.rare = 1;
+            Item.shoot = Mod.Find<ModProjectile>("DragonSpine").Type;
+            Item.shootSpeed = 9f;
+            Item.damage = 18;
+            Item.knockBack = 4f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 28;
+            Item.useTime = 28;
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = 40;
+            Item.rare = 1;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(50);
             recipe.AddIngredient(null, "IncineriteBar");
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

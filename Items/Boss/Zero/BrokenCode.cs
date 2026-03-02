@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,36 +14,36 @@ namespace AAMod.Items.Boss.Zero
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Broken Code");
-            Tooltip.SetDefault(@"Allows you to glitch with a 5 second cooldown
+            // DisplayName.SetDefault("Broken Code");
+            /* Tooltip.SetDefault(@"Allows you to glitch with a 5 second cooldown
 Grapple to Glitch
 While cooldown is occurring, your speed is increased, you gain invincibility frames
 While cooldown is occurring, your magic/summon weapons require no mana and have 20% increased damage
 Teleportation has 15 second cooldown
 'You don't look so good'
-WARNING: May permanently displace appendages until game restart. This is a feature.");
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+WARNING: May permanently displace appendages until game restart. This is a feature."); */
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 60;
-            item.height = 52;
-            item.maxStack = 1;
-            item.value = Item.sellPrice(3, 0, 0, 0);
-            item.expert = true; item.expertOnly = true;
-            item.accessory = true;
-            item.rare = 9; AARarity = 13;
+            Item.width = 60;
+            Item.height = 52;
+            Item.maxStack = 1;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.expert = true; Item.expertOnly = true;
+            Item.accessory = true;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -71,11 +72,11 @@ WARNING: May permanently displace appendages until game restart. This is a featu
                 {
                     int num246 = (int)(vector32.X / 16f);
                     int num247 = (int)(vector32.Y / 16f);
-                    if ((Main.tile[num246, num247].wall != 87 || num247 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector32, player.width, player.height))
+                    if ((Main.tile[num246, num247].WallType != 87 || num247 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector32, player.width, player.height))
                     {
                         player.Teleport(vector32, 1, 0);
                         NetMessage.SendData(65, -1, -1, null, 0, player.whoAmI, vector32.X, vector32.Y, 1, 0, 0);
-                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"));
+                        SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"));
                         CodeCD = 600;
                         player.AddBuff(ModContent.BuffType<Buffs.Glitched>(), 300);
                     }
@@ -121,7 +122,7 @@ WARNING: May permanently displace appendages until game restart. This is a featu
             {
                 CodeCD --;
             }
-            if (item.accessory)
+            if (Item.accessory)
             {
                 player.GetModPlayer<AAPlayer>().BrokenCode = true;
             }
@@ -133,7 +134,7 @@ WARNING: May permanently displace appendages until game restart. This is a featu
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Red.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Red.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

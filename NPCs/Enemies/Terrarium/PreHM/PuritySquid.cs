@@ -10,26 +10,26 @@ namespace AAMod.NPCs.Enemies.Terrarium.PreHM
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Purity Squid");
-			Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Purity Squid");
+			Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-            npc.lifeMax = 60;
-            npc.defense = 20;
-            npc.damage = 10;
-            npc.width = 26;
-            npc.height = 20;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            npc.alpha = 255;
-            npc.noTileCollide = false;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("PuritySquidBanner");
+            NPC.lifeMax = 60;
+            NPC.defense = 20;
+            NPC.damage = 10;
+            NPC.width = 26;
+            NPC.height = 20;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            NPC.alpha = 255;
+            NPC.noTileCollide = false;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("PuritySquidBanner").Type;
         }
         
         public override Color? GetAlpha(Color drawColor)
@@ -39,55 +39,55 @@ namespace AAMod.NPCs.Enemies.Terrarium.PreHM
 
         public override void AI()
         {
-            BaseAI.AIElemental(npc, ref npc.ai, null, 120, false, true, 800, 400, 180, 2);
+            BaseAI.AIElemental(NPC, ref NPC.ai, null, 120, false, true, 800, 400, 180, 2);
 
-            if (npc.ai[0] == 2f)
+            if (NPC.ai[0] == 2f)
             {
-                npc.alpha += 12;
-                if (npc.alpha > 255)
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
                 {
-                    npc.alpha = 255;
+                    NPC.alpha = 255;
                 }
             }
             else
             {
-                npc.alpha -= 12;
-                if (npc.alpha < 0)
+                NPC.alpha -= 12;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
 
-            npc.rotation = npc.velocity.X / 15f;
+            NPC.rotation = NPC.velocity.X / 15f;
 
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 36;
-                if (npc.frame.Y > (36 * 3))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 36;
+                if (NPC.frame.Y > (36 * 3))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 107, 0f, 0f, 0);
+                    Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 107, 0f, 0f, 0);
                 }
             }
         }

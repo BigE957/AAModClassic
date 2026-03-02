@@ -9,7 +9,7 @@ namespace AAMod.Water
 		public override bool ChooseWaterStyle()
         {
             Player player = Main.LocalPlayer;
-            if (Main.bgStyle == mod.GetSurfaceBgStyleSlot("InfernoSurfaceBgStyle") || Main.bgStyle == mod.GetSurfaceBgStyleSlot("InfernoDesertBgStyle") || (player.ZoneSnow && player.GetModPlayer<AAPlayer>().ZoneInferno))
+            if (Main.bgStyle == Mod.GetSurfaceBgStyleSlot("InfernoSurfaceBgStyle") || Main.bgStyle == Mod.GetSurfaceBgStyleSlot("InfernoDesertBgStyle") || (player.ZoneSnow && player.GetModPlayer<AAPlayer>().ZoneInferno))
             {
                 return true;
             }
@@ -18,17 +18,17 @@ namespace AAMod.Water
 
 		public override int ChooseWaterfallStyle()
 		{
-			return mod.GetWaterfallStyleSlot("InfernoWaterfallStyle");
+			return Mod.GetWaterfallStyleSlot("InfernoWaterfallStyle");
 		}
 
 		public override int GetSplashDust()
 		{
-			return mod.DustType("InfernoWaterSplash");
+			return Mod.Find<ModDust>("InfernoWaterSplash").Type;
 		}
 
 		public override int GetDropletGore()
 		{
-			return mod.GetGoreSlot("Water/InfernoDroplet");
+			return Mod.GetGoreSlot("Water/InfernoDroplet");
 		}
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)

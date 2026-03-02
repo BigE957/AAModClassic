@@ -10,20 +10,20 @@ namespace AAMod.Items.Armor.Dread
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Dread Moon Gi");
-			Tooltip.SetDefault(@"35% increased ranged damage
+			// DisplayName.SetDefault("Dread Moon Gi");
+			/* Tooltip.SetDefault(@"35% increased ranged damage
 20% increased movement speed
 +50 Max Life
-The abyssal wrath of the Mire rests in this armor");
+The abyssal wrath of the Mire rests in this armor"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 3000000;
-			item.defense = 44;
-            item.rare = 9;
+			Item.width = 30;
+			Item.height = 20;
+			Item.value = 3000000;
+			Item.defense = 44;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -31,16 +31,16 @@ The abyssal wrath of the Mire rests in this armor");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += .35f;
+            player.GetDamage(DamageClass.Ranged) += .35f;
             player.moveSpeed += .2f;
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .2f;
             player.statLifeMax2 += 50;
@@ -48,13 +48,12 @@ The abyssal wrath of the Mire rests in this armor");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 20);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "DepthGi", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

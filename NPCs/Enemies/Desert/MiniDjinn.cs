@@ -11,31 +11,31 @@ namespace AAMod.NPCs.Enemies.Desert
         private bool Shooty = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Djinn");
-            Main.npcFrameCount[npc.type] = 16;
+            // DisplayName.SetDefault("Djinn");
+            Main.npcFrameCount[NPC.type] = 16;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 200;
-            npc.defense = 20;
-            npc.damage = 20;
-            npc.width = 42;
-            npc.height = 66;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MiniDjinnBanner");
+            NPC.lifeMax = 200;
+            NPC.defense = 20;
+            NPC.damage = 20;
+            NPC.width = 42;
+            NPC.height = 66;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MiniDjinnBanner").Type;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return (spawnInfo.player.ZoneDesert || spawnInfo.player.ZoneUndergroundDesert) &&
-                NPC.downedBoss3 && !spawnInfo.player.ZoneBeach 
+            return (spawnInfo.Player.ZoneDesert || spawnInfo.Player.ZoneUndergroundDesert) &&
+                NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach 
                 && Main.dayTime ? .1f : 0f;
         }
 
@@ -43,50 +43,50 @@ namespace AAMod.NPCs.Enemies.Desert
 
         public override void AI()
         {
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
 
             }
             else
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
-            npc.TargetClosest(true);
-            Player player = Main.player[npc.target];
-            BaseAI.AIFloater(npc, ref npc.ai, true, 0.2f, 3, 1.5f, .05f, 1.3f, 4);
-            npc.ai[3]++;
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
+            BaseAI.AIFloater(NPC, ref NPC.ai, true, 0.2f, 3, 1.5f, .05f, 1.3f, 4);
+            NPC.ai[3]++;
 
-            if (npc.ai[3] >= 120)
+            if (NPC.ai[3] >= 120)
             {
-                FireMagic(npc, npc.velocity);
-                npc.ai[3] = 0;
+                FireMagic(NPC, NPC.velocity);
+                NPC.ai[3] = 0;
             }
             
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 66;
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 66;
                 if (Shooty == true)
                 {
-                    if (npc.frame.Y < 66 * 8)
+                    if (NPC.frame.Y < 66 * 8)
                     {
-                        npc.frame.Y = 66 * 8;
+                        NPC.frame.Y = 66 * 8;
                     }
-                    if (npc.frame.Y > (66 * 15) )
+                    if (NPC.frame.Y > (66 * 15) )
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                         Shooty = false;
                     }
                 }
                 else
                 {
-                    if (npc.frame.Y > (66 * 7))
+                    if (NPC.frame.Y > (66 * 7))
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
@@ -110,34 +110,34 @@ namespace AAMod.NPCs.Enemies.Desert
             BaseAI.FireProjectile(player.Center, npc, Shoot, (int)(npc.damage * 0.25f), 0f, 2f);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                npc.position.X = npc.position.X + npc.width / 2;
-                npc.position.Y = npc.position.Y + npc.height / 2;
-                npc.width = 42;
-                npc.height = 66;
-                npc.position.X = npc.position.X - npc.width / 2;
-                npc.position.Y = npc.position.Y - npc.height / 2;
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
+                NPC.width = 42;
+                NPC.height = 66;
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<Dusts.SandDust>();
                 int dust2 = ModContent.DustType<Dusts.SandDust>();
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity.X *= 0f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity.X *= 0f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].noGravity = false;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(4) == 0)
             {
-                npc.DropLoot(ModContent.ItemType<Items.BossSummons.DjinnLamp>());
+                NPC.DropLoot(ModContent.ItemType<Items.BossSummons.DjinnLamp>());
             }
         }
     }

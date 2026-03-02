@@ -1,4 +1,6 @@
 using System;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,72 +14,72 @@ namespace AAMod.Projectiles.Rajah.Supreme
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Excalihare");
+			// DisplayName.SetDefault("Excalihare");
 		}
         public override void SetDefaults()
         {
-            projectile.width = 22;
-            projectile.height = 40;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.penetrate = 5;
-            projectile.tileCollide = true;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 5;
+            Projectile.width = 22;
+            Projectile.height = 40;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 5;
+            Projectile.tileCollide = true;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 5;
         }
 
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= 8f)
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= 8f)
             {
-                projectile.position += projectile.velocity;
-                projectile.Kill();
+                Projectile.position += Projectile.velocity;
+                Projectile.Kill();
             }
             else
             {
-                if (projectile.velocity.Y != oldVelocity.Y)
+                if (Projectile.velocity.Y != oldVelocity.Y)
                 {
-                    projectile.velocity.Y = -oldVelocity.Y;
+                    Projectile.velocity.Y = -oldVelocity.Y;
                 }
-                if (projectile.velocity.X != oldVelocity.X)
+                if (Projectile.velocity.X != oldVelocity.X)
                 {
-                    projectile.velocity.X = -oldVelocity.X;
+                    Projectile.velocity.X = -oldVelocity.X;
                 }
             }
-            Vector2 spinningpoint = new Vector2(0f, -3f - projectile.ai[0]).RotatedByRandom(3.1415927410125732);
-            float num13 = 10f + projectile.ai[0] * 4f;
+            Vector2 spinningpoint = new Vector2(0f, -3f - Projectile.ai[0]).RotatedByRandom(3.1415927410125732);
+            float num13 = 10f + Projectile.ai[0] * 4f;
             Vector2 value6 = new Vector2(1.05f, 1f);
             for (float num14 = 0f; num14 < num13; num14 += 1f)
             {
-                int num15 = Dust.NewDust(projectile.Center, 0, 0, 66, 0f, 0f, 0, Color.Transparent, 1f);
-                Main.dust[num15].position = projectile.Center;
+                int num15 = Dust.NewDust(Projectile.Center, 0, 0, 66, 0f, 0f, 0, Color.Transparent, 1f);
+                Main.dust[num15].position = Projectile.Center;
                 Main.dust[num15].velocity = spinningpoint.RotatedBy(6.28318548f * num14 / num13) * value6 * (0.8f + Main.rand.NextFloat() * 0.4f);
                 Main.dust[num15].color = Main.hslToRgb(num14 / num13, 1f, 0.5f);
                 Main.dust[num15].noGravity = true;
-                Main.dust[num15].scale = 1f + projectile.ai[0] / 3f;
+                Main.dust[num15].scale = 1f + Projectile.ai[0] / 3f;
             }
-            if (Main.myPlayer == projectile.owner)
+            if (Main.myPlayer == Projectile.owner)
             {
-                int width = projectile.width;
-                int height = projectile.height;
-                int num16 = projectile.penetrate;
-                projectile.position = projectile.Center;
-                projectile.width = projectile.height = 40 + 8 * (int)projectile.ai[0];
-                projectile.Center = projectile.position;
-                projectile.penetrate = -1;
-                projectile.Damage();
-                projectile.penetrate = num16;
-                projectile.position = projectile.Center;
-                projectile.width = width;
-                projectile.height = height;
-                projectile.Center = projectile.position;
+                int width = Projectile.width;
+                int height = Projectile.height;
+                int num16 = Projectile.penetrate;
+                Projectile.position = Projectile.Center;
+                Projectile.width = Projectile.height = 40 + 8 * (int)Projectile.ai[0];
+                Projectile.Center = Projectile.position;
+                Projectile.penetrate = -1;
+                Projectile.Damage();
+                Projectile.penetrate = num16;
+                Projectile.position = Projectile.Center;
+                Projectile.width = width;
+                Projectile.height = height;
+                Projectile.Center = Projectile.position;
             }
-            int p = Projectile.NewProjectile((int)projectile.Center.X, (int)projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), projectile.damage, projectile.knockBack, Main.myPlayer);
-            Main.projectile[p].Center = projectile.Center;
+            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
             return false;
         }
@@ -90,38 +92,38 @@ namespace AAMod.Projectiles.Rajah.Supreme
             num99 = (0.5f + num99) / 2f;
             num100 = (0.5f + num100) / 2f;
             num101 = (0.5f + num101) / 2f;
-            Lighting.AddLight(projectile.Center, num99, num100, num101);
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
-            if (projectile.velocity.X != 0f)
+            Lighting.AddLight(Projectile.Center, num99, num100, num101);
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
+            if (Projectile.velocity.X != 0f)
             {
-                projectile.spriteDirection = projectile.direction = -Math.Sign(projectile.velocity.X);
+                Projectile.spriteDirection = Projectile.direction = -Math.Sign(Projectile.velocity.X);
             }
-            if (projectile.velocity.Y > 16f)
+            if (Projectile.velocity.Y > 16f)
             {
-                projectile.velocity.Y = 16f;
+                Projectile.velocity.Y = 16f;
                 return;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, .5f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return false;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<Buffs.InfinityOverload>(), 120);
-            int p = Projectile.NewProjectile((int)projectile.Center.X, (int)projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), projectile.damage, projectile.knockBack, Main.myPlayer);
-            Main.projectile[p].Center = projectile.Center;
+            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }
 
-        public override void Kill(int i)
+        public override void OnKill(int i)
         {
-            int p = Projectile.NewProjectile((int)projectile.Center.X, (int)projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), projectile.damage, projectile.knockBack, Main.myPlayer);
-            Main.projectile[p].Center = projectile.Center;
+            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }
     }

@@ -9,41 +9,41 @@ namespace AAMod.Projectiles.Akuma.Lung
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fireball");
+            // DisplayName.SetDefault("Fireball");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 10; 
-			projectile.height = 10; 
-			projectile.aiStyle = 1;   
-			projectile.friendly = true; 
-			projectile.hostile = false; 
-			projectile.ranged = true;   
-			projectile.penetrate = 1;  
-			projectile.timeLeft = 600;  
-			projectile.alpha = 50; 
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-			aiType = ProjectileID.WoodenArrowFriendly;           
+			Projectile.width = 10; 
+			Projectile.height = 10; 
+			Projectile.aiStyle = 1;   
+			Projectile.friendly = true; 
+			Projectile.hostile = false; 
+			Projectile.DamageType = DamageClass.Ranged;   
+			Projectile.penetrate = 1;  
+			Projectile.timeLeft = 600;  
+			Projectile.alpha = 50; 
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+			AIType = ProjectileID.WoodenArrowFriendly;           
             
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 100);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(191, 86, 188), 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(191, 86, 188), 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(191, 86, 188));
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(191, 86, 188));
                 Main.dust[num469].velocity *= 2f;
             }
         }

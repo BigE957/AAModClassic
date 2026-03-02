@@ -10,27 +10,27 @@ namespace AAMod.Items.Armor.Paints
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Titanium Face Paint");
-            Tooltip.SetDefault(@"27% increased minion damage
-+100 mana");
+            // DisplayName.SetDefault("Titanium Face Paint");
+            /* Tooltip.SetDefault(@"27% increased minion damage
++100 mana"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = 50000;
-            item.rare = 4;
-            item.defense = 4;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = 50000;
+            Item.rare = 4;
+            Item.defense = 4;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.27f;
+            player.GetDamage(DamageClass.Summon) += 0.27f;
             player.statManaMax2 += 100;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -51,12 +51,11 @@ namespace AAMod.Items.Armor.Paints
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.TitaniumBar, 6);
                 recipe.AddIngredient(ItemID.BottledWater, 1);
                 recipe.AddTile(TileID.BewitchingTable);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

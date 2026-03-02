@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,33 +8,32 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 40;
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 30;
-            item.useTime = 24;
-            item.autoReuse = true;
-            item.damage = 7;
-            item.hammer = 50;
-            item.UseSound = SoundID.Item1;
-            item.knockBack = 3f;
-            item.value = 10000;
-            item.melee = true;
+            Item.width = 40;
+            Item.height = 40;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 30;
+            Item.useTime = 24;
+            Item.autoReuse = true;
+            Item.damage = 7;
+            Item.hammer = 50;
+            Item.UseSound = SoundID.Item1;
+            Item.knockBack = 3f;
+            Item.value = 10000;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Hammer");
+            // DisplayName.SetDefault("Madness Hammer");
         }
 
         public override void AddRecipes()  //How to craft item item
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "MadnessFragment", 6);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "MadnessFragment", 6);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

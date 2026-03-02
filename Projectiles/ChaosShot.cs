@@ -9,7 +9,7 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Beam");
+            // DisplayName.SetDefault("Chaos Beam");
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -19,45 +19,45 @@ namespace AAMod.Projectiles
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.TerraBeam);
-            projectile.penetrate = 3;  
-            projectile.width = 40;
-            projectile.height = 40;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 600;
+            Projectile.CloneDefaults(ProjectileID.TerraBeam);
+            Projectile.penetrate = 3;  
+            Projectile.width = 40;
+            Projectile.height = 40;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 600;
             
         }
 		
 		public override void AI()
 		{
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.AkumaADust>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, ModContent.DustType<Dusts.YamataADust>(), projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.YamataADust>(), Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId3].noGravity = true;
             
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 30; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }
         
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("DragonFire"), 500);
-			target.AddBuff(mod.BuffType("HydraToxin"), 500);
+            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 500);
+			target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 500);
         }
 
     }

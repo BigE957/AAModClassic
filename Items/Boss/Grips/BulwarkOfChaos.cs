@@ -9,19 +9,19 @@ namespace AAMod.Items.Boss.Grips
     {
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 32;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 2;
-            item.expert = true; item.expertOnly = true;
-            item.accessory = true;
-            item.defense = 3;
+            Item.width = 30;
+            Item.height = 32;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 2;
+            Item.expert = true; Item.expertOnly = true;
+            Item.accessory = true;
+            Item.defense = 3;
         }
         public override void SetStaticDefaults()
-        {            DisplayName.SetDefault("Bulwark Of Chaos");
-            Tooltip.SetDefault(
+        {            // DisplayName.SetDefault("Bulwark Of Chaos");
+            /* Tooltip.SetDefault(
 @"For every hit you land on an enemy, 5 true damage (damage unassigned to any class) is dealt
-Allows you to dash into enemies, damaging them");
+Allows you to dash into enemies, damaging them"); */
         }
 		public override void UpdateAccessory(Player player, bool hideVisual)
         {
@@ -30,14 +30,13 @@ Allows you to dash into enemies, damaging them");
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ClawOfChaos", 1);
             recipe.AddIngredient(ItemID.EoCShield, 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {

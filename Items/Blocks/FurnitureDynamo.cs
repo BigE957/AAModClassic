@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -7,30 +8,30 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Furniture Dynamo");
-            Tooltip.SetDefault(@"Combines all funiture-crafting stations into one block
-Now you don't have to clutter your base with 12 crafting stations!");
+            // DisplayName.SetDefault("Furniture Dynamo");
+            /* Tooltip.SetDefault(@"Combines all funiture-crafting stations into one block
+Now you don't have to clutter your base with 12 crafting stations!"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 9;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 1000000;
-            item.createTile = mod.TileType("FurnitureDynamo");
+            Item.width = 32;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 9;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 1000000;
+            Item.createTile = Mod.Find<ModTile>("FurnitureDynamo").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Sawmill, 1);
             recipe.AddIngredient(ItemID.BoneWelder, 1);
             recipe.AddIngredient(ItemID.BlendOMatic, 1);
@@ -46,8 +47,7 @@ Now you don't have to clutter your base with 12 crafting stations!");
             recipe.AddIngredient(ItemID.FleshCloningVaat, 1);
             recipe.AddIngredient(ItemID.LihzahrdFurnace, 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

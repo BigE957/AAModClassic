@@ -8,24 +8,24 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dummy Explosion");
+			// DisplayName.SetDefault("Dummy Explosion");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.magic = true;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.penetrate = -1;
-			projectile.timeLeft = 2;
-			projectile.tileCollide = false;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.width = 32;
+			Projectile.height = 32;
+			Projectile.penetrate = -1;
+			Projectile.timeLeft = 2;
+			Projectile.tileCollide = false;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 1;
+			target.immune[Projectile.owner] = 1;
 		}
 	}
 }

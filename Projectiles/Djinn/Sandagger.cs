@@ -1,6 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Djinn
@@ -10,39 +13,39 @@ namespace AAMod.Projectiles.Djinn
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sandagger");
+            // DisplayName.SetDefault("Sandagger");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.penetrate = 2;
-            projectile.aiStyle = 2;
-            projectile.timeLeft = 600;
-            aiType = 48;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 2;
+            Projectile.aiStyle = 2;
+            Projectile.timeLeft = 600;
+            AIType = 48;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(tex, projectile.Center - Main.screenPosition, null, projectile.GetAlpha(lightColor), projectile.rotation, tex.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
+            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, tex.Size() / 2f, Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (Main.rand.Next(2) == 0)
             {
-                Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("Sandagger"));
+                Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("Sandagger").Type);
             }
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.SandDust>());
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SandDust>());
             }
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace AAMod.Tiles
 {
     public class AbyssVines : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = false;
             Main.tileSolidTop[Type] = false;
@@ -33,9 +33,9 @@ namespace AAMod.Tiles
         public override void PostDraw(int x, int y, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[x, y];
-            if (glow && tile != null && tile.active() && tile.type == Type)
+            if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = mod.GetTexture("Tiles/AbyssVines");
+                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/AbyssVines");
                 BaseDrawing.DrawTileTexture(spriteBatch, glowTex, x, y, true, false, false, null, AAGlobalTile.GetYamataColorDim);
             }
         }

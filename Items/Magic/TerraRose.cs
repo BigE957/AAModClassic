@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,31 +12,31 @@ namespace AAMod.Items.Magic
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Rose");
-            Tooltip.SetDefault(@"Some say this staff was used by the legendary hero themselves
+            // DisplayName.SetDefault("Terra Rose");
+            /* Tooltip.SetDefault(@"Some say this staff was used by the legendary hero themselves
 Projectiles go through walls
-Right Clicking fires a piercing rose");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+Right Clicking fires a piercing rose"); */
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 150;
-			item.magic = true;
-			item.mana = 18;
-			item.width = 68;
-			item.height = 60;
-			item.useTime = 12;
-			item.useAnimation = 12;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 6;
-            item.value = Item.sellPrice(0, 20, 0, 0);
-            item.rare = 4;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("TerraRoseShot");
-			item.shootSpeed = 15f;
+			Item.damage = 150;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 18;
+			Item.width = 68;
+			Item.height = 60;
+			Item.useTime = 12;
+			Item.useAnimation = 12;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.rare = 4;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("TerraRoseShot").Type;
+			Item.shootSpeed = 15f;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -47,27 +48,27 @@ Right Clicking fires a piercing rose");
         {
             if (player.altFunctionUse == 2)
             {
-                item.shoot = mod.ProjectileType("TerraRose");
-                item.damage = 40;
-                item.useTime = 30;
-                item.useAnimation = 30;
-                item.knockBack = 1;
+                Item.shoot = Mod.Find<ModProjectile>("TerraRose").Type;
+                Item.damage = 40;
+                Item.useTime = 30;
+                Item.useAnimation = 30;
+                Item.knockBack = 1;
             }
             else
             {
-                item.shoot = mod.ProjectileType("TerraRoseShot");
-                item.damage = 150;
-                item.useTime = 12;
-                item.useAnimation = 12;
-                item.knockBack = 6;
+                Item.shoot = Mod.Find<ModProjectile>("TerraRoseShot").Type;
+                Item.damage = 150;
+                Item.useTime = 12;
+                Item.useAnimation = 12;
+                Item.knockBack = 6;
             }
             return base.CanUseItem(player);
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            Texture2D texture2 = Main.itemTexture[item.type];
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             spriteBatch.Draw(texture2, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             for (int i = 0; i < 4; i++)
             {
@@ -78,14 +79,14 @@ Right Clicking fires a piercing rose");
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Main.DiscoColor,
@@ -99,13 +100,12 @@ Right Clicking fires a piercing rose");
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "TrueManaRose", 1);
             recipe.AddIngredient(ItemID.RainbowRod, 1);
-            recipe.AddIngredient(mod, "TerraCrystal", 1);
+            recipe.AddIngredient(Mod, "TerraCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
     }
 }

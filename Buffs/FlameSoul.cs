@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class FlameSoul : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flame Soul");
-			Description.SetDefault("The weaker you are, the harder it fights");
+			// DisplayName.SetDefault("Flame Soul");
+			// Description.SetDefault("The weaker you are, the harder it fights");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("FlameSoul")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("FlameSoul").Type] > 0)
 			{
 				modPlayer.FlameSoul = true;
 			}

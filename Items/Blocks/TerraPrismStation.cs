@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -7,35 +8,34 @@ namespace AAMod.Items.Blocks
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Infinity Core");
-            Tooltip.SetDefault(@"The 'craft-all'.
-Combiles all vanilla and Ancients Awakened crafting stations together");
+            // DisplayName.SetDefault("Infinity Core");
+            /* Tooltip.SetDefault(@"The 'craft-all'.
+Combiles all vanilla and Ancients Awakened crafting stations together"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 9;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 100000;
-            item.createTile = mod.TileType("TerraPrism");
+            Item.width = 32;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 9;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 100000;
+            Item.createTile = Mod.Find<ModTile>("TerraPrism").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "FurnitureDynamo", 1);
             recipe.AddIngredient(null, "TerraCore", 1);
             recipe.AddRecipeGroup("AAMod:ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

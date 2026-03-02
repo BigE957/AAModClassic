@@ -10,15 +10,15 @@ namespace AAMod.Tiles
     public class SkyShard : ModTile
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = false;
             Main.tileSolid[Type] = false;
             Main.tileBlendAll[Type] = false;
-            soundType = 21;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            dustType = DustID.BlueCrystalShard;
+            DustType = DustID.BlueCrystalShard;
             AddMapEntry(Color.SkyBlue);
         }
 
@@ -40,8 +40,8 @@ namespace AAMod.Tiles
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Tiles/SkyShard"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), C(), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/SkyShard"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), C(), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public Color C()

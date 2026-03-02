@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,48 +11,48 @@ namespace AAMod.Items.Summoning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Omen Staff");
-            Tooltip.SetDefault(@"Summons a vicious crow to fight with you
-Raven Staff EX");
+            // DisplayName.SetDefault("Omen Staff");
+            /* Tooltip.SetDefault(@"Summons a vicious crow to fight with you
+Raven Staff EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 210;
-            item.summon = true;
-            item.mana = 10;
-            item.width = 26;
-            item.height = 28;
-            item.useTime = 36;
-            item.useAnimation = 36;
-            item.useStyle = 1;
-            item.noMelee = true;
-            item.knockBack = 3;
-            item.rare = 7;
-            item.UseSound = SoundID.Item44;
-            item.shoot = mod.ProjectileType("CrowMinion");
-            item.shootSpeed = 10f;
-            item.buffType = mod.BuffType("CrowMinion");
-            item.autoReuse = true;
-            item.value = Item.sellPrice(0, 50, 0, 0);
+            Item.damage = 210;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 10;
+            Item.width = 26;
+            Item.height = 28;
+            Item.useTime = 36;
+            Item.useAnimation = 36;
+            Item.useStyle = 1;
+            Item.noMelee = true;
+            Item.knockBack = 3;
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item44;
+            Item.shoot = Mod.Find<ModProjectile>("CrowMinion").Type;
+            Item.shootSpeed = 10f;
+            Item.buffType = Mod.Find<ModBuff>("CrowMinion").Type;
+            Item.autoReuse = true;
+            Item.value = Item.sellPrice(0, 50, 0, 0);
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
-            float num72 = item.shootSpeed;
+            float num72 = Item.shootSpeed;
             int num73 = damage;
             float num74 = knockBack;
-            num74 = player.GetWeaponKnockback(item, num74);
-            player.itemTime = item.useTime;
+            num74 = player.GetWeaponKnockback(Item, num74);
+            player.itemTime = Item.useTime;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
             float num79 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
@@ -75,18 +76,17 @@ Raven Staff EX");
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, mod.ProjectileType("CrowMinion"), num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("CrowMinion").Type, num73, num74, i, 0f, 0f);
             return false;
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.RavenStaff);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
         }
     }
 }

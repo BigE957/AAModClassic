@@ -10,41 +10,41 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sun Summon");
+            // DisplayName.SetDefault("Sun Summon");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = true;
-            projectile.ignoreWater = true;
-            projectile.alpha = 255;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = true;
+            Projectile.ignoreWater = true;
+            Projectile.alpha = 255;
         }
 
         public override void AI()
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, 0, 0, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 0, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 0, default, 2f);
                 Main.dust[num469].noGravity = true;
             }
 
-            projectile.damage = 0;
-            projectile.knockBack = 0;
+            Projectile.damage = 0;
+            Projectile.knockBack = 0;
 
-            projectile.ai[1] = projectile.velocity.Length();
+            Projectile.ai[1] = Projectile.velocity.Length();
 
-            projectile.velocity = projectile.velocity.RotatedBy(projectile.ai[1] / (2 * Math.PI * projectile.ai[0] * ++projectile.localAI[0]));
+            Projectile.velocity = Projectile.velocity.RotatedBy(Projectile.ai[1] / (2 * Math.PI * Projectile.ai[0] * ++Projectile.localAI[0]));
 
-            projectile.ai[0]++;
+            Projectile.ai[0]++;
 
-            if (projectile.ai[0] > 60)
+            if (Projectile.ai[0] > 60)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
 
@@ -56,13 +56,13 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             return base.OnTileCollide(oldVelocity);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             int MinionType = ModContent.NPCType<ForsakenSun>();
 
             if (!HitTile)
             {
-                int Minion = NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, MinionType, 0);
+                int Minion = NPC.NewNPC((int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
                 Main.npc[Minion].netUpdate = true;
             }
         }

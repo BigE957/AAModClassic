@@ -34,13 +34,13 @@ namespace AAMod
 
 		public Vector2 oldDrawPos = default;
 
-        public override bool CloneNewInstances => true;
+        protected override bool CloneNewInstances => true;
 
         public string name
 		{
 			get
 			{
-				return npc.TypeName;
+				return NPC.TypeName;
 			}
 			set
 			{
@@ -55,7 +55,7 @@ namespace AAMod
 			}
 			set
 			{
-                DisplayName.SetDefault(value);
+                // DisplayName.SetDefault(value);
 			}
 		}
 
@@ -93,26 +93,26 @@ namespace AAMod
 			bool? result;
 			if (!showHealthBar)
 			{
-				npc.position -= npc.visualOffset;
+				NPC.position -= NPC.visualOffset;
 				result = new bool?(false);
 			}
 			else if (realLifeHealthBar)
 			{
-				if (npc.realLife == -1)
+				if (NPC.realLife == -1)
 				{
 					result = new bool?(false);
 				}
 				else
 				{
-					float alpha = Lighting.Brightness((int)(npc.Center.X / 16f), (int)(npc.Center.Y / 16f));
-					Main.instance.DrawHealthBar(position.X, position.Y, Main.npc[npc.realLife].life, Main.npc[npc.realLife].lifeMax, alpha, scale);
-					npc.position -= npc.visualOffset;
+					float alpha = Lighting.Brightness((int)(NPC.Center.X / 16f), (int)(NPC.Center.Y / 16f));
+					Main.instance.DrawHealthBar(position.X, position.Y, Main.npc[NPC.realLife].life, Main.npc[NPC.realLife].lifeMax, alpha, scale);
+					NPC.position -= NPC.visualOffset;
 					result = new bool?(false);
 				}
 			}
 			else
 			{
-				if (npc.boss)
+				if (NPC.boss)
 				{
 					scale = 1.5f;
 				}
@@ -125,29 +125,29 @@ namespace AAMod
 		{
 			if (frameWidth > 0 && frameHeight > 0)
 			{
-				npc.frame = BaseDrawing.GetFrame(frameCount, frameWidth, frameHeight, 0, 2);
+				NPC.frame = BaseDrawing.GetFrame(frameCount, frameWidth, frameHeight, 0, 2);
 			}
 		}
 
-		public override void HitEffect(int hitDir, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
-			G_HitEffect(hitDir, damage, npc.life <= 0 || !npc.active);
+			G_HitEffect(hitDir, damage, NPC.life <= 0 || !NPC.active);
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			float result;
-			if (!invasionSpawn && (Main.invasionType > 0 || Main.pumpkinMoon || Main.snowMoon || Main.bloodMoon || Main.eclipse || DD2Event.Ongoing || BaseExtensions.InZone(spawnInfo.player, "TowerAny", null)))
+			if (!invasionSpawn && (Main.invasionType > 0 || Main.pumpkinMoon || Main.snowMoon || Main.bloodMoon || Main.eclipse || DD2Event.Ongoing || BaseExtensions.InZone(spawnInfo.Player, "TowerAny", null)))
 			{
 				result = 0f;
 			}
-			else if (!specialBiomeSpawn && (BaseExtensions.InZone(spawnInfo.player, "TowerAny", null) || BaseExtensions.InZone(spawnInfo.player, "Dungeon", null) || BaseExtensions.InZone(spawnInfo.player, "Meteor", null) || spawnInfo.lihzahrd))
+			else if (!specialBiomeSpawn && (BaseExtensions.InZone(spawnInfo.Player, "TowerAny", null) || BaseExtensions.InZone(spawnInfo.Player, "Dungeon", null) || BaseExtensions.InZone(spawnInfo.Player, "Meteor", null) || spawnInfo.Lihzahrd))
 			{
 				result = 0f;
 			}
 			else
 			{
-				result = G_CanSpawn(spawnInfo.spawnTileX, spawnInfo.spawnTileY, npc.type, spawnInfo.player, spawnInfo) ? 1f : 0f;
+				result = G_CanSpawn(spawnInfo.SpawnTileX, spawnInfo.SpawnTileY, NPC.type, spawnInfo.Player, spawnInfo) ? 1f : 0f;
 			}
 			return result;
 		}
@@ -166,29 +166,29 @@ namespace AAMod
 			return false;
 		}
 
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
 			if (drawCentered || drawCenteredX)
 			{
-				oldDrawPos = npc.position;
+				oldDrawPos = NPC.position;
 				if (drawCenteredX)
 				{
-					NPC expr_48_cp_0 = npc;
-					expr_48_cp_0.position.X += npc.Center.X - npc.position.X;
+					NPC expr_48_cp_0 = NPC;
+					expr_48_cp_0.position.X += NPC.Center.X - NPC.position.X;
 				}
 				else
 				{
-					npc.position += npc.Center - npc.position;
+					NPC.position += NPC.Center - NPC.position;
 				}
 			}
 			return true;
 		}
 
-		public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
 			if (drawCentered || drawCenteredX)
 			{
-				npc.position = oldDrawPos;
+				NPC.position = oldDrawPos;
 			}
 		}
 	}

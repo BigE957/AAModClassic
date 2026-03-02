@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,37 +10,37 @@ namespace AAMod.Items.Boss.Anubis
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sandthrower");
-			Tooltip.SetDefault("30% chance to not consume gel");
+			// DisplayName.SetDefault("Sandthrower");
+			// Tooltip.SetDefault("30% chance to not consume gel");
 		}
 
 	    public override void SetDefaults()
 	    {
-			item.damage = 30;
-			item.ranged = true;
-			item.width = 80;
-			item.height = 38;
-			item.useTime = 3;
-			item.useAnimation = 5;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 4f;
-			item.UseSound = SoundID.Item34;
-            item.value = Item.buyPrice(0, 1, 0, 0);
-            item.rare = 6;
-            item.autoReuse = true;
-			item.shoot = ModContent.ProjectileType<Projectiles.Anubis.SandstormFlame>();
-			item.shootSpeed = 12f;
-			item.useAmmo = 23;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 80;
+			Item.height = 38;
+			Item.useTime = 3;
+			Item.useAnimation = 5;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 4f;
+			Item.UseSound = SoundID.Item34;
+            Item.value = Item.buyPrice(0, 1, 0, 0);
+            Item.rare = 6;
+            Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<Projectiles.Anubis.SandstormFlame>();
+			Item.shootSpeed = 12f;
+			Item.useAmmo = 23;
 		}
 
-	    public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
             return false;
 		}
 
-	    public override bool ConsumeAmmo(Player player)
+	    public override bool CanConsumeAmmo(Item ammo, Player player)
 	    {
 	    	if (Main.rand.Next(0, 100) < 30)
 	    		return false;
@@ -48,12 +49,11 @@ namespace AAMod.Items.Boss.Anubis
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Sandgun, 1);
 			recipe.AddIngredient(null, "ForsakenFragment", 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

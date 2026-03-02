@@ -11,13 +11,13 @@ namespace AAMod.Projectiles
         public bool ToothSpawned;
         public override void SetStaticDefaults() //Sets the display name
         {
-            DisplayName.SetDefault("Shen Tooth");
+            // DisplayName.SetDefault("Shen Tooth");
         }
 
         public override void SetDefaults() // Clones the bullet defaults
         {
-            projectile.CloneDefaults(ProjectileID.Bullet);
-            projectile.aiStyle = 0;
+            Projectile.CloneDefaults(ProjectileID.Bullet);
+            Projectile.aiStyle = 0;
         }
 
         public override void AI() // Executes methods below
@@ -28,20 +28,20 @@ namespace AAMod.Projectiles
 
         public void FadeIn() // Gives the projectile a fade-in effect
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 15; // Decrease alpha, increasing visibility.
+                Projectile.alpha -= 15; // Decrease alpha, increasing visibility.
             }
         }
 
         public void FaceDirection() // Forces the bullet to face the direction of travel
         {
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2; // projectile sprite faces up
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2; // projectile sprite faces up
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(type == 1 ? BuffID.Daybreak : mod.BuffType(type == 2 ? "Moonraze" : "DiscordInferno"), 60);
+            target.AddBuff(type == 1 ? BuffID.Daybreak : Mod.Find<ModBuff>(type == 2 ? "Moonraze" : "DiscordInferno").Type, 60);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace AAMod.Dusts
 {
     public class CarrotDust : ModDust
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.dust[Type].noGravity = false;
         }

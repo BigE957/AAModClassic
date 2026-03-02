@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
 {
@@ -9,26 +10,26 @@ namespace AAMod.Items.Dev
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blade of Night");
-			Tooltip.SetDefault("A dark sword from a dark creature.");
+			// DisplayName.SetDefault("Blade of Night");
+			// Tooltip.SetDefault("A dark sword from a dark creature.");
 		}
 		
 		public override void SetDefaults()
 		{
-			item.damage = 200;
-			item.melee = true;
-			item.width = 84;
-			item.height = 84;
-			item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 5;
-			item.value = Item.sellPrice(0, 1, 50, 0);
-			item.rare = 2;
-			item.UseSound = SoundID.Item71;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("UmbreonSPProjectile");
-			item.shootSpeed = 20f;
+			Item.damage = 200;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 84;
+			Item.height = 84;
+			Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 5;
+			Item.value = Item.sellPrice(0, 1, 50, 0);
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item71;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("UmbreonSPProjectile").Type;
+			Item.shootSpeed = 20f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	

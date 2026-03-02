@@ -2,6 +2,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Zero
@@ -13,48 +16,48 @@ namespace AAMod.Projectiles.Zero
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            projectile.glowMask = customGlowMask;
-            DisplayName.SetDefault("Teslablast");
+            Projectile.glowMask = customGlowMask;
+            // DisplayName.SetDefault("Teslablast");
         }
         public override void SetDefaults()
         {
-            projectile.width = 12;
-            projectile.height = 12;
-            projectile.friendly = true;
-            projectile.penetrate = 4;                       //this is the projectile penetration
-            Main.projFrames[projectile.type] = 3;           //this is projectile frames
-            projectile.hostile = false;
-            projectile.magic = true;                        //this make the projectile do magic damage
-            projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 900;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 6;
+            Projectile.width = 12;
+            Projectile.height = 12;
+            Projectile.friendly = true;
+            Projectile.penetrate = 4;                       //this is the projectile penetration
+            Main.projFrames[Projectile.type] = 3;           //this is projectile frames
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;                        //this make the projectile do magic damage
+            Projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 900;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 6;
         }
 
         public override void AI()
         {
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] > 130f) //projectile time left before disappears
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            Projectile.localAI[0] += 1f;
+            if (Projectile.localAI[0] > 130f) //projectile time left before disappears
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (++projectile.frameCounter >= 3)
+            if (++Projectile.frameCounter >= 3)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 2)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 2)
                 {
-                    projectile.frame = 00;
+                    Projectile.frame = 00;
                 }
             }
             const int aislotHomingCooldown = 0;
@@ -62,17 +65,17 @@ namespace AAMod.Projectiles.Zero
             const float desiredFlySpeedInPixelsPerFrame = 10;
             const float amountOfFramesToLerpBy = 15; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -86,13 +89,13 @@ namespace AAMod.Projectiles.Zero
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -102,8 +105,8 @@ namespace AAMod.Projectiles.Zero
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Collision.HitTiles(projectile.position, oldVelocity, projectile.width, projectile.height);
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            Collision.HitTiles(Projectile.position, oldVelocity, Projectile.width, Projectile.height);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             return true;
         }
     }

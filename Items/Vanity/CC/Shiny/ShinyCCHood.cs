@@ -9,27 +9,27 @@ namespace AAMod.Items.Vanity.CC.Shiny
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Draconian Cultist Mask");
-			Tooltip.SetDefault(@"The mask of a crazy dragon enthusiast
-'Great for impersonating Ancients Awakened Developers!'");
+			// DisplayName.SetDefault("Draconian Cultist Mask");
+			/* Tooltip.SetDefault(@"The mask of a crazy dragon enthusiast
+'Great for impersonating Ancients Awakened Developers!'"); */
 		}
 
 		public override void SetDefaults() 
 		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 10000;
-			item.rare = 2;
-			item.vanity = true;
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 10000;
+			Item.rare = 2;
+			Item.vanity = true;
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> list)
 		{
 			foreach (TooltipLine line2 in list)
 			{
-				if (line2.mod == "Terraria" && line2.Name == "ItemName")
+				if (line2.Mod == "Terraria" && line2.Name == "ItemName")
 				{
-					line2.overrideColor = new Color(92, 101, 150);
+					line2.OverrideColor = new Color(92, 101, 150);
 				}
 			}
 		}

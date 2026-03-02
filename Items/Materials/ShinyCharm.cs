@@ -4,15 +4,15 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shiny Charm");
-            Tooltip.SetDefault("A rare charm that allows you to make certain weapons shiny");
+            // DisplayName.SetDefault("Shiny Charm");
+            // Tooltip.SetDefault("A rare charm that allows you to make certain weapons shiny");
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 36;
-            item.maxStack = 99;
-            item.rare = 9;
+            Item.width = 22;
+            Item.height = 36;
+            Item.maxStack = 99;
+            Item.rare = 9;
         }
     }
 }

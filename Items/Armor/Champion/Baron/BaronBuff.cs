@@ -5,10 +5,10 @@ namespace AAMod.Items.Armor.Champion.Baron
 {
     public class BaronBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baron Bunny");
-            Description.SetDefault("Baron Bunny protects you");
+            // DisplayName.SetDefault("Baron Bunny");
+            // Description.SetDefault("Baron Bunny protects you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -16,7 +16,7 @@ namespace AAMod.Items.Armor.Champion.Baron
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("BaronBunny")] > 0)
+            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BaronBunny").Type] > 0)
             {
                 modPlayer.Baron = true;
             }

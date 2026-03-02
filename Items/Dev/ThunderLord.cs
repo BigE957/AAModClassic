@@ -1,6 +1,8 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
 {
@@ -8,13 +10,13 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Storm Rifle");
-            Tooltip.SetDefault(@"Fires off static shots
+            // DisplayName.SetDefault("Storm Rifle");
+            /* Tooltip.SetDefault(@"Fires off static shots
 'NUM'
--BlazenBreaker");
+-BlazenBreaker"); */
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -27,22 +29,22 @@ namespace AAMod.Items.Dev
 
         public override void SetDefaults()
         {
-            item.damage = 175;
-            item.noMelee = true;
-            item.ranged = true; 
-            item.width = 70; 
-            item.height = 24;
-            item.useTime = 20; 
-            item.useAnimation = 20; 
-            item.useStyle = 5;
-            item.shoot = mod.ProjectileType("ThunderSpark");
-            item.knockBack = 3;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 9;
-            item.UseSound = SoundID.Item92;
-            item.autoReuse = true; 
-            item.shootSpeed = 9f;
-            item.useAmmo = AmmoID.Bullet;
+            Item.damage = 175;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged; 
+            Item.width = 70; 
+            Item.height = 24;
+            Item.useTime = 20; 
+            Item.useAnimation = 20; 
+            Item.useStyle = 5;
+            Item.shoot = Mod.Find<ModProjectile>("ThunderSpark").Type;
+            Item.knockBack = 3;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 9;
+            Item.UseSound = SoundID.Item92;
+            Item.autoReuse = true; 
+            Item.shootSpeed = 9f;
+            Item.useAmmo = AmmoID.Bullet;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
 			glowmaskDrawType = GLOWMASKTYPE_GUN;

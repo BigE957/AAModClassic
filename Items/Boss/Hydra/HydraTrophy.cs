@@ -1,3 +1,4 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Hydra
 {
     public class HydraTrophy : BaseAAItem
@@ -6,25 +7,25 @@ namespace AAMod.Items.Boss.Hydra
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Trophy");
+            // DisplayName.SetDefault("Hydra Trophy");
 		}
 
         public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 32;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-            item.rare = 1;
-            item.useStyle = 1;
-			item.consumable = true;
-			item.value = 2000;
-            item.rare = 2;
-            item.expert = true; item.expertOnly = true;
-			item.createTile = mod.TileType("HydraTrophy");
+			Item.width = 32;
+			Item.height = 32;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+            Item.rare = 1;
+            Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 2000;
+            Item.rare = 2;
+            Item.expert = true; Item.expertOnly = true;
+			Item.createTile = Mod.Find<ModTile>("HydraTrophy").Type;
 		}
 	}
 }

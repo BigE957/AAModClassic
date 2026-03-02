@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Summoning.Minions
@@ -10,22 +11,22 @@ namespace AAMod.Items.Summoning.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon");
+            // DisplayName.SetDefault("Dragon");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 24;
-            projectile.height = 24;
-            projectile.penetrate = -1;
-            projectile.timeLeft *= 5;
-            projectile.minion = true;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.alpha = 255;
-            projectile.netImportant = true;
-            projectile.GetGlobalProjectile<AAGlobalProjectile>().LongMinion = true;
+            Projectile.width = 24;
+            Projectile.height = 24;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft *= 5;
+            Projectile.minion = true;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.alpha = 255;
+            Projectile.netImportant = true;
+            Projectile.GetGlobalProjectile<AAGlobalProjectile>().LongMinion = true;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,56 +34,56 @@ namespace AAMod.Items.Summoning.Minions
             return Color.White;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture2D13 = Main.projectileTexture[projectile.type];
-            int num214 = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type];
-            int y6 = num214 * projectile.frame;
-            Main.spriteBatch.Draw(texture2D13, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Rectangle(0, y6, texture2D13.Width, num214),
-                projectile.GetAlpha(Color.White), projectile.rotation, new Vector2(texture2D13.Width / 2f, num214 / 2f), projectile.scale,
-                projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
+            int num214 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+            int y6 = num214 * Projectile.frame;
+            Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle(0, y6, texture2D13.Width, num214),
+                Projectile.GetAlpha(Color.White), Projectile.rotation, new Vector2(texture2D13.Width / 2f, num214 / 2f), Projectile.scale,
+                Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 
-        public override void OnHitNPC(NPC npc, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[projectile.owner] = 6;
+            npc.immune[Projectile.owner] = 6;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 
-            if ((int) Main.time % 120 == 0) projectile.netUpdate = true;
+            if ((int) Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
 
             int num1038 = 10;
             if (player.dead) modPlayer.DragonMinion = false;
-            if (modPlayer.DragonMinion) projectile.timeLeft = 2;
+            if (modPlayer.DragonMinion) Projectile.timeLeft = 2;
             num1038 = 30;
 
             Vector2 center = player.Center;
             float num1040 = 700f;
             float num1041 = 1000f;
             int num1042 = -1;
-            if (projectile.Distance(center) > 2000f)
+            if (Projectile.Distance(center) > 2000f)
             {
-                projectile.Center = center;
-                projectile.netUpdate = true;
+                Projectile.Center = center;
+                Projectile.netUpdate = true;
             }
 
             bool flag66 = true;
             if (flag66)
             {
-                NPC ownerMinionAttackTargetNPC5 = projectile.OwnerMinionAttackTargetNPC;
-                if (ownerMinionAttackTargetNPC5 != null && ownerMinionAttackTargetNPC5.CanBeChasedBy(projectile, false))
+                NPC ownerMinionAttackTargetNPC5 = Projectile.OwnerMinionAttackTargetNPC;
+                if (ownerMinionAttackTargetNPC5 != null && ownerMinionAttackTargetNPC5.CanBeChasedBy(Projectile, false))
                 {
-                    float num1043 = projectile.Distance(ownerMinionAttackTargetNPC5.Center);
+                    float num1043 = Projectile.Distance(ownerMinionAttackTargetNPC5.Center);
                     if (num1043 < num1040 * 2f)
                     {
                         num1042 = ownerMinionAttackTargetNPC5.whoAmI;
@@ -101,9 +102,9 @@ namespace AAMod.Items.Summoning.Minions
                     for (int num1044 = 0; num1044 < 200; num1044++)
                     {
                         NPC nPC13 = Main.npc[num1044];
-                        if (nPC13.CanBeChasedBy(projectile, false) && player.Distance(nPC13.Center) < num1041)
+                        if (nPC13.CanBeChasedBy(Projectile, false) && player.Distance(nPC13.Center) < num1041)
                         {
-                            float num1045 = projectile.Distance(nPC13.Center);
+                            float num1045 = Projectile.Distance(nPC13.Center);
                             if (num1045 < num1040)
                             {
                                 num1042 = num1044;
@@ -116,7 +117,7 @@ namespace AAMod.Items.Summoning.Minions
             if (num1042 != -1)
             {
                 NPC nPC14 = Main.npc[num1042];
-                Vector2 vector132 = nPC14.Center - projectile.Center;
+                Vector2 vector132 = nPC14.Center - Projectile.Center;
                 (vector132.X > 0f).ToDirectionInt();
                 (vector132.Y > 0f).ToDirectionInt();
                 float scaleFactor15 = 0.4f;
@@ -124,54 +125,54 @@ namespace AAMod.Items.Summoning.Minions
                 if (vector132.Length() < 300f) scaleFactor15 = 0.8f;
                 if (vector132.Length() > nPC14.Size.Length() * 0.75f)
                 {
-                    projectile.velocity += Vector2.Normalize(vector132) * scaleFactor15 * 1.5f;
-                    if (Vector2.Dot(projectile.velocity, vector132) < 0.25f) projectile.velocity *= 0.8f;
+                    Projectile.velocity += Vector2.Normalize(vector132) * scaleFactor15 * 1.5f;
+                    if (Vector2.Dot(Projectile.velocity, vector132) < 0.25f) Projectile.velocity *= 0.8f;
                 }
 
                 float num1046 = 30f;
-                if (projectile.velocity.Length() > num1046) projectile.velocity = Vector2.Normalize(projectile.velocity) * num1046;
+                if (Projectile.velocity.Length() > num1046) Projectile.velocity = Vector2.Normalize(Projectile.velocity) * num1046;
             }
             else
             {
                 float num1047 = 0.2f;
-                Vector2 vector133 = center - projectile.Center;
+                Vector2 vector133 = center - Projectile.Center;
                 if (vector133.Length() < 200f) num1047 = 0.12f;
                 if (vector133.Length() < 140f) num1047 = 0.06f;
                 if (vector133.Length() > 100f)
                 {
-                    if (Math.Abs(center.X - projectile.Center.X) > 20f) projectile.velocity.X = projectile.velocity.X + num1047 * Math.Sign(center.X - projectile.Center.X);
-                    if (Math.Abs(center.Y - projectile.Center.Y) > 10f) projectile.velocity.Y = projectile.velocity.Y + num1047 * Math.Sign(center.Y - projectile.Center.Y);
+                    if (Math.Abs(center.X - Projectile.Center.X) > 20f) Projectile.velocity.X = Projectile.velocity.X + num1047 * Math.Sign(center.X - Projectile.Center.X);
+                    if (Math.Abs(center.Y - Projectile.Center.Y) > 10f) Projectile.velocity.Y = Projectile.velocity.Y + num1047 * Math.Sign(center.Y - Projectile.Center.Y);
                 }
-                else if (projectile.velocity.Length() > 2f)
+                else if (Projectile.velocity.Length() > 2f)
                 {
-                    projectile.velocity *= 0.96f;
+                    Projectile.velocity *= 0.96f;
                 }
 
-                if (Math.Abs(projectile.velocity.Y) < 1f) projectile.velocity.Y = projectile.velocity.Y - 0.1f;
+                if (Math.Abs(Projectile.velocity.Y) < 1f) Projectile.velocity.Y = Projectile.velocity.Y - 0.1f;
                 float num1048 = 15f;
-                if (projectile.velocity.Length() > num1048) projectile.velocity = Vector2.Normalize(projectile.velocity) * num1048;
+                if (Projectile.velocity.Length() > num1048) Projectile.velocity = Vector2.Normalize(Projectile.velocity) * num1048;
             }
 
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
-            int direction = projectile.direction;
-            projectile.direction = projectile.spriteDirection = projectile.velocity.X > 0f ? 1 : -1;
-            if (direction != projectile.direction) projectile.netUpdate = true;
-            float num1049 = MathHelper.Clamp(projectile.localAI[0], 0f, 50f);
-            projectile.position = projectile.Center;
-            projectile.scale = 1f + num1049 * 0.01f;
-            projectile.width = projectile.height = (int) (num1038 * projectile.scale);
-            projectile.Center = projectile.position;
-            if (projectile.alpha > 0)
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
+            int direction = Projectile.direction;
+            Projectile.direction = Projectile.spriteDirection = Projectile.velocity.X > 0f ? 1 : -1;
+            if (direction != Projectile.direction) Projectile.netUpdate = true;
+            float num1049 = MathHelper.Clamp(Projectile.localAI[0], 0f, 50f);
+            Projectile.position = Projectile.Center;
+            Projectile.scale = 1f + num1049 * 0.01f;
+            Projectile.width = Projectile.height = (int) (num1038 * Projectile.scale);
+            Projectile.Center = Projectile.position;
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 42;
-                if (projectile.alpha < 0)
+                Projectile.alpha -= 42;
+                if (Projectile.alpha < 0)
                 {
-                    projectile.alpha = 0;
+                    Projectile.alpha = 0;
                 }
             }
 
-            float DamageBoost = Main.player[projectile.owner].minionDamage;
-            projectile.damage = (int)(DamageBoost > 0f? ((50 + (projectile.localAI[0] > 6? 6 : (projectile.localAI[0] - 1)) * 20) * DamageBoost) : 1);
+            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon);
+            Projectile.damage = (int)(DamageBoost > 0f? ((50 + (Projectile.localAI[0] > 6? 6 : (Projectile.localAI[0] - 1)) * 20) * DamageBoost) : 1);
         }
     }
 }

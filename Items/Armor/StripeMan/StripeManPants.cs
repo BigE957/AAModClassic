@@ -10,24 +10,24 @@ namespace AAMod.Items.Armor.StripeMan
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stripeman's Lucky Pants");
-            Tooltip.SetDefault(@"Get all of the fisher skill effects
+			// DisplayName.SetDefault("Stripeman's Lucky Pants");
+            /* Tooltip.SetDefault(@"Get all of the fisher skill effects
 When fish swallowed the hook, you can get an extra fish.
 Your fishing rod has chance to steal drops from the enemies and npcs
 You can use your fishing rod to catch the items on the ground  
-You have more chance to get a crate among the extra booty");
+You have more chance to get a crate among the extra booty"); */
         }
 
 		public override void SetDefaults()
 		{
-            item.width = 22;
-			item.height = 18;
-			item.rare = -1;
-			item.defense = 1;
-            item.value = Item.sellPrice(0, 0, 0, 1);
+            Item.width = 22;
+			Item.height = 18;
+			Item.rare = -1;
+			Item.defense = 1;
+            Item.value = Item.sellPrice(0, 0, 0, 1);
         }
 
-		public override bool DrawLegs()
+		public override bool DrawLegs()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true if you returned false for an accessory of EquipType.Legs, and ArmorIDs.Shoe.Sets.OverridesLegs[Item.shoeSlot] = true if you returned false for an accessory of EquipType.Shoes */
         {
             return false;
         }
@@ -43,7 +43,7 @@ You have more chance to get a crate among the extra booty");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.AnglerHat, 1);
 			recipe.AddIngredient(ItemID.AnglerVest, 1);
 			recipe.AddIngredient(ItemID.AnglerPants, 1);
@@ -51,8 +51,7 @@ You have more chance to get a crate among the extra booty");
 			recipe.AddIngredient(null, "ShinyCharmFish", 1);
 			recipe.AddIngredient(null, "LuckyCracker", 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

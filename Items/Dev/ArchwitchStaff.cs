@@ -9,30 +9,30 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Archwitch's Galactic Scepter");
-            Tooltip.SetDefault(@"The staff of the Dragon Queen
+            // DisplayName.SetDefault("Archwitch's Galactic Scepter");
+            /* Tooltip.SetDefault(@"The staff of the Dragon Queen
 Left-click to spin the scepter, firing off stars at nearby enemies
-Right click to fire explosive magic bolts");
-            Item.staff[item.type] = true;
+Right click to fire explosive magic bolts"); */
+            Item.staff[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.damage = 300;
-            item.magic = true;
-            item.width = 102;
-            item.height = 100;
-            item.useTime = 10;
-            item.useAnimation = 10;
-            item.channel = true;
-            item.useStyle = 5;
-            item.knockBack = 6f;
-            item.value = Item.buyPrice(0, 40, 0, 0);
-            item.rare = 11;                  
-            item.shoot = mod.ProjectileType("ArchwitchStaff");
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.expert = item.expertOnly = true;
+            Item.damage = 300;
+            Item.DamageType = DamageClass.Magic;
+            Item.width = 102;
+            Item.height = 100;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.knockBack = 6f;
+            Item.value = Item.buyPrice(0, 40, 0, 0);
+            Item.rare = 11;                  
+            Item.shoot = Mod.Find<ModProjectile>("ArchwitchStaff").Type;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.expert = Item.expertOnly = true;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -44,43 +44,41 @@ Right click to fire explosive magic bolts");
         {
             if (player.altFunctionUse == 2)
             {
-                Item.staff[item.type] = true;
-                item.shoot = mod.ProjectileType("ArchwitchStorm");
-                item.shootSpeed = 12;
-                item.noUseGraphic = false;
-                item.channel = false;
-                item.autoReuse = true;
-                item.useTime = 10;
-                item.useAnimation = 30;
-                item.UseSound = new LegacySoundStyle(2, 105, Terraria.Audio.SoundType.Sound);
+                Item.staff[Item.type] = true;
+                Item.shoot = Mod.Find<ModProjectile>("ArchwitchStorm").Type;
+                Item.shootSpeed = 12;
+                Item.noUseGraphic = false;
+                Item.channel = false;
+                Item.autoReuse = true;
+                Item.useTime = 10;
+                Item.useAnimation = 30;
+                Item.UseSound = new LegacySoundStyle(2, 105, Terraria.Audio.SoundType.Sound);
             }
             else
             {
-                Item.staff[item.type] = false;
-                item.shoot = mod.ProjectileType("ArchwitchStaff");
-                item.shootSpeed = 0f;
-                item.noUseGraphic = true;
-                item.channel = true;
-                item.autoReuse = false;
-                item.useTime = 6;
-                item.useAnimation = 6;
-                item.UseSound = SoundID.Item1;
+                Item.staff[Item.type] = false;
+                Item.shoot = Mod.Find<ModProjectile>("ArchwitchStaff").Type;
+                Item.shootSpeed = 0f;
+                Item.noUseGraphic = true;
+                Item.channel = true;
+                Item.autoReuse = false;
+                Item.useTime = 6;
+                Item.useAnimation = 6;
+                Item.UseSound = SoundID.Item1;
             }
             return base.CanUseItem(player);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ArchwitchWand");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.SetResult(this);
-            recipe.AddRecipe(); 
-            recipe = new ModRecipe(mod);
+            recipe.Register(); 
+            recipe = CreateRecipe();
             recipe.AddIngredient(null, "CatsEyeRifleEX");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

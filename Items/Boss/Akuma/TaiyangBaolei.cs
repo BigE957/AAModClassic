@@ -10,22 +10,22 @@ namespace AAMod.Items.Boss.Akuma
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Taiyang Baolei");
-            Tooltip.SetDefault(@"Makes you immune to almost all debuffs
+            // DisplayName.SetDefault("Taiyang Baolei");
+            /* Tooltip.SetDefault(@"Makes you immune to almost all debuffs
 Allows you to do a fiery, explosive dash
 Your melee & magic attacks set enemies ablaze
-During the day, you gain 6% damage resistance and your melee & magic attacks inflict daybroken instead of 'On Fire!'");
+During the day, you gain 6% damage resistance and your melee & magic attacks inflict daybroken instead of 'On Fire!'"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 32;
-            item.value = Item.sellPrice(3, 0, 0, 0);
-            item.expert = true; item.expertOnly = true;
-            item.accessory = true;
-            item.defense = 8;
-            item.rare = 9;
+            Item.width = 30;
+            Item.height = 32;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.expert = true; Item.expertOnly = true;
+            Item.accessory = true;
+            Item.defense = 8;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -33,19 +33,19 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Akuma/TaiyangBaolei");
-            Texture2D textureGlow = mod.GetTexture("Glowmasks/TaiyangBaolei_Glow");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Akuma/TaiyangBaoleiA");
-            Texture2D texture2Glow = mod.GetTexture("Glowmasks/TaiyangBaoleiA_Glow");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Akuma/TaiyangBaolei");
+            Texture2D textureGlow = Mod.GetTexture("Glowmasks/TaiyangBaolei_Glow");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Akuma/TaiyangBaoleiA");
+            Texture2D texture2Glow = Mod.GetTexture("Glowmasks/TaiyangBaoleiA_Glow");
             if (!Main.dayTime)
             {
                 spriteBatch.Draw
@@ -53,8 +53,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
                     texture,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -69,8 +69,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
                     textureGlow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -90,8 +90,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
                     texture2,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -106,8 +106,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
                     texture2Glow,
                     new Vector2
                     (
-                        item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                        item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                     ),
                     new Rectangle(0, 0, texture.Width, texture.Height),
                     lightColor,
@@ -124,8 +124,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Items/Boss/Akuma/TaiyangBaolei");
-            Texture2D texture2 = mod.GetTexture("Items/Boss/Akuma/TaiyangBaoleiA");
+            Texture2D texture = Mod.GetTexture("Items/Boss/Akuma/TaiyangBaolei");
+            Texture2D texture2 = Mod.GetTexture("Items/Boss/Akuma/TaiyangBaoleiA");
             if (!Main.dayTime)
             {
                 spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
@@ -166,8 +166,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
             player.buffImmune[196] = true;
             player.buffImmune[197] = true;
             player.buffImmune[203] = true;
-            player.buffImmune[mod.BuffType("DragonFire")] = true;
-            player.buffImmune[mod.BuffType("BurningAsh")] = true;
+            player.buffImmune[Mod.Find<ModBuff>("DragonFire").Type] = true;
+            player.buffImmune[Mod.Find<ModBuff>("BurningAsh").Type] = true;
             player.noKnockback = true;
             if (Main.dayTime)
             {

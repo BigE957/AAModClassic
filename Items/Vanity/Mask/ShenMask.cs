@@ -9,15 +9,15 @@ namespace AAMod.Items.Vanity.Mask
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Shen Doragon Mask");
+            // DisplayName.SetDefault("Shen Doragon Mask");
 		}
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 26;
-            item.rare = 2;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 26;
+            Item.rare = 2;
+            Item.vanity = true;
         }
     }
 }

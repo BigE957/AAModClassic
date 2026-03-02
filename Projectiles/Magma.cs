@@ -8,17 +8,17 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(664);
-            projectile.hostile = true;
-            projectile.friendly = false;
+            Projectile.CloneDefaults(664);
+            Projectile.hostile = true;
+            Projectile.friendly = false;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Magma");
+            // DisplayName.SetDefault("Magma");
         }
 	
-	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 1000);
         }

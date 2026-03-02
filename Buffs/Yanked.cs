@@ -5,14 +5,14 @@ namespace AAMod.Buffs
 {
     public class Yanked : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yanked");
-            Description.SetDefault("'YOU AREN'T GOING ANYWHERE, YOU LITTLE SISSY!'");
+            // DisplayName.SetDefault("Yanked");
+            // Description.SetDefault("'YOU AREN'T GOING ANYWHERE, YOU LITTLE SISSY!'");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            longerExpertDebuff = true;
+            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

@@ -1,5 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 
 using Terraria.ModLoader;
 using AAMod.Dusts;
@@ -11,79 +14,79 @@ namespace AAMod.Projectiles.Greed.WKG
     {
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-			projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.penetrate = 6;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 180;
+            Projectile.width = 10;
+            Projectile.height = 10;
+			Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = 6;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 180;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Ore");
-            Main.projFrames[projectile.type] = 4;
+		    // DisplayName.SetDefault("Ore");
+            Main.projFrames[Projectile.type] = 4;
 		}
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            if ((projectile.velocity.X != oldVelocity.X && (oldVelocity.X < -3f || oldVelocity.X > 3f)) || (projectile.velocity.Y != oldVelocity.Y && (oldVelocity.Y < -3f || oldVelocity.Y > 3f)))
+            if ((Projectile.velocity.X != oldVelocity.X && (oldVelocity.X < -3f || oldVelocity.X > 3f)) || (Projectile.velocity.Y != oldVelocity.Y && (oldVelocity.Y < -3f || oldVelocity.Y > 3f)))
             {
-                Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-                Main.PlaySound(0, (int)projectile.Center.X, (int)projectile.Center.Y, 1, 1f, 0f);
+                Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             }
             return false;
         }
 
         public override void AI()
         {
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] > 15f)
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] > 15f)
             {
-                projectile.ai[0] = 15f;
-                if (projectile.velocity.Y == 0f && projectile.velocity.X != 0f)
+                Projectile.ai[0] = 15f;
+                if (Projectile.velocity.Y == 0f && Projectile.velocity.X != 0f)
                 {
-                    projectile.velocity.X = projectile.velocity.X * 0.97f;
-                    if (projectile.velocity.X > -0.01 && projectile.velocity.X < 0.01)
+                    Projectile.velocity.X = Projectile.velocity.X * 0.97f;
+                    if (Projectile.velocity.X > -0.01 && Projectile.velocity.X < 0.01)
                     {
-                        projectile.Kill();
+                        Projectile.Kill();
                     }
                 }
-                projectile.velocity.Y = projectile.velocity.Y + 0.2f;
+                Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
             }
-            projectile.rotation += projectile.velocity.X * 0.05f;
-            if (projectile.velocity.Y > 16f)
+            Projectile.rotation += Projectile.velocity.X * 0.05f;
+            if (Projectile.velocity.Y > 16f)
             {
-                projectile.velocity.Y = 16f;
+                Projectile.velocity.Y = 16f;
             }
         }
 
         public override void PostAI()
         {
-            if (projectile.localAI[0] == 0)
+            if (Projectile.localAI[0] == 0)
             {
-                projectile.localAI[0] = 1;
-                projectile.frame = Main.rand.Next(4);
+                Projectile.localAI[0] = 1;
+                Projectile.frame = Main.rand.Next(4);
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 4, frame, lightColor, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, lightColor, true);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             int DustType = ModContent.DustType<VoidDust>();
             for (int num468 = 0; num468 < 3; num468++)
             {
-                float VelX = -projectile.velocity.X * 0.2f;
-                float VelY = -projectile.velocity.Y * 0.2f;
-                num468 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, DustType, VelX, VelY);
+                float VelX = -Projectile.velocity.X * 0.2f;
+                float VelY = -Projectile.velocity.Y * 0.2f;
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustType, VelX, VelY);
             }
         }
     }

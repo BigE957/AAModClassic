@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Zero
@@ -11,21 +12,21 @@ namespace AAMod.Projectiles.Zero
         //Thank you Qwerty3.14 for letting us use his Oricalcum bullet code.
         public override void SetDefaults()
         {
-            projectile.width = 4;
-            projectile.height = 4;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ranged = true;
-            projectile.extraUpdates = 50;
-            projectile.timeLeft = 1000;
-            projectile.penetrate = 3;
-            projectile.tileCollide = false;
+            Projectile.width = 4;
+            Projectile.height = 4;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.extraUpdates = 50;
+            Projectile.timeLeft = 1000;
+            Projectile.penetrate = 3;
+            Projectile.tileCollide = false;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Antimatter");
+		    // DisplayName.SetDefault("Antimatter");
 		}
 
         public bool runOnce = true;
@@ -34,18 +35,18 @@ namespace AAMod.Projectiles.Zero
         {
             if (runOnce)
             {
-                maxSpeed = projectile.velocity.Length();
+                maxSpeed = Projectile.velocity.Length();
                 runOnce = false;
             }
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] > 9f)
+            Projectile.localAI[0] += 1f;
+            if (Projectile.localAI[0] > 9f)
             {
                 for (int num447 = 0; num447 < 4; num447++)
                 {
-                    Vector2 vector33 = projectile.position;
-                    vector33 -= projectile.velocity * (num447 * 0.25f);
-                    projectile.alpha = 255;
-                    int num448 = Dust.NewDust(vector33, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 200);
+                    Vector2 vector33 = Projectile.position;
+                    vector33 -= Projectile.velocity * (num447 * 0.25f);
+                    Projectile.alpha = 255;
+                    int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 200);
                     Main.dust[num448].position = vector33;
                     Main.dust[num448].scale = Main.rand.Next(70, 110) * 0.013f;
                     Main.dust[num448].velocity *= 0.2f;
@@ -61,35 +62,35 @@ namespace AAMod.Projectiles.Zero
         float distance;
         float maxDistance = 1200;
         bool foundTarget;
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            projectile.localNPCImmunity[target.whoAmI] = -1;
-            target.immune[projectile.owner] = 0;
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            Projectile.localNPCImmunity[target.whoAmI] = -1;
+            target.immune[Projectile.owner] = 0;
 
             for (int k = 0; k < 200; k++)
             {
                 possibleTarget = Main.npc[k];
-                distance = (possibleTarget.Center - projectile.Center).Length();
-                if (distance < maxDistance && possibleTarget.active && !possibleTarget.dontTakeDamage && projectile.localNPCImmunity[k] >= 0 && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && Collision.CanHit(projectile.Center, 0, 0, possibleTarget.Center, 0, 0))
+                distance = (possibleTarget.Center - Projectile.Center).Length();
+                if (distance < maxDistance && possibleTarget.active && !possibleTarget.dontTakeDamage && Projectile.localNPCImmunity[k] >= 0 && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && Collision.CanHit(Projectile.Center, 0, 0, possibleTarget.Center, 0, 0))
                 {
                     ConfirmedTarget = Main.npc[k];
                     foundTarget = true;
 
 
-                    maxDistance = (ConfirmedTarget.Center - projectile.Center).Length();
+                    maxDistance = (ConfirmedTarget.Center - Projectile.Center).Length();
                 }
 
             }
             if (foundTarget)
             {
-                projectile.velocity = PolarVector(maxSpeed, (ConfirmedTarget.Center - projectile.Center).ToRotation());
+                Projectile.velocity = PolarVector(maxSpeed, (ConfirmedTarget.Center - Projectile.Center).ToRotation());
 
             }
             else
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
             foundTarget = false;
             maxDistance = 300;

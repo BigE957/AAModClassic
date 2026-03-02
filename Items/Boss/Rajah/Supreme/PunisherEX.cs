@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah.Supreme
 {
@@ -8,28 +9,28 @@ namespace AAMod.Items.Boss.Rajah.Supreme
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Avenger");
-            Tooltip.SetDefault(@"The Punisher EX");
+            // DisplayName.SetDefault("The Avenger");
+            // Tooltip.SetDefault(@"The Punisher EX");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 14;
-            item.useTime = 14;
-            item.autoReuse = true;
-            item.knockBack = 7f;
-            item.width = 30;
-            item.height = 10;
-            item.damage = 500;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.PunisherEX>();
-            item.shootSpeed = 15f;
-            item.UseSound = SoundID.Item1;
-            item.rare = 9;
-            item.expert = true; item.expertOnly = true;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.melee = true;
-            item.noUseGraphic = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 14;
+            Item.useTime = 14;
+            Item.autoReuse = true;
+            Item.knockBack = 7f;
+            Item.width = 30;
+            Item.height = 10;
+            Item.damage = 500;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.PunisherEX>();
+            Item.shootSpeed = 15f;
+            Item.UseSound = SoundID.Item1;
+            Item.rare = 9;
+            Item.expert = true; Item.expertOnly = true;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noUseGraphic = true;
         }
     }
 }

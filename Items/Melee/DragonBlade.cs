@@ -10,28 +10,28 @@ namespace AAMod.Items.Melee   //where is located
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon Blade");
-            Tooltip.SetDefault("Shoots tiny swords!");
+            // DisplayName.SetDefault("Dragon Blade");
+            // Tooltip.SetDefault("Shoots tiny swords!");
         }
         public override void SetDefaults()
         {
 
-            item.damage = 54;            
-            item.melee = true;            
-            item.width = 60;              
-            item.height = 60;             
+            Item.damage = 54;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 60;              
+            Item.height = 60;             
             
-            item.useTime = 25;          
-            item.useAnimation = 25;     
-            item.useStyle = 1;        
-            item.knockBack = 4;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 5;
-            item.UseSound = SoundID.Item1;       
-            item.autoReuse = true;   
-            item.useTurn = false;
-			item.shoot = mod.ProjectileType("DragonSP");
-			item.shootSpeed = 14f;
+            Item.useTime = 25;          
+            Item.useAnimation = 25;     
+            Item.useStyle = 1;        
+            Item.knockBack = 4;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 5;
+            Item.UseSound = SoundID.Item1;       
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+			Item.shoot = Mod.Find<ModProjectile>("DragonSP").Type;
+			Item.shootSpeed = 14f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -40,11 +40,10 @@ namespace AAMod.Items.Melee   //where is located
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(null, "DragonSpirit", 30);   
             recipe.AddTile(TileID.MythrilAnvil);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

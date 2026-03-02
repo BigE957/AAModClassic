@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
@@ -13,23 +14,23 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flame Vortex");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Flame Vortex");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 46;
-            npc.height = 46;
-            npc.friendly = false;
-            npc.lifeMax = 1300;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 46;
+            NPC.height = 46;
+            NPC.friendly = false;
+            NPC.lifeMax = 1300;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
@@ -57,64 +58,64 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
         public float rotValue = -1f;
         public override void AI()
         {
-            if (npc.frameCounter++ > 5)
+            if (NPC.frameCounter++ > 5)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 46;
-                if (npc.frame.Y >= 46 * 4)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 46;
+                if (NPC.frame.Y >= 46 * 4)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
 
-            if (npc.alpha > 0)
+            if (NPC.alpha > 0)
             {
-                npc.alpha -= 4;
+                NPC.alpha -= 4;
             }
             else
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
-            npc.noGravity = true;
-            body = (int)npc.ai[0];
+            NPC.noGravity = true;
+            body = (int)NPC.ai[0];
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(npc.Center, mod.NPCType("Ashe"), 120f, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("Ashe").Type, 120f, null);
                 if (npcID >= 0) body = npcID;
             }
             if (body == -1) return;
 
             NPC ashe = Main.npc[body];
-            if (ashe == null || ashe.life <= 0 || !ashe.active || ashe.type != mod.NPCType("Ashe")) { npc.active = false; return; }
+            if (ashe == null || ashe.life <= 0 || !ashe.active || ashe.type != Mod.Find<ModNPC>("Ashe").Type) { NPC.active = false; return; }
 
-            for (int m = npc.oldPos.Length - 1; m > 0; m--)
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {
-                npc.oldPos[m] = npc.oldPos[m - 1];
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
-            npc.oldPos[0] = npc.position;
+            NPC.oldPos[0] = NPC.position;
 
-            if (rotValue == -1f) rotValue = npc.ai[3];
+            if (rotValue == -1f) rotValue = NPC.ai[3];
             rotValue += 0.05f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
-            npc.Center = BaseUtility.RotateVector(ashe.Center, ashe.Center + new Vector2(140f, 0f), rotValue);
+            NPC.Center = BaseUtility.RotateVector(ashe.Center, ashe.Center + new Vector2(140f, 0f), rotValue);
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             float spread = 60f * 0.0174f;
-            double startAngle = Math.Atan2(npc.velocity.X, -npc.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(NPC.velocity.X, -NPC.velocity.Y) - spread / 2;
             double deltaAngle = spread / 6;
             double offsetAngle;
             for (int i = 0; i < 6; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), ModContent.ProjectileType<AsheMagicSpark>(), npc.damage / 2, 0, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), ModContent.ProjectileType<AsheMagicSpark>(), NPC.damage / 2, 0, Main.myPlayer, 0f, 0f);
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc, npc.GetAlpha(Color.White), true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.GetAlpha(Color.White), true);
             return false;
         }
     }

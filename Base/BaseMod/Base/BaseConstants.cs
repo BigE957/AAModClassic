@@ -82,7 +82,7 @@ namespace AAMod
                 case "Jungle": return p.ZoneJungle;
                 case "Snow": return p.ZoneSnow;
 
-				case "Purity": return !p.ZoneTowerSolar && !p.ZoneTowerVortex && !p.ZoneTowerNebula && !p.ZoneTowerStardust && !p.ZoneBeach && !p.ZoneDesert && !p.ZoneUndergroundDesert && !p.ZoneSnow && !p.ZoneDungeon && !p.ZoneJungle && !p.ZoneCorrupt && !p.ZoneCrimson && !p.ZoneHoly && !p.ZoneMeteor && !p.ZoneGlowshroom;
+				case "Purity": return !p.ZoneTowerSolar && !p.ZoneTowerVortex && !p.ZoneTowerNebula && !p.ZoneTowerStardust && !p.ZoneBeach && !p.ZoneDesert && !p.ZoneUndergroundDesert && !p.ZoneSnow && !p.ZoneDungeon && !p.ZoneJungle && !p.ZoneCorrupt && !p.ZoneCrimson && !p.ZoneHallow && !p.ZoneMeteor && !p.ZoneGlowshroom;
 
 				case "Meteor":
                 case "Meteorite": return p.ZoneMeteor;
@@ -95,7 +95,7 @@ namespace AAMod
                 case "Corruption": return p.ZoneCorrupt;
 				case "Crim":
                 case "Crimson": return p.ZoneCrimson;
-                case "Hallow": return p.ZoneHoly;
+                case "Hallow": return p.ZoneHallow;
                 case "Dungeon": return p.ZoneDungeon;
 				
 				case "TowerAny": return (p.ZoneTowerSolar || p.ZoneTowerVortex || p.ZoneTowerNebula || p.ZoneTowerStardust);
@@ -135,17 +135,17 @@ namespace AAMod
             return false;
         }
 
-        public static void AddRecipeGroup(this ModRecipe recipe, Mod mod, string groupName, int count) 
+        public static void AddRecipeGroup(this Recipe recipe, Mod mod, string groupName, int count) 
         {
             Mod m = (mod == null ? recipe.mod : mod);
             recipe.AddRecipeGroup(m.Name + ":" + groupName, count);
         }
-        public static void AddItem(this ModRecipe recipe, int itemID, int count) { recipe.AddIngredient(itemID, count); }
-        public static void AddItem(this ModRecipe recipe, Mod mod, string itemName, int count) { recipe.AddIngredient((mod == null ? recipe.mod : mod), itemName, count); }
+        public static void AddItem(this Recipe recipe, int itemID, int count) { recipe.AddIngredient(itemID, count); }
+        public static void AddItem(this Recipe recipe, Mod mod, string itemName, int count) { recipe.AddIngredient((mod == null ? recipe.mod : mod), itemName, count); }
 
-        public static void ClearBuff(this Player player, Mod mod, string name) { player.ClearBuff(mod.BuffType(name)); }
-        public static void AddBuff(this Player player, Mod mod, string name, int time, bool sync = true) { player.AddBuff(mod.BuffType(name), time, sync); }
-        public static int FindBuffIndex(this Player player, Mod mod, string name){ return player.FindBuffIndex(mod.BuffType(name)); }
+        public static void ClearBuff(this Player player, Mod mod, string name) { player.ClearBuff(mod.Find<ModBuff>(name).Type); }
+        public static void AddBuff(this Player player, Mod mod, string name, int time, bool sync = true) { player.AddBuff(mod.Find<ModBuff>(name).Type, time, sync); }
+        public static int FindBuffIndex(this Player player, Mod mod, string name){ return player.FindBuffIndex(mod.Find<ModBuff>(name).Type); }
 
         public static int GoreType(this Mod mod, string name, IDictionary<string, int> gores = null) { return BaseUtility.CheckForGore(mod, name, gores); }
         public static int MusicType(this Mod mod, string name, string prefix = "Sounds/Music/") { return mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, prefix + name); }    
@@ -155,7 +155,7 @@ namespace AAMod
         public static LegacySoundStyle SoundNPCHit(this Mod mod, string name, string prefix = "Sounds/NPCHit/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.NPCHit, prefix + name); }
         public static LegacySoundStyle SoundNPCKilled(this Mod mod, string name, string prefix = "Sounds/NPCKilled/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.NPCKilled, prefix + name); }  
      
-        public static int ProjType(this Mod mod, string name) { return mod.ProjectileType(name); }
+        public static int ProjType(this Mod mod, string name) { return mod.Find<ModProjectile>(name).Type; }
 
         public static bool ReadBool(this BinaryReader w) { return w.ReadBoolean(); }
         public static int ReadInt(this BinaryReader w) { return w.ReadInt32(); }
@@ -169,9 +169,9 @@ namespace AAMod
             return string.IsNullOrEmpty(item.Name);
         }
 
-        public static bool water(this Tile tile) { return tile.liquidType() == Tile.Liquid_Water; }
-        public static bool lava(this Tile tile) { return tile.liquidType() == Tile.Liquid_Lava; }
-        public static bool honey(this Tile tile) { return tile.liquidType() == Tile.Liquid_Honey; }
+        public static bool water(this Tile tile) { return tile.LiquidType == LiquidID.Water; }
+        public static bool lava(this Tile tile) { return tile.LiquidType == LiquidID.Lava; }
+        public static bool honey(this Tile tile) { return tile.LiquidType == LiquidID.Honey; }
     }
 
     public class BaseConstants

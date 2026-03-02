@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,29 +9,29 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
 
-            item.damage = 50;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 34;
-            item.height = 60;
-            item.useTime = 16;
-            item.useAnimation = 16;
-            item.useStyle = 5;
-            item.shoot = 3;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 5;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 7;
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shootSpeed = 22f;
+            Item.damage = 50;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 34;
+            Item.height = 60;
+            Item.useTime = 16;
+            Item.useAnimation = 16;
+            Item.useStyle = 5;
+            Item.shoot = 3;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 5;
+            Item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shootSpeed = 22f;
 
         }
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("Crystal Bow");
-          Tooltip.SetDefault("");
+          // DisplayName.SetDefault("Crystal Bow");
+          // Tooltip.SetDefault("");
         }
     }
 }

@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Akuma.Dawnstrike
@@ -7,48 +9,48 @@ namespace AAMod.Projectiles.Akuma.Dawnstrike
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dayfire");     
-            Main.projFrames[projectile.type] = 4;     
+            // DisplayName.SetDefault("Dayfire");     
+            Main.projFrames[Projectile.type] = 4;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
-            projectile.ranged = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
+            Projectile.DamageType = DamageClass.Ranged;
         }
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame > 3)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 20);
-            projectile.timeLeft = 0;
+            SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
+            Projectile.timeLeft = 0;
         }
 
     }

@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class TrueHallowedPrism : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Hallow Prism");
-			Description.SetDefault("Summons a holy prism to fight for you");
+			// DisplayName.SetDefault("True Hallow Prism");
+			// Description.SetDefault("Summons a holy prism to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("TrueHallowedPrism")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("TrueHallowedPrism").Type] > 0)
 			{
 				modPlayer.TrueHallowedPrism = true;
 			}

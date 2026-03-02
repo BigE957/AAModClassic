@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -7,27 +8,27 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Bug Swatter");
-			Tooltip.SetDefault(@"Does extra damage to creepy crawlies");
+			// DisplayName.SetDefault("Bug Swatter");
+			// Tooltip.SetDefault(@"Does extra damage to creepy crawlies");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 30;
-			item.melee = true;
-			item.width = 64;
-			item.height = 64;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.knockBack = 2;
-			item.value = Item.sellPrice (0, 1, 0, 0);
-			item.rare = 3;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 64;
+			Item.height = 64;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 1;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice (0, 1, 0, 0);
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.type == NPCID.Bee
                 || target.type == NPCID.BeeSmall
@@ -56,11 +57,11 @@ namespace AAMod.Items.Melee
                 || target.type == NPCID.BlackRecluse
                 || target.type == NPCID.BlackRecluseWall)
             {
-                item.damage = damage * 3;
+                Item.damage = damage * 3;
             }
             else
             {
-                item.damage = 30;
+                Item.damage = 30;
             }
         }
 	}

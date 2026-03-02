@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -9,41 +10,40 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doomite Holobow");
+            // DisplayName.SetDefault("Doomite Holobow");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 28;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 20;
-            item.height = 64;
-            item.useTime = 23;
-            item.useAnimation = 23;
-            item.useStyle = 5;
-            item.shoot = 1;
-            item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 0, 60, 0);
-            item.rare = 3;
-            item.UseSound = SoundID.Item12;
-            item.autoReuse = true;
-            item.shootSpeed = 40f;
-            item.crit = 0;
+            Item.damage = 28;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 20;
+            Item.height = 64;
+            Item.useTime = 23;
+            Item.useAnimation = 23;
+            Item.useStyle = 5;
+            Item.shoot = 1;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 0, 60, 0);
+            Item.rare = 3;
+            Item.UseSound = SoundID.Item12;
+            Item.autoReuse = true;
+            Item.shootSpeed = 40f;
+            Item.crit = 0;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Doomite", 8);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<Projectiles.HoloArrow>(), item.damage, knockBack, player.whoAmI);
+            Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<Projectiles.HoloArrow>(), Item.damage, knockBack, player.whoAmI);
             return false;
         }
     }

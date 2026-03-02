@@ -8,29 +8,29 @@ namespace AAMod.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mudkip");
-            Main.projFrames[projectile.type] = 11;
-            Main.projPet[projectile.type] = true;
+            // DisplayName.SetDefault("Mudkip");
+            Main.projFrames[Projectile.type] = 11;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BlackCat);
-            aiType = ProjectileID.BlackCat;
-            projectile.width = 36;
-            projectile.height = 38;
+            Projectile.CloneDefaults(ProjectileID.BlackCat);
+            AIType = ProjectileID.BlackCat;
+            Projectile.width = 36;
+            Projectile.height = 38;
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             player.blackCat = false;
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             if (player.dead)
             {
@@ -38,7 +38,7 @@ namespace AAMod.Items.Pets
             }
             if (modPlayer.Mudkip)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

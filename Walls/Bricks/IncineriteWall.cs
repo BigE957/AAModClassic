@@ -6,13 +6,13 @@ namespace AAMod.Walls.Bricks
 {
     public class IncineriteWall : ModWall
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            drop = mod.ItemType("IncineriteWall");
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("IncineriteWall").Type;
             AddMapEntry(new Color(40, 30, 10));
-            dustType = mod.DustType("IncineriteDust");
+            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
         }
     }
 }

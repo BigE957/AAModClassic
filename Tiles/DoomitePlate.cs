@@ -7,17 +7,17 @@ namespace AAMod.Tiles
 {
     public class DoomitePlate : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlendAll[Type] = false;
             Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;
-            dustType = mod.DustType("DoomDust");
-            drop = mod.ItemType("DoomiteScrap");
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomiteScrap").Type;
             AddMapEntry(new Color(51, 48, 61));
-            minPick = 0;
+            MinPick = 0;
         }
     }
 }

@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Projectiles.Sag
@@ -14,23 +16,23 @@ namespace AAMod.Projectiles.Sag
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.timeLeft = 320;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.damage = 0;
-            projectile.penetrate = -1;
-            projectile.minion = true;
-            projectile.minionSlots = 1;
-            projectile.ignoreWater = true;		
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.timeLeft = 320;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.damage = 0;
+            Projectile.penetrate = -1;
+            Projectile.minion = true;
+            Projectile.minionSlots = 1;
+            Projectile.ignoreWater = true;		
         }
 
 		public void SetRot()
 		{
 			float oldInit = rotInit;
-			int[] projs = BaseAI.GetProjectiles(Main.player[projectile.owner].Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
 			rotInit = projs.Length == 0 ? 0f : ((float)Math.PI * 2f / projs.Length);
 
 			if (rotInit != oldInit)
@@ -38,7 +40,7 @@ namespace AAMod.Projectiles.Sag
 				int projSlot = 0;
 				for(int m = 0; m < projs.Length; m++)
 				{
-					if (projs[m] == projectile.identity) { projSlot = m; }
+					if (projs[m] == Projectile.identity) { projSlot = m; }
 				}
 				rot = rotInit * (projSlot + 1f);
 			}
@@ -46,18 +48,18 @@ namespace AAMod.Projectiles.Sag
 
         public override void AI()
 		{
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead || !player.HasBuff(mod.BuffType("SagOrbiter"))) projectile.Kill();
+            if (player.dead || !player.HasBuff(Mod.Find<ModBuff>("SagOrbiter").Type)) Projectile.Kill();
             if (modPlayer.SagOrbiter)
             {
-				projectile.timeLeft = 2;
-				player.AddBuff(mod.BuffType("SagOrbiter"), 2, true);
+				Projectile.timeLeft = 2;
+				player.AddBuff(Mod.Find<ModBuff>("SagOrbiter").Type, 2, true);
             }
 
-            projectile.ai[0] = 30 * player.minionDamage;
+            Projectile.ai[0] = 30 * player.GetDamage(DamageClass.Summon);
 
-            Vector2 vector46 = projectile.position;
+            Vector2 vector46 = Projectile.position;
             bool flag25 = false;
             float num633 = 700f;
             int Height = 0;
@@ -66,10 +68,10 @@ namespace AAMod.Projectiles.Sag
             if (player.HasMinionAttackTargetNPC)
 			{
 				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
-                if (nPC2.CanBeChasedBy(projectile, false))
+                if (nPC2.CanBeChasedBy(Projectile, false))
                 {
-                    float num646 = Vector2.Distance(nPC2.Center, projectile.Center);
-                    if (((Vector2.Distance(projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
+                    if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                     {
                         num633 = num646;
                         vector46 = nPC2.position;
@@ -84,10 +86,10 @@ namespace AAMod.Projectiles.Sag
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
-                    if (nPC2.CanBeChasedBy(projectile, false))
+                    if (nPC2.CanBeChasedBy(Projectile, false))
                     {
-                        float num646 = Vector2.Distance(nPC2.Center, projectile.Center);
-                        if (((Vector2.Distance(projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(projectile.position, projectile.width, projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                        float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
+                        if (((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633) || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
                         {
                             num633 = num646;
                             vector46 = nPC2.position;
@@ -100,25 +102,25 @@ namespace AAMod.Projectiles.Sag
             }
             if (flag25)
             {
-                int id = BaseAI.ShootPeriodic(projectile, vector46, Width, Height, Terraria.ModLoader.ModContent.ProjectileType<Darkray>(), ref projectile.ai[1], 120, (int)projectile.ai[0], 11, true);
-                Main.projectile[id].ranged = false;
+                int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, Terraria.ModLoader.ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
+                Main.projectile[id].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Main.projectile[id].minion = true;
             }
 			
-            if (projectile.active) { SetRot(); }
-			BaseAI.AIRotate(projectile, ref projectile.rotation, ref rot, player.Center, true, 80f, 20f, 0.07f, true);
+            if (Projectile.active) { SetRot(); }
+			BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 80f, 20f, 0.07f, true);
 		}
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color dColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, 0, 0, 4, frame, dColor, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, dColor, true);
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
-			int[] projs = BaseAI.GetProjectiles(projectile.Center, projectile.type, projectile.owner, 200f);
+			int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
 		}
 	}
 }

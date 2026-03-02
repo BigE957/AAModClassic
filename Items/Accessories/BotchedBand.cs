@@ -8,24 +8,24 @@ namespace AAMod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 24;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 6;
-            item.accessory = true;
+            Item.width = 32;
+            Item.height = 24;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 6;
+            Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.moveSpeed += .1f;
-            player.allDamage += .1f;
+            player.GetDamage(DamageClass.Generic) += .1f;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Botched Band");
-            Tooltip.SetDefault(
-@"10% Increased movement speed and damage");
+            // DisplayName.SetDefault("Botched Band");
+            /* Tooltip.SetDefault(
+@"10% Increased movement speed and damage"); */
         }
 
     }

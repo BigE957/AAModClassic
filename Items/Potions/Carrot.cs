@@ -7,28 +7,28 @@ namespace AAMod.Items.Potions
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Carrot");
-			Tooltip.SetDefault("Good for your eyesight");
+			// DisplayName.SetDefault("Carrot");
+			// Tooltip.SetDefault("Good for your eyesight");
 		}
 		
 		public override void SetDefaults()
 		{
-            item.UseSound = SoundID.Item2;
-            item.useStyle = 2;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 15;
-			item.maxStack = 30;
-			item.consumable = true;
-			item.width = 16;
-			item.height = 16;
-			item.value = Item.sellPrice(0, 1, 0, 0);
-			item.rare = 7;
-			item.buffType = BuffID.WellFed;
-			item.buffTime = 52000;
+            Item.UseSound = SoundID.Item2;
+            Item.useStyle = 2;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 15;
+			Item.maxStack = 30;
+			Item.consumable = true;
+			Item.width = 16;
+			Item.height = 16;
+			Item.value = Item.sellPrice(0, 1, 0, 0);
+			Item.rare = 7;
+			Item.buffType = BuffID.WellFed;
+			Item.buffTime = 52000;
 		}
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             player.AddBuff(BuffID.NightOwl, 52000);
             return base.UseItem(player);

@@ -8,35 +8,34 @@ namespace AAMod.Items.Melee
     {
         public override void SetDefaults()
         {
-			item.CloneDefaults(ItemID.SolarEruption);
+			Item.CloneDefaults(ItemID.SolarEruption);
 
-            item.damage = 70; 
-            item.melee = true; 
-            item.width = 46; 
-            item.height = 66;    
-            item.knockBack = 7;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 8;
-            item.autoReuse = true;
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("Ryusei");
-			item.UseSound = SoundID.Item18;
+            Item.damage = 70; 
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
+            Item.width = 46; 
+            Item.height = 66;    
+            Item.knockBack = 7;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 8;
+            Item.autoReuse = true;
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("Ryusei").Type;
+			Item.UseSound = SoundID.Item18;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ryusei");
-			Tooltip.SetDefault(@"Ignites enemies on hit with flames and Dragonfire");
+			// DisplayName.SetDefault("Ryusei");
+			// Tooltip.SetDefault(@"Ignites enemies on hit with flames and Dragonfire");
 		}
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("Yogan"));
-            recipe.AddIngredient(mod.ItemType("HeroShards"));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("Yogan").Type);
+            recipe.AddIngredient(Mod.Find<ModItem>("HeroShards").Type);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

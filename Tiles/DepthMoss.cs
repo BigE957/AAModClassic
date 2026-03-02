@@ -10,38 +10,38 @@ namespace AAMod.Tiles
     {
         public static int _type;
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            SetModTree(new BogwoodTree());
+            SetModTree(new BogwoodTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             TileID.Sets.Conversion.Grass[Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            dustType = mod.DustType("AbyssiumDust");
-            soundType = 21;
-            minPick = 65;
+            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            HitSound = 21;
+            MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));
-            drop = ModContent.ItemType<Items.Blocks.Depthstone>();
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Blocks.Depthstone>();
         }
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(500) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
             {
-                PlaceObject(i, j - 1, mod.TileType("Darkshroom"));
-                NetMessage.SendObjectPlacment(-1, i, j - 1, mod.TileType("Darkshroom"), 0, 0, -1, -1);
+                PlaceObject(i, j - 1, Mod.Find<ModTile>("Darkshroom").Type);
+                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Darkshroom").Type, 0, 0, -1, -1);
 
             }
-            if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(40) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(40) == 0)
             {
-                if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(20) == 0)
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(20) == 0)
                 {
                     int style = Main.rand.Next(23);
                     if (PlaceObject(i, j - 1, MireFoliage._type, false, style))
-                        NetMessage.SendObjectPlacment(-1, i, j - 1, MireFoliage._type, style, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, MireFoliage._type, style, 0, -1, -1);
                 }
             }
         }
@@ -60,10 +60,10 @@ namespace AAMod.Tiles
             return false;
         }
 
-        public override int SaplingGrowthType(ref int style)
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return mod.TileType("BogwoodSapling");
+            return Mod.Find<ModTile>("BogwoodSapling").Type;
         }
     }
 }

@@ -7,9 +7,9 @@ namespace AAMod.Tiles.Bars
 {
     public class OrderBar : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            soundType = 21;
+            HitSound = 21;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;
@@ -21,10 +21,10 @@ namespace AAMod.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
             
-            dustType = 107;
-            drop = mod.ItemType("OrderBar");   
+            DustType = 107;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("OrderBar").Type;   
             AddMapEntry(new Color(0, 200, 0));
-			minPick = 0;
+			MinPick = 0;
         }
     }
 }

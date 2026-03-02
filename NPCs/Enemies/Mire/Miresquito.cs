@@ -10,59 +10,59 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Miresquito");
-			Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Miresquito");
+			Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-            npc.aiStyle = 1;
-            npc.noGravity = true;
-            npc.noTileCollide = false;
-            npc.width = 64;
-			npc.height = 64;
-			npc.damage = 70;
-			npc.defense = 10;
-			npc.lifeMax = 300;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 6000f;
-            npc.lavaImmune = false;
-            npc.knockBackResist = 0.5f;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MiresquitoBanner");
+            NPC.aiStyle = 1;
+            NPC.noGravity = true;
+            NPC.noTileCollide = false;
+            NPC.width = 64;
+			NPC.height = 64;
+			NPC.damage = 70;
+			NPC.defense = 10;
+			NPC.lifeMax = 300;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 6000f;
+            NPC.lavaImmune = false;
+            NPC.knockBackResist = 0.5f;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MiresquitoBanner").Type;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.frameCounter++ > 7)
+            if (NPC.frameCounter++ > 7)
             {
-                npc.frame.Y += 60;
-                npc.frameCounter = 0;
-                if (npc.frame.Y >= 240)
+                NPC.frame.Y += 60;
+                NPC.frameCounter = 0;
+                if (NPC.frame.Y >= 240)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
         public override void AI()
         {
-            BaseAI.AIFlier(npc, ref npc.ai, false, 0.2f, 0.1f, 3, 2.5f, true, 250);
-            npc.rotation = npc.velocity.X * 0.05f;
-            if (npc.velocity.X > 0)
+            BaseAI.AIFlier(NPC, ref NPC.ai, false, 0.2f, 0.1f, 3, 2.5f, true, 250);
+            NPC.rotation = NPC.velocity.X * 0.05f;
+            if (NPC.velocity.X > 0)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
             else
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
 		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HydraToxin"), Main.rand.Next(1,2));
+			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraToxin").Type, Main.rand.Next(1,2));
         }
 	}
 }

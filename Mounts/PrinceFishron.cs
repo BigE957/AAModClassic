@@ -5,62 +5,62 @@ using Terraria.ModLoader;
 
 namespace AAMod.Mounts
 {
-	public class PrinceFishron : ModMountData
+	public class PrinceFishron : ModMount
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			mountData.spawnDust = 15;
-			mountData.buff = mod.BuffType("PrinceFishron");
-			mountData.heightBoost = 14;
-			mountData.flightTimeMax = int.MaxValue;
-			mountData.fatigueMax = int.MaxValue;
-			mountData.fallDamage = 0f;
-			mountData.usesHover = true;
-			mountData.runSpeed = 2f;
-			mountData.dashSpeed = 1f;
-			mountData.acceleration = 0.2f;
-			mountData.jumpHeight = 4;
-			mountData.jumpSpeed = 3f;
-			mountData.swimSpeed = 24f;
-			mountData.blockExtraJumps = true;
-			mountData.totalFrames = 23;
-			int[] array = new int[mountData.totalFrames];
+			MountData.spawnDust = 15;
+			MountData.buff = Mod.Find<ModBuff>("PrinceFishron").Type;
+			MountData.heightBoost = 14;
+			MountData.flightTimeMax = int.MaxValue;
+			MountData.fatigueMax = int.MaxValue;
+			MountData.fallDamage = 0f;
+			MountData.usesHover = true;
+			MountData.runSpeed = 2f;
+			MountData.dashSpeed = 1f;
+			MountData.acceleration = 0.2f;
+			MountData.jumpHeight = 4;
+			MountData.jumpSpeed = 3f;
+			MountData.swimSpeed = 24f;
+			MountData.blockExtraJumps = true;
+			MountData.totalFrames = 23;
+			int[] array = new int[MountData.totalFrames];
 			for (int num8 = 0; num8 < array.Length; num8++)
 			{
 				array[num8] = 12;
 			}
-			mountData.playerYOffsets = array;
-			mountData.xOffset = 2;
-			mountData.bodyFrame = 3;
-			mountData.yOffset = 16;
-			mountData.playerHeadOffset = 31;
-			mountData.standingFrameCount = 1;
-			mountData.standingFrameDelay = 12;
-			mountData.standingFrameStart = 8;
-			mountData.runningFrameCount = 7;
-			mountData.runningFrameDelay = 14;
-			mountData.runningFrameStart = 8;
-			mountData.flyingFrameCount = 8;
-			mountData.flyingFrameDelay = 16;
-			mountData.flyingFrameStart = 0;
-			mountData.inAirFrameCount = 8;
-			mountData.inAirFrameDelay = 6;
-			mountData.inAirFrameStart = 0;
-			mountData.idleFrameCount = 0;
-			mountData.idleFrameDelay = 0;
-			mountData.idleFrameStart = 0;
-			mountData.idleFrameLoop = false;
-			mountData.swimFrameCount = 8;
-			mountData.swimFrameDelay = 4;
-			mountData.swimFrameStart = 15;
+			MountData.playerYOffsets = array;
+			MountData.xOffset = 2;
+			MountData.bodyFrame = 3;
+			MountData.yOffset = 16;
+			MountData.playerHeadOffset = 31;
+			MountData.standingFrameCount = 1;
+			MountData.standingFrameDelay = 12;
+			MountData.standingFrameStart = 8;
+			MountData.runningFrameCount = 7;
+			MountData.runningFrameDelay = 14;
+			MountData.runningFrameStart = 8;
+			MountData.flyingFrameCount = 8;
+			MountData.flyingFrameDelay = 16;
+			MountData.flyingFrameStart = 0;
+			MountData.inAirFrameCount = 8;
+			MountData.inAirFrameDelay = 6;
+			MountData.inAirFrameStart = 0;
+			MountData.idleFrameCount = 0;
+			MountData.idleFrameDelay = 0;
+			MountData.idleFrameStart = 0;
+			MountData.idleFrameLoop = false;
+			MountData.swimFrameCount = 8;
+			MountData.swimFrameDelay = 4;
+			MountData.swimFrameStart = 15;
 			if (Main.netMode != 2)
 			{
-				mountData.backTexture = mod.GetTexture("Mounts/PrinceFishron");
-				mountData.backTextureGlow = mod.GetTexture("Mounts/PrinceFishron_Glow");
-				mountData.frontTexture = null;
-				mountData.frontTextureExtra = null;
-				mountData.textureWidth = mountData.backTexture.Width;
-				mountData.textureHeight = mountData.backTexture.Height;
+				MountData.backTexture = Mod.GetTexture("Mounts/PrinceFishron");
+				MountData.backTextureGlow = Mod.GetTexture("Mounts/PrinceFishron_Glow");
+				MountData.frontTexture = null;
+				MountData.frontTextureExtra = null;
+				MountData.textureWidth = MountData.backTexture.Width;
+				MountData.textureHeight = MountData.backTexture.Height;
 			}
 		}
 		
@@ -68,11 +68,11 @@ namespace AAMod.Mounts
 		{
 			if (state == 4)
 			{
-				mountData.runSpeed = mountData.swimSpeed;
+				MountData.runSpeed = MountData.swimSpeed;
 			}
 			if (state == 2)
 			{
-				mountData.runSpeed = 13f;
+				MountData.runSpeed = 13f;
 			}
 			return true;
 		}

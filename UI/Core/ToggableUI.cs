@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.UI;
 
@@ -22,7 +23,7 @@ namespace AAMod.UI.Core
             userInterface.ResetLasts();
             userInterface.SetState(Visible ? state : null);
 
-            Main.PlaySound(SoundID.MenuOpen);
+            SoundEngine.PlaySound(SoundID.MenuOpen);
         }
     }
 }

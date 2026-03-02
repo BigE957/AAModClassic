@@ -9,17 +9,17 @@ namespace AAMod.Items.Currency
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pirate's Booty");
-            Tooltip.SetDefault("An exceedingly well-crafted gold coin");
+            // DisplayName.SetDefault("Pirate's Booty");
+            // Tooltip.SetDefault("An exceedingly well-crafted gold coin");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 4;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 4;
         }
     }
     public class PBooty : CustomCurrencySingleCoin

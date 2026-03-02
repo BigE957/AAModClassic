@@ -9,19 +9,19 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fireball");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Fireball");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void PostAI()
         {
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
@@ -33,26 +33,26 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 40;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.hostile = true;
-            projectile.timeLeft = 60;
-            projectile.aiStyle = -1;
-            cooldownSlot = 1;
-            projectile.extraUpdates = 1;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.hostile = true;
+            Projectile.timeLeft = 60;
+            Projectile.aiStyle = -1;
+            CooldownSlot = 1;
+            Projectile.extraUpdates = 1;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (Main.netMode != 1)
             {
-                Vector2 vel = Vector2.Normalize(projectile.velocity) * 5;
+                Vector2 vel = Vector2.Normalize(Projectile.velocity) * 5;
                 for (int i = 0; i < 6; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 3);
-                    Projectile.NewProjectile(projectile.Center, vel, ModContent.ProjectileType<AkumaABomb>(), projectile.damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.Center, vel, ModContent.ProjectileType<AkumaABomb>(), Projectile.damage, 0f, Main.myPlayer);
                 }
             }
         }

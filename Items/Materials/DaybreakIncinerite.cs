@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Materials
@@ -6,32 +7,31 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Daybreak Incinerite");
-            Tooltip.SetDefault("Bright as the radiant sun");
+            // DisplayName.SetDefault("Daybreak Incinerite");
+            // Tooltip.SetDefault("Bright as the radiant sun");
         }
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 24;
-			item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 11;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("DaybreakIncineriteBar");
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            Item.width = 30;
+            Item.height = 24;
+			Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 11;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("DaybreakIncineriteBar").Type;
+            Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
         public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncineriteOre", 5);
             recipe.AddIngredient(null, "RadiantIncinerite", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

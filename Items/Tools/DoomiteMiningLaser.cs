@@ -9,40 +9,39 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Doomite Mining Laser");
-            BaseUtility.AddTooltips(item, new string[] { "Mines with an antimatter laser" });			
+			// DisplayName.SetDefault("Doomite Mining Laser");
+            BaseUtility.AddTooltips(Item, new string[] { "Mines with an antimatter laser" });			
 		}		
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 25;
-            item.useTime = 15;
-            item.shootSpeed = 36f;
-            item.knockBack = 1f;
-            item.width = 20;
-            item.height = 12;
-            item.damage = 10;
-            item.pick = 100;
-            item.axe = 30;
-            item.UseSound = SoundID.Item23;
-            item.shoot = mod.ProjectileType("MiningLaser");
-            item.rare = 4;
-            item.value = Item.sellPrice(0, 0, 54, 0);
-            item.tileBoost = 2;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.melee = true;
-            item.channel = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 25;
+            Item.useTime = 15;
+            Item.shootSpeed = 36f;
+            Item.knockBack = 1f;
+            Item.width = 20;
+            Item.height = 12;
+            Item.damage = 10;
+            Item.pick = 100;
+            Item.axe = 30;
+            Item.UseSound = SoundID.Item23;
+            Item.shoot = Mod.Find<ModProjectile>("MiningLaser").Type;
+            Item.rare = 4;
+            Item.value = Item.sellPrice(0, 0, 54, 0);
+            Item.tileBoost = 2;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.channel = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddItem(null, "Doomite", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override bool CanUseItem(Player player)
@@ -50,7 +49,7 @@ namespace AAMod.Items.Tools
             for (int m = 0; m < Main.projectile.Length; m++)
             {
                 Projectile p = Main.projectile[m];
-                if (p != null && p.active && p.owner == player.whoAmI && p.type == item.shoot)
+                if (p != null && p.active && p.owner == player.whoAmI && p.type == Item.shoot)
                 {
                     return false;
                 }

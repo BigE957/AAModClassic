@@ -9,20 +9,20 @@ namespace AAMod.Items.Armor.Assassin
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Midnight Assassin's Boots");
-			Tooltip.SetDefault(@"15% increased ranged/melee damage
+			// DisplayName.SetDefault("Midnight Assassin's Boots");
+			/* Tooltip.SetDefault(@"15% increased ranged/melee damage
 15% increased movement speed
 8% increased melee speed
-Dark boots infused with the shadow of midnight");
+Dark boots infused with the shadow of midnight"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 16;
-			item.value = 300000;
-			item.defense = 20;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 16;
+			Item.value = 300000;
+			Item.defense = 20;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -30,19 +30,19 @@ Dark boots infused with the shadow of midnight");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-            player.meleeDamage += .15f;
-            player.rangedDamage += .15f;
+            player.GetDamage(DamageClass.Melee) += .15f;
+            player.GetDamage(DamageClass.Ranged) += .15f;
             player.moveSpeed += .15f;
-            player.meleeSpeed += .08f;
+            player.GetAttackSpeed(DamageClass.Melee) += .08f;
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.15f;
 		}
     }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,39 +13,39 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Cursed Sickle");
-            Tooltip.SetDefault(@"Spins a cursed scythe around you that shreds through enemies
-Left click to swing the scythe");			
+            // DisplayName.SetDefault("Cursed Sickle");
+            /* Tooltip.SetDefault(@"Spins a cursed scythe around you that shreds through enemies
+Left click to swing the scythe"); */			
 		}
 
 		public override void SetDefaults()
 		{
-            item.width = 40;
-            item.height = 40;
-            item.maxStack = 1;
-            item.rare = 9;
-            item.value = BaseUtility.CalcValue(0, 5, 0, 0);
-            item.UseSound = SoundID.Item71;
-            item.useStyle = 1;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.damage = 130;
-            item.knockBack = 4;
-			item.noMelee = true;
-			item.noUseGraphic = true;
-			item.autoReuse = true;
-            item.shoot = mod.ProjectileType("CursedSickle");
-            item.shootSpeed = 0.1f;
-            item.melee = true;
+            Item.width = 40;
+            Item.height = 40;
+            Item.maxStack = 1;
+            Item.rare = 9;
+            Item.value = BaseUtility.CalcValue(0, 5, 0, 0);
+            Item.UseSound = SoundID.Item71;
+            Item.useStyle = 1;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.damage = 130;
+            Item.knockBack = 4;
+			Item.noMelee = true;
+			Item.noUseGraphic = true;
+			Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("CursedSickle").Type;
+            Item.shootSpeed = 0.1f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(29, 109, 124);
+                    line2.OverrideColor = new Color(29, 109, 124);
                 }
             }
         }
@@ -59,22 +60,22 @@ Left click to swing the scythe");
 
             if (player.altFunctionUse == 2)
             {
-                item.noMelee = false;
-                item.noUseGraphic = false;
-                item.shoot = mod.ProjectileType("CursedSickleProj");
-                item.shootSpeed = 7f;
+                Item.noMelee = false;
+                Item.noUseGraphic = false;
+                Item.shoot = Mod.Find<ModProjectile>("CursedSickleProj").Type;
+                Item.shootSpeed = 7f;
             }
             else
             {
-                item.noMelee = true;
-                item.noUseGraphic = true;
-                item.shoot = mod.ProjectileType("CursedSickle");
-                item.shootSpeed = 0.1f;
+                Item.noMelee = true;
+                Item.noUseGraphic = true;
+                Item.shoot = Mod.Find<ModProjectile>("CursedSickle").Type;
+                Item.shootSpeed = 0.1f;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
@@ -82,7 +83,7 @@ Left click to swing the scythe");
             }
             for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, mod.ProjectileType("CursedSickleEffect"), damage, knockBack, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CursedSickleEffect").Type, damage, knockBack, player.whoAmI, k, 0f);
 			}
 			return true;
 		}

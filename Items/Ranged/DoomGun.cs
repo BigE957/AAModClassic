@@ -1,6 +1,8 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -10,27 +12,27 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
 
-            item.autoReuse = true;
-            item.useStyle = 5;
-            item.useAnimation = 22;
-            item.useTime = 22;
-            item.width = 24;
-            item.height = 28;
-            item.UseSound = SoundID.Item12;
-            item.knockBack = 0.75f;
-            item.damage = 20;
-            item.shootSpeed = 25f;
-            item.noMelee = true;
-            item.scale = 0.8f;
-            item.rare = 1;
-            item.ranged = true;
-            item.value = 2000;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Darkray>();
+            Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 22;
+            Item.useTime = 22;
+            Item.width = 24;
+            Item.height = 28;
+            Item.UseSound = SoundID.Item12;
+            Item.knockBack = 0.75f;
+            Item.damage = 20;
+            Item.shootSpeed = 25f;
+            Item.noMelee = true;
+            Item.scale = 0.8f;
+            Item.rare = 1;
+            Item.DamageType = DamageClass.Ranged;
+            Item.value = 2000;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Darkray>();
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doom Pistol");
+            // DisplayName.SetDefault("Doom Pistol");
         }
 
 		public override Vector2? HoldoutOffset()
@@ -38,7 +40,7 @@ namespace AAMod.Items.Ranged
             return new Vector2(-4, 0);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))

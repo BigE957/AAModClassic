@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,29 +10,29 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Bubbleshot");
+            // DisplayName.SetDefault("Bubbleshot");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 29;
-			item.ranged = true;
-			item.width = 42;
-			item.height = 20;
-			item.useTime = 5;
-			item.useAnimation = 13;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 3;
-			item.value = 50000;
-			item.rare = 5;
-			item.UseSound = SoundID.Item85;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("Bubble");
-			item.shootSpeed = 4f;
+			Item.damage = 29;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 42;
+			Item.height = 20;
+			Item.useTime = 5;
+			Item.useAnimation = 13;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 3;
+			Item.value = 50000;
+			Item.rare = 5;
+			Item.UseSound = SoundID.Item85;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("Bubble").Type;
+			Item.shootSpeed = 4f;
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))

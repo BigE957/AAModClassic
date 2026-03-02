@@ -11,28 +11,28 @@ namespace AAMod.Items.Melee   //where is located
     {
         public override void SetDefaults()
         {
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-            item.damage = 350;
-            item.melee = true;           
-            item.width = 56;              
-            item.height = 56;          
-            item.knockBack = 6;
-            item.value = 300000;
-            item.autoReuse = true;   
-            item.useTurn = false;
-            item.expert = true; item.expertOnly = true;
-            item.useAnimation = 17;
-            item.useTime = 17;
-            item.shootSpeed = 5;
-            item.shoot = mod.ProjectileType("ChaosScythe");
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+            Item.damage = 350;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;           
+            Item.width = 56;              
+            Item.height = 56;          
+            Item.knockBack = 6;
+            Item.value = 300000;
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+            Item.expert = true; Item.expertOnly = true;
+            Item.useAnimation = 17;
+            Item.useTime = 17;
+            Item.shootSpeed = 5;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosScythe").Type;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Final Chaos");
-            Tooltip.SetDefault(@"'I CAN DO ANYTHING'
-Legendary Weapon");
+            // DisplayName.SetDefault("Final Chaos");
+            /* Tooltip.SetDefault(@"'I CAN DO ANYTHING'
+Legendary Weapon"); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -42,23 +42,22 @@ Legendary Weapon");
             Color color1 = Color.Lerp(new Color(85, 145, 93), new Color(64, 61, 99), Pie);
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = color1;
+                    line2.OverrideColor = color1;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DeathSickle, 1);
             recipe.AddIngredient(ItemID.IceSickle, 1);
             recipe.AddIngredient(ItemID.Sickle, 1); ;
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

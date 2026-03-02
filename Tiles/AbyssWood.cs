@@ -8,15 +8,15 @@ namespace AAMod.Tiles
     {
 
         public bool glow = true; 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = false;
-            Main.tileMerge[Type][mod.TileType("AbyssLeaves")] = true;
-            Main.tileMerge[Type][mod.TileType("AbyssWoodSolid")] = true;
-            soundType = 21;
-            dustType = ModContent.DustType<Dusts.AbyssDust>();
+            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssLeaves").Type] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWoodSolid").Type] = true;
+            HitSound = 21;
+            DustType = ModContent.DustType<Dusts.AbyssDust>();
             AddMapEntry(new Color(52, 0, 200));
         }
 

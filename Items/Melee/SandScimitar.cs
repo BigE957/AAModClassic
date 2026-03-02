@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,33 +8,32 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sand Scimitar");
+			// DisplayName.SetDefault("Sand Scimitar");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 10;
-			item.melee = true;
-			item.width = 30;
-			item.height = 35;
-			item.useTime = 24;
-			item.useAnimation = 24;
-			item.useStyle = 1;
-			item.knockBack = 2;
-			item.value = 3000;
-			item.rare = 1;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 10;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 30;
+			Item.height = 35;
+			Item.useTime = 24;
+			Item.useAnimation = 24;
+			Item.useStyle = 1;
+			Item.knockBack = 2;
+			Item.value = 3000;
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Sandstone, 30);
 			recipe.AddIngredient(ItemID.Ruby, 1);
 			recipe.AddIngredient(ItemID.Sapphire, 1);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

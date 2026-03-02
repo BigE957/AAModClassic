@@ -1,5 +1,6 @@
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -9,13 +10,13 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Silencer");
-            Tooltip.SetDefault(@"Fires Shadow bolts
+            // DisplayName.SetDefault("The Silencer");
+            /* Tooltip.SetDefault(@"Fires Shadow bolts
 Doesn't require ammo
-Cat's Eye Rifle EX");
+Cat's Eye Rifle EX"); */
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -27,22 +28,22 @@ Cat's Eye Rifle EX");
 
         public override void SetDefaults()
         {
-            item.damage = 1750; 
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 86; 
-            item.height = 22; 
-            item.useTime = 30; 
-            item.useAnimation = 30;  
-            item.useStyle = 5; 
-            item.shoot = mod.ProjectileType("CatsEye");
-            item.knockBack = 12; 
-            item.value = Item.sellPrice(3, 0, 0, 0);
-            item.autoReuse = true; 
-            item.shootSpeed = 25f; 
-            item.crit = 5;
-            item.expert = true; item.expertOnly = true;
-            item.rare = 10;
+            Item.damage = 1750; 
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 86; 
+            Item.height = 22; 
+            Item.useTime = 30; 
+            Item.useAnimation = 30;  
+            Item.useStyle = 5; 
+            Item.shoot = Mod.Find<ModProjectile>("CatsEye").Type;
+            Item.knockBack = 12; 
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.autoReuse = true; 
+            Item.shootSpeed = 25f; 
+            Item.crit = 5;
+            Item.expert = true; Item.expertOnly = true;
+            Item.rare = 10;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -57,16 +58,14 @@ Cat's Eye Rifle EX");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "CatsEyeRifle");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.SetResult(this);
-            recipe.AddRecipe(); 
-            recipe = new ModRecipe(mod);
+            recipe.Register(); 
+            recipe = CreateRecipe();
             recipe.AddIngredient(null, "ArchwitchStaff");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

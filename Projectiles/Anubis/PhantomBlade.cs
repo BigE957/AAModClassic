@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Anubis
@@ -10,39 +11,39 @@ namespace AAMod.Projectiles.Anubis
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantom Blade");
+            // DisplayName.SetDefault("Phantom Blade");
         }
 
         public override void SetDefaults()
         {
-			projectile.aiStyle = -1;
-            projectile.width = 50;
-            projectile.height = 50;
-            projectile.friendly = true;
-            projectile.melee = true;
-            projectile.penetrate = -1;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 6;
-			projectile.alpha = 100;
-			projectile.tileCollide = false;
+			Projectile.aiStyle = -1;
+            Projectile.width = 50;
+            Projectile.height = 50;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 6;
+			Projectile.alpha = 100;
+			Projectile.tileCollide = false;
         }
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			BaseAI.TileCollideBoomerang(projectile, ref projectile.velocity, false);
+			BaseAI.TileCollideBoomerang(Projectile, ref Projectile.velocity, false);
 			return false;
 		}
 
         public override void AI()
         {
-            Player p = Main.player[projectile.owner];
-            BaseAI.AIBoomerang(projectile, ref projectile.ai, p.position, p.width, p.height, true, 28f, 45, 1.2f, .5f, false);
+            Player p = Main.player[Projectile.owner];
+            BaseAI.AIBoomerang(Projectile, ref Projectile.ai, p.position, p.width, p.height, true, 28f, 45, 1.2f, .5f, false);
         }
 		
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame, lightColor, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, lightColor, true);
             return false;
         }
     }

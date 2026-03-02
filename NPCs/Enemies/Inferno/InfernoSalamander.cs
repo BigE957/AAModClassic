@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,32 +13,32 @@ namespace AAMod.NPCs.Enemies.Inferno
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Singemander");
+            // DisplayName.SetDefault("Singemander");
 
-            Main.npcFrameCount[npc.type] = 5;
+            Main.npcFrameCount[NPC.type] = 5;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 100;   //boss life
-            npc.damage = 14;  //boss damage
-            npc.defense = 14;    //boss defense
-            npc.knockBackResist = 1f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            npc.value = Item.sellPrice(0, 0, 6, 45);
-            npc.aiStyle = 3;
-            aiType = NPCID.GoblinScout;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.width = 104;
-            npc.height = 28;
-            npc.npcSlots = 1f;
-            npc.lavaImmune = true;
-            npc.noGravity = false;
-            npc.noTileCollide = false;
-            npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("InfernoSalamanderBanner");
+            NPC.lifeMax = 100;   //boss life
+            NPC.damage = 14;  //boss damage
+            NPC.defense = 14;    //boss defense
+            NPC.knockBackResist = 1f;   //this boss will behavior like the DemonEye  //boss frame/animation 
+            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.aiStyle = 3;
+            AIType = NPCID.GoblinScout;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.width = 104;
+            NPC.height = 28;
+            NPC.npcSlots = 1f;
+            NPC.lavaImmune = true;
+            NPC.noGravity = false;
+            NPC.noTileCollide = false;
+            NPC.lavaImmune = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("InfernoSalamanderBanner").Type;
 
         }
 
@@ -46,50 +47,50 @@ namespace AAMod.NPCs.Enemies.Inferno
         private int biteCounter;
         private int biteTimer;
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore4"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ISGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore4"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ISGore1"), 1f);
             }
         }
 
         public override void AI()
         {
-            Player player = Main.player[npc.target];
-            Lighting.AddLight(npc.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Player player = Main.player[NPC.target];
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
             if (biteAttack == false)
             {
-                npc.frameCounter++;
-                if (npc.frameCounter >= 10)
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += 28;
-                    if (npc.frame.Y > 112)
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 28;
+                    if (NPC.frame.Y > 112)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
             else
             {
-                npc.frameCounter = 0;
-                npc.frame.Y = 0;
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
             }
-            if (npc.velocity.X > 0) // so it faces the player
+            if (NPC.velocity.X > 0) // so it faces the player
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
             else
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
             if (biteAttack == true)
             {
@@ -104,7 +105,7 @@ namespace AAMod.NPCs.Enemies.Inferno
                     biteFrame = 0;
                 }
             }
-            float distance = npc.Distance(Main.player[npc.target].Center);
+            float distance = NPC.Distance(Main.player[NPC.target].Center);
             if (distance <= 50) // so it only bites when the player is right next to it
             {
                 if (biteAttack == false) // so it doesnt bite while its currently biting, and if its doing the tongue attack
@@ -115,8 +116,8 @@ namespace AAMod.NPCs.Enemies.Inferno
             if (biteAttack == true)
             {
                 biteTimer++;
-                npc.aiStyle = 0; // so the dude doesnt spaz right and left when not moving
-                npc.velocity.X = 0; // stops the dude from moving right or left
+                NPC.aiStyle = 0; // so the dude doesnt spaz right and left when not moving
+                NPC.velocity.X = 0; // stops the dude from moving right or left
                 if (biteTimer >= 30) // when 30 frames have gone by, reset all those values
                 {
                     biteAttack = false;
@@ -127,31 +128,31 @@ namespace AAMod.NPCs.Enemies.Inferno
             }
             if (biteAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
-                npc.aiStyle = 3;
+                NPC.aiStyle = 3;
             }
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = Main.npcTexture[npc.type];
-            Texture2D biteAni = mod.GetTexture("NPCs/Enemies/Inferno/InfernoSalamander_Nom");
-            var effects = npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            Texture2D biteAni = Mod.GetTexture("NPCs/Enemies/Inferno/InfernoSalamander_Nom");
+            var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (biteAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
-                spriteBatch.Draw(texture, npc.Center - Main.screenPosition, npc.frame, drawColor, npc.rotation, npc.frame.Size() / 2, npc.scale, npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             if (biteAttack == true)
             {
-                Vector2 drawCenter = new Vector2(npc.Center.X, npc.Center.Y);
+                Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = biteAni.Height / 3; // 3 is the number of frames in the sprite sheet
                 int y6 = num214 * biteFrame;
-                Main.spriteBatch.Draw(biteAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, biteAni.Width, num214)), drawColor, npc.rotation, new Vector2(biteAni.Width / 2f, num214 / 2f), npc.scale, npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(biteAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, biteAni.Width, num214)), drawColor, NPC.rotation, new Vector2(biteAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             return false;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DragonScale"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
         }
     }
 }

@@ -9,52 +9,52 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.penetrate = 1;  
-            projectile.width = 32;
-            projectile.height = 32;
-			projectile.friendly = true;
-            projectile.melee = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 900;
+            Projectile.penetrate = 1;  
+            Projectile.width = 32;
+            Projectile.height = 32;
+			Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 900;
         }
 		
 		public override void AI()
 		{
-            Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.3f / 255f, (255 - projectile.alpha) * 0.3f / 255f, (255 - projectile.alpha) * 0f / 255f);
+            Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.3f / 255f, (255 - Projectile.alpha) * 0.3f / 255f, (255 - Projectile.alpha) * 0f / 255f);
             if (Main.rand.NextFloat() < 1f)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 246, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 246, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
             if (Main.rand.NextFloat() < 1f)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 246, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 246, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
             if (Main.rand.NextFloat() < 1f)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 246, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 246, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
-            projectile.rotation += projectile.direction * 0.4f;
-            projectile.spriteDirection = projectile.direction;
+            Projectile.rotation += Projectile.direction * 0.4f;
+            Projectile.spriteDirection = Projectile.direction;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
             return AAColor.Ichor;
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 246, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 246, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flesh Beam");
+            // DisplayName.SetDefault("Flesh Beam");
         }
         
-	    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+	    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
            target.AddBuff(BuffID.Ichor, 300);
         }

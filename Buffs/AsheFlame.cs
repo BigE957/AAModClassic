@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class AsheFlame : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ashe Flame");
-			Description.SetDefault("You get the flame power of inferno");
+			// DisplayName.SetDefault("Ashe Flame");
+			// Description.SetDefault("You get the flame power of inferno");
 			Main.buffNoSave[Type] = true;
 		}
 
@@ -16,8 +16,8 @@ namespace AAMod.Buffs
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			modPlayer.AsheFlame = true;
-			player.magicDamage += .15f;
-			player.minionDamage += .15f;
+			player.GetDamage(DamageClass.Magic) += .15f;
+			player.GetDamage(DamageClass.Summon) += .15f;
 			player.statDefense += 10;
 		}
 	}

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,29 +9,29 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cosmic Carbine");
-			Tooltip.SetDefault("Uses energy cells as ammo");
+			// DisplayName.SetDefault("Cosmic Carbine");
+			// Tooltip.SetDefault("Uses energy cells as ammo");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 12;
-			item.ranged = true;
-			item.width = 54;
-			item.height = 24;
-			item.useAnimation = 17;
-			item.useTime = 17;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = 8;
-			item.UseSound = SoundID.Item12;
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 22f;
-			item.useAmmo = mod.ItemType("Energy_Cell");
-			item.crit = 5;
+			Item.damage = 12;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 54;
+			Item.height = 24;
+			Item.useAnimation = 17;
+			Item.useTime = 17;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item12;
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 22f;
+			Item.useAmmo = Mod.Find<ModItem>("Energy_Cell").Type;
+			Item.crit = 5;
 		}
 		
 		public override Vector2? HoldoutOffset()

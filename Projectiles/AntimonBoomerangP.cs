@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,39 +11,39 @@ namespace AAMod.Projectiles
 		public override void SetDefaults()
 		{
 
-			projectile.width = 18;
-			projectile.height = 40;
-			projectile.aiStyle = 3;
-			projectile.friendly = true;
-			projectile.ranged = true;
-			projectile.magic = false;
-			projectile.penetrate = 5;
-			projectile.timeLeft = 600;
-			projectile.light = 0.9f;
-			projectile.extraUpdates = 1;
+			Projectile.width = 18;
+			Projectile.height = 40;
+			Projectile.aiStyle = 3;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.penetrate = 5;
+			Projectile.timeLeft = 600;
+			Projectile.light = 0.9f;
+			Projectile.extraUpdates = 1;
 			
 			
 		}
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault("AntimonBoomerangP");
+          // DisplayName.SetDefault("AntimonBoomerangP");
         }
 
         public override void AI()
         {
-            Player p = Main.player[projectile.owner];
-            BaseAI.AIBoomerang(projectile, ref projectile.ai, p.position, p.width, p.height, true, 10f, 50, 1f, 0.75f, false);
+            Player p = Main.player[Projectile.owner];
+            BaseAI.AIBoomerang(Projectile, ref Projectile.ai, p.position, p.width, p.height, true, 10f, 50, 1f, 0.75f, false);
         }
 
         public override bool OnTileCollide(Vector2 velocityChange)
         {
             if (Main.netMode != 2)
             {
-                Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+                Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             }
-            BaseAI.TileCollideBoomerang(projectile, ref velocityChange, true);
+            BaseAI.TileCollideBoomerang(Projectile, ref velocityChange, true);
             return false;
         }
 

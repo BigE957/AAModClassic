@@ -11,27 +11,27 @@ namespace AAMod.Items.Tools
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Darkmatter Pitchet");
+			// DisplayName.SetDefault("Darkmatter Pitchet");
         }
 
 
         public override void SetDefaults()
         {
-            item.width = 48;
-            item.height = 54;
-		    item.pick = 235;
-            item.axe = 50;
-            item.tileBoost += 4;
-            item.damage = 60;
-            item.knockBack = 4;
-            item.useStyle = 1;
-            item.useTime = 5;
-            item.useAnimation = 19;
-            item.melee = true;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.UseSound = SoundID.Item1;
-            item.rare = 9;
+            Item.width = 48;
+            Item.height = 54;
+		    Item.pick = 235;
+            Item.axe = 50;
+            Item.tileBoost += 4;
+            Item.damage = 60;
+            Item.knockBack = 4;
+            Item.useStyle = 1;
+            Item.useTime = 5;
+            Item.useAnimation = 19;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.UseSound = SoundID.Item1;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -39,22 +39,22 @@ namespace AAMod.Items.Tools
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -68,12 +68,11 @@ namespace AAMod.Items.Tools
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkMatter", 20);
             recipe.AddIngredient(null, "DarkEnergy", 5);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

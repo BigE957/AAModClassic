@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +11,7 @@ namespace AAMod.Projectiles.Yamata
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 6;
+            Main.projFrames[Projectile.type] = 6;
 
         }
 
@@ -21,22 +22,22 @@ namespace AAMod.Projectiles.Yamata
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 40;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            projectile.alpha = 0;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 900;
-            projectile.friendly = true;
-            projectile.hostile = false;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.alpha = 0;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 900;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
 
         }
 
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 10;
             height = 10;
@@ -46,29 +47,29 @@ namespace AAMod.Projectiles.Yamata
 
         public override void AI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 4)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 4)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 5)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 5)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X);
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X);
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X);
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
             }
             Dust dust1;
 
-            dust1 = Main.dust[Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 46, default, 1.381579f)];
+            dust1 = Main.dust[Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 46, default, 1.381579f)];
             dust1.noGravity = true;
 
             const int aislotHomingCooldown = 0;
@@ -76,17 +77,17 @@ namespace AAMod.Projectiles.Yamata
             const float desiredFlySpeedInPixelsPerFrame = 30;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC n = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -100,13 +101,13 @@ namespace AAMod.Projectiles.Yamata
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -115,27 +116,27 @@ namespace AAMod.Projectiles.Yamata
             return selectedTarget;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 1000);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 1000);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num579 = 0; num579 < 20; num579++)
             {
-                int num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 2f;
-                num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num580].velocity *= 2f;
             }
 
             int num3;
             for (int num622 = 0; num622 < 20; num622 = num3 + 1)
             {
-                int num623 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
+                int num623 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
                 Dust dust = Main.dust[num623];
                 dust.scale *= 1.1f;
                 Main.dust[num623].noGravity = true;
@@ -143,7 +144,7 @@ namespace AAMod.Projectiles.Yamata
             }
             for (int num624 = 0; num624 < 30; num624 = num3 + 1)
             {
-                int num625 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
+                int num625 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
                 Dust dust = Main.dust[num625];
                 dust.velocity *= 2.5f;
                 dust = Main.dust[num625];
@@ -151,7 +152,7 @@ namespace AAMod.Projectiles.Yamata
                 Main.dust[num625].noGravity = true;
                 num3 = num624;
             }
-            if (projectile.owner == Main.myPlayer)
+            if (Projectile.owner == Main.myPlayer)
             {
                 int num626 = 2;
                 if (Main.rand.Next(10) == 0)
@@ -172,10 +173,10 @@ namespace AAMod.Projectiles.Yamata
                     float num629 = Main.rand.Next(-35, 36) * 0.02f;
                     num628 *= 10f;
                     num629 *= 10f;
-                    int p = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, num628, num629, ModContent.ProjectileType<YWSplit>(), projectile.damage * 3, (int)(projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
+                    int p = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<YWSplit>(), Projectile.damage * 3, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
                     num3 = num627;
-                    Main.projectile[p].melee = false;
-                    Main.projectile[p].magic = true;
+                    Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                    Main.projectile[p].DamageType = DamageClass.Magic;
                     Main.projectile[p].timeLeft = 240;
                 }
             }

@@ -4,14 +4,14 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Fragment");
+            // DisplayName.SetDefault("Madness Fragment");
         }
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 24;
-            item.maxStack = 99;
-            item.rare = 2;
+            Item.width = 16;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.rare = 2;
         }
     }
 }

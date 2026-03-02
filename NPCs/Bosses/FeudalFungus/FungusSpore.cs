@@ -35,58 +35,58 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fungal Spore");
+            // DisplayName.SetDefault("Fungal Spore");
         }
 
         public override void SetDefaults()
         {
-            npc.width = 14;
-            npc.height = 14;
-            npc.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 1;
-            npc.defense = 0;
-            npc.damage = 15;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = null;
-            npc.knockBackResist = 0f;
-            NPCID.Sets.NeedsExpertScaling[npc.type] = false;
+            NPC.width = 14;
+            NPC.height = 14;
+            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 1;
+            NPC.defense = 0;
+            NPC.damage = 15;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = null;
+            NPC.knockBackResist = 0f;
+            NPCID.Sets.NeedsExpertScaling[NPC.type] = false;
         }
 
         public override void AI()
         {
-            if (npc.ai[0] == 0 && npc.ai[1] == 0)
+            if (NPC.ai[0] == 0 && NPC.ai[1] == 0)
             {
-                npc.velocity.X = 5;
+                NPC.velocity.X = 5;
             }
-            else if (npc.ai[0] == 1 && npc.ai[1] == 0)
+            else if (NPC.ai[0] == 1 && NPC.ai[1] == 0)
             {
-                npc.velocity.X = -5;
+                NPC.velocity.X = -5;
             }
-            else if (npc.ai[0] == 2 && npc.ai[1] == 0)
+            else if (NPC.ai[0] == 2 && NPC.ai[1] == 0)
             {
-                npc.velocity.X = 4;
-                npc.velocity.Y = 2.5F;
+                NPC.velocity.X = 4;
+                NPC.velocity.Y = 2.5F;
 
             }
-            else if (npc.ai[0] == 3 && npc.ai[1] == 0)
+            else if (NPC.ai[0] == 3 && NPC.ai[1] == 0)
             {
-                npc.velocity.X = -4;
-                npc.velocity.Y = 2.5f;
+                NPC.velocity.X = -4;
+                NPC.velocity.Y = 2.5f;
             }
-            npc.ai[1] = 1;
+            NPC.ai[1] = 1;
             
-            BaseAI.AISpore(npc, ref internalAI, 0.1f, 0.02f, 5f, 1f);
+            BaseAI.AISpore(NPC, ref internalAI, 0.1f, 0.02f, 5f, 1f);
             
-            if (Collision.SolidCollision(npc.position, npc.width, npc.height))
+            if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
             {
-                npc.velocity *= .96f;
-                npc.scale -= .5f;
-                if (npc.scale <= 0)
+                NPC.velocity *= .96f;
+                NPC.scale -= .5f;
+                if (NPC.scale <= 0)
                 {
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
             }
         }

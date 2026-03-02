@@ -11,59 +11,59 @@ namespace AAMod.NPCs.Bosses.Grips
         public override void SetDefaults()
         {
 			base.SetDefaults();
-			npc.lifeMax = 1400;
-            npc.damage = 30;
-            npc.defense = 10;		
-            npc.buffImmune[BuffID.Poisoned] = true;	
+			NPC.lifeMax = 1400;
+            NPC.damage = 30;
+            NPC.defense = 10;		
+            NPC.buffImmune[BuffID.Poisoned] = true;	
 
 			offsetBasePoint = new Vector2(240f, 0f);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MireGripGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MireGripGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MireGripGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MireGripGore4"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore4"), 1f);
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            int redGripExists = NPC.CountNPCS(mod.NPCType("GripOfChaosRed"));
+            int redGripExists = NPC.CountNPCS(Mod.Find<ModNPC>("GripOfChaosRed").Type);
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GripTrophyBlue"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripTrophyBlue").Type);
             }
             if (redGripExists == 0)
             {
                 if (Main.rand.Next(4) == 0 && !Main.expertMode)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ClawBaton"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ClawBaton").Type);
                 }
 
                 AAWorld.downedGrips = true;
                 if (Main.expertMode)
                 {
-                    npc.DropBossBags();
+                    NPC.DropBossBags();
                 }
             }
             else
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GripMaskBlue"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripMaskBlue").Type);
                 }
             }
             if (!Main.expertMode)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Abyssium"), Main.rand.Next(30, 44));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(30, 44));
             }
         }
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             if (Main.rand.Next(2) == 0 || (Main.expertMode && Main.rand.Next(0) == 0))       //Chances for it to inflict the debuff
             {

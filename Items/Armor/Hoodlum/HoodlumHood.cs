@@ -11,24 +11,24 @@ namespace AAMod.Items.Armor.Hoodlum
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hopping Hoodlum Hood");
-            Tooltip.SetDefault(@"18% increased melee & minion Damage
+            // DisplayName.SetDefault("Hopping Hoodlum Hood");
+            /* Tooltip.SetDefault(@"18% increased melee & minion Damage
 Enemies are more likely to target you
-Hopping Mad.");
+Hopping Mad."); */
         }
 
         public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 24;
-			item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 8;
-            item.defense = 13;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 8;
+            Item.defense = 13;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("HoodlumShirt") && legs.type == mod.ItemType("HoodlumPants");
+			return body.type == Mod.Find<ModItem>("HoodlumShirt").Type && legs.type == Mod.Find<ModItem>("HoodlumPants").Type;
 		}
 
         public override void UpdateArmorSet(Player player)
@@ -37,25 +37,24 @@ Hopping Mad.");
             if (player.statLife <= player.statLifeMax2 * .5f)
             {
                 player.moveSpeed += .5f;
-                player.minionDamage += .5f;
-                player.meleeDamage += .5f;
+                player.GetDamage(DamageClass.Summon) += .5f;
+                player.GetDamage(DamageClass.Melee) += .5f;
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += .18f;
-            player.minionDamage += .18f;
+            player.GetDamage(DamageClass.Melee) += .18f;
+            player.GetDamage(DamageClass.Summon) += .18f;
             player.aggro += 2;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "RajahPelt", 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

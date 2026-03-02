@@ -11,31 +11,31 @@ namespace AAMod.Items.Dev
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Light");
-			Tooltip.SetDefault(@"Etheral EX");
+            // DisplayName.SetDefault("Light");
+			// Tooltip.SetDefault(@"Etheral EX");
         }
 
 	    public override void SetDefaults()
 	    {
-	        item.damage = 300;
-	        item.magic = true;
-	        item.mana = 20;
-	        item.width = 60;
-	        item.height = 26;
-	        item.useTime = 10;
-	        item.useAnimation = 10;
-	        item.reuseDelay = 5;
-	        item.useStyle = 5;
-	        item.UseSound = SoundID.Item13;
-	        item.noMelee = true;
-            item.noUseGraphic = true;
-			item.channel = true;
-	        item.knockBack = 0f;
-	        item.value = Item.sellPrice(0, 30, 0, 0);
-            item.channel = true;
-            item.shoot = mod.ProjectileType("EtheralEX");
-            item.shootSpeed = 30f;           
-            item.expert = true; item.expertOnly = true;
+	        Item.damage = 300;
+	        Item.DamageType = DamageClass.Magic;
+	        Item.mana = 20;
+	        Item.width = 60;
+	        Item.height = 26;
+	        Item.useTime = 10;
+	        Item.useAnimation = 10;
+	        Item.reuseDelay = 5;
+	        Item.useStyle = 5;
+	        Item.UseSound = SoundID.Item13;
+	        Item.noMelee = true;
+            Item.noUseGraphic = true;
+			Item.channel = true;
+	        Item.knockBack = 0f;
+	        Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.channel = true;
+            Item.shoot = Mod.Find<ModProjectile>("EtheralEX").Type;
+            Item.shootSpeed = 30f;           
+            Item.expert = true; Item.expertOnly = true;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_NONE; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -46,21 +46,20 @@ namespace AAMod.Items.Dev
 	    {
 	        foreach (TooltipLine line2 in list)
 	        {
-	            if (line2.mod == "Terraria" && line2.Name == "ItemName")
+	            if (line2.Mod == "Terraria" && line2.Name == "ItemName")
 	            {
-	                line2.overrideColor = new Color(159, 207, 190);
+	                line2.OverrideColor = new Color(159, 207, 190);
 	            }
 	        }
 	    }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Etheral");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

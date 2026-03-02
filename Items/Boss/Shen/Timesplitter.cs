@@ -10,31 +10,31 @@ namespace AAMod.Items.Boss.Shen
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Timesplitter");
-            Tooltip.SetDefault(@"It has been said that this spear was used to divide time into day and night
-Inflicts Daybroken and Moonraze");
+            // DisplayName.SetDefault("Timesplitter");
+            /* Tooltip.SetDefault(@"It has been said that this spear was used to divide time into day and night
+Inflicts Daybroken and Moonraze"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 265;
-            item.melee = true;
-            item.width = 96;
-            item.height = 96;
-            item.scale = 1.1f;
-            item.useTime = 16;
-            item.useAnimation = 16;
-            item.knockBack = 4.7f;
-            item.UseSound = SoundID.Item20;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useTurn = true;
-			item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.rare = 9;
-            item.shoot = mod.ProjectileType("TimesplitterP");  //put your Spear projectile name
-            item.shootSpeed = 9f;
+            Item.damage = 265;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 96;
+            Item.height = 96;
+            Item.scale = 1.1f;
+            Item.useTime = 16;
+            Item.useAnimation = 16;
+            Item.knockBack = 4.7f;
+            Item.UseSound = SoundID.Item20;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useTurn = true;
+			Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.rare = 9;
+            Item.shoot = Mod.Find<ModProjectile>("TimesplitterP").Type;  //put your Spear projectile name
+            Item.shootSpeed = 9f;
             AARarity = 14;
         }
 
@@ -42,28 +42,27 @@ Inflicts Daybroken and Moonraze");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "AbyssalYari");
 			recipe.AddIngredient(null, "SunSpear");
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

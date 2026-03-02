@@ -11,30 +11,30 @@ namespace AAMod.Items.Boss.Shen
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Asteroid");
-            Tooltip.SetDefault(@"Crashes into enemies with the force of an astroid crashing into earth
-Inflicts Discordian Inferno");
+            // DisplayName.SetDefault("Asteroid");
+            /* Tooltip.SetDefault(@"Crashes into enemies with the force of an astroid crashing into earth
+Inflicts Discordian Inferno"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = Item.sellPrice(1, 50, 0, 0);
-            item.rare = 9;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = Item.sellPrice(1, 50, 0, 0);
+            Item.rare = 9;
 
-            item.noMelee = true;
-            item.useStyle = 5;
-            item.useAnimation = 40;
-            item.useTime = 40;
-            item.knockBack = 7.5F;
-            item.damage = 300;
-            item.noUseGraphic = true;
-            item.shoot = mod.ProjectileType("Astroid");
-            item.shootSpeed = 32F;
-            item.UseSound = SoundID.Item20;
-            item.melee = true;
-            item.autoReuse = true;
+            Item.noMelee = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
+            Item.knockBack = 7.5F;
+            Item.damage = 300;
+            Item.noUseGraphic = true;
+            Item.shoot = Mod.Find<ModProjectile>("Astroid").Type;
+            Item.shootSpeed = 32F;
+            Item.UseSound = SoundID.Item20;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.autoReuse = true;
             AARarity = 14;
         }
 
@@ -42,23 +42,22 @@ Inflicts Discordian Inferno");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Daycrusher", 1);
             recipe.AddIngredient(null, "Flairdra", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

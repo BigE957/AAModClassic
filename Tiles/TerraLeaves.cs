@@ -8,15 +8,15 @@ namespace AAMod.Tiles
     public class TerraLeaves : ModTile
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = false;
-            Main.tileMerge[Type][mod.TileType("TerraWood")] = true;
-            soundType = 21;
+            Main.tileMerge[Type][Mod.Find<ModTile>("TerraWood").Type] = true;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            dustType = 107;
+            DustType = 107;
             AddMapEntry(new Color(100, 100, 100));
         }
 
@@ -36,9 +36,9 @@ namespace AAMod.Tiles
         {
             Tile tile = Main.tile[x, y];
             bool glow = true;
-            if (glow && tile != null && tile.active() && tile.type == Type)
+            if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = mod.GetTexture("Tiles/TerraLeaves");
+                if (glowTex == null) glowTex = Mod.GetTexture("Tiles/TerraLeaves");
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetTerra2ColorDim);
             }
         }

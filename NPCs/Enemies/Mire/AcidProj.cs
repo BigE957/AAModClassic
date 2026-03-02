@@ -10,44 +10,44 @@ namespace AAMod.NPCs.Enemies.Mire
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Acid");     
-            Main.projFrames[projectile.type] = 5;     
+            // DisplayName.SetDefault("Acid");     
+            Main.projFrames[Projectile.type] = 5;     
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;               
-			projectile.height = 14;              
-			projectile.aiStyle = 1;             
-			projectile.friendly = false;         
-			projectile.hostile = true;        
-			projectile.penetrate = 1;           
-			projectile.timeLeft = 600;          
-			projectile.alpha = 20;              
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;        
-			aiType = ProjectileID.WoodenArrowFriendly;           
+			Projectile.width = 14;               
+			Projectile.height = 14;              
+			Projectile.aiStyle = 1;             
+			Projectile.friendly = false;         
+			Projectile.hostile = true;        
+			Projectile.penetrate = 1;           
+			Projectile.timeLeft = 600;          
+			Projectile.alpha = 20;              
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;        
+			AIType = ProjectileID.WoodenArrowFriendly;           
             
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Venom, 600);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.AcidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("AcidBoom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AcidBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

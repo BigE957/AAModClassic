@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,26 +10,25 @@ namespace AAMod.Items.Armor.Oroboros
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oroboros Wood Chestplate");
+            // DisplayName.SetDefault("Oroboros Wood Chestplate");
         }
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 20;
-            item.value = 2000;
-            item.rare = 3;
-            item.defense = 4;
+            Item.width = 30;
+            Item.height = 20;
+            Item.value = 2000;
+            Item.rare = 3;
+            Item.defense = 4;
         }
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "OroborosWood", 30);
                 recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

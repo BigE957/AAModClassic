@@ -8,44 +8,43 @@ namespace AAMod.Items.Melee
     {
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Axis");
-			Tooltip.SetDefault("Enemies struck by this spear will be surrounded by snowflakes\nNorth Pole EX");
+			// DisplayName.SetDefault("Axis");
+			// Tooltip.SetDefault("Enemies struck by this spear will be surrounded by snowflakes\nNorth Pole EX");
 		}
 		
         public override void SetDefaults()
         {
-            item.damage = 250;
-            item.melee = true;
-            item.width = 64;
-            item.height = 64;
-            item.shoot = mod.ProjectileType("Axis");
-            item.useStyle = 5;
-            item.useAnimation = 30;
-			item.useTime = 30;
-			item.shootSpeed = 4.75f;
-            item.knockBack = 5f;
-            item.UseSound = SoundID.Item1;
-            item.useTurn = true;
-			item.autoReuse = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 7;
+            Item.damage = 250;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 64;
+            Item.height = 64;
+            Item.shoot = Mod.Find<ModProjectile>("Axis").Type;
+            Item.useStyle = 5;
+            Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.shootSpeed = 4.75f;
+            Item.knockBack = 5f;
+            Item.UseSound = SoundID.Item1;
+            Item.useTurn = true;
+			Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 7;
         }
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.NorthPole);
-            recipe.AddIngredient(mod.ItemType("EXSoul"));
+            recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
         public override bool CanUseItem(Player player)
         {
-            return player.ownedProjectileCounts[item.shoot] < 1;
+            return player.ownedProjectileCounts[Item.shoot] < 1;
         }
         
     }

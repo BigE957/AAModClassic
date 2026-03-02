@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Razewood
 {
     public class RazewoodCandelabra : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -18,29 +19,29 @@ namespace AAMod.Tiles.Furniture.Razewood
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Razewood Candelabra");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Razewood Candelabra");
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("RazewoodDust");
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            adjTiles = new int[]{ TileID.Candelabras };
+            AdjTiles = new int[]{ TileID.Candelabras };
 		}
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].frameX / 18) % 2;
-            int top = j - (Main.tile[i, j].frameY / 18) % 2;
+            int left = i - (Main.tile[i, j].TileFrameX / 18) % 2;
+            int top = j - (Main.tile[i, j].TileFrameY / 18) % 2;
             for (int x = left; x < left + 2; x++)
             {
                 for (int y = top; y < top + 2; y++)
                 {
 
-                    if (Main.tile[x, y].frameX >= 36)
+                    if (Main.tile[x, y].TileFrameX >= 36)
                     {
-                        Main.tile[x, y].frameX -= 36;
+                        Main.tile[x, y].TileFrameX -= 36;
                     }
                     else
                     {
-                        Main.tile[x, y].frameX += 36;
+                        Main.tile[x, y].TileFrameX += 36;
                     }
                 }
             }
@@ -61,7 +62,7 @@ namespace AAMod.Tiles.Furniture.Razewood
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 36)
+            if (tile.TileFrameX < 36)
             {
                 r = 0.9f;
                 g = 0.9f;
@@ -70,14 +71,14 @@ namespace AAMod.Tiles.Furniture.Razewood
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("RazewoodCandelabra"));
+			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RazewoodCandelabra").Type);
 		}
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             ulong randSeed = Main.TileFrameSeed ^ (ulong)((j << 32) | (long)(ulong)i);
             Color color = new Color(100, 100, 100, 0);
-            int frameX = Main.tile[i, j].frameX;
-            int frameY = Main.tile[i, j].frameY;
+            int frameX = Main.tile[i, j].TileFrameX;
+            int frameY = Main.tile[i, j].TileFrameY;
             int width = 20;
             int offsetY = 2;
             int height = 20;
@@ -91,7 +92,7 @@ namespace AAMod.Tiles.Furniture.Razewood
             {
                 float x = Utils.RandomInt(ref randSeed, -10, 11) * 0.15f;
                 float y = Utils.RandomInt(ref randSeed, -10, 1) * 0.35f;
-                Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Razewood/RazewoodCandelabra_Flame"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Razewood/RazewoodCandelabra_Flame"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
             }
         }
     }

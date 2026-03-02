@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,33 +9,32 @@ namespace AAMod.Items.Boss.MushroomMonarch
         public override void SetDefaults()
         {
 
-            item.width = 30;
-            item.height = 24;
-            item.maxStack = 99;
-			item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.rare = 1;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("MushiumBar");
-            item.value = Terraria.Item.sellPrice(0, 0, 9, 0);
+            Item.width = 30;
+            Item.height = 24;
+            Item.maxStack = 99;
+			Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.rare = 1;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("MushiumBar").Type;
+            Item.value = Terraria.Item.sellPrice(0, 0, 9, 0);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mushium Bar");
-            Tooltip.SetDefault("Mushy");
+            // DisplayName.SetDefault("Mushium Bar");
+            // Tooltip.SetDefault("Mushy");
         }
 
 		public override void AddRecipes()
         {                                                   
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Mushium", 3);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Doom
 {
     public class DoomCouch : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -19,16 +20,16 @@ namespace AAMod.Tiles.Furniture.Doom
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.Origin = new Point16(1, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-			TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Doom Couch");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Doom Couch");
             AddMapEntry(new Color(200, 0, 0), name);
-            dustType = mod.DustType("DoomDust");
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
 		}
 
 		
@@ -39,7 +40,7 @@ namespace AAMod.Tiles.Furniture.Doom
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("DoomCouch"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomCouch").Type);
 			Chest.DestroyChest(i, j);
 		}
 
@@ -52,8 +53,8 @@ namespace AAMod.Tiles.Furniture.Doom
 			{
 				zero = Vector2.Zero;
 			}
-			int height = tile.frameY == 36 ? 18 : 16;
-			Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/DoomCouch_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+			int height = tile.TileFrameY == 36 ? 18 : 16;
+			Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DoomCouch_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 		}
 	}
 }

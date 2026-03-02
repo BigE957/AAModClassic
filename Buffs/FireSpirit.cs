@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class FireSpirit : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fire Spirit");
-			Description.SetDefault("Daz Hot");
+			// DisplayName.SetDefault("Fire Spirit");
+			// Description.SetDefault("Daz Hot");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("FireSpirit")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("FireSpirit").Type] > 0)
 			{
 				modPlayer.FireSpirit = true;
 			}

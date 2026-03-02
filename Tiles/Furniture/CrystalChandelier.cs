@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -10,7 +11,7 @@ namespace AAMod.Tiles.Furniture
 {
     public class CrystalChandelier : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -26,29 +27,29 @@ namespace AAMod.Tiles.Furniture
             TileObjectData.newTile.StyleHorizontal = false;
             TileObjectData.newTile.StyleLineSkip = 2;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Crystal Chandelier");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Crystal Chandelier");
             AddMapEntry(new Color(100, 0, 205), name);
-            dustType = DustID.PurpleCrystalShard;
-            adjTiles = new int[] { TileID.Chandeliers };
+            DustType = DustID.PurpleCrystalShard;
+            AdjTiles = new int[] { TileID.Chandeliers };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].frameX / 18) % 3;
-            int top = j - (Main.tile[i, j].frameY / 18) % 3;
+            int left = i - (Main.tile[i, j].TileFrameX / 18) % 3;
+            int top = j - (Main.tile[i, j].TileFrameY / 18) % 3;
             for (int x = left; x < left + 3; x++)
             {
                 for (int y = top; y < top + 3; y++)
                 {
 
-                    if (Main.tile[x, y].frameX >= 54)
+                    if (Main.tile[x, y].TileFrameX >= 54)
                     {
-                        Main.tile[x, y].frameX -= 54;
+                        Main.tile[x, y].TileFrameX -= 54;
                     }
                     else
                     {
-                        Main.tile[x, y].frameX += 54;
+                        Main.tile[x, y].TileFrameX += 54;
                     }
                 }
             }
@@ -70,7 +71,7 @@ namespace AAMod.Tiles.Furniture
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 36)
+            if (tile.TileFrameX < 36)
             {
                 r = 0.9f;
                 g = 0.9f;

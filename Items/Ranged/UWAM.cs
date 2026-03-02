@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,30 +10,30 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("U.W.A.M.");
-			Tooltip.SetDefault("Shoots hundreds of bullets with a very low spread"
+			// DisplayName.SetDefault("U.W.A.M.");
+			/* Tooltip.SetDefault("Shoots hundreds of bullets with a very low spread"
 			+"\nHave a chance to shoot sharks, dealing 2x damage"
 			+"\n88% chance not to consume ammo"
-			+"\nS.D.M.G. EX");
+			+"\nS.D.M.G. EX"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.SDMG);
-			item.damage = 85;
+			Item.CloneDefaults(ItemID.SDMG);
+			Item.damage = 85;
 
-			item.ranged = true;
-			item.knockBack = 4;
-			item.width = 86;
-			item.height = 40;
-			item.useTime = 3;
-			item.useAnimation = 3;
-			item.value = 1000000;
-			item.rare = 11;
-			item.autoReuse = true;
+			Item.DamageType = DamageClass.Ranged;
+			Item.knockBack = 4;
+			Item.width = 86;
+			Item.height = 40;
+			Item.useTime = 3;
+			Item.useAnimation = 3;
+			Item.value = 1000000;
+			Item.rare = 11;
+			Item.autoReuse = true;
 		}
 		
-		public override bool ConsumeAmmo(Player player)
+		public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .88;
 		}
@@ -42,7 +43,7 @@ namespace AAMod.Items.Ranged
 			return new Vector2(-16, 0);
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (Main.rand.NextBool(10))
 			{
@@ -68,23 +69,22 @@ namespace AAMod.Items.Ranged
 			if (type == 408)
 			{
 				Main.projectile[p1].minion = false;
-				Main.projectile[p1].ranged = true;
+				Main.projectile[p1].DamageType = DamageClass.Ranged;
 				Main.projectile[p2].minion = false;
-				Main.projectile[p2].ranged = true;
+				Main.projectile[p2].DamageType = DamageClass.Ranged;
 				Main.projectile[p3].minion = false;
-				Main.projectile[p3].ranged = true;
+				Main.projectile[p3].DamageType = DamageClass.Ranged;
 			}
 			return false;
 		}
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SDMG);
 			recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

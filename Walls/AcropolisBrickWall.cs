@@ -7,10 +7,10 @@ namespace AAMod.Walls
 {
     public class AcropolisBrickWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.wallHouse[Type] = true;
-            dustType = DustID.Marble;
+            DustType = DustID.Marble;
             AddMapEntry(new Color(0, 0, 25));
 		}
 

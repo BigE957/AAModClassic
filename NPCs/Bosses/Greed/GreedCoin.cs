@@ -7,14 +7,14 @@ namespace AAMod.NPCs.Bosses.Greed
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Coin");
+            // DisplayName.SetDefault("Gold Coin");
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.GoldCoin);
-            projectile.friendly = false;
-            projectile.hostile = true;
+            Projectile.CloneDefaults(ProjectileID.GoldCoin);
+            Projectile.friendly = false;
+            Projectile.hostile = true;
         }
     }
 }

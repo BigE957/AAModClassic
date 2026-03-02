@@ -10,30 +10,30 @@ namespace AAMod.Mounts
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Monochromatic Apple");
-			Tooltip.SetDefault("Will attract an equestrian friend");
+            // DisplayName.SetDefault("Monochromatic Apple");
+			// Tooltip.SetDefault("Will attract an equestrian friend");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 30;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.value = 300000;
-			item.UseSound = SoundID.Item79;
-			item.noMelee = true;
-			item.mountType = mod.MountType("BegPony");
+			Item.width = 20;
+			Item.height = 30;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 1;
+			Item.value = 300000;
+			Item.UseSound = SoundID.Item79;
+			Item.noMelee = true;
+			Item.mountType = Mod.Find<ModMount>("BegPony").Type;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(0, 130, 150);
+                    line2.OverrideColor = new Color(0, 130, 150);
                 }
             }
         }

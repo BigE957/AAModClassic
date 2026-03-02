@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Decoration
 {
     public class GreedLantern : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -17,19 +18,19 @@ namespace AAMod.Tiles.Decoration
             Main.tileLighted[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Stone Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Stone Lantern");
             AddMapEntry(new Color(51, 51, 51), name);
-            disableSmartCursor = true;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            dustType = 128;
-            soundStyle = 21;
+            DustType = 128;
+            soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, mod.ItemType("GreedLantern"));
+            Item.NewItem(i * 16, j * 16, 16, 32, Mod.Find<ModItem>("GreedLantern").Type);
         }
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {

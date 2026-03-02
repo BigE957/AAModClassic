@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,43 +13,43 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 	{
         public override void SetDefaults()
         {
-            projectile.width = 100;
-            projectile.height = 100;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 3600;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
+            Projectile.width = 100;
+            Projectile.height = 100;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 3600;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
         }
 
         public int master = -1;
 
 		public override void AI()
 		{
-            if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != mod.NPCType("ForsakenAnubis"))) master = -1;
+            if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != Mod.Find<ModNPC>("ForsakenAnubis").Type)) master = -1;
             if (master == -1)
             {
-                master = BaseAI.GetNPC(projectile.Center, mod.NPCType("ForsakenAnubis"), -1, null);
+                master = BaseAI.GetNPC(Projectile.Center, Mod.Find<ModNPC>("ForsakenAnubis").Type, -1, null);
                 if (master == -1) master = -2;
             }
             if (master == -1) { return; }
-			if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { projectile.Kill(); return; }
+			if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
 
             if (Main.rand.Next(2) == 0)
             {
-                int dustnumber = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 200, default, 0.5f);
+                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 200, default, 0.5f);
                 Main.dust[dustnumber].velocity *= 0.3f;
             }
 
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
 
-            BaseAI.AIBoomerang(projectile, ref projectile.ai, Main.npc[master].position, Main.npc[master].width, Main.npc[master].height, true, 40, 45, 10f, 1f, true);
+            BaseAI.AIBoomerang(Projectile, ref Projectile.ai, Main.npc[master].position, Main.npc[master].width, Main.npc[master].height, true, 40, 45, 10f, 1f, true);
 
-            ReflectProjectiles(projectile.Hitbox);
+            ReflectProjectiles(Projectile.Hitbox);
         }
 
         public void ReflectProjectiles(Rectangle myRect)
@@ -59,7 +61,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                     Rectangle hitbox = Main.projectile[i].Hitbox;
                     if (myRect.Intersects(hitbox))
                     {
-                        Main.PlaySound(SoundID.NPCHit4, Main.projectile[i].position);
+                        SoundEngine.PlaySound(SoundID.NPCHit4, Main.projectile[i].position);
                         for (int j = 0; j < 3; j++)
                         {
                             int num = Dust.NewDust(Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 0, default, 1f);
@@ -85,13 +87,13 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 0);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 0);
 
-            BaseDrawing.DrawAfterimage(sb, Main.projectileTexture[projectile.type], 0, projectile, 2f, 1f, 5, true, 0f, 0f, dColor);
+            BaseDrawing.DrawAfterimage(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 2f, 1f, 5, true, 0f, 0f, dColor);
 
-            BaseDrawing.DrawTexture(sb, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame, dColor, true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, dColor, true);
             return false;
         }
     }

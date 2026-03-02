@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,36 +9,35 @@ namespace AAMod.Items.Tools
         public override void SetDefaults()
         {
 
-            item.damage = 90;
-            item.melee = true;
-            item.width = 40;
-            item.height = 40;
+            Item.damage = 90;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 40;
 
-            item.useTime = 8;
-            item.useAnimation = 17;
-            item.pick = 205;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = 10;
-            item.rare = 7;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.useTime = 8;
+            Item.useAnimation = 17;
+            Item.pick = 205;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = 10;
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("True Nightaxe");
+            // DisplayName.SetDefault("True Nightaxe");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "Nightaxe");
-            recipe.AddIngredient(mod, "HeroShards");
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "Nightaxe");
+            recipe.AddIngredient(Mod, "HeroShards");
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

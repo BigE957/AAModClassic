@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Boxes
 {
     class InfernoNightBox : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileObsidianKill[Type] = true;
@@ -17,24 +18,24 @@ namespace AAMod.Tiles.Boxes
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Music Box");
-            dustType = mod.DustType("RazewoodDust");
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Music Box");
+            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType("InfernoNightBox"));
+			Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("InfernoNightBox").Type);
 		}
 
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("InfernoNightBox");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("InfernoNightBox").Type;
 		}
 	}
 }

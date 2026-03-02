@@ -9,49 +9,49 @@ namespace AAMod
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shockwave Boom");
+            // DisplayName.SetDefault("Shockwave Boom");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 4;
-            projectile.height = 4;
-            projectile.friendly = true;
-            projectile.alpha = 0;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 200;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
+            Projectile.width = 4;
+            Projectile.height = 4;
+            Projectile.friendly = true;
+            Projectile.alpha = 0;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 200;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
-            float progress = (180f - projectile.timeLeft) / 60f;
+            float progress = (180f - Projectile.timeLeft) / 60f;
             float pulseCount = 1;
             float rippleSize = 1;
             float speed = 20;
-            if (projectile.ai[0] > 0)
+            if (Projectile.ai[0] > 0)
             {
-                rippleSize = projectile.ai[0];
+                rippleSize = Projectile.ai[0];
             }
-            if (projectile.ai[1] > 0)
+            if (Projectile.ai[1] > 0)
             {
-                speed = projectile.ai[1];
+                speed = Projectile.ai[1];
             }
             if (!Main.dedServ)
             {
                 Filters.Scene["Shockwave"].GetShader().UseProgress(progress).UseOpacity(100f * (1 - progress / 3f));
-                projectile.localAI[1]++;
-                if (projectile.localAI[1] >= 0 && projectile.localAI[1] <= 60)
+                Projectile.localAI[1]++;
+                if (Projectile.localAI[1] >= 0 && Projectile.localAI[1] <= 60)
                 {
                     if (!Filters.Scene["Shockwave"].IsActive())
                     {                                                             //pulseCount rippleSize speed
-                        Filters.Scene.Activate("Shockwave", projectile.Center).GetShader().UseColor(pulseCount, rippleSize, speed).UseTargetPosition(projectile.Center);
+                        Filters.Scene.Activate("Shockwave", Projectile.Center).GetShader().UseColor(pulseCount, rippleSize, speed).UseTargetPosition(Projectile.Center);
                     }
                 }
             }
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (!Main.dedServ)
             {
@@ -60,9 +60,9 @@ namespace AAMod
         }
     }
 
-    public class ShockwaveWorld : ModWorld
+    public class ShockwaveWorld : ModSystem
     {
-        public override void PostUpdate()
+        public override void PostUpdateWorld()
         {
             if (!Main.dedServ && Filters.Scene["Shockwave"].IsActive() && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ShockwaveBoom>()))
             {

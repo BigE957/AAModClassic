@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod.Backgrounds
@@ -75,7 +77,7 @@ namespace AAMod.Backgrounds
             {
                 if (Main.dayTime)
                 {
-                    spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
+                    spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.DeepSkyBlue * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
                     float num64 = 1f;
                     num64 -= Main.cloudAlpha * 1.5f;
@@ -83,7 +85,7 @@ namespace AAMod.Backgrounds
                     {
                         num64 = 0f;
                     }
-                    int num20 = (int)(Main.time / 54000.0 * (Main.screenWidth + Main.sunTexture.Width * 2)) - Main.sunTexture.Width;
+                    int num20 = (int)(Main.time / 54000.0 * (Main.screenWidth + TextureAssets.Sun.Value.Width * 2)) - TextureAssets.Sun.Value.Width;
                     int num21 = 0;
                     float num22 = 1f;
                     float rotation = (float)(Main.time / 54000.0) * 2f - 7.3f;
@@ -217,7 +219,7 @@ namespace AAMod.Backgrounds
 
         private void UpdateAkumaIndex()
         {
-            int AkumaType = AAMod.instance.NPCType("AkumaA");
+            int AkumaType = AAMod.instance.Find<ModNPC>("AkumaA").Type;
             if (AkumaIndex >= 0 && Main.npc[AkumaIndex].active && Main.npc[AkumaIndex].type == AkumaType)
             {
                 return;

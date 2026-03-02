@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
@@ -9,24 +10,24 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-		DisplayName.SetDefault("Nova Flare");
-		Tooltip.SetDefault("Shoots homing flares from the sky"
-		+"\nLunar Flare EX");
+		// DisplayName.SetDefault("Nova Flare");
+		/* Tooltip.SetDefault("Shoots homing flares from the sky"
+		+"\nLunar Flare EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(3570);
-			item.useTime = 8;
-			item.useAnimation = 8;
-			item.damage = 175;
-			item.mana = 15;
+			Item.CloneDefaults(3570);
+			Item.useTime = 8;
+			Item.useAnimation = 8;
+			Item.damage = 175;
+			Item.mana = 15;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
-			float num75 = item.shootSpeed;
+			float num75 = Item.shootSpeed;
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
 			float num83 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
 			if (player.gravDir == -1f)
@@ -74,20 +75,19 @@ namespace AAMod.Items.Magic
 				Main.projectile[p].localNPCHitCooldown = 1;
 				Main.projectile[p].tileCollide = false;
 				Main.projectile[p].timeLeft -= 60;
-				Main.projectile[p].ranged = false;
-				Main.projectile[p].magic = true;
+				Main.projectile[p].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+				Main.projectile[p].DamageType = DamageClass.Magic;
 			}
             return false;
         }
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(3570);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

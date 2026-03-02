@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,19 +10,19 @@ namespace AAMod.Items.Armor.Assassin
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.ThrowingKnife);
-			projectile.width = 14;
-			projectile.height = 34;
-			projectile.friendly = true;
-            projectile.hostile = false;
-			projectile.timeLeft = 1200;
-			projectile.penetrate = 1;
-            projectile.thrown = false;
-            projectile.ranged = true;
-			aiType = ProjectileID.ShadowFlameKnife;
+			Projectile.CloneDefaults(ProjectileID.ThrowingKnife);
+			Projectile.width = 14;
+			Projectile.height = 34;
+			Projectile.friendly = true;
+            Projectile.hostile = false;
+			Projectile.timeLeft = 1200;
+			Projectile.penetrate = 1;
+            Projectile.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.DamageType = DamageClass.Ranged;
+			AIType = ProjectileID.ShadowFlameKnife;
 		}
 		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
 		{
 			width = height = 10;
 			return true;
@@ -28,20 +30,20 @@ namespace AAMod.Items.Armor.Assassin
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Assassin Dagger");
+			// DisplayName.SetDefault("Assassin Dagger");
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("AssassinHurt"), 1000);
+            target.AddBuff(Mod.Find<ModBuff>("AssassinHurt").Type, 1000);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), projectile.oldVelocity.X * 0.1f, projectile.oldVelocity.Y * 0.1f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
-			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 	}
 }

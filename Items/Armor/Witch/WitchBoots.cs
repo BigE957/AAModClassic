@@ -9,20 +9,20 @@ namespace AAMod.Items.Armor.Witch
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fury Witch's Boots");
-			Tooltip.SetDefault(@"12% increased magic/minion damage
+			// DisplayName.SetDefault("Fury Witch's Boots");
+			/* Tooltip.SetDefault(@"12% increased magic/minion damage
 12% increased movement speed
 +2 max minions
-Boots enchanted with the firey spirit of a supreme dragon acolyte");
+Boots enchanted with the firey spirit of a supreme dragon acolyte"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 16;
-			item.value = 300000;
-			item.defense = 20;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 16;
+			Item.value = 300000;
+			Item.defense = 20;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -30,17 +30,17 @@ Boots enchanted with the firey spirit of a supreme dragon acolyte");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-            player.magicDamage += .12f;
-            player.minionDamage += .12f;
+            player.GetDamage(DamageClass.Magic) += .12f;
+            player.GetDamage(DamageClass.Summon) += .12f;
             player.moveSpeed += .1f;
             player.maxMinions += 2;
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .12f;

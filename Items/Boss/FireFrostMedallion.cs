@@ -8,44 +8,43 @@ namespace AAMod.Items.Boss
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fire Frost Medallion");
-            Tooltip.SetDefault(@"Doubles your stats during a Blizzard or Sandstorm");
+            // DisplayName.SetDefault("Fire Frost Medallion");
+            // Tooltip.SetDefault(@"Doubles your stats during a Blizzard or Sandstorm");
         }
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 50;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
+            Item.width = 26;
+            Item.height = 50;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player p, bool hideVisual)
         {
 			if(p.ZoneSandstorm || (p.ZoneRain && p.ZoneSnow))
 			{
-				p.meleeDamage *= 2f;
-				p.rangedDamage *= 2f;
-				p.magicDamage *= 2f;
-				p.minionDamage *= 2f;
-				p.thrownDamage *= 2f;
-				p.meleeCrit *= 2;
-				p.rangedCrit *= 2;
-				p.magicCrit += 2;
-				p.thrownCrit *= 2;
+				p.GetDamage(DamageClass.Melee) *= 2f;
+				p.GetDamage(DamageClass.Ranged) *= 2f;
+				p.GetDamage(DamageClass.Magic) *= 2f;
+				p.GetDamage(DamageClass.Summon) *= 2f;
+				p.GetDamage(DamageClass.Throwing) *= 2f;
+				p.GetCritChance(DamageClass.Melee) *= 2;
+				p.GetCritChance(DamageClass.Ranged) *= 2;
+				p.GetCritChance(DamageClass.Magic) += 2;
+				p.GetCritChance(DamageClass.Throwing) *= 2;
 			}
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ArcticMedallion", 1);
             recipe.AddIngredient(null, "SandstormMedallion", 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
-        public override bool CanEquipAccessory(Player player, int slot)
+        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (slot < 10)
             {

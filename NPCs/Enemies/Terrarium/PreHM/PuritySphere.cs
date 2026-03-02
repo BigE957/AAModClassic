@@ -10,24 +10,24 @@ namespace AAMod.NPCs.Enemies.Terrarium.PreHM
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Purity Sphere");
+			// DisplayName.SetDefault("Purity Sphere");
 		}
 
 		public override void SetDefaults()
 		{
-            npc.width = 26;
-            npc.height = 26;
-            npc.lifeMax =  60;
-            npc.defense = 5;
-            npc.damage = 10;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            npc.alpha = 255;
-            npc.noGravity = true;
-            npc.noTileCollide = false;
-            banner = npc.type;
-			bannerItem = mod.ItemType("PuritySphereBanner");
+            NPC.width = 26;
+            NPC.height = 26;
+            NPC.lifeMax =  60;
+            NPC.defense = 5;
+            NPC.damage = 10;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            NPC.alpha = 255;
+            NPC.noGravity = true;
+            NPC.noTileCollide = false;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("PuritySphereBanner").Type;
         }
 
         public override Color? GetAlpha(Color drawColor)
@@ -39,40 +39,40 @@ namespace AAMod.NPCs.Enemies.Terrarium.PreHM
 
         public override void AI()
         {
-            Player player = Main.player[npc.target];
-            BaseAI.AISkull(npc, ref npc.ai, true, 4, 300, .011f, .020f);
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, mod.ProjType("TerraShot"), ref shootAI[0], 120, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
-            if (npc.alpha != 0)
+            Player player = Main.player[NPC.target];
+            BaseAI.AISkull(NPC, ref NPC.ai, true, 4, 300, .011f, .020f);
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.ProjType("TerraShot"), ref shootAI[0], 120, (int)(NPC.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
+            if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 107, 0f, 0f, 100, default, .8f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 107, 0f, 0f, 100, default, .8f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
             }
-            npc.alpha -= 12;
-            if (npc.alpha < 0)
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 107, 0f, 0f, 0);
+                    Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 107, 0f, 0f, 0);
                 }
             }
         }

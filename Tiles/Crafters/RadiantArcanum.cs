@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class RadiantArcanum : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -20,18 +21,18 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("RadiantArcanum");
-            dustType = ModContent.DustType<Dusts.RadiumDust>();
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("RadiantArcanum");
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(200, 160, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[]
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation,
-                mod.TileType("QuantumFusionAccelerator")
+                Mod.Find<ModTile>("QuantumFusionAccelerator").Type
 
             };
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -48,7 +49,7 @@ namespace AAMod.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("RadiantArcanum"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RadiantArcanum").Type);
         }
     }
 }

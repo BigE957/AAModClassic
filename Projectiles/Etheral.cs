@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,52 +11,52 @@ namespace AAMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Etheral");
+			// DisplayName.SetDefault("Etheral");
 		}
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 18;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.magic = true;
-            projectile.ignoreWater = true;
+            Projectile.width = 14;
+            Projectile.height = 18;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.ignoreWater = true;
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             float num = MathHelper.PiOver2;
             Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 
             float num26 = 30f;
-            if (projectile.ai[0] > 120f)
+            if (Projectile.ai[0] > 120f)
                 num26 = 5f;
-            else if (projectile.ai[0] > 90f)
+            else if (Projectile.ai[0] > 90f)
                 num26 = 15f;
 
-            projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.magicDamage);
-            projectile.ai[0]++;
-            projectile.ai[1]++;
+            Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic));
+            Projectile.ai[0]++;
+            Projectile.ai[1]++;
             bool flag9 = false;
-            if (projectile.ai[0] % num26 == 0f)
+            if (Projectile.ai[0] % num26 == 0f)
                 flag9 = true;
 
             int num27 = 10;
             bool flag10 = false;
-            if (projectile.ai[0] % num26 == 0f)
+            if (Projectile.ai[0] % num26 == 0f)
                 flag10 = true;
 
-            if (projectile.ai[1] >= 1f)
+            if (Projectile.ai[1] >= 1f)
             {
-                projectile.ai[1] = 0f;
+                Projectile.ai[1] = 0f;
                 flag10 = true;
-                if (Main.myPlayer == projectile.owner)
+                if (Main.myPlayer == Projectile.owner)
                 {
-                    float scaleFactor5 = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
+                    float scaleFactor5 = player.inventory[player.selectedItem].shootSpeed * Projectile.scale;
                     Vector2 value12 = vector;
                     Vector2 value13 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY) - value12;
                     if (player.gravDir == -1f)
@@ -64,68 +66,68 @@ namespace AAMod.Projectiles
                     if (vector11.HasNaNs())
                         vector11 = -Vector2.UnitY;
 
-                    vector11 = Vector2.Normalize(Vector2.Lerp(vector11, Vector2.Normalize(projectile.velocity), 0.92f));
+                    vector11 = Vector2.Normalize(Vector2.Lerp(vector11, Vector2.Normalize(Projectile.velocity), 0.92f));
                     vector11 *= scaleFactor5;
-                    if (vector11.X != projectile.velocity.X || vector11.Y != projectile.velocity.Y)
-                        projectile.netUpdate = true;
+                    if (vector11.X != Projectile.velocity.X || vector11.Y != Projectile.velocity.Y)
+                        Projectile.netUpdate = true;
 
-                    projectile.velocity = vector11;
+                    Projectile.velocity = vector11;
                 }
             }
 
-            int num28 = (projectile.ai[0] < 120f) ? 4 : 1;
-            if (projectile.soundDelay <= 0)
+            int num28 = (Projectile.ai[0] < 120f) ? 4 : 1;
+            if (Projectile.soundDelay <= 0)
             {
-                projectile.soundDelay = num27;
-                projectile.soundDelay *= 2;
-                if (projectile.ai[0] != 1f)
-                    Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 15);
+                Projectile.soundDelay = num27;
+                Projectile.soundDelay *= 2;
+                if (Projectile.ai[0] != 1f)
+                    SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
 
             }
 
-            if (flag10 && Main.myPlayer == projectile.owner)
+            if (flag10 && Main.myPlayer == Projectile.owner)
             {
                 bool flag11 = !flag9 || player.CheckMana(player.inventory[player.selectedItem].mana, true, false);
                 bool flag12 = player.channel && flag11 && !player.noItems && !player.CCed;
                 if (flag12)
                 {
-                    if (projectile.ai[0] == 1f)
+                    if (Projectile.ai[0] == 1f)
                     {
-                        Vector2 center3 = projectile.Center;
-                        Vector2 vector12 = Vector2.Normalize(projectile.velocity);
+                        Vector2 center3 = Projectile.Center;
+                        Vector2 vector12 = Vector2.Normalize(Projectile.velocity);
                         if (vector12.HasNaNs())
                             vector12 = -Vector2.UnitY;
 
-                        int num29 = projectile.damage;
-                        Projectile.NewProjectile(center3.X, center3.Y, vector12.X, vector12.Y, mod.ProjectileType("EtheralBeam"),
-                               num29, projectile.knockBack, projectile.owner, 0, projectile.whoAmI);
-                        projectile.netUpdate = true;
+                        int num29 = Projectile.damage;
+                        Projectile.NewProjectile(center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralBeam").Type,
+                               num29, Projectile.knockBack, Projectile.owner, 0, Projectile.whoAmI);
+                        Projectile.netUpdate = true;
                     }
                 }
                 else
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
 
-            if (projectile.localAI[0] >= 120)
+            if (Projectile.localAI[0] >= 120)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return false;
             }
 
             if (player.direction == 1)
-				projectile.Center = player.Center + new Vector2(6, 0);
+				Projectile.Center = player.Center + new Vector2(6, 0);
 			if (player.direction == -1)
-				projectile.Center = player.Center + new Vector2(-14, 0);
-            projectile.rotation = projectile.velocity.ToRotation() + num;
-            projectile.spriteDirection = projectile.direction;
-            projectile.timeLeft = 2;
-            player.ChangeDir(projectile.direction);
-            player.heldProj = projectile.whoAmI;
+				Projectile.Center = player.Center + new Vector2(-14, 0);
+            Projectile.rotation = Projectile.velocity.ToRotation() + num;
+            Projectile.spriteDirection = Projectile.direction;
+            Projectile.timeLeft = 2;
+            player.ChangeDir(Projectile.direction);
+            player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = (float)Math.Atan2(projectile.velocity.Y * projectile.direction, projectile.velocity.X * projectile.direction);
+            player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * Projectile.direction, Projectile.velocity.X * Projectile.direction);
             return false;
         }
 

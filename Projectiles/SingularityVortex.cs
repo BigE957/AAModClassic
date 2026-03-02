@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,22 +11,22 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Singularity Vortex");
+            // DisplayName.SetDefault("Singularity Vortex");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 60;
-            projectile.height = 60;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 50;
-            projectile.alpha = 130;
-            projectile.alpha = 255;
-            projectile.timeLeft = 600;
-            projectile.tileCollide = false;
+            Projectile.width = 60;
+            Projectile.height = 60;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 50;
+            Projectile.alpha = 130;
+            Projectile.alpha = 255;
+            Projectile.timeLeft = 600;
+            Projectile.tileCollide = false;
         }
 
         private float RingRotation = 0f;
@@ -34,40 +35,40 @@ namespace AAMod.Projectiles
         {
             RingRotation += 0.03f;
 
-            if (projectile.alpha > 80)
+            if (Projectile.alpha > 80)
             {
-                projectile.alpha -= 3;
+                Projectile.alpha -= 3;
             }
             else
             {
-                projectile.alpha = 80;
+                Projectile.alpha = 80;
             }
             
 
-            if (projectile.timeLeft < 60)
+            if (Projectile.timeLeft < 60)
             {
-                projectile.scale -= .1f;
-                if (projectile.scale <= 0f)
+                Projectile.scale -= .1f;
+                if (Projectile.scale <= 0f)
                 {
-                    projectile.active = false;
+                    Projectile.active = false;
                 }
             }
             else
             {
-                if (projectile.penetrate > 0)
+                if (Projectile.penetrate > 0)
                 {
-                    projectile.scale = projectile.penetrate / 50;
+                    Projectile.scale = Projectile.penetrate / 50;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D Tex = Main.projectileTexture[projectile.type];
-            Texture2D Vortex = mod.GetTexture("Projectiles/SingularityVortex1");
+            Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D Vortex = Mod.GetTexture("Projectiles/SingularityVortex1");
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawTexture(spritebatch, Vortex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, RingRotation, 0, 1, frame, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, -RingRotation, 0, 1, frame, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Vortex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -RingRotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

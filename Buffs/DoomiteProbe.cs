@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class DoomiteProbe : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Doomite Probe");
-			Description.SetDefault("Summons a doomite probe to fight for you");
+			// DisplayName.SetDefault("Doomite Probe");
+			// Description.SetDefault("Summons a doomite probe to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("DoomiteProbe")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DoomiteProbe").Type] > 0)
 			{
 				modPlayer.DoomiteProbe = true;
 			}

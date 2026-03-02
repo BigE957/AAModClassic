@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class DragonMinion : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flame Dragon");
-            Description.SetDefault("Summons a dragon to fight for you");
+            // DisplayName.SetDefault("Flame Dragon");
+            // Description.SetDefault("Summons a dragon to fight for you");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("DragonHead")] > 0) modPlayer.DragonMinion = true;
+            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonHead").Type] > 0) modPlayer.DragonMinion = true;
             if (!modPlayer.DragonMinion)
             {
                 player.DelBuff(buffIndex);

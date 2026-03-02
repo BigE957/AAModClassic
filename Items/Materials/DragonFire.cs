@@ -8,20 +8,20 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Fire");
-            Tooltip.SetDefault("It's really really hot.");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
+            // DisplayName.SetDefault("Dragon's Fire");
+            // Tooltip.SetDefault("It's really really hot.");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
         }
         public override void SetDefaults()
         {
             Item refItem = new Item();
             refItem.SetDefaults(ItemID.Ichor);
-            item.width = refItem.width;
-            item.height = refItem.height;
-            item.maxStack = refItem.maxStack;
-            item.value = refItem.value;
-            item.rare = refItem.rare;
-            item.alpha = 40;
+            Item.width = refItem.width;
+            Item.height = refItem.height;
+            Item.maxStack = refItem.maxStack;
+            Item.value = refItem.value;
+            Item.rare = refItem.rare;
+            Item.alpha = 40;
         }
     }
 }

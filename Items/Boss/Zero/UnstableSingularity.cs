@@ -10,11 +10,11 @@ namespace AAMod.Items.Boss.Zero
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Unstable Singularity");
-            Tooltip.SetDefault("Barely stable enough to hold");
+            // DisplayName.SetDefault("Unstable Singularity");
+            // Tooltip.SetDefault("Barely stable enough to hold");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 6));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -24,27 +24,27 @@ namespace AAMod.Items.Boss.Zero
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 24;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 9; AARarity = 13;
+            Item.width = 22;
+            Item.height = 24;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)
         {
             foreach (Terraria.ModLoader.TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Red.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Red.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

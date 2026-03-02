@@ -9,23 +9,23 @@ namespace AAMod.Items.Currency
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Martian Credit");
-            Tooltip.SetDefault("A card that has some sort of monetary value to the martians");
+            // DisplayName.SetDefault("Martian Credit");
+            // Tooltip.SetDefault("A card that has some sort of monetary value to the martians");
         }
 
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Cyan.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Cyan.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 9;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 9;
         }
     }
     public class MCredit : CustomCurrencySingleCoin

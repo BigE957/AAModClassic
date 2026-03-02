@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Clueless : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fog");
-			Description.SetDefault("You can't see a thing");
+			// DisplayName.SetDefault("Fog");
+			// Description.SetDefault("You can't see a thing");
 			Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

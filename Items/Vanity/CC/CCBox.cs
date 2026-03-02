@@ -7,21 +7,21 @@ namespace AAMod.Items.Vanity.CC
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire Manic's Cardboard Box");
-            Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Dread Devotee!'");
+            // DisplayName.SetDefault("Mire Manic's Cardboard Box");
+            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Dread Devotee!'");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;
-            item.createTile = mod.TileType("CCMireBox"); 
+            Item.maxStack = 1;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;
+            Item.createTile = Mod.Find<ModTile>("CCMireBox").Type; 
         }
 
         public override bool CanRightClick()

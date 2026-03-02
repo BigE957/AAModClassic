@@ -10,53 +10,53 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Wizard");
-			Main.npcFrameCount[npc.type] = 6;
+			// DisplayName.SetDefault("Terra Wizard");
+			Main.npcFrameCount[NPC.type] = 6;
 		}
 
 		public override void SetDefaults()
 		{
-            npc.lifeMax = 600;
-            npc.defense = 40;
-            npc.damage = 90;
-            npc.width = 22;
-            npc.height = 56;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.4f;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("TerraWizardBanner");
+            NPC.lifeMax = 600;
+            NPC.defense = 40;
+            NPC.damage = 90;
+            NPC.width = 22;
+            NPC.height = 56;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.4f;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("TerraWizardBanner").Type;
         }
 
         public float[] shootAI = new float[4];
 
         public override void AI()
         {
-            if (npc.velocity.X < 0f)
+            if (NPC.velocity.X < 0f)
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
 
             }
             else
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
-            npc.noGravity = true;
-            npc.TargetClosest(true);
-            Player player = Main.player[npc.target];
-            BaseAI.AISpaceOctopus(npc, ref npc.ai, Main.player[npc.target].Center, 0.15f, 6f, 250f, 70f, FireMagic);
+            NPC.noGravity = true;
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
+            BaseAI.AISpaceOctopus(NPC, ref NPC.ai, Main.player[NPC.target].Center, 0.15f, 6f, 250f, 70f, FireMagic);
             
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 58;
-                if (npc.frame.Y > (58 * 5))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 58;
+                if (NPC.frame.Y > (58 * 5))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
@@ -64,32 +64,32 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         public void FireMagic(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, mod.ProjType("MagicBlast"), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 12f, true, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, Mod.ProjType("MagicBlast"), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 12f, true, new Vector2(20f, 15f));
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWizardGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWizardGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWizardGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWizardGore4"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/TerraWizardGore5"), 1f);
-                npc.position.X = npc.position.X + npc.width / 2;
-                npc.position.Y = npc.position.Y + npc.height / 2;
-                npc.width = 44;
-                npc.height = 78;
-                npc.position.X = npc.position.X - npc.width / 2;
-                npc.position.Y = npc.position.Y - npc.height / 2;
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWizardGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWizardGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWizardGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWizardGore4"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/TerraWizardGore5"), 1f);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
+                NPC.width = 44;
+                NPC.height = 78;
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<Dusts.TMagicDust>();
                 int dust2 = ModContent.DustType<Dusts.TMagicDust>();
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust2, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -97,19 +97,19 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
             }
             if (Main.rand.Next(20) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Items.Magic.TerraFocus>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Magic.TerraFocus>());
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
         }

@@ -7,18 +7,18 @@ namespace AAMod.Items.Boss.Athena.Olympian
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 1, 8, 0);
-            item.consumable = true;
-            item.createTile = mod.TileType("SkyCrystal");
-            item.rare = 9;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 1, 8, 0);
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("SkyCrystal").Type;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -26,17 +26,17 @@ namespace AAMod.Items.Boss.Athena.Olympian
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sky Crystal");
-            Tooltip.SetDefault("A beautiful crystal, said to contain a piece of the sky");
+            // DisplayName.SetDefault("Sky Crystal");
+            // Tooltip.SetDefault("A beautiful crystal, said to contain a piece of the sky");
         }
 
     }

@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class DragonSoul : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragon Soul");
-			Description.SetDefault("Burns with the rage of a dragon");
+			// DisplayName.SetDefault("Dragon Soul");
+			// Description.SetDefault("Burns with the rage of a dragon");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.lightPet[Type] = true;
 		}
@@ -17,10 +17,10 @@ namespace AAMod.Buffs
 		{
 			player.GetModPlayer<AAPlayer>().DragonSoul = true;
 			player.buffTime[buffIndex] = 18000;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("DragonSoul")] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonSoul").Type] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, mod.ProjectileType("DragonSoul"), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("DragonSoul").Type, 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}

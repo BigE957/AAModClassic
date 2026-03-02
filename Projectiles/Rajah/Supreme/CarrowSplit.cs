@@ -8,31 +8,31 @@ namespace AAMod.Projectiles.Rajah.Supreme
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Carrow");
+            // DisplayName.SetDefault("Carrow");
 		}
 
 		public override void SetDefaults()
 		{
-            projectile.ranged = true;
-			projectile.width = 10; 
-			projectile.height = 10; 
-			projectile.aiStyle = 1;   
-			projectile.friendly = true; 
-			projectile.hostile = false;  
-			projectile.penetrate = -1;  
-			projectile.timeLeft = 600;  
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-			aiType = ProjectileID.WoodenArrowFriendly;
-            projectile.noDropItem = true;
+            Projectile.DamageType = DamageClass.Ranged;
+			Projectile.width = 10; 
+			Projectile.height = 10; 
+			Projectile.aiStyle = 1;   
+			Projectile.friendly = true; 
+			Projectile.hostile = false;  
+			Projectile.penetrate = -1;  
+			Projectile.timeLeft = 600;  
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+			AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.noDropItem = true;
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].velocity *= 2f;
             }
         }

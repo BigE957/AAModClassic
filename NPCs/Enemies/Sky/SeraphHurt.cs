@@ -12,107 +12,107 @@ namespace AAMod.NPCs.Enemies.Sky
 	{
         public override void SetStaticDefaults()
 		{
-            Main.npcFrameCount[npc.type] = 5;		
+            Main.npcFrameCount[NPC.type] = 5;		
 		}			
 		
         public override void SetDefaults()
         {
-            npc.width = 60;
-            npc.height = 40;
-            npc.value = 0;
-            npc.npcSlots = 1;
-			npc.aiStyle = -1;
-            npc.lifeMax = 120;
-            npc.defense = 20;
-            npc.damage = 55;
-            npc.knockBackResist = 0.3f;
-			npc.noGravity = false;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.noTileCollide = false;
-            banner = npc.type;
-			bannerItem = mod.ItemType("SeraphBanner");
-            npc.dontTakeDamage = true;
+            NPC.width = 60;
+            NPC.height = 40;
+            NPC.value = 0;
+            NPC.npcSlots = 1;
+			NPC.aiStyle = -1;
+            NPC.lifeMax = 120;
+            NPC.defense = 20;
+            NPC.damage = 55;
+            NPC.knockBackResist = 0.3f;
+			NPC.noGravity = false;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.noTileCollide = false;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("SeraphBanner").Type;
+            NPC.dontTakeDamage = true;
         }
 
         public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;
 
         public override void AI()
 		{
-            if (!npc.HasPlayerTarget)
+            if (!NPC.HasPlayerTarget)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
             }
 
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
-            npc.ai[0]++;
+            NPC.ai[0]++;
 
-            if (npc.ai[0] == 120 && Main.netMode != 1)
+            if (NPC.ai[0] == 120 && Main.netMode != 1)
             {
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
-            if (npc.ai[0] == 180)
+            if (NPC.ai[0] == 180)
             {
-                CombatText.NewText(npc.Hitbox, Color.CadetBlue, SeraphBitching(), true);
-                npc.netUpdate = true;
+                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
+                NPC.netUpdate = true;
             }
-            if (npc.ai[0] >= 240 && npc.dontTakeDamage && Main.netMode != 1)
+            if (NPC.ai[0] >= 240 && NPC.dontTakeDamage && Main.netMode != 1)
             {
-                npc.dontTakeDamage = false;
-                npc.netUpdate = true;
+                NPC.dontTakeDamage = false;
+                NPC.netUpdate = true;
             }
 
-            if (npc.ai[0] >= 120 && npc.ai[0] < 240)
+            if (NPC.ai[0] >= 120 && NPC.ai[0] < 240)
             {
-                npc.velocity *= .97f;
+                NPC.velocity *= .97f;
             }
-            else if (npc.ai[0] >= 240)
+            else if (NPC.ai[0] >= 240)
             {
-                npc.noTileCollide = true;
-                npc.noGravity = true;
-                npc.dontTakeDamage = false;
-                npc.velocity.Y -= 0.5f;
-                if (npc.velocity.Y < -8f) npc.velocity.Y = -8f;
+                NPC.noTileCollide = true;
+                NPC.noGravity = true;
+                NPC.dontTakeDamage = false;
+                NPC.velocity.Y -= 0.5f;
+                if (NPC.velocity.Y < -8f) NPC.velocity.Y = -8f;
 
-                if (player.Center.X > npc.Center.X)
+                if (player.Center.X > NPC.Center.X)
                 {
-                    npc.velocity.X -= 0.2f;
-                    if (npc.velocity.X < -8f) npc.velocity.Y = -8f;
-                    npc.spriteDirection = 1;
+                    NPC.velocity.X -= 0.2f;
+                    if (NPC.velocity.X < -8f) NPC.velocity.Y = -8f;
+                    NPC.spriteDirection = 1;
                 }
                 else
                 {
-                    npc.velocity.X += 0.2f;
-                    if (npc.velocity.X > 8f) npc.velocity.Y = 8f;
-                    npc.spriteDirection = -1;
+                    NPC.velocity.X += 0.2f;
+                    if (NPC.velocity.X > 8f) NPC.velocity.Y = 8f;
+                    NPC.spriteDirection = -1;
                 }
 
                 Vector2 Acropolis = new Vector2(Origin.X + (80 * 16), Origin.Y + (79 * 16));
 
-                if (Vector2.Distance(npc.Center, Acropolis) > 90 * 16 && Main.netMode != 1)
+                if (Vector2.Distance(NPC.Center, Acropolis) > 90 * 16 && Main.netMode != 1)
                 {
                     for (int a = 0; a < 8; a++)
                     {
-                        Dust.NewDust(npc.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {
                         Tiles.Boss.AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"), false);
                     }
-                    BaseAI.KillNPC(npc); 
-                    npc.netUpdate = true; 
+                    BaseAI.KillNPC(NPC); 
+                    NPC.netUpdate = true; 
                 }
             }
             
-            if (npc.ai[0] < 120 && npc.collideY)
+            if (NPC.ai[0] < 120 && NPC.collideY)
             {
-                npc.rotation += npc.velocity.X * 0.05f;
+                NPC.rotation += NPC.velocity.X * 0.05f;
             }
             else
             {
-                npc.spriteDirection = npc.direction;
-                npc.rotation = npc.velocity.X * 0.05f;
+                NPC.spriteDirection = NPC.direction;
+                NPC.rotation = NPC.velocity.X * 0.05f;
             }
         }
 
@@ -130,30 +130,30 @@ namespace AAMod.NPCs.Enemies.Sky
 
 		public override void FindFrame(int frameHeight)
 		{
-            if (npc.ai[0] < 120)
+            if (NPC.ai[0] < 120)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
             else
             {
-                if (npc.velocity.X > 0f)
+                if (NPC.velocity.X > 0f)
                 {
-                    npc.spriteDirection = 1;
+                    NPC.spriteDirection = 1;
                 }
                 else
                 {
-                    npc.spriteDirection = -1;
+                    NPC.spriteDirection = -1;
                 }
-                npc.rotation = npc.velocity.X * 0.1f;
-                npc.frameCounter++;
-                if (npc.frameCounter >= 6)
+                NPC.rotation = NPC.velocity.X * 0.1f;
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 6)
                 {
-                    npc.frame.Y = npc.frame.Y + frameHeight;
-                    npc.frameCounter = 0;
+                    NPC.frame.Y = NPC.frame.Y + frameHeight;
+                    NPC.frameCounter = 0;
                 }
-                if (npc.frame.Y >= frameHeight * Main.npcFrameCount[npc.type])
+                if (NPC.frame.Y >= frameHeight * Main.npcFrameCount[NPC.type])
                 {
-                    npc.frame.Y = frameHeight;
+                    NPC.frame.Y = frameHeight;
                 }
             }
         }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,23 +10,23 @@ namespace AAMod.Projectiles.Toad
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toad Gunk");
+            // DisplayName.SetDefault("Toad Gunk");
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-            projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 600;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-            projectile.ranged = true;
-			projectile.extraUpdates = 1;
-            aiType = ProjectileID.WoodenArrowFriendly;
-            projectile.penetrate = 2; 
+			Projectile.width = 14;
+			Projectile.height = 32;
+			Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 600;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+            Projectile.DamageType = DamageClass.Ranged;
+			Projectile.extraUpdates = 1;
+            AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.penetrate = 2; 
 		}
 
         public override Color? GetAlpha(Color lightColor)
@@ -35,12 +36,12 @@ namespace AAMod.Projectiles.Toad
 
         public override void PostAI()
         {
-            Lighting.AddLight(projectile.Center, Color.DodgerBlue.R / 255, Color.DodgerBlue.G / 255, Color.DodgerBlue.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.DodgerBlue.R / 255, Color.DodgerBlue.G / 255, Color.DodgerBlue.B / 255);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.DD2_BetsyFireballImpact, projectile.Center);
+            SoundEngine.PlaySound(SoundID.DD2_BetsyFireballImpact, Projectile.Center);
         }
     }
 }

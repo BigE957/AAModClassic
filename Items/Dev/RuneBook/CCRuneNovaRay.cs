@@ -14,28 +14,28 @@ namespace AAMod.Items.Dev.RuneBook
         public float Distance;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nova Ray");
+            // DisplayName.SetDefault("Nova Ray");
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.hide = false;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.minion = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.hide = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.minion = true;
         }
         // The AI of the projectile
         float rOffset = 0;
         public override void AI()
         {
-            shooter = Main.projectile[(int)projectile.ai[0]];
-            NPC target = Main.npc[(int)projectile.ai[1]];
+            shooter = Main.projectile[(int)Projectile.ai[0]];
+            NPC target = Main.npc[(int)Projectile.ai[1]];
             if (!shooter.active || !target.active || target.life < 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
 
@@ -48,24 +48,24 @@ namespace AAMod.Items.Dev.RuneBook
             rOffset += 0.03f;
             if(rOffset > (float)Math.PI / 2)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
             Vector2 diff = new Vector2((float)Math.Cos(rotation - (float)Math.PI / 4 + rOffset) * 14f, (float)Math.Sin(rotation - (float)Math.PI / 4 + rOffset) * 14f);
             diff.Normalize();
-            projectile.velocity = diff;
-            projectile.netUpdate = true;
+            Projectile.velocity = diff;
+            Projectile.netUpdate = true;
 
-            projectile.position = new Vector2(shooter.Center.X, shooter.Center.Y) + projectile.velocity * MoveDistance;
-            projectile.timeLeft = 2;
-            int dir = projectile.direction;
+            Projectile.position = new Vector2(shooter.Center.X, shooter.Center.Y) + Projectile.velocity * MoveDistance;
+            Projectile.timeLeft = 2;
+            int dir = Projectile.direction;
             #endregion
             
             Vector2 start = new Vector2(shooter.Center.X, shooter.Center.Y);
-            Vector2 unit = projectile.velocity;
+            Vector2 unit = Projectile.velocity;
             unit *= -1;
             for (Distance = MoveDistance; Distance <= 2200f; Distance += 5f)
             {
-                start = new Vector2(shooter.Center.X, shooter.Center.Y) + projectile.velocity * Distance;
+                start = new Vector2(shooter.Center.X, shooter.Center.Y) + Projectile.velocity * Distance;
                 if (!Collision.CanHit(new Vector2(shooter.Center.X, shooter.Center.Y), 1, 1, start, 1, 1))
                 {
                     Distance -= 5f;
@@ -77,15 +77,15 @@ namespace AAMod.Items.Dev.RuneBook
 
             //Add lights
             DelegateMethods.v3_1 = new Vector3(0.8f, 0.8f, 1f);
-            Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * (Distance - MoveDistance), 26,
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * (Distance - MoveDistance), 26,
                 DelegateMethods.CastLight);
 
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            shooter = Main.projectile[(int)projectile.ai[0]];
-            Texture2D projectiletex = mod.GetTexture("NPCs/Bosses/Zero/NovaRay");
-            DrawLaser(spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
+            shooter = Main.projectile[(int)Projectile.ai[0]];
+            Texture2D projectiletex = Mod.GetTexture("NPCs/Bosses/Zero/NovaRay");
+            DrawLaser(spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
             
             return false;
         }
@@ -120,7 +120,7 @@ namespace AAMod.Items.Dev.RuneBook
         // Change the way of collision check of the projectile
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
-            Vector2 unit = projectile.velocity;
+            Vector2 unit = Projectile.velocity;
             float point = 0f;
             // Run an AABB versus Line check to look for collisions, look up AABB collision first to see how it works
             // It will look for collisions on the given line using AABB
@@ -128,9 +128,9 @@ namespace AAMod.Items.Dev.RuneBook
                 new Vector2(shooter.Center.X, shooter.Center.Y) + unit * Distance, 22, ref point);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.immune[projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
         }
 
         public override bool ShouldUpdatePosition()

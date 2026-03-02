@@ -11,37 +11,37 @@ namespace AAMod.Tiles
 	{
 		public static int _type;
 
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
-            SetModTree(new MushroomTree());
+            SetModTree(new MushroomTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
-            dustType = mod.DustType("Mushdust");
+            DustType = Mod.Find<ModDust>("Mushdust").Type;
 			AddMapEntry(new Color(100, 100, 0));
-            drop = ItemID.DirtBlock;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.DirtBlock;
 		}
         
-		public override int SaplingGrowthType(ref int style)
+		public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
 		{
 			style = 0;
-			return mod.TileType("MushroomTree");
+			return Mod.Find<ModTile>("MushroomTree").Type;
 		}
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(30) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(30) == 0)
             {
-                PlaceObject(i, j - 1, mod.TileType("Mushroom"));
-                NetMessage.SendObjectPlacment(-1, i, j - 1, mod.TileType("Mushroom"), Main.rand.Next(5), 0, -1, -1);
+                PlaceObject(i, j - 1, Mod.Find<ModTile>("Mushroom").Type);
+                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Mushroom").Type, Main.rand.Next(5), 0, -1, -1);
             }
-            if (!Framing.GetTileSafely(i, j - 1).active() && Main.rand.Next(1000) == 0)
+            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1000) == 0)
             {
                 int style = Main.rand.Next(5);
                 if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom>(), false, style))
-                    NetMessage.SendObjectPlacment(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
             }
         }
 

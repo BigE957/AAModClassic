@@ -8,17 +8,17 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.WoodenArrowHostile);
-            projectile.hostile = true;
-            projectile.friendly = false;
+            Projectile.CloneDefaults(ProjectileID.WoodenArrowHostile);
+            Projectile.hostile = true;
+            Projectile.friendly = false;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deadshot");
+            // DisplayName.SetDefault("Deadshot");
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
         }

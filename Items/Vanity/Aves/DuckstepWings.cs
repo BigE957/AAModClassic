@@ -11,27 +11,27 @@ namespace AAMod.Items.Vanity.Aves
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Duckstep Bass Boosters");
-            Tooltip.SetDefault(@"Allows flight and slow fall
-'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Duckstep Bass Boosters");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
+'Great for impersonating Ancients Awakened Devs!'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 11;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 11;
+			Item.accessory = true;
 		}
         
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(158, 255, 61);
+                    line2.OverrideColor = new Color(158, 255, 61);
                 }
             }
         }

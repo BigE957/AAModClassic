@@ -9,17 +9,17 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 12;
+            Main.projFrames[Projectile.type] = 12;
         }
         public override void SetDefaults()
         {
-            projectile.melee = true;
-            projectile.penetrate = -1;  
-            projectile.width = 20;
-            projectile.height = 22;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 150;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = -1;  
+            Projectile.width = 20;
+            Projectile.height = 22;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 150;
         }
         private Color Gold = Color.Goldenrod;
         public bool AM;
@@ -27,7 +27,7 @@ namespace AAMod.Projectiles
 
         public override Color? GetAlpha(Color lightColor)
         {
-            if (projectile.ai[0] != 0)
+            if (Projectile.ai[0] != 0)
             {
                 return TimeColor();
             }
@@ -37,9 +37,9 @@ namespace AAMod.Projectiles
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (projectile.ai[0] != 0)
+            if (Projectile.ai[0] != 0)
             {
                 int Buff;
                 if (Main.dayTime)
@@ -58,30 +58,30 @@ namespace AAMod.Projectiles
         public override void AI()
         {
             FindFrame();
-            if (projectile.ai[0] != 0)
+            if (Projectile.ai[0] != 0)
             {
                 if (Main.dayTime)
                 {
-                    Lighting.AddLight(projectile.Center, new Vector3(Color.OrangeRed.R / 255f, Color.OrangeRed.G / 255, Color.OrangeRed.B / 255f));
+                    Lighting.AddLight(Projectile.Center, new Vector3(Color.OrangeRed.R / 255f, Color.OrangeRed.G / 255, Color.OrangeRed.B / 255f));
                 }
                 else
                 {
-                    Lighting.AddLight(projectile.Center, new Vector3(Color.Indigo.R / 255f, Color.Indigo.G / 255, Color.Indigo.B / 255f));
+                    Lighting.AddLight(Projectile.Center, new Vector3(Color.Indigo.R / 255f, Color.Indigo.G / 255, Color.Indigo.B / 255f));
                 }
             }
             else
             {
-                Lighting.AddLight(projectile.Center, new Vector3(Gold.R / 255f, Gold.G / 255f, Gold.B / 255f));
+                Lighting.AddLight(Projectile.Center, new Vector3(Gold.R / 255f, Gold.G / 255f, Gold.B / 255f));
             }
-            projectile.velocity *= 0.985f;
-            projectile.ai[1] += 1f;
-            if (projectile.ai[1] > 30f)
+            Projectile.velocity *= 0.985f;
+            Projectile.ai[1] += 1f;
+            if (Projectile.ai[1] > 30f)
             {
-                projectile.alpha += 10;
-                if (projectile.alpha >= 255)
+                Projectile.alpha += 10;
+                if (Projectile.alpha >= 255)
                 {
-                    projectile.alpha = 255;
-                    projectile.Kill();
+                    Projectile.alpha = 255;
+                    Projectile.Kill();
                     return;
                 }
             }
@@ -103,99 +103,99 @@ namespace AAMod.Projectiles
             }
             if (num4 > 1)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
             else if (num4 > 2)
             {
-                projectile.frame = 1;
+                Projectile.frame = 1;
             }
             else if (num4 > 3)
             {
-                projectile.frame = 2;
+                Projectile.frame = 2;
             }
             else if (num4 > 4)
             {
-                projectile.frame = 3;
+                Projectile.frame = 3;
             }
             else if (num4 > 5)
             {
-                projectile.frame = 4;
+                Projectile.frame = 4;
             }
             else if (num4 > 6)
             {
-                projectile.frame = 5;
+                Projectile.frame = 5;
             }
             else if (num4 > 7)
             {
-                projectile.frame = 6;
+                Projectile.frame = 6;
             }
             else if (num4 > 8)
             {
-                projectile.frame = 7;
+                Projectile.frame = 7;
             }
             else if (num4 > 9)
             {
-                projectile.frame = 8;
+                Projectile.frame = 8;
             }
             else if (num4 > 10)
             {
-                projectile.frame = 9;
+                Projectile.frame = 9;
             }
             else if (num4 > 11)
             {
-                projectile.frame = 10;
+                Projectile.frame = 10;
             }
             else if (num4 > 12)
             {
-                projectile.frame = 11;
+                Projectile.frame = 11;
             }
             else if (num4 > 13)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
             else if (num4 > 14)
             {
-                projectile.frame = 1;
+                Projectile.frame = 1;
             }
             else if (num4 > 15)
             {
-                projectile.frame = 2;
+                Projectile.frame = 2;
             }
             else if (num4 > 16)
             {
-                projectile.frame = 3;
+                Projectile.frame = 3;
             }
             else if (num4 > 17)
             {
-                projectile.frame = 4;
+                Projectile.frame = 4;
             }
             else if (num4 > 18)
             {
-                projectile.frame = 5;
+                Projectile.frame = 5;
             }
             else if (num4 > 19)
             {
-                projectile.frame = 6;
+                Projectile.frame = 6;
             }
             else if (num4 > 20)
             {
-                projectile.frame = 7;
+                Projectile.frame = 7;
             }
             else if (num4 > 21)
             {
-                projectile.frame = 8;
+                Projectile.frame = 8;
             }
             else if (num4 > 22)
             {
-                projectile.frame = 9;
+                Projectile.frame = 9;
             }
             else if (num4 > 23)
             {
-                projectile.frame = 10;
+                Projectile.frame = 10;
             }
             else
             {
-                projectile.frame = 11;
+                Projectile.frame = 11;
             }
         }
 

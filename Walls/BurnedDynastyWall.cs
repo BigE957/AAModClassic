@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class BurnedDynastyWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            dustType = mod.DustType("AshDust");
+            DustType = Mod.Find<ModDust>("AshDust").Type;
 			AddMapEntry(new Color(50, 25, 0));
 		}
 

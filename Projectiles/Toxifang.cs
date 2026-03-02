@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -8,61 +10,61 @@ namespace AAMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(14);
-			projectile.penetrate = 1;
-			projectile.width = 10;
-			projectile.height = 12;
-			projectile.ranged = false;
-			projectile.magic = true;
-			projectile.friendly = true;
-			projectile.timeLeft = 300;
-			projectile.aiStyle = 1;
-			projectile.alpha = 0;
-			aiType = 14;
+			Projectile.CloneDefaults(14);
+			Projectile.penetrate = 1;
+			Projectile.width = 10;
+			Projectile.height = 12;
+			Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.friendly = true;
+			Projectile.timeLeft = 300;
+			Projectile.aiStyle = 1;
+			Projectile.alpha = 0;
+			AIType = 14;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Toxifang");
+			// DisplayName.SetDefault("Toxifang");
 		}
 
 		public override void AI()
 		{
-			projectile.alpha = 0;
+			Projectile.alpha = 0;
 			for (int index1 = 0; index1 < 2; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 96, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 50, new Color(), 1f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 96, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 1f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 1.5f;
 				Main.dust[index2].scale *= 0.75f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 96, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 50, new Color(), 1f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 96, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 1f);
 				Main.dust[index3].velocity *= 1.5f;
 				Main.dust[index3].scale *= 0.75f;
 				Main.dust[index3].noGravity = true;
 			}
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(mod.BuffType("Hydratoxin"), 600);
-			projectile.Kill();
+			target.AddBuff(Mod.Find<ModBuff>("Hydratoxin").Type, 600);
+			Projectile.Kill();
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.Kill();
+			Projectile.Kill();
 			return true;
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int index1 = 0; index1 < 5; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 96, 0.0f, 0.0f, 50, new Color(), 2.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 96, 0.0f, 0.0f, 50, new Color(), 2.5f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 96, 0.0f, 0.0f, 50, new Color(), 1.25f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 96, 0.0f, 0.0f, 50, new Color(), 1.25f);
 				Main.dust[index3].velocity *= 2f;
 			}
 		}

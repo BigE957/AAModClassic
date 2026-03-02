@@ -11,28 +11,28 @@ namespace AAMod.Items.Armor.Imp
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Imp Hood");
-            Tooltip.SetDefault("7% Increased Minion damage \n" + "+1 Minion slot");
+            // DisplayName.SetDefault("Imp Hood");
+            // Tooltip.SetDefault("7% Increased Minion damage \n" + "+1 Minion slot");
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = 7000;
-            item.rare = 2;
-            item.defense = 4;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = 7000;
+            Item.rare = 2;
+            Item.defense = 4;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.07f;
+            player.GetDamage(DamageClass.Summon) += 0.07f;
             player.maxMinions += 1;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("ImpGarb") && legs.type == mod.ItemType("ImpBoots");
+            return body.type == Mod.Find<ModItem>("ImpGarb").Type && legs.type == Mod.Find<ModItem>("ImpBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -46,11 +46,10 @@ namespace AAMod.Items.Armor.Imp
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "DevilSilk", 6);
                 recipe.AddTile(TileID.Loom);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

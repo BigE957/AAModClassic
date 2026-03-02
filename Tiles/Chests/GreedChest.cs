@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -12,7 +14,7 @@ namespace AAMod.Tiles.Chests
 {
     public class GreedChest : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSpelunker[Type] = true;
 			Main.tileContainer[Type] = true;
@@ -20,11 +22,11 @@ namespace AAMod.Tiles.Chests
 			Main.tileShine[Type] = 1200;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
-			Main.tileValue[Type] = 500;
+			Main.tileOreFinderPriority[Type] = 500;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.Origin = new Point16(0, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-			TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
 			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -32,28 +34,28 @@ namespace AAMod.Tiles.Chests
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Greed Chest");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Greed Chest");
             AddMapEntry(new Color(150, 75, 0), name, MapChestName);
             name = CreateMapEntryName(Name + "_Locked"); // With multiple map entries, you need unique translation keys.
-            name.SetDefault("{$Mods.AAMod.Common.GreedChest_Locked}");
+            // name.SetDefault("{$Mods.AAMod.Common.GreedChest_Locked}");
             AddMapEntry(new Color(141, 64, 0), name, MapChestName);
-            dustType = DustID.Gold;
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Containers };
-            chest = "Greed Chest";
-            chestDrop = mod.ItemType("GreedChest");
+            DustType = DustID.Gold;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[] { TileID.Containers };
+            chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Greed Chest";
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("GreedChest").Type;
         }
 
-        public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].frameX / 36);
+        public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 
-        public override bool HasSmartInteract() => true;
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-        public override bool IsLockedChest(int i, int j) => Main.tile[i, j].frameX / 36 == 1;
+        public override bool IsLockedChest(int i, int j) => Main.tile[i, j].TileFrameX / 36 == 1;
 
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
-            bool Greed = NPC.AnyNPCs(mod.NPCType("Greed")) || NPC.AnyNPCs(mod.NPCType("GreedA")) || NPC.AnyNPCs(mod.NPCType("GreedSpawn")) || NPC.AnyNPCs(mod.NPCType("GreedTransition"));
+            bool Greed = NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedSpawn").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedTransition").Type);
             if (!Greed)
             {
                 if (AAWorld.OpenedChest == 2)
@@ -71,10 +73,10 @@ namespace AAMod.Tiles.Chests
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
                     AAWorld.OpenedChest = 2;
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.GreedChest("GreedChest3"), Color.Goldenrod);
-                    AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Greed"), false, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Greed"));
+                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Greed").Type, false, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Greed"));
                 }
             }
-            dustType = this.dustType;
+            dustType = this.DustType;
             return true;
         }
 
@@ -83,11 +85,11 @@ namespace AAMod.Tiles.Chests
             int left = i;
             int top = j;
             Tile tile = Main.tile[i, j];
-            if (tile.frameX % 36 != 0)
+            if (tile.TileFrameX % 36 != 0)
             {
                 left--;
             }
-            if (tile.frameY != 0)
+            if (tile.TileFrameY != 0)
             {
                 top--;
             }
@@ -112,11 +114,11 @@ namespace AAMod.Tiles.Chests
             Tile tile = Main.tile[i, j];
             int left = i;
             int top = j;
-            if (tile.frameX % 36 != 0)
+            if (tile.TileFrameX % 36 != 0)
             {
                 left--;
             }
-            if (tile.frameY != 0)
+            if (tile.TileFrameY != 0)
             {
                 top--;
             }
@@ -125,35 +127,35 @@ namespace AAMod.Tiles.Chests
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("GreedChest"));
+            Item.NewItem(i * 16, j * 16, 32, 32, Mod.Find<ModItem>("GreedChest").Type);
             Chest.DestroyChest(i, j);
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
             int left = i;
             int top = j;
-            if (tile.frameX % 36 != 0)
+            if (tile.TileFrameX % 36 != 0)
             {
                 left--;
             }
-            if (tile.frameY != 0)
+            if (tile.TileFrameY != 0)
             {
                 top--;
             }
             if (player.sign >= 0)
             {
-                Main.PlaySound(SoundID.MenuClose);
+                SoundEngine.PlaySound(SoundID.MenuClose);
                 player.sign = -1;
                 Main.editSign = false;
                 Main.npcChatText = "";
             }
             if (Main.editChest)
             {
-                Main.PlaySound(SoundID.MenuTick);
+                SoundEngine.PlaySound(SoundID.MenuTick);
                 Main.editChest = false;
                 Main.npcChatText = "";
             }
@@ -169,7 +171,7 @@ namespace AAMod.Tiles.Chests
                 {
                     player.chest = -1;
                     Recipe.FindRecipes();
-                    Main.PlaySound(SoundID.MenuClose);
+                    SoundEngine.PlaySound(SoundID.MenuClose);
                 }
                 else
                 {
@@ -186,7 +188,7 @@ namespace AAMod.Tiles.Chests
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
-                            NetMessage.SendData(MessageID.Unlock, -1, -1, null, player.whoAmI, 1f, left, top);
+                            NetMessage.SendData(MessageID.LockAndUnlock, -1, -1, null, player.whoAmI, 1f, left, top);
                         }
                     }
                 }
@@ -199,7 +201,7 @@ namespace AAMod.Tiles.Chests
                         if (chest == player.chest)
                         {
                             player.chest = -1;
-                            Main.PlaySound(SoundID.MenuClose);
+                            SoundEngine.PlaySound(SoundID.MenuClose);
                         }
                         else
                         {
@@ -208,7 +210,7 @@ namespace AAMod.Tiles.Chests
                             Main.recBigList = false;
                             player.chestX = left;
                             player.chestY = top;
-                            Main.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
+                            SoundEngine.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
                         }
                         Recipe.FindRecipes();
                     }
@@ -223,43 +225,43 @@ namespace AAMod.Tiles.Chests
             Tile tile = Main.tile[i, j];
             int left = i;
             int top = j;
-            if (tile.frameX % 36 != 0)
+            if (tile.TileFrameX % 36 != 0)
             {
                 left--;
             }
-            if (tile.frameY != 0)
+            if (tile.TileFrameY != 0)
             {
                 top--;
             }
             int chest = Chest.FindChest(left, top);
-            player.showItemIcon2 = -1;
+            player.cursorItemIconID = -1;
             if (chest < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyChestType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyChestType.0");
             }
             else
             {
-                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Greed Chest";
-                if (player.showItemIconText == "Greed Chest")
+                player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Greed Chest";
+                if (player.cursorItemIconText == "Greed Chest")
                 {
-                    player.showItemIcon2 = mod.ItemType("GreedChest");
-                    if (Main.tile[left, top].frameX / 36 == 1)
-                        player.showItemIcon2 = ModContent.ItemType<Items.Usable.GreedKey>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconID = Mod.Find<ModItem>("GreedChest").Type;
+                    if (Main.tile[left, top].TileFrameX / 36 == 1)
+                        player.cursorItemIconID = ModContent.ItemType<Items.Usable.GreedKey>();
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;
-            player.showItemIcon = true;
+            player.cursorItemIconEnabled = true;
         }
 
         public override void MouseOverFar(int i, int j)
         {
             MouseOver(i, j);
             Player player = Main.LocalPlayer;
-            if (player.showItemIconText == "")
+            if (player.cursorItemIconText == "")
             {
-                player.showItemIcon = false;
-                player.showItemIcon2 = 0;
+                player.cursorItemIconEnabled = false;
+                player.cursorItemIconID = 0;
             }
         }
     }

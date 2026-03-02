@@ -8,54 +8,54 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dayfire");     
-            Main.projFrames[projectile.type] = 4;     
+            // DisplayName.SetDefault("Dayfire");     
+            Main.projFrames[Projectile.type] = 4;     
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
         }
 
         public override void AI()
         {
-            projectile.timeLeft--;
-            if (projectile.timeLeft < 256)
+            Projectile.timeLeft--;
+            if (Projectile.timeLeft < 256)
             {
-                projectile.alpha++;
+                Projectile.alpha++;
             }
 
-            if (projectile.frameCounter++ > 8)
+            if (Projectile.frameCounter++ > 8)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return new Color(Color.White.R, Color.White.G, Color.White.B, projectile.alpha);
+            return new Color(Color.White.R, Color.White.G, Color.White.B, Projectile.alpha);
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
     }

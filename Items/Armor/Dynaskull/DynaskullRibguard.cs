@@ -11,35 +11,34 @@ namespace AAMod.Items.Armor.Dynaskull
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Dynaskull Ribguard");
-            Tooltip.SetDefault("13% increased ranged damage");
+			// DisplayName.SetDefault("Dynaskull Ribguard");
+            // Tooltip.SetDefault("13% increased ranged damage");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 18;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 8;
+			Item.width = 28;
+			Item.height = 18;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 8;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.rangedDamage += 0.13f;
+			player.GetDamage(DamageClass.Ranged) += 0.13f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FossilShirt, 1);
             recipe.AddIngredient(null, "DynaskullOre", 15);
             recipe.AddIngredient(null, "Doomite", 8);
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(null, "BroodScale", 8);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

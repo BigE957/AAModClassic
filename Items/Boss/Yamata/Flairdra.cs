@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -14,38 +15,38 @@ namespace AAMod.Items.Boss.Yamata
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Flairdra");
-            Tooltip.SetDefault(@"Be the hydra.
-Inflicts Moonraze");
+            // DisplayName.SetDefault("Flairdra");
+            /* Tooltip.SetDefault(@"Be the hydra.
+Inflicts Moonraze"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 22;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.noMelee = true;
-            item.useStyle = 5;
-            item.useAnimation = 12;
-            item.useTime = 12;
-            item.knockBack = 3.5f;
-            item.damage = 160;
-            item.noUseGraphic = true;
-            item.shoot = mod.ProjectileType("Flairdra");
-            item.shootSpeed = 24f;
-            item.UseSound = SoundID.Item21;
-            item.melee = true;
-            item.autoReuse = true;
-            item.rare = 9; AARarity = 13;
+            Item.width = 26;
+            Item.height = 22;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.noMelee = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 12;
+            Item.useTime = 12;
+            Item.knockBack = 3.5f;
+            Item.damage = 160;
+            Item.noUseGraphic = true;
+            Item.shoot = Mod.Find<ModProjectile>("Flairdra").Type;
+            Item.shootSpeed = 24f;
+            Item.UseSound = SoundID.Item21;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.autoReuse = true;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -53,14 +54,14 @@ Inflicts Moonraze");
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -71,7 +72,7 @@ Inflicts Moonraze");
                 0f
             );
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread =100f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -82,21 +83,20 @@ Inflicts Moonraze");
             {
                 offsetAngle = startAngle + (deltaAngle * i);
                 int proj = Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
-                Main.projectile[proj].ranged = false;
-                Main.projectile[proj].melee = true;
+                Main.projectile[proj].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Melee;
             }
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "EventideAbyssium", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(ItemID.Flairon, 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

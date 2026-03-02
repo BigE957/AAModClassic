@@ -13,82 +13,82 @@ namespace AAMod.NPCs.Bosses.Broodmother
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon Egg");
+            // DisplayName.SetDefault("Dragon Egg");
         }
         public override void SetDefaults()
         {
-            npc.width = 34;
-            npc.height = 34;
-            npc.aiStyle = -1;
-            npc.damage = 0;
-            npc.defense = 20;
-            npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            npc.lifeMax = 50;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 0f;
-            npc.knockBackResist = .2f;
-            npc.npcSlots = 0f;
+            NPC.width = 34;
+            NPC.height = 34;
+            NPC.aiStyle = -1;
+            NPC.damage = 0;
+            NPC.defense = 20;
+            NPC.lavaImmune = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
+            NPC.lifeMax = 50;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 0f;
+            NPC.knockBackResist = .2f;
+            NPC.npcSlots = 0f;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = npc.life <= 0;
+			bool isDead = NPC.life <= 0;
             if (isDead)
             {
 				for(int m = 0; m < 4; m++)
 				{
-					Vector2 offset = new Vector2(Main.rand.Next(npc.width), Main.rand.Next(npc.height));
-					Gore.NewGore(npc.position + offset, npc.velocity * 0.2f, mod.GetGoreSlot("Gores/BroodGore3"), 1f); //reused brood gore, it looks right for the egg
+					Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
+					Gore.NewGore(NPC.position + offset, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGore3"), 1f); //reused brood gore, it looks right for the egg
 				}
             }
 			for (int m = 0; m < (isDead ? 20 : 5); m++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, DustID.Fire, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, 1.3f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.3f);
 			}
         }
         
         public override void AI()
         {
-            if (npc.velocity.Y == 0f)
+            if (NPC.velocity.Y == 0f)
             {
-                npc.velocity.X = npc.velocity.X * 0.9f;
-                npc.rotation += npc.velocity.X * 0.02f;
+                NPC.velocity.X = NPC.velocity.X * 0.9f;
+                NPC.rotation += NPC.velocity.X * 0.02f;
             }
             else
             {
-                npc.velocity.X = npc.velocity.X * 0.99f;
-                npc.rotation += npc.velocity.X * 0.04f;
+                NPC.velocity.X = NPC.velocity.X * 0.99f;
+                NPC.rotation += NPC.velocity.X * 0.04f;
             }
             int hatchTimer = 900;
             if (Main.expertMode)
             {
                 hatchTimer = 700;
             }
-            if (npc.justHit)
+            if (NPC.justHit)
             {
-                npc.ai[3] -= Main.rand.Next(10, 21);
+                NPC.ai[3] -= Main.rand.Next(10, 21);
                 if (!Main.expertMode)
                 {
-                    npc.ai[3] -= Main.rand.Next(10, 21);
+                    NPC.ai[3] -= Main.rand.Next(10, 21);
                 }
             }
-            npc.ai[3] += 1f;
-            if (npc.ai[3] >= hatchTimer)
+            NPC.ai[3] += 1f;
+            if (NPC.ai[3] >= hatchTimer)
             {
-                npc.Transform(mod.NPCType("Broodmini"));
+                NPC.Transform(Mod.Find<ModNPC>("Broodmini").Type);
             }
-            if (Main.netMode != 1 && npc.velocity.Y == 0f && Math.Abs(npc.velocity.X) < 0.2 && npc.ai[3] >= hatchTimer * 0.75)
+            if (Main.netMode != 1 && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[3] >= hatchTimer * 0.75)
             {
-                float wiggleAmount = npc.ai[3] - (hatchTimer * 0.75f);
+                float wiggleAmount = NPC.ai[3] - (hatchTimer * 0.75f);
                 wiggleAmount /= hatchTimer * 0.25f;
                 if (Main.rand.Next(-10, 120) < wiggleAmount * 100f)
                 {
-                    npc.velocity.Y = npc.velocity.Y - (Main.rand.Next(20, 40) * 0.025f);
-                    npc.velocity.X = npc.velocity.X + (Main.rand.Next(-20, 20) * 0.025f);
-                    npc.velocity *= 1f + (wiggleAmount * 2f);
-                    npc.netUpdate = true;
+                    NPC.velocity.Y = NPC.velocity.Y - (Main.rand.Next(20, 40) * 0.025f);
+                    NPC.velocity.X = NPC.velocity.X + (Main.rand.Next(-20, 20) * 0.025f);
+                    NPC.velocity *= 1f + (wiggleAmount * 2f);
+                    NPC.netUpdate = true;
                     return;
                 }
             }
@@ -99,9 +99,9 @@ namespace AAMod.NPCs.Bosses.Broodmother
 			return ColorUtils.COLOR_GLOWPULSE;// new Color(255, 255, 255) * ((float)Main.mouseTextColor / 255f);
 		}
 
-        public override void PostDraw(SpriteBatch sb, Color dColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(sb, mod.GetTexture("Glowmasks/BroodEgg_Glow"), 0, npc, GetGlowAlpha());
+			BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/BroodEgg_Glow"), 0, NPC, GetGlowAlpha());
         }		
     }
 }

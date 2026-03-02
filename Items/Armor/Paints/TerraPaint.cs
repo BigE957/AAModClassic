@@ -11,28 +11,28 @@ namespace AAMod.Items.Armor.Paints
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Face Paint");
-			Tooltip.SetDefault(@"42% increased minion damage
-+120 mana");
+			// DisplayName.SetDefault("Terra Face Paint");
+			/* Tooltip.SetDefault(@"42% increased minion damage
++120 mana"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 28;
-			item.value = 60000;
-            item.rare = 8;
-            item.defense = 6;
+			Item.width = 30;
+			Item.height = 28;
+			Item.value = 60000;
+            Item.rare = 8;
+            Item.defense = 6;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-            player.minionDamage += .42f;
+            player.GetDamage(DamageClass.Summon) += .42f;
             player.statManaMax2 += 120;
 		}
 
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -51,12 +51,11 @@ namespace AAMod.Items.Armor.Paints
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HallowedPaint", 1);
             recipe.AddIngredient(null, "ChlorophytePaint", 1);
             recipe.AddTile(TileID.BewitchingTable);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

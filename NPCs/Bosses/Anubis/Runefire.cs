@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Anubis
@@ -8,48 +9,48 @@ namespace AAMod.NPCs.Bosses.Anubis
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 20;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.scale = 1.1f;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 60;
-            projectile.timeLeft = 180;
-            projectile.extraUpdates = 1;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.scale = 1.1f;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 60;
+            Projectile.timeLeft = 180;
+            Projectile.extraUpdates = 1;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return new Color(Color.White.R, Color.White.G, Color.White.B, projectile.alpha);
+            return new Color(Color.White.R, Color.White.G, Color.White.B, Projectile.alpha);
         }
 
         public override void AI()
         {
-            if (projectile.timeLeft > 0)
+            if (Projectile.timeLeft > 0)
             {
-                projectile.timeLeft--;
+                Projectile.timeLeft--;
             }
-            if (projectile.timeLeft == 0)
+            if (Projectile.timeLeft == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.frameCounter++;
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
-            if (projectile.frameCounter > 6)
+            Projectile.frameCounter++;
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
+            if (Projectile.frameCounter > 6)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
             const int aislotHomingCooldown = 0;
@@ -57,17 +58,17 @@ namespace AAMod.NPCs.Bosses.Anubis
             const float desiredFlySpeedInPixelsPerFrame = 12;
             const float amountOfFramesToLerpBy = 40; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player target = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -84,11 +85,11 @@ namespace AAMod.NPCs.Bosses.Anubis
                 Player target = Main.player[i];
                 if (target.active && (!target.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(target.Center);
+                    float distance = Projectile.Distance(target.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.player[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.player[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -97,10 +98,10 @@ namespace AAMod.NPCs.Bosses.Anubis
             return selectedTarget;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            projectile.active = false;
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            Projectile.active = false;
         }
     }
 }

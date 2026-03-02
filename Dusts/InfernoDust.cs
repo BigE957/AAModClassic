@@ -4,9 +4,9 @@ namespace AAMod.Dusts
 {
     public class InfernoDust : ModDust
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            updateType = 3;
+            UpdateType = 3;
         }
     }
 }

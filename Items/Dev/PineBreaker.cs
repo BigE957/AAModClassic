@@ -10,40 +10,40 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Pine Breaker");
-            Tooltip.SetDefault(@"'I don't like egg'
--Planterror");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+            // DisplayName.SetDefault("Pine Breaker");
+            /* Tooltip.SetDefault(@"'I don't like egg'
+-Planterror"); */
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 80;
-			item.magic = true;
-			item.mana = 7;
-			item.width = 66;
-			item.height = 64;
-			item.useTime = 32;
-			item.useAnimation = 32;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 4;
-			item.rare = 9;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("Pine");
-			item.shootSpeed = 9f;
-            item.expert = true; 
-            item.expertOnly = true;
+			Item.damage = 80;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 7;
+			Item.width = 66;
+			Item.height = 64;
+			Item.useTime = 32;
+			Item.useAnimation = 32;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4;
+			Item.rare = 9;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("Pine").Type;
+			Item.shootSpeed = 9f;
+            Item.expert = true; 
+            Item.expertOnly = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(91, 149, 91);
+                    line2.OverrideColor = new Color(91, 149, 91);
                 }
             }
         }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,41 +11,41 @@ namespace AAMod.Items.Boss.Yamata
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Falling Twilight");
+            // DisplayName.SetDefault("Falling Twilight");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 170;
-            item.ranged = true;
-            item.width = 44;
-            item.height = 76;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.reuseDelay = 0;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 2.5f;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shoot = 1;
-            item.shootSpeed = 20f;
-            item.useAmmo = AmmoID.Arrow;
-            item.rare = 9; AARarity = 13;
+            Item.damage = 170;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 44;
+            Item.height = 76;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.reuseDelay = 0;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.knockBack = 2.5f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shoot = 1;
+            Item.shootSpeed = 20f;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float numberProjectiles = 4;
             float rotation = MathHelper.ToRadians(4);
@@ -62,13 +63,12 @@ namespace AAMod.Items.Boss.Yamata
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(ItemID.Tsunami);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AAMod.Tiles
 {
 	public class RottedPlatform : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileLighted[Type] = false;
 			Main.tileFrameImportant[Type] = true;
@@ -29,9 +29,9 @@ namespace AAMod.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(200, 200, 200));
-			dustType = DustID.GreenBlood;
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Platforms };
+			DustType = DustID.GreenBlood;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Platforms };
 		}
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {

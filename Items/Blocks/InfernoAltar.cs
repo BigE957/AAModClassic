@@ -10,37 +10,37 @@ namespace AAMod.Items.Blocks
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Dragon Altar");
+            // DisplayName.SetDefault("Dragon Altar");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.consumable = true;
-            item.createTile = mod.TileType("ChaosAltar");
-            item.placeStyle = 1;
-            item.width = 28;
-            item.height = 22;
-            item.rare = 3;
-            item.value = 1000;
-            item.accessory = false;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("ChaosAltar").Type;
+            Item.placeStyle = 1;
+            Item.width = 28;
+            Item.height = 22;
+            Item.rare = 3;
+            Item.value = 1000;
+            Item.accessory = false;
         }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -54,12 +54,11 @@ namespace AAMod.Items.Blocks
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "IncineriteBar", 15);
             recipe.AddIngredient(null, "BroodScale", 5);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
@@ -6,28 +7,28 @@ namespace AAMod.Items.Magic        //We need this to basically indicate the fold
     {
         public override void SetDefaults()
         {
-            item.damage = 90; //Projectile Damage
-            item.magic = true; //It's a magic tome
-            item.mana = 12; //It will use that much
-            item.width = 8;
-            item.height = 8;
-            item.useTime = 40;
-            item.useAnimation = 40;
-            item.useStyle = 5;
-            item.noMelee = true; //Why would you hit anyone with a book?
-            item.knockBack = 4;
-            item.value = 10000;
-            item.rare = 2;
-            item.UseSound = SoundID.Item8;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("BogOrb");
-            item.shootSpeed = 8f;
+            Item.damage = 90; //Projectile Damage
+            Item.DamageType = DamageClass.Magic; //It's a magic tome
+            Item.mana = 12; //It will use that much
+            Item.width = 8;
+            Item.height = 8;
+            Item.useTime = 40;
+            Item.useAnimation = 40;
+            Item.useStyle = 5;
+            Item.noMelee = true; //Why would you hit anyone with a book?
+            Item.knockBack = 4;
+            Item.value = 10000;
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item8;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("BogOrb").Type;
+            Item.shootSpeed = 8f;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bog Bomb");
-            Tooltip.SetDefault("Fires an explosive bomb that inflicts venom upon whatever it strikes");
+            // DisplayName.SetDefault("Bog Bomb");
+            // Tooltip.SetDefault("Fires an explosive bomb that inflicts venom upon whatever it strikes");
         }
     }
 }

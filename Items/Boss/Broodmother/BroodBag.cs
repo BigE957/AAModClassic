@@ -1,6 +1,7 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Broodmother
 {
     public class BroodBag : BaseAAItem
@@ -8,30 +9,30 @@ namespace AAMod.Items.Boss.Broodmother
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 
 		public override void SetDefaults()
 		{
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 36;
-			item.height = 32;
-			item.expert = true; item.expertOnly = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 36;
+			Item.height = 32;
+			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => mod.NPCType("Broodmother");
+        public override int BossBagNPC => Mod.Find<ModNPC>("Broodmother").Type;
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -56,7 +57,7 @@ namespace AAMod.Items.Boss.Broodmother
             }
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("BroodEgg"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("BroodEgg").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -64,9 +65,9 @@ namespace AAMod.Items.Boss.Broodmother
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(mod.ItemType("Incinerite"), Main.rand.Next(75, 125));
-            player.QuickSpawnItem(mod.ItemType("BroodScale"), Main.rand.Next(50, 100));
-            player.QuickSpawnItem(mod.ItemType("DragonCape"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(75, 125));
+            player.QuickSpawnItem(Mod.Find<ModItem>("BroodScale").Type, Main.rand.Next(50, 100));
+            player.QuickSpawnItem(Mod.Find<ModItem>("DragonCape").Type);
         }
 	}
 }

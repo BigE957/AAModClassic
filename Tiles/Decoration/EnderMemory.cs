@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,12 +12,12 @@ namespace AAMod.Tiles.Decoration
 {
     public class EnderMemory : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            dustType = DustID.Gold;
+            DustType = DustID.Gold;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.Width = 6;
             TileObjectData.newTile.Height = 11;
@@ -28,14 +29,14 @@ namespace AAMod.Tiles.Decoration
             TileObjectData.newTile.Direction = TileObjectDirection.None;
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Eternal Memory");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Eternal Memory");
             AddMapEntry(new Color(150, 100, 0), name);
-            disableSmartCursor = true;
-            drop = mod.ItemType("EnderMemory");
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("EnderMemory").Type;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             BaseUtility.Chat(Lang.TilesInfo("EnderMemoryInfo"), Color.Goldenrod);
             return true;
@@ -43,7 +44,7 @@ namespace AAMod.Tiles.Decoration
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("EnderMemory"));
+            Item.NewItem(i * 16, j * 16, 32, 32, Mod.Find<ModItem>("EnderMemory").Type);
         }
 
     }

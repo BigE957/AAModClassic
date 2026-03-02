@@ -11,28 +11,28 @@ namespace AAMod.Items.Vanity.Gibs
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Revenant's Jet Booster");
-            Tooltip.SetDefault(@"Allows flight and slow fall
+            // DisplayName.SetDefault("Revenant's Jet Booster");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
-'Great for impersonating Ancients Awakened Developers!'");
+'Great for impersonating Ancients Awakened Developers!'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 10;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 10;
+			Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 128, 0);
+                    line2.OverrideColor = new Color(255, 128, 0);
                 }
             }
         }

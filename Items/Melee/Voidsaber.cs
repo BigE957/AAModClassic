@@ -6,29 +6,29 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetDefaults()
 		{
-			item.width = 48;
-			item.height = 48;
-			item.useAnimation = 25;
-			item.useTime = 15;
-			item.useStyle = 5;
-			item.rare = 1;
-			item.noUseGraphic = true;
-			item.channel = true;
-			item.noMelee = true;
-			item.damage = 9;
-			item.knockBack = 4f;
-			item.autoReuse = false;
-			item.noMelee = true;
-			item.melee = true;
-			item.shoot = ModContent.ProjectileType<Projectiles.Voidslash>();
-			item.shootSpeed = 15f;
-			item.value = 5400;
+			Item.width = 48;
+			Item.height = 48;
+			Item.useAnimation = 25;
+			Item.useTime = 15;
+			Item.useStyle = 5;
+			Item.rare = 1;
+			Item.noUseGraphic = true;
+			Item.channel = true;
+			Item.noMelee = true;
+			Item.damage = 9;
+			Item.knockBack = 4f;
+			Item.autoReuse = false;
+			Item.noMelee = true;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.shoot = ModContent.ProjectileType<Projectiles.Voidslash>();
+			Item.shootSpeed = 15f;
+			Item.value = 5400;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Voidsaber");
-			Tooltip.SetDefault("");
+			// DisplayName.SetDefault("Voidsaber");
+			// Tooltip.SetDefault("");
 		}
 	}
 }

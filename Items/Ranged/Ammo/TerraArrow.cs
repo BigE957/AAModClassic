@@ -8,38 +8,37 @@ namespace AAMod.Items.Ranged.Ammo
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Terra Arrow");
-			Tooltip.SetDefault(@"Homes in on enemies
-Not Consumable");
+            // DisplayName.SetDefault("Terra Arrow");
+			/* Tooltip.SetDefault(@"Homes in on enemies
+Not Consumable"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 12;
-			item.ranged = true;
-			item.width = 14;
-			item.height = 32;
-			item.knockBack = 4f;
-			item.value = 30;
-			item.rare = 1;
-			item.shoot = mod.ProjectileType("TerraArrow");
-            item.shootSpeed = 1f;
-			item.ammo = AmmoID.Arrow;
+			Item.damage = 12;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 14;
+			Item.height = 32;
+			Item.knockBack = 4f;
+			Item.value = 30;
+			Item.rare = 1;
+			Item.shoot = Mod.Find<ModProjectile>("TerraArrow").Type;
+            Item.shootSpeed = 1f;
+			Item.ammo = AmmoID.Arrow;
 		}
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.HolyArrow, 999);
 			recipe.AddIngredient(null, "ReaperArrow", 999);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -8,13 +8,13 @@ namespace AAMod.Walls.Bricks
 {
     public class EquinoxWall : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            dustType = mod.DustType("RadiumDust");
+            DustType = Mod.Find<ModDust>("RadiumDust").Type;
             AddMapEntry(new Color(60, 60, 30));
-            soundType = 21;
-            drop = mod.ItemType("EquinoxWall");
+            HitSound = 21;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("EquinoxWall").Type;
             Main.wallHouse[Type] = true;
         }
 
@@ -31,7 +31,7 @@ namespace AAMod.Walls.Bricks
             }
             else
             {
-                BaseDrawing.DrawWallTexture(spriteBatch, mod.GetTexture("Walls/Bricks/DarkmatterWall"), x, y, true);
+                BaseDrawing.DrawWallTexture(spriteBatch, Mod.GetTexture("Walls/Bricks/DarkmatterWall"), x, y, true);
             }
             return false;
         }

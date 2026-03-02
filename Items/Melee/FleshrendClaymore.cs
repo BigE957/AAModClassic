@@ -8,38 +8,37 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Flesh Claymore");
-			Tooltip.SetDefault("Stained with the blood of your fallen foes.");
+			// DisplayName.SetDefault("Flesh Claymore");
+			// Tooltip.SetDefault("Stained with the blood of your fallen foes.");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 60;
-			item.melee = true;
-			item.width = 48;
-			item.height = 56;
-			item.useTime = 29;
-			item.useAnimation = 29;
-			item.useStyle = 1;
-			item.knockBack = 7;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 3;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 48;
+			Item.height = 56;
+			Item.useTime = 29;
+			Item.useAnimation = 29;
+			Item.useStyle = 1;
+			Item.knockBack = 7;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 3;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = false;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BloodButcherer, 1);
 			recipe.AddIngredient(ItemID.FieryGreatsword, 1);
 			recipe.AddIngredient(ItemID.BladeofGrass, 1);
 			recipe.AddIngredient(ItemID.Muramasa, 1);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		 public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		 public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Ichor, 180);
         }

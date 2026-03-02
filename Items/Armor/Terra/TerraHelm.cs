@@ -11,29 +11,29 @@ namespace AAMod.Items.Armor.Terra
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Helm");
-			Tooltip.SetDefault(@"22% increased melee damage
-9% increased melee speed");
+			// DisplayName.SetDefault("Terra Helm");
+			/* Tooltip.SetDefault(@"22% increased melee damage
+9% increased melee speed"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 24;
-			item.height = 26;
-			item.value = 90000;
-			item.rare = 7;
-			item.defense = 30;
+			Item.width = 24;
+			Item.height = 26;
+			Item.value = 90000;
+			Item.rare = 7;
+			Item.defense = 30;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-            player.meleeDamage += .22f;
-			player.meleeSpeed += 0.09f;
+            player.GetDamage(DamageClass.Melee) += .22f;
+			player.GetAttackSpeed(DamageClass.Melee) += 0.09f;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("TerraPlate") && legs.type == mod.ItemType("TerraGreaves");
+			return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -46,19 +46,17 @@ namespace AAMod.Items.Armor.Terra
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe;
-			recipe = new ModRecipe(mod);
+			Recipe recipe;
+			recipe = CreateRecipe();
 			recipe.AddIngredient(null, "NightsHelm", 1);
 			recipe.AddIngredient(null, "TerraCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-			recipe = new ModRecipe(mod);
+			recipe.Register();
+			recipe = CreateRecipe();
 			recipe.AddIngredient(null, "FleshrendHelm", 1);
 			recipe.AddIngredient(null, "TerraCrystal", 1);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

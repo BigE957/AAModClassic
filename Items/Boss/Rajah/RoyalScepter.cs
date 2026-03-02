@@ -1,6 +1,9 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah
 {
@@ -8,32 +11,32 @@ namespace AAMod.Items.Boss.Rajah
     {
         public override void SetDefaults()
         {
-            item.mana = 10;
-            item.damage = 74;
-            item.useStyle = 5;
-            item.shootSpeed = 9f;
-            item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Carrot>();
-            item.width = 58;
-            item.height = 57;
-            item.UseSound = SoundID.Item39;
-            item.useAnimation = 30;
-            item.useTime = 15;
-            item.autoReuse = true;
-            item.rare = 8;
-            item.noMelee = true;
-            item.knockBack = 2f;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.magic = true;
+            Item.mana = 10;
+            Item.damage = 74;
+            Item.useStyle = 5;
+            Item.shootSpeed = 9f;
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Carrot>();
+            Item.width = 58;
+            Item.height = 57;
+            Item.UseSound = SoundID.Item39;
+            Item.useAnimation = 30;
+            Item.useTime = 15;
+            Item.autoReuse = true;
+            Item.rare = 8;
+            Item.noMelee = true;
+            Item.knockBack = 2f;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.DamageType = DamageClass.Magic;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Royal Scepter");
-            Tooltip.SetDefault("Shoots a spread of three carrots");
-            Item.staff[item.type] = true;
+            // DisplayName.SetDefault("Royal Scepter");
+            // Tooltip.SetDefault("Shoots a spread of three carrots");
+            Item.staff[Item.type] = true;
         }
 
-		public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 		    float spread = 45f * 0.0174f;
 		    float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -44,8 +47,8 @@ namespace AAMod.Items.Boss.Rajah
 		    {
 		    	offsetAngle = startAngle + (deltaAngle * i);
 		    	int proj = Projectile.NewProjectile(position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
-                Main.projectile[proj].melee = false;
-                Main.projectile[proj].magic = true;
+                Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Magic;
             }
 		    return false;
 		}

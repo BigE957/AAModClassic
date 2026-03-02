@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,60 +11,60 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
 		{
-			projectile.CloneDefaults(14);
-			projectile.penetrate = 1;
-			projectile.width = 16;
-			projectile.height = 16;
-			projectile.ranged = false;
-			projectile.magic = true;
-			projectile.friendly = true;
-			projectile.timeLeft = 300;
-			projectile.alpha = 150;
-			projectile.aiStyle = 1;
-			aiType = 14;
+			Projectile.CloneDefaults(14);
+			Projectile.penetrate = 1;
+			Projectile.width = 16;
+			Projectile.height = 16;
+			Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.friendly = true;
+			Projectile.timeLeft = 300;
+			Projectile.alpha = 150;
+			Projectile.aiStyle = 1;
+			AIType = 14;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Atlantean Trident Water Sphere");
+			// DisplayName.SetDefault("Atlantean Trident Water Sphere");
 		}
 
 		public override void AI()
 		{
-			projectile.alpha = 150;
+			Projectile.alpha = 150;
 			for (int index1 = 0; index1 < 2; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 103, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 50, new Color(), 2f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 2f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
 				Main.dust[index2].scale *= 0.75f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 103, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 50, new Color(), 1f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 1f);
 				Main.dust[index3].velocity *= 2f;
 				Main.dust[index3].scale *= 0.75f;
 				Main.dust[index3].noGravity = true;
 			}
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			projectile.Kill();
+			Projectile.Kill();
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.Kill();
+			Projectile.Kill();
 			return true;
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 54);
+			SoundEngine.PlaySound(SoundID.Item54, Projectile.position);
 			for (int index1 = 0; index1 < 10; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 3.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 3.5f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 1.5f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 1.5f);
 				Main.dust[index3].velocity *= 2f;
 			}
 		}

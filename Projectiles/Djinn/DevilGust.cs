@@ -10,42 +10,42 @@ namespace AAMod.Projectiles.Djinn
     	
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Desert Gust");
-            Main.projFrames[projectile.type] = 5;
+			// DisplayName.SetDefault("Desert Gust");
+            Main.projFrames[Projectile.type] = 5;
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -11;
-            projectile.extraUpdates = 1;
-            projectile.scale = 1.1f;
-            projectile.penetrate = -1;
-            projectile.minion = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -11;
+            Projectile.extraUpdates = 1;
+            Projectile.scale = 1.1f;
+            Projectile.penetrate = -1;
+            Projectile.minion = true;
         }
 
         public override void AI()
         {
-            projectile.velocity *= 0.98f;
-            projectile.alpha += 2;
-            if (projectile.alpha > 255)
+            Projectile.velocity *= 0.98f;
+            Projectile.alpha += 2;
+            if (Projectile.alpha > 255)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

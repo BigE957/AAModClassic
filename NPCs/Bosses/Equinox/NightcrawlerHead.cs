@@ -8,15 +8,15 @@ namespace AAMod.NPCs.Bosses.Equinox
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Nightcrawler");
-            Main.npcFrameCount[npc.type] = 1;			
+			// DisplayName.SetDefault("Nightcrawler");
+            Main.npcFrameCount[NPC.type] = 1;			
 		}		
 		
 		public override void SetDefaults()
 		{
             base.SetDefaults();
 			nightcrawler = true;
-			bossBag = mod.ItemType("EquinoxBag");
+			bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("EquinoxBag").Type;
 		}
     }
 }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.RazewoodF
@@ -6,34 +7,32 @@ namespace AAMod.Items.Blocks.RazewoodF
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Razewood Platform");
+            // DisplayName.SetDefault("Razewood Platform");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 8;
-			item.height = 10;
-			item.maxStack = 999;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createTile = mod.TileType("RazewoodPlatform");
+			Item.width = 8;
+			Item.height = 10;
+			Item.maxStack = 999;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("RazewoodPlatform").Type;
 		}
 
 		public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "Razewood");
-            recipe.SetResult(this, 2);
-            recipe.AddRecipe(); 
-            recipe = new ModRecipe(mod);
+            recipe.Register(); 
+            recipe = Recipe.Create(null, "Razewood");
             recipe.AddIngredient(this, 2);
-            recipe.SetResult(null, "Razewood");
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

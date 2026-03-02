@@ -10,94 +10,94 @@ namespace AAMod.NPCs.Enemies.Inferno
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Magma Swimmer");
-            Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Magma Swimmer");
+            Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
         {
-            npc.width = 86;
-            npc.height = 38;
-            npc.damage = 60;
-			npc.defense = 30;
-			npc.lifeMax = 110;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 5000;
-            npc.knockBackResist = .10f;
-            npc.aiStyle = -1;
-            npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MagmalgamBanner");
+            NPC.width = 86;
+            NPC.height = 38;
+            NPC.damage = 60;
+			NPC.defense = 30;
+			NPC.lifeMax = 110;
+			NPC.HitSound = SoundID.NPCHit1;
+			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 5000;
+            NPC.knockBackResist = .10f;
+            NPC.aiStyle = -1;
+            NPC.lavaImmune = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MagmalgamBanner").Type;
         }
 
         public override void AI()
         {
-            Lighting.AddLight(npc.Center, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255, AAColor.Lantern.B / 255);
-            if (npc.wet)
+            Lighting.AddLight(NPC.Center, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255, AAColor.Lantern.B / 255);
+            if (NPC.wet)
             {
-                npc.noGravity = true;
-                BaseAI.AIFish(npc, ref npc.ai, true, false, true, 4f, 3f);
-                BaseAI.Look(npc, 1);
-                if (!Collision.WetCollision(npc.position + npc.velocity, npc.width, npc.height)) { npc.velocity.Y -= 3f; }
+                NPC.noGravity = true;
+                BaseAI.AIFish(NPC, ref NPC.ai, true, false, true, 4f, 3f);
+                BaseAI.Look(NPC, 1);
+                if (!Collision.WetCollision(NPC.position + NPC.velocity, NPC.width, NPC.height)) { NPC.velocity.Y -= 3f; }
             }
             else
             {
-                if (npc.velocity.Y == 0f)
+                if (NPC.velocity.Y == 0f)
                 {
-                    npc.velocity.Y = Main.rand.Next(-50, -20) * 0.1f;
-                    npc.velocity.X = Main.rand.Next(-20, 20) * 0.1f;
-                    npc.netUpdate = true;
+                    NPC.velocity.Y = Main.rand.Next(-50, -20) * 0.1f;
+                    NPC.velocity.X = Main.rand.Next(-20, 20) * 0.1f;
+                    NPC.netUpdate = true;
                 }
-                npc.velocity.Y = npc.velocity.Y + 0.3f;
-                if (npc.velocity.Y > 10f)
+                NPC.velocity.Y = NPC.velocity.Y + 0.3f;
+                if (NPC.velocity.Y > 10f)
                 {
-                    npc.velocity.Y = 10f;
+                    NPC.velocity.Y = 10f;
                 }
-                npc.ai[0] = 1f;
-                npc.noGravity = false;
+                NPC.ai[0] = 1f;
+                NPC.noGravity = false;
             }
         }
 
         public override void FindFrame(int frameHeight)
         {
-            Player player = Main.player[npc.target];
-            float playerDistX = Math.Abs(player.Center.X - npc.Center.X);
-            float playerDistY = Math.Abs(player.Center.Y - npc.Center.Y);
+            Player player = Main.player[NPC.target];
+            float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
+            float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
             bool BiteAttack = playerDistX < 35f && playerDistY < 40f;
             int frameMax = BiteAttack ? 8 : 5;
-            if (npc.frameCounter++ >= frameMax)
+            if (NPC.frameCounter++ >= frameMax)
             {
-                npc.frameCounter = 0;
+                NPC.frameCounter = 0;
                 if (BiteAttack)
                 {
-                    npc.frame.Y += frameHeight;
-                    if (npc.frame.Y < frameHeight * 2 || npc.frame.Y > frameHeight * 3)
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y < frameHeight * 2 || NPC.frame.Y > frameHeight * 3)
                     {
-                        npc.frame.Y = frameHeight * 2;
+                        NPC.frame.Y = frameHeight * 2;
                     }
                 }
                 else
                 {
-                    npc.frame.Y += frameHeight;
-                    if (npc.frame.Y > frameHeight)
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y > frameHeight)
                     {
-                        npc.frame.Y = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
         }
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
             if (Main.rand.Next(Main.expertMode ? 49 : 99) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.AdhesiveBandage);
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.AdhesiveBandage);
             }
             if (Main.rand.Next(100) < 4)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.RobotHat);
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.RobotHat);
             }
         }
 	}

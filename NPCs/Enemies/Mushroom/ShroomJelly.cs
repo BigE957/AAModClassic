@@ -9,50 +9,50 @@ namespace AAMod.NPCs.Enemies.Mushroom
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mushroom Jelly");
-            Main.npcFrameCount[npc.type] = 4;
+			// DisplayName.SetDefault("Mushroom Jelly");
+            Main.npcFrameCount[NPC.type] = 4;
 		}
 
 		public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.FungoFish);
-            animationType = NPCID.FungoFish;
-            npc.noGravity = true;
-            npc.width = 26;
-            npc.height = 26;
-            npc.aiStyle = 18;
-            npc.damage = 20;
-            npc.defense = 20;
-            npc.lifeMax = 70;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 1000f;
-            npc.alpha = 20;
-            npc.npcSlots = 0.3f;
-            banner = npc.type;
-			bannerItem = mod.ItemType("ShroomJellyBanner");
+            NPC.CloneDefaults(NPCID.FungoFish);
+            AnimationType = NPCID.FungoFish;
+            NPC.noGravity = true;
+            NPC.width = 26;
+            NPC.height = 26;
+            NPC.aiStyle = 18;
+            NPC.damage = 20;
+            NPC.defense = 20;
+            NPC.lifeMax = 70;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.value = 1000f;
+            NPC.alpha = 20;
+            NPC.npcSlots = 0.3f;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("ShroomJellyBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 
             int dust1 = ModContent.DustType<Dusts.MushDust>();
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
 			{
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
 		}
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush && spawnInfo.water ? .7f : 0f;
+            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && spawnInfo.water ? .7f : 0f;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
 		{
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Mushroom);
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Mushroom);
         }
 	}
 }

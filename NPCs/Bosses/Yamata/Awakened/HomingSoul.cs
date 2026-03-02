@@ -9,21 +9,21 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Bomb");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Abyssal Bomb");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 46;
-            projectile.height = 88;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.scale = 1.1f;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 60;
-            projectile.timeLeft = 300;
+            Projectile.width = 46;
+            Projectile.height = 88;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.scale = 1.1f;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 60;
+            Projectile.timeLeft = 300;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,35 +33,35 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
 
         public override void AI()
         {
-            if (projectile.timeLeft > 0)
+            if (Projectile.timeLeft > 0)
             {
-                projectile.timeLeft--;
+                Projectile.timeLeft--;
             }
-            if (projectile.timeLeft == 0)
+            if (Projectile.timeLeft == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 6)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 6)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = 1;
+                Projectile.spriteDirection = 1;
 
             }
             else
             {
-                projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
 
             const int aislotHomingCooldown = 0;
@@ -69,22 +69,22 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
             const float desiredFlySpeedInPixelsPerFrame = 6;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player target = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -92,24 +92,24 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(mod.BuffType("HydraToxin"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 600);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 0);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("SoulBoomY"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("SoulBoomY").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         private int HomeOnTarget()
@@ -123,11 +123,11 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                 Player target = Main.player[i];
                 if (target.active && (!target.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(target.Center);
+                    float distance = Projectile.Distance(target.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,40 +10,39 @@ namespace AAMod.Items.Ranged
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dynaskull Javelin");
-            Tooltip.SetDefault("If stuck in an enemy and that enemy dies, releases a homing bolt of Dyna-Energy");
+            // DisplayName.SetDefault("Dynaskull Javelin");
+            // Tooltip.SetDefault("If stuck in an enemy and that enemy dies, releases a homing bolt of Dyna-Energy");
         }
 
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("DynaskullJavelin");
-            item.shootSpeed = 12f;
-            item.damage = 40;
-            item.knockBack = 5f;
-            item.ranged = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.width = 30;
-            item.height = 30;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 4;
+            Item.shoot = Mod.Find<ModProjectile>("DynaskullJavelin").Type;
+            Item.shootSpeed = 12f;
+            Item.damage = 40;
+            Item.knockBack = 5f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.width = 30;
+            Item.height = 30;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 4;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.BoneJavelin, 500);
             recipe.AddIngredient(null, "DragonSpine", 500);
             recipe.AddIngredient(null, "Winterbreak", 500);
             recipe.AddIngredient(null, "Incapacitator", 500);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

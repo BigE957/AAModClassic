@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Melee
@@ -7,30 +8,30 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sun Halberd");
-            BaseUtility.AddTooltips(item, new string[] { "Strikes foes in an arc, then stabs in the direction of the cursor"});			
+			// DisplayName.SetDefault("Sun Halberd");
+            BaseUtility.AddTooltips(Item, new string[] { "Strikes foes in an arc, then stabs in the direction of the cursor"});			
 		}
 		
         public override void SetDefaults()
         {
-            item.width = 35;
-            item.height = 35;
-            item.maxStack = 1;
-            item.rare = 5;
-            item.value = BaseUtility.CalcValue(0, 15, 0, 0);
+            Item.width = 35;
+            Item.height = 35;
+            Item.maxStack = 1;
+            Item.rare = 5;
+            Item.value = BaseUtility.CalcValue(0, 15, 0, 0);
 
-            item.useStyle = 5;
-            item.useAnimation = 50;
-            item.useTime = 50;
-            item.UseSound = SoundID.Item1;
-            item.damage = 35;
-            item.knockBack = 6;
-            item.melee = true;
-            item.autoReuse = true;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.shoot = mod.ProjType("SunLance");
-            item.shootSpeed = 4;			
+            Item.useStyle = 5;
+            Item.useAnimation = 50;
+            Item.useTime = 50;
+            Item.UseSound = SoundID.Item1;
+            Item.damage = 35;
+            Item.knockBack = 6;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.autoReuse = true;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.shoot = Mod.ProjType("SunLance");
+            Item.shootSpeed = 4;			
         }
     }
 }

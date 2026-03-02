@@ -10,40 +10,39 @@ namespace AAMod.Items.Melee     //We need player to basically indicate the folde
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scythe of Evil");
-            Tooltip.SetDefault(@"The scythe of the lord of death himself
+            // DisplayName.SetDefault("Scythe of Evil");
+            /* Tooltip.SetDefault(@"The scythe of the lord of death himself
 Inflicts Ichor and Cursed Inferno
-Death Sickle EX");
+Death Sickle EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 1250;  
-            item.melee = true; 
-            item.width = 80;    
-            item.height = 72; 
+            Item.damage = 1250;  
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
+            Item.width = 80;    
+            Item.height = 72; 
 
-            item.useTime = 6; 
-            item.useAnimation = 6;
-            item.channel = true;
-            item.useStyle = 100;  
-            item.knockBack = 2f; 
-            item.value = Item.sellPrice(0, 30, 0, 0); 
-            item.rare = 9;
-            item.expert = true; item.expertOnly = true;
-            item.shoot = mod.ProjectileType("DecayScythe"); 
-            item.noUseGraphic = true;
-            item.noMelee = true;
+            Item.useTime = 6; 
+            Item.useAnimation = 6;
+            Item.channel = true;
+            Item.useStyle = 100;  
+            Item.knockBack = 2f; 
+            Item.value = Item.sellPrice(0, 30, 0, 0); 
+            Item.rare = 9;
+            Item.expert = true; Item.expertOnly = true;
+            Item.shoot = Mod.Find<ModProjectile>("DecayScythe").Type; 
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DeathSickle);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
  
         public override bool UseItemFrame(Player player)  

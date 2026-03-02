@@ -1,6 +1,8 @@
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.NPCs.Bosses.Grips;
@@ -13,33 +15,32 @@ namespace AAMod.Items.BossSummons
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Interesting Looking Claw");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"It's oddly Clammy
-Can only be used at night");
+            // DisplayName.SetDefault("Interesting Looking Claw");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"It's oddly Clammy
+Can only be used at night"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 24;
-			item.maxStack = 20;
-			item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-			item.useTime = 45;
-			item.useStyle = 4;
-			item.UseSound = SoundID.Item44;
-			item.consumable = true;
+			Item.width = 32;
+			Item.height = 24;
+			Item.maxStack = 20;
+			Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+			Item.useTime = 45;
+			Item.useStyle = 4;
+			Item.UseSound = SoundID.Item44;
+			Item.consumable = true;
 		}
 
 		public override void AddRecipes()
 		{
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "HydraClaw", 6);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override bool CanUseItem(Player player)
@@ -57,7 +58,7 @@ Can only be used at night");
             return true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             AAWorld.spawnGrips = false;
             if (Main.netMode == 0) { if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
@@ -65,11 +66,11 @@ Can only be used at night");
             if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
             else if (Main.netMode == NetmodeID.Server)
             {
-                NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
+                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
             }
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("GripOfChaosBlue"), false, 1, 0);
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("GripOfChaosRed"), false, -1, 0);
-            Main.PlaySound(SoundID.Roar, player.position, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("GripOfChaosBlue").Type, false, 1, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("GripOfChaosRed").Type, false, -1, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
     }

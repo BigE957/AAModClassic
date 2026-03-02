@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.FishingItem.Crate
 {
@@ -7,23 +8,23 @@ namespace AAMod.Items.FishingItem.Crate
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.rare = 2;
-            item.maxStack = 99;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.autoReuse = true;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.createTile = mod.TileType("VoidCrate");
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 2;
+            Item.maxStack = 99;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.autoReuse = true;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.createTile = Mod.Find<ModTile>("VoidCrate").Type;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Crate");
-            Tooltip.SetDefault("Right click to open");
+            // DisplayName.SetDefault("Void Crate");
+            // Tooltip.SetDefault("Right click to open");
         }
 
         public override bool CanRightClick()
@@ -40,21 +41,21 @@ namespace AAMod.Items.FishingItem.Crate
                 switch (item)
                 {
                     case 0:
-                        item = mod.ItemType("VoidSaber");
+                        item = Mod.Find<ModItem>("VoidSaber").Type;
                         break;
                     case 1:
-                        item = mod.ItemType("DoomGun");
+                        item = Mod.Find<ModItem>("DoomGun").Type;
                         break;
                     case 2:
-                        item = mod.ItemType("DoomStaff");
+                        item = Mod.Find<ModItem>("DoomStaff").Type;
                         break;
                     default:
-                        item = mod.ItemType("ProbeControlUnit");
+                        item = Mod.Find<ModItem>("ProbeControlUnit").Type;
                         break;
                 }
 
                 int index = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
-                int index1 = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, mod.ItemType("DeactivatedDoomite"), Main.rand.Next(0, 5));
+                int index1 = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DeactivatedDoomite").Type, Main.rand.Next(0, 5));
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {

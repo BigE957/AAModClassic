@@ -8,26 +8,25 @@ namespace AAMod.Items.Materials
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hero Relics");
-            Tooltip.SetDefault("Shards of a shattered relic");
+			// DisplayName.SetDefault("Hero Relics");
+            // Tooltip.SetDefault("Shards of a shattered relic");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 18;
-			item.height = 20;
-			item.maxStack = 999;
-			item.value = Item.sellPrice(0, 1, 0, 0);
-			item.rare = 8;
+			Item.width = 18;
+			Item.height = 20;
+			Item.maxStack = 999;
+			Item.value = Item.sellPrice(0, 1, 0, 0);
+			Item.rare = 8;
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(2);
             recipe.AddIngredient(ItemID.BrokenHeroSword);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 2);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -11,32 +11,32 @@ namespace AAMod.Items.Armor.Terra
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Hood");
-            Tooltip.SetDefault(@"Increases maximum mana by 100
+            // DisplayName.SetDefault("Terra Hood");
+            /* Tooltip.SetDefault(@"Increases maximum mana by 100
 Increases magic damage by 17%
-Increases magic crit by 15%");
+Increases magic crit by 15%"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 24;
-            item.value = 90000;
-            item.rare = 7;
-            item.defense = 22;
+            Item.width = 28;
+            Item.height = 24;
+            Item.value = 90000;
+            Item.rare = 7;
+            Item.defense = 22;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.manaCost -= 0.3f;
-            player.magicDamage += 0.17f;
-            player.magicCrit += 15;
+            player.GetDamage(DamageClass.Magic) += 0.17f;
+            player.GetCritChance(DamageClass.Magic) += 15;
             player.statManaMax2 += 100;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("TerraPlate") && legs.type == mod.ItemType("TerraGreaves");
+            return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -50,12 +50,11 @@ Increases magic crit by 15%");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "TribalHat", 1);
             recipe.AddIngredient(null, "TerraCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

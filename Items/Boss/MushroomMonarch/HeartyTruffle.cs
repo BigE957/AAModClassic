@@ -7,21 +7,21 @@ namespace AAMod.Items.Boss.MushroomMonarch
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hearty Truffle");
-            Tooltip.SetDefault(
+            // DisplayName.SetDefault("Hearty Truffle");
+            /* Tooltip.SetDefault(
 @"+50 Health
-Don't eat it");
+Don't eat it"); */
         }
 
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
+            Item.width = 26;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 1;
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

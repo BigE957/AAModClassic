@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Items.Dev.DevTile.Tiles
 {
     public class CerberusKennel : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -20,14 +21,14 @@ namespace AAMod.Items.Dev.DevTile.Tiles
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.addTile(Type);
-			ModTranslation modTranslation = CreateMapEntryName(null);
-			modTranslation.SetDefault("Cerberus Kennel");
+			LocalizedText modTranslation = CreateMapEntryName(null);
+			// modTranslation.SetDefault("Cerberus Kennel");
 			AddMapEntry(Color.Gold, modTranslation);
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("InvokerBag"));
+			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("InvokerBag").Type);
 		}
     }
 }

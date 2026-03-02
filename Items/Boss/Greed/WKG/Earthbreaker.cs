@@ -9,24 +9,24 @@ namespace AAMod.Items.Boss.Greed.WKG
     {
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Earthbreaker");
-            Tooltip.SetDefault(@"Hitting an airborne always crits and sends the target flying into the ground
+            // DisplayName.SetDefault("Earthbreaker");
+            /* Tooltip.SetDefault(@"Hitting an airborne always crits and sends the target flying into the ground
 Concussive force of the hit also has a 50% chance to confuse the struck enemy
-If the enemy hits the ground after being hit, they will take damage");
+If the enemy hits the ground after being hit, they will take damage"); */
         }
 		public override void SetDefaults()
 		{
-			item.damage = 240;
-			item.melee = true;
-			item.width = 80;
-			item.height = 90;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = 1;
-			item.knockBack = 20;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.rare = 9;
+			Item.damage = 240;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 80;
+			Item.height = 90;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = 1;
+			Item.knockBack = 20;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -34,14 +34,14 @@ If the enemy hits the ground after being hit, they will take damage");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
-        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (Main.rand.Next(2) == 0)
             {
@@ -58,7 +58,7 @@ If the enemy hits the ground after being hit, they will take damage");
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.velocity.Y != 0)
             {
@@ -112,12 +112,11 @@ If the enemy hits the ground after being hit, they will take damage");
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "StoneSlammer", 1);
             recipe.AddIngredient(null, "CovetiteBar", 10);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

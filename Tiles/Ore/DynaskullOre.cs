@@ -1,28 +1,29 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Ore
 {
     public class DynaskullOre : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
-            Main.tileValue[Type] = 360; 
+            Main.tileOreFinderPriority[Type] = 360; 
             Main.tileSpelunker[Type] = true;
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
-            soundType = 21;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            drop = mod.ItemType("DynaskullOre");
-            dustType = mod.DustType("InfinityOverloadY");
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Dynaskull Ore");
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DynaskullOre").Type;
+            DustType = Mod.Find<ModDust>("InfinityOverloadY").Type;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Dynaskull Ore");
             AddMapEntry(new Color(100, 100, 0), name);
-			minPick = 65;
+			MinPick = 65;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
@@ -33,8 +34,8 @@ namespace AAMod.Tiles.Ore
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/DynaskullOre_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DynaskullOre_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

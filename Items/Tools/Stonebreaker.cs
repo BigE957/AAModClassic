@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,37 +8,36 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.damage = 15;
-            item.melee = true;
-            item.width = 40;
-            item.height = 40;
-            item.useAnimation = 30;
-            item.useTime = 10;
-            item.pick = 110;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = Terraria.Item.sellPrice(0, 1, 8, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 15;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 40;
+            Item.height = 40;
+            Item.useAnimation = 30;
+            Item.useTime = 10;
+            Item.pick = 110;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = Terraria.Item.sellPrice(0, 1, 8, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stonebreaker");
+            // DisplayName.SetDefault("Stonebreaker");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "DragonDigger");
-            recipe.AddIngredient(mod, "OceanPick");
-            recipe.AddIngredient(mod, "Excavator");
-            recipe.AddIngredient(mod, "DoomiteMiningLaser");
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "DragonDigger");
+            recipe.AddIngredient(Mod, "OceanPick");
+            recipe.AddIngredient(Mod, "Excavator");
+            recipe.AddIngredient(Mod, "DoomiteMiningLaser");
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

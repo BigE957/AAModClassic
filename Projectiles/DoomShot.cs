@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,24 +10,24 @@ namespace AAMod.Projectiles
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("DoomShot");
-            Main.projFrames[projectile.type] = 3;
+            // DisplayName.SetDefault("DoomShot");
+            Main.projFrames[Projectile.type] = 3;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 14;
-			projectile.aiStyle = 1;
-			projectile.friendly = true; 
-			projectile.hostile = false;
-			projectile.magic = true;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 600;
-			projectile.alpha = 20;
-			projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-			aiType = ProjectileID.WoodenArrowFriendly;           
+			Projectile.width = 14;
+			Projectile.height = 14;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true; 
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 600;
+			Projectile.alpha = 20;
+			Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+			AIType = ProjectileID.WoodenArrowFriendly;           
 		}
 
         public override Color? GetAlpha(Color lightColor)
@@ -36,24 +37,24 @@ namespace AAMod.Projectiles
 
         public override void PostAI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 7)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 7)
             {
-                projectile.frame += 1;
-                if (projectile.frame >= 3)
+                Projectile.frame += 1;
+                if (Projectile.frame >= 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }

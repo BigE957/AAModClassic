@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,32 +11,32 @@ namespace AAMod.Items.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Subzero Storm Staff");
-            Tooltip.SetDefault(@"Blizzard Staff EX");
-            Item.staff[item.type] = true;
+            // DisplayName.SetDefault("Subzero Storm Staff");
+            // Tooltip.SetDefault(@"Blizzard Staff EX");
+            Item.staff[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.mana = 11;
-            item.useStyle = 5;
-            item.damage = 220;
-            item.useAnimation = 3;
-            item.useTime = 3;
-            item.width = 62;
-            item.height = 62;
-            item.shoot = mod.ProjectileType("SubzeroSnowflake");
-            item.shootSpeed = 17f;
-            item.knockBack = 5f;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.magic = true;
-            item.rare = 11;
-            item.noMelee = true;
-            item.expert = true; item.expertOnly = true;
+            Item.autoReuse = true;
+            Item.mana = 11;
+            Item.useStyle = 5;
+            Item.damage = 220;
+            Item.useAnimation = 3;
+            Item.useTime = 3;
+            Item.width = 62;
+            Item.height = 62;
+            Item.shoot = Mod.Find<ModProjectile>("SubzeroSnowflake").Type;
+            Item.shootSpeed = 17f;
+            Item.knockBack = 5f;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.DamageType = DamageClass.Magic;
+            Item.rare = 11;
+            Item.noMelee = true;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             for (int num111 = 0; num111 < 2; num111++)
             {
@@ -53,7 +54,7 @@ namespace AAMod.Items.Magic
                     num82 = 20f;
                 }
                 float num83 = (float)Math.Sqrt(num81 * num81 + num82 * num82);
-                num83 = item.shootSpeed / num83;
+                num83 = Item.shootSpeed / num83;
                 num81 *= num83;
                 num82 *= num83;
                 float speedX4 = num81 + Main.rand.Next(-40, 41) * 0.02f;
@@ -65,12 +66,11 @@ namespace AAMod.Items.Magic
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.BlizzardStaff, 1);
             recipe.AddIngredient(null, "EXSoul", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -8,17 +8,17 @@ namespace AAMod.Items.Vanity.Alphakip
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mud Fish's Bag");
-            Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Fish King!'");
+            // DisplayName.SetDefault("Mud Fish's Bag");
+            // Tooltip.SetDefault("<right> to open \n'All the essentials for impersonating the Fish King!'");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;  
+            Item.maxStack = 1;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;  
         }
 
         public override bool CanRightClick()

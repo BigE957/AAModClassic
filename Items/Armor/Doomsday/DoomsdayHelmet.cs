@@ -13,22 +13,22 @@ namespace AAMod.Items.Armor.Doomsday
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Doomsday Assault Visor");
-			Tooltip.SetDefault(@"25% increased magic damage
+			// DisplayName.SetDefault("Doomsday Assault Visor");
+			/* Tooltip.SetDefault(@"25% increased magic damage
 18% increased magic critical strike chance
-The power to destroy entire planets rests in this armor");
+The power to destroy entire planets rests in this armor"); */
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -42,11 +42,11 @@ The power to destroy entire planets rests in this armor");
 
         public override void SetDefaults()
 		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 3000000;
-			item.defense = 32;
-            item.rare = 9;
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 3000000;
+			Item.defense = 32;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -54,22 +54,22 @@ The power to destroy entire planets rests in this armor");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
 		{
-            player.magicDamage += .25f;
-            player.magicCrit += 18;
+            player.GetDamage(DamageClass.Magic) += .25f;
+            player.GetCritChance(DamageClass.Magic) += 18;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("DoomsdayChestplate") && legs.type == mod.ItemType("DoomsdayLeggings");
+			return body.type == Mod.Find<ModItem>("DoomsdayChestplate").Type && legs.type == Mod.Find<ModItem>("DoomsdayLeggings").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -85,12 +85,11 @@ The power to destroy entire planets rests in this armor");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 15);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Djinn
 {
@@ -7,29 +8,29 @@ namespace AAMod.Items.Boss.Djinn
 		public override void SetDefaults()
 		{
 
-            item.damage = 15;            
-            item.ranged = true;
-            item.width = 14;
-            item.height = 14;
-			item.useTime = 8;
-            item.maxStack = 999;
-			item.useAnimation = 8;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-			item.knockBack = 0;
-			item.value = 8;
-			item.rare = 3;
-			item.shootSpeed = 9f;
-			item.shoot = mod.ProjectileType ("Sandagger");
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.consumable = true;
+            Item.damage = 15;            
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 14;
+            Item.height = 14;
+			Item.useTime = 8;
+            Item.maxStack = 999;
+			Item.useAnimation = 8;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+			Item.knockBack = 0;
+			Item.value = 8;
+			Item.rare = 3;
+			Item.shootSpeed = 9f;
+			Item.shoot = Mod.Find<ModProjectile>("Sandagger").Type;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.consumable = true;
 		}
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sandagger");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Sandagger");
+            // Tooltip.SetDefault("");
         }
     }
 }

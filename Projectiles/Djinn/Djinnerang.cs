@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Djinn
@@ -8,35 +10,35 @@ namespace AAMod.Projectiles.Djinn
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("yBoomerangP");
+            // DisplayName.SetDefault("yBoomerangP");
         }
 
         public override void SetDefaults()
 		{
-			projectile.width = 18;
-			projectile.height = 18;
-			projectile.aiStyle = -1;
-			projectile.friendly = true;
-			projectile.timeLeft = 550;
-			projectile.extraUpdates = 2;
-            projectile.melee = true;
-            projectile.penetrate = -1;
+			Projectile.width = 18;
+			Projectile.height = 18;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.timeLeft = 550;
+			Projectile.extraUpdates = 2;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = -1;
         }
 
         public override void AI()
         {
-            Player p = Main.player[projectile.owner];
-            BaseAI.AIBoomerang(projectile, ref projectile.ai, p.position, p.width, p.height, true, 10f, 50, 0.5f, 0.25f, false);
+            Player p = Main.player[Projectile.owner];
+            BaseAI.AIBoomerang(Projectile, ref Projectile.ai, p.position, p.width, p.height, true, 10f, 50, 0.5f, 0.25f, false);
         }
 
         public override bool OnTileCollide(Vector2 velocityChange)
         {
             if (Main.netMode != 2)
             {
-                Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
-                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+                Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             }
-            BaseAI.TileCollideBoomerang(projectile, ref velocityChange, true);
+            BaseAI.TileCollideBoomerang(Projectile, ref velocityChange, true);
             return false;
         }
     }

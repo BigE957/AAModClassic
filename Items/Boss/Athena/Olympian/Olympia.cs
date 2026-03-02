@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,19 +8,19 @@ namespace AAMod.Items.Boss.Athena.Olympian
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 150;
-			item.melee = true;
-			item.width = 52;
-			item.height = 52;
-            item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 7;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.shoot = ModContent.ProjectileType<Projectiles.Athena.Skyrazor>();
-            item.shootSpeed = 10;
-            item.rare = 9;
+			Item.damage = 150;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 52;
+			Item.height = 52;
+            Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 7;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Athena.Skyrazor>();
+            Item.shootSpeed = 10;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -27,21 +28,20 @@ namespace AAMod.Items.Boss.Athena.Olympian
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "SkycutterKopis", 1);
             recipe.AddIngredient(null, "StormSphere", 10);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -10,29 +11,29 @@ namespace AAMod.Items.BossSummons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Skull");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons Skeletron
-Can only be used at night");
+            // DisplayName.SetDefault("Cursed Skull");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons Skeletron
+Can only be used at night"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.value = 1000;
-            item.rare = 2;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.value = 1000;
+            Item.rare = 2;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             AAModGlobalNPC.SpawnBoss(player, NPCID.SkeletronHead, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Skeletron"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -47,11 +48,10 @@ Can only be used at night");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ItemID.Bone, 50);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

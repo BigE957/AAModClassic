@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,36 +13,36 @@ namespace AAMod.Items.Melee
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dracula Knives");
-            Tooltip.SetDefault(@"Rapidly throw life stealing daggers
-Vampire Knives EX");
+            // DisplayName.SetDefault("Dracula Knives");
+            /* Tooltip.SetDefault(@"Rapidly throw life stealing daggers
+Vampire Knives EX"); */
         }
 
         public override void SetDefaults()
 		{
-            item.autoReuse = true;
-            item.useStyle = 1;
-            item.shootSpeed = 15f;
-            item.shoot = 304;
-            item.damage = 60;
-            item.width = 18;
-            item.height = 20;
-            item.UseSound = SoundID.Item39;
-            item.useAnimation = 5;
-            item.useTime = 5;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.knockBack = 2.75f;
-            item.melee = true;
-            item.expert = true; item.expertOnly = true;
+            Item.autoReuse = true;
+            Item.useStyle = 1;
+            Item.shootSpeed = 15f;
+            Item.shoot = 304;
+            Item.damage = 60;
+            Item.width = 18;
+            Item.height = 20;
+            Item.UseSound = SoundID.Item39;
+            Item.useAnimation = 5;
+            Item.useTime = 5;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.knockBack = 2.75f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.expert = true; Item.expertOnly = true;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
             glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 25f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -51,7 +52,7 @@ Vampire Knives EX");
             for (int i = 0; i < 5; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
             }
             return true;
             /*Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -105,12 +106,11 @@ Vampire Knives EX");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.VampireKnives);
             recipe.AddIngredient(null, "EXSoul");
 		    recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 		}
     }
 }

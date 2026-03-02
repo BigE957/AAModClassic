@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using AAMod.NPCs.Bosses.MushroomMonarch;
@@ -12,35 +13,35 @@ namespace AAMod.Items.BossSummons.Swarm
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glowing Masshroom");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons a lot of Feudal Fungi
-Can only be used in glowing mushroom biomes");
+            // DisplayName.SetDefault("Glowing Masshroom");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons a lot of Feudal Fungi
+Can only be used in glowing mushroom biomes"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.value = 1000;
-            item.rare = 1;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.value = 1000;
+            Item.rare = 1;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat("You are being assaulted by a bunch of fungis", Color.SkyBlue, false);
 
             for (int i = 0; i < 10; i++)
             {
-                NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), mod.NPCType("Feudal Fungus"));
+                NPC.NewNPC((int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), Mod.Find<ModNPC>("Feudal Fungus").Type);
             }
 
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -59,7 +60,7 @@ Can only be used in glowing mushroom biomes");
             return true;
         }
 
-        public override bool Autoload(ref string name)
+        public override bool IsLoadingEnabled(Mod mod)/* tModPorter Suggestion: If you return false for the purposes of manual loading, use the [Autoload(false)] attribute on your class instead */
         {
             return ModLoader.GetMod("Fargowiltas") != null;
         }
@@ -70,12 +71,11 @@ Can only be used in glowing mushroom biomes");
         {
             if (fargos != null)
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe(1);
                 recipe.AddIngredient(ModContent.ItemType<ConfusingMushroom>(), 1);
                 recipe.AddIngredient(fargos, "Overloader", 1);
                 recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

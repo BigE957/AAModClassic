@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,61 +13,61 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 	{
 		public override void SetStaticDefaults()
 		{
-            Main.npcFrameCount[npc.type] = 16;
+            Main.npcFrameCount[NPC.type] = 16;
 		}
 
         public override void SetDefaults()
         {
-            npc.width = 40;
-            npc.height = 64;
-            npc.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 400;
-            npc.defense = 30;
-            npc.damage = 40;
-            npc.HitSound = SoundID.NPCHit31;
-            npc.DeathSound = SoundID.NPCDeath35;
-            npc.knockBackResist = 0.2f;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            NPC.width = 40;
+            NPC.height = 64;
+            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 400;
+            NPC.defense = 30;
+            NPC.damage = 40;
+            NPC.HitSound = SoundID.NPCHit31;
+            NPC.DeathSound = SoundID.NPCDeath35;
+            NPC.knockBackResist = 0.2f;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
         }
         
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 			if (Main.netMode == 2) { return; }
-			for (int m = 0; m < (npc.life <= 0 ? 30 : 8); m++)
+			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.ForsakenDust>(), npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, 1.1f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ForsakenDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
 			}		
 		}
 
 		public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
                 if (Shooty == true)
                 {
-                    if (npc.frame.Y < frameHeight * 8)
+                    if (NPC.frame.Y < frameHeight * 8)
                     {
-                        npc.frame.Y = frameHeight * 8;
+                        NPC.frame.Y = frameHeight * 8;
                     }
-                    if (npc.frame.Y > (frameHeight * 15))
+                    if (NPC.frame.Y > (frameHeight * 15))
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                         Shooty = false;
                     }
                 }
                 else
                 {
-                    if (npc.frame.Y > (frameHeight * 7))
+                    if (NPC.frame.Y > (frameHeight * 7))
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
@@ -76,25 +77,25 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 
         public override void AI()
         {
-            npc.TargetClosest(true);
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
 
-            BaseAI.AIEye(npc, ref npc.ai, false, true, 0.2f, 0.16f, 6f, 2f);
-            BaseAI.Look(npc, 1);
+            BaseAI.AIEye(NPC, ref NPC.ai, false, true, 0.2f, 0.16f, 6f, 2f);
+            BaseAI.Look(NPC, 1);
 
-            if (npc.ai[3] >= 120)
+            if (NPC.ai[3] >= 120)
             {
-                FireMagic(npc);
-                npc.ai[3] = 0;
+                FireMagic(NPC);
+                NPC.ai[3] = 0;
             }
 
-            if (player.Center.X < npc.Center.X)
+            if (player.Center.X < NPC.Center.X)
             {
-                npc.direction = npc.spriteDirection = -1;
+                NPC.direction = NPC.spriteDirection = -1;
             }
             else
             {
-                npc.direction = npc.spriteDirection = 1;
+                NPC.direction = NPC.spriteDirection = 1;
             }
         }
 
@@ -106,12 +107,12 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             BaseAI.FireProjectile(player.Center, npc, ModContent.ProjectileType<CurseFlame>(), npc.damage / 2, 0f, 2f);
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D bodyTex = Main.npcTexture[npc.type];
-            Color lightColor = BaseDrawing.GetNPCColor(npc, null);
-            BaseDrawing.DrawTexture(sb, bodyTex, 0, npc, lightColor);
-            BaseDrawing.DrawTexture(sb, mod.GetTexture("Glowmasks/Naddaha_Glow"), 0, npc, Color.White, true);
+            Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
+            Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
+            BaseDrawing.DrawTexture(sb, bodyTex, 0, NPC, lightColor);
+            BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/Naddaha_Glow"), 0, NPC, Color.White, true);
             return false;
 		}
 	}

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,27 +9,27 @@ namespace AAMod.Projectiles
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Arrow");
+            // DisplayName.SetDefault("Dark Arrow");
 		}
 
 		public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.UnholyArrow);
-			aiType = ProjectileID.UnholyArrow;
+            Projectile.CloneDefaults(ProjectileID.UnholyArrow);
+			AIType = ProjectileID.UnholyArrow;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Poisoned, 300);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(new Microsoft.Xna.Framework.Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, DustID.Electric, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num468 = Dust.NewDust(new Microsoft.Xna.Framework.Vector2(Projectile.Center.X, Projectile.Center.Y), Projectile.width, Projectile.height, DustID.Electric, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
             }
         }
     }

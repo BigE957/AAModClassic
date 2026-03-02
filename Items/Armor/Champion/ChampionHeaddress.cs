@@ -9,38 +9,38 @@ namespace AAMod.Items.Armor.Champion
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion Headdress");
-            Tooltip.SetDefault(@"70% increased minion damage
+            // DisplayName.SetDefault("Champion Headdress");
+            /* Tooltip.SetDefault(@"70% increased minion damage
 10% increased non-minion damage
 +7 maximum Minions
 +2 maximum sentries 
-The armor of a champion feared across the land");
+The armor of a champion feared across the land"); */
         }
 
         public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 24;
-			item.value = Item.sellPrice(3, 0, 0, 0);
-            item.rare = 9;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.rare = 9;
             AARarity = 14;
-            item.defense = 27;
+            Item.defense = 27;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("ChampionChestplate") && legs.type == mod.ItemType("ChampionGreaves");
+			return body.type == Mod.Find<ModItem>("ChampionChestplate").Type && legs.type == Mod.Find<ModItem>("ChampionGreaves").Type;
 		}
 
 
@@ -52,13 +52,13 @@ The armor of a champion feared across the land");
             modPlayer.ChampionSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(mod.BuffType("BaronBuff")) == -1)
+                if (player.FindBuffIndex(Mod.Find<ModBuff>("BaronBuff").Type) == -1)
                 {
-                    player.AddBuff(mod.BuffType("BaronBuff"), 3600, true);
+                    player.AddBuff(Mod.Find<ModBuff>("BaronBuff").Type, 3600, true);
                 }
-                if (player.ownedProjectileCounts[mod.ProjectileType("BaronBunny")] < 1)
+                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BaronBunny").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("BaronBunny"), 100, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("BaronBunny").Type, 100, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
@@ -66,20 +66,19 @@ The armor of a champion feared across the land");
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += .6f;
-            player.allDamage += .1f;
+            player.GetDamage(DamageClass.Summon) += .6f;
+            player.GetDamage(DamageClass.Generic) += .1f;
             player.maxMinions += 7;
             player.maxTurrets += 2;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HoodlumHood", 1);
             recipe.AddIngredient(null, "ChampionPlate", 10);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

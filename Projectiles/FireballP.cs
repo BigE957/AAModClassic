@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,65 +10,65 @@ namespace AAMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(14);
-			projectile.penetrate = 1;
-			projectile.width = 16;
-			projectile.height = 16;
-            projectile.ranged = true;
-            projectile.friendly = true;
-			projectile.timeLeft = 300;
-			projectile.alpha = 10;
-			projectile.aiStyle = 1;
-			aiType = 14;
+			Projectile.CloneDefaults(14);
+			Projectile.penetrate = 1;
+			Projectile.width = 16;
+			Projectile.height = 16;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.friendly = true;
+			Projectile.timeLeft = 300;
+			Projectile.alpha = 10;
+			Projectile.aiStyle = 1;
+			AIType = 14;
 		}
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fireball");
+			// DisplayName.SetDefault("Fireball");
 		}
 
 		public override void AI()
 		{
-			projectile.alpha = 10;
+			Projectile.alpha = 10;
 			for (int index1 = 0; index1 < 3; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 100, new Color(), 2f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 100, new Color(), 2f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
 				Main.dust[index2].scale *= 0.8f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, (float)(-projectile.velocity.X * 0.2), (float)(-projectile.velocity.Y * 0.2), 100, new Color(), 1f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 100, new Color(), 1f);
 				Main.dust[index3].velocity *= 2f;
 				Main.dust[index3].scale *= 0.8f;
 			}
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			target.AddBuff(BuffID.OnFire, 300);
-			projectile.Kill();
+			Projectile.Kill();
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.Kill();
+			Projectile.Kill();
 			return true;
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("DummyExplosion"), (int)(projectile.damage * 1.2f), projectile.knockBack, projectile.owner, -10f, 0f);
+			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+			Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosion").Type, (int)(Projectile.damage * 1.2f), Projectile.knockBack, Projectile.owner, -10f, 0f);
 			for (int index1 = 0; index1 < 30; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
 				Main.dust[index2].velocity *= 1.4f;
 			}
 			for (int index1 = 0; index1 < 20; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 3.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 3.5f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 7f;
-				int index3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 1.5f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 1.5f);
 				Main.dust[index3].velocity *= 3f;
 			}
 			for (int index1 = 0; index1 < 2; ++index1)
@@ -75,19 +76,19 @@ namespace AAMod.Projectiles
 				float num2 = 0.4f;
 				if (index1 == 1)
 				num2 = 0.8f;
-				int index2 = Gore.NewGore(new Vector2(projectile.position.X, projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index2 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index2].velocity *= num2;
 				++Main.gore[index2].velocity.X;
 				++Main.gore[index2].velocity.Y;
-				int index3 = Gore.NewGore(new Vector2(projectile.position.X, projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index3 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index3].velocity *= num2;
 				--Main.gore[index3].velocity.X;
 				++Main.gore[index3].velocity.Y;
-				int index4 = Gore.NewGore(new Vector2(projectile.position.X, projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index4 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index4].velocity *= num2;
 				++Main.gore[index4].velocity.X;
 				--Main.gore[index4].velocity.Y;
-				int index5 = Gore.NewGore(new Vector2(projectile.position.X, projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index5 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index5].velocity *= num2;
 				--Main.gore[index5].velocity.X;
 				--Main.gore[index5].velocity.Y;

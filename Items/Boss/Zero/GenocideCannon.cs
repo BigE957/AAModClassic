@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,29 +11,29 @@ namespace AAMod.Items.Boss.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Genocide Cannon");
-            Tooltip.SetDefault(@"Fires highly explosive Rockets
-25% chance to fire a glitched rocket that explodes into frag rockets");
+            // DisplayName.SetDefault("Genocide Cannon");
+            /* Tooltip.SetDefault(@"Fires highly explosive Rockets
+25% chance to fire a glitched rocket that explodes into frag rockets"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 400;
-            item.ranged = true;
-            item.width = 66;
-            item.height = 28;
-            item.useTime = 30;
-            item.useAnimation = 30;
-            item.useStyle = 5;
-            item.noMelee = true; //so the item's animation doesn't do damage
-            item.knockBack = 10f;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.UseSound = SoundID.Item11;
-            item.autoReuse = true;
-            item.shootSpeed = 24f;
-            item.shoot = mod.ProjectileType("GRocket");
-            item.useAmmo = AmmoID.Rocket;
-            item.rare = 9;
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 66;
+            Item.height = 28;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = 5;
+            Item.noMelee = true; //so the item's animation doesn't do damage
+            Item.knockBack = 10f;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.UseSound = SoundID.Item11;
+            Item.autoReuse = true;
+            Item.shootSpeed = 24f;
+            Item.shoot = Mod.Find<ModProjectile>("GRocket").Type;
+            Item.useAmmo = AmmoID.Rocket;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -40,9 +41,9 @@ namespace AAMod.Items.Boss.Zero
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -52,27 +53,26 @@ namespace AAMod.Items.Boss.Zero
 			return new Vector2(-6, 0);
 		}
 		
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
             {
                 position += muzzleOffset;
             }
-            type = Main.rand.Next(4) == 0 ? mod.ProjectileType("GRocket2") : mod.ProjectileType("GRocket");
+            type = Main.rand.Next(4) == 0 ? Mod.Find<ModProjectile>("GRocket2").Type : Mod.Find<ModProjectile>("GRocket").Type;
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 5);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddIngredient(ItemID.RocketLauncher, 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

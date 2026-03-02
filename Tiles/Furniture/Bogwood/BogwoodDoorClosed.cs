@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodDoorClosed : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileBlockLight[Type] = true;
@@ -38,16 +40,16 @@ namespace AAMod.Tiles.Furniture.Bogwood
             TileObjectData.addAlternate(0);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bogwood Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bogwood Door");
             AddMapEntry(new Color(162, 184, 185), name);
-            dustType = mod.DustType("BogwoodDust");
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = mod.TileType("BogwoodDoorOpen");
+            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[] { TileID.ClosedDoor };
+            openDoorID = Mod.Find<ModTile>("BogwoodDoorOpen").Type;
         }
 
-        public override bool HasSmartInteract()
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
         {
             return true;
         }
@@ -59,15 +61,15 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType("BogwoodDoor"));
+            Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("BogwoodDoor").Type);
         }
 
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("BogwoodDoor");
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDoor").Type;
         }
     }
 }

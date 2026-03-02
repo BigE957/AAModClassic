@@ -10,18 +10,18 @@ namespace AAMod.Items.Boss.Athena.Olympian
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Storm Sphere");
-            Tooltip.SetDefault("A supercharged crystal sphere of Varian Energy");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 5));
+            // DisplayName.SetDefault("Storm Sphere");
+            // Tooltip.SetDefault("A supercharged crystal sphere of Varian Energy");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 5));
         }
 
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 10;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 9;
+            Item.width = 10;
+            Item.height = 10;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -29,9 +29,9 @@ namespace AAMod.Items.Boss.Athena.Olympian
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -43,16 +43,15 @@ namespace AAMod.Items.Boss.Athena.Olympian
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.SkyBlue.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.SkyBlue.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "SkyCrystal", 3);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

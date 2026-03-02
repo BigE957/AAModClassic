@@ -12,21 +12,21 @@ namespace AAMod.Items.Armor.StripeMan
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stripeman's Lucky Hat");
-			Tooltip.SetDefault(@"Provides light when worn
+			// DisplayName.SetDefault("Stripeman's Lucky Hat");
+			/* Tooltip.SetDefault(@"Provides light when worn
 Get the effect of Architect Gizmo Pack
 When digging stones, you may get ore from them
-You can put any sand into the Extractinator");
+You can put any sand into the Extractinator"); */
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 16;
-			item.rare = -1;
-            item.value = Item.sellPrice(0, 0, 0, 1);
-            item.defense = 1;
+			Item.width = 22;
+			Item.height = 16;
+			Item.rare = -1;
+            Item.value = Item.sellPrice(0, 0, 0, 1);
+            Item.defense = 1;
 		}
 		
 		public override void UpdateEquip(Player player)
@@ -55,7 +55,7 @@ You can put any sand into the Extractinator");
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("StripeManShirt") && legs.type == mod.ItemType("StripeManPants");
+			return body.type == Mod.Find<ModItem>("StripeManShirt").Type && legs.type == Mod.Find<ModItem>("StripeManPants").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -77,7 +77,7 @@ You can put any sand into the Extractinator");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningHelmet, 1);
 			recipe.AddIngredient(ItemID.MiningShirt, 1);
 			recipe.AddIngredient(ItemID.MiningPants, 1);
@@ -85,8 +85,7 @@ You can put any sand into the Extractinator");
 			recipe.AddIngredient(ItemID.ArchitectGizmoPack, 1);
 			recipe.AddIngredient(null, "LuckyCracker", 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

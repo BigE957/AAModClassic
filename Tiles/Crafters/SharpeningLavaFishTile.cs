@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +11,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class SharpeningLavaFishTile : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -24,16 +26,16 @@ namespace AAMod.Tiles.Crafters
 			TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sharpening Lava Fish");
-            dustType = ModContent.DustType<Dusts.RadiumDust>();
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Sharpening Lava Fish");
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(223, 113, 38), name);
-            disableSmartCursor = false;
-            adjTiles = new int[]
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = false;
+            AdjTiles = new int[]
             {
-                mod.TileType("SharpeningLavaFishTile")
+                Mod.Find<ModTile>("SharpeningLavaFishTile").Type
             };
-            animationFrameHeight = 38;
+            AnimationFrameHeight = 38;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -50,7 +52,7 @@ namespace AAMod.Tiles.Crafters
 			}
         }
 
-        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)
+        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY)
 		{
             offsetY = 2;
 		}
@@ -62,12 +64,12 @@ namespace AAMod.Tiles.Crafters
             b = .15f;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
             player.AddBuff(159, 36000, true);
             player.AddBuff(74, 36000, true);
-			Main.PlaySound(SoundID.Item37, player.position);
+			SoundEngine.PlaySound(SoundID.Item37, player.position);
             return true;
         }
 
@@ -75,13 +77,13 @@ namespace AAMod.Tiles.Crafters
         {
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("SharpeningLavaFish");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("SharpeningLavaFish").Type;
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("SharpeningLavaFish"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("SharpeningLavaFish").Type);
         }
     }
 }

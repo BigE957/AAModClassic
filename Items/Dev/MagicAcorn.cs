@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -10,37 +11,37 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Magic Acorn");
-            Tooltip.SetDefault(@"Attracts squirrels to fight with you for glory.
+            // DisplayName.SetDefault("Magic Acorn");
+            /* Tooltip.SetDefault(@"Attracts squirrels to fight with you for glory.
 'SoonTM'
--Fargowilta");
+-Fargowilta"); */
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("Squirrel1");
-            item.damage = 120;
-            item.width = 20;
-            item.height = 20;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.knockBack = 5f;
-            item.rare = 3;
-            item.summon = true;
-            item.mana = 5;
-			item.buffType = mod.BuffType("Squirrel");
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("Squirrel1").Type;
+            Item.damage = 120;
+            Item.width = 20;
+            Item.height = 20;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.knockBack = 5f;
+            Item.rare = 3;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 5;
+			Item.buffType = Mod.Find<ModBuff>("Squirrel").Type;
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
@@ -48,28 +49,28 @@ namespace AAMod.Items.Dev
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(189, 76, 15);
+                    line2.OverrideColor = new Color(189, 76, 15);
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int shootMe = Main.rand.Next(2);
             {
                 switch (shootMe)
                 {
                     case 0:
-                        shootMe = mod.ProjectileType("Squirrel1");
+                        shootMe = Mod.Find<ModProjectile>("Squirrel1").Type;
                         break;
                     case 1:
-                        shootMe = mod.ProjectileType("Squirrel2");
+                        shootMe = Mod.Find<ModProjectile>("Squirrel2").Type;
                         break;
                 }
             }
-            player.itemTime = item.useTime;
+            player.itemTime = Item.useTime;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;

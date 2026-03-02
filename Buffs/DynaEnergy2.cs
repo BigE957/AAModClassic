@@ -5,9 +5,9 @@ namespace AAMod.Buffs
 {
     public class DynaEnergy2 : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dyna-Energy");
+			// DisplayName.SetDefault("Dyna-Energy");
 			Main.debuff[Type] = true;
 		}
 

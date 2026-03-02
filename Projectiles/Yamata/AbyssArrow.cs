@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
@@ -14,20 +16,20 @@ namespace AAMod.Projectiles.Yamata
          {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            projectile.glowMask = customGlowMask;
+            Projectile.glowMask = customGlowMask;
 
-            DisplayName.SetDefault("Eventide Arrow");    
+            // DisplayName.SetDefault("Eventide Arrow");    
 		}
-        public override bool Autoload(ref string name) 
+        public override bool IsLoadingEnabled(Mod mod)/* tModPorter Suggestion: If you return false for the purposes of manual loading, use the [Autoload(false)] attribute on your class instead */ 
         { return true; 
         }
 
@@ -36,70 +38,70 @@ namespace AAMod.Projectiles.Yamata
 
 		public override void SetDefaults()
 		{
-			projectile.width = 40;
-			projectile.height = 14;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.ranged = true;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 600;
-			projectile.light = 0.5f;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-			projectile.extraUpdates = 1;
-                        projectile.knockBack = 0.1f;
-                        aiType = ProjectileID.WoodenArrowFriendly;
-                        projectile.arrow = true;
+			Projectile.width = 40;
+			Projectile.height = 14;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 600;
+			Projectile.light = 0.5f;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+			Projectile.extraUpdates = 1;
+                        Projectile.knockBack = 0.1f;
+                        AIType = ProjectileID.WoodenArrowFriendly;
+                        Projectile.arrow = true;
          }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X);
+            Player player = Main.player[Projectile.owner];
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
 
-            if (projectile.ai[0] == bulletFadeTime && projectile.ai[1] == 0)
+            if (Projectile.ai[0] == bulletFadeTime && Projectile.ai[1] == 0)
             {
-                Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 54);
-                projectile.damage = 2 * projectile.damage / 2; //nerf damage because 2 shot
-                if (Main.myPlayer == projectile.owner) //spawn extra 1 copies
+                SoundEngine.PlaySound(SoundID.Item54, Projectile.position);
+                Projectile.damage = 2 * Projectile.damage / 2; //nerf damage because 2 shot
+                if (Main.myPlayer == Projectile.owner) //spawn extra 1 copies
                 {
                     for (int i = 0; i < 1; i++)
                     {//make 2 in total
                         Projectile.NewProjectile(
-                            projectile.position.X,
-                            projectile.position.Y,
-                            projectile.velocity.X + inaccuracy(),
-                            projectile.velocity.Y + inaccuracy(),
-                            projectile.type,
-                            2 * projectile.damage / 3,
+                            Projectile.position.X,
+                            Projectile.position.Y,
+                            Projectile.velocity.X + inaccuracy(),
+                            Projectile.velocity.Y + inaccuracy(),
+                            Projectile.type,
+                            2 * Projectile.damage / 3,
                             0.2f,
-                            projectile.owner,
+                            Projectile.owner,
                             0,
                             1 // set this to 1 so we don't infinitely spam
                         );
                     }
                 }
-                projectile.ai[1] = 1f;
+                Projectile.ai[1] = 1f;
             }  
-         if (projectile.ai[0] < bulletFadeTime) projectile.ai[0]++;
+         if (Projectile.ai[0] < bulletFadeTime) Projectile.ai[0]++;
 
-         projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;      
+         Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;      
         }   
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
 
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(ref Color lightColor)
 
         {
-			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-			for (int k = 0; k < projectile.oldPos.Length; k++) 
+			Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+			for (int k = 0; k < Projectile.oldPos.Length; k++) 
             {
-				Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-				Color color = projectile.GetAlpha(lightColor) * ((projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-				spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+				Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+				spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 			return true;
 		}
@@ -107,14 +109,14 @@ namespace AAMod.Projectiles.Yamata
         {
             return Color.White;
         }
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
             {
-                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+                SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
                 for (int num468 = 0; num468 < 4; num468++)
                 {
-                  num468 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                 -projectile.velocity.Y * 0.2f, 100, default);
+                  num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                 -Projectile.velocity.Y * 0.2f, 100, default);
                 }
 	        }
         private float inaccuracy()

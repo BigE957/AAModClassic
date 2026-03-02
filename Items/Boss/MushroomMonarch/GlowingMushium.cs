@@ -8,16 +8,16 @@ namespace AAMod.Items.Boss.MushroomMonarch
     {
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.rare = 1;
-            item.value = Item.sellPrice(0, 0, 3, 0);
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.rare = 1;
+            Item.value = Item.sellPrice(0, 0, 3, 0);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glowing Mushium");
+            // DisplayName.SetDefault("Glowing Mushium");
         }
 
         public override Color? GetAlpha(Color lightColor)

@@ -10,53 +10,53 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mushling");
-            Main.npcFrameCount[npc.type] = 7;
+            // DisplayName.SetDefault("Mushling");
+            Main.npcFrameCount[NPC.type] = 7;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 50;
-            npc.damage = 6;
-            npc.defense = 5; 
-            npc.knockBackResist = 1f;
-            npc.value = Item.sellPrice(0, 0, 0, 0);
-            npc.aiStyle = -1;
-            npc.width = 30;
-            npc.height = 44;
-            npc.npcSlots = 0f;
-            npc.lavaImmune = false;
-            npc.noGravity = false;
-            npc.noTileCollide = false;
-            npc.buffImmune[46] = true;
-            npc.buffImmune[47] = true;
-            npc.netAlways = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            NPC.lifeMax = 50;
+            NPC.damage = 6;
+            NPC.defense = 5; 
+            NPC.knockBackResist = 1f;
+            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.aiStyle = -1;
+            NPC.width = 30;
+            NPC.height = 44;
+            NPC.npcSlots = 0f;
+            NPC.lavaImmune = false;
+            NPC.noGravity = false;
+            NPC.noTileCollide = false;
+            NPC.buffImmune[46] = true;
+            NPC.buffImmune[47] = true;
+            NPC.netAlways = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
         }
 
         public override void AI()
         {
-            Player player = Main.player[npc.target]; // makes it so you can reference the player the npc is targetting
+            Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
 
-            BaseAI.AIZombie(npc, ref npc.ai, false, false, -1, .09f, 2, 3, 5, 120, true, 10, 10, true);
+            BaseAI.AIZombie(NPC, ref NPC.ai, false, false, -1, .09f, 2, 3, 5, 120, true, 10, 10, true);
 
-            if (npc.velocity.Y == 0)
+            if (NPC.velocity.Y == 0)
             {
-                npc.frameCounter++;
-                if (npc.frameCounter > 8)
+                NPC.frameCounter++;
+                if (NPC.frameCounter > 8)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += 44;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 44;
                 }
-                if (npc.frame.Y > 44 * 6)
+                if (NPC.frame.Y > 44 * 6)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
             else
             {
-                npc.frame.Y = 44 * 6;
+                NPC.frame.Y = 44 * 6;
             }
         }
     }

@@ -9,25 +9,25 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dread Twilight");
-			Tooltip.SetDefault("The rising moon incarnate");
+			// DisplayName.SetDefault("Dread Twilight");
+			// Tooltip.SetDefault("The rising moon incarnate");
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 75;
-			item.melee = true;
-			item.width = 76;
-			item.height = 76;
-			item.useTime = 17;
-			item.useAnimation = 17;
-			item.useStyle = 1;
-			item.knockBack = 3;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 8;
-			item.UseSound = SoundID.Item19;
-			item.autoReuse = false;
-			item.shoot = mod.ProjectileType("TrueAbyssalTwilightShot");
-            item.shootSpeed = 10f;
+			Item.damage = 75;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 76;
+			Item.height = 76;
+			Item.useTime = 17;
+			Item.useAnimation = 17;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 8;
+			Item.UseSound = SoundID.Item19;
+			Item.autoReuse = false;
+			Item.shoot = Mod.Find<ModProjectile>("TrueAbyssalTwilightShot").Type;
+            Item.shootSpeed = 10f;
 		}
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -43,16 +43,15 @@ namespace AAMod.Items.Melee
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(mod, "AbyssalTwilight", 1);
+                Recipe recipe = CreateRecipe();
+                recipe.AddIngredient(Mod, "AbyssalTwilight", 1);
                 recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Venom, 500);
         }

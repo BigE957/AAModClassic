@@ -7,7 +7,7 @@ namespace AAMod.Tiles.Trophy
 {
     public class WKGTrophy : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -15,14 +15,14 @@ namespace AAMod.Tiles.Trophy
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);
-            dustType = 7;
-			disableSmartCursor = true;
+            DustType = 7;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			AddMapEntry(new Color(120, 85, 60));
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(i * 16, j * 16, 48, 48, mod.ItemType("WKGTrophy"));
+            Item.NewItem(i * 16, j * 16, 48, 48, Mod.Find<ModItem>("WKGTrophy").Type);
         }
 	}
 }

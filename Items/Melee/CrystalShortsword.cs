@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,33 +8,32 @@ namespace AAMod.Items.Melee
     {
         public override void SetDefaults()
         {
-            item.damage = 22;
-            item.melee = true;
-            item.width = 42;
-            item.height = 42;
-            item.useTime = 24;
-            item.useAnimation = 28;     
-            item.useStyle = 3;
-            item.knockBack = 1;
-            item.value = 1000;        
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 22;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 42;
+            Item.height = 42;
+            Item.useTime = 24;
+            Item.useAnimation = 28;     
+            Item.useStyle = 3;
+            Item.knockBack = 1;
+            Item.value = 1000;        
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Harmony Shortsword");
+            // DisplayName.SetDefault("Harmony Shortsword");
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(null, "TerraShard", 10);
             recipe.AddTile(TileID.Anvils);  
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

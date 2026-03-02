@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.AH
 {
@@ -6,11 +7,11 @@ namespace AAMod.Items.Boss.AH
     {
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.consumable = true;
-            item.width = 16;
-            item.height = 16;
-            item.rare = 9;
+            Item.maxStack = 1;
+            Item.consumable = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -18,18 +19,18 @@ namespace AAMod.Items.Boss.AH
         {
             foreach (Terraria.ModLoader.TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ashe's Satchel");
-            Tooltip.SetDefault(@"Right click to open
-Contains a set of Fury Witch's robes");
+            // DisplayName.SetDefault("Ashe's Satchel");
+            /* Tooltip.SetDefault(@"Right click to open
+Contains a set of Fury Witch's robes"); */
         }
 
         public override bool CanRightClick()
@@ -39,9 +40,9 @@ Contains a set of Fury Witch's robes");
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("WitchHood"));
-            player.QuickSpawnItem(mod.ItemType("WitchRobe"));
-            player.QuickSpawnItem(mod.ItemType("WitchBoots"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("WitchHood").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("WitchRobe").Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("WitchBoots").Type);
         }
     }
 }

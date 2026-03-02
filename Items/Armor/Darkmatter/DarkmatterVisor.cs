@@ -16,19 +16,19 @@ namespace AAMod.Items.Armor.Darkmatter
         public override void SetStaticDefaults()
         {
 
-            DisplayName.SetDefault("Darkmatter Visor");
-            Tooltip.SetDefault(@"15% increased Ranged damage
+            // DisplayName.SetDefault("Darkmatter Visor");
+            /* Tooltip.SetDefault(@"15% increased Ranged damage
 20% decreased ammo consumption 
-Dark, yet still barely visible");
+Dark, yet still barely visible"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.value = 300000;
-            item.defense = 26;
-            item.rare = 9;
+            Item.width = 18;
+            Item.height = 14;
+            Item.value = 300000;
+            Item.defense = 26;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -36,25 +36,25 @@ Dark, yet still barely visible");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.15f;
+            player.GetDamage(DamageClass.Ranged) += 0.15f;
             player.ammoCost80 = true;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("DarkmatterBreastplate") && legs.type == mod.ItemType("DarkmatterGreaves");
+            return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -70,12 +70,11 @@ Dark, yet still barely visible");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkMatter", 25);
             recipe.AddIngredient(null, "DarkEnergy", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
     }
@@ -106,18 +105,18 @@ Dark, yet still barely visible");
                     portalFrame = 0;
                 }
             }
-            if(player.itemTime>1 && player.HeldItem.ranged)
+            if(Player.itemTime>1 && Player.HeldItem.CountsAsClass(DamageClass.Ranged))
             {
                 
                 if (!shot && setBonus)
                 {
                     if(sunPortal)
                     {
-                        Projectile.NewProjectile(player.Center + portalOffset, (Main.MouseWorld - (player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * player.HeldItem.shootSpeed, mod.ProjectileType("SunSphere"), (int)(player.HeldItem.damage * player.rangedDamage * .5f), 2f, player.whoAmI);
+                        Projectile.NewProjectile(Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .5f), 2f, Player.whoAmI);
                     }
                     else
                     {
-                        Projectile.NewProjectile(player.Center + portalOffset, (Main.MouseWorld - (player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * player.HeldItem.shootSpeed, mod.ProjectileType("DarkmatterSphere"), (int)(player.HeldItem.damage * player.rangedDamage * .3f), 2f, player.whoAmI);
+                        Projectile.NewProjectile(Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .3f), 2f, Player.whoAmI);
                     }
                     
                 }
@@ -128,7 +127,7 @@ Dark, yet still barely visible");
                 shot = false;
             }
         }
-        public static readonly PlayerLayer Portal = new PlayerLayer("AAMod", "Portal", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawInfo drawInfo)
+        public static readonly PlayerLayer Portal = new PlayerLayer("AAMod", "Portal", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
 
             Player drawPlayer = drawInfo.drawPlayer;
@@ -140,11 +139,11 @@ Dark, yet still barely visible");
             }
             if (drawPlayer.GetModPlayer<VisorEffects>().setBonus)
             {
-                Vector2 Center = drawInfo.position + new Vector2(drawPlayer.width / 2, drawPlayer.height / 2) + drawPlayer.GetModPlayer<VisorEffects>().portalOffset - Main.screenPosition;
+                Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, drawPlayer.height / 2) + drawPlayer.GetModPlayer<VisorEffects>().portalOffset - Main.screenPosition;
 
-                DrawData data = new DrawData(texture, Center, texture.Frame(1, drawPlayer.GetModPlayer<VisorEffects>().portalFrameCount, 0, drawPlayer.GetModPlayer<VisorEffects>().portalFrame), Color.White, 0f, new Vector2(texture.Size().X, texture.Size().Y / 4) * .5f, 1f, drawInfo.spriteEffects, 0)
+                DrawData data = new DrawData(texture, Center, texture.Frame(1, drawPlayer.GetModPlayer<VisorEffects>().portalFrameCount, 0, drawPlayer.GetModPlayer<VisorEffects>().portalFrame), Color.White, 0f, new Vector2(texture.Size().X, texture.Size().Y / 4) * .5f, 1f, drawInfo.playerEffect, 0)
                 {
-                    shader = drawInfo.bodyArmorShader
+                    shader = drawInfo.cBody
                 };
                 Main.playerDrawData.Add(data);
             }

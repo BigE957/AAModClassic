@@ -1,5 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Pets
 {
@@ -8,23 +10,23 @@ namespace AAMod.Items.Pets
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
-			DisplayName.SetDefault("Porta-Probe");
+			// DisplayName.SetDefault("Porta-Probe");
 
-			Tooltip.SetDefault("Take a little life-seeking robot with you!");
+			// Tooltip.SetDefault("Take a little life-seeking robot with you!");
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ShadowOrb);
-			item.shoot = mod.ProjectileType("MiniProbe");
-            item.buffType = mod.BuffType("MiniProbe");
+			Item.CloneDefaults(ItemID.ShadowOrb);
+			Item.shoot = Mod.Find<ModProjectile>("MiniProbe").Type;
+            Item.buffType = Mod.Find<ModBuff>("MiniProbe").Type;
 		}
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 90000, true);
+				player.AddBuff(Item.buffType, 90000, true);
             }
 		}
 

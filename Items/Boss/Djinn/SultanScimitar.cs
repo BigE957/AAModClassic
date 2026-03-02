@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Djinn
 
@@ -8,26 +9,26 @@ namespace AAMod.Items.Boss.Djinn
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sultan's Scimitar");
+			// DisplayName.SetDefault("Sultan's Scimitar");
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 24;
-			item.melee = true;
-			item.width = 58;
-			item.height = 66;
-			item.useTime = 26;
-            item.useAnimation = 26;
-            item.shoot = mod.ProjectileType("DesertGust");
-            item.shootSpeed = 5f;
-	        item.UseSound = SoundID.Item1;
-			item.useStyle = 1;
-			item.knockBack = 3;
-            item.value = 50000;
-            item.autoReuse = true;
-            item.rare = 3;
+			Item.damage = 24;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 58;
+			Item.height = 66;
+			Item.useTime = 26;
+            Item.useAnimation = 26;
+            Item.shoot = Mod.Find<ModProjectile>("DesertGust").Type;
+            Item.shootSpeed = 5f;
+	        Item.UseSound = SoundID.Item1;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+            Item.value = 50000;
+            Item.autoReuse = true;
+            Item.rare = 3;
 		}
 	}
 }

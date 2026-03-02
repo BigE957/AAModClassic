@@ -4,18 +4,18 @@
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fishmother");
+            // DisplayName.SetDefault("Fishmother");
         }
 
 
         public override void SetDefaults()
         {
-            item.questItem = true;
-            item.maxStack = 1;
-            item.width = 26;
-            item.height = 26;
-            item.uniqueStack = true;
-            item.rare = -11;
+            Item.questItem = true;
+            Item.maxStack = 1;
+            Item.width = 26;
+            Item.height = 26;
+            Item.uniqueStack = true;
+            Item.rare = -11;
         }
 
         public override bool IsQuestFish()

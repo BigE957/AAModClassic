@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Toad
 {
@@ -6,27 +7,27 @@ namespace AAMod.Items.Boss.Toad
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Mushrock Staff");
+            // DisplayName.SetDefault("Mushrock Staff");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 15;
-			item.magic = true;
-			item.mana = 6;
-			item.width = 58;
-			item.height = 58;
-			item.useStyle = 1;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 100000;
-			item.rare = 4;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ToadRock");
-            item.useTime = 30;
-            item.useAnimation = 30;
-            item.shootSpeed = 15f;
+			Item.damage = 15;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 6;
+			Item.width = 58;
+			Item.height = 58;
+			Item.useStyle = 1;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 100000;
+			Item.rare = 4;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("ToadRock").Type;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.shootSpeed = 15f;
         }
 	}
 }

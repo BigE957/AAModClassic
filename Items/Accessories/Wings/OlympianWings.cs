@@ -8,18 +8,18 @@ namespace AAMod.Items.Accessories.Wings
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Olympian Wings");
-            Tooltip.SetDefault(@"Allows flight and slow fall
-Grants a dash while flying");
+            // DisplayName.SetDefault("Olympian Wings");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
+Grants a dash while flying"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 30;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 8;
-			item.accessory = true;
+			Item.width = 26;
+			Item.height = 30;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 8;
+			Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

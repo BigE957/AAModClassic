@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -7,28 +8,27 @@ namespace AAMod.Items.Usable
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Key of Smite");
-			Tooltip.SetDefault("'Charged with flaming energy'");
+			// DisplayName.SetDefault("Key of Smite");
+			// Tooltip.SetDefault("'Charged with flaming energy'");
 		}
 
 
         public override void SetDefaults()
         {
-            item.width = item.height = 16;
-            item.rare = 0;
-            item.maxStack = 99;
-            item.value = 100;
-            item.useStyle = 4;
-            item.useTime = item.useAnimation = 19;
-            item.noMelee = true;
+            Item.width = Item.height = 16;
+            Item.rare = 0;
+            Item.maxStack = 99;
+            Item.value = 100;
+            Item.useStyle = 4;
+            Item.useTime = Item.useAnimation = 19;
+            Item.noMelee = true;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "SoulOfSmite", 15);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
 

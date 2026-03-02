@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
@@ -10,43 +11,43 @@ namespace AAMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Mana Rose");
-			Main.projFrames[projectile.type] = 2;
+            // DisplayName.SetDefault("Mana Rose");
+			Main.projFrames[Projectile.type] = 2;
 		}	
 
         public override void SetDefaults()
         {
-            projectile.width = 34;
-            projectile.height = 34;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 320;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.damage = 1;
-            projectile.penetrate = -1;
-            projectile.alpha = 255;
-            projectile.magic = true;
+            Projectile.width = 34;
+            Projectile.height = 34;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 320;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.damage = 1;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
 		public override void AI()
 		{
-			BaseAI.AIVilethorn(projectile, 50, 6, 12);
-			if (projectile.ai[1] == 12)
+			BaseAI.AIVilethorn(Projectile, 50, 6, 12);
+			if (Projectile.ai[1] == 12)
 			{
-				projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 			else
 			{
-				projectile.frame = 1;
+				Projectile.frame = 1;
 			}
 		}
 
-		public override bool PreDraw(SpriteBatch sb, Color drawColor)
+		public override bool PreDraw(ref Color lightColor)
 		{
-			Rectangle frame = BaseDrawing.GetFrame(projectile.frame, 34, 34, 0, 0);
-			BaseDrawing.DrawTexture(sb, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 2, frame, projectile.GetAlpha(Color.White), true);
+			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
+			BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
 			return false;
 		}
 	}

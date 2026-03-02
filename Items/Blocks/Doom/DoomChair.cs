@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Doom
@@ -6,30 +7,29 @@ namespace AAMod.Items.Blocks.Doom
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doom Chair");
+            // DisplayName.SetDefault("Doom Chair");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 18;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("DoomChair");
+            Item.width = 16;
+            Item.height = 18;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("DoomChair").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("ApocalyptitePlate"), 4);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 4);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
 

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
@@ -12,52 +13,52 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyss Grip Orbiter");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Abyss Grip Orbiter");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 40;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 1200;
-            projectile.alpha = 255;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 1200;
+            Projectile.alpha = 255;
         }
 
         public override void PostAI()
         {
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 200);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color dColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             Color Alpha = dColor;
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], blue, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 4, frame, Color.White, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, blue, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
             return false;
         }
     }

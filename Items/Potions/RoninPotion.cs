@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Potions
 {
@@ -7,30 +8,30 @@ namespace AAMod.Items.Potions
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ronin Potion");
-			Tooltip.SetDefault("When you don't get hurt, you will have 3s immune time");
+			// DisplayName.SetDefault("Ronin Potion");
+			// Tooltip.SetDefault("When you don't get hurt, you will have 3s immune time");
 		}
 		
 		public override void SetDefaults()
         {
-            item.width = 20;
-			item.height = 34;
-			item.useTurn = true;
-			item.maxStack = 30;
-			item.healLife = 50;
-            item.useAnimation = 17;
-			item.useTime = 17;
-			item.useStyle = 2;
-			item.UseSound = SoundID.Item3;
-			item.consumable = true;
-			item.potion = true;
-			item.value = 50000;
-            item.rare = 4;
+            Item.width = 20;
+			Item.height = 34;
+			Item.useTurn = true;
+			Item.maxStack = 30;
+			Item.healLife = 50;
+            Item.useAnimation = 17;
+			Item.useTime = 17;
+			Item.useStyle = 2;
+			Item.UseSound = SoundID.Item3;
+			Item.consumable = true;
+			Item.potion = true;
+			Item.value = 50000;
+            Item.rare = 4;
 		}
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if(player.statLife == player.statLifeMax2) player.AddBuff(mod.BuffType("Ronin"), 180);
+            if(player.statLife == player.statLifeMax2) player.AddBuff(Mod.Find<ModBuff>("Ronin").Type, 180);
             return base.UseItem(player);
         }
 	}

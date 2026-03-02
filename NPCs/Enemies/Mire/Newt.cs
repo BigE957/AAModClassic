@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,27 +11,27 @@ namespace AAMod.NPCs.Enemies.Mire
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Newt");
-            Main.npcFrameCount[npc.type] = 15;
+            // DisplayName.SetDefault("Newt");
+            Main.npcFrameCount[NPC.type] = 15;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 112;
-            npc.height = 30;
-            npc.damage = 10;
-            npc.defense = 10;
-            npc.damage = 28;
-            npc.defense = 6;
-            npc.lifeMax = 60;
-            npc.knockBackResist = 0.55f;
-            npc.value = 100f;
-            npc.aiStyle = 3;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            aiType = NPCID.Crawdad;
-            banner = npc.type;
-			bannerItem = mod.ItemType("NewtBanner");
+            NPC.width = 112;
+            NPC.height = 30;
+            NPC.damage = 10;
+            NPC.defense = 10;
+            NPC.damage = 28;
+            NPC.defense = 6;
+            NPC.lifeMax = 60;
+            NPC.knockBackResist = 0.55f;
+            NPC.value = 100f;
+            NPC.aiStyle = 3;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            AIType = NPCID.Crawdad;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("NewtBanner").Type;
         }
         
         private bool tongueAttack;
@@ -40,46 +41,46 @@ namespace AAMod.NPCs.Enemies.Mire
 
         public override void AI()
         {
-            Player player = Main.player[npc.target]; // makes it so you can reference the player the npc is targetting
+            Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
             if (tongueAttack == false)
             {
-                npc.frameCounter++;
-                if (npc.frameCounter >= 10)
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y += 30;
-                    if (npc.frame.Y > 420)
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 30;
+                    if (NPC.frame.Y > 420)
                     {
-                        npc.frameCounter = 0;
-                        npc.frame.Y = 0;
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
                     }
                 }
             }
             else
             {
-                npc.frameCounter = 0;
-                npc.frame.Y = 0;
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
             }
             if (!tongueAttack)
             {
-                if (npc.velocity.X < 0) // so it faces the player
+                if (NPC.velocity.X < 0) // so it faces the player
                 {
-                    npc.direction = 1;
+                    NPC.direction = 1;
                 }
-                else if (npc.velocity.X > 0)
+                else if (NPC.velocity.X > 0)
                 {
-                    npc.direction = -1;
+                    NPC.direction = -1;
                 }
             }
             else
             {
-                if (player.position.X < npc.position.X)
+                if (player.position.X < NPC.position.X)
                 {
-                    npc.direction = 1;
+                    NPC.direction = 1;
                 }
                 else
                 {
-                    npc.direction = -1;
+                    NPC.direction = -1;
                 }
             }
             if (tongueAttack == true)
@@ -98,7 +99,7 @@ namespace AAMod.NPCs.Enemies.Mire
                     tongueFrame = 0;
                 }
             }
-            float distance = npc.Distance(Main.player[npc.target].Center);
+            float distance = NPC.Distance(Main.player[NPC.target].Center);
             if (distance >= 100) // distance until it does the tongue attack
             {
                 if (Main.rand.Next(30) == 0) // so it wont do it repeatedly when the player is near. increase to lower the chance of it doing it
@@ -112,17 +113,17 @@ namespace AAMod.NPCs.Enemies.Mire
             if (tongueAttack == true)
             {
                 tongueTimer++;
-                npc.aiStyle = 0;
-                npc.velocity.X = 0;
+                NPC.aiStyle = 0;
+                NPC.velocity.X = 0;
                 if (tongueTimer == 35)
                 {
-                    if (npc.direction == -1)
+                    if (NPC.direction == -1)
                     {
-                        Projectile.NewProjectile(new Vector2(npc.position.X + 56f, npc.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), mod.ProjectileType("AcidProj"), 15, 3);
+                        Projectile.NewProjectile(new Vector2(NPC.position.X + 56f, NPC.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                     else
                     {
-                        Projectile.NewProjectile(new Vector2(npc.Center.X - 56f, npc.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), mod.ProjectileType("AcidProj"), 15, 3);
+                        Projectile.NewProjectile(new Vector2(NPC.Center.X - 56f, NPC.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                 }
                 if (tongueTimer >= 100)
@@ -135,46 +136,46 @@ namespace AAMod.NPCs.Enemies.Mire
             }
             if (tongueAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
-                npc.aiStyle = 3;
+                NPC.aiStyle = 3;
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreTail"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreBody"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/NewtGoreHead"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreTail"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreBody"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/NewtGoreHead"), 1f);
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = Main.npcTexture[npc.type];
-            Texture2D tongueAni = mod.GetTexture("NPCs/Enemies/Mire/Newt_Shoot");
-            var effects = npc.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            Texture2D tongueAni = Mod.GetTexture("NPCs/Enemies/Mire/Newt_Shoot");
+            var effects = NPC.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (tongueAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
-                spriteBatch.Draw(texture, npc.Center - Main.screenPosition, npc.frame, drawColor, npc.rotation, npc.frame.Size() / 2, npc.scale, effects, 0f);
+                spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0f);
             }
             if (tongueAttack == true)
             {
-                Vector2 drawCenter = new Vector2(npc.Center.X, npc.Center.Y);
+                Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = tongueAni.Height / 4;
                 int y6 = num214 * tongueFrame;
-                Main.spriteBatch.Draw(tongueAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, npc.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), npc.scale, effects, 0f);
+                Main.spriteBatch.Draw(tongueAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, NPC.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), NPC.scale, effects, 0f);
             }
             return false;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MirePod"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
         }
     }
 }

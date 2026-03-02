@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -7,25 +8,25 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Goblin Slayer");
-			Tooltip.SetDefault(@"Can be swung with left click and thrust forward with a right click
-'The blade of a legendary goblin slayer'");
+			// DisplayName.SetDefault("Goblin Slayer");
+			/* Tooltip.SetDefault(@"Can be swung with left click and thrust forward with a right click
+'The blade of a legendary goblin slayer'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 30;
-			item.melee = true;
-			item.width = 46;
-			item.height = 46;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 1;
-			item.knockBack = 2;
-			item.value = Item.sellPrice (0, 1, 0, 0);
-			item.rare = 3;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 46;
+			Item.height = 46;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 1;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice (0, 1, 0, 0);
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = false;
 		}
 
         public override bool AltFunctionUse(Player player)
@@ -37,16 +38,16 @@ namespace AAMod.Items.Melee
         {
             if (player.altFunctionUse == 2)
             {
-                item.useStyle = 3;
+                Item.useStyle = 3;
             }
             else
             {
-                item.useStyle = 1;
+                Item.useStyle = 1;
             }
             return base.CanUseItem(player);
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.type == NPCID.GoblinArcher
                 || target.type == NPCID.GoblinPeon
@@ -64,12 +65,12 @@ namespace AAMod.Items.Melee
                 || target.type == NPCID.BoundGoblin
                 || target.type == NPCID.GoblinTinkerer)
             {
-                item.damage = 60;
+                Item.damage = 60;
                 target.AddBuff(BuffID.Bleeding, 400);
             }
             else
             {
-                item.damage = 30;
+                Item.damage = 30;
             }
         }
 	}

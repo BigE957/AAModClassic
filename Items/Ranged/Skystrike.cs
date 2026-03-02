@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,28 +11,27 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skystrike");
-            Tooltip.SetDefault("Drops Aerial Bane arrows from the sky"
+            // DisplayName.SetDefault("Skystrike");
+            /* Tooltip.SetDefault("Drops Aerial Bane arrows from the sky"
 			+"\nInitial arrows ignore tiles"
-			+"\nAerial Bane EX");
+			+"\nAerial Bane EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(3859);
-			item.damage = 475;
-			item.shootSpeed = 16f;
+            Item.CloneDefaults(3859);
+			Item.damage = 475;
+			Item.shootSpeed = 16f;
         }
 		
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(3859);
 			recipe.AddIngredient(ItemID.DaedalusStormbow);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
 		public override Vector2? HoldoutOffset()
@@ -39,10 +39,10 @@ namespace AAMod.Items.Ranged
 			return new Vector2(-4, 0);
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
-			float num75 = item.shootSpeed;
+			float num75 = Item.shootSpeed;
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
 			float num83 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
 			if (player.gravDir == -1f)

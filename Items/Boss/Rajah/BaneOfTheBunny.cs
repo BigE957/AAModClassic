@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah
 {
@@ -7,29 +8,29 @@ namespace AAMod.Items.Boss.Rajah
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Bane Of The Bunny");
-            Tooltip.SetDefault(@"Right click to use as a spear
+            // DisplayName.SetDefault("Bane Of The Bunny");
+            /* Tooltip.SetDefault(@"Right click to use as a spear
 Left click to use as a javelin
-Throwing Javelins right after a spear thrust throws javelins faster for a moment");
+Throwing Javelins right after a spear thrust throws javelins faster for a moment"); */
 		}
 
 		public override void SetDefaults()
 		{
-            item.damage = 100;
-            item.melee = true;
-            item.width = 92; 
-            item.height = 92;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.channel = true;
-            item.useAnimation = 20;
-            item.useStyle = 5;
-            item.useTime = 20;
-            item.knockBack = 4f;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.shoot = mod.ProjectileType("BaneS");
-            item.shootSpeed = 4f;
-            item.rare = 8;
+            Item.damage = 100;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 92; 
+            Item.height = 92;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.channel = true;
+            Item.useAnimation = 20;
+            Item.useStyle = 5;
+            Item.useTime = 20;
+            Item.knockBack = 4f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.shoot = Mod.Find<ModProjectile>("BaneS").Type;
+            Item.shootSpeed = 4f;
+            Item.rare = 8;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -41,23 +42,23 @@ Throwing Javelins right after a spear thrust throws javelins faster for a moment
         {
             if (player.altFunctionUse == 2)
             {
-                item.useTime = 15;
-                item.useAnimation = 15;
-                item.UseSound = SoundID.Item1;
-                item.useStyle = 5;
-                item.shoot = mod.ProjectileType("BaneS");  
-                item.shootSpeed = 10f;
-                item.autoReuse = true;
+                Item.useTime = 15;
+                Item.useAnimation = 15;
+                Item.UseSound = SoundID.Item1;
+                Item.useStyle = 5;
+                Item.shoot = Mod.Find<ModProjectile>("BaneS").Type;  
+                Item.shootSpeed = 10f;
+                Item.autoReuse = true;
             }
             else
             {
-                item.useAnimation = 13;
-                item.useTime = 13;
-                item.UseSound = SoundID.Item1;
-                item.useStyle = 1;
-                item.shoot = mod.ProjectileType("BaneT");
-                item.shootSpeed = 10f;
-                item.autoReuse = true;
+                Item.useAnimation = 13;
+                Item.useTime = 13;
+                Item.UseSound = SoundID.Item1;
+                Item.useStyle = 1;
+                Item.shoot = Mod.Find<ModProjectile>("BaneT").Type;
+                Item.shootSpeed = 10f;
+                Item.autoReuse = true;
             }
             return base.CanUseItem(player);
         }

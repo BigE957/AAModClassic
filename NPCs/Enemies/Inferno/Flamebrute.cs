@@ -11,92 +11,92 @@ namespace AAMod.NPCs.Enemies.Inferno
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flame Brute");
-            Main.npcFrameCount[npc.type] = 9;
+            // DisplayName.SetDefault("Flame Brute");
+            Main.npcFrameCount[NPC.type] = 9;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 120;
-            npc.damage = 25;
-            npc.defense = 10;
-            npc.knockBackResist = 0f;
-            npc.value = Item.sellPrice(0, 0, 6, 45);
-            npc.aiStyle = -1;
-            npc.width = 40;
-            npc.height = 60;
-			npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;		
-            npc.lavaImmune = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("FlamebruteBanner");
+            NPC.lifeMax = 120;
+            NPC.damage = 25;
+            NPC.defense = 10;
+            NPC.knockBackResist = 0f;
+            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.aiStyle = -1;
+            NPC.width = 40;
+            NPC.height = 60;
+			NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;		
+            NPC.lavaImmune = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("FlamebruteBanner").Type;
         }
 
 		const int frameHeightPlusFluff = 78; //the 2 pixels per frame
 
         public override void AI()
         {
-			Player player = Main.player[npc.target];
-			float playerDistX = Math.Abs(player.Center.X - npc.Center.X);
-			float playerDistY = Math.Abs(player.Center.Y - npc.Center.Y);
+			Player player = Main.player[NPC.target];
+			float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
+			float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
 			bool smashAttack = playerDistX < 15f && playerDistY < 40f;
-            Lighting.AddLight(npc.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
 
             if (smashAttack) //Stop moving to smash players
 			{
-				npc.velocity.X *= 0.9f;
-				if(npc.velocity.X < 0.2f) npc.velocity.X = 0;
-				npc.spriteDirection = npc.Center.X < player.Center.X ? 1 : -1;	
+				NPC.velocity.X *= 0.9f;
+				if(NPC.velocity.X < 0.2f) NPC.velocity.X = 0;
+				NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;	
 			}else
 			{
-				BaseAI.AIZombie(npc, ref npc.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);	
-				npc.spriteDirection = npc.velocity.X > 0 ? 1 : -1;				
+				BaseAI.AIZombie(NPC, ref NPC.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);	
+				NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;				
 			}
 
 			int frameMax = smashAttack ? 8 : 5;
-			npc.frameCounter++;
-			if (npc.frameCounter >= frameMax)
+			NPC.frameCounter++;
+			if (NPC.frameCounter >= frameMax)
 			{
-				npc.frameCounter = 0;
+				NPC.frameCounter = 0;
 				if(smashAttack)
 				{
-					npc.frame.Y += frameHeightPlusFluff;
-					if (npc.frame.Y < frameHeightPlusFluff * 6 || npc.frame.Y > frameHeightPlusFluff * 8)
+					NPC.frame.Y += frameHeightPlusFluff;
+					if (NPC.frame.Y < frameHeightPlusFluff * 6 || NPC.frame.Y > frameHeightPlusFluff * 8)
 					{
-						npc.frame.Y = frameHeightPlusFluff * 6;
+						NPC.frame.Y = frameHeightPlusFluff * 6;
 					}
 				}else
 				{
-					npc.frame.Y += frameHeightPlusFluff;
-					if (npc.frame.Y > frameHeightPlusFluff * 5)
+					NPC.frame.Y += frameHeightPlusFluff;
+					if (NPC.frame.Y > frameHeightPlusFluff * 5)
 					{
-						npc.frame.Y = 0;
+						NPC.frame.Y = 0;
 					}
 				}
 			}
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreBackArm"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreBackLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreBody"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreFrontArm"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreFrontLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/FlamebruteGoreHead"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreBackArm"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreBackLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreBody"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreFrontArm"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreFrontLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/FlamebruteGoreHead"), 1f);
             }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.GetModPlayer<AAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
+            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DragonScale"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
         }
     }
 }

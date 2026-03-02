@@ -1,6 +1,7 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -10,14 +11,14 @@ namespace AAMod.Items.Dev
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cat's Eye Rifle");
-            Tooltip.SetDefault(@"Fires Shadow bolts
+            // DisplayName.SetDefault("Cat's Eye Rifle");
+            /* Tooltip.SetDefault(@"Fires Shadow bolts
 Doesn't require ammo
 'QUICK HIDE THE LOLI STASH'
--Liz");
+-Liz"); */
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -29,22 +30,22 @@ Doesn't require ammo
 
         public override void SetDefaults()
         {
-            item.damage = 430;
-            item.noMelee = true;
-            item.ranged = true; 
-            item.width = 72; 
-            item.height = 22;
-            item.useTime = 30; 
-            item.useAnimation = 30; 
-            item.useStyle = 5;
-            item.shoot = mod.ProjectileType("CatsEye");
-            item.knockBack = 12;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9; 
-            item.UseSound = new LegacySoundStyle(2, 40, Terraria.Audio.SoundType.Sound);
-            item.autoReuse = false; 
-            item.shootSpeed = 20f;
-            item.crit = 0;
+            Item.damage = 430;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged; 
+            Item.width = 72; 
+            Item.height = 22;
+            Item.useTime = 30; 
+            Item.useAnimation = 30; 
+            Item.useStyle = 5;
+            Item.shoot = Mod.Find<ModProjectile>("CatsEye").Type;
+            Item.knockBack = 12;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9; 
+            Item.UseSound = new LegacySoundStyle(2, 40, Terraria.Audio.SoundType.Sound);
+            Item.autoReuse = false; 
+            Item.shootSpeed = 20f;
+            Item.crit = 0;
 
 			glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
 			glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun
@@ -59,11 +60,10 @@ Doesn't require ammo
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ArchwitchWand");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

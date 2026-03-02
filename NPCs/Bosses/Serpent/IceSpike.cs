@@ -8,15 +8,15 @@ namespace AAMod.NPCs.Bosses.Serpent
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Blizzard);
-            projectile.hostile = true;
-            projectile.friendly = false;
+            Projectile.CloneDefaults(ProjectileID.Blizzard);
+            Projectile.hostile = true;
+            Projectile.friendly = false;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Ice Spike");
-            Main.projFrames[projectile.type] = 5;
+		    // DisplayName.SetDefault("Ice Spike");
+            Main.projFrames[Projectile.type] = 5;
 		}
     }
 }

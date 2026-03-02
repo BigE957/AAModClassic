@@ -7,7 +7,7 @@ namespace AAMod.Tiles.Plants
 {
     public class DragonRose : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = true;
@@ -45,7 +45,7 @@ namespace AAMod.Tiles.Plants
 				//TileID.PlanterBox
 			};
 			TileObjectData.addTile(Type);
-            drop = mod.ItemType("DragonRose");
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DragonRose").Type;
 		}
 		public override bool CanPlace(int i, int j)
 		{
@@ -71,13 +71,13 @@ namespace AAMod.Tiles.Plants
 
 		public override void RandomUpdate(int i, int j)
 		{
-			if (Main.tile[i, j].frameX == 0)
+			if (Main.tile[i, j].TileFrameX == 0)
 			{
-				Main.tile[i, j].frameX += 18;
+				Main.tile[i, j].TileFrameX += 18;
 			}
-			else if (Main.tile[i, j].frameX == 18)
+			else if (Main.tile[i, j].TileFrameX == 18)
 			{
-				Main.tile[i, j].frameX += 18;
+				Main.tile[i, j].TileFrameX += 18;
 			}
 		}
 	}

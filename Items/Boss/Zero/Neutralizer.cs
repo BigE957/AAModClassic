@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.Audio;
@@ -12,30 +13,30 @@ namespace AAMod.Items.Boss.Zero
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Neutralizer");
-            Tooltip.SetDefault(@"Left click to fire a bouncing laser that gets more powerful as it bounces off walls
-Right click to fire normal arrows");
+            // DisplayName.SetDefault("Neutralizer");
+            /* Tooltip.SetDefault(@"Left click to fire a bouncing laser that gets more powerful as it bounces off walls
+Right click to fire normal arrows"); */
             
         }
 
         public override void SetDefaults()
 		{
-			item.damage = 420;
-			item.ranged = true;
-			item.width = 34;
-			item.height = 58;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 0;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
-            item.autoReuse = true;
-            item.useAmmo = AmmoID.Arrow;
-            item.shoot = 10;
-			item.shootSpeed = 8f;
-            item.rare = 9;
+			Item.damage = 420;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 34;
+			Item.height = 58;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+            Item.autoReuse = true;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.shoot = 10;
+			Item.shootSpeed = 8f;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -43,9 +44,9 @@ Right click to fire normal arrows");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -59,22 +60,22 @@ Right click to fire normal arrows");
         {
             if (player.altFunctionUse != 2)
             {
-                item.useTime = 10;
-                item.useAnimation = 10;
-                item.shootSpeed = 8f;
-                item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+                Item.useTime = 10;
+                Item.useAnimation = 10;
+                Item.shootSpeed = 8f;
+                Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
             }
             else
             {
-                item.useTime = 17;
-                item.useAnimation = 17;
-                item.shootSpeed = 14;
-                item.UseSound = SoundID.Item5;
+                Item.useTime = 17;
+                Item.useAnimation = 17;
+                Item.shootSpeed = 14;
+                Item.UseSound = SoundID.Item5;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse != 2)
             {
@@ -105,14 +106,14 @@ Right click to fire normal arrows");
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -131,13 +132,12 @@ Right click to fire normal arrows");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 5);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddIngredient(null, "ApollosWrath", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

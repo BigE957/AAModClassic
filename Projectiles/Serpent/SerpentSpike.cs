@@ -10,32 +10,32 @@ namespace AAMod.Projectiles.Serpent
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Serpent Spike");
+            // DisplayName.SetDefault("Serpent Spike");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 18;
-            projectile.height = 18;
-            projectile.scale = 1.1f;
-            projectile.aiStyle = 19;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.ownerHitCheck = true;
-            projectile.melee = true;
-            projectile.timeLeft = 60;
-            projectile.hide = true;
+            Projectile.width = 18;
+            Projectile.height = 18;
+            Projectile.scale = 1.1f;
+            Projectile.aiStyle = 19;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 60;
+            Projectile.hide = true;
         }
 
         public float MovementFactor
         {
-            get { return projectile.ai[0]; }
-            set { projectile.ai[0] = value; }
+            get { return Projectile.ai[0]; }
+            set { Projectile.ai[0] = value; }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Chilled, 100);
         }
@@ -43,20 +43,20 @@ namespace AAMod.Projectiles.Serpent
 
         public override void AI()
         {
-            Player projOwner = Main.player[projectile.owner];
+            Player projOwner = Main.player[Projectile.owner];
             Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
-            projectile.direction = projOwner.direction;
-            projOwner.heldProj = projectile.whoAmI;
+            Projectile.direction = projOwner.direction;
+            projOwner.heldProj = Projectile.whoAmI;
             projOwner.itemTime = projOwner.itemAnimation;
-            projectile.position.X = ownerMountedCenter.X - projectile.width / 2;
-            projectile.position.Y = ownerMountedCenter.Y - projectile.height / 2;
+            Projectile.position.X = ownerMountedCenter.X - Projectile.width / 2;
+            Projectile.position.Y = ownerMountedCenter.Y - Projectile.height / 2;
 
             if (!projOwner.frozen)
             {
                 if (MovementFactor == 0f)
                 {
                     MovementFactor = 3f;
-                    projectile.netUpdate = true;
+                    Projectile.netUpdate = true;
                 }
                 if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
                 {
@@ -68,18 +68,18 @@ namespace AAMod.Projectiles.Serpent
                 }
             }
             
-            projectile.position += projectile.velocity * MovementFactor;
+            Projectile.position += Projectile.velocity * MovementFactor;
             
             if (projOwner.itemAnimation == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
 
-            if (projectile.spriteDirection == -1)
+            if (Projectile.spriteDirection == -1)
             {
-                projectile.rotation -= MathHelper.ToRadians(90f);
+                Projectile.rotation -= MathHelper.ToRadians(90f);
             }
         }
     }

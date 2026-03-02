@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class InfernoGrassWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("RazeleafDust");
+			DustType = Mod.Find<ModDust>("RazeleafDust").Type;
 			AddMapEntry(new Color(200, 150, 0));
             Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }

@@ -4,9 +4,9 @@ namespace AAMod.Dusts
 {
     public class MireDust : ModDust
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            updateType = 3;
+            UpdateType = 3;
         }
     }
 }

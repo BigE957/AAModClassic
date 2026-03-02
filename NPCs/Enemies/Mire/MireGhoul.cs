@@ -8,24 +8,24 @@ namespace AAMod.NPCs.Enemies.Mire
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shadow Ghoul");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul];
+			// DisplayName.SetDefault("Shadow Ghoul");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
 		}
 
 		public override void SetDefaults()
 		{
-            npc.CloneDefaults(NPCID.DesertGhoul);
-            animationType = NPCID.DesertGhoul;
-			banner = npc.type;
-			bannerItem = mod.ItemType("MireGhoulBanner");
+            NPC.CloneDefaults(NPCID.DesertGhoul);
+            AnimationType = NPCID.DesertGhoul;
+			Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MireGhoulBanner").Type;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = Main.rand.Next(139, 143);
-				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}

@@ -8,18 +8,18 @@ namespace AAMod.Items.Boss.Rajah
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Rabbitcopter Ears");
-            Tooltip.SetDefault(@"Allows flight and slow fall
-'Yeah that's not how rabbit ears work but whatever, it works.'");
+            // DisplayName.SetDefault("Rabbitcopter Ears");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
+'Yeah that's not how rabbit ears work but whatever, it works.'"); */
         }
 
 		public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 8;
+            Item.width = 22;
+            Item.height = 20;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 8;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

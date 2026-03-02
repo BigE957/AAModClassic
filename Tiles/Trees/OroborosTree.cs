@@ -1,30 +1,44 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAMod.Tiles.Ore;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Trees
 {
     class OroborosTree : ModTree
     {
-        private Mod mod => AAMod.instance;
+        public override void SetStaticDefaults()
+        {
+            GrowsOnTileId = [ModContent.TileType<Apocalyptite>()];
+        }
+
+        public override TreePaintingSettings TreeShaderSettings => new();
 
         public override int DropWood()
         {
-            return mod.ItemType("OroborosWood");
+            return AAMod.instance.Find<ModItem>("OroborosWood").Type;
         }
 
-        public override Texture2D GetTexture()
+        public override Asset<Texture2D> GetTexture()
         {
-            return mod.GetTexture("Tiles/Trees/OroborosTree");
+            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosTree");
         }
 
-        public override Texture2D GetBranchTextures(int i, int j, int trunkOffset, ref int frame)
+        public override Asset<Texture2D> GetBranchTextures()
         {
-            return mod.GetTexture("Tiles/Trees/OroborosBranches");
+            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosBranches");
         }
 
-        public override Texture2D GetTopTextures(int i, int j, ref int frame, ref int frameWidth, ref int frameHeight, ref int xOffsetLeft, ref int yOffset)
+        public override Asset<Texture2D> GetTopTextures()
         {
-            return mod.GetTexture("Tiles/Trees/OroborosTreeTop");
+            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosTreeTop");
+        }
+
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        {
+            style = 0;
+            return AAMod.instance.Find<ModTile>("OroborosSapling").Type;
         }
     }
 }

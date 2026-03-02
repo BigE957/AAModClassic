@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,46 +11,46 @@ namespace AAMod.Projectiles.Djinn
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radium Arrow");
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 8; 
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;      
+            // DisplayName.SetDefault("Radium Arrow");
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8; 
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;      
 		}
 
 		public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.magic = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.usesLocalNPCImmunity = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.usesLocalNPCImmunity = true;
         }
 
         public override void AI()
         {
             float num1123 = 900f;
-            if (projectile.soundDelay == 0)
+            if (Projectile.soundDelay == 0)
             {
-                projectile.soundDelay = -1;
-                Main.PlaySound(SoundID.Item82, projectile.Center);
+                Projectile.soundDelay = -1;
+                SoundEngine.PlaySound(SoundID.Item82, Projectile.Center);
             }
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= num1123)
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= num1123)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            projectile.damage = 0;
-            if (projectile.ai[0] < num1123 - 120f)
+            Projectile.damage = 0;
+            if (Projectile.ai[0] < num1123 - 120f)
             {
-                float num1124 = projectile.ai[0] % 60f;
-                projectile.ai[0] = num1123 - 120f + num1124;
-                projectile.netUpdate = true;
+                float num1124 = Projectile.ai[0] % 60f;
+                Projectile.ai[0] = num1123 - 120f + num1124;
+                Projectile.netUpdate = true;
             }
             float num1125 = 15f;
             float num1126 = 15f;
-            Point point8 = projectile.Center.ToTileCoordinates();
+            Point point8 = Projectile.Center.ToTileCoordinates();
             Collision.ExpandVertically(point8.X, point8.Y, out int num1127, out int num1128, (int)num1125, (int)num1126);
             num1127++;
             num1128--;
@@ -58,14 +59,14 @@ namespace AAMod.Projectiles.Djinn
             Vector2 vector145 = Vector2.Lerp(value72, value73, 0.5f);
             Vector2 value74 = new Vector2(0f, value73.Y - value72.Y);
             value74.X = value74.Y * 0.2f;
-            projectile.width = (int)(value74.X * 0.65f);
-            projectile.height = (int)value74.Y;
-            projectile.Center = vector145;
-            if (projectile.owner == Main.myPlayer)
+            Projectile.width = (int)(value74.X * 0.65f);
+            Projectile.height = (int)value74.Y;
+            Projectile.Center = vector145;
+            if (Projectile.owner == Main.myPlayer)
             {
                 bool flag75 = false;
-                Vector2 center16 = Main.player[projectile.owner].Center;
-                Vector2 top = Main.player[projectile.owner].Top;
+                Vector2 center16 = Main.player[Projectile.owner].Center;
+                Vector2 top = Main.player[Projectile.owner].Top;
                 for (float num1129 = 0f; num1129 < 1f; num1129 += 0.05f)
                 {
                     Vector2 position2 = Vector2.Lerp(value72, value73, num1129);
@@ -75,14 +76,14 @@ namespace AAMod.Projectiles.Djinn
                         break;
                     }
                 }
-                if (!flag75 && projectile.ai[0] < num1123 - 120f)
+                if (!flag75 && Projectile.ai[0] < num1123 - 120f)
                 {
-                    float num1130 = projectile.ai[0] % 60f;
-                    projectile.ai[0] = num1123 - 120f + num1130;
-                    projectile.netUpdate = true;
+                    float num1130 = Projectile.ai[0] % 60f;
+                    Projectile.ai[0] = num1123 - 120f + num1130;
+                    Projectile.netUpdate = true;
                 }
             }
-            if (projectile.ai[0] < num1123 - 120f)
+            if (Projectile.ai[0] < num1123 - 120f)
             {
                 for (int num1131 = 0; num1131 < 1; num1131++)
                 {

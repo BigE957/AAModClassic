@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,38 +9,38 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire Leaf");
+            // DisplayName.SetDefault("Mire Leaf");
         }
         public override void SetDefaults()
         {
-            projectile.arrow = true;
-            projectile.width = 34;
-            projectile.height = 22;
-            projectile.aiStyle = 1;
-            projectile.friendly = true;
-            projectile.melee = true;
-            aiType = ProjectileID.WoodenArrowFriendly;
+            Projectile.arrow = true;
+            Projectile.width = 34;
+            Projectile.height = 22;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            AIType = ProjectileID.WoodenArrowFriendly;
         }
         public override void AI()
         {
-            Lighting.AddLight(projectile.Center, 0.9f, 0.1f, 0.3f);
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= 180f)
+            Lighting.AddLight(Projectile.Center, 0.9f, 0.1f, 0.3f);
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= 180f)
             {
-                projectile.ai[0] = 0f;
-                projectile.netUpdate = true;
-                int dustIndex = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 41);
+                Projectile.ai[0] = 0f;
+                Projectile.netUpdate = true;
+                int dustIndex = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 41);
                 Main.dust[dustIndex].velocity *= 0.3f;
             }
         }
 
-        public override void Kill(int i)
+        public override void OnKill(int i)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 
             for (int m = 0; m < 12; m++)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.BogleafDust>(), projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, Microsoft.Xna.Framework.Color.White, 1.2f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.BogleafDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, Microsoft.Xna.Framework.Color.White, 1.2f);
             }
         }
     }

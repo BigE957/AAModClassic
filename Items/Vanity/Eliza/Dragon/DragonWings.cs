@@ -12,28 +12,28 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Dark Dragon Wings");
-            Tooltip.SetDefault(@"Allows flight and slow fall
+            // DisplayName.SetDefault("Dark Dragon Wings");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
-'Great for impersonating Ancients Awakened Devs!'");
+'Great for impersonating Ancients Awakened Devs!'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 11;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 11;
+			Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(121, 21, 214);
+                    line2.OverrideColor = new Color(121, 21, 214);
                 }
             }
         }
@@ -111,11 +111,10 @@ Hold down and jump to hover for an extended period of time
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "NightingaleWings");
             recipe.AddTile(TileID.Loom);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

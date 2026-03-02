@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Pets
 {
@@ -11,29 +12,29 @@ namespace AAMod.Items.Pets
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
-			DisplayName.SetDefault("Seashroom");
+			// DisplayName.SetDefault("Seashroom");
 
-			Tooltip.SetDefault("It smells like fish");
+			// Tooltip.SetDefault("It smells like fish");
         }
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ZephyrFish);
-			item.shoot = mod.ProjectileType("Sharkron");
+			Item.CloneDefaults(ItemID.ZephyrFish);
+			Item.shoot = Mod.Find<ModProjectile>("Sharkron").Type;
             
-            item.buffType = mod.BuffType("Sharkron");
+            Item.buffType = Mod.Find<ModBuff>("Sharkron").Type;
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -45,11 +46,11 @@ namespace AAMod.Items.Pets
             );
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 	}

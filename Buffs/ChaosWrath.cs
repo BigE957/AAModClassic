@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class ChaosWrath : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaotic Wrath");
-            Description.SetDefault("Pain only makes you stronger");
+            // DisplayName.SetDefault("Chaotic Wrath");
+            // Description.SetDefault("Pain only makes you stronger");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -20,42 +20,42 @@ namespace AAMod.Buffs
             {
                 if (player.statLife <= player.statLifeMax2 * .2f)
                 {
-                    player.rangedDamage += .4f;
-                    player.rangedCrit += 7;
+                    player.GetDamage(DamageClass.Ranged) += .4f;
+                    player.GetCritChance(DamageClass.Ranged) += 7;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .4f)
                 {
-                    player.rangedDamage += .3f;
-                    player.rangedCrit += 14;
+                    player.GetDamage(DamageClass.Ranged) += .3f;
+                    player.GetCritChance(DamageClass.Ranged) += 14;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .6f)
                 {
-                    player.rangedDamage += .2f;
-                    player.rangedCrit += 21;
+                    player.GetDamage(DamageClass.Ranged) += .2f;
+                    player.GetCritChance(DamageClass.Ranged) += 21;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .8f)
                 {
-                    player.rangedDamage += .1f;
-                    player.rangedCrit += 28;
+                    player.GetDamage(DamageClass.Ranged) += .1f;
+                    player.GetCritChance(DamageClass.Ranged) += 28;
                 }
             }
             else if (modPlayer.perfectChaosSu)
             {
                 if (player.statLife <= player.statLifeMax2 * .2f)
                 {
-                    player.minionDamage += .60f;
+                    player.GetDamage(DamageClass.Summon) += .60f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .4f)
                 {
-                    player.minionDamage += .45f;
+                    player.GetDamage(DamageClass.Summon) += .45f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .6f)
                 {
-                    player.minionDamage += .3f;
+                    player.GetDamage(DamageClass.Summon) += .3f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .8f)
                 {
-                    player.minionDamage += .15f;
+                    player.GetDamage(DamageClass.Summon) += .15f;
                 }
             }
             else if (modPlayer.perfectChaosMe)
@@ -63,22 +63,22 @@ namespace AAMod.Buffs
                 if (player.statLife <= player.statLifeMax2 * .2f)
                 {
                     player.endurance += .06f;
-                    player.meleeDamage += .4f;
+                    player.GetDamage(DamageClass.Melee) += .4f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .4f)
                 {
                     player.endurance += .04f;
-                    player.meleeDamage += .3f;
+                    player.GetDamage(DamageClass.Melee) += .3f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .6f)
                 {
                     player.endurance += .02f;
-                    player.meleeDamage += .2f;
+                    player.GetDamage(DamageClass.Melee) += .2f;
                 }
                 if (player.statLife <= player.statLifeMax2 * .8f)
                 {
                     player.endurance += .01f;
-                    player.meleeDamage += .1f;
+                    player.GetDamage(DamageClass.Melee) += .1f;
                 }
             }
             else if (modPlayer.perfectChaosMa)
@@ -86,22 +86,22 @@ namespace AAMod.Buffs
                 if (player.statLife <= player.statLifeMax2 * .2f)
                 {
                     player.manaCost *= 0;
-                    player.magicDamage += .4f;
+                    player.GetDamage(DamageClass.Magic) += .4f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .4f)
                 {
                     player.manaCost *= .25f;
-                    player.magicDamage += .3f;
+                    player.GetDamage(DamageClass.Magic) += .3f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .6f)
                 {
                     player.manaCost *= .5f;
-                    player.magicDamage += .2f;
+                    player.GetDamage(DamageClass.Magic) += .2f;
                 }
                 else if (player.statLife <= player.statLifeMax2 * .8f)
                 {
                     player.manaCost *= .75f;
-                    player.magicDamage += .1f;
+                    player.GetDamage(DamageClass.Magic) += .1f;
                 }
             }
             else

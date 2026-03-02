@@ -11,27 +11,27 @@ namespace AAMod.Items.Armor.Terra
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Mask");
-            Tooltip.SetDefault(@"9% Increased Minion damage");
+            // DisplayName.SetDefault("Terra Mask");
+            // Tooltip.SetDefault(@"9% Increased Minion damage");
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 20;
-            item.value = 9000;
-            item.rare = 7;
-            item.defense = 18;
+            Item.width = 24;
+            Item.height = 20;
+            Item.value = 9000;
+            Item.rare = 7;
+            Item.defense = 18;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.09f;
+            player.GetDamage(DamageClass.Summon) += 0.09f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("TerraPlate") && legs.type == mod.ItemType("TerraGreaves");
+            return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -41,21 +41,20 @@ namespace AAMod.Items.Armor.Terra
             modPlayer.TerraSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.ownedProjectileCounts[mod.ProjectileType("TerraCrystal")] < 1)
+                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("TerraCrystal").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, mod.ProjectileType("TerraCrystal"), (int)(60 * player.minionDamage), 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("TerraCrystal").Type, (int)(60 * player.GetDamage(DamageClass.Summon)), 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DemonHood", 1);
             recipe.AddIngredient(null, "TerraCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
@@ -9,26 +10,26 @@ namespace AAMod.Projectiles.Serpent
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Blizzard);
-            projectile.hostile = false;
-            projectile.friendly = true;
-            projectile.tileCollide = true;
+            Projectile.CloneDefaults(ProjectileID.Blizzard);
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.tileCollide = true;
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item27, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
             for (int i = 0; i < 4; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.Ice, 0f, 0f, 100, default, 1.5f);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Ice, 0f, 0f, 100, default, 1.5f);
                 Main.dust[dustIndex].velocity *= 1.9f;
             }
         }
         public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Ice Spike");
-            Main.projFrames[projectile.type] = 1;
+		    // DisplayName.SetDefault("Ice Spike");
+            Main.projFrames[Projectile.type] = 1;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Frostburn, 200);
         }

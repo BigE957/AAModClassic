@@ -9,31 +9,31 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("M79");
-			Tooltip.SetDefault("Uses M79 Rounds as ammo\n33% chance not to consume ammo");
+			// DisplayName.SetDefault("M79");
+			// Tooltip.SetDefault("Uses M79 Rounds as ammo\n33% chance not to consume ammo");
         }
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
-			item.autoReuse = true;
-			item.useAnimation = 65;
-			item.useTime = 65;
-			item.width = 68;
-			item.height = 24;
-			item.shoot = mod.ProjectileType("M79P");
-			item.UseSound = SoundID.Item61;
-			item.damage = 180;
-			item.shootSpeed = 11f;
-			item.noMelee = true;
-			item.value = 50000;
-			item.knockBack = 6f;
-			item.rare = 8;
-			item.ranged = true;
-			item.useAmmo = mod.ItemType("M79Round");
+			Item.useStyle = 5;
+			Item.autoReuse = true;
+			Item.useAnimation = 65;
+			Item.useTime = 65;
+			Item.width = 68;
+			Item.height = 24;
+			Item.shoot = Mod.Find<ModProjectile>("M79P").Type;
+			Item.UseSound = SoundID.Item61;
+			Item.damage = 180;
+			Item.shootSpeed = 11f;
+			Item.noMelee = true;
+			Item.value = 50000;
+			Item.knockBack = 6f;
+			Item.rare = 8;
+			Item.DamageType = DamageClass.Ranged;
+			Item.useAmmo = Mod.Find<ModItem>("M79Round").Type;
 		}
 		
-		public override bool ConsumeAmmo(Player player)
+		public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 		return Main.rand.NextFloat() >= .33;
 		}
@@ -45,12 +45,11 @@ namespace AAMod.Items.Ranged
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("M79Parts"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("M79Parts").Type);
 			recipe.AddIngredient(ItemID.IllegalGunParts);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

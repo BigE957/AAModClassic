@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,28 +8,27 @@ namespace AAMod.Items.Boss.EFish
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Emperor Flairon");
-            Tooltip.SetDefault("Lets loose an armada of homing bubbles");
+            // DisplayName.SetDefault("Emperor Flairon");
+            // Tooltip.SetDefault("Lets loose an armada of homing bubbles");
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.Flairon);
-            item.damage = 350;
-            item.rare = 11;
-            item.shoot = mod.ProjectileType("EFlairon");
+            Item.CloneDefaults(ItemID.Flairon);
+            Item.damage = 350;
+            Item.rare = 11;
+            Item.shoot = Mod.Find<ModProjectile>("EFlairon").Type;
         }
 
 
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Flairon);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,25 +10,24 @@ namespace AAMod.Items.Armor.Biomite
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Biomite Greaves");
+			// DisplayName.SetDefault("Biomite Greaves");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 18;
-			item.value = 4500;
-			item.rare = 2;
-			item.defense = 5;
+			Item.width = 22;
+			Item.height = 18;
+			Item.value = 4500;
+			Item.rare = 2;
+			Item.defense = 5;
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "TerraShard", 20);
 			recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 	}
 }

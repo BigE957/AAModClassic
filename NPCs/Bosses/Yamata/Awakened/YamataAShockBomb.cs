@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Yamata.Awakened
@@ -10,19 +11,19 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Abyssal Storm");
+			// DisplayName.SetDefault("Abyssal Storm");
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 34;
-            projectile.height = 90;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = 1;
-            projectile.alpha = 0;
-            cooldownSlot = 1;
+            Projectile.width = 34;
+            Projectile.height = 90;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 0;
+            CooldownSlot = 1;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -32,35 +33,35 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
 
         public override void AI()
         {
-        	Lighting.AddLight(projectile.Center, (255 - projectile.alpha) * 0.9f / 255f, (255 - projectile.alpha) * 0f / 255f, (255 - projectile.alpha) * 0.4f / 255f);
-        	projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-        	if (projectile.ai[1] == 0f)
+        	Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.9f / 255f, (255 - Projectile.alpha) * 0f / 255f, (255 - Projectile.alpha) * 0.4f / 255f);
+        	Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+        	if (Projectile.ai[1] == 0f)
 			{
-				projectile.ai[1] = 1f;
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 20);
+				Projectile.ai[1] = 1f;
+				SoundEngine.PlaySound(SoundID.Item20, Projectile.position);
 			}
-            projectile.velocity.Y += 0.2f;
-            if (projectile.ai[0] > -1 && projectile.ai[0] < 255 && projectile.Center.Y > Main.player[(int)projectile.ai[0]].Center.Y)
-                projectile.Kill();
+            Projectile.velocity.Y += 0.2f;
+            if (Projectile.ai[0] > -1 && Projectile.ai[0] < 255 && Projectile.Center.Y > Main.player[(int)Projectile.ai[0]].Center.Y)
+                Projectile.Kill();
         }
         
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-        	target.AddBuff(mod.BuffType("HydraToxin"), 300);
+        	target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 300);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new LegacySoundStyle(2, 89, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(SoundID.Item89);
 	    	if (Main.netMode != 1)
 	    	{
                 const float ai0 = 20;
-                Projectile.NewProjectile(projectile.Center, Vector2.Zero, mod.ProjectileType("Shockwave2"), projectile.damage, projectile.knockBack, projectile.owner, ai0);
-                Projectile.NewProjectile(projectile.Center, Vector2.Zero, mod.ProjectileType("Shockwave2"), projectile.damage, projectile.knockBack, projectile.owner, -ai0);
+                Projectile.NewProjectile(Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
+                Projectile.NewProjectile(Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -ai0);
             }
         	for (int dust = 0; dust <= 10; dust++)
         	{
-        		Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 235, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+        		Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 235, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
         	}
         }
     }

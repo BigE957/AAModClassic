@@ -11,23 +11,23 @@ namespace AAMod.Items.Summoning.Minions
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Baby Phoenix");
-            Main.projFrames[projectile.type] = 8;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-            ProjectileID.Sets.Homing[projectile.type] = true;
-            ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+            // DisplayName.SetDefault("Baby Phoenix");
+            Main.projFrames[Projectile.type] = 8;
+            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+            ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+            ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         } 
         public override void SetDefaults()
         {
-            projectile.netImportant = true;
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.aiStyle = -1;
-            projectile.penetrate = -1;
-            projectile.timeLeft *= 5;
-            projectile.minion = true;
-            projectile.minionSlots = 1f;
-            projectile.tileCollide = false;
+            Projectile.netImportant = true;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft *= 5;
+            Projectile.minion = true;
+            Projectile.minionSlots = 1f;
+            Projectile.tileCollide = false;
         }
         
 
@@ -35,31 +35,31 @@ namespace AAMod.Items.Summoning.Minions
         {
             for (int num527 = 0; num527 < 1000; num527++)
             {
-                if (num527 != projectile.whoAmI && Main.projectile[num527].active && Main.projectile[num527].owner == projectile.owner && Main.projectile[num527].type == projectile.type && Math.Abs(projectile.position.X - Main.projectile[num527].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num527].position.Y) < projectile.width)
+                if (num527 != Projectile.whoAmI && Main.projectile[num527].active && Main.projectile[num527].owner == Projectile.owner && Main.projectile[num527].type == Projectile.type && Math.Abs(Projectile.position.X - Main.projectile[num527].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num527].position.Y) < Projectile.width)
                 {
-                    if (projectile.position.X < Main.projectile[num527].position.X)
+                    if (Projectile.position.X < Main.projectile[num527].position.X)
                     {
-                        projectile.velocity.X = projectile.velocity.X - 0.05f;
+                        Projectile.velocity.X = Projectile.velocity.X - 0.05f;
                     }
                     else
                     {
-                        projectile.velocity.X = projectile.velocity.X + 0.05f;
+                        Projectile.velocity.X = Projectile.velocity.X + 0.05f;
                     }
-                    if (projectile.position.Y < Main.projectile[num527].position.Y)
+                    if (Projectile.position.Y < Main.projectile[num527].position.Y)
                     {
-                        projectile.velocity.Y = projectile.velocity.Y - 0.05f;
+                        Projectile.velocity.Y = Projectile.velocity.Y - 0.05f;
                     }
                     else
                     {
-                        projectile.velocity.Y = projectile.velocity.Y + 0.05f;
+                        Projectile.velocity.Y = Projectile.velocity.Y + 0.05f;
                     }
                 }
             }
 
-            bool flag64 = projectile.type == mod.ProjectileType("BabyPhoenix");
-            Player player = Main.player[projectile.owner];
+            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("BabyPhoenix").Type;
+            Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(mod.BuffType("BabyPhoenix"), 3600);
+            player.AddBuff(Mod.Find<ModBuff>("BabyPhoenix").Type, 3600);
             if (flag64)
             {
                 if (player.dead)
@@ -68,32 +68,32 @@ namespace AAMod.Items.Summoning.Minions
                 }
                 if (modPlayer.BabyPhoenix)
                 {
-                    projectile.timeLeft = 2;
+                    Projectile.timeLeft = 2;
                 }
             }
-            float num528 = projectile.position.X;
-            float num529 = projectile.position.Y;
+            float num528 = Projectile.position.X;
+            float num529 = Projectile.position.Y;
             float num530 = 900f;
             bool flag19 = false;
             int num531 = 500;
-            if (projectile.ai[1] != 0f || projectile.friendly)
+            if (Projectile.ai[1] != 0f || Projectile.friendly)
             {
                 num531 = 1400;
             }
-            if (Math.Abs(projectile.Center.X - Main.player[projectile.owner].Center.X) + Math.Abs(projectile.Center.Y - Main.player[projectile.owner].Center.Y) > num531)
+            if (Math.Abs(Projectile.Center.X - Main.player[Projectile.owner].Center.X) + Math.Abs(Projectile.Center.Y - Main.player[Projectile.owner].Center.Y) > num531)
             {
-                projectile.ai[0] = 1f;
+                Projectile.ai[0] = 1f;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.tileCollide = false;
-                NPC ownerMinionAttackTargetNPC2 = projectile.OwnerMinionAttackTargetNPC;
+                Projectile.tileCollide = false;
+                NPC ownerMinionAttackTargetNPC2 = Projectile.OwnerMinionAttackTargetNPC;
                 if (ownerMinionAttackTargetNPC2 != null && ownerMinionAttackTargetNPC2.CanBeChasedBy(this, false))
                 {
                     float num532 = ownerMinionAttackTargetNPC2.position.X + ownerMinionAttackTargetNPC2.width / 2;
                     float num533 = ownerMinionAttackTargetNPC2.position.Y + ownerMinionAttackTargetNPC2.height / 2;
-                    float num534 = Math.Abs(projectile.position.X + projectile.width / 2 - num532) + Math.Abs(projectile.position.Y + projectile.height / 2 - num533);
-                    if (num534 < num530 && Collision.CanHit(projectile.position, projectile.width, projectile.height, ownerMinionAttackTargetNPC2.position, ownerMinionAttackTargetNPC2.width, ownerMinionAttackTargetNPC2.height))
+                    float num534 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num532) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num533);
+                    if (num534 < num530 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, ownerMinionAttackTargetNPC2.position, ownerMinionAttackTargetNPC2.width, ownerMinionAttackTargetNPC2.height))
                     {
                         num530 = num534;
                         num528 = num532;
@@ -109,8 +109,8 @@ namespace AAMod.Items.Summoning.Minions
                         {
                             float num536 = Main.npc[num535].position.X + Main.npc[num535].width / 2;
                             float num537 = Main.npc[num535].position.Y + Main.npc[num535].height / 2;
-                            float num538 = Math.Abs(projectile.position.X + projectile.width / 2 - num536) + Math.Abs(projectile.position.Y + projectile.height / 2 - num537);
-                            if (num538 < num530 && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num535].position, Main.npc[num535].width, Main.npc[num535].height))
+                            float num538 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num536) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num537);
+                            if (num538 < num530 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.npc[num535].position, Main.npc[num535].width, Main.npc[num535].height))
                             {
                                 num530 = num538;
                                 num528 = num536;
@@ -123,79 +123,79 @@ namespace AAMod.Items.Summoning.Minions
             }
             else
             {
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
             }
             if (!flag19)
             {
-                projectile.friendly = true;
+                Projectile.friendly = true;
                 float num539 = 8f;
-                if (projectile.ai[0] == 1f)
+                if (Projectile.ai[0] == 1f)
                 {
                     num539 = 12f;
                 }
-                Vector2 vector38 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
-                float num540 = Main.player[projectile.owner].Center.X - vector38.X;
-                float num541 = Main.player[projectile.owner].Center.Y - vector38.Y - 60f;
+                Vector2 vector38 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+                float num540 = Main.player[Projectile.owner].Center.X - vector38.X;
+                float num541 = Main.player[Projectile.owner].Center.Y - vector38.Y - 60f;
                 float num542 = (float)Math.Sqrt(num540 * num540 + num541 * num541);
-                if (num542 < 100f && projectile.ai[0] == 1f && !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+                if (num542 < 100f && Projectile.ai[0] == 1f && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
                 {
-                    projectile.ai[0] = 0f;
+                    Projectile.ai[0] = 0f;
                 }
                 if (num542 > 2000f)
                 {
-                    projectile.position.X = Main.player[projectile.owner].Center.X - projectile.width / 2;
-                    projectile.position.Y = Main.player[projectile.owner].Center.Y - projectile.width / 2;
+                    Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.width / 2;
                 }
                 if (num542 > 70f)
                 {
                     num542 = num539 / num542;
                     num540 *= num542;
                     num541 *= num542;
-                    projectile.velocity.X = (projectile.velocity.X * 20f + num540) / 21f;
-                    projectile.velocity.Y = (projectile.velocity.Y * 20f + num541) / 21f;
+                    Projectile.velocity.X = (Projectile.velocity.X * 20f + num540) / 21f;
+                    Projectile.velocity.Y = (Projectile.velocity.Y * 20f + num541) / 21f;
                 }
                 else
                 {
-                    if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+                    if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
                     {
-                        projectile.velocity.X = -0.15f;
-                        projectile.velocity.Y = -0.05f;
+                        Projectile.velocity.X = -0.15f;
+                        Projectile.velocity.Y = -0.05f;
                     }
-                    projectile.velocity *= 1.01f;
+                    Projectile.velocity *= 1.01f;
                 }
-                projectile.friendly = false;
-                projectile.rotation = projectile.velocity.X * 0.05f;
-                projectile.frameCounter++;
-                if (projectile.frameCounter >= 4)
+                Projectile.friendly = false;
+                Projectile.rotation = Projectile.velocity.X * 0.05f;
+                Projectile.frameCounter++;
+                if (Projectile.frameCounter >= 4)
                 {
-                    projectile.frameCounter = 0;
-                    projectile.frame++;
+                    Projectile.frameCounter = 0;
+                    Projectile.frame++;
                 }
-                if (projectile.frame > 3)
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
-                if (Math.Abs(projectile.velocity.X) > 0.2)
+                if (Math.Abs(Projectile.velocity.X) > 0.2)
                 {
-                    projectile.spriteDirection = -projectile.direction;
+                    Projectile.spriteDirection = -Projectile.direction;
                     return;
                 }
             }
             else
             {
-                if (projectile.ai[1] == -1f)
+                if (Projectile.ai[1] == -1f)
                 {
-                    projectile.ai[1] = 17f;
+                    Projectile.ai[1] = 17f;
                 }
-                if (projectile.ai[1] > 0f)
+                if (Projectile.ai[1] > 0f)
                 {
-                    projectile.ai[1] -= 1f;
+                    Projectile.ai[1] -= 1f;
                 }
-                if (projectile.ai[1] == 0f)
+                if (Projectile.ai[1] == 0f)
                 {
-                    projectile.friendly = true;
+                    Projectile.friendly = true;
                     float num543 = 8f;
-                    Vector2 vector39 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+                    Vector2 vector39 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                     float num544 = num528 - vector39.X;
                     float num545 = num529 - vector39.Y;
                     float num546 = (float)Math.Sqrt(num544 * num544 + num545 * num545);
@@ -206,41 +206,41 @@ namespace AAMod.Items.Summoning.Minions
                     num546 = num543 / num546;
                     num544 *= num546;
                     num545 *= num546;
-                    projectile.velocity.X = (projectile.velocity.X * 14f + num544) / 15f;
-                    projectile.velocity.Y = (projectile.velocity.Y * 14f + num545) / 15f;
+                    Projectile.velocity.X = (Projectile.velocity.X * 14f + num544) / 15f;
+                    Projectile.velocity.Y = (Projectile.velocity.Y * 14f + num545) / 15f;
                 }
                 else
                 {
-                    projectile.friendly = false;
-                    if (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) < 10f)
+                    Projectile.friendly = false;
+                    if (Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y) < 10f)
                     {
-                        projectile.velocity *= 1.05f;
+                        Projectile.velocity *= 1.05f;
                     }
                 }
-                projectile.rotation = projectile.velocity.X * 0.05f;
-                projectile.frameCounter++;
-                if (projectile.frameCounter >= 4)
+                Projectile.rotation = Projectile.velocity.X * 0.05f;
+                Projectile.frameCounter++;
+                if (Projectile.frameCounter >= 4)
                 {
-                    projectile.frameCounter = 0;
-                    projectile.frame++;
+                    Projectile.frameCounter = 0;
+                    Projectile.frame++;
                 }
-                if (projectile.frame < 4)
+                if (Projectile.frame < 4)
                 {
-                    projectile.frame = 4;
+                    Projectile.frame = 4;
                 }
-                if (projectile.frame > 7)
+                if (Projectile.frame > 7)
                 {
-                    projectile.frame = 4;
+                    Projectile.frame = 4;
                 }
-                if (Math.Abs(projectile.velocity.X) > 0.2)
+                if (Math.Abs(Projectile.velocity.X) > 0.2)
                 {
-                    projectile.spriteDirection = -projectile.direction;
+                    Projectile.spriteDirection = -Projectile.direction;
                     return;
                 }
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 1000);
         }

@@ -8,38 +8,37 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Depthsprayer");
-			Tooltip.SetDefault("Covers enemies in Hydratoxin");
-			Item.staff[item.type] = true;
+			// DisplayName.SetDefault("Depthsprayer");
+			// Tooltip.SetDefault("Covers enemies in Hydratoxin");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.mana = 9;
-			item.autoReuse = true;
-			item.useStyle = 5;
-			item.useAnimation = 15;
-			item.useTime = 5;
-			item.knockBack = 4f;
-			item.width = 38;
-			item.height = 10;
-			item.damage = 35;
-			item.shoot = mod.ProjectileType("Depthsprayer");
-			item.shootSpeed = 12f;
-			item.UseSound = SoundID.Item13;
-			item.rare = 6;
-			item.value = 250000;
-			item.magic = true;
-			item.noMelee = true;
+			Item.mana = 9;
+			Item.autoReuse = true;
+			Item.useStyle = 5;
+			Item.useAnimation = 15;
+			Item.useTime = 5;
+			Item.knockBack = 4f;
+			Item.width = 38;
+			Item.height = 10;
+			Item.damage = 35;
+			Item.shoot = Mod.Find<ModProjectile>("Depthsprayer").Type;
+			Item.shootSpeed = 12f;
+			Item.UseSound = SoundID.Item13;
+			Item.rare = 6;
+			Item.value = 250000;
+			Item.DamageType = DamageClass.Magic;
+			Item.noMelee = true;
 		}
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("DeepAbyssium"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("DeepAbyssium").Type);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

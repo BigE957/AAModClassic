@@ -5,18 +5,18 @@ namespace AAMod.Items.Armor.Champion.Drone
 {
     public class DroneCool : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("R.A.B.I.T. Unit Reload Protocol");
-            Description.SetDefault("RELOADING. DAMAGE COMPENSATION PROVIDED.");
+            // DisplayName.SetDefault("R.A.B.I.T. Unit Reload Protocol");
+            // Description.SetDefault("RELOADING. DAMAGE COMPENSATION PROVIDED.");
             Main.buffNoSave[Type] = true;
             Main.debuff[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.rangedCrit += 15;
-            player.rangedDamage += .15f;
+            player.GetCritChance(DamageClass.Ranged) += 15;
+            player.GetDamage(DamageClass.Ranged) += .15f;
         }
     }
 }

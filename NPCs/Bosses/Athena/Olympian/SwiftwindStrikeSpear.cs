@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,50 +10,50 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Javelin");
+            // DisplayName.SetDefault("Chaos Javelin");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.hostile = true;
-            projectile.aiStyle = -1;
-            projectile.penetrate = 1;
-            projectile.tileCollide = false;
-            projectile.extraUpdates = 2;
-            projectile.timeLeft = 120;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.hostile = true;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = false;
+            Projectile.extraUpdates = 2;
+            Projectile.timeLeft = 120;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num579 = 0; num579 < 20; num579++)
             {
-                int num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 76, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 2f;
-                num580 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 76, -projectile.velocity.X * 0.2f, -projectile.velocity.Y * 0.2f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num580].velocity *= 2f;
             }
         }
 
         public override void AI()
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 25;
+                Projectile.alpha -= 25;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
 
-            if (projectile.ai[0]++ > 10)
+            if (Projectile.ai[0]++ > 10)
             {
-                projectile.ai[0] = 0;
-                Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<SwiftwindStrikeOrb>(), projectile.damage / 2, 5, Main.myPlayer, 0, 0);
+                Projectile.ai[0] = 0;
+                Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<SwiftwindStrikeOrb>(), Projectile.damage / 2, 5, Main.myPlayer, 0, 0);
             }
         }
     }

@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class MireJungleWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("AbyssiumDust");
+			DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
 			AddMapEntry(new Color(0, 0, 120));
             Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }

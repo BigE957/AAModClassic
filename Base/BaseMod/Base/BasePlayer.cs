@@ -24,7 +24,7 @@ namespace AAMod
 			if (player.ammoPotion && Main.rand.Next(5) == 0) consume = false;	
 			if (player.ammoCost80 && Main.rand.Next(5) == 0) consume = false;
 			if (player.ammoCost75 && Main.rand.Next(4) == 0) consume = false;	
-			if (!PlayerHooks.ConsumeAmmo(player, item, ammo)) consume = false;
+			if (!PlayerLoader.ConsumeAmmo(player, item, ammo)) consume = false;
 			if (!ItemLoader.ConsumeAmmo(item, ammo, player)) consume = false;
 			return consume;
 		}
@@ -380,7 +380,7 @@ namespace AAMod
             {
                 if (item == null || item.IsBlank()) return false; //items in the list cannot be null!
 				if(!item.Name.StartsWith(setName)) return false;	
-				if(mod != null && item.modItem != null && !(item.modItem.mod.Name.ToLower().Equals(mod.Name.ToLower()))) return false;
+				if(mod != null && item.ModItem != null && !(item.ModItem.Mod.Name.ToLower().Equals(mod.Name.ToLower()))) return false;
 			}
             return true;
         }

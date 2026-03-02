@@ -9,19 +9,19 @@ namespace AAMod.NPCs.Bosses.Shen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fireball");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Fireball");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void PostAI()
         {
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
@@ -33,30 +33,30 @@ namespace AAMod.NPCs.Bosses.Shen
 
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 40;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.hostile = true;
-            projectile.timeLeft = 350;
-            projectile.aiStyle = -1;
-            projectile.extraUpdates = 1;
-            cooldownSlot = 1;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.hostile = true;
+            Projectile.timeLeft = 350;
+            Projectile.aiStyle = -1;
+            Projectile.extraUpdates = 1;
+            CooldownSlot = 1;
         }
 
         public override void AI()
         {
-            projectile.velocity *= 1f + Math.Abs(projectile.ai[0]);
+            Projectile.velocity *= 1f + Math.Abs(Projectile.ai[0]);
 
-            Vector2 acceleration = projectile.velocity.RotatedBy(Math.PI / 2);
-            acceleration *= projectile.ai[1];
-            projectile.velocity += acceleration;
+            Vector2 acceleration = Projectile.velocity.RotatedBy(Math.PI / 2);
+            acceleration *= Projectile.ai[1];
+            Projectile.velocity += acceleration;
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int i = 0; i < 10; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 100, default, 2f);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 100, default, 2f);
                 Main.dust[dustIndex].velocity *= 1.4f;
             }
         }

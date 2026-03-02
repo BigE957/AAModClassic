@@ -2,13 +2,15 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Ore
 {
     public class RadiumOre : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
@@ -16,14 +18,14 @@ namespace AAMod.Tiles.Ore
             Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;  
             Main.tileLighted[Type] = true;
-            Main.tileValue[Type] = 830; 
-            soundType = 21;
-            drop = mod.ItemType("RadiumOre");
-            dustType = mod.DustType("RadiumDust");
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Celestial Ore");
+            Main.tileOreFinderPriority[Type] = 830; 
+            HitSound = 21;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RadiumOre").Type;
+            DustType = Mod.Find<ModDust>("RadiumDust").Type;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Celestial Ore");
             AddMapEntry(new Color(160, 150, 0), name);
-			minPick = 225;
+			MinPick = 225;
         }
         
 
@@ -31,11 +33,11 @@ namespace AAMod.Tiles.Ore
         {
             if (Main.dayTime)
             {
-                drop = mod.ItemType("RadiumOre");
+                ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RadiumOre").Type;
             }
             else
             {
-                drop = mod.ItemType("DarkmatterOre");
+                ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkmatterOre").Type;
             }
         }
 
@@ -44,14 +46,14 @@ namespace AAMod.Tiles.Ore
             Texture2D glowtex;
             if (Main.dayTime)
             {
-                glowtex = mod.GetTexture("Glowmasks/RadiumOre_Glow");
-                BaseDrawing.DrawTileTexture(spriteBatch, Main.tileTexture[Type], x, y, true, false, false);
+                glowtex = Mod.GetTexture("Glowmasks/RadiumOre_Glow");
+                BaseDrawing.DrawTileTexture(spriteBatch, TextureAssets.Tile[Type].Value, x, y, true, false, false);
                 BaseDrawing.DrawTileTexture(spriteBatch, glowtex, x, y, true, false, false, null, AAGlobalTile.GetRadiumColorBright);
             }
             else
             {
-                glowtex = mod.GetTexture("Glowmasks/DarkmatterOre_Glow");
-                BaseDrawing.DrawTileTexture(spriteBatch, mod.GetTexture("Tiles/Ore/DarkmatterOre"), x, y, true, false, false);
+                glowtex = Mod.GetTexture("Glowmasks/DarkmatterOre_Glow");
+                BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/Ore/DarkmatterOre"), x, y, true, false, false);
                 BaseDrawing.DrawTileTexture(spriteBatch, glowtex, x, y, true, false, false, null, AAGlobalTile.GetDarkmatterColorBright);
             }
             Tile tile = Main.tile[x, y];
@@ -60,8 +62,8 @@ namespace AAMod.Tiles.Ore
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(glowtex, new Vector2((x * 16) - (int)Main.screenPosition.X, (y * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Main.dayTime ? Color.Yellow : Color.DeepSkyBlue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(glowtex, new Vector2((x * 16) - (int)Main.screenPosition.X, (y * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Main.dayTime ? Color.Yellow : Color.DeepSkyBlue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
             return false;
         }
@@ -75,15 +77,15 @@ namespace AAMod.Tiles.Ore
         {
             if (Main.dayTime)
             {
-                ModTranslation name = CreateMapEntryName();
+                LocalizedText name = CreateMapEntryName();
                 AddMapEntry(new Color(160, 150, 0), name);
-                dustType = mod.DustType("RadiumDust");
+                DustType = Mod.Find<ModDust>("RadiumDust").Type;
             }
             else
             {
-                ModTranslation name = CreateMapEntryName();
+                LocalizedText name = CreateMapEntryName();
                 AddMapEntry(new Color(0, 30, 100), name);
-                dustType = ModContent.DustType<Dusts.DarkmatterDust>();
+                DustType = ModContent.DustType<Dusts.DarkmatterDust>();
             }
             return true;
         }

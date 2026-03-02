@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,22 +11,22 @@ namespace AAMod.Items.Boss.Shen
 	{
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
-			item.autoReuse = true;
-			item.useAnimation = 2;
-			item.useTime = 2;
-			item.width = 72;
-            item.height = 34;
-            item.shoot = ProjectileID.Bullet;
-			item.UseSound = SoundID.Item41;
-			item.damage = 65;
-			item.shootSpeed = 16f;
-			item.noMelee = true;
-			item.value = Item.sellPrice(0, 30, 0, 0);
-			item.rare = 11;
-			item.knockBack = 3f;
-			item.ranged = true;
-            item.useAmmo = AmmoID.Bullet;
+			Item.useStyle = 5;
+			Item.autoReuse = true;
+			Item.useAnimation = 2;
+			Item.useTime = 2;
+			Item.width = 72;
+            Item.height = 34;
+            Item.shoot = ProjectileID.Bullet;
+			Item.UseSound = SoundID.Item41;
+			Item.damage = 65;
+			Item.shootSpeed = 16f;
+			Item.noMelee = true;
+			Item.value = Item.sellPrice(0, 30, 0, 0);
+			Item.rare = 11;
+			Item.knockBack = 3f;
+			Item.DamageType = DamageClass.Ranged;
+            Item.useAmmo = AmmoID.Bullet;
             AARarity = 14;
         }
 
@@ -33,19 +34,19 @@ namespace AAMod.Items.Boss.Shen
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Draconic Ripper");
-			Tooltip.SetDefault(@"Shoots dozens of high-caliber teeth
+			// DisplayName.SetDefault("Draconic Ripper");
+			/* Tooltip.SetDefault(@"Shoots dozens of high-caliber teeth
 Ignores enemy defense
-50% chance to not consume ammo");
+50% chance to not consume ammo"); */
         }
 		
 		public override Vector2? HoldoutOffset()
@@ -53,12 +54,12 @@ Ignores enemy defense
 			return new Vector2(-10, -2);
         }
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
         {
             return Main.rand.NextFloat() >= .5f;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -81,25 +82,24 @@ Ignores enemy defense
                     damage += 10;
                 }
                 Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType(tooth), damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>(tooth).Type, damage, knockBack, player.whoAmI);
             }
             return false;
         }
 
         public override void HoldItem(Player player)
 		{
-			player.armorPenetration += 500;
+			player.GetArmorPenetration(DamageClass.Generic) += 500;
 		}
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddIngredient(null, "ChaosScale", 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(mod.TileType("ACS"));
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+            recipe.AddTile(Mod.Find<ModTile>("ACS").Type);
+			recipe.Register();
 		}
 	}
 }

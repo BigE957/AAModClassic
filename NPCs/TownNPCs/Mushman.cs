@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -12,38 +14,38 @@ namespace AAMod.NPCs.TownNPCs
     {
         public override string Texture => "AAMod/NPCs/TownNPCs/Mushman";
 
-        public override bool Autoload(ref string name)
+        public override bool IsLoadingEnabled(Mod mod)
         {
             name = "Mushman";
-            return mod.Properties.Autoload;
+            return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
         }
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[npc.type] = 26;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 7;
-            NPCID.Sets.AttackFrameCount[npc.type] = 3;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 40;
-            NPCID.Sets.AttackAverageChance[npc.type] = 20;
-            NPCID.Sets.HatOffsetY[npc.type] = -3;
+            Main.npcFrameCount[NPC.type] = 26;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 7;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 3;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+            NPCID.Sets.HatOffsetY[NPC.type] = -3;
         }
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-            npc.damage = 40;
-            npc.defense = 38;
-            npc.lifeMax = 600;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.Truffle;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 40;
+            NPC.defense = 38;
+            NPC.lifeMax = 600;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.Truffle;
         }
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
@@ -77,7 +79,7 @@ namespace AAMod.NPCs.TownNPCs
             {
                 for (int j = num4 + 2; j < num5 + 2; j++)
                 {
-                    if (Main.tile[i, j].active() && (Main.tile[i, j].type == ModContent.TileType<Mycelium>() || Main.tile[i, j].type == ModContent.TileType<Mushroom>() || Main.tile[i, j].type == ModContent.TileType<MadnessShroom>()))
+                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom>() || Main.tile[i, j].TileType == ModContent.TileType<MadnessShroom>()))
                     {
                         num++;
                     }
@@ -86,7 +88,7 @@ namespace AAMod.NPCs.TownNPCs
             return num >= 100;
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
             {
@@ -105,7 +107,7 @@ namespace AAMod.NPCs.TownNPCs
             return false;
         }
 
-        public override string TownNPCName()
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
         {
             return null;
         }
@@ -141,7 +143,7 @@ namespace AAMod.NPCs.TownNPCs
             button2 = Lang.TownNPCMushman("button2");
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
@@ -150,11 +152,11 @@ namespace AAMod.NPCs.TownNPCs
 
             if (!firstButton)
             {
-                Main.PlaySound(12, -1, -1, 1);
+                SoundEngine.PlaySound(SoundID.MenuTick);
 
                 Player player = Main.LocalPlayer;
 
-                int Special = player.FindItem(mod.ItemType("MadnessShroom"));
+                int Special = player.FindItem(Mod.Find<ModItem>("MadnessShroom").Type);
                 int Item = player.FindItem(ItemID.StrangePlant1);
                 int Item2 = player.FindItem(ItemID.StrangePlant2);
                 int Item3 = player.FindItem(ItemID.StrangePlant3);
@@ -188,7 +190,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = SpecialChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Rainbow>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (Item >= 0)
@@ -200,9 +202,9 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(mod.ItemType(lootTable[loot]), 5);
+                    player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type, 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (Item2 >= 0)
@@ -214,9 +216,9 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(mod.ItemType(lootTable[loot]), 5);
+                    player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type, 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (Item3 >= 0)
@@ -228,9 +230,9 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(mod.ItemType(lootTable[loot]), 5);
+                    player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type, 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (Item4 >= 0)
@@ -242,9 +244,9 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(mod.ItemType(lootTable[loot]), 5);
+                    player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type, 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeRed >= 0)
@@ -258,7 +260,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Red>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeOrange >= 0)
@@ -272,7 +274,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Orange>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeYellow >= 0)
@@ -286,7 +288,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Yellow>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeGreen1 >= 0)
@@ -300,7 +302,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeGreen2 >= 0)
@@ -314,7 +316,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeGreen3 >= 0)
@@ -328,7 +330,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeBlue1 >= 0)
@@ -342,7 +344,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeBlue2 >= 0)
@@ -356,7 +358,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeBlue3 >= 0)
@@ -370,7 +372,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyePurple1 >= 0)
@@ -384,7 +386,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Purple>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyePurple2 >= 0)
@@ -398,7 +400,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Purple>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyeGray >= 0)
@@ -412,7 +414,7 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Gray>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else if (DyePink >= 0)
@@ -426,14 +428,14 @@ namespace AAMod.NPCs.TownNPCs
                     Main.npcChatText = MushroomChat();
                     player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Pink>(), 5);
 
-                    Main.PlaySound(24, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.Chat);
                     return;
                 }
                 else
                 {
                     Main.npcChatText = NoMushroomChat();
                     Main.npcChatCornerItem = 0;
-                    Main.PlaySound(12, -1, -1, 1);
+                    SoundEngine.PlaySound(SoundID.MenuTick);
                 }
             }
         }
@@ -465,19 +467,19 @@ namespace AAMod.NPCs.TownNPCs
             return chat;
         }
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(string shopName, Item[] items)
 		{
             shop.item[nextSlot].SetDefaults(ItemID.Mushroom);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemID.GlowingMushroom);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("SporeSac"));
+            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("SporeSac").Type);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemID.RecallPotion);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemID.WormholePotion);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("MyceliumSeeds"));
+            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("MyceliumSeeds").Type);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemID.MushroomGrassSeeds);
             nextSlot++;
@@ -510,21 +512,21 @@ namespace AAMod.NPCs.TownNPCs
             }
             if (AAWorld.downedAncient == true)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("GrandHealingPotion"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("GrandHealingPotion").Type);
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("GrandManaPotion"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("GrandManaPotion").Type);
                 nextSlot++;
             }
             if (AAWorld.downedSAncient == true)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TheBigOne"));
+                shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("TheBigOne").Type);
                 nextSlot++;
             }
         }
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
-			Item.NewItem(npc.getRect(), ItemID.Mushroom);
+			Item.NewItem(NPC.getRect(), ItemID.Mushroom);
 		}
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -541,7 +543,7 @@ namespace AAMod.NPCs.TownNPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = mod.ProjectileType("Throwshroom");
+            projType = Mod.Find<ModProjectile>("Throwshroom").Type;
             attackDelay = 1;
         }
 

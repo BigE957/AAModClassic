@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -8,39 +9,39 @@ namespace AAMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Icesickle");
-            Main.projFrames[projectile.type] = 5;
+			// DisplayName.SetDefault("Icesickle");
+            Main.projFrames[Projectile.type] = 5;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.FrostArrow);
-            projectile.hostile = false;
-            projectile.friendly = true;
-			projectile.penetrate = 5;
+			Projectile.CloneDefaults(ProjectileID.FrostArrow);
+            Projectile.hostile = false;
+            Projectile.friendly = true;
+			Projectile.penetrate = 5;
 		}
         public override void PostAI()
         {
 
-            if (projectile.frameCounter++ > 6)
+            if (Projectile.frameCounter++ > 6)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 4)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 4)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 50);
+            SoundEngine.PlaySound(SoundID.Item50, Projectile.position);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.immune[projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
             target.AddBuff(BuffID.Frostburn, 120);
         }
     }

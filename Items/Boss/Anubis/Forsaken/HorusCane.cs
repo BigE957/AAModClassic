@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,35 +10,35 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Horus' Cane");
-            Tooltip.SetDefault(@"Summons a Horus Eye sentry");
+            // DisplayName.SetDefault("Horus' Cane");
+            // Tooltip.SetDefault(@"Summons a Horus Eye sentry");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.shootSpeed = 14f;
-            item.shoot = mod.ProjectileType("HorusEye");
-            item.damage = 200;
-            item.width = 50;
-            item.height = 50;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.noMelee = true;
-            item.knockBack = 7.5f;
-            item.summon = true;
-            item.mana = 30;
-            item.sentry = true;
-            item.rare = 11;
+            Item.useStyle = 1;
+            Item.shootSpeed = 14f;
+            Item.shoot = Mod.Find<ModProjectile>("HorusEye").Type;
+            Item.damage = 200;
+            Item.width = 50;
+            Item.height = 50;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.knockBack = 7.5f;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 30;
+            Item.sentry = true;
+            Item.rare = 11;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
-            int num74 = item.shoot;
-            int num76 = item.damage;
-            float num77 = item.knockBack;
+            int num74 = Item.shoot;
+            int num76 = Item.damage;
+            float num77 = Item.knockBack;
             int num154 = (int)(Main.mouseX + Main.screenPosition.X) / 16;
             int num155 = (int)(Main.mouseY + Main.screenPosition.Y) / 16;
             if (player.gravDir == -1f)
@@ -66,12 +67,11 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<SentryOfTheEye>(), 1);
             recipe.AddIngredient(null, "SoulFragment", 5);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

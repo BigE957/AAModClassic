@@ -16,7 +16,7 @@ namespace AAMod
         public virtual string MapLegend { get; }
 
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             if (SandTile)
             {
@@ -27,15 +27,15 @@ namespace AAMod
             {
                 Main.tilePile[Type] = true;
                 
-                dustType = DustTypeID;
+                DustType = DustTypeID;
             }
             Main.tileSolid[Type] = false;
             Main.tileMergeDirt[Type] = false;
             Main.tileLighted[Type] = false;
             Main.tileFrameImportant[Type] = false;
             AddMapEntry(new Color(200, 255, 200));
-            drop = ItemDropID;
-            soundStyle = 18;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemDropID;
+            soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
             AddMapEntry(MapColor, CreateMapEntryName(MapLegend));
         }
 
@@ -44,14 +44,14 @@ namespace AAMod
             Tile tile = Main.tile[i, j];
             Tile tile2 = Main.tile[i, j - 1];
             Tile tile3 = Main.tile[i, j + 1];
-            int tileType = tile.type;
-            if (!WorldGen.noTileActions && tile.active() && (tileType == Type))
+            int tileType = tile.TileType;
+            if (!WorldGen.noTileActions && tile.HasTile && (tileType == Type))
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
-                    if (tile3 != null && !tile3.active())
+                    if (tile3 != null && !tile3.HasTile)
                     {
-                        bool flag18 = !(tile2.active() && (TileID.Sets.BasicChest[tile2.type] || TileID.Sets.BasicChestFake[tile2.type] || tile2.type == 323 || TileLoader.IsDresser(tile2.type)));
+                        bool flag18 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
                         if (flag18)
                         {
                             int damage = 10;
@@ -68,9 +68,9 @@ namespace AAMod
                         }
                     }
                 }
-                else if (Main.netMode == NetmodeID.Server && tile3 != null && !tile3.active())
+                else if (Main.netMode == NetmodeID.Server && tile3 != null && !tile3.HasTile)
                 {
-                    bool flag19 = !(tile2.active() && (TileID.Sets.BasicChest[tile2.type] || TileID.Sets.BasicChestFake[tile2.type] || tile2.type == 323 || TileLoader.IsDresser(tile2.type)));
+                    bool flag19 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
                     if (flag19)
                     {
                         int damage2 = 10;
@@ -81,7 +81,7 @@ namespace AAMod
                             damage2 = 0;
                         }
 
-                        tile.active(false);
+                        tile.HasTile = false;
                         bool flag20 = false;
                         for (int m = 0; m < 1000; m++)
                         {

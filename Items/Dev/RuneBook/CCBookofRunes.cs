@@ -11,31 +11,31 @@ namespace AAMod.Items.Dev.RuneBook
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("The Book of Runes");
-            Tooltip.SetDefault(@"Summons runes according to how many minion slots you have left
+            // DisplayName.SetDefault("The Book of Runes");
+            /* Tooltip.SetDefault(@"Summons runes according to how many minion slots you have left
 When player has 1 minion slot it summons terra rune.
 When player has 2 minion slots it summons terra and chaos rune.
-When player has 3 minion slots it summons terra, chaos and void rune.");
+When player has 3 minion slots it summons terra, chaos and void rune."); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = Color.Gold;
+                    line2.OverrideColor = Color.Gold;
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.value = 100000;
-            item.rare = 11;
-            item.accessory = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.value = 100000;
+            Item.rare = 11;
+            Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -51,14 +51,13 @@ When player has 3 minion slots it summons terra, chaos and void rune.");
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "CCRuneBookPage", 1);
+			Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "CCRuneBookPage", 1);
 			recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddIngredient(mod, "DreadScale", 15);
-            recipe.AddIngredient(mod, "EXSoul", 1);
-			recipe.AddTile(mod, "ACS");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+            recipe.AddIngredient(Mod, "DreadScale", 15);
+            recipe.AddIngredient(Mod, "EXSoul", 1);
+			recipe.AddTile(Mod, "ACS");
+			recipe.Register();
 		}
     }
 }

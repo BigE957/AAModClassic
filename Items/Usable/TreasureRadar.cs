@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 
@@ -8,24 +9,24 @@ namespace AAMod.Items.Usable
 	{
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Treasure Hunter");
-            BaseUtility.AddTooltips(item, new string[] { "200 Tile Range", "Lights up chests on the map" });			
+		    // DisplayName.SetDefault("Treasure Hunter");
+            BaseUtility.AddTooltips(Item, new string[] { "200 Tile Range", "Lights up chests on the map" });			
 		}
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 38;
-            item.rare = 2;
-            item.value = BaseUtility.CalcValue(0, 2, 0, 0);
+            Item.width = 30;
+            Item.height = 38;
+            Item.rare = 2;
+            Item.value = BaseUtility.CalcValue(0, 2, 0, 0);
 
-            item.useStyle = 5;
-            item.useAnimation = 50;
-            item.useTime = 50;
+            Item.useStyle = 5;
+            Item.useAnimation = 50;
+            Item.useTime = 50;
             //item.UseSound = mod.SoundItem("LiquidRadarUse");			
         }
 
-        public override bool UseItem(Player p)
+        public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
         {
             if (Main.myPlayer == p.whoAmI && Main.netMode != 2)
             {
@@ -42,7 +43,7 @@ namespace AAMod.Items.Usable
                     {
                         if (Main.tile[x, y] == null) { continue; }
                         Tile tile = Main.tile[x, y];
-                        if (tile.active() && (Main.tileContainer[tile.type] == true))
+                        if (tile.HasTile && (Main.tileContainer[tile.TileType] == true))
                         {
                             if (Main.Map.UpdateLighting(x, y, Math.Max(Main.Map[x, y].Light, (byte)255))) updateMap = true;
                         }
@@ -58,7 +59,7 @@ namespace AAMod.Items.Usable
             return true;
 		}
 
-		public override void UseStyle(Player p) { BaseUseStyle.SetStyleBoss(p, item, false, false); }
-        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, item); return true; }
+		public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(p, Item, false, false); }
+        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); return true; }
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -13,59 +14,59 @@ namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wrath Haruka");
+            // DisplayName.SetDefault("Wrath Haruka");
         }
 
         public override void SetDefaults()
         {
-            npc.width = 50;
-            npc.height = 60;
-            npc.friendly = false;
-            npc.dontTakeDamage = true;
-            npc.damage = 150;
-            npc.defense = 9999;
-            npc.lifeMax = 130000;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.knockBackResist = 0f;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 50;
+            NPC.height = 60;
+            NPC.friendly = false;
+            NPC.dontTakeDamage = true;
+            NPC.damage = 150;
+            NPC.defense = 9999;
+            NPC.lifeMax = 130000;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.knockBackResist = 0f;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.lavaImmune = true;
-            npc.netAlways = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.lavaImmune = true;
+            NPC.netAlways = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.9f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.9f);
         }
 
         public override void AI()
         {
-            NPC Haruka = Main.npc[(int)npc.ai[0]];
-            if(!Main.npc[(int)npc.ai[0]].active || Main.npc[(int)npc.ai[0]].life <= 0)
+            NPC Haruka = Main.npc[(int)NPC.ai[0]];
+            if(!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].life <= 0)
             {
-                npc.life = 0;
-                npc.active = false;
+                NPC.life = 0;
+                NPC.active = false;
             }
-            if(((WrathHaruka)Haruka.modNPC).internalAI[0] != 4)
+            if(((WrathHaruka)Haruka.ModNPC).internalAI[0] != 4)
             {
-                npc.boss = false;
-                npc.life = 0;
-                npc.active = false;
+                NPC.boss = false;
+                NPC.life = 0;
+                NPC.active = false;
             }
         }
 
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawAfterimage(spritebatch, Main.npcTexture[npc.type], 0, npc, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.spriteDirection, 1, npc.frame, npc.GetAlpha(dColor), false);
+            BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, NPC.frame, NPC.GetAlpha(dColor), false);
             return false;
         }
     }

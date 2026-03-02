@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class TorchsandstoneWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            dustType = mod.DustType("IncineriteDust");
+            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
 			AddMapEntry(new Color(25, 12, 10));
             Terraria.ID.WallID.Sets.Conversion.Sandstone[Type] = true;
         }

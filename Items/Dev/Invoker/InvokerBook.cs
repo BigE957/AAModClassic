@@ -11,37 +11,37 @@ namespace AAMod.Items.Dev.Invoker
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Aleister Book");
-            Tooltip.SetDefault(@"A Legendary Book of the Mega Therion.
+            // DisplayName.SetDefault("Aleister Book");
+            /* Tooltip.SetDefault(@"A Legendary Book of the Mega Therion.
 10% increased minion damage
 +2 minion slots
 Maybe you could make it stronger..?
 There's a note written on the cover: 
-I need more powerful souls, *****,*********,**********");
+I need more powerful souls, *****,*********,**********"); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = Color.Gold;
+                    line2.OverrideColor = Color.Gold;
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 20;
-            item.rare = 11;
-            item.accessory = true;
-            item.useStyle = 4;
-            item.useTime = 1;
-            item.expertOnly = true;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            Item.width = 18;
+            Item.height = 20;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.useStyle = 4;
+            Item.useTime = 1;
+            Item.expertOnly = true;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
         }
 
         public override bool CanUseItem(Player player)
@@ -51,7 +51,7 @@ I need more powerful souls, *****,*********,**********");
         
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.minionDamage += .1f;
+            player.GetDamage(DamageClass.Summon) += .1f;
             player.maxMinions += 2;
 
             InvokerPlayer InvokerPlayer = InvokerPlayer.ModPlayer(player);

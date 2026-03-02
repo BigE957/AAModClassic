@@ -7,18 +7,18 @@ namespace AAMod.NPCs.Bosses.Rajah
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Stomp");
+            // DisplayName.SetDefault("Rajah Stomp");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.hostile = true;
-            projectile.aiStyle = -1;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 1;
-            projectile.timeLeft = 30;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.hostile = true;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 1;
+            Projectile.timeLeft = 30;
         }
     }
 }

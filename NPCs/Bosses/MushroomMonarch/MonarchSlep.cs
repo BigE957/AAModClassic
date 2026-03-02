@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 
 namespace AAMod.NPCs.Bosses.MushroomMonarch
@@ -9,36 +10,36 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Very Large Mushroom");
-            Main.npcFrameCount[npc.type] = 1;
+            // DisplayName.SetDefault("Very Large Mushroom");
+            Main.npcFrameCount[NPC.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 200;
-            npc.defense = 0;
-            npc.damage = 0;
-            npc.width = 74;
-            npc.height = 70;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0f;
-            npc.noTileCollide = false;
-            npc.noGravity = false;
-            npc.value = 0;
-            npc.rarity = 1;
+            NPC.lifeMax = 200;
+            NPC.defense = 0;
+            NPC.damage = 0;
+            NPC.width = 74;
+            NPC.height = 70;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0f;
+            NPC.noTileCollide = false;
+            NPC.noGravity = false;
+            NPC.value = 0;
+            NPC.rarity = 1;
         }
 
         public override bool PreAI()
         {
-            npc.velocity.Y += .1f;
+            NPC.velocity.Y += .1f;
             return false;
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            bool biomeCorrect = spawnInfo.player.InZone("Surface") && spawnInfo.player.InZone("Purity") || spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush;
-            if (spawnInfo.playerSafe || NPC.AnyNPCs(mod.NPCType("MonarchSlep")) || NPC.AnyNPCs(mod.NPCType("MonarchWake")) || NPC.AnyNPCs(mod.NPCType("MushroomMonarch")))
+            bool biomeCorrect = spawnInfo.Player.InZone("Surface") && spawnInfo.Player.InZone("Purity") || spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush;
+            if (spawnInfo.PlayerSafe || NPC.AnyNPCs(Mod.Find<ModNPC>("MonarchSlep").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("MonarchWake").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("MushroomMonarch").Type))
             {
                 return 0f;
             }
@@ -49,19 +50,19 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             return 0f;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int k = 0; k < 3; k++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.MushDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.MushDust>(), hitDirection, -1f, 0, default, 1f);
             }
-            if (Main.netMode != 1 && (NPC.CountNPCS(mod.NPCType("MonarchWake")) + NPC.CountNPCS(mod.NPCType("MushroomMonarch"))) < 1)
+            if (Main.netMode != 1 && (NPC.CountNPCS(Mod.Find<ModNPC>("MonarchWake").Type) + NPC.CountNPCS(Mod.Find<ModNPC>("MushroomMonarch").Type)) < 1)
             {
-                int id = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("MonarchWake"));
-                Main.npc[id].position = npc.position;
+                int id = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("MonarchWake").Type);
+                Main.npc[id].position = NPC.position;
             }
-            npc.active = false;
-            npc.life = 0;
+            NPC.active = false;
+            NPC.life = 0;
         }
     }
 }

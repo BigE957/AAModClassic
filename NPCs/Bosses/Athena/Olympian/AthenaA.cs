@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,8 +15,8 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Olympian Athena");
-            Main.npcFrameCount[npc.type] = 7;
+            // DisplayName.SetDefault("Olympian Athena");
+            Main.npcFrameCount[NPC.type] = 7;
         }
 
         public int damage = 0;
@@ -25,29 +26,29 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
         public override void SetDefaults()
         {
-            npc.width = 152;
-            npc.height = 114;
-            npc.value = BaseUtility.CalcValue(0, 10, 0, 0);
-            npc.npcSlots = 1000;
-            npc.aiStyle = -1;
-            npc.lifeMax = 110000;
-            npc.defense = 70;
-            npc.damage = 110;
-            npc.knockBackResist = 0f;
-            npc.noGravity = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.boss = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AthenaA");
-            bossBag = ModContent.ItemType<Items.Boss.Athena.AthenaBag>();
-            npc.noTileCollide = true;
-            bossBag = mod.ItemType("AthenaABag");
+            NPC.width = 152;
+            NPC.height = 114;
+            NPC.value = BaseUtility.CalcValue(0, 10, 0, 0);
+            NPC.npcSlots = 1000;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 110000;
+            NPC.defense = 70;
+            NPC.damage = 110;
+            NPC.knockBackResist = 0f;
+            NPC.noGravity = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.boss = true;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AthenaA");
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Athena.AthenaBag>();
+            NPC.noTileCollide = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaABag").Type;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.6f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
         public float[] internalAI = new float[4];
@@ -78,90 +79,90 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
         public override void AI()
         {
-            if (!npc.HasPlayerTarget)
+            if (!NPC.HasPlayerTarget)
             {
-                npc.TargetClosest();
+                NPC.TargetClosest();
             }
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
-            if (internalAI[2] == 0 && npc.life < npc.lifeMax / 3 && Main.netMode != 1)
+            if (internalAI[2] == 0 && NPC.life < NPC.lifeMax / 3 && Main.netMode != 1)
             {
-                NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<AthenaDark>());
-                NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<AthenaLight>());
+                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDark>());
+                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaLight>());
                 internalAI[2] = 1;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             Vector2 targetPos;
 
-            switch ((int)npc.ai[0])
+            switch ((int)NPC.ai[0])
             {
                 case 0:
                     if (!AliveCheck(player))
                         break;
                     targetPos = player.Center;
-                    targetPos.X += 500 * (npc.Center.X < targetPos.X ? -1 : 1);
+                    targetPos.X += 500 * (NPC.Center.X < targetPos.X ? -1 : 1);
                     
                     for(int pos = -200; pos < 200; pos += 50)
                     {
                         targetPos.Y = player.Center.Y - pos;
-                        if(Collision.CanHit(targetPos, npc.width, npc.height, player.position, player.width, player.height))
+                        if(Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
                         {
                             break;
                         }
                     }
                     MoveToVector2(targetPos);
 
-                    BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<AthenaMagic>(), ref npc.ai[1], 50, npc.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaMagic>(), ref NPC.ai[1], 50, NPC.damage / 3, 10, true);
 
                     if (internalAI[3]++ >= 250 && Main.netMode != 1)
                     {
                         int Choice = Main.rand.Next(2);
                         if (Choice == 0)
                         {
-                            NPC.NewNPC((int)npc.Center.X + 100, (int)npc.Center.Y, ModContent.NPCType<OlympianDragon>());
-                            NPC.NewNPC((int)npc.Center.X - 100, (int)npc.Center.Y, ModContent.NPCType<OlympianDragon>());
+                            NPC.NewNPC((int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                            NPC.NewNPC((int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
                         }
                         else
                         {
-                            NPC Seraph1 = Main.npc[NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 150, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph1 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y + 150, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
-                            NPC Seraph2 = Main.npc[NPC.NewNPC((int)npc.Center.X + 150, (int)npc.Center.Y - 75, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph2 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
-                            NPC Seraph3 = Main.npc[NPC.NewNPC((int)npc.Center.X + 150, (int)npc.Center.Y - 75, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph3 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                         }
                         internalAI[3] = 0;
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
-                    if (npc.ai[2]++ > 560)
+                    if (NPC.ai[2]++ > 560)
                     {
                         Teleport(1);
-                        npc.ai[0]++;
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 0;
+                        NPC.ai[0]++;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
                     }
                     break;
                 case 1:
                     if (!AliveCheck(player))
                         break;
                     targetPos = player.Center;
-                    targetPos.X += 500 * (npc.Center.X < targetPos.X ? -1 : 1);
+                    targetPos.X += 500 * (NPC.Center.X < targetPos.X ? -1 : 1);
 
                     for(int pos = -200; pos < 200; pos += 50)
                     {
                         targetPos.Y = player.Center.Y - pos;
-                        if(Collision.CanHit(targetPos, npc.width, npc.height, player.position, player.width, player.height))
+                        if(Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
                         {
                             break;
                         }
@@ -169,14 +170,14 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
                     MoveToVector2(targetPos);
 
-                    BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<SwiftwindStrikeSpear>(), ref npc.ai[1], 100, npc.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<SwiftwindStrikeSpear>(), ref NPC.ai[1], 100, NPC.damage / 3, 10, true);
 
-                    if (npc.ai[2]++ > 400)
+                    if (NPC.ai[2]++ > 400)
                     {
-                        npc.ai[0]++;
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 0;
+                        NPC.ai[0]++;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
                     }
 
                     break;
@@ -184,19 +185,19 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                     if (!AliveCheck(player))
                         break;
 
-                    npc.velocity *= 0;
-                    if (npc.ai[2] == 0)
+                    NPC.velocity *= 0;
+                    if (NPC.ai[2] == 0)
                     {
                         Teleport(0);
                     }
 
-                    npc.ai[2]++;
+                    NPC.ai[2]++;
 
-                    if (npc.ai[2] == 120)
+                    if (NPC.ai[2] == 120)
                     {
                         int projType = ModContent.ProjectileType<RazorGust>();
                         float spread = 45f * 0.0174f;
-                        Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
+                        Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                         dir *= 14f;
                         float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                         double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -204,14 +205,14 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, npc.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
                         }
                     }
-                    if (npc.ai[2] == 180 && npc.life < npc.lifeMax / 2)
+                    if (NPC.ai[2] == 180 && NPC.life < NPC.lifeMax / 2)
                     {
                         int projType = ModContent.ProjectileType<RazorGust>();
                         float spread = 45f * 0.0174f;
-                        Vector2 dir = Vector2.Normalize(player.Center - npc.Center);
+                        Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                         dir *= 14f;
                         float baseSpeed = (float)Math.Sqrt((dir.X * dir.X) + (dir.Y * dir.Y));
                         double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
@@ -219,117 +220,117 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, npc.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
                         }
                     }
-                    if (npc.ai[2] > 220)
+                    if (NPC.ai[2] > 220)
                     {
-                        if (npc.ai[3] < Repeats())
+                        if (NPC.ai[3] < Repeats())
                         {
-                            npc.ai[2] = 0;
-                            npc.ai[3]++;
+                            NPC.ai[2] = 0;
+                            NPC.ai[3]++;
                         }
                         else
                         {
                             Teleport(2);
-                            npc.ai[0]++;
-                            npc.ai[1] = 0;
-                            npc.ai[2] = 0;
-                            npc.ai[3] = 0;
+                            NPC.ai[0]++;
+                            NPC.ai[1] = 0;
+                            NPC.ai[2] = 0;
+                            NPC.ai[3] = 0;
                         }
                     }
                     break;
                 case 3:
 
-                    npc.ai[1]++;
+                    NPC.ai[1]++;
 
                     targetPos = player.Center;
                     targetPos.Y -= 500;
                     MoveToVector2(targetPos);
 
-                    if (npc.ai[1] == 120)
+                    if (NPC.ai[1] == 120)
                     {
-                        int a = Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y), new Vector2(8f, -8f), mod.ProjectileType("RuneSpawn"), npc.damage / 2, 3);
-                        Main.projectile[a].Center = npc.Center;
-                        int b = Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y), new Vector2(8f, 8f), mod.ProjectileType("RuneSpawn"), npc.damage / 2, 3);
-                        Main.projectile[b].Center = npc.Center;
-                        int c = Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y), new Vector2(-8f, 8f), mod.ProjectileType("RuneSpawn"), npc.damage / 2, 3);
-                        Main.projectile[c].Center = npc.Center;
-                        int d = Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y), new Vector2(-8f, -8f), mod.ProjectileType("RuneSpawn"), npc.damage / 2, 3);
-                        Main.projectile[d].Center = npc.Center;
+                        int a = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        Main.projectile[a].Center = NPC.Center;
+                        int b = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        Main.projectile[b].Center = NPC.Center;
+                        int c = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        Main.projectile[c].Center = NPC.Center;
+                        int d = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        Main.projectile[d].Center = NPC.Center;
                     }
-                    if (npc.ai[1] > 180)
+                    if (NPC.ai[1] > 180)
                     {
-                        npc.ai[0]++;
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 0;
+                        NPC.ai[0]++;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
                     }
                     break;
                 case 4: //prepare for queen bee dashes
                     if (!AliveCheck(player))
                         break;
-                    if (++npc.ai[1] > 30)
+                    if (++NPC.ai[1] > 30)
                     {
                         targetPos = player.Center;
-                        targetPos.X += 1000 * (npc.Center.X < targetPos.X ? -1 : 1);
+                        targetPos.X += 1000 * (NPC.Center.X < targetPos.X ? -1 : 1);
                         DashMovement(targetPos, 0.8f);
-                        if (npc.ai[1] > 180 || Math.Abs(npc.Center.Y - targetPos.Y) < 50) //initiate dash
+                        if (NPC.ai[1] > 180 || Math.Abs(NPC.Center.Y - targetPos.Y) < 50) //initiate dash
                         {
-                            npc.ai[0]++;
-                            npc.ai[1] = 0;
-                            npc.netUpdate = true;
-                            npc.velocity.X = -30 * (npc.Center.X < player.Center.X ? -1 : 1);
-                            npc.velocity.Y *= 0.1f;
+                            NPC.ai[0]++;
+                            NPC.ai[1] = 0;
+                            NPC.netUpdate = true;
+                            NPC.velocity.X = -30 * (NPC.Center.X < player.Center.X ? -1 : 1);
+                            NPC.velocity.Y *= 0.1f;
                         }
                     }
                     else
                     {
-                        npc.velocity *= 0.9f; //decelerate briefly
+                        NPC.velocity *= 0.9f; //decelerate briefly
                     }
-                    npc.rotation = 0;
+                    NPC.rotation = 0;
                     break;
 
                 case 5: //dashing
-                    if (++npc.ai[1] > 240 || (Math.Sign(npc.velocity.X) > 0 ? npc.Center.X > player.Center.X + 900 : npc.Center.X < player.Center.X - 900))
+                    if (++NPC.ai[1] > 240 || (Math.Sign(NPC.velocity.X) > 0 ? NPC.Center.X > player.Center.X + 900 : NPC.Center.X < player.Center.X - 900))
                     {
-                        npc.ai[1] = 0;
-                        npc.ai[2] = 0;
-                        if (++npc.ai[3] >= Repeats()) //repeat dash three times
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        if (++NPC.ai[3] >= Repeats()) //repeat dash three times
                         {
-                            npc.ai[0]++;
-                            npc.ai[3] = 0;
+                            NPC.ai[0]++;
+                            NPC.ai[3] = 0;
                         }
                         else
-                            npc.ai[0]--;
-                        npc.netUpdate = true;
+                            NPC.ai[0]--;
+                        NPC.netUpdate = true;
                     }
                     break;
                 default:
-                    npc.ai[0] = 0;
+                    NPC.ai[0] = 0;
                     goto case 0;
 
             }
 
-            if (player.Center.X < npc.Center.X + 200)
+            if (player.Center.X < NPC.Center.X + 200)
             {
-                npc.direction = -1;
+                NPC.direction = -1;
             }
             else
             {
-                npc.direction = 1;
+                NPC.direction = 1;
             }
 
-            npc.rotation = 0;
+            NPC.rotation = 0;
         }
 
         public int Repeats()
         {
-            if (npc.life < npc.lifeMax * (2/3))
+            if (NPC.life < NPC.lifeMax * (2/3))
             {
                 return 5;
             }
-            else if (npc.life < npc.lifeMax / 3)
+            else if (NPC.life < NPC.lifeMax / 3)
             {
                 return 4;
             }
@@ -341,105 +342,105 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
         public void Teleport(int where)
         {
-            Vector2 position = npc.Center + (Vector2.One * -20f);
+            Vector2 position = NPC.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 50, default, 3.7f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = false;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 25, default, 1.5f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = false;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = false;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += npc.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = false;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += npc.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
             if (where == 0)
             {
-                npc.Center = CloudPick();
+                NPC.Center = CloudPick();
             }
             else if (where == 1)
             {
-                Vector2 targetPos = Main.player[npc.target].Center;
-                targetPos.X += 500 * (npc.Center.X < targetPos.X ? 1 : -1);
+                Vector2 targetPos = Main.player[NPC.target].Center;
+                targetPos.X += 500 * (NPC.Center.X < targetPos.X ? 1 : -1);
                 targetPos.Y -= 200;
-                npc.position = targetPos;
+                NPC.position = targetPos;
             }
             else
             {
-                npc.position = new Vector2(Origin.X + (79 * 16), Origin.Y + (79 * 16));
+                NPC.position = new Vector2(Origin.X + (79 * 16), Origin.Y + (79 * 16));
             }
 
-            position = npc.Center + (Vector2.One * -20f);
+            position = NPC.Center + (Vector2.One * -20f);
             num84 = 40;
             height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 50, default, 3.7f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 25, default, 1.5f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += npc.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += npc.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
 
@@ -514,35 +515,35 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             Vector2 Acropolis = new Vector2(Origin.X + (79 * 16), Origin.Y + (79 * 16));
-            if (player.dead || !player.active || Vector2.Distance(npc.position, player.position) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
+            if (player.dead || !player.active || Vector2.Distance(NPC.position, player.position) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
             {
-                npc.TargetClosest();
-                if (player.dead || !player.active || Math.Abs(Vector2.Distance(npc.position, player.position)) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
+                NPC.TargetClosest();
+                if (player.dead || !player.active || Math.Abs(Vector2.Distance(NPC.position, player.position)) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AthenaA1"), Color.CornflowerBlue);
-                    int p = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<AthenaFlee>());
-                    Main.npc[p].Center = npc.Center;
-                    npc.active = false;
-                    npc.netUpdate = true;
+                    int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                    Main.npc[p].Center = NPC.Center;
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                     return false;
                 }
             }
-            if (npc.timeLeft < 600)
-                npc.timeLeft = 600;
+            if (NPC.timeLeft < 600)
+                NPC.timeLeft = 600;
             return true;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 6)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 6)
             {
-                npc.frame.Y += frameHeight;
-                npc.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
             }
-            if (npc.frame.Y >= frameHeight * 7)
+            if (NPC.frame.Y >= frameHeight * 7)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
         }
 
@@ -550,7 +551,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
         {
             float moveSpeed = 16f;
             float velMultiplier = 1f;
-            Vector2 dist = p - npc.Center;
+            Vector2 dist = p - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -568,41 +569,41 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
 
         private void DashMovement(Vector2 targetPos, float speedModifier)
         {
-            if (npc.Center.X < targetPos.X)
+            if (NPC.Center.X < targetPos.X)
             {
-                npc.velocity.X += speedModifier;
-                if (npc.velocity.X < 0)
-                    npc.velocity.X += speedModifier * 2;
+                NPC.velocity.X += speedModifier;
+                if (NPC.velocity.X < 0)
+                    NPC.velocity.X += speedModifier * 2;
             }
             else
             {
-                npc.velocity.X -= speedModifier;
-                if (npc.velocity.X > 0)
-                    npc.velocity.X -= speedModifier * 2;
+                NPC.velocity.X -= speedModifier;
+                if (NPC.velocity.X > 0)
+                    NPC.velocity.X -= speedModifier * 2;
             }
-            if (npc.Center.Y < targetPos.Y)
+            if (NPC.Center.Y < targetPos.Y)
             {
-                npc.velocity.Y += speedModifier;
-                if (npc.velocity.Y < 0)
-                    npc.velocity.Y += speedModifier * 2;
+                NPC.velocity.Y += speedModifier;
+                if (NPC.velocity.Y < 0)
+                    NPC.velocity.Y += speedModifier * 2;
             }
             else
             {
-                npc.velocity.Y -= speedModifier;
-                if (npc.velocity.Y > 0)
-                    npc.velocity.Y -= speedModifier * 2;
+                NPC.velocity.Y -= speedModifier;
+                if (NPC.velocity.Y > 0)
+                    NPC.velocity.Y -= speedModifier * 2;
             }
-            if (Math.Abs(npc.velocity.X) > 30)
-                npc.velocity.X = 30 * Math.Sign(npc.velocity.X);
-            if (Math.Abs(npc.velocity.Y) > 30)
-                npc.velocity.Y = 30 * Math.Sign(npc.velocity.Y);
+            if (Math.Abs(NPC.velocity.X) > 30)
+                NPC.velocity.X = 30 * Math.Sign(NPC.velocity.X);
+            if (Math.Abs(NPC.velocity.Y) > 30)
+                NPC.velocity.Y = 30 * Math.Sign(NPC.velocity.Y);
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -610,49 +611,49 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             potionType = ItemID.GreaterHealingPotion;
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (!AAWorld.downedAthenaA)
             {
-                int p = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
-                Main.npc[p].Center = npc.Center;
+                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
+                Main.npc[p].Center = NPC.Center;
             }
             else
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AthenaA2"), Color.CornflowerBlue);
-                int p = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<AthenaFlee>());
-                Main.npc[p].Center = npc.Center;
+                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                Main.npc[p].Center = NPC.Center;
             }
             if(Main.expertMode)
             {
-                npc.DropBossBags();
+                NPC.DropBossBags();
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    npc.DropLoot(mod.ItemType("AthenaAMask"));
+                    NPC.DropLoot(Mod.Find<ModItem>("AthenaAMask").Type);
                 }
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GoddessFeather"), Main.rand.Next(20, 25));
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SkyCrystal"), Main.rand.Next(25, 40));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(20, 25));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SkyCrystal").Type, Main.rand.Next(25, 40));
                 string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
                 int loot = Main.rand.Next(lootTable.Length);
-                npc.DropLoot(mod.ItemType(lootTable[loot]));
-                npc.DropLoot(mod.ItemType("StarChart"));
+                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
+                NPC.DropLoot(Mod.Find<ModItem>("StarChart").Type);
             }
             AAWorld.downedAthenaA = true;
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex = Main.npcTexture[npc.type];
-            Texture2D tex2 = mod.GetTexture("Glowmasks/AthenaA_Glow");
-            Texture2D tex3 = mod.GetTexture("Glowmasks/AthenaA_Glow1");
-            Color lightColor = BaseDrawing.GetLightColor(npc.Center);
-            BaseDrawing.DrawAfterimage(sb, tex, 0, npc.position, npc.width, npc.height, npc.oldPos, npc.scale, npc.rotation, npc.direction, 7, npc.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
-            BaseDrawing.DrawTexture(sb, tex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 7, npc.frame, lightColor);
-            BaseDrawing.DrawTexture(sb, tex2, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 7, npc.frame, AAColor.Flash);
-            BaseDrawing.DrawTexture(sb, tex3, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 7, npc.frame, Color.White);
+            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
+            Texture2D tex2 = Mod.GetTexture("Glowmasks/AthenaA_Glow");
+            Texture2D tex3 = Mod.GetTexture("Glowmasks/AthenaA_Glow1");
+            Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
+            BaseDrawing.DrawAfterimage(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
+            BaseDrawing.DrawTexture(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
+            BaseDrawing.DrawTexture(sb, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, AAColor.Flash);
+            BaseDrawing.DrawTexture(sb, tex3, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, Color.White);
             return false;
         }
     }

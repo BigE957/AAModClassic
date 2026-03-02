@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
@@ -12,19 +13,19 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 	{				
 		public override void SetStaticDefaults()
 		{
-            Main.projFrames[projectile.type] = 9;
+            Main.projFrames[Projectile.type] = 9;
 		}
 
         public override void SetDefaults()
         {
-            projectile.tileCollide = false;
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.aiStyle = -1;
-            projectile.penetrate = -1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
         }
 
         public int body = -1;
@@ -35,36 +36,36 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
         {
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(projectile.Center, ModContent.NPCType<ForsakenAnubis>(), 400f, null);
+                int npcID = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<ForsakenAnubis>(), 400f, null);
                 if (npcID >= 0) body = npcID;
             }
             if (body == -1) return;
             NPC anubis = Main.npc[body];
-            if (anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<ForsakenAnubis>()) { projectile.active = false; return; }
+            if (anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<ForsakenAnubis>()) { Projectile.active = false; return; }
 
-            projectile.rotation += .1f;
+            Projectile.rotation += .1f;
 
-            int glyph = ((ForsakenAnubis)anubis.modNPC).RuneCount;
+            int glyph = ((ForsakenAnubis)anubis.ModNPC).RuneCount;
 
-            if (rotValue == -1f) rotValue = projectile.ai[0] % glyph * ((float)Math.PI * 2f / glyph);
+            if (rotValue == -1f) rotValue = Projectile.ai[0] % glyph * ((float)Math.PI * 2f / glyph);
             rotValue += 0.04f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
 
-            projectile.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(130, 0f), rotValue);
+            Projectile.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(130, 0f), rotValue);
 
-            projectile.rotation = 0;
+            Projectile.rotation = 0;
 
-            for (int m = projectile.oldPos.Length - 1; m > 0; m--)
+            for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
             {
-                projectile.oldPos[m] = projectile.oldPos[m - 1];
+                Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
-            projectile.oldPos[0] = projectile.position;
+            Projectile.oldPos[0] = Projectile.position;
         }
 
-		public override bool PreDraw(SpriteBatch sb, Color dColor)
+		public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 9, 0, 0);
-            BaseDrawing.DrawAfterimage(sb, Main.projectileTexture[projectile.type], 0, projectile, 3f, 0.9f, 6, true, 0f, 0f, Color.White, frame, 9);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 9, 0, 0);
+            BaseDrawing.DrawAfterimage(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 3f, 0.9f, 6, true, 0f, 0f, Color.White, frame, 9);
             return false;
 		}		
 	}

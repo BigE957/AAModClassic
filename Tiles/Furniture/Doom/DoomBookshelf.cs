@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -11,7 +12,7 @@ namespace AAMod.Tiles.Furniture.Doom
 {
     public class DoomBookshelf : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -35,11 +36,11 @@ namespace AAMod.Tiles.Furniture.Doom
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Doom Bookcase");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Doom Bookcase");
             AddMapEntry(new Color(200, 0, 0), name);
-            dustType = mod.DustType("DoomDust");
-            adjTiles = new int[] { TileID.Bookcases };
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            AdjTiles = new int[] { TileID.Bookcases };
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -49,7 +50,7 @@ namespace AAMod.Tiles.Furniture.Doom
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("DoomBookcase"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomBookcase").Type);
 			Chest.DestroyChest(i, j);
         }
 
@@ -63,7 +64,7 @@ namespace AAMod.Tiles.Furniture.Doom
                 zero = Vector2.Zero;
             }
             int height = 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/DoomBookshelf_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/DoomBookshelf_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

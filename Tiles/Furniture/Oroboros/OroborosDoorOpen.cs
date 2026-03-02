@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -11,7 +13,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosDoorOpen : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileSolid[Type] = false;
@@ -59,16 +61,16 @@ namespace AAMod.Tiles.Furniture.Oroboros
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
 			TileID.Sets.HasOutlines[Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Oroboros Door");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Oroboros Door");
 			AddMapEntry(new Color(70, 0, 10), name);
-			dustType = mod.DustType("DoomDust");
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.OpenDoor };
-			closeDoorID = mod.TileType("OroborosDoorClosed");
+			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.OpenDoor };
+			closeDoorID = Mod.Find<ModTile>("OroborosDoorClosed").Type;
 		}
 
-		public override bool HasSmartInteract()
+		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}
@@ -80,15 +82,15 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 48, mod.ItemType("OroborosDoor"));
+			Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("OroborosDoor").Type);
 		}
 
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("OroborosDoor");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("OroborosDoor").Type;
 		}
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -98,8 +100,8 @@ namespace AAMod.Tiles.Furniture.Oroboros
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/OroborosDoorOpen_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.Red, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/OroborosDoorOpen_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.Red, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

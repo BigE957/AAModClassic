@@ -7,19 +7,19 @@ namespace AAMod.Items.Vanity.Anarchy
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pristine Bag");
-            Tooltip.SetDefault(@"<right> to open
+            // DisplayName.SetDefault("Pristine Bag");
+            /* Tooltip.SetDefault(@"<right> to open
 'All the essentials for impersonating Anarchy! No really it's just Anarchy.'
-For the record, Anarchy sprited this himself.");
+For the record, Anarchy sprited this himself."); */
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 32;
-            item.expert = true; item.expertOnly = true;  
+            Item.maxStack = 1;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 32;
+            Item.expert = true; Item.expertOnly = true;  
         }
 
         public override bool CanRightClick()

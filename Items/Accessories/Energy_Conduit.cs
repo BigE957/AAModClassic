@@ -8,24 +8,24 @@ namespace AAMod.Items.Accessories
 	{
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 24;
-			item.value = Item.sellPrice(0, 6, 0, 0);
-			item.rare = 8;
-			item.accessory = true;
+			Item.width = 20;
+			Item.height = 24;
+			Item.value = Item.sellPrice(0, 6, 0, 0);
+			Item.rare = 8;
+			Item.accessory = true;
             
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -45,8 +45,8 @@ namespace AAMod.Items.Accessories
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Energy Conduit");
-			Tooltip.SetDefault("50% increased movement speed");
+			// DisplayName.SetDefault("Energy Conduit");
+			// Tooltip.SetDefault("50% increased movement speed");
 			
 		}
 	}

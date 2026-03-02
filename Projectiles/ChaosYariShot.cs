@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
 {
@@ -11,48 +13,48 @@ namespace AAMod.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Yari");
+            // DisplayName.SetDefault("Chaos Yari");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 320;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.damage = 1;
-            projectile.penetrate = -1;
-            projectile.alpha = 255;
-            projectile.melee = true;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 320;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.damage = 1;
+            Projectile.penetrate = -1;
+            Projectile.alpha = 255;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override void AI()
         {
-            BaseAI.AIVilethorn(projectile, 80, 4, 20);
+            BaseAI.AIVilethorn(Projectile, 80, 4, 20);
         }
 
         public override void PostAI()
         {
-            if (Main.netMode != 2 && projectile.alpha < 170 && projectile.alpha + 5 >= 170)
+            if (Main.netMode != 2 && Projectile.alpha < 170 && Projectile.alpha + 5 >= 170)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, Main.rand.Next(2) == 0 ? Terraria.ModLoader.ModContent.DustType<Dusts.AkumaDust>() : Terraria.ModLoader.ModContent.DustType<Dusts.YamataAuraDust>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                    Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.Next(2) == 0 ? Terraria.ModLoader.ModContent.DustType<Dusts.AkumaDust>() : Terraria.ModLoader.ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Color newLightColor = new Color(Math.Max(0, Color.Orange.R + Math.Min(0, -projectile.alpha + 20)), Math.Max(0, Color.Orange.G + Math.Min(0, -projectile.alpha + 20)), Math.Max(0, Color.Orange.B + Math.Min(0, -projectile.alpha + 20)));
-            Color newLightColor2 = new Color(Math.Max(0, Color.Indigo.R + Math.Min(0, -projectile.alpha + 20)), Math.Max(0, Color.Indigo.G + Math.Min(0, -projectile.alpha + 20)), Math.Max(0, Color.Indigo.B + Math.Min(0, -projectile.alpha + 20)));
-            BaseDrawing.AddLight(projectile.Center, newLightColor);
-            BaseDrawing.AddLight(projectile.Center, newLightColor2);
-            BaseDrawing.DrawTexture(sb, Main.projectileTexture[projectile.type], 0, projectile);
+            Color newLightColor = new Color(Math.Max(0, Color.Orange.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Orange.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Orange.B + Math.Min(0, -Projectile.alpha + 20)));
+            Color newLightColor2 = new Color(Math.Max(0, Color.Indigo.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.B + Math.Min(0, -Projectile.alpha + 20)));
+            BaseDrawing.AddLight(Projectile.Center, newLightColor);
+            BaseDrawing.AddLight(Projectile.Center, newLightColor2);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile);
             return false;
         }
     }

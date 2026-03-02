@@ -10,17 +10,17 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("FUCKING BUBBLES");
+            // DisplayName.SetDefault("FUCKING BUBBLES");
         }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BulletHighVelocity);
-            aiType = ProjectileID.BulletHighVelocity;
+            Projectile.CloneDefaults(ProjectileID.BulletHighVelocity);
+            AIType = ProjectileID.BulletHighVelocity;
         }
         public override void AI()
         {
             Dust dust1;
-            Vector2 position = projectile.position;
+            Vector2 position = Projectile.position;
             dust1 = Main.dust[Dust.NewDust(position, 0, 0, ModContent.DustType<Dusts.MireBubbleDust>(), 4f, 0f, 46, default, 1f)];
             dust1.noGravity = true;
         }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,34 +8,33 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Bow");
+            // DisplayName.SetDefault("Madness Bow");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 28;
-            item.useTime = 28;
-            item.width = 12;
-            item.height = 28;
-            item.shoot = 1;
-            item.useAmmo = AmmoID.Arrow;
-            item.UseSound = SoundID.Item5;
-            item.damage = 11;
-            item.shootSpeed = 5f;
-            item.knockBack = 1f;
-            item.rare = 2;
-            item.noMelee = true;
-            item.value = 3000;
-            item.ranged = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 28;
+            Item.useTime = 28;
+            Item.width = 12;
+            Item.height = 28;
+            Item.shoot = 1;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.UseSound = SoundID.Item5;
+            Item.damage = 11;
+            Item.shootSpeed = 5f;
+            Item.knockBack = 1f;
+            Item.rare = 2;
+            Item.noMelee = true;
+            Item.value = 3000;
+            Item.DamageType = DamageClass.Ranged;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "MadnessFragment", 6);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, "MadnessFragment", 6);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

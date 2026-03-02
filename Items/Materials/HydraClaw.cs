@@ -4,14 +4,14 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Claw");
-            Tooltip.SetDefault("Don't prick yourself");
+            // DisplayName.SetDefault("Hydra Claw");
+            // Tooltip.SetDefault("Don't prick yourself");
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.maxStack = 99;
+            Item.width = 22;
+            Item.height = 20;
+            Item.maxStack = 99;
         }
     }
 }

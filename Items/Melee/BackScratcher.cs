@@ -1,4 +1,5 @@
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
@@ -6,24 +7,24 @@ namespace AAMod.Items.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Back Scratcher");
+			// DisplayName.SetDefault("Back Scratcher");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 60;
-			item.melee = true;
-			item.width = 22;
-			item.height = 28;
-            item.scale *= 1.5f;
-			item.useTime = 7;
-			item.useAnimation = 7;
-			item.useStyle = 1;
-			item.knockBack = 0;
-			item.value = 80000;
-			item.rare = 5;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 22;
+			Item.height = 28;
+            Item.scale *= 1.5f;
+			Item.useTime = 7;
+			Item.useAnimation = 7;
+			Item.useStyle = 1;
+			Item.knockBack = 0;
+			Item.value = 80000;
+			Item.rare = 5;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 	}
 }

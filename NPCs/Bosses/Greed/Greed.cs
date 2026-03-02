@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,34 +19,34 @@ namespace AAMod.NPCs.Bosses.Greed
 
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Greed");
-            Main.npcFrameCount[npc.type] = 3;
+			// DisplayName.SetDefault("Greed");
+            Main.npcFrameCount[NPC.type] = 3;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.npcSlots = 5f;
-            npc.width = 38;
-            npc.height = 38;
-            npc.damage = 35;
-            npc.defense = 25;
-            npc.lifeMax = 50000;
-            npc.value = Item.buyPrice(0, 5, 0, 0);
-            npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
-            npc.behindTiles = true;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.HitSound = new LegacySoundStyle(21, 1);
-            npc.DeathSound = new LegacySoundStyle(2, 14);
-            npc.netAlways = true;
-            npc.boss = true;
-            bossBag = mod.ItemType("GreedBag");
-            music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Greed");
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+			NPC.npcSlots = 5f;
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.damage = 35;
+            NPC.defense = 25;
+            NPC.lifeMax = 50000;
+            NPC.value = Item.buyPrice(0, 5, 0, 0);
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            NPC.behindTiles = true;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.HitSound = new LegacySoundStyle(21, 1);
+            NPC.DeathSound = new LegacySoundStyle(2, 14);
+            NPC.netAlways = true;
+            NPC.boss = true;
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("GreedBag").Type;
+            Music = Mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Greed");
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
 
@@ -80,29 +81,29 @@ namespace AAMod.NPCs.Bosses.Greed
 
         public override bool PreAI()
         {
-            npc.TargetClosest();
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest();
+            Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
 
-            if (npc.alpha <= 0)
+            if (NPC.alpha <= 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
             else
             {
-                npc.alpha -= 3;
-                if (npc.alpha != 0)
+                NPC.alpha -= 3;
+                if (NPC.alpha != 0)
                 {
                     for (int spawnDust = 0; spawnDust < 4; spawnDust++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, DustID.GoldCoin, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GoldCoin, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].noLight = true;
                     }
@@ -118,17 +119,17 @@ namespace AAMod.NPCs.Bosses.Greed
                 {
                     MinionSummon();
                     internalAI[2] = 0;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 if (internalAI[3] == 340)
                 {
                     internalAI[5] = Main.rand.Next(2);
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 if (internalAI[3] > 540)
                 {
                     internalAI[3] = 0;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
 
@@ -136,7 +137,7 @@ namespace AAMod.NPCs.Bosses.Greed
             {
                 if (internalAI[5] == 0)
                 {
-                    BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<GreedCoin>(), ref internalAI[4], 30, npc.damage / 4, 10, false);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GreedCoin>(), ref internalAI[4], 30, NPC.damage / 4, 10, false);
                 }
                 else
                 {
@@ -146,49 +147,49 @@ namespace AAMod.NPCs.Bosses.Greed
 
             if (!Main.gamePaused && Main.rand.Next(60) == 0 && Main.LocalPlayer.findTreasure)
             {
-                int num52 = Dust.NewDust(npc.Center, 16, 16, 204, 0f, 0f, 150, default, 0.3f);
+                int num52 = Dust.NewDust(NPC.Center, 16, 16, 204, 0f, 0f, 150, default, 0.3f);
                 Main.dust[num52].fadeIn = 1f;
                 Main.dust[num52].velocity *= 0.1f;
                 Main.dust[num52].noLight = true;
             }
 
-            npc.spriteDirection = npc.velocity.X > 0 ? -1 : 1;
-            npc.ai[1]++;
-            if (npc.ai[1] >= 1200)
-                npc.ai[1] = 0;
-            npc.TargetClosest(true);
-            if (!Main.player[npc.target].active || Main.player[npc.target].dead)
+            NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
+            NPC.ai[1]++;
+            if (NPC.ai[1] >= 1200)
+                NPC.ai[1] = 0;
+            NPC.TargetClosest(true);
+            if (!Main.player[NPC.target].active || Main.player[NPC.target].dead)
             {
-                npc.TargetClosest(true);
-                if (!Main.player[npc.target].active || Main.player[npc.target].dead)
+                NPC.TargetClosest(true);
+                if (!Main.player[NPC.target].active || Main.player[NPC.target].dead)
                 {
-                    npc.ai[3]++;
-                    npc.velocity.Y = npc.velocity.Y + 0.11f;
-                    if (npc.ai[3] >= 300)
+                    NPC.ai[3]++;
+                    NPC.velocity.Y = NPC.velocity.Y + 0.11f;
+                    if (NPC.ai[3] >= 300)
                     {
-                        npc.active = false;
+                        NPC.active = false;
                     }
                 }
                 else
-                    npc.ai[3] = 0;
+                    NPC.ai[3] = 0;
             }
             if (Main.netMode != 1)
             {
-                if (npc.ai[0] == 0)
+                if (NPC.ai[0] == 0)
                 {
-                    npc.realLife = npc.whoAmI;
-                    int latestNPC = npc.whoAmI;
+                    NPC.realLife = NPC.whoAmI;
+                    int latestNPC = NPC.whoAmI;
 
                     for (int i = 0; i < 24; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("GreedBody"), npc.whoAmI, 0, latestNPC);
-                        Main.npc[latestNPC].realLife = npc.whoAmI;
+                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("GreedBody").Type, NPC.whoAmI, 0, latestNPC);
+                        Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[2] = i;
-                        Main.npc[latestNPC].ai[3] = npc.whoAmI;
+                        Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                     }
 
-                    npc.ai[0] = 1;
-                    npc.netUpdate = true;
+                    NPC.ai[0] = 1;
+                    NPC.netUpdate = true;
                 }
             }
 
@@ -197,9 +198,9 @@ namespace AAMod.NPCs.Bosses.Greed
             float speed = 16f;
             float acceleration = 0.12f;
 
-            Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-            float targetXPos = Main.player[npc.target].position.X + (Main.player[npc.target].width / 2);
-            float targetYPos = Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2);
+            Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float targetXPos = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2);
+            float targetYPos = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2);
 
             float targetRoundedPosX = (int)(targetXPos / 16.0) * 16;
             float targetRoundedPosY = (int)(targetYPos / 16.0) * 16;
@@ -211,108 +212,108 @@ namespace AAMod.NPCs.Bosses.Greed
             float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
             if (!collision)
             {
-                npc.TargetClosest(true);
-                npc.velocity.Y = npc.velocity.Y + 0.11f;
-                if (npc.velocity.Y > speed)
-                    npc.velocity.Y = speed;
-                if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < speed * 0.4)
+                NPC.TargetClosest(true);
+                NPC.velocity.Y = NPC.velocity.Y + 0.11f;
+                if (NPC.velocity.Y > speed)
+                    NPC.velocity.Y = speed;
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.4)
                 {
-                    if (npc.velocity.X < 0.0)
-                        npc.velocity.X = npc.velocity.X - acceleration * 1.1f;
+                    if (NPC.velocity.X < 0.0)
+                        NPC.velocity.X = NPC.velocity.X - acceleration * 1.1f;
                     else
-                        npc.velocity.X = npc.velocity.X + acceleration * 1.1f;
+                        NPC.velocity.X = NPC.velocity.X + acceleration * 1.1f;
                 }
-                else if (npc.velocity.Y == speed)
+                else if (NPC.velocity.Y == speed)
                 {
-                    if (npc.velocity.X < dirX)
-                        npc.velocity.X = npc.velocity.X + acceleration;
-                    else if (npc.velocity.X > dirX)
-                        npc.velocity.X = npc.velocity.X - acceleration;
+                    if (NPC.velocity.X < dirX)
+                        NPC.velocity.X = NPC.velocity.X + acceleration;
+                    else if (NPC.velocity.X > dirX)
+                        NPC.velocity.X = NPC.velocity.X - acceleration;
                 }
-                else if (npc.velocity.Y > 4.0)
+                else if (NPC.velocity.Y > 4.0)
                 {
-                    if (npc.velocity.X < 0.0)
-                        npc.velocity.X = npc.velocity.X + acceleration * 0.9f;
+                    if (NPC.velocity.X < 0.0)
+                        NPC.velocity.X = NPC.velocity.X + acceleration * 0.9f;
                     else
-                        npc.velocity.X = npc.velocity.X - acceleration * 0.9f;
+                        NPC.velocity.X = NPC.velocity.X - acceleration * 0.9f;
                 }
             }
             else
             {
-                if (npc.soundDelay == 0)
+                if (NPC.soundDelay == 0)
                 {
                     float num1 = length / 40f;
                     if (num1 < 10.0)
                         num1 = 10f;
                     if (num1 > 20.0)
                         num1 = 20f;
-                    npc.soundDelay = (int)num1;
+                    NPC.soundDelay = (int)num1;
                 }
                 float absDirX = Math.Abs(dirX);
                 float absDirY = Math.Abs(dirY);
                 float newSpeed = speed / length;
                 dirX *= newSpeed;
                 dirY *= newSpeed;
-                if (npc.velocity.X > 0.0 && dirX > 0.0 || npc.velocity.X < 0.0 && dirX < 0.0 || npc.velocity.Y > 0.0 && dirY > 0.0 || npc.velocity.Y < 0.0 && dirY < 0.0)
+                if (NPC.velocity.X > 0.0 && dirX > 0.0 || NPC.velocity.X < 0.0 && dirX < 0.0 || NPC.velocity.Y > 0.0 && dirY > 0.0 || NPC.velocity.Y < 0.0 && dirY < 0.0)
                 {
-                    if (npc.velocity.X < dirX)
-                        npc.velocity.X = npc.velocity.X + acceleration;
-                    else if (npc.velocity.X > dirX)
-                        npc.velocity.X = npc.velocity.X - acceleration;
-                    if (npc.velocity.Y < dirY)
-                        npc.velocity.Y = npc.velocity.Y + acceleration;
-                    else if (npc.velocity.Y > dirY)
-                        npc.velocity.Y = npc.velocity.Y - acceleration;
-                    if (Math.Abs(dirY) < speed * 0.2 && (npc.velocity.X > 0.0 && dirX < 0.0 || npc.velocity.X < 0.0 && dirX > 0.0))
+                    if (NPC.velocity.X < dirX)
+                        NPC.velocity.X = NPC.velocity.X + acceleration;
+                    else if (NPC.velocity.X > dirX)
+                        NPC.velocity.X = NPC.velocity.X - acceleration;
+                    if (NPC.velocity.Y < dirY)
+                        NPC.velocity.Y = NPC.velocity.Y + acceleration;
+                    else if (NPC.velocity.Y > dirY)
+                        NPC.velocity.Y = NPC.velocity.Y - acceleration;
+                    if (Math.Abs(dirY) < speed * 0.2 && (NPC.velocity.X > 0.0 && dirX < 0.0 || NPC.velocity.X < 0.0 && dirX > 0.0))
                     {
-                        if (npc.velocity.Y > 0.0)
-                            npc.velocity.Y = npc.velocity.Y + acceleration * 2f;
+                        if (NPC.velocity.Y > 0.0)
+                            NPC.velocity.Y = NPC.velocity.Y + acceleration * 2f;
                         else
-                            npc.velocity.Y = npc.velocity.Y - acceleration * 2f;
+                            NPC.velocity.Y = NPC.velocity.Y - acceleration * 2f;
                     }
-                    if (Math.Abs(dirX) < speed * 0.2 && (npc.velocity.Y > 0.0 && dirY < 0.0 || npc.velocity.Y < 0.0 && dirY > 0.0))
+                    if (Math.Abs(dirX) < speed * 0.2 && (NPC.velocity.Y > 0.0 && dirY < 0.0 || NPC.velocity.Y < 0.0 && dirY > 0.0))
                     {
-                        if (npc.velocity.X > 0.0)
-                            npc.velocity.X = npc.velocity.X + acceleration * 2f;
+                        if (NPC.velocity.X > 0.0)
+                            NPC.velocity.X = NPC.velocity.X + acceleration * 2f;
                         else
-                            npc.velocity.X = npc.velocity.X - acceleration * 2f;
+                            NPC.velocity.X = NPC.velocity.X - acceleration * 2f;
                     }
                 }
                 else if (absDirX > absDirY)
                 {
-                    if (npc.velocity.X < dirX)
-                        npc.velocity.X = npc.velocity.X + acceleration * 1.1f;
-                    else if (npc.velocity.X > dirX)
-                        npc.velocity.X = npc.velocity.X - acceleration * 1.1f;
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < speed * 0.5)
+                    if (NPC.velocity.X < dirX)
+                        NPC.velocity.X = NPC.velocity.X + acceleration * 1.1f;
+                    else if (NPC.velocity.X > dirX)
+                        NPC.velocity.X = NPC.velocity.X - acceleration * 1.1f;
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
                     {
-                        if (npc.velocity.Y > 0.0)
-                            npc.velocity.Y = npc.velocity.Y + acceleration;
+                        if (NPC.velocity.Y > 0.0)
+                            NPC.velocity.Y = NPC.velocity.Y + acceleration;
                         else
-                            npc.velocity.Y = npc.velocity.Y - acceleration;
+                            NPC.velocity.Y = NPC.velocity.Y - acceleration;
                     }
                 }
                 else
                 {
-                    if (npc.velocity.Y < dirY)
-                        npc.velocity.Y = npc.velocity.Y + acceleration * 1.1f;
-                    else if (npc.velocity.Y > dirY)
-                        npc.velocity.Y = npc.velocity.Y - acceleration * 1.1f;
-                    if (Math.Abs(npc.velocity.X) + Math.Abs(npc.velocity.Y) < speed * 0.5)
+                    if (NPC.velocity.Y < dirY)
+                        NPC.velocity.Y = NPC.velocity.Y + acceleration * 1.1f;
+                    else if (NPC.velocity.Y > dirY)
+                        NPC.velocity.Y = NPC.velocity.Y - acceleration * 1.1f;
+                    if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
                     {
-                        if (npc.velocity.X > 0.0)
-                            npc.velocity.X = npc.velocity.X + acceleration;
+                        if (NPC.velocity.X > 0.0)
+                            NPC.velocity.X = NPC.velocity.X + acceleration;
                         else
-                            npc.velocity.X = npc.velocity.X - acceleration;
+                            NPC.velocity.X = NPC.velocity.X - acceleration;
                     }
                 }
             }
-            npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
+            NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
 
-            int tileX = (int)(npc.position.X / 16f) - 1;
-            int tileCenterX = (int)(npc.Center.X / 16f) + 2;
-            int tileY = (int)(npc.position.Y / 16f) - 1;
-            int tileCenterY = (int)(npc.Center.Y / 16f) + 2;
+            int tileX = (int)(NPC.position.X / 16f) - 1;
+            int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
+            int tileY = (int)(NPC.position.Y / 16f) - 1;
+            int tileCenterY = (int)(NPC.Center.Y / 16f) + 2;
             if (tileX < 0) { tileX = 0; }
             if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
             if (tileY < 0) { tileY = 0; }
@@ -322,14 +323,14 @@ namespace AAMod.NPCs.Bosses.Greed
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
                         tPos.Y = tY * 16;
-                        if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
+                        if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.nactive())
+                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -345,27 +346,27 @@ namespace AAMod.NPCs.Bosses.Greed
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("GreedFalse1"), Color.Goldenrod);
                     loludided = true;
                 }
-                npc.velocity.Y = npc.velocity.Y + 1f;
-                if (npc.position.Y - npc.height - npc.velocity.Y >= Main.maxTilesY && Main.netMode != 1) { BaseAI.KillNPC(npc); npc.netUpdate2 = true; }
+                NPC.velocity.Y = NPC.velocity.Y + 1f;
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
             }
 
-            if (Main.player[npc.target].dead || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+            if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
                 if (loludided == false)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("GreedFalse2"), Color.Goldenrod);
                     loludided = true;
                 }
-                npc.velocity.Y = npc.velocity.Y - 1f;
-                if (npc.position.Y < 0)
+                NPC.velocity.Y = NPC.velocity.Y - 1f;
+                if (NPC.position.Y < 0)
                 {
-                    npc.velocity.Y = npc.velocity.Y - 1f;
+                    NPC.velocity.Y = NPC.velocity.Y - 1f;
                 }
-                if (npc.position.Y < 0)
+                if (NPC.position.Y < 0)
                 {
                     for (int num957 = 0; num957 < 200; num957++)
                     {
-                        if (Main.npc[num957].aiStyle == npc.aiStyle)
+                        if (Main.npc[num957].aiStyle == NPC.aiStyle)
                         {
                             Main.npc[num957].active = false;
                         }
@@ -375,35 +376,35 @@ namespace AAMod.NPCs.Bosses.Greed
 
             if (collision)
             {
-                if (npc.localAI[0] != 1)
-                    npc.netUpdate = true;
-                npc.localAI[0] = 1f;
+                if (NPC.localAI[0] != 1)
+                    NPC.netUpdate = true;
+                NPC.localAI[0] = 1f;
             }
             else
             {
-                if (npc.localAI[0] != 0.0)
-                    npc.netUpdate = true;
-                npc.localAI[0] = 0.0f;
+                if (NPC.localAI[0] != 0.0)
+                    NPC.netUpdate = true;
+                NPC.localAI[0] = 0.0f;
             }
-            if ((npc.velocity.X > 0.0 && npc.oldVelocity.X < 0.0 || npc.velocity.X < 0.0 && npc.oldVelocity.X > 0.0 || npc.velocity.Y > 0.0 && npc.oldVelocity.Y < 0.0 || npc.velocity.Y < 0.0 && npc.oldVelocity.Y > 0.0) && !npc.justHit)
-                npc.netUpdate = true;
+            if ((NPC.velocity.X > 0.0 && NPC.oldVelocity.X < 0.0 || NPC.velocity.X < 0.0 && NPC.oldVelocity.X > 0.0 || NPC.velocity.Y > 0.0 && NPC.oldVelocity.Y < 0.0 || NPC.velocity.Y < 0.0 && NPC.oldVelocity.Y > 0.0) && !NPC.justHit)
+                NPC.netUpdate = true;
 
             return false;
         }
 
         public bool truehit = false;
 
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit)
+        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
         {
             timer = 40;
             if (item.pick > 0)
             {
-                npc.StrikeNPC(damage + item.pick, knockback, 0, true);
+                NPC.StrikeNPC(damage + item.pick, knockback, 0, true);
                 truehit = true;
             }
         }
 
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
         {
             timer = 40;
         }
@@ -420,19 +421,19 @@ namespace AAMod.NPCs.Bosses.Greed
             {
                 timer = 0;
             }
-            if (npc.type == ModContent.NPCType<GreedBody>())
+            if (NPC.type == ModContent.NPCType<GreedBody>())
             {
-                npc.frame.Y = frameHeight * (int)npc.ai[2];
+                NPC.frame.Y = frameHeight * (int)NPC.ai[2];
             }
-            if (npc.type == ModContent.NPCType<Greed>())
+            if (NPC.type == ModContent.NPCType<Greed>())
             {
                 if (timer > 0)
                 {
-                    npc.frame.Y = frameHeight;
+                    NPC.frame.Y = frameHeight;
                 }
                 else
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
@@ -445,7 +446,7 @@ namespace AAMod.NPCs.Bosses.Greed
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
-            if (npc.type != ModContent.NPCType<Greed>())
+            if (NPC.type != ModContent.NPCType<Greed>())
             {
                 return false;
             }
@@ -453,34 +454,34 @@ namespace AAMod.NPCs.Bosses.Greed
             return true;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			npc.lifeMax = (int)(npc.lifeMax * 0.75f * bossLifeScale);
-			npc.damage = (int)(npc.damage * 0.85f);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * bossLifeScale);
+			NPC.damage = (int)(NPC.damage * 0.85f);
 		}
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, DustID.Dirt, hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt, hitDirection, -1f, 0, default, 1f);
             }
-            if (npc.life == 0)
+            if (NPC.life == 0)
             {
                 for (int k = 0; k < 5; k++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, DustID.Dirt, hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt, hitDirection, -1f, 0, default, 1f);
                 }
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             AAWorld.downedGreed = true;
             if (NPC.downedMoonlord)
             {
-                int a = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<GreedTransition>());
-                Main.npc[a].Center = npc.Center;
+                int a = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<GreedTransition>());
+                Main.npc[a].Center = NPC.Center;
                 return;
             }
             else
@@ -489,40 +490,40 @@ namespace AAMod.NPCs.Bosses.Greed
                 {
                     if (Main.rand.Next(7) == 0)
                     {
-                        npc.DropLoot(mod.ItemType("GreedMask"));
+                        NPC.DropLoot(Mod.Find<ModItem>("GreedMask").Type);
                     }
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StoneShell"), Main.rand.Next(20, 25));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(20, 25));
                     string[] lootTable = { "GildedGlock", "GoldDigger", "Miner" };
                     int loot = Main.rand.Next(lootTable.Length);
-                    npc.DropLoot(mod.ItemType(lootTable[loot]));
+                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
                 if (Main.expertMode)
                 {
-                    npc.DropBossBags();
+                    NPC.DropBossBags();
                 }
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GreedTrophy"));
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GreedTrophy").Type);
             }
-            npc.value = 0f;
-            npc.boss = false;
+            NPC.value = 0f;
+            NPC.boss = false;
         }
 
         public override void BossHeadRotation(ref float rotation)
         {
-            rotation = npc.rotation;
+            rotation = NPC.rotation;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = Main.npcTexture[npc.type];
+            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
 
-            npc.position.Y += npc.height * 0.5f;
+            NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spritebatch, texture, 0, npc, dColor);
+            BaseDrawing.DrawTexture(spritebatch, texture, 0, NPC, dColor);
 
-            npc.position.Y -= npc.height * 0.5f;
+            NPC.position.Y -= NPC.height * 0.5f;
 
             return false;
         }
@@ -534,118 +535,118 @@ namespace AAMod.NPCs.Bosses.Greed
             int MinionChoice = Main.rand.Next(11);
             if (MinionChoice == 0)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 0);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 0);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 2);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 2);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 4);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 4);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 6);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 6);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 1)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 1);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 1);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 3);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 3);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 5);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 5);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 7);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 7);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 2)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 8);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 8);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 9);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 9);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 3)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 10);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 10);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 11);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 11);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 4)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 12);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 12);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 13);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 13);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 5)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 14);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 14);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 16);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 16);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 18);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 18);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 6)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 15);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 15);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 17);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 17);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 19);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 19);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 7)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 20);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 20);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 20);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 20);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 8)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 21);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 21);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
                 Xint = Main.rand.Next(-400, 400);
                 Yint = Main.rand.Next(-400, 400);
-                a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 21);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 21);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 9)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 22);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 22);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
             else if (MinionChoice == 10)
             {
-                int a = NPC.NewNPC((int)npc.Center.X + Xint, (int)npc.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 23);
-                Main.npc[a].Center = new Vector2(npc.Center.X + Xint, npc.Center.Y + Yint);
+                int a = NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, 23);
+                Main.npc[a].Center = new Vector2(NPC.Center.X + Xint, NPC.Center.Y + Yint);
             }
         }
     }
@@ -657,16 +658,16 @@ namespace AAMod.NPCs.Bosses.Greed
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Greed");
-            NPCID.Sets.TechnicallyABoss[npc.type] = true;
-            Main.npcFrameCount[npc.type] = 22;
+            // DisplayName.SetDefault("Greed");
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            Main.npcFrameCount[NPC.type] = 22;
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.dontCountMe = true;
-            npc.alpha = 255;
+            NPC.dontCountMe = true;
+            NPC.alpha = 255;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -674,12 +675,12 @@ namespace AAMod.NPCs.Bosses.Greed
             return false;
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             if(!truehit)
             {
@@ -692,69 +693,69 @@ namespace AAMod.NPCs.Bosses.Greed
             return true;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 		{
-            if (projectile.type == mod.ProjectileType("OreChunk") && projectile.ai[1] == ItemID.GoldOre && npc.ai[2] == 6)
+            if (projectile.type == Mod.Find<ModProjectile>("OreChunk").Type && projectile.ai[1] == ItemID.GoldOre && NPC.ai[2] == 6)
             {
-                damage += (int)(npc.defense * (Main.expertMode? .75 : .5f));
+                damage += (int)(NPC.defense * (Main.expertMode? .75 : .5f));
                 truehit = true;
             }
 		}
 
         public override bool PreAI()
         {
-            npc.defense = Def();
-            Vector2 chasePosition = Main.npc[(int)npc.ai[1]].Center;
-            Vector2 directionVector = chasePosition - npc.Center;
-            npc.spriteDirection = (directionVector.X > 0f) ? 1 : -1;
-            if (npc.ai[3] > 0)
-                npc.realLife = (int)npc.ai[3];
-            if (npc.target < 0 || npc.target == byte.MaxValue || Main.player[npc.target].dead)
-                npc.TargetClosest(true);
-            if (Main.player[npc.target].dead && npc.timeLeft > 300)
-                npc.timeLeft = 300;
+            NPC.defense = Def();
+            Vector2 chasePosition = Main.npc[(int)NPC.ai[1]].Center;
+            Vector2 directionVector = chasePosition - NPC.Center;
+            NPC.spriteDirection = (directionVector.X > 0f) ? 1 : -1;
+            if (NPC.ai[3] > 0)
+                NPC.realLife = (int)NPC.ai[3];
+            if (NPC.target < 0 || NPC.target == byte.MaxValue || Main.player[NPC.target].dead)
+                NPC.TargetClosest(true);
+            if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
+                NPC.timeLeft = 300;
 
             if (Main.netMode != 1)
             {
-                if (!Main.npc[(int)npc.ai[3]].active || Main.npc[(int)npc.ai[3]].type != mod.NPCType("Greed"))
+                if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Greed").Type)
                 {
-                    npc.life = 0;
-                    npc.HitEffect(0, 10.0);
-                    npc.active = false;
-                    NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                    NPC.life = 0;
+                    NPC.HitEffect(0, 10.0);
+                    NPC.active = false;
+                    NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                 }
             }
 
-            if (npc.ai[1] < (double)Main.npc.Length)
+            if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
+                NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - npc.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
                 if (dirX < 0f)
                 {
-                    npc.spriteDirection = 1;
+                    NPC.spriteDirection = 1;
 
                 }
                 else
                 {
-                    npc.spriteDirection = -1;
+                    NPC.spriteDirection = -1;
                 }
 
-                npc.velocity = Vector2.Zero;
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
+                NPC.velocity = Vector2.Zero;
+                NPC.position.X = NPC.position.X + posX;
+                NPC.position.Y = NPC.position.Y + posY;
             }
 
-            int tileX = (int)(npc.position.X / 16f) - 1;
-            int tileCenterX = (int)(npc.Center.X / 16f) + 2;
-            int tileY = (int)(npc.position.Y / 16f) - 1;
-            int tileCenterY = (int)(npc.Center.Y / 16f) + 2;
+            int tileX = (int)(NPC.position.X / 16f) - 1;
+            int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
+            int tileY = (int)(NPC.position.Y / 16f) - 1;
+            int tileCenterY = (int)(NPC.Center.Y / 16f) + 2;
             if (tileX < 0) { tileX = 0; }
             if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
             if (tileY < 0) { tileY = 0; }
@@ -764,14 +765,14 @@ namespace AAMod.NPCs.Bosses.Greed
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
                     Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);
-                    if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[checkTile.type] || (Main.tileSolidTop[checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                    if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
                         tPos.X = tX * 16;
                         tPos.Y = tY * 16;
-                        if (npc.position.X + npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
+                        if (NPC.position.X + NPC.width > tPos.X && NPC.position.X < tPos.X + 16f && NPC.position.Y + NPC.height > tPos.Y && NPC.position.Y < tPos.Y + 16f)
                         {
-                            if (Main.rand.Next(100) == 0 && checkTile.nactive())
+                            if (Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                             {
                                 WorldGen.KillTile(tX, tY, true, true, false);
                             }
@@ -780,31 +781,31 @@ namespace AAMod.NPCs.Bosses.Greed
                 }
             }
 
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead || !Main.player[npc.target].active)
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
-                npc.TargetClosest(true);
+                NPC.TargetClosest(true);
             }
-            if (npc.alpha <= 0)
+            if (NPC.alpha <= 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
                 return false;
             }
             else
             {
                 for (int spawnDust = 0; spawnDust < 4; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, DustID.GoldCoin, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GoldCoin, 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
-                npc.alpha -= 3;
+                NPC.alpha -= 3;
                 return false;
             }
         }
 
         public override void BossHeadRotation(ref float rotation)
         {
-            rotation = npc.rotation;
+            rotation = NPC.rotation;
         }
 
         public override bool CheckActive()
@@ -813,70 +814,70 @@ namespace AAMod.NPCs.Bosses.Greed
             {
                 return false;
             }
-            npc.active = false;
+            NPC.active = false;
             return true;
         }
 
         public int Def()
         {
-            switch ((int)npc.ai[2])
+            switch ((int)NPC.ai[2])
             {
                 case 0:
-                    return npc.defense = 6; //Copper
+                    return NPC.defense = 6; //Copper
                 case 1:
-                    return npc.defense = 7; //tin
+                    return NPC.defense = 7; //tin
                 case 2:
-                    return npc.defense = 9; //Iron
+                    return NPC.defense = 9; //Iron
                 case 3:
-                    return npc.defense = 11; //Lead
+                    return NPC.defense = 11; //Lead
                 case 4:
-                    return npc.defense = 13; //Silver
+                    return NPC.defense = 13; //Silver
                 case 5:
-                    return npc.defense = 15; //Tungsten
+                    return NPC.defense = 15; //Tungsten
                 case 6:
-                    return npc.defense = 16; //Gold
+                    return NPC.defense = 16; //Gold
                 case 7:
-                    return npc.defense = 20; //Platinum
+                    return NPC.defense = 20; //Platinum
                 case 8:
-                    return npc.defense = 19; //Shadow
+                    return NPC.defense = 19; //Shadow
                 case 9:
-                    return npc.defense = 19; //Crimson
+                    return NPC.defense = 19; //Crimson
                 case 10:
-                    return npc.defense = 15; //Abyssium
+                    return NPC.defense = 15; //Abyssium
                 case 11:
-                    return npc.defense = 21; //Incinerite
+                    return NPC.defense = 21; //Incinerite
                 case 12:
-                    return npc.defense = 25; //Hellstone
+                    return NPC.defense = 25; //Hellstone
                 case 13:
-                    return npc.defense = 26; //Cobalt
+                    return NPC.defense = 26; //Cobalt
                 case 14:
-                    return npc.defense = 32; //Paladium
+                    return NPC.defense = 32; //Paladium
                 case 15:
-                    return npc.defense = 37; //Mythril
+                    return NPC.defense = 37; //Mythril
                 case 16:
-                    return npc.defense = 42; //Oricalcum
+                    return NPC.defense = 42; //Oricalcum
                 case 17:
-                    return npc.defense = 50; //Adamantite
+                    return NPC.defense = 50; //Adamantite
                 case 18:
-                    return npc.defense = 49; //Titanium
+                    return NPC.defense = 49; //Titanium
                 case 19:
-                    return npc.defense = 50; //Hallowed
+                    return NPC.defense = 50; //Hallowed
                 case 20:
-                    return npc.defense = 56; //Chlorophyte
+                    return NPC.defense = 56; //Chlorophyte
                 default:
-                    return npc.defense = 30; //Tail
+                    return NPC.defense = 30; //Tail
             }
         }
 
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = Main.npcTexture[npc.type];
-            Texture2D glow = mod.GetTexture("Glowmasks/GreedBody_Glow");
+            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            Texture2D glow = Mod.GetTexture("Glowmasks/GreedBody_Glow");
 
-            npc.position.Y += npc.height * 0.5f;
+            NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spritebatch, texture, 0, npc, dColor);
+            BaseDrawing.DrawTexture(spritebatch, texture, 0, NPC, dColor);
             if (Main.LocalPlayer.findTreasure)
             {
                 Color color = dColor;
@@ -891,10 +892,10 @@ namespace AAMod.NPCs.Bosses.Greed
                     color.G = b3;
                 }
                 color.A = Main.mouseTextColor;
-                BaseDrawing.DrawTexture(spritebatch, glow, 0, npc, color);
+                BaseDrawing.DrawTexture(spritebatch, glow, 0, NPC, color);
             }
 
-            npc.position.Y -= npc.height * 0.5f;
+            NPC.position.Y -= NPC.height * 0.5f;
             return false;
         }
     }

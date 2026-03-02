@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,25 +8,24 @@ namespace AAMod.Items.Boss.EFish
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fishnado Staff");
+			// DisplayName.SetDefault("Fishnado Staff");
 		}
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(2621);
-			item.damage = 150;
-			item.rare = 11;
-			item.shoot = mod.ProjectileType("Fishnado");
+			Item.CloneDefaults(2621);
+			Item.damage = 150;
+			Item.rare = 11;
+			Item.shoot = Mod.Find<ModProjectile>("Fishnado").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.TempestStaff);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

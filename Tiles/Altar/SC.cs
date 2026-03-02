@@ -6,11 +6,11 @@ namespace AAMod.Tiles.Altar
     {
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 22;
-            item.maxStack = 1;
-            item.rare = 1;
-            item.value = 1;
+            Item.width = 26;
+            Item.height = 22;
+            Item.maxStack = 1;
+            Item.rare = 1;
+            Item.value = 1;
         }
     }
 }

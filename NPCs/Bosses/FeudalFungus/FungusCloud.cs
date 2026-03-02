@@ -10,27 +10,27 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
     	
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fungus Cloud");
-            Main.projFrames[projectile.type] = 5;
+			// DisplayName.SetDefault("Fungus Cloud");
+            Main.projFrames[Projectile.type] = 5;
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 1;
-            projectile.scale = 1.1f;
-            projectile.aiStyle = -1;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 1;
+            Projectile.scale = 1.1f;
+            Projectile.aiStyle = -1;
         }
 
         public override Color? GetAlpha(Color lightColor)
         {
-            if(projectile.ai[1] == 1f)
+            if(Projectile.ai[1] == 1f)
             {
                 return AAColor.Glow;
             }
@@ -39,41 +39,41 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
         public override void AI()
         {
-            if(projectile.ai[1] == 1f)
+            if(Projectile.ai[1] == 1f)
             {
-                projectile.velocity *= 0.98f;
-                projectile.alpha += 2;
-                if (projectile.alpha > 255)
+                Projectile.velocity *= 0.98f;
+                Projectile.alpha += 2;
+                if (Projectile.alpha > 255)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
             else
             {
-                if(projectile.timeLeft < 120)
+                if(Projectile.timeLeft < 120)
                 {
-                    projectile.alpha += 2;
-                    if (projectile.alpha > 255)
+                    Projectile.alpha += 2;
+                    if (Projectile.alpha > 255)
                     {
-                        projectile.Kill();
+                        Projectile.Kill();
                     }
                 }
-                if(projectile.ai[0] ++ < 50)
+                if(Projectile.ai[0] ++ < 50)
                 {
-                    projectile.alpha -= 5;
+                    Projectile.alpha -= 5;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

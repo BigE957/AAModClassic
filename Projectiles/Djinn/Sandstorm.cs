@@ -13,48 +13,48 @@ namespace AAMod.Projectiles.Djinn
         public override string Texture => "AAMod/BlankTex";
         public override void SetDefaults()
         {
-            projectile.width = 60;
-            projectile.height = 210;
-            projectile.aiStyle = 145;
-            projectile.friendly = true;
-            projectile.magic = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.timeLeft = 600;
-            projectile.localNPCHitCooldown = -1;
-            projectile.ignoreWater = true;
+            Projectile.width = 60;
+            Projectile.height = 210;
+            Projectile.aiStyle = 145;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.timeLeft = 600;
+            Projectile.localNPCHitCooldown = -1;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
             float num = 300f;
-            if (projectile.soundDelay == 0)
+            if (Projectile.soundDelay == 0)
             {
-                projectile.soundDelay = -1;
-                projectile.localAI[1] = Main.PlayTrackedSound(SoundID.DD2_BookStaffTwisterLoop, projectile.Center).ToFloat();
+                Projectile.soundDelay = -1;
+                Projectile.localAI[1] = SoundEngine.PlaySound(SoundID.DD2_BookStaffTwisterLoop, Projectile.Center).ToFloat();
             }
-            ActiveSound activeSound = Main.GetActiveSound(SlotId.FromFloat(projectile.localAI[1]));
+            SoundEngine.TryGetActiveSound(SlotId.FromFloat(Projectile.localAI[1]), out ActiveSound activeSound);
             if (activeSound != null)
             {
-                activeSound.Position = projectile.Center;
-                activeSound.Volume = 1f - Math.Max(projectile.ai[0] - (num - 15f), 0f) / 15f;
+                activeSound.Position = Projectile.Center;
+                activeSound.Volume = 1f - Math.Max(Projectile.ai[0] - (num - 15f), 0f) / 15f;
             }
             else
             {
-                projectile.localAI[1] = SlotId.Invalid.ToFloat();
+                Projectile.localAI[1] = SlotId.Invalid.ToFloat();
             }
-            if (projectile.localAI[0] >= 16f && projectile.ai[0] < num - 15f)
+            if (Projectile.localAI[0] >= 16f && Projectile.ai[0] < num - 15f)
             {
-                projectile.ai[0] = num - 15f;
+                Projectile.ai[0] = num - 15f;
             }
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= num)
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= num)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            Vector2 top = projectile.Top;
-            Vector2 bottom = projectile.Bottom;
+            Vector2 top = Projectile.Top;
+            Vector2 bottom = Projectile.Bottom;
             Vector2 value = Vector2.Lerp(top, bottom, 0.5f);
             Vector2 value2 = new Vector2(0f, bottom.Y - top.Y);
             value2.X = value2.Y * 0.2f;
@@ -62,53 +62,53 @@ namespace AAMod.Projectiles.Djinn
             int num3 = 160;
             for (int i = 0; i < 1; i++)
             {
-                Vector2 position = new Vector2(projectile.Center.X - num2 / 2, projectile.position.Y + projectile.height - num3);
+                Vector2 position = new Vector2(Projectile.Center.X - num2 / 2, Projectile.position.Y + Projectile.height - num3);
                 if (Collision.SolidCollision(position, num2, num3) || Collision.WetCollision(position, num2, num3))
                 {
-                    if (projectile.velocity.Y > 0f)
+                    if (Projectile.velocity.Y > 0f)
                     {
-                        projectile.velocity.Y = 0f;
+                        Projectile.velocity.Y = 0f;
                     }
-                    if (projectile.velocity.Y > -4f)
+                    if (Projectile.velocity.Y > -4f)
                     {
-                        projectile.velocity.Y = projectile.velocity.Y - 2f;
+                        Projectile.velocity.Y = Projectile.velocity.Y - 2f;
                     }
                     else
                     {
-                        projectile.velocity.Y = projectile.velocity.Y - 4f;
-                        projectile.localAI[0] += 2f;
+                        Projectile.velocity.Y = Projectile.velocity.Y - 4f;
+                        Projectile.localAI[0] += 2f;
                     }
-                    if (projectile.velocity.Y < -16f)
+                    if (Projectile.velocity.Y < -16f)
                     {
-                        projectile.velocity.Y = -16f;
+                        Projectile.velocity.Y = -16f;
                     }
                 }
                 else
                 {
-                    projectile.localAI[0] -= 1f;
-                    if (projectile.localAI[0] < 0f)
+                    Projectile.localAI[0] -= 1f;
+                    if (Projectile.localAI[0] < 0f)
                     {
-                        projectile.localAI[0] = 0f;
+                        Projectile.localAI[0] = 0f;
                     }
-                    if (projectile.velocity.Y < 0f)
+                    if (Projectile.velocity.Y < 0f)
                     {
-                        projectile.velocity.Y = 0f;
+                        Projectile.velocity.Y = 0f;
                     }
-                    if (projectile.velocity.Y < 4f)
+                    if (Projectile.velocity.Y < 4f)
                     {
-                        projectile.velocity.Y = projectile.velocity.Y + 2f;
+                        Projectile.velocity.Y = Projectile.velocity.Y + 2f;
                     }
                     else
                     {
-                        projectile.velocity.Y = projectile.velocity.Y + 4f;
+                        Projectile.velocity.Y = Projectile.velocity.Y + 4f;
                     }
-                    if (projectile.velocity.Y > 16f)
+                    if (Projectile.velocity.Y > 16f)
                     {
-                        projectile.velocity.Y = 16f;
+                        Projectile.velocity.Y = 16f;
                     }
                 }
             }
-            if (projectile.ai[0] < num - 30f)
+            if (Projectile.ai[0] < num - 30f)
             {
                 for (int j = 0; j < 1; j++)
                 {
@@ -132,14 +132,14 @@ namespace AAMod.Projectiles.Djinn
                     dust.noGravity = true;
                     dust.velocity.Y = Main.rand.NextFloat() * -0.5f - 1.3f;
                     Dust expr_49A_cp_0 = dust;
-                    expr_49A_cp_0.velocity.X += projectile.velocity.X * 2.1f;
+                    expr_49A_cp_0.velocity.X += Projectile.velocity.X * 2.1f;
                     dust.noLight = true;
                 }
             }
-            Vector2 position3 = projectile.Bottom + new Vector2(-25f, -25f);
+            Vector2 position3 = Projectile.Bottom + new Vector2(-25f, -25f);
             for (int k = 0; k < 4; k++)
             {
-                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, 269, projectile.velocity.X, -2f, 100);
+                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, 269, Projectile.velocity.X, -2f, 100);
                 dust2.fadeIn = 1.1f;
                 dust2.noGravity = true;
             }
@@ -147,7 +147,7 @@ namespace AAMod.Projectiles.Djinn
             {
                 if (Main.rand.Next(5) == 0)
                 {
-                    Gore gore = Gore.NewGoreDirect(projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * projectile.Size, new Vector2(projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -156,14 +156,14 @@ namespace AAMod.Projectiles.Djinn
                     gore.timeLeft = 60;
                     gore.alpha = 50;
                     Gore expr_5FA_cp_0 = gore;
-                    expr_5FA_cp_0.velocity.X += projectile.velocity.X;
+                    expr_5FA_cp_0.velocity.X += Projectile.velocity.X;
                 }
             }
             for (int m = 0; m < 1; m++)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore2 = Gore.NewGoreDirect(projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * projectile.Size, new Vector2(projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore2 = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -177,7 +177,7 @@ namespace AAMod.Projectiles.Djinn
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore3 = Gore.NewGoreDirect(projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * projectile.Size, new Vector2(projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore3 = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -189,9 +189,9 @@ namespace AAMod.Projectiles.Djinn
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            ActiveSound activeSound = Main.GetActiveSound(SlotId.FromFloat(projectile.localAI[1]));
+            SoundEngine.TryGetActiveSound(SlotId.FromFloat(Projectile.localAI[1]), out ActiveSound activeSound);
             if (activeSound != null)
             {
                 activeSound.Volume = 0f;

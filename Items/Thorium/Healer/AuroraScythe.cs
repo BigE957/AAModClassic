@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,50 +14,50 @@ namespace AAMod.Items.Thorium.Healer
 		public override void SetStaticDefaults()
 		{
 			crossoverModName = "Thorium";
-            DisplayName.SetDefault("Aurora Scythe");
-            Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
+            // DisplayName.SetDefault("Aurora Scythe");
+            /* Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
 Scythes inflict frostburn on contact
-Grants 1 soul essence on direct hit");			
+Grants 1 soul essence on direct hit"); */			
 		}
 
 		public override void SetDefaults()
 		{
-            item.width = 40;
-            item.height = 40;
-            item.maxStack = 1;
-            item.rare = 3;
-            item.value = BaseUtility.CalcValue(0, 5, 50, 50);
+            Item.width = 40;
+            Item.height = 40;
+            Item.maxStack = 1;
+            Item.rare = 3;
+            Item.value = BaseUtility.CalcValue(0, 5, 50, 50);
 
-            item.useStyle = 1;
-            item.useAnimation = 25;
-            item.useTime = 25;
-            item.UseSound = SoundID.Item1;
-            item.damage = 24;
-            item.knockBack = 6;
-			item.noMelee = true;
-			item.noUseGraphic = true;
-			item.autoReuse = true;
-            item.shoot = mod.ProjectileType("AuroraScythe");
-            item.shootSpeed = 0.1f;
+            Item.useStyle = 1;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
+            Item.UseSound = SoundID.Item1;
+            Item.damage = 24;
+            Item.knockBack = 6;
+			Item.noMelee = true;
+			Item.noUseGraphic = true;
+			Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("AuroraScythe").Type;
+            Item.shootSpeed = 0.1f;
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, mod.ProjectileType("AuroraScytheEffect"), damage, knockBack, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AuroraScytheEffect").Type, damage, knockBack, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
 
-        public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= ((ModSupportPlayer)player.GetModPlayer(mod, "ModSupportPlayer")).Thorium_radiantBoost;
+            mult *= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantBoost;
         }
 
-        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
 		{
-			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(mod, "ModSupportPlayer")).Thorium_radiantCrit)
+			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
 			{
 				crit = true;
 			}
@@ -66,7 +67,7 @@ Grants 1 soul essence on direct hit");
         {
             if (ModSupport.GetMod("ThoriumMod") == null)
             {
-                item.TurnToAir();
+                Item.TurnToAir();
             }
         }
 
@@ -79,13 +80,13 @@ Grants 1 soul essence on direct hit");
                 if (list[m].Name.Equals("Tooltip0")) { index2 = m; continue; }		
 				if(index > -1 && index2 > -1) break;
             }
-            string oldTooltip = list[index].text;
+            string oldTooltip = list[index].Text;
             string[] split = oldTooltip.Split(' '); 
             list.RemoveAt(index);
-            list.Insert(index, new TooltipLine(mod, "Damage", split[0] + " radiant damage"));
-            TooltipLine colorLine = new TooltipLine(mod, "Healer", "-Healer Class-")
+            list.Insert(index, new TooltipLine(Mod, "Damage", split[0] + " radiant damage"));
+            TooltipLine colorLine = new TooltipLine(Mod, "Healer", "-Healer Class-")
             {
-                overrideColor = new Color(255, 255, 91)
+                OverrideColor = new Color(255, 255, 91)
             };
             list.Insert(index2, colorLine);
 			base.ModifyTooltips(list);
@@ -94,18 +95,16 @@ Grants 1 soul essence on direct hit");
         public override void AddRecipes()
         {
             if (ModSupport.GetMod("ThoriumMod") == null) return;
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(1306);
             recipe.AddIngredient(ItemID.AdamantiteBar, 8);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-			recipe = new ModRecipe(mod);
+            recipe.Register();
+			recipe = CreateRecipe();
 			recipe.AddIngredient(1306);
             recipe.AddIngredient(ItemID.TitaniumBar, 8);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

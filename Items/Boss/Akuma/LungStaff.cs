@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.Projectiles.Akuma.Lung;
@@ -11,30 +12,30 @@ namespace AAMod.Items.Boss.Akuma
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Lung Staff");
-            Tooltip.SetDefault(
-                @"Summons an ancient lung to fight for you");
+            // DisplayName.SetDefault("Ancient Lung Staff");
+            /* Tooltip.SetDefault(
+                @"Summons an ancient lung to fight for you"); */
         }
 
         public override void SetDefaults()
         {
-            item.mana = 20;
-            item.damage = 100;
-            item.useStyle = 1;
-            item.shootSpeed = 10f;
-            item.shoot = mod.ProjectileType("LungHead");
-            item.width = 64;
-            item.height = 64;
-            item.UseSound = SoundID.Item44;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.noMelee = true;
-            item.knockBack = 2f;
-            item.buffType = mod.BuffType("LungMinion");
-            item.summon = true;
-            item.rare = 9;
+            Item.mana = 20;
+            Item.damage = 100;
+            Item.useStyle = 1;
+            Item.shootSpeed = 10f;
+            Item.shoot = Mod.Find<ModProjectile>("LungHead").Type;
+            Item.width = 64;
+            Item.height = 64;
+            Item.UseSound = SoundID.Item44;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.noMelee = true;
+            Item.knockBack = 2f;
+            Item.buffType = Mod.Find<ModBuff>("LungMinion").Type;
+            Item.DamageType = DamageClass.Summon;
+            Item.rare = 9;
             AARarity = 13;
-            item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.value = Item.sellPrice(0, 30, 0, 0);
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -45,9 +46,9 @@ namespace AAMod.Items.Boss.Akuma
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -57,7 +58,7 @@ namespace AAMod.Items.Boss.Akuma
             return true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (player.altFunctionUse == 2)
             {
@@ -66,7 +67,7 @@ namespace AAMod.Items.Boss.Akuma
             return base.UseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			if (player.altFunctionUse == 2)
             {
@@ -75,13 +76,13 @@ namespace AAMod.Items.Boss.Akuma
 
             if (player.maxMinions - player.slotsMinions < 0.5) return false;
 			
-			player.AddBuff(mod.BuffType("LungMinion"), 2, true);
+			player.AddBuff(Mod.Find<ModBuff>("LungMinion").Type, 2, true);
 
             int num184 = -1;
             int num185 = -1;
-            int num74 = item.shoot;
+            int num74 = Item.shoot;
             int num76 = damage;
-            float num77 = item.knockBack;
+            float num77 = Item.knockBack;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num81 = Main.mouseX + Main.screenPosition.X - vector2.X;
             float num82 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
@@ -128,7 +129,7 @@ namespace AAMod.Items.Boss.Akuma
                 int previous = (int) Main.projectile[num185].ai[0];
                 int current = 0;
 
-                current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("LungBody"), damage, knockBack, player.whoAmI,
+                current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("LungBody").Type, damage, knockBack, player.whoAmI,
                 Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                 previous = current;
@@ -144,13 +145,12 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(null, "DragonriderStaff", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

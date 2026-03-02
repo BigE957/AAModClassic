@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,45 +10,45 @@ namespace AAMod.Items.Summoning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Ritual");
-            Tooltip.SetDefault(@"Summons a chaos construct to fight with you");
+            // DisplayName.SetDefault("Chaos Ritual");
+            // Tooltip.SetDefault(@"Summons a chaos construct to fight with you");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 60;
-            item.summon = true;
-            item.mana = 10;
-            item.width = 26;
-            item.height = 28;
-            item.useTime = 36;
-            item.useAnimation = 36;
-            item.useStyle = 1;
-            item.noMelee = true;
-            item.knockBack = 3;
-            item.rare = 8;
-            item.UseSound = SoundID.Item44;
-            item.shoot = ModContent.ProjectileType<Minions.ChaosConstruct>();
-            item.shootSpeed = 10f;
-            item.buffType = ModContent.BuffType<Buffs.ChaosConstruct>();
-            item.autoReuse = true;
+            Item.damage = 60;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 10;
+            Item.width = 26;
+            Item.height = 28;
+            Item.useTime = 36;
+            Item.useAnimation = 36;
+            Item.useStyle = 1;
+            Item.noMelee = true;
+            Item.knockBack = 3;
+            Item.rare = 8;
+            Item.UseSound = SoundID.Item44;
+            Item.shoot = ModContent.ProjectileType<Minions.ChaosConstruct>();
+            Item.shootSpeed = 10f;
+            Item.buffType = ModContent.BuffType<Buffs.ChaosConstruct>();
+            Item.autoReuse = true;
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
             int num73 = damage;
             float num74 = knockBack;
-            num74 = player.GetWeaponKnockback(item, num74);
-            player.itemTime = item.useTime;
+            num74 = player.GetWeaponKnockback(Item, num74);
+            player.itemTime = Item.useTime;
             Vector2 vector2;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
@@ -57,12 +58,11 @@ namespace AAMod.Items.Summoning
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DoomiteSignalC", 1);
             recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -10,27 +10,27 @@ namespace AAMod.NPCs.Bosses.AH
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sisters of Discord");
-            Terraria.ID.NPCID.Sets.TechnicallyABoss[npc.type] = true;
+            // DisplayName.SetDefault("Sisters of Discord");
+            Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
         }
 
         public override void SetDefaults()
         {
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
             {
-                npc.width = 100;
-                npc.height = 100;
-                npc.friendly = false;
-                npc.lifeMax = 1;
-                npc.dontTakeDamage = true;
-                npc.noGravity = true;
-                npc.aiStyle = -1;
-                npc.timeLeft = 10;
+                NPC.width = 100;
+                NPC.height = 100;
+                NPC.friendly = false;
+                NPC.lifeMax = 1;
+                NPC.dontTakeDamage = true;
+                NPC.noGravity = true;
+                NPC.aiStyle = -1;
+                NPC.timeLeft = 10;
                 
-                for (int k = 0; k < npc.buffImmune.Length; k++)
+                for (int k = 0; k < NPC.buffImmune.Length; k++)
                 {
-                    npc.buffImmune[k] = true;
+                    NPC.buffImmune[k] = true;
                 }
             }
         }
@@ -45,25 +45,25 @@ namespace AAMod.NPCs.Bosses.AH
 
         public override void AI()
         {
-            npc.TargetClosest();
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest();
+            Player player = Main.player[NPC.target];
             if (AAConfigClient.Instance.NoBossDialogue)
             {
                 SpawnBoss(player, "Ashe");
                 SpawnBoss2(player, "Haruka");
-                npc.active = false;
+                NPC.active = false;
             }
-            npc.ai[1]++;
+            NPC.ai[1]++;
 
-            npc.Center = player.Center;
+            NPC.Center = player.Center;
 
-            if (npc.ai[1] == 60)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
+            if (NPC.ai[1] == 60)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHSpawn1"), new Color(102, 20, 48));
-                music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
+                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
             }
 
-            if (npc.ai[1] == 300)
+            if (NPC.ai[1] == 300)
             {
                 if (AAWorld.downedBrood)
                 {
@@ -75,7 +75,7 @@ namespace AAMod.NPCs.Bosses.AH
                 }
             }
 
-            if (npc.ai[1] == 500)
+            if (NPC.ai[1] == 500)
             {
                 if (AAWorld.downedHydra)
                 {
@@ -94,35 +94,35 @@ namespace AAMod.NPCs.Bosses.AH
                 }
             }
 
-            if (npc.ai[1] == 550)
+            if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC((int)npc.position.X - 200, (int)npc.position.Y - 150, mod.NPCType("AsheSpawn"), 0, npc.whoAmI);
+                NPC.NewNPC((int)NPC.position.X - 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("AsheSpawn").Type, 0, NPC.whoAmI);
             }
 
-            if (npc.ai[1] == 700)
+            if (NPC.ai[1] == 700)
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHSpawn7"), new Color(102, 20, 48));
             }
 
-            if (npc.ai[1] == 550)
+            if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC((int)npc.position.X + 200, (int)npc.position.Y - 150, mod.NPCType("HarukaSpawn"), 0, npc.whoAmI);
+                NPC.NewNPC((int)NPC.position.X + 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("HarukaSpawn").Type, 0, NPC.whoAmI);
             }
 
-            if (npc.ai[1] == 820)
+            if (NPC.ai[1] == 820)
             {
-                music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
-                Main.npc[BaseAI.GetNPC(npc.Center, mod.NPCType("AsheSpawn"), -1)].Transform(mod.NPCType("Ashe"));
+                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
+                Main.npc[BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("AsheSpawn").Type, -1)].Transform(Mod.Find<ModNPC>("Ashe").Type);
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHSpawn8"), new Color(102, 20, 48));
                 SpawnBoss(player, "Ashe");
             }
 
-            if (npc.ai[1] >= 960)
+            if (NPC.ai[1] >= 960)
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHSpawn9"), new Color(72, 78, 117));
-                Main.npc[BaseAI.GetNPC(npc.Center, mod.NPCType("HarukaSpawn"), -1)].Transform(mod.NPCType("Haruka"));
+                Main.npc[BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("HarukaSpawn").Type, -1)].Transform(Mod.Find<ModNPC>("Haruka").Type);
                 SpawnBoss(player, "Haruka");
-                npc.active = false;
+                NPC.active = false;
             }
         }
 
@@ -130,7 +130,7 @@ namespace AAMod.NPCs.Bosses.AH
         {
             if (Main.netMode != 1)
             {
-                int bossType = mod.NPCType(name);
+                int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
                 int npcID = NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, bossType, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-100f, 100f, (float)Main.rand.NextDouble()), 800f);
@@ -142,7 +142,7 @@ namespace AAMod.NPCs.Bosses.AH
         {
             if (Main.netMode != 1)
             {
-                int bossType = mod.NPCType(name);
+                int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
                 int npcID = NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, bossType, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(800f, 0);

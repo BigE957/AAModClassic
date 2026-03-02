@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,31 +8,30 @@ namespace AAMod.Items.Blocks.Doom
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doom Bed");
+            // DisplayName.SetDefault("Doom Bed");
         }
 
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 22;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 250;
-            item.createTile = mod.TileType("DoomBed");
+            Item.width = 34;
+            Item.height = 22;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 250;
+            Item.createTile = Mod.Find<ModTile>("DoomBed").Type;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("ApocalyptitePlate"), 15);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 15);
             recipe.AddIngredient(ItemID.Silk, 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
 

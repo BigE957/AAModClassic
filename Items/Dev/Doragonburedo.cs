@@ -1,5 +1,7 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
 {
@@ -8,38 +10,38 @@ namespace AAMod.Items.Dev
         public static short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doragonburedo");
-            Tooltip.SetDefault("'I'm gonna wipe their whole team' \n" + "-Jace");
+            // DisplayName.SetDefault("Doragonburedo");
+            // Tooltip.SetDefault("'I'm gonna wipe their whole team' \n" + "-Jace");
             if (Main.netMode != 2)
             {
-                Microsoft.Xna.Framework.Graphics.Texture2D[] glowMasks = new Microsoft.Xna.Framework.Graphics.Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Microsoft.Xna.Framework.Graphics.Texture2D[] glowMasks = new Microsoft.Xna.Framework.Graphics.Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
         }
 
         public override void SetDefaults()
         {
-			item.CloneDefaults(ItemID.Arkhalis);
-            item.glowMask = customGlowMask;
-            item.damage = 220;            //Sword damage
-            item.melee = true;            //if it's melee
-            item.width = 56;              //Sword width
-            item.height = 56;             //Sword height
-            item.expert = true;
-            item.useTime = 6;
-            item.useAnimation = 6;
-            item.knockBack = 6;      //Sword knockback
-            item.value = 100000;        
-            item.rare = 7;
-            item.autoReuse = true;   //if it's capable of autoswing.
-            item.useTurn = true;
-            item.shoot = mod.ProjectileType("Ryugen");
+			Item.CloneDefaults(ItemID.Arkhalis);
+            Item.glowMask = customGlowMask;
+            Item.damage = 220;            //Sword damage
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            //if it's melee
+            Item.width = 56;              //Sword width
+            Item.height = 56;             //Sword height
+            Item.expert = true;
+            Item.useTime = 6;
+            Item.useAnimation = 6;
+            Item.knockBack = 6;      //Sword knockback
+            Item.value = 100000;        
+            Item.rare = 7;
+            Item.autoReuse = true;   //if it's capable of autoswing.
+            Item.useTurn = true;
+            Item.shoot = Mod.Find<ModProjectile>("Ryugen").Type;
         }
     }
 }

@@ -7,15 +7,15 @@ namespace AAMod.Projectiles.Tools
 	{
 		public override void SetDefaults()
 		{
-			projectile.width = 10;
-			projectile.height = 10;
-			projectile.aiStyle = 20;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.tileCollide = false;
-			projectile.hide = true;
-			projectile.ownerHitCheck = true; //so you can't hit enemies through walls
-			projectile.melee = true;
+			Projectile.width = 10;
+			Projectile.height = 10;
+			Projectile.aiStyle = 20;
+			Projectile.friendly = true;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.hide = true;
+			Projectile.ownerHitCheck = true; //so you can't hit enemies through walls
+			Projectile.DamageType = DamageClass.Melee;
 		}
 	}
 }

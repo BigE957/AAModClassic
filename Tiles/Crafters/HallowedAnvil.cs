@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class HallowedAnvil : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -21,16 +22,16 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Hallowed Anvil");
-            dustType = mod.DustType("DaybreakIncineriteDust");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Hallowed Anvil");
+            DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
             AddMapEntry(new Color(50, 50, 50), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer};
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer};
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("HallowedAnvil"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("HallowedAnvil").Type);
         }
     }
 }

@@ -7,14 +7,14 @@ namespace AAMod.Items.Summoning.Minions
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Trident");
+            // DisplayName.SetDefault("Trident");
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.UnholyTridentFriendly);
-            projectile.magic = false;
-            projectile.minion = true;
+            Projectile.CloneDefaults(ProjectileID.UnholyTridentFriendly);
+            Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Projectile.minion = true;
         }
 
     }

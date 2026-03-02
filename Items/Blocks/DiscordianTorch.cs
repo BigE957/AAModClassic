@@ -9,35 +9,35 @@ namespace AAMod.Items.Blocks
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Discordian Torch");
+			// DisplayName.SetDefault("Discordian Torch");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 10;
-			item.height = 12;
-			item.maxStack = 99;
-			item.holdStyle = 1;
-			item.noWet = true;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createTile = mod.TileType("DiscordianTorch");
-			item.flame = true;
+			Item.width = 10;
+			Item.height = 12;
+			Item.maxStack = 99;
+			Item.holdStyle = 1;
+			Item.noWet = true;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("DiscordianTorch").Type;
+			Item.flame = true;
             AARarity = 14;
-            item.value = Item.sellPrice(0, 0, 50, 0);
+            Item.value = Item.sellPrice(0, 0, 50, 0);
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace AAMod.Items.Blocks
 		{
 			if (Main.rand.Next(player.itemAnimation > 0 ? 40 : 80) == 0)
 			{
-				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, mod.DustType("DiscordDust"));
+				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, Mod.Find<ModDust>("DiscordDust").Type);
 			}
 			Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
 			Lighting.AddLight(position, AAColor.Shen.R / 255, AAColor.Shen.G / 255, AAColor.Shen.B / 255);
@@ -54,24 +54,23 @@ namespace AAMod.Items.Blocks
 
 		public override void PostUpdate()
 		{
-			if (!item.wet)
+			if (!Item.wet)
 			{
-				Lighting.AddLight((int)((item.position.X + item.width / 2) / 16f), (int)((item.position.Y + item.height / 2) / 16f), AAColor.Shen.R / 255, AAColor.Shen.G / 255, AAColor.Shen.B / 255);
+				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.Shen.R / 255, AAColor.Shen.G / 255, AAColor.Shen.B / 255);
 			}
 		}
 
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)
+		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
 		{
 			dryTorch = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(50);
 			recipe.AddIngredient(ItemID.Torch, 50);
 			recipe.AddIngredient(null, "Discordium");
-			recipe.SetResult(this, 50);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

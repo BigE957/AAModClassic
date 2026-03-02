@@ -8,45 +8,44 @@ namespace AAMod.Items.Melee
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ichor Spear");
-            Tooltip.SetDefault("Inflicts Ichor to enemy on hit");
+            // DisplayName.SetDefault("Ichor Spear");
+            // Tooltip.SetDefault("Inflicts Ichor to enemy on hit");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 48;
-            item.melee = true;
-            item.width = 80;
-            item.height = 80;
-            item.scale = 1.1f;
-            item.maxStack = 1;
-            item.useTime = 24;
-            item.useAnimation = 18;
-            item.knockBack = 3f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-			item.autoReuse = true;
-            item.rare = 3;
-            item.shootSpeed = 5f;
-            item.shoot = mod.ProjectileType("IchorSpear");  //put your Spear projectile name
+            Item.damage = 48;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 80;
+            Item.height = 80;
+            Item.scale = 1.1f;
+            Item.maxStack = 1;
+            Item.useTime = 24;
+            Item.useAnimation = 18;
+            Item.knockBack = 3f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+			Item.autoReuse = true;
+            Item.rare = 3;
+            Item.shootSpeed = 5f;
+            Item.shoot = Mod.Find<ModProjectile>("IchorSpear").Type;  //put your Spear projectile name
         }
 
         public override bool CanUseItem(Player player)
         {
-            return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
         }
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CrimtaneBar, 12);
 			recipe.AddIngredient(ItemID.Ichor, 15);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
     }
 }

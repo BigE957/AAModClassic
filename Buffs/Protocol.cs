@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Protocol : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("D00M PR0T0C0L");
-			Description.SetDefault("Summons a baby ZER0 PR0T0C0L to fight for you");
+			// DisplayName.SetDefault("D00M PR0T0C0L");
+			// Description.SetDefault("Summons a baby ZER0 PR0T0C0L to fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("Protocol")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Protocol").Type] > 0)
 			{
 				modPlayer.Protocol = true;
 			}

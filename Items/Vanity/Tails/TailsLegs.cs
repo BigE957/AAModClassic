@@ -10,28 +10,28 @@ namespace AAMod.Items.Vanity.Tails
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Tails Leggings");
-            Tooltip.SetDefault(@"Leggings made to resemble a certain two-tailed fox.
-'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Tails Leggings");
+            /* Tooltip.SetDefault(@"Leggings made to resemble a certain two-tailed fox.
+'Great for impersonating Ancients Awakened Devs!'"); */
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(255, 216, 0);
+                    line2.OverrideColor = new Color(255, 216, 0);
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 18;
-            item.rare = 9;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.rare = 9;
+            Item.vanity = true;
         }
     }
 }

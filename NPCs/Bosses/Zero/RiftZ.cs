@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero
@@ -12,34 +13,34 @@ namespace AAMod.NPCs.Bosses.Zero
     {
         public override void SetDefaults()
         {
-            projectile.width = 60;
-            projectile.height = 60;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.ignoreWater = true;
-            projectile.alpha = 255;
-            projectile.tileCollide = false;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 180;
+            Projectile.width = 60;
+            Projectile.height = 60;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.ignoreWater = true;
+            Projectile.alpha = 255;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 180;
         }
 
         public override void AI()
         {
-            projectile.rotation += 0.03f;
-            if (projectile.timeLeft > 40)
+            Projectile.rotation += 0.03f;
+            if (Projectile.timeLeft > 40)
             {
-                if (projectile.alpha > 30)
+                if (Projectile.alpha > 30)
                 {
-                    projectile.alpha -= 3;
+                    Projectile.alpha -= 3;
                 }
                 else
                 {
-                    projectile.alpha = 30;
+                    Projectile.alpha = 30;
                 }
             }
             else
             {
-                projectile.alpha += 3;
+                Projectile.alpha += 3;
             }
 
             const int aislotHomingCooldown = 0;
@@ -47,17 +48,17 @@ namespace AAMod.NPCs.Bosses.Zero
             const float desiredFlySpeedInPixelsPerFrame = 10;
             const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay;
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     Player n = Main.player[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
         }
@@ -70,11 +71,11 @@ namespace AAMod.NPCs.Bosses.Zero
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 Player n = Main.player[i];
-                float distance = projectile.Distance(n.Center);
+                float distance = Projectile.Distance(n.Center);
                 if (distance <= homingMaximumRangeInPixels &&
                     (
                         selectedTarget == -1 || //there is no selected target
-                        projectile.Distance(Main.npc[selectedTarget].Center) > distance)
+                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                 )
                     selectedTarget = i;
             }
@@ -82,42 +83,42 @@ namespace AAMod.NPCs.Bosses.Zero
             return selectedTarget;
         }
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D Tex = Main.projectileTexture[projectile.type];
-            Texture2D Tex2 = mod.GetTexture("NPCs/Bosses/Zero/RiftZ2");
-            Texture2D Tex3 = mod.GetTexture("NPCs/Bosses/Zero/RiftZ3");
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Tex.Width, Tex.Height, 0, 0);
-            Rectangle frame1 = BaseDrawing.GetFrame(projectile.frame, Tex2.Width, Tex2.Height, 0, 0);
-            Rectangle frame2 = BaseDrawing.GetFrame(projectile.frame, Tex3.Width, Tex3.Height, 0, 0);
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, Tex2, 0, projectile.position, projectile.width, projectile.height, projectile.scale, -projectile.rotation, 0, 1, frame1, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, Tex3, 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame2, projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D Tex2 = Mod.GetTexture("NPCs/Bosses/Zero/RiftZ2");
+            Texture2D Tex3 = Mod.GetTexture("NPCs/Bosses/Zero/RiftZ3");
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, Tex.Width, Tex.Height, 0, 0);
+            Rectangle frame1 = BaseDrawing.GetFrame(Projectile.frame, Tex2.Width, Tex2.Height, 0, 0);
+            Rectangle frame2 = BaseDrawing.GetFrame(Projectile.frame, Tex3.Width, Tex3.Height, 0, 0);
+            BaseDrawing.DrawTexture(spritebatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, 0, 1, frame1, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spritebatch, Tex3, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame2, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             float spread = 30f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 3; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("RiftSlashZ"), projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("RiftSlashZ"), projectile.damage, projectile.knockBack, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
             }
             for (int k = 0; k < 10; k++)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
             }
-            projectile.active = false;
+            Projectile.active = false;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            projectile.active = false;
+            Projectile.active = false;
             return true;
         }
     }

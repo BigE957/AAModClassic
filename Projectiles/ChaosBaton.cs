@@ -9,58 +9,58 @@ namespace AAMod.Projectiles
 
 		public override void SetDefaults()
         {
-            projectile.width = 72;
-            projectile.height = 60;
-            projectile.aiStyle = 0;
-			projectile.penetrate = -1;
-			projectile.tileCollide = false;
-			projectile.ownerHitCheck = true;
-			projectile.ignoreWater = true;
-			projectile.timeLeft = 26;
-			aiType = ProjectileID.Bullet;
+            Projectile.width = 72;
+            Projectile.height = 60;
+            Projectile.aiStyle = 0;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.ownerHitCheck = true;
+			Projectile.ignoreWater = true;
+			Projectile.timeLeft = 26;
+			AIType = ProjectileID.Bullet;
 		}
 		
 		public override void AI()
 		{
-			Player player = Main.player[projectile.owner];	
+			Player player = Main.player[Projectile.owner];	
 			
-			projectile.ai[0]++;
+			Projectile.ai[0]++;
 			
 			if (player.dead)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 				return;
 			}
 			
 			if (player.direction > 0)
 			{
-				projectile.rotation += 0.35f;
-				projectile.spriteDirection = 1;
+				Projectile.rotation += 0.35f;
+				Projectile.spriteDirection = 1;
 			}
 			else
 			{
-				projectile.rotation -= 0.35f;
-				projectile.spriteDirection = -1;
+				Projectile.rotation -= 0.35f;
+				Projectile.spriteDirection = -1;
 			}
 			
-			projectile.position.X = player.Center.X - (projectile.width / 2f);
-			projectile.position.Y = player.Center.Y - (projectile.height / 2f);
+			Projectile.position.X = player.Center.X - (Projectile.width / 2f);
+			Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
 			
-			if (projectile.timeLeft < 8)
+			if (Projectile.timeLeft < 8)
 			{
-				projectile.alpha = 100;
+				Projectile.alpha = 100;
 			}
-			if (projectile.timeLeft < 6)
+			if (Projectile.timeLeft < 6)
 			{
-				projectile.alpha = 140;
+				Projectile.alpha = 140;
 			}
-			if (projectile.timeLeft < 4)
+			if (Projectile.timeLeft < 4)
 			{
-				projectile.alpha = 180;
+				Projectile.alpha = 180;
 			}
-			if (projectile.timeLeft < 2)
+			if (Projectile.timeLeft < 2)
 			{
-				projectile.alpha = 220;
+				Projectile.alpha = 220;
 			}
 		}
 	}

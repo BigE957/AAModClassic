@@ -8,40 +8,39 @@ namespace AAMod.Items.Throwing
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 20;
-			item.ranged = true;
-			item.noUseGraphic = true;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 16;
-			item.height = 16;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.shoot = mod.ProjectileType("FireballP");
-			item.shootSpeed = 12f;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = Item.sellPrice(0, 0, 1, 0);
-			item.rare = 3;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.crit = 10;
-            item.noMelee = true;
+			Item.damage = 20;
+			Item.DamageType = DamageClass.Ranged;
+			Item.noUseGraphic = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 16;
+			Item.height = 16;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.shoot = Mod.Find<ModProjectile>("FireballP").Type;
+			Item.shootSpeed = 12f;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = Item.sellPrice(0, 0, 1, 0);
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.crit = 10;
+            Item.noMelee = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fireball");
-			Tooltip.SetDefault("Even better than Mario's Fire Flower!");
+			// DisplayName.SetDefault("Fireball");
+			// Tooltip.SetDefault("Even better than Mario's Fire Flower!");
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(99);
 			recipe.AddIngredient(ItemID.HellstoneBar);
-			recipe.SetResult(this, 99);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

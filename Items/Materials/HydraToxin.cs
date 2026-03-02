@@ -4,16 +4,16 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bogtoxin");
-            Tooltip.SetDefault("Exceedingly corrosive venom.");
+            // DisplayName.SetDefault("Bogtoxin");
+            // Tooltip.SetDefault("Exceedingly corrosive venom.");
         }
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 22;
-            item.maxStack = 99;
-            item.rare = 3;
-            item.value = 900;
+            Item.width = 16;
+            Item.height = 22;
+            Item.maxStack = 99;
+            Item.rare = 3;
+            Item.value = 900;
         }
     }
 }

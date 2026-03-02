@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Shen
@@ -9,20 +10,20 @@ namespace AAMod.NPCs.Bosses.Shen
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Discordian Strike");     
-            Main.projFrames[projectile.type] = 7;
+            // DisplayName.SetDefault("Discordian Strike");     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = -1;
-            projectile.damage = 0;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
-            projectile.alpha = 80;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = -1;
+            Projectile.damage = 0;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 80;
         }
 
         bool draw = true;
@@ -37,23 +38,23 @@ namespace AAMod.NPCs.Bosses.Shen
                 draw = false;
             }
             
-            if (++projectile.frameCounter >= 3)
+            if (++Projectile.frameCounter >= 3)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 7)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 7)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
 
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y *= 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y *= 0.00f;
 
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            projectile.timeLeft = 0;
+            Projectile.timeLeft = 0;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -61,25 +62,25 @@ namespace AAMod.NPCs.Bosses.Shen
             return Color.White;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             if (!draw)
             {
                 return false;
             }
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height / 7, 0, 2);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 7, 0, 2);
 
-            Texture2D Tex = Main.projectileTexture[projectile.type];
-            if (projectile.ai[0] == 1)
+            Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
+            if (Projectile.ai[0] == 1)
             {
-                Tex = mod.GetTexture("NPCs/Bosses/Shen/ShenDeathBoomR");
+                Tex = Mod.GetTexture("NPCs/Bosses/Shen/ShenDeathBoomR");
             }
             else
-            if (projectile.ai[0] == 1)
+            if (Projectile.ai[0] == 1)
             {
-                Tex = mod.GetTexture("NPCs/Bosses/Shen/ShenDeathBoomB");
+                Tex = Mod.GetTexture("NPCs/Bosses/Shen/ShenDeathBoomB");
             }
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 7, frame, projectile.GetAlpha(Color.White), true);
+            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
             return false;
         }
     }

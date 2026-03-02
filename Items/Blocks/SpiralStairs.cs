@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,34 +8,33 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spiral Stairs");
+            // DisplayName.SetDefault("Spiral Stairs");
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 18;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 2;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 100;
-            item.createTile = mod.TileType("SpiralStairs");
+            Item.width = 28;
+            Item.height = 18;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 2;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 100;
+            Item.createTile = Mod.Find<ModTile>("SpiralStairs").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe;
-            recipe = new ModRecipe(mod);
+            Recipe recipe;
+            recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Wood, 10);
             recipe.AddRecipeGroup("AAMod:Iron", 2);
             recipe.AddTile(TileID.Sawmill);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

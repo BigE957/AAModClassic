@@ -10,110 +10,110 @@ namespace AAMod.NPCs.Bosses.Greed
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spark of Desire");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Spark of Desire");
+            Main.npcFrameCount[NPC.type] = 4;
         }
         public override void SetDefaults()
         {
-            npc.width = 100;
-            npc.height = 100;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            npc.alpha = 255;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 100;
+            NPC.height = 100;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
         }
 
         public override void AI()
         {
-			npc.TargetClosest();			
-            Player player = Main.player[npc.target];
+			NPC.TargetClosest();			
+            Player player = Main.player[NPC.target];
 			
 			if(Main.netMode != 2)
 			{
-                if (npc.ai[0] > 175)
+                if (NPC.ai[0] > 175)
 				{
-					npc.alpha -= 3;
-					if (npc.alpha < 0)
+					NPC.alpha -= 3;
+					if (NPC.alpha < 0)
 					{
-						npc.alpha = 0;
+						NPC.alpha = 0;
 					}
 				}
 
-                if (npc.ai[0] >= 570)
+                if (NPC.ai[0] >= 570)
                 {
-                    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Greed");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Greed");
                 }
 
             }
 			if(Main.netMode != 1)
 			{
-				npc.ai[0]++;
+				NPC.ai[0]++;
 
-				if (npc.ai[0] == 175)    
+				if (NPC.ai[0] == 175)    
 				{
 					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Greed1"), Color.Goldenrod);
-					npc.netUpdate = true;
+					NPC.netUpdate = true;
 				}else
-				if (npc.ai[0] == 350)
+				if (NPC.ai[0] == 350)
 				{
 					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Greed2"), Color.Goldenrod);
 				}else
-				if (npc.ai[0] == 500)
+				if (NPC.ai[0] == 500)
 				{
 					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Greed3"), Color.Goldenrod);
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
 				}else
-				if (npc.ai[0] == 610)
+				if (NPC.ai[0] == 610)
 				{
 					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Greed4"), Color.Goldenrod);
 				}else
-				if (npc.ai[0] >= 755 && !NPC.AnyNPCs(mod.NPCType("Greed")))
+				if (NPC.ai[0] >= 755 && !NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type))
 				{
-					AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Greed"), true, npc.Center, Lang.BossChat("GreedName"), false);
+					AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Greed").Type, true, NPC.Center, Lang.BossChat("GreedName"), false);
 					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Greed5"), Color.Goldenrod);
 
-                    npc.netUpdate = true;
-					npc.active = false;				
+                    NPC.netUpdate = true;
+					NPC.active = false;				
 				}
 			}
         }
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(mod.NPCType("Greed")))
+            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type))
             {
                 return false;
             }
-            npc.active = false;
+            NPC.active = false;
             return true;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (++npc.frameCounter >= 4)
+            if (++NPC.frameCounter >= 4)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.frame.Y >= frameHeight * 3)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y >= frameHeight * 3)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 70, 70);
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture("NPCs/Bosses/Greed/GreedSpawn"), 0, npc.position + new Vector2(0, npc.gfxOffY), npc.width, npc.height, npc.scale, 0, npc.spriteDirection, 4, SunFrame, npc.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("NPCs/Bosses/Greed/GreedSpawn"), 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, 0, NPC.spriteDirection, 4, SunFrame, NPC.GetAlpha(AAColor.COLOR_WHITEFADE1), true);
             return false;
         }
     }

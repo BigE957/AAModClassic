@@ -10,8 +10,8 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Etheral");
-			Tooltip.SetDefault(" \"If in the wrong hands, it can cause devastating damage, so don't give it to me\" \n-TheRedstoneBro");
+			// DisplayName.SetDefault("Etheral");
+			// Tooltip.SetDefault(" \"If in the wrong hands, it can cause devastating damage, so don't give it to me\" \n-TheRedstoneBro");
 		}
 
 
@@ -19,33 +19,33 @@ namespace AAMod.Items.Dev
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(159, 207, 190);
+                    line2.OverrideColor = new Color(159, 207, 190);
                 }
             }
         }
 
         public override void SetDefaults()
 		{
-            item.useStyle = 5;
-            item.useAnimation = 7;
-            item.useTime = 7;
-            item.mana = 10;
-            item.shootSpeed = 16f;
-            item.knockBack = 0f;
-            item.width = 122;
-            item.reuseDelay = 5;
-            item.height = 32;
-            item.damage = 270;
-            item.UseSound = SoundID.Item13;
-            item.channel = true;
-            item.shoot = mod.ProjectileType("Etheral");
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.noMelee = true;
-            item.magic = true;
-            item.autoReuse = true;
-			item.noUseGraphic = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 7;
+            Item.useTime = 7;
+            Item.mana = 10;
+            Item.shootSpeed = 16f;
+            Item.knockBack = 0f;
+            Item.width = 122;
+            Item.reuseDelay = 5;
+            Item.height = 32;
+            Item.damage = 270;
+            Item.UseSound = SoundID.Item13;
+            Item.channel = true;
+            Item.shoot = Mod.Find<ModProjectile>("Etheral").Type;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Magic;
+            Item.autoReuse = true;
+			Item.noUseGraphic = true;
             
 		}
 	}

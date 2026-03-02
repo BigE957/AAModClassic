@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace AAMod.UI
@@ -19,7 +20,7 @@ namespace AAMod.UI
 
         public override UIState State => AAMod.instance.TerratoolCState;
 
-        public override int HeldItemType => AAMod.instance.ItemType("ChaosTerratool");
+        public override int HeldItemType => AAMod.instance.Find<ModItem>("ChaosTerratool").Type;
 
         public override void ButtonClicked(int index)
         {

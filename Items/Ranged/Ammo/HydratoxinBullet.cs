@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,33 +8,32 @@ namespace AAMod.Items.Ranged.Ammo
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Hydratoxin Bullet");
+            // DisplayName.SetDefault("Hydratoxin Bullet");
 		}
 
 		public override void SetDefaults()
 		{
-			item.shootSpeed = 5f;
-			item.shoot = mod.ProjectileType("HydratoxinBullet");
-			item.damage = 12;
-			item.width = 8;
-			item.height = 8;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.ammo = AmmoID.Bullet;
-			item.knockBack = 2f;
-			item.value = 15;
-            item.rare = 4;
-            item.ranged = true;
+			Item.shootSpeed = 5f;
+			Item.shoot = Mod.Find<ModProjectile>("HydratoxinBullet").Type;
+			Item.damage = 12;
+			Item.width = 8;
+			Item.height = 8;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.ammo = AmmoID.Bullet;
+			Item.knockBack = 2f;
+			Item.value = 15;
+            Item.rare = 4;
+            Item.DamageType = DamageClass.Ranged;
 		}
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ItemID.MusketBall, 100);
-			recipe.AddIngredient(mod.ItemType("HydraToxin"), 1);
+			recipe.AddIngredient(Mod.Find<ModItem>("HydraToxin").Type, 1);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this, 100);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

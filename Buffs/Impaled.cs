@@ -6,14 +6,14 @@ namespace AAMod.Buffs
 {
     public class Impaled : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Impaled");
-            Description.SetDefault("Ouch!");
+            // DisplayName.SetDefault("Impaled");
+            // Description.SetDefault("Ouch!");
             Main.debuff[Type] = true;
 
 
-            longerExpertDebuff = false;
+            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
@@ -29,7 +29,7 @@ namespace AAMod.Buffs
                 if (
                     Main.projectile[i].active && Main.projectile[i].GetGlobalProjectile<ImplaingProjectile>().CanImpale && 
                     ((Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == npc.whoAmI) || 
-                    (Main.projectile[i].type == mod.ProjectileType("OreChunk") && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI))
+                    (Main.projectile[i].type == Mod.Find<ModProjectile>("OreChunk").Type && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI))
                 )
                 {
 

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,41 +11,41 @@ namespace AAMod.Items.Dev
         
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Prismeow Spectrum");
-            Tooltip.SetDefault(@"Summons a Legendary Rainbow Cat at cursor point
+            // DisplayName.SetDefault("Prismeow Spectrum");
+            /* Tooltip.SetDefault(@"Summons a Legendary Rainbow Cat at cursor point
 Shoots Rainbow Bolts that move in the direction of your cursor
 Warning: Using this WILL lag your game!
-Prismeow EX");
-            Item.staff[item.type] = true;
+Prismeow EX"); */
+            Item.staff[Item.type] = true;
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 50;
-			item.magic = true;
-			item.mana = 200;
-			item.width = 52;
-            item.height = 52;
-			item.useTime = 60;
-			item.useAnimation = 60;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 3;
-			item.value = Item.sellPrice(0, 30, 0, 0);
-			item.rare = 11;
-			item.UseSound = SoundID.Item44;
-			item.autoReuse = false;
-			item.shoot = mod.ProjectileType("RainbowCatPro");
-			item.shootSpeed = 0f;
-            item.expert = true; item.expertOnly = true;
+			Item.damage = 50;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 200;
+			Item.width = 52;
+            Item.height = 52;
+			Item.useTime = 60;
+			Item.useAnimation = 60;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 3;
+			Item.value = Item.sellPrice(0, 30, 0, 0);
+			Item.rare = 11;
+			Item.UseSound = SoundID.Item44;
+			Item.autoReuse = false;
+			Item.shoot = Mod.Find<ModProjectile>("RainbowCatPro").Type;
+			Item.shootSpeed = 0f;
+            Item.expert = true; Item.expertOnly = true;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_NONE; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
             glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             position = Main.MouseWorld;
             return true;
@@ -54,11 +55,10 @@ Prismeow EX");
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "Prismeow");
                 recipe.AddIngredient(null, "EXSoul");
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

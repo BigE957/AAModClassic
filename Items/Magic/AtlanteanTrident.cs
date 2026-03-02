@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,32 +11,32 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Atlantean Trident");
-			Tooltip.SetDefault("Fires off a tri-shot of water bolts");
-			Item.staff[item.type] = true;
+			// DisplayName.SetDefault("Atlantean Trident");
+			// Tooltip.SetDefault("Fires off a tri-shot of water bolts");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 30;
-			item.magic = true;
-			item.mana = 8;
-			item.width = 68;
-			item.height = 68;
-			item.useTime = 35;
-			item.useAnimation = 35;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 4;
-			item.value = 500000;
-			item.rare = 3;
-			item.UseSound = SoundID.Item21;
-			item.autoReuse = true;
-			item.shoot = ProjectileID.WaterBolt;
-			item.shootSpeed = 10f;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 8;
+			Item.width = 68;
+			Item.height = 68;
+			Item.useTime = 35;
+			Item.useAnimation = 35;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 4;
+			Item.value = 500000;
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item21;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileID.WaterBolt;
+			Item.shootSpeed = 10f;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
             float spread = 45f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -45,30 +46,28 @@ namespace AAMod.Items.Magic
             for (int i = 0; i < 3; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
             }
             return false;
         }
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("OceanTrident"));
-			recipe.AddIngredient(mod.ItemType("BlazePike"));
-			recipe.AddIngredient(mod.ItemType("SandLamp"));
-			recipe.AddIngredient(mod.ItemType("NeutronStaff"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("OceanTrident").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("BlazePike").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("SandLamp").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("NeutronStaff").Type);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("OceanTrident"));
-			recipe.AddIngredient(mod.ItemType("SludgeShot"));
-			recipe.AddIngredient(mod.ItemType("Sickle"));
-			recipe.AddIngredient(mod.ItemType("NeutronStaff"));
+			recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.Find<ModItem>("OceanTrident").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("SludgeShot").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("Sickle").Type);
+			recipe.AddIngredient(Mod.Find<ModItem>("NeutronStaff").Type);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

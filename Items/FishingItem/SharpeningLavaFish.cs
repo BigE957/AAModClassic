@@ -1,3 +1,4 @@
+using Terraria.ModLoader;
 namespace AAMod.Items.FishingItem
 {
     public class SharpeningLavaFish : BaseAAItem
@@ -5,24 +6,24 @@ namespace AAMod.Items.FishingItem
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sharpening Lava Fish");
+            // DisplayName.SetDefault("Sharpening Lava Fish");
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 4;
+            Item.width = 32;
+            Item.height = 32;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 4;
             AARarity = 6;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 128000;
-            item.createTile = mod.TileType("SharpeningLavaFishTile");
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 128000;
+            Item.createTile = Mod.Find<ModTile>("SharpeningLavaFishTile").Type;
         }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,17 +11,17 @@ namespace AAMod.Projectiles.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rocket");
+            // DisplayName.SetDefault("Rajah Rocket");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.penetrate = 1;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.scale = 0.9f;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.penetrate = 1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.scale = 0.9f;
         }
 
         public override void AI()
@@ -30,29 +31,29 @@ namespace AAMod.Projectiles.Rajah
             const float desiredFlySpeedInPixelsPerFrame = 10;
             const float amountOfFramesToLerpBy = 30; // minimum of 1, please keep in full numbers even though it's a float!
 
-            projectile.ai[aislotHomingCooldown]++;
-            if (projectile.ai[aislotHomingCooldown] > homingDelay)
+            Projectile.ai[aislotHomingCooldown]++;
+            if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay; 
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
                 {
                     NPC target = Main.npc[foundTarget];
-                    Vector2 desiredVelocity = projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
-                    projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
+                    Vector2 desiredVelocity = Projectile.DirectionTo(target.Center) * desiredFlySpeedInPixelsPerFrame;
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                 }
             }
 
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
-                projectile.rotation = (float)Math.Atan2(-projectile.velocity.Y, -projectile.velocity.X) - 1.57f;
+                Projectile.spriteDirection = -1;
+                Projectile.rotation = (float)Math.Atan2(-Projectile.velocity.Y, -Projectile.velocity.X) - 1.57f;
             }
             else
             {
-                projectile.spriteDirection = 1;
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+                Projectile.spriteDirection = 1;
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             }
         }
 
@@ -65,10 +66,10 @@ namespace AAMod.Projectiles.Rajah
                 NPC target = Main.npc[i];
                 if (target.active && target.chaseable && !target.friendly)
                 {
-                    float distance = projectile.Distance(target.Center);
+                    float distance = Projectile.Distance(target.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                     (
-                        selectedTarget == -1 || projectile.Distance(Main.npc[selectedTarget].Center) > distance)
+                        selectedTarget == -1 || Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                     selectedTarget = i;
                 }
@@ -76,11 +77,11 @@ namespace AAMod.Projectiles.Rajah
             return selectedTarget;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
-            int p = Projectile.NewProjectile(projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RabbitRocketBoom>(), projectile.damage, projectile.knockBack, projectile.owner);
-            Main.projectile[p].Center = projectile.Center;
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            int p = Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<RabbitRocketBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Main.projectile[p].Center = Projectile.Center;
         }
     }
 }

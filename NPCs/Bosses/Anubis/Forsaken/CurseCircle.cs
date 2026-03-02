@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
@@ -10,43 +11,43 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
     {
         public override void SetDefaults()
         {
-            npc.alpha = 255;
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.aiStyle = -1;
-            npc.damage = Main.expertMode ? 50 : 84;
-            npc.defense = Main.expertMode ? 1 : 1;
-            npc.knockBackResist = 0.2f;
-            npc.width = 82;
-            npc.height = 82;
-            npc.value = Item.buyPrice(0, 0, 0, 0);
-            npc.lavaImmune = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.scale = .001f;
-            npc.friendly = false;
+            NPC.alpha = 255;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.aiStyle = -1;
+            NPC.damage = Main.expertMode ? 50 : 84;
+            NPC.defense = Main.expertMode ? 1 : 1;
+            NPC.knockBackResist = 0.2f;
+            NPC.width = 82;
+            NPC.height = 82;
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
+            NPC.lavaImmune = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.scale = .001f;
+            NPC.friendly = false;
         }
 
         public override void AI()
         {
-            if (npc.ai[1] == 0)
+            if (NPC.ai[1] == 0)
             {
-                if (npc.alpha > 50)
+                if (NPC.alpha > 50)
                 {
-                    npc.alpha -= 5;
+                    NPC.alpha -= 5;
                 }
-                if (npc.scale < 1)
+                if (NPC.scale < 1)
                 {
-                    npc.scale += .02f;
+                    NPC.scale += .02f;
                 }
-                npc.rotation += .1f;
+                NPC.rotation += .1f;
                 if (Main.netMode != 1)
                 {
-                    npc.ai[0]++;
-                    if (npc.ai[0] >= 120)
+                    NPC.ai[0]++;
+                    if (NPC.ai[0] >= 120)
                     {
-                        npc.ai[0] = 0;
-                        npc.ai[1] = 1;
+                        NPC.ai[0] = 0;
+                        NPC.ai[1] = 1;
 
                         int Type = Main.rand.Next(3);
 
@@ -63,40 +64,40 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                                 break;
                         }
 
-                        int m = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, Type);
-                        Main.npc[m].Center = npc.Center;
+                        int m = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Type);
+                        Main.npc[m].Center = NPC.Center;
 
-                        npc.netUpdate = true;
+                        NPC.netUpdate = true;
                     }
                 }
             }
             else
             {
-                if (npc.alpha < 255)
+                if (NPC.alpha < 255)
                 {
-                    npc.alpha += 5;
+                    NPC.alpha += 5;
                 }
                 else
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
-                if (npc.scale < 1)
+                if (NPC.scale < 1)
                 {
-                    npc.scale -= .02f;
+                    NPC.scale -= .02f;
                 }
-                npc.rotation -= .1f;
+                NPC.rotation -= .1f;
             }
         }
 
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawAura(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, auraPercent, 1.4f, npc.scale, npc.rotation, npc.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1.4f, NPC.scale, NPC.rotation, NPC.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

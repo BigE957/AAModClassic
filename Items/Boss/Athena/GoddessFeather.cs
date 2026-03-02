@@ -4,15 +4,15 @@ namespace AAMod.Items.Boss.Athena
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Goddess Feather");
+            // DisplayName.SetDefault("Goddess Feather");
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
-            item.maxStack = 99;
-            item.value = 50000;
-            item.rare = 7;
+            Item.width = 22;
+            Item.height = 22;
+            Item.maxStack = 99;
+            Item.value = 50000;
+            Item.rare = 7;
         }
     }
 }

@@ -11,62 +11,62 @@ namespace AAMod.NPCs.Enemies.Inferno
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Infernal Slime");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+			// DisplayName.SetDefault("Infernal Slime");
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BlueSlime];
 		}
 
 		public override void SetDefaults()
 		{
-            npc.aiStyle = 1;
-            npc.noGravity = false;
-            npc.noTileCollide = false;
-            npc.width = 32;
-			npc.height = 26;
-			npc.damage = 14;
-			npc.defense = 2;
-			npc.lifeMax = 20;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
-            npc.lavaImmune = true;
-            npc.knockBackResist = 0.5f;
-            animationType = 81;
-            npc.buffImmune[BuffID.OnFire] = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("InfernalSlimeBanner");
+            NPC.aiStyle = 1;
+            NPC.noGravity = false;
+            NPC.noTileCollide = false;
+            NPC.width = 32;
+			NPC.height = 26;
+			NPC.damage = 14;
+			NPC.defense = 2;
+			NPC.lifeMax = 20;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.value = 60f;
+            NPC.lavaImmune = true;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = 81;
+            NPC.buffImmune[BuffID.OnFire] = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("InfernalSlimeBanner").Type;
         }
 
         public override bool PreAI()
         {
-            Lighting.AddLight(npc.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
             return true;
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             SpriteEffects spriteEffects = SpriteEffects.None;
-            if (npc.spriteDirection == 1)
+            if (NPC.spriteDirection == 1)
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(mod.GetTexture("Glowmasks/InfernalSlime_Glow"), new Vector2(npc.Center.X - Main.screenPosition.X, npc.Center.Y - Main.screenPosition.Y),
-            npc.frame, Color.White, npc.rotation,
-            new Vector2(npc.width * 0.5f, npc.height * 0.5f), 1f, spriteEffects, 0f);
+            spriteBatch.Draw(Mod.GetTexture("Glowmasks/InfernalSlime_Glow"), new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
+            NPC.frame, Color.White, NPC.rotation,
+            new Vector2(NPC.width * 0.5f, NPC.height * 0.5f), 1f, spriteEffects, 0f);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = Main.rand.Next(139, 143);
-				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.IncineriteDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IncineriteDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}
 		
-		public override void NPCLoot()
+		public override void OnKill()
 		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BurningGel"), Main.rand.Next(5,15));
+			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BurningGel").Type, Main.rand.Next(5,15));
         }
 	}
 }

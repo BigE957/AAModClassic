@@ -10,42 +10,42 @@ namespace AAMod.Projectiles.Monarch
     	
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fungus Cloud");
-            Main.projFrames[projectile.type] = 5;
+			// DisplayName.SetDefault("Fungus Cloud");
+            Main.projFrames[Projectile.type] = 5;
 		}
     	
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 28;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 1;
-            projectile.scale = .8f;
-            projectile.aiStyle = -1;
+            Projectile.width = 28;
+            Projectile.height = 28;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 1;
+            Projectile.scale = .8f;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
-            projectile.velocity *= 0;
-            projectile.alpha += 3;
-            if (projectile.alpha > 255)
+            Projectile.velocity *= 0;
+            Projectile.alpha += 3;
+            if (Projectile.alpha > 255)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

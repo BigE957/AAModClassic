@@ -7,19 +7,19 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
-            projectile.penetrate = -1;  
-            projectile.width = 44;
-            projectile.height = 44;
-			projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 900;
-            projectile.magic = true;
+            Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            Projectile.penetrate = -1;  
+            Projectile.width = 44;
+            Projectile.height = 44;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 900;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
 		public override void SetStaticDefaults()
 		{
-		DisplayName.SetDefault("Crystal");
+		// DisplayName.SetDefault("Crystal");
 		}
 
 

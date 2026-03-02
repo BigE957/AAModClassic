@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
 {
@@ -10,33 +12,33 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dynaskull Javelin");
+            // DisplayName.SetDefault("Dynaskull Javelin");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.penetrate = 1;
-            projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
             maxStickingJavelins = 12;
             rotationOffset = (float)Math.PI / 4;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, new Vector2(projectile.Center.X - Main.screenPosition.X, projectile.Center.Y - Main.screenPosition.Y + 2),
-                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, projectile.rotation,
-                        new Vector2(projectile.width * 0.5f, projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
+                        new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
+                        new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
             return false;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 40);
         }

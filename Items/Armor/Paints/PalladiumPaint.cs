@@ -11,27 +11,27 @@ namespace AAMod.Items.Armor.Paints
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palladium Face Paint");
-            Tooltip.SetDefault(@"15% increased minion damage
-+40 Mana");
+            // DisplayName.SetDefault("Palladium Face Paint");
+            /* Tooltip.SetDefault(@"15% increased minion damage
++40 Mana"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.value = 50000;
-            item.rare = 4;
-            item.defense = 2;
+            Item.width = 20;
+            Item.height = 20;
+            Item.value = 50000;
+            Item.rare = 4;
+            Item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.15f;
+            player.GetDamage(DamageClass.Summon) += 0.15f;
             player.statManaMax2 += 40;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         {
             drawHair = true;
         }
@@ -51,12 +51,11 @@ namespace AAMod.Items.Armor.Paints
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.PalladiumBar, 6);
                 recipe.AddIngredient(ItemID.BottledWater, 1);
                 recipe.AddTile(TileID.BewitchingTable);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.Projectiles.Anubis;
@@ -10,32 +11,32 @@ namespace AAMod.Items.Magic
     {
         public override void SetDefaults()
         {
-            item.damage = 130;                        
-            item.magic = true;                     
-            item.width = 24;
-            item.height = 28;
-            item.useTime = 90;
-            item.useAnimation = 90;
-            item.useStyle = 5;        
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.knockBack = 8;
-            item.mana = 20;             
-            item.UseSound = SoundID.Item21;            
-            item.autoReuse = true;
-            item.shoot = ModContent.ProjectileType<BlockA>();  
-            item.shootSpeed = 11f;
-            item.rare = 8;
+            Item.damage = 130;                        
+            Item.DamageType = DamageClass.Magic;                     
+            Item.width = 24;
+            Item.height = 28;
+            Item.useTime = 90;
+            Item.useAnimation = 90;
+            Item.useStyle = 5;        
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.knockBack = 8;
+            Item.mana = 20;             
+            Item.UseSound = SoundID.Item21;            
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<BlockA>();  
+            Item.shootSpeed = 11f;
+            Item.rare = 8;
         }   
 
         public override void SetStaticDefaults()
         {
-          DisplayName.SetDefault(
+          /* DisplayName.SetDefault(
 @"The Life And Epic Adventures
 of Anubis the Wonder Dog
-~Special Edition~");
-          Tooltip.SetDefault(@"Left click to summon blocks that crush at your cursor's position Horizontally
-Right click for vertical blocks instead");
+~Special Edition~"); */
+          /* Tooltip.SetDefault(@"Left click to summon blocks that crush at your cursor's position Horizontally
+Right click for vertical blocks instead"); */
         }
 
         public override bool AltFunctionUse(Player player)
@@ -45,14 +46,14 @@ Right click for vertical blocks instead");
 
         public override bool CanUseItem(Player player)
         {
-            if (player.ownedProjectileCounts[mod.ProjectileType("BlockA")] >= 1 || player.ownedProjectileCounts[mod.ProjectileType("BlockA1")] >= 1)
+            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BlockA").Type] >= 1 || player.ownedProjectileCounts[Mod.Find<ModProjectile>("BlockA1").Type] >= 1)
             {
                 return false;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float X = Main.mouseX + Main.screenPosition.X;
 

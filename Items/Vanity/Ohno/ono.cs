@@ -7,17 +7,17 @@ namespace AAMod.Items.Vanity.Ohno
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("ono");
-			Tooltip.SetDefault("ono");
+			// DisplayName.SetDefault("ono");
+			// Tooltip.SetDefault("ono");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.width = 16;
-			item.height = 16;
-			item.accessory = true;
-			item.value = 100;
-			item.rare = -1;
+			Item.width = 16;
+			Item.height = 16;
+			Item.accessory = true;
+			Item.value = 100;
+			Item.rare = -1;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
@@ -33,7 +33,7 @@ namespace AAMod.Items.Vanity.Ohno
 
 	public class onoHead : EquipTexture
 	{
-		public override bool DrawHead() 
+		public override bool DrawHead()/* tModPorter Note: Removed. After registering this as EquipType.Head, use ArmorIDs.Head.Sets.DrawHead[slot] = false if you returned false */ 
 		{
 			return false;
 		}
@@ -41,7 +41,7 @@ namespace AAMod.Items.Vanity.Ohno
 
 	public class onoBody : EquipTexture
 	{
-		public override bool DrawBody() 
+		public override bool DrawBody()/* tModPorter Note: Removed. After registering this as EquipType.Body, use ArmorIDs.Body.Sets.HidesTopSkin[slot] = true if you returned false */ 
 		{
 			return false;
 		}
@@ -49,7 +49,7 @@ namespace AAMod.Items.Vanity.Ohno
 
 	public class onoLegs : EquipTexture
 	{
-		public override bool DrawLegs() 
+		public override bool DrawLegs()/* tModPorter Note: Removed. After registering this as EquipType.Legs or Shoes, use ArmorIDs.Legs.Sets.HidesBottomSkin[slot] = true if you returned false for EquipType.Legs, and ArmorIDs.Shoe.Sets.OverridesLegs[slot] = true if you returned false for EquipType.Shoes */ 
 		{
 			return false;
 		}

@@ -7,9 +7,9 @@ namespace AAMod.Walls
 {
     public class PitBarWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            dustType = DustID.Fire;
+            DustType = DustID.Torch;
 			AddMapEntry(new Color(50, 34, 0));
             Main.tileBlockLight[Type] = false;
         }

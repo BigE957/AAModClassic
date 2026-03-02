@@ -190,7 +190,7 @@ namespace AAMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModWorld world = mod.GetModWorld(worldname);
+					ModSystem world = mod.GetModWorld(worldname);
 					if(world != null)
 					{
 						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
@@ -213,7 +213,7 @@ namespace AAMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModWorld world = mod.GetModWorld(worldname);
+					ModSystem world = mod.GetModWorld(worldname);
 					if(world != null)
 					{
 						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
@@ -387,9 +387,9 @@ namespace AAMod
         {
             if (ModSupport.GetMod(crossoverModName) != null)
             {
-                TooltipLine error = new TooltipLine(mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT " + crossoverModName.ToUpper() + " ENABLED!")
+                TooltipLine error = new TooltipLine(Mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT " + crossoverModName.ToUpper() + " ENABLED!")
                 {
-                    overrideColor = new Color(255, 50, 50)
+                    OverrideColor = new Color(255, 50, 50)
                 };
                 list.Add(error);
             }
@@ -405,7 +405,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    float? boost = (float?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantBoost", player.whoAmI);
+                    float? boost = (float?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantBoost", Player.whoAmI);
                     if (boost != null) return (float)boost;
                 }
                 return 1f;
@@ -414,7 +414,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantBoost", player.whoAmI, value);
+                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantBoost", Player.whoAmI, value);
                 }
             }
         }
@@ -424,7 +424,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantCrit", player.whoAmI);
+                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetRadiantCrit", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
@@ -433,7 +433,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantCrit", player.whoAmI, value);
+                    ModSupport.GetMod("ThoriumMod").Call("SetRadiantCrit", Player.whoAmI, value);
                 }
             }
         }
@@ -443,7 +443,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetHealBonus", player.whoAmI);
+                    int? boost = (int?)ModSupport.GetMod("ThoriumMod").Call("GetHealBonus", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
@@ -452,7 +452,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("ThoriumMod") != null)
                 {
-                    ModSupport.GetMod("ThoriumMod").Call("SetHealBonus", player.whoAmI, value);
+                    ModSupport.GetMod("ThoriumMod").Call("SetHealBonus", Player.whoAmI, value);
                 }
             }
         }
@@ -466,7 +466,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("Redemption") != null)
                 {
-                    float? boost = (float?)ModSupport.GetMod("Redemption").Call("GetDruidicBoost", player.whoAmI);
+                    float? boost = (float?)ModSupport.GetMod("Redemption").Call("GetDruidicBoost", Player.whoAmI);
                     if (boost != null) return (float)boost;
                 }
                 return 1f;
@@ -475,7 +475,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("Redemption") != null)
                 {
-                    ModSupport.GetMod("Redemption").Call("SetDruidicBoost", player.whoAmI, value);
+                    ModSupport.GetMod("Redemption").Call("SetDruidicBoost", Player.whoAmI, value);
                 }
             }
         }
@@ -485,7 +485,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("Redemption") != null)
                 {
-                    int? boost = (int?)ModSupport.GetMod("Redemption").Call("GetDruidicCrit", player.whoAmI);
+                    int? boost = (int?)ModSupport.GetMod("Redemption").Call("GetDruidicCrit", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
@@ -494,7 +494,7 @@ namespace AAMod
             {
                 if (ModSupport.GetMod("Redemption") != null)
                 {
-                    ModSupport.GetMod("Redemption").Call("SetDruidicCrit", player.whoAmI, value);
+                    ModSupport.GetMod("Redemption").Call("SetDruidicCrit", Player.whoAmI, value);
                 }
             }
         }

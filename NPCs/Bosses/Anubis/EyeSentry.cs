@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Terraria.ID;
@@ -11,101 +13,101 @@ namespace AAMod.NPCs.Bosses.Anubis
     {
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[npc.type] = 4;
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 42;
-            npc.height = 38;
-            npc.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 400;
-            npc.defense = 14;
-            npc.damage = 40;
-            npc.HitSound = SoundID.NPCHit49;
-            npc.DeathSound = SoundID.NPCDeath51;
-            npc.knockBackResist = 0.7f;
-            npc.alpha = 255;
-            npc.noGravity = true;
+            NPC.width = 42;
+            NPC.height = 38;
+            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 400;
+            NPC.defense = 14;
+            NPC.damage = 40;
+            NPC.HitSound = SoundID.NPCHit49;
+            NPC.DeathSound = SoundID.NPCDeath51;
+            NPC.knockBackResist = 0.7f;
+            NPC.alpha = 255;
+            NPC.noGravity = true;
         }
 
         public override void AI()
         {
-            npc.TargetClosest();
-            Player player = Main.player[npc.target];
+            NPC.TargetClosest();
+            Player player = Main.player[NPC.target];
             int FrameHeight = 26;
-            if (npc.localAI[0] == 0f)
+            if (NPC.localAI[0] == 0f)
             {
-                Main.PlaySound(SoundID.Item121, npc.position);
-                npc.localAI[0] = 1f;
+                SoundEngine.PlaySound(SoundID.Item121, NPC.position);
+                NPC.localAI[0] = 1f;
             }
 
-            if (npc.alpha <= 0)
+            if (NPC.alpha <= 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
             else
             {
-                npc.alpha -= 5;
+                NPC.alpha -= 5;
             }
 
-            npc.ai[0] += 1f;
+            NPC.ai[0] += 1f;
 
             if (!NPC.AnyNPCs(ModContent.NPCType<Anubis>()))
             {
-                npc.StrikeNPCNoInteraction(9999, 0, 0, false);
+                NPC.StrikeNPCNoInteraction(9999, 0, 0, false);
             }
 
-            if (npc.ai[0] == 160 || Vector2.Distance(npc.Center, player.Center) > 3000)
+            if (NPC.ai[0] == 160 || Vector2.Distance(NPC.Center, player.Center) > 3000)
             {
-                Main.PlaySound(SoundID.Item121, npc.position);
+                SoundEngine.PlaySound(SoundID.Item121, NPC.position);
                 Teleport();
             }
-            if (npc.ai[0] < 180)
+            if (NPC.ai[0] < 180)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
-            if (npc.ai[0] > 180)
+            if (NPC.ai[0] > 180)
             {
-                npc.frame.Y = FrameHeight;
+                NPC.frame.Y = FrameHeight;
             }
-            if (npc.ai[0] > 220)
+            if (NPC.ai[0] > 220)
             {
-                npc.frame.Y = FrameHeight * 2;
+                NPC.frame.Y = FrameHeight * 2;
             }
-            if (npc.ai[0] > 260)
+            if (NPC.ai[0] > 260)
             {
-                npc.frame.Y = FrameHeight * 3;
+                NPC.frame.Y = FrameHeight * 3;
             }
-            if (npc.ai[0] > 300)
+            if (NPC.ai[0] > 300)
             {
-                npc.frame.Y = FrameHeight * 3;
+                NPC.frame.Y = FrameHeight * 3;
             }
-            if (npc.ai[0] >= 340 && npc.ai[0] <= 460)
+            if (NPC.ai[0] >= 340 && NPC.ai[0] <= 460)
             {
-                BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<Runefire>(), ref npc.ai[1], 30, npc.damage / 2, 10, true);
+                BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Runefire>(), ref NPC.ai[1], 30, NPC.damage / 2, 10, true);
             }
-            if (npc.ai[0] > 460)
+            if (NPC.ai[0] > 460)
             {
-                npc.frame.Y = FrameHeight * 2;
+                NPC.frame.Y = FrameHeight * 2;
             }
-            if (npc.ai[0] > 500)
+            if (NPC.ai[0] > 500)
             {
-                npc.frame.Y = FrameHeight * 1;
+                NPC.frame.Y = FrameHeight * 1;
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 7, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 
         public void Teleport()
         {
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
             Vector2 targetPos = player.Center;
             int posX = Main.rand.Next(3);
             switch (posX)
@@ -131,95 +133,95 @@ namespace AAMod.NPCs.Bosses.Anubis
                     break;
             }
 
-            npc.position = new Vector2(targetPos.X + posX, targetPos.Y + posY);
+            NPC.position = new Vector2(targetPos.X + posX, targetPos.Y + posY);
 
-            Vector2 position = npc.Center + (Vector2.One * -20f);
+            Vector2 position = NPC.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 50, default, 3.7f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 25, default, 1.5f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += npc.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += npc.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Vector2 position = npc.Center + (Vector2.One * -20f);
+            Vector2 position = NPC.Center + (Vector2.One * -20f);
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
                 int num86 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 100, default, 1.5f);
-                Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
                 int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 50, default, 3.7f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
                 num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 25, default, 1.5f);
-                Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
+                Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].fadeIn = 1f;
                 Main.dust[num88].color = Color.Black * 0.5f;
                 Main.dust[num88].noLight = true;
-                Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * 8f;
+                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
                 int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 2.7f);
-                Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
                 Main.dust[num90].velocity *= 3f;
-                Main.dust[num90].velocity += npc.DirectionTo(Main.dust[num90].position) * 2f;
+                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
                 int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 1.5f);
-                Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
+                Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
-                Main.dust[num92].velocity += npc.DirectionTo(Main.dust[num92].position) * 3f;
+                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
     }

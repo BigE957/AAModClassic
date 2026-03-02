@@ -8,40 +8,39 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Perfect Chaos Javelin");
-            Tooltip.SetDefault(@"Explodes on contact
-Chaos Javelin EX");
+            // DisplayName.SetDefault("Perfect Chaos Javelin");
+            /* Tooltip.SetDefault(@"Explodes on contact
+Chaos Javelin EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.shoot = mod.ProjectileType("ChaosJavelinEX");
-            item.shootSpeed = 17f;
-            item.damage = 400;
-            item.knockBack = 5f;
-            item.ranged = true;
-            item.useStyle = 1;
-            item.UseSound = SoundID.Item1;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.width = 30;
-            item.height = 30;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.autoReuse = true;
-            item.value = Item.sellPrice(5, 0, 0, 0);
-            item.rare = 11;
-            item.expert = true; item.expertOnly = true;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosJavelinEX").Type;
+            Item.shootSpeed = 17f;
+            Item.damage = 400;
+            Item.knockBack = 5f;
+            Item.DamageType = DamageClass.Ranged;
+            Item.useStyle = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.width = 30;
+            Item.height = 30;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.autoReuse = true;
+            Item.value = Item.sellPrice(5, 0, 0, 0);
+            Item.rare = 11;
+            Item.expert = true; Item.expertOnly = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "ChaosJavelin");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

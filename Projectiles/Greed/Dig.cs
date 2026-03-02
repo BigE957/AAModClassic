@@ -9,51 +9,51 @@ namespace AAMod.Projectiles.Greed
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Digger");
+            // DisplayName.SetDefault("Gold Digger");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 24;
-            projectile.height = 24;
-            projectile.friendly = true;
-            projectile.aiStyle = -1;
-            projectile.magic = true;
-            projectile.penetrate = -1;
-            projectile.ignoreWater = true;
+            Projectile.width = 24;
+            Projectile.height = 24;
+            Projectile.friendly = true;
+            Projectile.aiStyle = -1;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = -1;
+            Projectile.ignoreWater = true;
         }
 
         public override void AI()
         {
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= 12;
+                Projectile.alpha -= 12;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.ai[1] += 1f;
-                if (projectile.ai[1] >= 45f)
+                Projectile.ai[1] += 1f;
+                if (Projectile.ai[1] >= 45f)
                 {
                     float num975 = 0.98f;
                     float num976 = 0.35f;
-                    projectile.ai[1] = 45f;
-                    projectile.velocity.X = projectile.velocity.X * num975;
-                    projectile.velocity.Y = projectile.velocity.Y + num976;
+                    Projectile.ai[1] = 45f;
+                    Projectile.velocity.X = Projectile.velocity.X * num975;
+                    Projectile.velocity.Y = Projectile.velocity.Y + num976;
                 }
-                projectile.rotation = projectile.velocity.ToRotation() + 0.785f; //1.57079637f;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 0.785f; //1.57079637f;
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Vector2 vector = Vector2.Normalize(projectile.velocity);
-            if (!AAGlobalProjectile.AnyProjectiles(mod.ProjectileType("GoldFountain")))
+            Vector2 vector = Vector2.Normalize(Projectile.velocity);
+            if (!AAGlobalProjectile.AnyProjectiles(Mod.Find<ModProjectile>("GoldFountain").Type))
             {
-                Projectile.NewProjectile(projectile.position.X - vector.X * 20f, projectile.position.Y - vector.Y * 20f, 0, 0, mod.ProjectileType("GoldFountain"), projectile.damage, 1, projectile.owner, 0, 0);
+                Projectile.NewProjectile(Projectile.position.X - vector.X * 20f, Projectile.position.Y - vector.Y * 20f, 0, 0, Mod.Find<ModProjectile>("GoldFountain").Type, Projectile.damage, 1, Projectile.owner, 0, 0);
             }
         }
     }

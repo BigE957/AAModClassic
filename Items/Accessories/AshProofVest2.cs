@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,63 +9,63 @@ namespace AAMod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            item.width = 42;
-            item.height = 36;
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 3;
-            item.accessory = true;
+            Item.width = 42;
+            Item.height = 36;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = 3;
+            Item.accessory = true;
         }
 
         public override void UpdateInventory(Player player)
         {
-            if (item.type == ModContent.ItemType<AshProofVest0>())
+            if (Item.type == ModContent.ItemType<AshProofVest0>())
             {
-                if (Main.itemAnimations[item.type].Frame == 5)
+                if (Main.itemAnimations[Item.type].Frame == 5)
                 {
-                    item.TurnToAir();
+                    Item.TurnToAir();
                 }
             }
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            if (item.type == ModContent.ItemType<AshProofVest0>())
+            if (Item.type == ModContent.ItemType<AshProofVest0>())
             {
-                if (Main.itemAnimations[item.type].Frame == 5)
+                if (Main.itemAnimations[Item.type].Frame == 5)
                 {
-                    item.TurnToAir();
+                    Item.TurnToAir();
                 }
             }
-            if (item.accessory)
+            if (Item.accessory)
             {
-                player.buffImmune[mod.BuffType("BurningAsh")] = true;
+                player.buffImmune[Mod.Find<ModBuff>("BurningAsh").Type] = true;
                 if (player.GetModPlayer<AAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
                 {
                     if (Main.rand.Next(3600) == 0)
                     {
-                        if (item.type == ModContent.ItemType<AshProofVest3>())
+                        if (Item.type == ModContent.ItemType<AshProofVest3>())
                         {
-                            Main.PlaySound(SoundID.Item34);
-                            item.type = ModContent.ItemType<AshProofVest2>();
-                            item.CloneDefaults(ModContent.ItemType<AshProofVest2>());
-                            item.stack++;
-                            item.stack--;
+                            SoundEngine.PlaySound(SoundID.Item34);
+                            Item.type = ModContent.ItemType<AshProofVest2>();
+                            Item.CloneDefaults(ModContent.ItemType<AshProofVest2>());
+                            Item.stack++;
+                            Item.stack--;
                         }
-                        else if (item.type == ModContent.ItemType<AshProofVest2>())
+                        else if (Item.type == ModContent.ItemType<AshProofVest2>())
                         {
-                            Main.PlaySound(SoundID.Item34);
-                            item.type = ModContent.ItemType<AshProofVest1>();
-                            item.CloneDefaults(ModContent.ItemType<AshProofVest1>());
-                            item.stack++;
-                            item.stack--;
+                            SoundEngine.PlaySound(SoundID.Item34);
+                            Item.type = ModContent.ItemType<AshProofVest1>();
+                            Item.CloneDefaults(ModContent.ItemType<AshProofVest1>());
+                            Item.stack++;
+                            Item.stack--;
                         }
                         else
                         {
-                            Main.PlaySound(SoundID.Item34);
-                            item.type = ModContent.ItemType<AshProofVest0>();
-                            item.CloneDefaults(ModContent.ItemType<AshProofVest0>());
-                            item.stack++;
-                            item.stack--;
+                            SoundEngine.PlaySound(SoundID.Item34);
+                            Item.type = ModContent.ItemType<AshProofVest0>();
+                            Item.CloneDefaults(ModContent.ItemType<AshProofVest0>());
+                            Item.stack++;
+                            Item.stack--;
                         }
                     }
                 }
@@ -73,8 +74,8 @@ namespace AAMod.Items.Accessories
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ash-Proof Vest");
-            Tooltip.SetDefault(@"Temporary accessory to completly remove Ash Rain");
+            // DisplayName.SetDefault("Ash-Proof Vest");
+            // Tooltip.SetDefault(@"Temporary accessory to completly remove Ash Rain");
         }
     }
 }

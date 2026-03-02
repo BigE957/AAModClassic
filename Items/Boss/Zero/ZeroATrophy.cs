@@ -11,35 +11,35 @@ namespace AAMod.Items.Boss.Zero
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Zero Protocol Trophy");
+            // DisplayName.SetDefault("Zero Protocol Trophy");
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 32;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-            item.rare = 10;
-            item.useStyle = 1;
-			item.consumable = true;
-			item.value = 2000;
-			item.rare = 1;
-			item.createTile = mod.TileType("ZeroATrophy");
+			Item.width = 32;
+			Item.height = 32;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+            Item.rare = 10;
+            Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 2000;
+			Item.rare = 1;
+			Item.createTile = Mod.Find<ModTile>("ZeroATrophy").Type;
 		}
     }
 }

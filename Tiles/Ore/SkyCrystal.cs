@@ -1,27 +1,28 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Ore
 {
     public class SkyCrystal : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = false;
             Main.tileSpelunker[Type] = true;
-            Main.tileValue[Type] = 825; 
+            Main.tileOreFinderPriority[Type] = 825; 
             Main.tileBlendAll[Type] = false;
-            soundType = 21;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            drop = mod.ItemType("SkyCrystal"); 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("SkyCrystal");
-            dustType = DustID.BlueCrystalShard;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("SkyCrystal").Type; 
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("SkyCrystal");
+            DustType = DustID.BlueCrystalShard;
             AddMapEntry(Color.SkyBlue);
-            minPick = 240;
+            MinPick = 240;
         }
     }
 }

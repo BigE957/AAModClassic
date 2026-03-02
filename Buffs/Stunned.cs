@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Stunned : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stunned");
-			Description.SetDefault("It's small but has a fiery temper");
+			// DisplayName.SetDefault("Stunned");
+			// Description.SetDefault("It's small but has a fiery temper");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

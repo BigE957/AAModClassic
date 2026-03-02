@@ -10,23 +10,23 @@ namespace AAMod.Items.Melee
         
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Blazing Dawn");
-            Tooltip.SetDefault("The Radiant Dawn calls");
+            // DisplayName.SetDefault("Blazing Dawn");
+            // Tooltip.SetDefault("The Radiant Dawn calls");
         }
 		public override void SetDefaults()
 		{
-			item.damage = 50;
-			item.melee = true;
-			item.width = 62;
-			item.height = 62;
-			item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 5;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 3;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			Item.damage = 50;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 62;
+			Item.height = 62;
+			Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 5;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 3;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = false;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -45,17 +45,16 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod, "FlamingFury", 1);
-			recipe.AddIngredient(mod, "OceanRazor", 1);
-            recipe.AddIngredient(mod, "DoomiteSaber", 1);
-            recipe.AddIngredient(mod, "DesertScimitar", 1);
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod, "FlamingFury", 1);
+			recipe.AddIngredient(Mod, "OceanRazor", 1);
+            recipe.AddIngredient(Mod, "DoomiteSaber", 1);
+            recipe.AddIngredient(Mod, "DesertScimitar", 1);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 400);
         }

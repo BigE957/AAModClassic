@@ -11,16 +11,16 @@ namespace AAMod.Projectiles.Yamata
 	{
 		public override void SetDefaults()
 		{
-            projectile.CloneDefaults(ProjectileID.PaladinsHammerFriendly);
-			projectile.width = 18;
-			projectile.height = 20;
-			projectile.friendly = true;
-			projectile.ranged = true;
-			projectile.magic = false;
-			projectile.penetrate = 6;
-			projectile.timeLeft = 550;
-			projectile.light = 0.9f;
-			projectile.extraUpdates = 2;
+            Projectile.CloneDefaults(ProjectileID.PaladinsHammerFriendly);
+			Projectile.width = 18;
+			Projectile.height = 20;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.penetrate = 6;
+			Projectile.timeLeft = 550;
+			Projectile.light = 0.9f;
+			Projectile.extraUpdates = 2;
 		}
 
         int ProjTimer = 0;
@@ -33,19 +33,19 @@ namespace AAMod.Projectiles.Yamata
                 if (ProjTimer >= 20)
                 {
                     ProjTimer = 0;
-                    Projectile.NewProjectile(projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), projectile.damage, projectile.knockBack, projectile.owner);
+                    Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                 }
             }
         }
 
-         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             YWSplit();
         }
 
  public void YWSplit()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             float num72 = 45f;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
@@ -90,13 +90,13 @@ namespace AAMod.Projectiles.Yamata
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.05f);
-                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YWSplit>(), projectile.damage, projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YWSplit>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
             }
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Throwing Crescent");
+            // DisplayName.SetDefault("Throwing Crescent");
         }
     }
 }

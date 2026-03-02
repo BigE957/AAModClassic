@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +12,7 @@ namespace AAMod.Projectiles
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkray");
+            // DisplayName.SetDefault("Darkray");
 		}
 
 
@@ -20,54 +21,54 @@ namespace AAMod.Projectiles
             return Color.Red;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             //Redraw the projectile with the color not influenced by light
-            Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-            for (int k = 0; k < projectile.oldPos.Length; k++)
+            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+            for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-                Color color = projectile.GetAlpha(lightColor) * ((projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-                spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             return true;
         }
         public override void SetDefaults()
 		{
-			projectile.width = 2;
-			projectile.height = 10;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.ranged = true;
-			projectile.penetrate = 2;
-			projectile.timeLeft = 300;
-			projectile.alpha = 100;
-			projectile.light = 0.5f;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-            projectile.extraUpdates = 1;
-			aiType = ProjectileID.Bullet;           
+			Projectile.width = 2;
+			Projectile.height = 10;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.penetrate = 2;
+			Projectile.timeLeft = 300;
+			Projectile.alpha = 100;
+			Projectile.light = 0.5f;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
+			AIType = ProjectileID.Bullet;           
 		}
 
         public override void PostAI()
         {
             if (Main.rand.Next(2) == 0)
             {
-                Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0, 0, 100, default, 1.5f);
+                Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0, 0, 100, default, 1.5f);
             }
-            if (projectile.frameCounter++ > 5)
+            if (Projectile.frameCounter++ > 5)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
-            if (projectile.velocity == Vector2.Zero)
+            if (Projectile.velocity == Vector2.Zero)
             {
-                projectile.active = false;
+                Projectile.active = false;
             }
         }
 

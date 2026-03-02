@@ -9,60 +9,60 @@ namespace AAMod.NPCs.Bosses.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bane of the Bunny");
+            // DisplayName.SetDefault("Bane of the Bunny");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.hostile = true;
-            projectile.aiStyle = -1;
-            projectile.penetrate = -1;
-            projectile.extraUpdates = 1;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.hostile = true;
+            Projectile.aiStyle = -1;
+            Projectile.penetrate = -1;
+            Projectile.extraUpdates = 1;
         }
 
         public bool StuckInEnemy = false;
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            Rectangle myRect = new Rectangle((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height);
-            bool flag3 = projectile.Colliding(myRect, target.getRect());
+            Rectangle myRect = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
+            bool flag3 = Projectile.Colliding(myRect, target.getRect());
             target.AddBuff(ModContent.BuffType<Buffs.SpearStuck>(), 2);
             if (flag3 && !StuckInEnemy)
             {
                 StuckInEnemy = true;
-                projectile.ai[0] = 1f;
-                projectile.ai[1] = target.whoAmI;
-                projectile.velocity = (target.Center - projectile.Center) * 0.75f;
-                projectile.netUpdate = true;
+                Projectile.ai[0] = 1f;
+                Projectile.ai[1] = target.whoAmI;
+                Projectile.velocity = (target.Center - Projectile.Center) * 0.75f;
+                Projectile.netUpdate = true;
             }
         }
 
         public override void AI()
         {
             int num972 = 25;
-            if (projectile.alpha > 0)
+            if (Projectile.alpha > 0)
             {
-                projectile.alpha -= num972;
+                Projectile.alpha -= num972;
             }
-            if (projectile.alpha < 0)
+            if (Projectile.alpha < 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.rotation = projectile.velocity.ToRotation() + 1.57079637f;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             }
-            if (projectile.ai[0] == 1f)
+            if (Projectile.ai[0] == 1f)
             {
-                projectile.damage = 0;
-                projectile.ignoreWater = true;
-                projectile.tileCollide = false;
+                Projectile.damage = 0;
+                Projectile.ignoreWater = true;
+                Projectile.tileCollide = false;
                 int num977 = 15;
                 bool flag53 = false;
-                projectile.localAI[0] += 1f;
-                int num978 = (int)projectile.ai[1];
-                if (projectile.localAI[0] >= 60 * num977)
+                Projectile.localAI[0] += 1f;
+                int num978 = (int)Projectile.ai[1];
+                if (Projectile.localAI[0] >= 60 * num977)
                 {
                     flag53 = true;
                 }
@@ -72,8 +72,8 @@ namespace AAMod.NPCs.Bosses.Rajah
                 }
                 else if (Main.player[num978].active && !Main.player[num978].dead)
                 {
-                    projectile.Center = Main.player[num978].Center - projectile.velocity * 2f;
-                    projectile.gfxOffY = Main.player[num978].gfxOffY;
+                    Projectile.Center = Main.player[num978].Center - Projectile.velocity * 2f;
+                    Projectile.gfxOffY = Main.player[num978].gfxOffY;
                     Main.player[num978].AddBuff(BuffID.Bleeding, 2);
                 }
                 else
@@ -82,7 +82,7 @@ namespace AAMod.NPCs.Bosses.Rajah
                 }
                 if (flag53)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
         }

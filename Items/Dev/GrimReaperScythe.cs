@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
 {
@@ -8,33 +10,33 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Scythe of the Grim Reaper");
-            Tooltip.SetDefault(@"Left click to swing and release homing scythe
+			// DisplayName.SetDefault("Scythe of the Grim Reaper");
+            /* Tooltip.SetDefault(@"Left click to swing and release homing scythe
 Right click to do dashing hit
 You are immune during the dash and deal 10x damage in true melee
 Dashing ability has 10 seconds CD
 'Well, how many Grim Reapers have you met before, mate?'
--Gregg");
+-Gregg"); */
         }
 
 		public override void SetDefaults()
 		{
-			item.autoReuse = true;
-			item.useStyle = 1;
-			item.useAnimation = 30;
-			item.useTime = 30;
-			item.knockBack = 5f;
-			item.width = 24;
-			item.height = 28;
-			item.damage = 150;
-			item.crit = 14;
-			item.scale = 1.15f;
-			item.UseSound = SoundID.Item71;
-			item.rare = 7;
-			item.shoot = mod.ProjectileType("GrimReaperScythe");
-			item.shootSpeed = 14f;
-			item.value = 500000;
-			item.melee = true;
+			Item.autoReuse = true;
+			Item.useStyle = 1;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.knockBack = 5f;
+			Item.width = 24;
+			Item.height = 28;
+			Item.damage = 150;
+			Item.crit = 14;
+			Item.scale = 1.15f;
+			Item.UseSound = SoundID.Item71;
+			Item.rare = 7;
+			Item.shoot = Mod.Find<ModProjectile>("GrimReaperScythe").Type;
+			Item.shootSpeed = 14f;
+			Item.value = 500000;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		}
 		
 		public override bool AltFunctionUse(Player player)
@@ -47,14 +49,14 @@ Dashing ability has 10 seconds CD
 			int side = player.direction;
 			if (player.altFunctionUse != 2)
 			{
-				item.shoot = mod.ProjectileType("GrimReaperScythe");
+				Item.shoot = Mod.Find<ModProjectile>("GrimReaperScythe").Type;
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(mod.BuffType("ReaperCD")))
+			if (player.altFunctionUse == 2 && !player.HasBuff(Mod.Find<ModBuff>("ReaperCD").Type))
 			{
-				player.AddBuff(mod.BuffType("ReaperImmune"), 60);
-				player.AddBuff(mod.BuffType("ReaperCD"), 600);
-				item.shoot = mod.ProjectileType("ReaperHitbox");
+				player.AddBuff(Mod.Find<ModBuff>("ReaperImmune").Type, 60);
+				player.AddBuff(Mod.Find<ModBuff>("ReaperCD").Type, 600);
+				Item.shoot = Mod.Find<ModProjectile>("ReaperHitbox").Type;
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -64,9 +66,9 @@ Dashing ability has 10 seconds CD
 			}
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == mod.ProjectileType("GrimReaperScythe") && player.HasBuff(mod.BuffType("ReaperImmune")))
+			if (type == Mod.Find<ModProjectile>("GrimReaperScythe").Type && player.HasBuff(Mod.Find<ModBuff>("ReaperImmune").Type))
 			{
 				damage /= 10;
 			}

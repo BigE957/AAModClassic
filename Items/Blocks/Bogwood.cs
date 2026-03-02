@@ -1,28 +1,29 @@
-﻿namespace AAMod.Items.Blocks
+﻿using Terraria.ModLoader;
+namespace AAMod.Items.Blocks
 {
     class Bogwood : BaseAAItem
     {
         public override void SetDefaults()
         {
 
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("Bogwood"); //put your CustomBlock Tile name
-            item.ammo = item.type;
-            item.notAmmo = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("Bogwood").Type; //put your CustomBlock Tile name
+            Item.ammo = Item.type;
+            Item.notAmmo = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bogwood");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Bogwood");
+            // Tooltip.SetDefault("");
         }
     }
 }

@@ -1,5 +1,6 @@
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,17 +12,17 @@ namespace AAMod.Items.Boss.EFish
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soap Blaster");
-            Tooltip.SetDefault("Rapidly shoots destructive bubbles");
+            // DisplayName.SetDefault("Soap Blaster");
+            // Tooltip.SetDefault("Rapidly shoots destructive bubbles");
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.BubbleGun);
-			item.useTime = 3;
-			item.useAnimation = 3;
-            item.damage = 125;
-            item.rare = 11;
+            Item.CloneDefaults(ItemID.BubbleGun);
+			Item.useTime = 3;
+			Item.useAnimation = 3;
+            Item.damage = 125;
+            Item.rare = 11;
         }
 		
 		public override Vector2? HoldoutOffset()
@@ -29,10 +30,10 @@ namespace AAMod.Items.Boss.EFish
 			return new Vector2(-15, 0);
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
-			float num75 = item.shootSpeed;
+			float num75 = Item.shootSpeed;
 			float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
 			float num83 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
 			float num84 = (float)Math.Sqrt(num82 * num82 + num83 * num83);
@@ -63,12 +64,11 @@ namespace AAMod.Items.Boss.EFish
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.BubbleGun);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Grips
 {
@@ -6,20 +7,20 @@ namespace AAMod.Items.Boss.Grips
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+			// DisplayName.SetDefault("Treasure Bag");
+			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 
 		public override void SetDefaults()
 		{
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 36;
-			item.height = 32;
-			item.rare = 9;
-			item.expert = true; item.expertOnly = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 36;
+			Item.height = 32;
+			Item.rare = 9;
+			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => mod.NPCType("GripOfChaosBlue");
+        public override int BossBagNPC => Mod.Find<ModNPC>("GripOfChaosBlue").Type;
 
         public override bool CanRightClick()
 		{
@@ -30,11 +31,11 @@ namespace AAMod.Items.Boss.Grips
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("GripMaskBlue"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("GripMaskBlue").Type);
             }
             else if (Main.rand.Next(7) == 1)
             {
-                player.QuickSpawnItem(mod.ItemType("GripMaskRed"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("GripMaskRed").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -43,11 +44,11 @@ namespace AAMod.Items.Boss.Grips
             }
             if (Main.rand.Next(3) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("ClawBaton"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("ClawBaton").Type);
             }
-            player.QuickSpawnItem(mod.ItemType("Abyssium"), Main.rand.Next(25, 56));
-            player.QuickSpawnItem(mod.ItemType("Incinerite"), Main.rand.Next(25, 56));
-            player.QuickSpawnItem(mod.ItemType("ClawOfChaos"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(25, 56));
+            player.QuickSpawnItem(Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(25, 56));
+            player.QuickSpawnItem(Mod.Find<ModItem>("ClawOfChaos").Type);
 		}
 	}
 }

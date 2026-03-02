@@ -112,38 +112,38 @@ namespace AAMod.Worldgen
             {
                 case ConversionType.MIRE:
                     {
-                        tileGrass = mod.TileType("MireGrass");
-                        wallGrass = mod.WallType("MireJungleWall");
-                        tileStone = mod.TileType("Depthstone");
-                        wallStone = mod.WallType("DepthstoneWall");
-                        tileSand = mod.TileType("Depthsand");
-                        tileSandHard = mod.TileType("DepthsandHardened");
-                        wallSandHard = mod.WallType("DepthsandHardenedWall");
-                        tileSandstone = mod.TileType("Depthsandstone");
-                        wallSandstone = mod.WallType("DepthsandstoneWall");
-                        tileIce = mod.TileType("IndigoIce");
-                        tileWood = mod.TileType("LivingBogwood");
-                        tileLeaves = mod.TileType("LivingBogleaves");
-                        wallLeaves = mod.TileType("LivingBogleafWall");
-                        livingwoodWall = mod.TileType("LivingBogwoodWall");
+                        tileGrass = mod.Find<ModTile>("MireGrass").Type;
+                        wallGrass = mod.Find<ModWall>("MireJungleWall").Type;
+                        tileStone = mod.Find<ModTile>("Depthstone").Type;
+                        wallStone = mod.Find<ModWall>("DepthstoneWall").Type;
+                        tileSand = mod.Find<ModTile>("Depthsand").Type;
+                        tileSandHard = mod.Find<ModTile>("DepthsandHardened").Type;
+                        wallSandHard = mod.Find<ModWall>("DepthsandHardenedWall").Type;
+                        tileSandstone = mod.Find<ModTile>("Depthsandstone").Type;
+                        wallSandstone = mod.Find<ModWall>("DepthsandstoneWall").Type;
+                        tileIce = mod.Find<ModTile>("IndigoIce").Type;
+                        tileWood = mod.Find<ModTile>("LivingBogwood").Type;
+                        tileLeaves = mod.Find<ModTile>("LivingBogleaves").Type;
+                        wallLeaves = mod.Find<ModTile>("LivingBogleafWall").Type;
+                        livingwoodWall = mod.Find<ModTile>("LivingBogwoodWall").Type;
                         break;
                     }
 
                 case ConversionType.INFERNO:
                     {
-                        tileGrass = mod.TileType("InfernoGrass");
-                        wallGrass = mod.WallType("InfernoGrassWall");
-                        tileStone = mod.TileType("Torchstone");
-                        wallStone = mod.WallType("TorchstoneWall");
-                        tileSand = mod.TileType("Torchand");
-                        tileSandHard = mod.TileType("TorchsandHardened");
-                        wallSandHard = mod.WallType("TorchsandHardenedWall");
-                        tileSandstone = mod.TileType("Infernosandstone");
-                        wallSandstone = mod.WallType("InfernosandstoneWall");
-                        tileIce = mod.TileType("Torchice");
-                        tileWood = mod.TileType("LivingRazewood");
-                        tileLeaves = mod.TileType("LivingRazeleaves");
-                        wallLeaves = mod.TileType("LivingRazeleafWall");
+                        tileGrass = mod.Find<ModTile>("InfernoGrass").Type;
+                        wallGrass = mod.Find<ModWall>("InfernoGrassWall").Type;
+                        tileStone = mod.Find<ModTile>("Torchstone").Type;
+                        wallStone = mod.Find<ModWall>("TorchstoneWall").Type;
+                        tileSand = mod.Find<ModTile>("Torchand").Type;
+                        tileSandHard = mod.Find<ModTile>("TorchsandHardened").Type;
+                        wallSandHard = mod.Find<ModWall>("TorchsandHardenedWall").Type;
+                        tileSandstone = mod.Find<ModTile>("Infernosandstone").Type;
+                        wallSandstone = mod.Find<ModWall>("InfernosandstoneWall").Type;
+                        tileIce = mod.Find<ModTile>("Torchice").Type;
+                        tileWood = mod.Find<ModTile>("LivingRazewood").Type;
+                        tileLeaves = mod.Find<ModTile>("LivingRazeleaves").Type;
+                        wallLeaves = mod.Find<ModTile>("LivingRazeleafWall").Type;
                         break;
                     }
 
@@ -170,83 +170,83 @@ namespace AAMod.Worldgen
                 {
                     if (WorldGen.InWorld(k, l, 1))
                     {
-                        int type = Main.tile[k, l].type;
-                        int wall = Main.tile[k, l].wall;
+                        int type = Main.tile[k, l].TileType;
+                        int wall = Main.tile[k, l].WallType;
 
                         if (wallGrass != 0 && WallID.Sets.Conversion.Grass[wall] && wall != wallGrass)
                         {
-                            Main.tile[k, l].wall = (ushort)wallGrass;
+                            Main.tile[k, l].WallType = (ushort)wallGrass;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (wallStone != 0 && WallID.Sets.Conversion.Stone[wall] && wall != wallStone)
                         {
-                            Main.tile[k, l].wall = (ushort)wallStone;
+                            Main.tile[k, l].WallType = (ushort)wallStone;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (wallSandHard != 0 && WallID.Sets.Conversion.HardenedSand[wall] && wall != wallSandHard)
                         {
-                            Main.tile[k, l].wall = (ushort)wallSandHard;
+                            Main.tile[k, l].WallType = (ushort)wallSandHard;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (wallSandstone != 0 && WallID.Sets.Conversion.Sandstone[wall] && wall != wallSandstone)
                         {
-                            Main.tile[k, l].wall = (ushort)wallSandstone;
+                            Main.tile[k, l].WallType = (ushort)wallSandstone;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (wallLeaves != 0 && wall == WallID.LivingLeaf && wall != wallLeaves)
                         {
-                            Main.tile[k, l].wall = (ushort)wallLeaves;
+                            Main.tile[k, l].WallType = (ushort)wallLeaves;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (wallWood != 0 && wall == WallID.LivingWood && wall != wallLeaves)
                         {
-                            Main.tile[k, l].wall = (ushort)wallWood;
+                            Main.tile[k, l].WallType = (ushort)wallWood;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
 
                         if (tileStone != 0 && (Main.tileMoss[type] || TileID.Sets.Conversion.Stone[type]) && type != tileStone)
                         {
-                            Main.tile[k, l].type = (ushort)tileStone;
+                            Main.tile[k, l].TileType = (ushort)tileStone;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileGrass != 0 && TileID.Sets.Conversion.Grass[type] && type != tileGrass)
                         {
-                            Main.tile[k, l].type = (ushort)tileGrass;
+                            Main.tile[k, l].TileType = (ushort)tileGrass;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileIce != 0 && TileID.Sets.Conversion.Ice[type] && type != tileIce)
                         {
-                            Main.tile[k, l].type = (ushort)tileIce;
+                            Main.tile[k, l].TileType = (ushort)tileIce;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileSand != 0 && TileID.Sets.Conversion.Sand[type] && type != tileSand)
                         {
-                            Main.tile[k, l].type = (ushort)tileSand;
+                            Main.tile[k, l].TileType = (ushort)tileSand;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileSandHard != 0 && TileID.Sets.Conversion.HardenedSand[type] && type != tileSandHard)
                         {
-                            Main.tile[k, l].type = (ushort)tileSandHard;
+                            Main.tile[k, l].TileType = (ushort)tileSandHard;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileSandstone != 0 && TileID.Sets.Conversion.Sandstone[type] && type != tileSandstone)
                         {
-                            Main.tile[k, l].type = (ushort)tileSandstone;
+                            Main.tile[k, l].TileType = (ushort)tileSandstone;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileThorn != 0 && TileID.Sets.Conversion.Thorn[type] && type != tileThorn)
                         {
-                            Main.tile[k, l].type = (ushort)tileThorn;
+                            Main.tile[k, l].TileType = (ushort)tileThorn;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileWood != 0 && (type == TileID.LivingMahogany || type == TileID.LivingWood) && type != tileWood)
                         {
-                            Main.tile[k, l].type = (ushort)tileWood;
+                            Main.tile[k, l].TileType = (ushort)tileWood;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (tileLeaves != 0 && (type == TileID.LivingMahoganyLeaves || type == TileID.LeafBlock) && type != tileLeaves)
                         {
-                            Main.tile[k, l].type = (ushort)tileLeaves;
+                            Main.tile[k, l].TileType = (ushort)tileLeaves;
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                     }

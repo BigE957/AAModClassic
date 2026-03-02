@@ -11,11 +11,11 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Searing Spark");
+            // DisplayName.SetDefault("Searing Spark");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 4));
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
 
@@ -24,9 +24,9 @@ namespace AAMod.Items.Materials
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -35,16 +35,16 @@ namespace AAMod.Items.Materials
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 24;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 10;
+            Item.width = 24;
+            Item.height = 24;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 10;
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Cyan.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Cyan.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

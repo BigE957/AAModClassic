@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,36 +8,35 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Dragon Digger");
-            Tooltip.SetDefault("Dragons don't really dig, but this'll do");
+            // DisplayName.SetDefault("Dragon Digger");
+            // Tooltip.SetDefault("Dragons don't really dig, but this'll do");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 14;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 22;
-			item.useAnimation = 22;
-			item.pick = 75;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = 3600;
-			item.rare = 2;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 14;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 22;
+			Item.useAnimation = 22;
+			Item.pick = 75;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = 3600;
+			Item.rare = 2;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "IncineriteBar", 12);
                 recipe.AddIngredient(null, "BroodScale", 6);
                 recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
 	}

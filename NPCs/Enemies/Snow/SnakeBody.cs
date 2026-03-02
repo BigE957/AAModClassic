@@ -6,16 +6,16 @@ namespace AAMod.NPCs.Enemies.Snow
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Snow Serpent");
+			// DisplayName.SetDefault("Snow Serpent");
         }
 
 		public override void SetDefaults()
 		{
             base.SetDefaults();
-            npc.dontCountMe = true;
+            NPC.dontCountMe = true;
 		}
 
-		public override bool PreNPCLoot()
+		public override bool PreKill()
 		{
 			return false;
 		}

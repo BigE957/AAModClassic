@@ -6,24 +6,24 @@ namespace AAMod.Items.Boss.Rajah.Supreme
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Champion Plate");
-            Tooltip.SetDefault("Forged from Champium");
+            // DisplayName.SetDefault("Champion Plate");
+            // Tooltip.SetDefault("Forged from Champium");
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-			item.maxStack = 99;
-            item.rare = 11;
+            Item.width = 20;
+            Item.height = 20;
+			Item.maxStack = 99;
+            Item.rare = 11;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }

@@ -10,45 +10,43 @@ namespace AAMod.Items.Armor.Deathly
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deathly Ribguard");
-            Tooltip.SetDefault("9% Increased ranged damage");
+            // DisplayName.SetDefault("Deathly Ribguard");
+            // Tooltip.SetDefault("9% Increased ranged damage");
         }
 
         public override void SetDefaults()
         {
-            item.width = 38;
-            item.height = 34;
-            item.value = 90000;
-            item.rare = 4;
-            item.defense = 8;
+            Item.width = 38;
+            Item.height = 34;
+            Item.value = 90000;
+            Item.rare = 4;
+            Item.defense = 8;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.09f;
+            player.GetDamage(DamageClass.Ranged) += 0.09f;
         }
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.NecroBreastplate, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 8);
                 recipe.AddIngredient(ItemID.ShadowScale, 8);
                 recipe.AddIngredient(null, "DevilSilk", 8);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.NecroBreastplate, 1);
                 recipe.AddIngredient(ItemID.JungleSpores, 8);
                 recipe.AddIngredient(ItemID.TissueSample, 8);
                 recipe.AddIngredient(null, "DevilSilk", 8);
                 recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

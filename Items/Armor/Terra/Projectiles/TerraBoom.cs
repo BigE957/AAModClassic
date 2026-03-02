@@ -8,21 +8,21 @@ namespace AAMod.Items.Armor.Terra.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Apocalypse");
-            Main.projFrames[projectile.type] = 5;
+            // DisplayName.SetDefault("Apocalypse");
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 600;
-            projectile.melee = true;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 600;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -32,17 +32,17 @@ namespace AAMod.Items.Armor.Terra.Projectiles
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 4)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 4)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            projectile.velocity *= 0;
+            Projectile.velocity *= 0;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 120);
         }

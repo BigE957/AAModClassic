@@ -7,18 +7,18 @@ namespace AAMod.Tiles.Bricks
 {
     public class DoomsdayPlating : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
-            soundType = 21;
-            drop = mod.ItemType("DoomsdayPlating");   
-            dustType = mod.DustType("DoomDust");
+            HitSound = 21;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomsdayPlating").Type;   
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
             AddMapEntry(new Color(70, 50, 50
                 ));
-			minPick = 225;
+			MinPick = 225;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
@@ -30,9 +30,9 @@ namespace AAMod.Tiles.Bricks
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            if (tile != null && tile.active() && tile.type == Type)
+            if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                Texture2D glowTex = mod.GetTexture("Glowmasks/ApocalyptiteTile_Glow");
+                Texture2D glowTex = Mod.GetTexture("Glowmasks/ApocalyptiteTile_Glow");
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
         }

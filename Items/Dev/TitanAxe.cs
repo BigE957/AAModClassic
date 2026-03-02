@@ -10,34 +10,34 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Titan Axe");
-            Tooltip.SetDefault("Right clicking throws the axe. \n" + "Left clicking swings the axe. \n" + "'Oof this isn't google' \n'" + "-Welox");
+            // DisplayName.SetDefault("Titan Axe");
+            // Tooltip.SetDefault("Right clicking throws the axe. \n" + "Left clicking swings the axe. \n" + "'Oof this isn't google' \n'" + "-Welox");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 200;
-			item.melee = true;
-			item.width = 72;
-			item.height = 72;
-			item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 100000;
-			item.rare = 11;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.shootSpeed = 12f;
+			Item.damage = 200;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 72;
+			Item.height = 72;
+			Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = 100000;
+			Item.rare = 11;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.shootSpeed = 12f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(40, 255, 40);
+                    line2.OverrideColor = new Color(40, 255, 40);
                 }
             }
         }
@@ -52,15 +52,15 @@ namespace AAMod.Items.Dev
 
             if (player.altFunctionUse == 2)
             {
-                item.shoot = mod.ProjectileType("TitanAxe");
-                item.noMelee = true;
-                item.noUseGraphic = true;
+                Item.shoot = Mod.Find<ModProjectile>("TitanAxe").Type;
+                Item.noMelee = true;
+                Item.noUseGraphic = true;
             }
             else
             {
-                item.shoot = 0;
-                item.noMelee = false;
-                item.noUseGraphic = false;
+                Item.shoot = 0;
+                Item.noMelee = false;
+                Item.noUseGraphic = false;
             }
             return base.CanUseItem(player);
 		}

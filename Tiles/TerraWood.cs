@@ -9,16 +9,16 @@ namespace AAMod.Tiles
     {
 
         public bool glow = true; 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = false;
-            Main.tileMerge[Type][mod.TileType("TerraLeaves")] = true;
-            Main.tileMerge[Type][mod.TileType("TerraCrystal")] = true;
-            soundType = 21;
+            Main.tileMerge[Type][Mod.Find<ModTile>("TerraLeaves").Type] = true;
+            Main.tileMerge[Type][Mod.Find<ModTile>("TerraCrystal").Type] = true;
+            HitSound = 21;
             Main.tileLighted[Type] = true;
-            dustType = 107;
+            DustType = 107;
             AddMapEntry(new Color(52, 200, 0));
         }
 
@@ -40,8 +40,8 @@ namespace AAMod.Tiles
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            BaseDrawing.DrawTileTexture(spriteBatch, mod.GetTexture("Tiles/TerraWood"), i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/TerraWood"), i, j, true, false, false, null, AAGlobalTile.GetTerraColorDim);
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

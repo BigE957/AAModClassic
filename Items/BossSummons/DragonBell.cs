@@ -1,6 +1,7 @@
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
@@ -12,30 +13,30 @@ namespace AAMod.Items.BossSummons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Bell");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"An ornately crafted bell
+            // DisplayName.SetDefault("Ancient Bell");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"An ornately crafted bell
 Summons the Broodmother in the Inferno
-Only useable during the day");
+Only useable during the day"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 38;
-            item.maxStack = 20;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 34;
+            Item.height = 38;
+            Item.maxStack = 20;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Broodmother"), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Broodmother"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Broodmother").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Broodmother"), false);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -48,7 +49,7 @@ Only useable during the day");
             }
             if (player.GetModPlayer<AAPlayer>().ZoneInferno)
             {
-                if (NPC.AnyNPCs(mod.NPCType("Broodmother")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Broodmother").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DragonBellFalse1"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                     return false;
@@ -61,12 +62,11 @@ Only useable during the day");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DragonScale", 15);
             recipe.AddIngredient(null, "Sunpowder", 30);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

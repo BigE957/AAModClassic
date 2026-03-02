@@ -9,45 +9,44 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
         {
 
-            item.damage = 10;
-            item.melee = true;
-            item.width = 132;
-            item.height = 132;
-            item.scale = 1.1f;
-            item.maxStack = 1;
-            item.useTime = 24;
-            item.useAnimation = 24;
-            item.knockBack = 4.7f;
-            item.UseSound = SoundID.Item1;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.useTurn = true;
-			item.autoReuse = true;
-            item.useStyle = 5;
-            item.value = Item.sellPrice(0, 2, 40, 0);
-            item.rare = 3;
-            item.shoot = mod.ProjectileType("GSP");  //put your Spear projectile name
-            item.shootSpeed = 5f;
+            Item.damage = 10;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 132;
+            Item.height = 132;
+            Item.scale = 1.1f;
+            Item.maxStack = 1;
+            Item.useTime = 24;
+            Item.useAnimation = 24;
+            Item.knockBack = 4.7f;
+            Item.UseSound = SoundID.Item1;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.useTurn = true;
+			Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.value = Item.sellPrice(0, 2, 40, 0);
+            Item.rare = 3;
+            Item.shoot = Mod.Find<ModProjectile>("GSP").Type;  //put your Spear projectile name
+            Item.shootSpeed = 5f;
         }
 		public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Grass Spear");
-      Tooltip.SetDefault("");
+      // DisplayName.SetDefault("Grass Spear");
+      // Tooltip.SetDefault("");
     }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);  
+            Recipe recipe = CreateRecipe();  
             recipe.AddIngredient(ItemID.Stinger, 4);
             recipe.AddIngredient(ItemID.JungleSpores, 4);
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

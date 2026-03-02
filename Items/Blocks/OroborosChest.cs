@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,35 +12,35 @@ namespace AAMod.Items.Blocks
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Oroboros Chest");
+            // DisplayName.SetDefault("Oroboros Chest");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 32;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-            item.rare = 5;
-            item.useStyle = 1;
-			item.consumable = true;
-			item.value = 500;
-			item.createTile = mod.TileType("OroborosChest");
+			Item.width = 32;
+			Item.height = 32;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+            Item.rare = 5;
+            Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 500;
+			Item.createTile = Mod.Find<ModTile>("OroborosChest").Type;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
 
-                    line2.overrideColor = new Color(100, 0, 10);
+                    line2.OverrideColor = new Color(100, 0, 10);
 
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
 //
                 }
             }
@@ -48,12 +49,11 @@ namespace AAMod.Items.Blocks
         public override void AddRecipes()
 		{
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "DoomiteScrap", 2);
                 recipe.AddIngredient(null, "OroborosWood", 12);
                 recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

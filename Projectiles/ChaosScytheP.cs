@@ -6,51 +6,51 @@ namespace AAMod.Projectiles
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("CHAOS CHAOS");
+			// DisplayName.SetDefault("CHAOS CHAOS");
         }
     	
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.melee = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.aiStyle = -1;
-            projectile.alpha = 254;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = 15;
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.aiStyle = -1;
+            Projectile.alpha = 254;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 15;
         }
 
         public bool CHAOSCHAOS = false;
 
         public override void AI()
         {
-            if (CHAOSCHAOS == false && projectile.alpha > 0)
+            if (CHAOSCHAOS == false && Projectile.alpha > 0)
             {
-                projectile.alpha -= 15;
+                Projectile.alpha -= 15;
             }
-            if (CHAOSCHAOS == false && projectile.alpha <= 0)
+            if (CHAOSCHAOS == false && Projectile.alpha <= 0)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
                 CHAOSCHAOS = true;
             }
-            if (CHAOSCHAOS == true && projectile.alpha < 255)
+            if (CHAOSCHAOS == true && Projectile.alpha < 255)
             {
-                projectile.alpha += 5;
+                Projectile.alpha += 5;
             }
-            if (projectile.alpha >= 255)
+            if (Projectile.alpha >= 255)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
-            if (projectile.velocity.X < 0f)
+            if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
-            projectile.rotation += projectile.direction * 0.2f;
+            Projectile.rotation += Projectile.direction * 0.2f;
         }
     }
 }

@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,66 +17,66 @@ namespace AAMod.Projectiles     //We need this to basically indicate the folder 
         {
             if (Main.netMode != 2)
             {
-                Texture2D[] glowMasks = new Texture2D[Main.glowMaskTexture.Length + 1];
-                for (int i = 0; i < Main.glowMaskTexture.Length; i++)
+                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
                 {
-                    glowMasks[i] = Main.glowMaskTexture[i];
+                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
                 }
-                glowMasks[glowMasks.Length - 1] = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                Main.glowMaskTexture = glowMasks;
+                TextureAssets.GlowMask.Value = glowMasks;
             }
-            projectile.glowMask = customGlowMask;
+            Projectile.glowMask = customGlowMask;
 
 
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 140;
-            projectile.height = 140;
-            projectile.friendly = true;
-            projectile.penetrate = -1; 
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;  
-            projectile.melee = true;
+            Projectile.width = 140;
+            Projectile.height = 140;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1; 
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;  
+            Projectile.DamageType = DamageClass.Melee;
             
         }
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
             Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
-            if (Main.myPlayer == projectile.owner)
+            if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                 }
             }
-            Lighting.AddLight(projectile.Center, color.R / 255, color.G / 255, color.B / 255);     //this is the projectile light color R, G, B (Red, Green, Blue)
-            projectile.Center = player.MountedCenter;
-            projectile.position.X += player.width / 2 * player.direction;  //this is the projectile width sptrite direction from the playr
-            projectile.spriteDirection = player.direction;
-            projectile.rotation += .5f * player.direction; //this is the projectile rotation/spinning speed
-            if (projectile.rotation > MathHelper.TwoPi)
+            Lighting.AddLight(Projectile.Center, color.R / 255, color.G / 255, color.B / 255);     //this is the projectile light color R, G, B (Red, Green, Blue)
+            Projectile.Center = player.MountedCenter;
+            Projectile.position.X += player.width / 2 * player.direction;  //this is the projectile width sptrite direction from the playr
+            Projectile.spriteDirection = player.direction;
+            Projectile.rotation += .5f * player.direction; //this is the projectile rotation/spinning speed
+            if (Projectile.rotation > MathHelper.TwoPi)
             {
-                projectile.rotation -= MathHelper.TwoPi;
+                Projectile.rotation -= MathHelper.TwoPi;
             }
-            else if (projectile.rotation < 0)
+            else if (Projectile.rotation < 0)
             {
-                projectile.rotation += MathHelper.TwoPi;
+                Projectile.rotation += MathHelper.TwoPi;
             }
-            player.heldProj = projectile.whoAmI;
+            player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = projectile.rotation;
+            player.itemRotation = Projectile.rotation;
             if (Main.netMode != 1)
             {
-                projectile.ai[1]++;
-                if (projectile.ai[1] > 20)
+                Projectile.ai[1]++;
+                if (Projectile.ai[1] > 20)
                 {
-                    projectile.ai[1] = 0;
+                    Projectile.ai[1] = 0;
                     Vector2 vector = new Vector2(player.position.X + player.width * 0.5f, player.position.Y + player.height * 0.5f);
                     float num22 = Main.mouseX + Main.screenPosition.X - vector.X;
                     float num23 = Main.mouseY + Main.screenPosition.Y - vector.Y;
@@ -95,25 +97,25 @@ namespace AAMod.Projectiles     //We need this to basically indicate the folder 
                     }
                     num22 *= num24;
                     num23 *= num24;
-                    int a = Projectile.NewProjectile(vector.X, vector.Y, num22, num23, ModContent.ProjectileType<DecayScytheProj>(), projectile.damage, projectile.knockBack, player.whoAmI, 0f, 0f);
+                    int a = Projectile.NewProjectile(vector.X, vector.Y, num22, num23, ModContent.ProjectileType<DecayScytheProj>(), Projectile.damage, Projectile.knockBack, player.whoAmI, 0f, 0f);
                     Main.projectile[a].netUpdate = true;
-                    Main.PlaySound(SoundID.Item71, projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
                 }
             }
             
  
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Ichor, 1000);
             target.AddBuff(BuffID.CursedInferno, 1000);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)  //this make the projectile sprite rotate perfectaly around the player
+        public override bool PreDraw(ref Color lightColor)  //this make the projectile sprite rotate perfectaly around the player
         {
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod.Backgrounds
@@ -71,7 +73,7 @@ namespace AAMod.Backgrounds
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
+                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                 spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
             }
 
@@ -170,7 +172,7 @@ namespace AAMod.Backgrounds
 
         private void UpdateShenIndex()
         {
-            int ShenType = AAMod.instance.NPCType("Shen");
+            int ShenType = AAMod.instance.Find<ModNPC>("Shen").Type;
             if (ShenIndex >= 0 && Main.npc[ShenIndex].active && Main.npc[ShenIndex].type == ShenType)
             {
                 return;

@@ -13,71 +13,71 @@ namespace AAMod.Items.Pets
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragon Soul");
-			Main.projFrames[projectile.type] = 4;
-			Main.projPet[projectile.type] = true;
-			ProjectileID.Sets.LightPet[projectile.type] = true;
+			// DisplayName.SetDefault("Dragon Soul");
+			Main.projFrames[Projectile.type] = 4;
+			Main.projPet[Projectile.type] = true;
+			ProjectileID.Sets.LightPet[Projectile.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 30;
-			projectile.height = 30;
-			projectile.penetrate = -1;
-			projectile.netImportant = true;
-			projectile.timeLeft *= 5;
-			projectile.friendly = true;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = false;
+			Projectile.width = 30;
+			Projectile.height = 30;
+			Projectile.penetrate = -1;
+			Projectile.netImportant = true;
+			Projectile.timeLeft *= 5;
+			Projectile.friendly = true;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
 
 		}
 
 		public override void AI()
         {
-            Lighting.AddLight((int)(projectile.Center.X + projectile.width / 2) / 16, (int)(projectile.position.Y + projectile.height / 2) / 16, .5f, 0.3f, 0f);
-            if (projectile.velocity.X > 0f)
+            Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, .5f, 0.3f, 0f);
+            if (Projectile.velocity.X > 0f)
             {
-                projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
-            else if (projectile.velocity.X < 0f)
+            else if (Projectile.velocity.X < 0f)
             {
-                projectile.spriteDirection = 1;
+                Projectile.spriteDirection = 1;
             }
-            projectile.rotation = projectile.velocity.X * 0.1f;
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 4)
+            Projectile.rotation = Projectile.velocity.X * 0.1f;
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 4)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
             }
-            if (projectile.frame >= 4)
+            if (Projectile.frame >= 4)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
-            Player player = Main.player[projectile.owner];
-            if (Main.myPlayer == projectile.owner)
+            Player player = Main.player[Projectile.owner];
+            if (Main.myPlayer == Projectile.owner)
             {
                 if (player.GetModPlayer<AAPlayer>().DragonSoul)
                 {
-                    projectile.timeLeft = 2;
+                    Projectile.timeLeft = 2;
                 }
             }
-            if (Main.player[projectile.owner].dead)
+            if (Main.player[Projectile.owner].dead)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
             float num146 = 3.5f;
-            Vector2 vector13 = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
-            float num147 = Main.player[projectile.owner].position.X + Main.player[projectile.owner].width / 2 - vector13.X;
-            float num148 = Main.player[projectile.owner].position.Y + Main.player[projectile.owner].height / 2 - vector13.Y;
+            Vector2 vector13 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+            float num147 = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - vector13.X;
+            float num148 = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - vector13.Y;
             int num149 = 40;
             float num150 = (float)Math.Sqrt(num147 * num147 + num148 * num148);
             num150 = (float)Math.Sqrt(num147 * num147 + num148 * num148);
             if (num150 > 800f)
             {
-                projectile.position.X = Main.player[projectile.owner].position.X + Main.player[projectile.owner].width / 2 - projectile.width / 2;
-                projectile.position.Y = Main.player[projectile.owner].position.Y + Main.player[projectile.owner].height / 2 - projectile.height / 2;
+                Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
+                Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
                 return;
             }
             if (num150 > num149)
@@ -85,12 +85,12 @@ namespace AAMod.Items.Pets
                 num150 = num146 / num150;
                 num147 *= num150;
                 num148 *= num150;
-                projectile.velocity.X = num147;
-                projectile.velocity.Y = num148;
+                Projectile.velocity.X = num147;
+                Projectile.velocity.Y = num148;
                 return;
             }
-            projectile.velocity.X = 0f;
-            projectile.velocity.Y = 0f;
+            Projectile.velocity.X = 0f;
+            Projectile.velocity.Y = 0f;
             return;
         }
     }

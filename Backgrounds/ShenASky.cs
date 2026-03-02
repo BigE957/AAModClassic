@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod.Backgrounds
@@ -170,7 +171,7 @@ namespace AAMod.Backgrounds
 
         private void UpdateShenIndex()
         {
-            int ShenType = AAMod.instance.NPCType("ShenA");
+            int ShenType = AAMod.instance.Find<ModNPC>("ShenA").Type;
             if (ShenIndex >= 0 && Main.npc[ShenIndex].active && Main.npc[ShenIndex].type == ShenType)
             {
                 return;

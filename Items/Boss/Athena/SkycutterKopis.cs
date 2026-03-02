@@ -8,42 +8,40 @@ namespace AAMod.Items.Boss.Athena
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skycutter Kopis");
-			Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Skycutter Kopis");
+			// Tooltip.SetDefault("");
         }
         public override void SetDefaults()
 		{
-			item.damage = 70;
-			item.melee = true;
-			item.width = 40;
-			item.height = 50;
-            item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = Item.sellPrice(gold: 1);
-			item.rare = 8;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Skyblade");
-            item.shootSpeed = 10;
+			Item.damage = 70;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 50;
+            Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = Item.sellPrice(gold: 1);
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("Skyblade").Type;
+            Item.shootSpeed = 10;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe;
-			recipe = new ModRecipe(mod);
+			Recipe recipe;
+			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SilverBroadsword, 1);
 			recipe.AddIngredient(null, "GoddessFeather", 10);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-			recipe = new ModRecipe(mod);
+			recipe.Register();
+			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.TungstenBroadsword, 1);
 			recipe.AddIngredient(null, "GoddessFeather", 10);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

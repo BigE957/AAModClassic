@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -8,30 +9,29 @@ namespace AAMod.Items.Blocks
         public override void SetDefaults()
         {
 
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.createTile = mod.TileType("ScorchedDynastyWood"); //put your CustomBlock Tile name
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.createTile = Mod.Find<ModTile>("ScorchedDynastyWood").Type; //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scorched Dynasty Wood");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Scorched Dynasty Wood");
+            // Tooltip.SetDefault("");
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DynastyWood, 1);
             recipe.needLava = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

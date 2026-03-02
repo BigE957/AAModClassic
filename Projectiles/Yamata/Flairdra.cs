@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Yamata
@@ -10,109 +11,109 @@ namespace AAMod.Projectiles.Yamata
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flairdra");
+            // DisplayName.SetDefault("Flairdra");
 
-            Main.projFrames[projectile.type] = 8;
+            Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 34;
-            projectile.friendly = true;
-            projectile.penetrate = -1; 
-            projectile.melee = true; 
+            Projectile.width = 32;
+            Projectile.height = 34;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1; 
+            Projectile.DamageType = DamageClass.Melee; 
         }
 		
 		public override void AI()
         { 
-            Vector2 vector54 = Main.player[projectile.owner].Center - projectile.Center;
-            projectile.rotation = vector54.ToRotation() - 1.57f;
-            if (Main.player[projectile.owner].dead)
+            Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
+            Projectile.rotation = vector54.ToRotation() - 1.57f;
+            if (Main.player[Projectile.owner].dead)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return;
             }
-            Main.player[projectile.owner].itemAnimation = 20;
-            Main.player[projectile.owner].itemTime = 20;
+            Main.player[Projectile.owner].itemAnimation = 20;
+            Main.player[Projectile.owner].itemTime = 20;
             float arg_1C53D_0 = vector54.X;
             if (vector54.X < 0f)
             {
-                Main.player[projectile.owner].ChangeDir(1);
-                projectile.direction = 1;
+                Main.player[Projectile.owner].ChangeDir(1);
+                Projectile.direction = 1;
             }
             else
             {
-                Main.player[projectile.owner].ChangeDir(-1);
-                projectile.direction = -1;
+                Main.player[Projectile.owner].ChangeDir(-1);
+                Projectile.direction = -1;
             }
-            Main.player[projectile.owner].itemRotation = (vector54 * -1f * projectile.direction).ToRotation();
-            projectile.spriteDirection = (vector54.X > 0f) ? -1 : 1;
-            if (projectile.ai[0] == 0f && vector54.Length() > 600f)
+            Main.player[Projectile.owner].itemRotation = (vector54 * -1f * Projectile.direction).ToRotation();
+            Projectile.spriteDirection = (vector54.X > 0f) ? -1 : 1;
+            if (Projectile.ai[0] == 0f && vector54.Length() > 600f)
             {
-                projectile.ai[0] = 1f;
+                Projectile.ai[0] = 1f;
             }
-            if (projectile.ai[0] == 1f || projectile.ai[0] == 2f)
+            if (Projectile.ai[0] == 1f || Projectile.ai[0] == 2f)
             {
                 float num687 = vector54.Length();
                 if (num687 > 1500f)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                     return;
                 }
                 if (num687 > 800f)
                 {
-                    projectile.ai[0] = 2f;
+                    Projectile.ai[0] = 2f;
                 }
-                projectile.tileCollide = false;
+                Projectile.tileCollide = false;
                 float num688 = 20f;
-                if (projectile.ai[0] == 2f)
+                if (Projectile.ai[0] == 2f)
                 {
                     num688 = 40f;
                 }
-                projectile.velocity = Vector2.Normalize(vector54) * num688;
+                Projectile.velocity = Vector2.Normalize(vector54) * num688;
                 if (vector54.Length() < num688)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                     return;
                 }
             }
-            projectile.ai[1] += 1f;
-            if (projectile.ai[1] > 5f)
+            Projectile.ai[1] += 1f;
+            if (Projectile.ai[1] > 5f)
             {
-                projectile.alpha = 0;
+                Projectile.alpha = 0;
             }
-            if ((int)projectile.ai[1] % 4 == 0 && projectile.owner == Main.myPlayer)
+            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
             {
                 Vector2 vector55 = vector54 * -1f;
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, mod.ProjectileType("FlairdraCyclone"), projectile.damage, projectile.knockBack, projectile.owner, -10f, 0f);
+                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }
 
-        public override void OnHitNPC (NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
             if (Main.netMode != 1 && Main.rand.Next(2) == 0)
             {
-            target.immune[projectile.owner] = 1;
-                Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            target.immune[Projectile.owner] = 1;
+                SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
                 float spread = 12f * 0.0174f;
-                double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+                double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
                 double deltaAngle = spread / 3;
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("YWSplit"), projectile.damage / 3, projectile.knockBack, projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("YWSplit"), projectile.damage / 3, projectile.knockBack, projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 }
-                projectile.netUpdate = true;
+                Projectile.netUpdate = true;
             }
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
 		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 30;
             height = 30;
@@ -123,29 +124,29 @@ namespace AAMod.Projectiles.Yamata
 		{
 			//projectile.tileCollide = false;
 			//projectile.timeLeft = 20;
-			projectile.ai[0] = 1f;
+			Projectile.ai[0] = 1f;
 			return false;
 		}
         
         // chain voodoo
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 10)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 10)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 7)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 7)
                 { 
-                    projectile.frame = 0; 
+                    Projectile.frame = 0; 
                 }
             }
 
-            Texture2D texture = mod.GetTexture("Chains/Flairdra_Chain");
+            Texture2D texture = Mod.GetTexture("Chains/Flairdra_Chain");
             
-            Vector2 position = projectile.Center;
-            Vector2 mountedCenter = Main.player[projectile.owner].MountedCenter;
+            Vector2 position = Projectile.Center;
+            Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
             Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
             float num1 = texture.Height;
@@ -169,7 +170,7 @@ namespace AAMod.Projectiles.Yamata
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
                     Color color2 = Lighting.GetColor((int)position.X / 16, (int)(position.Y / 16.0));
-                    color2 = projectile.GetAlpha(color2);
+                    color2 = Projectile.GetAlpha(color2);
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,27 +13,27 @@ namespace AAMod.Items.Boss.Akuma   //where is located
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Reign of Fire");
-            Tooltip.SetDefault(@"Rains fire and fury upon your foes
-Inflicts Daybroken");
+            // DisplayName.SetDefault("Reign of Fire");
+            /* Tooltip.SetDefault(@"Rains fire and fury upon your foes
+Inflicts Daybroken"); */
         }
 
         
         public override void SetDefaults()
         {
-            item.damage = 380;
-            item.melee = true;
-            item.width = 86;
-            item.height = 86;
-            item.useTime = 60;
-            item.useAnimation = 60;     
-            item.useStyle = 1;
-            item.knockBack = 6.5f;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-			item.UseSound = SoundID.Item20;
-            item.autoReuse = true;
-			item.useTurn = true;
-            item.rare = 9;
+            Item.damage = 380;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 86;
+            Item.height = 86;
+            Item.useTime = 60;
+            Item.useAnimation = 60;     
+            Item.useStyle = 1;
+            Item.knockBack = 6.5f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+			Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+			Item.useTurn = true;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -40,9 +41,9 @@ Inflicts Daybroken");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -57,11 +58,11 @@ Inflicts Daybroken");
             }
         }
 
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			if (Main.rand.NextBool(10))
 			{
-				Main.PlaySound(2, player.Center, 124);
+				SoundEngine.PlaySound(SoundID.Item124, player.Center);
 				Vector2 vector12 = new Vector2(0,0);
 				vector12 = new Vector2(Main.mouseX + Main.screenPosition.X, player.Center.Y);
 				Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -88,7 +89,7 @@ Inflicts Daybroken");
 				float num83 = vector13.Y;
 				float speedX5 = num82;
 				float speedY6 = num83 + Main.rand.Next(-30, 30) * 0.02f;
-				int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, mod.ProjectileType("FireProj"), item.damage/2, item.knockBack, Main.myPlayer);
+				int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("FireProj").Type, Item.damage/2, Item.knockBack, Main.myPlayer);
 				switch (Main.rand.Next(5))
 				{
 					case 0: Main.projectile[p].ai[0] = 1f;
@@ -106,20 +107,19 @@ Inflicts Daybroken");
 			return base.UseItem(player);
 		}
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
         }
         
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(ItemID.StarWrath);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

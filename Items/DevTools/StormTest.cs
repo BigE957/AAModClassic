@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using AAMod.Items.DevTools.Cinematic;
 
@@ -9,29 +10,29 @@ namespace AAMod.Items.DevTools
 	{
 		public override void SetStaticDefaults()
 		{	
-			DisplayName.SetDefault("[DEV] Feather Test");
-            BaseUtility.AddTooltips(item, new string[] { "Feathers" });					
+			// DisplayName.SetDefault("[DEV] Feather Test");
+            BaseUtility.AddTooltips(Item, new string[] { "Feathers" });					
 		}			
 		
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.useTime = 60;
-            item.useAnimation = 60;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = 0;
-            item.rare = 11;
-            item.autoReuse = false;
-            item.useTurn = true;
-            item.expert = true; item.expertOnly = true;
-            item.shootSpeed = 9f;
-            item.shoot = 1;
-            item.noUseGraphic = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.useTime = 60;
+            Item.useAnimation = 60;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = 0;
+            Item.rare = 11;
+            Item.autoReuse = false;
+            Item.useTurn = true;
+            Item.expert = true; Item.expertOnly = true;
+            Item.shootSpeed = 9f;
+            Item.shoot = 1;
+            Item.noUseGraphic = true;
         }
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             for (int a = 0; a < 8; a++)
             {

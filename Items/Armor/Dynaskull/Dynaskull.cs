@@ -11,18 +11,18 @@ namespace AAMod.Items.Armor.Dynaskull
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dynaskull");
-			Tooltip.SetDefault("20% decreased ammo consumption");
+			// DisplayName.SetDefault("Dynaskull");
+			// Tooltip.SetDefault("20% decreased ammo consumption");
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 28;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 7;
+			Item.width = 30;
+			Item.height = 28;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 7;
 		}
 		
 		public override void UpdateEquip(Player player)
@@ -32,7 +32,7 @@ namespace AAMod.Items.Armor.Dynaskull
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("DynaskullRibguard") && legs.type == mod.ItemType("DynaskullGreaves");
+			return body.type == Mod.Find<ModItem>("DynaskullRibguard").Type && legs.type == Mod.Find<ModItem>("DynaskullGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -45,15 +45,14 @@ namespace AAMod.Items.Armor.Dynaskull
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FossilHelm, 1);
             recipe.AddIngredient(null, "DynaskullOre", 15);
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(null, "BroodScale", 5);
             recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

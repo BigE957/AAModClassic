@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,24 +10,24 @@ namespace AAMod.Tiles.Crafters
 {
     public class Transmuter : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
-            dustType = mod.DustType("MireBubbleDust");
+            DustType = Mod.Find<ModDust>("MireBubbleDust").Type;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18 };
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Material Transmuter");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Material Transmuter");
             AddMapEntry(new Color(20, 20, 20), name);
-            disableSmartCursor = true;
-            animationFrameHeight = 54;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -59,12 +60,12 @@ namespace AAMod.Tiles.Crafters
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            if (glowTex == null) glowTex = mod.GetTexture("Glowmasks/Transmuter_Glow");
-            if (glowTex != null && tile != null && tile.active() && tile.type == Type)
+            if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/Transmuter_Glow");
+            if (glowTex != null && tile != null && tile.HasTile && tile.TileType == Type)
             {
                 int width = 16, height = 16;
-                int frameX = tile != null && tile.active() ? tile.frameX : 0;
-                int frameY = tile != null && tile.active() ? tile.frameY + (Main.tileFrame[Type] * 54) : 0;
+                int frameX = tile != null && tile.HasTile ? tile.TileFrameX : 0;
+                int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, width, height, frameX, frameY, false, false, false, null, GetColor);
                 for (int m = 0; m < 3; m++)
                 {
@@ -75,7 +76,7 @@ namespace AAMod.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("Transmuter"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("Transmuter").Type);
         }
     }
 }

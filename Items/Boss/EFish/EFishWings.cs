@@ -10,17 +10,17 @@ namespace AAMod.Items.Boss.EFish
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Emperor Fishron Wings");
-            Tooltip.SetDefault("Allows flight and slow fall");
+            // DisplayName.SetDefault("Emperor Fishron Wings");
+            // Tooltip.SetDefault("Allows flight and slow fall");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 6;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 6;
+			Item.accessory = true;
 		}
         
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -48,12 +48,11 @@ namespace AAMod.Items.Boss.EFish
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FishronWings);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
     }

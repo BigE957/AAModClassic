@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Grox
 {
@@ -10,33 +11,29 @@ namespace AAMod.Items.Vanity.Grox
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Angry Pirate's Hood");
-            Tooltip.SetDefault(@"Hatred towards fish that can't code radiates from this hood.
-'Great for impersonating Ancients Awakened Devs!'");
+            // DisplayName.SetDefault("Angry Pirate's Hood");
+            /* Tooltip.SetDefault(@"Hatred towards fish that can't code radiates from this hood.
+'Great for impersonating Ancients Awakened Devs!'"); */
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(89, 119, 71);
+                    line2.OverrideColor = new Color(89, 119, 71);
                 }
             }
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
         
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 20;
-            item.rare = 7;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
 	}
 }

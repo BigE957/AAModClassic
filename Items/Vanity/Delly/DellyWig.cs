@@ -10,27 +10,27 @@ namespace AAMod.Items.Vanity.Delly
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Shadow Wig");
-            Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
+            // DisplayName.SetDefault("Shadow Wig");
+            // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(169, 34, 53);
+                    line2.OverrideColor = new Color(169, 34, 53);
                 }
             }
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 30;
-            item.rare = 9;
-            item.vanity = true;
+            Item.width = 22;
+            Item.height = 30;
+            Item.rare = 9;
+            Item.vanity = true;
         }
 	}
 }

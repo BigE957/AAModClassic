@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
@@ -15,31 +16,31 @@ namespace AAMod.Items.BossSummons
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("ERR0R_NULL");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
-N0N-C0NSUMABLE");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 41));
+            // DisplayName.SetDefault("ERR0R_NULL");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
+N0N-C0NSUMABLE"); */
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 41));
         }
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.rare = 11;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
+            Item.width = 32;
+            Item.height = 32;
+            Item.rare = 11;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Oblivion;
+                    line2.OverrideColor = AAColor.Oblivion;
                 }
             }
         }
@@ -49,12 +50,12 @@ N0N-C0NSUMABLE");
         {
             if (player.GetModPlayer<AAPlayer>().ZoneVoid)
             {
-                if (NPC.AnyNPCs(mod.NPCType("Zero")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Zero").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(mod.NPCType("ZeroProtocol")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
@@ -65,18 +66,18 @@ N0N-C0NSUMABLE");
             return false;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ZeroUnitRuneTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
 
             if (Main.netMode != 1)
             {
                 AAWorld.zeroUS = true;
-                if (!NPC.AnyNPCs(mod.NPCType("ZeroDeactivated")))
-                    NPC.NewNPC((int)player.position.X, (int)player.position.Y - 300, mod.NPCType("ZeroProtocol"));
+                if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type))
+                    NPC.NewNPC((int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("ZeroProtocol").Type);
             }
 
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ZeroDeath"));
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ZeroDeath"));
             return true;
         }
     }

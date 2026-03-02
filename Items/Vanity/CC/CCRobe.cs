@@ -9,25 +9,25 @@ namespace AAMod.Items.Vanity.CC
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dread Cultist Robe");
-			Tooltip.SetDefault(@"The hood of a crazy lizard enthusiast
-'Great for impersonating Ancients Awakened Developers!'");
+			// DisplayName.SetDefault("Dread Cultist Robe");
+			/* Tooltip.SetDefault(@"The hood of a crazy lizard enthusiast
+'Great for impersonating Ancients Awakened Developers!'"); */
 		}
 		public override void SetDefaults() 
 		{
-			item.width = 18;
-			item.height = 14;
-			item.rare = 1;
-			item.vanity = true;
+			Item.width = 18;
+			Item.height = 14;
+			Item.rare = 1;
+			Item.vanity = true;
 		}
 
 		public override void SetMatch(bool male, ref int equipSlot, ref bool robes) 
 		{
 			robes = true;
-			equipSlot = mod.GetEquipSlot("CCRobe_Legs", EquipType.Legs);
+			equipSlot = EquipLoader.GetEquipSlot(Mod, "CCRobe_Legs", EquipType.Legs);
 		}
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms) 
+		public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */ 
 		{
 			drawHands = false;
 		}
@@ -36,9 +36,9 @@ namespace AAMod.Items.Vanity.CC
 		{
 			foreach (TooltipLine line2 in list)
 			{
-				if (line2.mod == "Terraria" && line2.Name == "ItemName")
+				if (line2.Mod == "Terraria" && line2.Name == "ItemName")
 				{
-					line2.overrideColor = new Color(92, 101, 150);
+					line2.OverrideColor = new Color(92, 101, 150);
 				}
 			}
 		}

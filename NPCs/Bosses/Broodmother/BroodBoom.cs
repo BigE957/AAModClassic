@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,20 +10,20 @@ namespace AAMod.NPCs.Bosses.Broodmother
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Magma Explosion");
-			Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Magma Explosion");
+			Main.projFrames[Projectile.type] = 4;
         }
 		
         public override void SetDefaults()
         {
-            projectile.width = 98;
-            projectile.height = 98;
-            projectile.penetrate = 1;
-            projectile.friendly = false;
-            projectile.hostile = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.timeLeft = 100;
+            Projectile.width = 98;
+            Projectile.height = 98;
+            Projectile.penetrate = 1;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.timeLeft = 100;
         }
 
 		bool playedSound = false;
@@ -31,17 +32,17 @@ namespace AAMod.NPCs.Bosses.Broodmother
 			if(!playedSound)
 			{
 				playedSound = true;
-				Main.PlaySound(SoundID.Item88, (int)projectile.Center.X, (int)projectile.Center.Y);				
+				SoundEngine.PlaySound(SoundID.Item88, Projectile.Center);				
 			}
-			projectile.velocity = Vector2.Zero;
-            if (++projectile.frameCounter >= 5)
+			Projectile.velocity = Vector2.Zero;
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame > 3)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame > 3)
                 {
-					projectile.frame = 3;
+					Projectile.frame = 3;
                     if(Main.netMode != 1) 
-						projectile.Kill();
+						Projectile.Kill();
                 }
             }			
         }

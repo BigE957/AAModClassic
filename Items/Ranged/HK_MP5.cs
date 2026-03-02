@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,30 +10,30 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("HK MP5");
-			Tooltip.SetDefault("Turns bullets into explosive bullets!");
+			// DisplayName.SetDefault("HK MP5");
+			// Tooltip.SetDefault("Turns bullets into explosive bullets!");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 9;
-			item.ranged = true;
-			item.width = 52;
-			item.height = 24;
-			item.useAnimation = 8;
-			item.useTime = 8;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 3, 0, 0);
-			item.rare = 4;
-			item.UseSound = SoundID.Item40;
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 16f;
-			item.useAmmo = AmmoID.Bullet;
+			Item.damage = 9;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 52;
+			Item.height = 24;
+			Item.useAnimation = 8;
+			Item.useTime = 8;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 3, 0, 0);
+			Item.rare = 4;
+			Item.UseSound = SoundID.Item40;
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 16f;
+			Item.useAmmo = AmmoID.Bullet;
 		}
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
             type = ProjectileID.ExplosiveBullet;
 			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(04));

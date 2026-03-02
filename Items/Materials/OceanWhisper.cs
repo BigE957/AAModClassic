@@ -9,23 +9,23 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ocean Whisper");
-            Tooltip.SetDefault("Sounds of the soft ocean waves eminate from this enchanted aura");
+            // DisplayName.SetDefault("Ocean Whisper");
+            // Tooltip.SetDefault("Sounds of the soft ocean waves eminate from this enchanted aura");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(7, 5));
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(7, 5));
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = 1000;
-            item.rare = 7;
-            item.alpha = 80;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = 1000;
+            Item.rare = 7;
+            Item.alpha = 80;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -35,7 +35,7 @@ namespace AAMod.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, AAColor.Ocean.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, AAColor.Ocean.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

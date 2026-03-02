@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Zero
 {
@@ -10,10 +11,10 @@ namespace AAMod.Items.Boss.Zero
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doom Portal");
-            Tooltip.SetDefault(@"Summons a small Doom Protocol to fight for you");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            // DisplayName.SetDefault("Doom Portal");
+            // Tooltip.SetDefault(@"Summons a small Doom Protocol to fight for you");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -23,53 +24,53 @@ namespace AAMod.Items.Boss.Zero
 
         public override void SetDefaults()
         {
-            item.damage = 200;
-            item.summon = true;
-            item.mana = 10;
-            item.width = 24;
-            item.height = 24;
-            item.useTime = 36;
-            item.useAnimation = 36;
-            item.useStyle = 1;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.knockBack = 3;
-            item.UseSound = SoundID.Item44;
-            item.shoot = mod.ProjectileType("Protocol");
-            item.shootSpeed = 10f;
-            item.buffType = mod.BuffType("Protocol");
-            item.autoReuse = true;
-            item.rare = 9; AARarity = 13;
-            item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.damage = 200;
+            Item.DamageType = DamageClass.Summon;
+            Item.mana = 10;
+            Item.width = 24;
+            Item.height = 24;
+            Item.useTime = 36;
+            Item.useAnimation = 36;
+            Item.useStyle = 1;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.knockBack = 3;
+            Item.UseSound = SoundID.Item44;
+            Item.shoot = Mod.Find<ModProjectile>("Protocol").Type;
+            Item.shootSpeed = 10f;
+            Item.buffType = Mod.Find<ModBuff>("Protocol").Type;
+            Item.autoReuse = true;
+            Item.rare = 9; AARarity = 13;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)
         {
             foreach (Terraria.ModLoader.TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
-            float num72 = item.shootSpeed;
+            float num72 = Item.shootSpeed;
             int num73 = damage;
             float num74 = knockBack;
-            num74 = player.GetWeaponKnockback(item, num74);
-            player.itemTime = item.useTime;
+            num74 = player.GetWeaponKnockback(Item, num74);
+            player.itemTime = Item.useTime;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
             float num79 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
@@ -93,13 +94,13 @@ namespace AAMod.Items.Boss.Zero
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, mod.ProjectileType("Protocol"), num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("Protocol").Type, num73, num74, i, 0f, 0f);
             return false;
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, AAColor.Oblivion.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, AAColor.Oblivion.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

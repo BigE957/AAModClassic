@@ -12,20 +12,20 @@ namespace AAMod
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(name);
+            // DisplayName.SetDefault(name);
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.friendly = true;
-            projectile.damage = 0;
-            projectile.ranged = true;
-            projectile.penetrate = 5;
-            projectile.tileCollide = true;
-            projectile.aiStyle = 10;
-            aiType = ProjectileID.GoldCoinsFalling;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.friendly = true;
+            Projectile.damage = 0;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 5;
+            Projectile.tileCollide = true;
+            Projectile.aiStyle = 10;
+            AIType = ProjectileID.GoldCoinsFalling;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -33,11 +33,11 @@ namespace AAMod
             return true;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (Tile != -1)
             {
-                WorldGen.PlaceTile((int)(projectile.position.X / 16), (int)(projectile.position.Y / 16), Tile);
+                WorldGen.PlaceTile((int)(Projectile.position.X / 16), (int)(Projectile.position.Y / 16), Tile);
             }
         }
     }

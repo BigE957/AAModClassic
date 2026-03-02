@@ -11,56 +11,56 @@ namespace AAMod.NPCs.Enemies.Void
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stone Searcher");
-            Main.npcFrameCount[npc.type] = 5;
+			// DisplayName.SetDefault("Stone Searcher");
+            Main.npcFrameCount[NPC.type] = 5;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 35;
-            npc.height = 35;
-            npc.value = BaseUtility.CalcValue(0, 0, 5, 50);
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 80;
-            npc.defense = 30;
-            npc.damage = 15;
-            npc.HitSound = SoundID.NPCHit4;
-            npc.DeathSound = SoundID.NPCDeath14;
-            npc.knockBackResist = 0.5f;
-            npc.noGravity = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("StoneSearcherBanner");
+            NPC.width = 35;
+            NPC.height = 35;
+            NPC.value = BaseUtility.CalcValue(0, 0, 5, 50);
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 80;
+            NPC.defense = 30;
+            NPC.damage = 15;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.knockBackResist = 0.5f;
+            NPC.noGravity = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("StoneSearcherBanner").Type;
 
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            bool isDead = npc.life <= 0;
+            bool isDead = NPC.life <= 0;
             for (int m = 0; m < (isDead ? 25 : 5); m++)
             {
                 int dustType = ModContent.DustType<Dusts.VoidDust>();
-                Dust.NewDust(npc.position, npc.width, npc.height, dustType, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
             }
 
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/SearcherGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/SearcherGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SearcherGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SearcherGore2"), 1f);
             }
         }
 
         public override void AI()
         {
-            BaseAI.AIEater(npc, ref npc.ai, .022f, 4, .6f, false, true);
-            Player player = Main.player[npc.target];
+            BaseAI.AIEater(NPC, ref NPC.ai, .022f, 4, .6f, false, true);
+            Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : (npc.Center + npc.velocity), npc, 0);         
+            BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);         
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DoomiteScrap"), Main.rand.Next(3));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(3));
         }
     }
 }

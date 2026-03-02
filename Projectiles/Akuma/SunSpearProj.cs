@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,35 +13,35 @@ namespace AAMod.Projectiles.Akuma
 
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.melee = true;
-            projectile.extraUpdates = 2;
-            projectile.aiStyle = -1;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.extraUpdates = 2;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
-            if (projectile.position.Y > Main.player[projectile.owner].position.Y - 300f)
+            if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            if (projectile.position.Y < Main.worldSurface * 16.0)
+            if (Projectile.position.Y < Main.worldSurface * 16.0)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
-            projectile.rotation = projectile.velocity.ToRotation() - 1.57079637f;
-            Vector2 position = projectile.Center + (Vector2.Normalize(projectile.velocity) * 10f);
+            Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
+            Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
                 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -51,10 +52,10 @@ namespace AAMod.Projectiles.Akuma
 			if (foundTarget != -1)
 			{
 				NPC n = Main.npc[foundTarget];
-				Vector2 desiredVelocity = projectile.DirectionTo(n.Center) * 30;
-				projectile.velocity = Vector2.Lerp(projectile.velocity, desiredVelocity, 1f / 30);
+				Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * 30;
+				Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / 30);
 			}
-            if (projectile.numUpdates == 0)
+            if (Projectile.numUpdates == 0)
             {
                 int num185 = -1;
                 float num186 = 60f;
@@ -63,8 +64,8 @@ namespace AAMod.Projectiles.Akuma
                     NPC nPC2 = Main.npc[num187];
                     if (nPC2.CanBeChasedBy(this, false))
                     {
-                        float num188 = projectile.Distance(nPC2.Center);
-                        if (num188 < num186 && Collision.CanHitLine(projectile.Center, 0, 0, nPC2.Center, 0, 0))
+                        float num188 = Projectile.Distance(nPC2.Center);
+                        if (num188 < num186 && Collision.CanHitLine(Projectile.Center, 0, 0, nPC2.Center, 0, 0))
                         {
                             num186 = num188;
                             num185 = num187;
@@ -83,13 +84,13 @@ namespace AAMod.Projectiles.Akuma
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC n = Main.npc[i];
-                if (n.CanBeChasedBy(projectile) && (!n.wet || homingCanAimAtWetEnemies))
+                if (n.CanBeChasedBy(Projectile) && (!n.wet || homingCanAimAtWetEnemies))
                 {
-                    float distance = projectile.Distance(n.Center);
+                    float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
                     )
                         selectedTarget = i;
                 }
@@ -98,13 +99,13 @@ namespace AAMod.Projectiles.Akuma
             return selectedTarget;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, 1, ModContent.DustType<Dusts.AkumaADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
@@ -114,27 +115,27 @@ namespace AAMod.Projectiles.Akuma
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 8f;
-				int i = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType("FireTentacle"), projectile.damage/3, 0, Main.myPlayer);
+				int i = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("FireTentacle").Type, Projectile.damage/3, 0, Main.myPlayer);
 				Main.projectile[i].usesLocalNPCImmunity = true;
 				Main.projectile[i].localNPCHitCooldown = 6;
 				Main.projectile[i].penetrate = -1;
 			}
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

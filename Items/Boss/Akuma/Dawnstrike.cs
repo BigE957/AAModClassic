@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,38 +12,38 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dawnstrike");
-            Tooltip.SetDefault(@"Charge the blaster to fire larger flame blasts");
+            // DisplayName.SetDefault("Dawnstrike");
+            // Tooltip.SetDefault(@"Charge the blaster to fire larger flame blasts");
         }
 
         public override void SetDefaults()
         {
-            item.noUseGraphic = true;
-            item.damage = 600;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 74;
-            item.height = 24;
-            item.useTime = 65;
-            item.useAnimation = 65;
-            item.useStyle = 5;
-            item.shoot = mod.ProjectileType("Dawnstrike");
-            item.channel = true;
-            item.knockBack = 12;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.rare = 9;
-            item.shootSpeed = 8f;
-            item.crit = 5;
-            item.rare = 9; AARarity = 13;
+            Item.noUseGraphic = true;
+            Item.damage = 600;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 74;
+            Item.height = 24;
+            Item.useTime = 65;
+            Item.useAnimation = 65;
+            Item.useStyle = 5;
+            Item.shoot = Mod.Find<ModProjectile>("Dawnstrike").Type;
+            Item.channel = true;
+            Item.knockBack = 12;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.rare = 9;
+            Item.shootSpeed = 8f;
+            Item.crit = 5;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -52,7 +53,7 @@ namespace AAMod.Items.Boss.Akuma
             return new Vector2(-4, -2);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -62,7 +63,7 @@ namespace AAMod.Items.Boss.Akuma
             return true;
         }
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
         {
             if (Main.rand.Next(99) < 49)
             {
@@ -73,14 +74,13 @@ namespace AAMod.Items.Boss.Akuma
 
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(null, "TheVulcano");
             recipe.AddIngredient(ItemID.Flamethrower);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

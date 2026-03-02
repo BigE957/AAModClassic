@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Cerberus : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cerberus");
-            Description.SetDefault("'Aww, that isn't so scary!'");
+            // DisplayName.SetDefault("Cerberus");
+            // Description.SetDefault("'Aww, that isn't so scary!'");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -12,37 +13,37 @@ namespace AAMod.NPCs.Bosses.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bunny Brawler");
-            Main.npcFrameCount[npc.type] = 3;
+            // DisplayName.SetDefault("Bunny Brawler");
+            Main.npcFrameCount[NPC.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 76;
-            npc.height = 76;
-            npc.aiStyle = -1;
-            npc.damage = 120;
-            npc.defense = 60;
-            npc.lifeMax = 400;
-            npc.knockBackResist = 0f;
-            npc.npcSlots = 0f;
-            npc.HitSound = SoundID.NPCHit14;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.aiStyle = 41;
-            aiType = NPCID.Derpling;
-            animationType = NPCID.Derpling;
+            NPC.width = 76;
+            NPC.height = 76;
+            NPC.aiStyle = -1;
+            NPC.damage = 120;
+            NPC.defense = 60;
+            NPC.lifeMax = 400;
+            NPC.knockBackResist = 0f;
+            NPC.npcSlots = 0f;
+            NPC.HitSound = SoundID.NPCHit14;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.aiStyle = 41;
+            AIType = NPCID.Derpling;
+            AnimationType = NPCID.Derpling;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            bool isDead = npc.life <= 0;
+            bool isDead = NPC.life <= 0;
             if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
             {
 
             }
             for (int m = 0; m < (isDead ? 35 : 6); m++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, DustID.Blood, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
         }
         public bool SetLife = false;
@@ -66,55 +67,55 @@ namespace AAMod.NPCs.Bosses.Rajah
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.velocity.Y == 0)
+            if (NPC.velocity.Y == 0)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
-            else if (npc.velocity.Y < 0)
+            else if (NPC.velocity.Y < 0)
             {
-                npc.frame.Y = frameHeight;
+                NPC.frame.Y = frameHeight;
             }
-            else if(npc.velocity.Y > 0)
+            else if(NPC.velocity.Y > 0)
             {
-                npc.frame.Y = frameHeight * 2;
+                NPC.frame.Y = frameHeight * 2;
             }
         }
 
-        public override bool PreNPCLoot()
+        public override bool PreKill()
         {
             return false;
         }
 
         public override void PostAI()
         {
-            for (int m = npc.oldPos.Length - 1; m > 0; m--)
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {
-                npc.oldPos[m] = npc.oldPos[m - 1];
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
-            npc.oldPos[0] = npc.position;
+            NPC.oldPos[0] = NPC.position;
 
             if (NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
                    NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()))
             {
-                if (npc.alpha > 0)
+                if (NPC.alpha > 0)
                 {
-                    npc.alpha -= 5;
+                    NPC.alpha -= 5;
                 }
                 else
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
             else
             {
-                npc.dontTakeDamage = true;
-                if (npc.alpha < 255)
+                NPC.dontTakeDamage = true;
+                if (NPC.alpha < 255)
                 {
-                    npc.alpha += 5;
+                    NPC.alpha += 5;
                 }
                 else
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
             }
         }
@@ -125,20 +126,20 @@ namespace AAMod.NPCs.Bosses.Rajah
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.damage = 170;
-            npc.defense = 100;
-            npc.lifeMax = 1600;
+            NPC.damage = 170;
+            NPC.defense = 100;
+            NPC.lifeMax = 1600;
         }
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             damage /= 2;
             return true;
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()))
             {
-                BaseDrawing.DrawAfterimage(spriteBatch, Main.npcTexture[npc.type], 0, npc, 1f, 1f, 10, true, 0f, 0f, AAColor.Rainbow3);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1f, 1f, 10, true, 0f, 0f, AAColor.Rainbow3);
             }
             return false;
         }

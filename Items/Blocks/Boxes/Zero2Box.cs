@@ -10,32 +10,32 @@ namespace AAMod.Items.Blocks.Boxes
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zero Awakened Music Box");
-            Tooltip.SetDefault("Plays 'Doomsday Arrives' by Saucecoie");
+            // DisplayName.SetDefault("Zero Awakened Music Box");
+            // Tooltip.SetDefault("Plays 'Doomsday Arrives' by Saucecoie");
         }
 		public override void SetDefaults()
 		{
-			item.useStyle = 1;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.consumable = true;
-			item.createTile = mod.TileType("Zero2Box");
-			item.width = 24;
-			item.height = 24;
-			item.rare = 4;
-			item.value = 10000;
-			item.accessory = true;
+			Item.useStyle = 1;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("Zero2Box").Type;
+			Item.width = 24;
+			Item.height = 24;
+			Item.rare = 4;
+			Item.value = 10000;
+			Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -44,13 +44,12 @@ namespace AAMod.Items.Blocks.Boxes
         {
             if (Main.expertMode == true)
             { 
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.MusicBox);
                 recipe.AddIngredient(null, "ZeroBox");
                 recipe.AddIngredient(null, "BrokenCode");
                 recipe.AddTile(TileID.Sawmill);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

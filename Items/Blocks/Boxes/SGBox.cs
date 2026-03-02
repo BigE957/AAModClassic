@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -8,27 +9,27 @@ namespace AAMod.Items.Blocks.Boxes
         
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sleeping Giant Music Box");
+			// DisplayName.SetDefault("Sleeping Giant Music Box");
 
-            Tooltip.SetDefault(@"Plays 'Sleeping Giant' by LordCakeSpy");
+            // Tooltip.SetDefault(@"Plays 'Sleeping Giant' by LordCakeSpy");
         }
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 1;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.consumable = true;
-			item.createTile = mod.TileType("SGBox");
-            item.width = 72;
-			item.height = 36;
-            item.rare = 9;
+			Item.useStyle = 1;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("SGBox").Type;
+            Item.width = 72;
+			Item.height = 36;
+            Item.rare = 9;
             AARarity = 14;
-            item.value = 10000;
-			item.accessory = true;
-            item.rare = 11;
+            Item.value = 10000;
+			Item.accessory = true;
+            Item.rare = 11;
         }
 
 
@@ -36,21 +37,20 @@ namespace AAMod.Items.Blocks.Boxes
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "VoidBox");
             recipe.AddIngredient(null, "UnstableSingularity", 10);
             recipe.AddTile(TileID.Sawmill);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

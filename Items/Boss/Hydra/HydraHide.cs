@@ -5,17 +5,17 @@ namespace AAMod.Items.Boss.Hydra
         public override void SetDefaults()
         {
 
-            item.width = 22;
-            item.height = 24;
-            item.maxStack = 99;
-            item.rare = 1;
+            Item.width = 22;
+            Item.height = 24;
+            Item.maxStack = 99;
+            Item.rare = 1;
 			
         }
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hydra Hide");
-            Tooltip.SetDefault("The skin of a formidable foe");
+            // DisplayName.SetDefault("Hydra Hide");
+            // Tooltip.SetDefault("The skin of a formidable foe");
         }
     }
 }

@@ -12,22 +12,22 @@ namespace AAMod.Items.Boss.Akuma   //where is located
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Dragon Shiv");
-            Tooltip.SetDefault(@"Slow, but hits like a celestial body
-Inflicts Daybroken");
+            // DisplayName.SetDefault("Dragon Shiv");
+            /* Tooltip.SetDefault(@"Slow, but hits like a celestial body
+Inflicts Daybroken"); */
             
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -41,19 +41,19 @@ Inflicts Daybroken");
 
         public override void SetDefaults()
         {
-            item.damage = 1200;
-            item.melee = true;
-            item.width = 42;
-            item.height = 52;
-            item.useTime = 30;
-            item.useAnimation = 30;     
-            item.useStyle = 3;
-            item.knockBack = 20f;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = SoundID.Item20; 
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.rare = 9;
+            Item.damage = 1200;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 42;
+            Item.height = 52;
+            Item.useTime = 30;
+            Item.useAnimation = 30;     
+            Item.useStyle = 3;
+            Item.knockBack = 20f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = SoundID.Item20; 
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -61,9 +61,9 @@ Inflicts Daybroken");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -78,21 +78,20 @@ Inflicts Daybroken");
             }
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         { 
             target.AddBuff(BuffID.Daybreak, 200);
-            Projectile.NewProjectile((int)target.position.X, (int)target.position.Y, 0, 0, ModContent.ProjectileType<Projectiles.Akuma.AkumaExp>(), item.damage, 20, Main.myPlayer);
+            Projectile.NewProjectile((int)target.position.X, (int)target.position.Y, 0, 0, ModContent.ProjectileType<Projectiles.Akuma.AkumaExp>(), Item.damage, 20, Main.myPlayer);
         }
         
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(null, "TrueCopperShortsword");
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -10,27 +10,27 @@ namespace AAMod.Items.Boss.Yamata
 		public override void SetDefaults()
 		{
 
-            item.damage = 300;            
-            item.melee = true;
-            item.width = 30;
-            item.height = 30;
-			item.useTime = 5;
-			item.useAnimation = 8;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-			item.knockBack = 1;
-			item.value = Item.sellPrice(0, 30, 0, 0);
-			item.shootSpeed = 15f;
-			item.shoot = mod.ProjectileType ("TC");
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.rare = 9; AARarity = 13;
+            Item.damage = 300;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 30;
+            Item.height = 30;
+			Item.useTime = 5;
+			Item.useAnimation = 8;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+			Item.knockBack = 1;
+			Item.value = Item.sellPrice(0, 30, 0, 0);
+			Item.shootSpeed = 15f;
+			Item.shoot = Mod.Find<ModProjectile>("TC").Type;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Throwing Crescent");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Throwing Crescent");
+            // Tooltip.SetDefault("");
         }
 
 
@@ -38,9 +38,9 @@ namespace AAMod.Items.Boss.Yamata
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace AAMod.Items.Boss.Yamata
         {
             for (int i = 0; i < 1000; ++i)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
                 {
                     return false;
                 }
@@ -58,13 +58,12 @@ namespace AAMod.Items.Boss.Yamata
         }
         public override void AddRecipes()
         {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
 				recipe.AddIngredient(null, "EventideAbyssium", 5);
                 recipe.AddIngredient(null, "DreadScale", 5);
                 recipe.AddIngredient(ItemID.LightDisc, 5);
 				recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
 		}
     }
 }

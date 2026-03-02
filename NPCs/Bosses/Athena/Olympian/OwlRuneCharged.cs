@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Terraria.ID;
@@ -11,55 +13,55 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Charged Owl Rune");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Charged Owl Rune");
+            Main.npcFrameCount[NPC.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            npc.alpha = 255;
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.aiStyle = 0;
-            npc.damage = Main.expertMode ? 50 : 84;
-            npc.defense = Main.expertMode ? 1 : 1;
-            npc.knockBackResist = 0.2f;
-            npc.width = 82;
-            npc.height = 82;
-            npc.value = Item.buyPrice(0, 0, 0, 0);
-            npc.lavaImmune = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.damage = 90;
+            NPC.alpha = 255;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.aiStyle = 0;
+            NPC.damage = Main.expertMode ? 50 : 84;
+            NPC.defense = Main.expertMode ? 1 : 1;
+            NPC.knockBackResist = 0.2f;
+            NPC.width = 82;
+            NPC.height = 82;
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
+            NPC.lavaImmune = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.damage = 90;
         }
 
         public override void AI()
         {
-            if (npc.localAI[1] == 0f)
+            if (NPC.localAI[1] == 0f)
             {
-                Main.PlaySound(SoundID.Item121, npc.position);
-                npc.localAI[1] = 1f;
+                SoundEngine.PlaySound(SoundID.Item121, NPC.position);
+                NPC.localAI[1] = 1f;
             }
-            if (npc.ai[0] < 180f)
+            if (NPC.ai[0] < 180f)
             {
-                npc.alpha -= 5;
-                if (npc.alpha < 0)
+                NPC.alpha -= 5;
+                if (NPC.alpha < 0)
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                 }
             }
             else
             {
-                npc.alpha += 5;
-                if (npc.alpha > 255)
+                NPC.alpha += 5;
+                if (NPC.alpha > 255)
                 {
-                    npc.alpha = 255;
-                    npc.active = false;
+                    NPC.alpha = 255;
+                    NPC.active = false;
                     return;
                 }
             }
-            npc.ai[0] += 1f;
-            if (npc.ai[0] % 30f == 0f && npc.ai[0] < 180f && Main.netMode != 1)
+            NPC.ai[0] += 1f;
+            if (NPC.ai[0] % 30f == 0f && NPC.ai[0] < 180f && Main.netMode != 1)
             {
                 int[] array4 = new int[5];
                 Vector2[] array5 = new Vector2[5];
@@ -70,8 +72,8 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                     if (Main.player[num840].active && !Main.player[num840].dead)
                     {
                         Vector2 center9 = Main.player[num840].Center;
-                        float num841 = Vector2.Distance(center9, npc.Center);
-                        if (num841 < num839 && Collision.CanHit(npc.Center, 1, 1, center9, 1, 1))
+                        float num841 = Vector2.Distance(center9, NPC.Center);
+                        if (num841 < num839 && Collision.CanHit(NPC.Center, 1, 1, center9, 1, 1))
                         {
                             array4[num838] = num840;
                             array5[num838] = center9;
@@ -84,14 +86,14 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                 }
                 for (int num842 = 0; num842 < num838; num842++)
                 {
-                    Vector2 vector82 = array5[num842] - npc.Center;
+                    Vector2 vector82 = array5[num842] - NPC.Center;
                     float ai = Main.rand.Next(100);
                     Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 14f;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<AthenaShock>(), npc.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<AthenaShock>(), NPC.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                 }
             }
-            Lighting.AddLight(npc.Center, 0f, 0.85f, 0.9f);
-            if (npc.alpha < 150 && npc.ai[0] < 180f)
+            Lighting.AddLight(NPC.Center, 0f, 0.85f, 0.9f);
+            if (NPC.alpha < 150 && NPC.ai[0] < 180f)
             {
                 for (int num843 = 0; num843 < 1; num843++)
                 {
@@ -104,10 +106,10 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                     {
                         num844 = 0.5f;
                     }
-                    Vector2 value47 = new Vector2(-npc.width * 0.2f * npc.scale, 0f).RotatedBy(num844 * 6.28318548f, default).RotatedBy(npc.velocity.ToRotation(), default);
-                    int num845 = Dust.NewDust(npc.Center - Vector2.One * 5f, 10, 10, 226, -npc.velocity.X / 3f, -npc.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
-                    Main.dust[num845].position = npc.Center + value47;
-                    Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - npc.Center) * 2f;
+                    Vector2 value47 = new Vector2(-NPC.width * 0.2f * NPC.scale, 0f).RotatedBy(num844 * 6.28318548f, default).RotatedBy(NPC.velocity.ToRotation(), default);
+                    int num845 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, 226, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    Main.dust[num845].position = NPC.Center + value47;
+                    Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - NPC.Center) * 2f;
                     Main.dust[num845].noGravity = true;
                 }
                 for (int num846 = 0; num846 < 1; num846++)
@@ -121,10 +123,10 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                     {
                         num847 = 0.5f;
                     }
-                    Vector2 value48 = new Vector2(-npc.width * 0.6f * npc.scale, 0f).RotatedBy(num847 * 6.28318548f, default).RotatedBy(npc.velocity.ToRotation(), default);
-                    int num848 = Dust.NewDust(npc.Center - Vector2.One * 5f, 10, 10, 226, -npc.velocity.X / 3f, -npc.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    Vector2 value48 = new Vector2(-NPC.width * 0.6f * NPC.scale, 0f).RotatedBy(num847 * 6.28318548f, default).RotatedBy(NPC.velocity.ToRotation(), default);
+                    int num848 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, 226, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num848].velocity = Vector2.Zero;
-                    Main.dust[num848].position = npc.Center + value48;
+                    Main.dust[num848].position = NPC.Center + value48;
                     Main.dust[num848].noGravity = true;
                 }
                 return;
@@ -133,20 +135,20 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
         public override void FindFrame(int frameHeight)
         {
-            if (++npc.frameCounter >= 4)
+            if (++NPC.frameCounter >= 4)
             {
-                npc.frame.Y += frameHeight;
-                npc.frameCounter = 0;
-                if (npc.frame.Y >= frameHeight * 3)
+                NPC.frame.Y += frameHeight;
+                NPC.frameCounter = 0;
+                if (NPC.frame.Y >= frameHeight * 3)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 7, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

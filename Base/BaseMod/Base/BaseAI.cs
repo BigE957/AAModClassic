@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAMod
@@ -178,7 +180,7 @@ namespace AAMod
 			if (dist > teleportDist) { codable.Center = owner.Center; }
 			int tileX = (int)(codable.Center.X / 16f), tileY = (int)(codable.Center.Y / 16f);
 			Tile tile = Main.tile[tileX, tileY];
-			bool inTile = (tile != null && tile.nactive() && Main.tileSolid[tile.type]);
+			bool inTile = (tile != null && tile.HasUnactuatedTile && Main.tileSolid[tile.TileType]);
 			float prevAI = ai[0];
 			ai[0] = (((ai[0] == 1 && (dist > (float)Math.Max(lineDist, (float)returnDist / 2f) || !BaseUtility.CanHit(codable.Hitbox, owner.Hitbox))) || dist > returnDist || inTile) ? 1 : 0);
 			if (ai[0] != prevAI) { netUpdate = true; }
@@ -262,7 +264,7 @@ namespace AAMod
 			if (dist > teleportDist) { codable.Center = owner.Center; }
 			int tileX = (int)(codable.Center.X / 16f), tileY = (int)(codable.Center.Y / 16f);
 			Tile tile = Main.tile[tileX, tileY];
-			bool inTile = (tile != null && tile.nactive() && Main.tileSolid[tile.type]);
+			bool inTile = (tile != null && tile.HasUnactuatedTile && Main.tileSolid[tile.TileType]);
 			float prevAI = ai[0];
 			ai[0] = (((ai[0] == 1 && (owner.velocity.Y != 0 || dist > (float)Math.Max(lineDist, (float)returnDist / 10f))) || dist > returnDist || inTile) ? 1 : 0);
 			if (ai[0] != prevAI) { netUpdate = true; }
@@ -370,7 +372,7 @@ namespace AAMod
 			if (dist > teleportDist) { codable.Center = owner.Center; }
 			int tileX = (int)(codable.Center.X / 16f), tileY = (int)(codable.Center.Y / 16f);
 			Tile tile = Main.tile[tileX, tileY];
-			bool inTile = (tile != null && tile.nactive() && Main.tileSolid[tile.type]);
+			bool inTile = (tile != null && tile.HasUnactuatedTile && Main.tileSolid[tile.TileType]);
 			float prevAI = ai[0];
 			ai[0] = (((ai[0] == 1 && (owner.velocity.Y != 0 || dist > (float)Math.Max(lineDist, (float)returnDist / 10f))) || dist > returnDist || inTile) ? 1 : 0);
 			if (ai[0] != prevAI) { netUpdate = true; }
@@ -1160,7 +1162,7 @@ namespace AAMod
 		{
 			bool playerYoyo = owner is Player;
 			Player powner = (playerYoyo ? (Player)owner : null);
-			float meleeSpeed = (playerYoyo ? powner.meleeSpeed : 1f);
+			float meleeSpeed = (playerYoyo ? powner.GetAttackSpeed(DamageClass.Melee) : 1f);
 			Vector2 targetP = targetPos;
 			if(playerYoyo && Main.myPlayer == p.owner && targetPos == default(Vector2)) targetP = Main.ReverseGravitySupport(Main.MouseScreen, 0f) + Main.screenPosition;
 
@@ -1974,7 +1976,7 @@ namespace AAMod
             if (playSound && p.soundDelay == 0)
             {
                 p.soundDelay = 8;
-                Main.PlaySound(2, (int)p.position.X, (int)p.position.Y, 7);
+                SoundEngine.PlaySound(SoundID.Item7, p.position);
             }
             if (ai[0] == 0f)
             {
@@ -2061,7 +2063,7 @@ namespace AAMod
                 Main.player[p.owner].itemAnimation = 10;
                 Main.player[p.owner].itemTime = 10;
             }
-            AIFlail(p, ref ai, Main.player[p.owner].Center, Main.player[p.owner].velocity, Main.player[p.owner].meleeSpeed, Main.player[p.owner].channel, noKill, chainDistance);
+            AIFlail(p, ref ai, Main.player[p.owner].Center, Main.player[p.owner].velocity, Main.player[p.owner].GetAttackSpeed(DamageClass.Melee), Main.player[p.owner].channel, noKill, chainDistance);
             Main.player[p.owner].direction = p.direction;
         }
 
@@ -2172,7 +2174,7 @@ namespace AAMod
                 {
                     p.netUpdate = true;
                     Collision.HitTiles(p.position, p.velocity, p.width, p.height);
-					if (playSound) { Main.PlaySound(0, (int)p.position.X, (int)p.position.Y, 1); }
+					if (playSound) { SoundEngine.PlaySound(SoundID.Dig, p.position); }
                 }
             }
         }
@@ -2201,7 +2203,7 @@ namespace AAMod
 			{
 				for (int y = tileLeftY; y < tileRightY; y++)
 				{
-					if (Main.tile[x, y] != null && Main.tile[x, y].nactive() && (CanStick != null ? CanStick(x, y) : (Main.tileSolid[(int)Main.tile[x, y].type] || (Main.tileSolidTop[(int)Main.tile[x, y].type] && Main.tile[x, y].frameY == 0))))
+					if (Main.tile[x, y] != null && Main.tile[x, y].HasUnactuatedTile && (CanStick != null ? CanStick(x, y) : (Main.tileSolid[(int)Main.tile[x, y].TileType] || (Main.tileSolidTop[(int)Main.tile[x, y].TileType] && Main.tile[x, y].TileFrameY == 0))))
 					{
 						Vector2 pos = new Vector2((float)(x * 16), (float)(y * 16));
 						if (position.X + (float)width - 4f > pos.X && position.X + 4f < pos.X + 16f && position.Y + (float)height - 4f > pos.Y && position.Y + 4f < pos.Y + 16f)
@@ -2258,7 +2260,7 @@ namespace AAMod
 				{
 					if (npc.localAI[0] == 0f)
 					{
-						Main.PlaySound(SoundID.Item8, npc.Center);
+						SoundEngine.PlaySound(SoundID.Item8, npc.Center);
 						npc.TargetClosest(true);
 						if (npc.direction > 0)
 						{
@@ -2838,16 +2840,16 @@ namespace AAMod
 			for(int x2 = xLeft; x2 < xRight; x2++)
 			{
 				Tile tileUp = Main.tile[x2, yUp], tileDown = Main.tile[x2, yDown];
-				if(tileUp != null && tileUp.nactive() && Main.tileSolid[tileUp.type] && !Main.tileSolidTop[tileUp.type]) up = true;
-				if(tileDown != null && tileDown.nactive() && Main.tileSolid[tileDown.type]) down = true;		
+				if(tileUp != null && tileUp.HasUnactuatedTile && Main.tileSolid[tileUp.TileType] && !Main.tileSolidTop[tileUp.TileType]) up = true;
+				if(tileDown != null && tileDown.HasUnactuatedTile && Main.tileSolid[tileDown.TileType]) down = true;		
 				if(up && down) break;
 			}
 			//LEFT/RIGHT
 			for(int y2 = yUp; y2 < yDown; y2++)
 			{
 				Tile tileLeft = Main.tile[xLeft, y2], tileRight = Main.tile[xRight, y2];
-				if(tileLeft != null && tileLeft.nactive() && Main.tileSolid[tileLeft.type] && !Main.tileSolidTop[tileLeft.type]) left = true;
-				if(tileRight != null && tileRight.nactive() && Main.tileSolid[tileRight.type] && !Main.tileSolidTop[tileRight.type]) right = true;	
+				if(tileLeft != null && tileLeft.HasUnactuatedTile && Main.tileSolid[tileLeft.TileType] && !Main.tileSolidTop[tileLeft.TileType]) left = true;
+				if(tileRight != null && tileRight.HasUnactuatedTile && Main.tileSolid[tileRight.TileType] && !Main.tileSolidTop[tileRight.TileType]) right = true;	
 				if(left && right) break;				
 			}
 		}
@@ -2994,7 +2996,7 @@ namespace AAMod
 				npc.HitEffect(0, 10.0);
 				npc.active = false;
 				if (npc.type == 37)
-					Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 0);
+					SoundEngine.PlaySound(SoundID.Roar, npc.position);
 			}
 			//prevent a -1, -1 saving scenario
 			if ((npc.type >= Main.maxNPCTypes && npc.homeTileX == -1 && npc.homeTileY == -1) || (npc.homeTileX == ushort.MaxValue && npc.homeTileY == ushort.MaxValue))
@@ -3104,7 +3106,7 @@ namespace AAMod
 				npc.netUpdate = true;
 			}else
 			{
-				if (Main.netMode != 1 && !npc.homeless && !Main.tileDungeon[(int)Main.tile[npcTileX, npcTileY].type] && (npcTileX < npc.homeTileX - 35 || npcTileX > npc.homeTileX + 35))
+				if (Main.netMode != 1 && !npc.homeless && !Main.tileDungeon[(int)Main.tile[npcTileX, npcTileY].TileType] && (npcTileX < npc.homeTileX - 35 || npcTileX > npc.homeTileX + 35))
 				{
 					if (npc.Center.X < (npc.homeTileX * 16) && npc.direction == -1)
 						ai[1] -= 5f;
@@ -3158,7 +3160,7 @@ namespace AAMod
 				if (Main.tile[tileX2 + npc.direction, tileY2 + 1] == null) Main.tile[tileX2 + npc.direction, tileY2 + 1] = new Tile();
 				#endregion
 				//Main.tile[tileX2 - npc.direction, tileY2 + 1].halfBrick();
-				if (canOpenDoors && Main.tile[tileX2, tileY2 - 2].nactive() && (int)Main.tile[tileX2, tileY2 - 2].type == 10 && (Main.rand.Next(10) == 0 || seekHouse))
+				if (canOpenDoors && Main.tile[tileX2, tileY2 - 2].HasUnactuatedTile && (int)Main.tile[tileX2, tileY2 - 2].TileType == 10 && (Main.rand.Next(10) == 0 || seekHouse))
 				{
 					if (Main.netMode == 1)
 						return;
@@ -3190,7 +3192,7 @@ namespace AAMod
 				{
 					if (npc.velocity.X < 0f && npc.spriteDirection == -1 || npc.velocity.X > 0f && npc.spriteDirection == 1)
 					{
-						if (Main.tile[tileX2, tileY2 - 2].nactive() && Main.tileSolid[Main.tile[tileX2, tileY2 - 2].type] && !Main.tileSolidTop[Main.tile[tileX2, tileY2 - 2].type])
+						if (Main.tile[tileX2, tileY2 - 2].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX2, tileY2 - 2].TileType] && !Main.tileSolidTop[Main.tile[tileX2, tileY2 - 2].TileType])
 						{
 							if (npc.direction == 1 && !Collision.SolidTiles(tileX2 - 2, tileX2 - 1, tileY2 - 5, tileY2 - 1) || npc.direction == -1 && !Collision.SolidTiles(tileX2 + 1, tileX2 + 2, tileY2 - 5, tileY2 - 1))
 							{
@@ -3199,7 +3201,7 @@ namespace AAMod
 									npc.velocity.Y = -6f; npc.netUpdate = true;
 								}else{ npc.direction *= -1; npc.netUpdate = true; }
 							}else{ npc.direction *= -1; npc.netUpdate = true; }
-						}else if (Main.tile[tileX2, tileY2 - 1].nactive() && Main.tileSolid[Main.tile[tileX2, tileY2 - 1].type] && !Main.tileSolidTop[Main.tile[tileX2, tileY2 - 1].type])
+						}else if (Main.tile[tileX2, tileY2 - 1].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX2, tileY2 - 1].TileType] && !Main.tileSolidTop[Main.tile[tileX2, tileY2 - 1].TileType])
 						{
 							if (npc.direction == 1 && !Collision.SolidTiles(tileX2 - 2, tileX2 - 1, tileY2 - 4, tileY2 - 1) || npc.direction == -1 && !Collision.SolidTiles(tileX2 + 1, tileX2 + 2, tileY2 - 4, tileY2 - 1))
 							{
@@ -3210,7 +3212,7 @@ namespace AAMod
 							}else{ npc.direction *= -1; npc.netUpdate = true; }
 						}else if (npc.position.Y + npc.height - (tileY2 * 16f) > 20f)
 						{
-							if (Main.tile[tileX2, tileY2].nactive() && Main.tileSolid[(int)Main.tile[tileX2, tileY2].type] && (int)Main.tile[tileX2, tileY2].slope() == 0)
+							if (Main.tile[tileX2, tileY2].HasUnactuatedTile && Main.tileSolid[(int)Main.tile[tileX2, tileY2].TileType] && (int)Main.tile[tileX2, tileY2].Slope == 0)
 							{
 								if (npc.direction == 1 && !Collision.SolidTiles(tileX2 - 2, tileX2, tileY2 - 3, tileY2 - 1) || npc.direction == -1 && !Collision.SolidTiles(tileX2, tileX2 + 2, tileY2 - 3, tileY2 - 1))
 								{
@@ -3231,7 +3233,7 @@ namespace AAMod
 							if (Main.tile[tileX2, tileY2 + 4] == null) Main.tile[tileX2, tileY2 + 4] = new Tile();
 							if (Main.tile[tileX2 - npc.direction, tileY2 + 4] == null) Main.tile[tileX2 - npc.direction, tileY2 + 4] = new Tile();
 							#endregion
-							if (!critter && npcTileX >= npc.homeTileX - 35 && npcTileX <= npc.homeTileX + 35 && (!Main.tile[tileX2, tileY2 + 1].nactive() || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 1].type]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 1].active() || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 1].type]) && (!Main.tile[tileX2, tileY2 + 2].nactive() || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 2].type]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 2].active() || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 2].type]) && (!Main.tile[tileX2, tileY2 + 3].nactive() || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 3].type]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 3].active() || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 3].type]) && (!Main.tile[tileX2, tileY2 + 4].nactive() || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 4].type]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 4].nactive() || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 4].type]))
+							if (!critter && npcTileX >= npc.homeTileX - 35 && npcTileX <= npc.homeTileX + 35 && (!Main.tile[tileX2, tileY2 + 1].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 1].TileType]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 1].HasTile || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 1].TileType]) && (!Main.tile[tileX2, tileY2 + 2].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 2].TileType]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 2].HasTile || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 2].TileType]) && (!Main.tile[tileX2, tileY2 + 3].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 3].TileType]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 3].HasTile || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 3].TileType]) && (!Main.tile[tileX2, tileY2 + 4].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX2, tileY2 + 4].TileType]) && (!Main.tile[tileX2 - npc.direction, tileY2 + 4].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX2 - npc.direction, tileY2 + 4].TileType]))
 							{
 								npc.direction *= -1;
 								npc.velocity.X *= -1f;
@@ -3479,7 +3481,7 @@ namespace AAMod
 			    {
 				    for (int y = centerTileY - 1; y <= centerTileY + 1; ++y)
 				    {
-                        if (Main.tile[x, y].wall > 0) { wallExists = true; break; }
+                        if (Main.tile[x, y].WallType > 0) { wallExists = true; break; }
 				    }
 			    }
 			    if (!wallExists) npc.Transform(transformType);
@@ -3621,7 +3623,7 @@ namespace AAMod
                 {
                     Main.tile[tileX, tY] = new Tile();
                 }
-                if ((Main.tile[tileX, tY].nactive() && Main.tileSolid[(int)Main.tile[tileX, tY].type]) || Main.tile[tileX, tY].liquid > 0)
+                if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[(int)Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     tileBelowEmpty = false;
                     break;
@@ -3804,9 +3806,9 @@ namespace AAMod
                 Vector2 tilePos = isTilePos ? new Vector2(ai[0], ai[1]) : new Vector2(ai[0] / 16f, ai[1] / 16f);
                 int tx = (int)tilePos.X; int ty = (int)tilePos.Y;
                 if (Main.tile[tx, ty] == null) { Main.tile[tx, ty] = new Tile(); }
-                if (!Main.tile[tx, ty].nactive() || (!Main.tileSolid[Main.tile[tx, ty].type] || (Main.tileSolid[Main.tile[tx, ty].type] && Main.tileSolidTop[Main.tile[tx, ty].type])))
+                if (!Main.tile[tx, ty].HasUnactuatedTile || (!Main.tileSolid[Main.tile[tx, ty].TileType] || (Main.tileSolid[Main.tile[tx, ty].TileType] && Main.tileSolidTop[Main.tile[tx, ty].TileType])))
                 {
-                    if(npc.DeathSound != null) Main.PlaySound(npc.DeathSound, (int)npc.Center.X, (int)npc.Center.Y);
+                    if(npc.DeathSound != null) SoundEngine.PlaySound(npc.DeathSound, (int)npc.Center.X, (int)npc.Center.Y);
                     npc.life = -1;
                     npc.HitEffect(0, 10.0f);
                     npc.active = false;
@@ -4098,7 +4100,7 @@ namespace AAMod
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
 						Tile checkTile = BaseWorldGen.GetTileSafely(tX, tY);						
-                        if (checkTile != null && ((checkTile.nactive() && (Main.tileSolid[(int)checkTile.type] || (Main.tileSolidTop[(int)checkTile.type] && checkTile.frameY == 0))) || checkTile.liquid > 64))
+                        if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[(int)checkTile.TileType] || (Main.tileSolidTop[(int)checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;
                             tPos.X = (float)(tX * 16);
@@ -4106,7 +4108,7 @@ namespace AAMod
                             if (npc.position.X + (float)npc.width > tPos.X && npc.position.X < tPos.X + 16f && npc.position.Y + (float)npc.height > tPos.Y && npc.position.Y < tPos.Y + 16f)
                             {
                                 canMove = true;
-                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.nactive())
+                                if (spawnTileDust && Main.rand.Next(100) == 0 && checkTile.HasUnactuatedTile)
                                 {
                                     WorldGen.KillTile(tX, tY, true, true, false);
                                 }
@@ -4208,7 +4210,7 @@ namespace AAMod
                         if (distSoundDelay < 10f) { distSoundDelay = 10f; }
                         if (distSoundDelay > 20f) { distSoundDelay = 20f; }
                         npc.soundDelay = (int)distSoundDelay;
-                        Main.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 1);
+                        SoundEngine.PlaySound(SoundID.WormDig, npc.position);
                     }
                     dist = (float)Math.Sqrt((double)(playerCenterX * playerCenterX + playerCenterY * playerCenterY));
                     float absPlayerCenterX = Math.Abs(playerCenterX);
@@ -4370,9 +4372,9 @@ namespace AAMod
                     int tpTileY = Main.rand.Next(playerTileY - distFromPlayer, playerTileY + distFromPlayer);
                     for (int tpY = tpTileY; tpY < playerTileY + distFromPlayer; tpY++)
                     {
-                        if ((tpY < playerTileY - 4 || tpY > playerTileY + 4 || tpTileX < playerTileX - 4 || tpTileX > playerTileX + 4) && (tpY < tileY - 1 || tpY > tileY + 1 || tpTileX < tileX - 1 || tpTileX > tileX + 1) && (!checkGround || Main.tile[tpTileX, tpY].nactive()))
+                        if ((tpY < playerTileY - 4 || tpY > playerTileY + 4 || tpTileX < playerTileX - 4 || tpTileX > playerTileX + 4) && (tpY < tileY - 1 || tpY > tileY + 1 || tpTileX < tileX - 1 || tpTileX > tileX + 1) && (!checkGround || Main.tile[tpTileX, tpY].HasUnactuatedTile))
                         {
-                            if ((CanTeleportTo != null && CanTeleportTo(tpTileX, tpY)) || (!Main.tile[tpTileX, tpY - 1].lava() && (!checkGround || Main.tileSolid[(int)Main.tile[tpTileX, tpY].type]) && !Collision.SolidTiles(tpTileX - 1, tpTileX + 1, tpY - 4, tpY - 1)))
+                            if ((CanTeleportTo != null && CanTeleportTo(tpTileX, tpY)) || (!Main.tile[tpTileX, tpY - 1].lava() && (!checkGround || Main.tileSolid[(int)Main.tile[tpTileX, tpY].TileType]) && !Collision.SolidTiles(tpTileX - 1, tpTileX + 1, tpY - 4, tpY - 1)))
                             {
                                 if (attackInterval != -1) { ai[1] = 20f; }
                                 ai[2] = (float)tpTileX;
@@ -4467,9 +4469,9 @@ namespace AAMod
                     {
                         if (Main.tile[tileX, tileY + m] == null) { Main.tile[tileX, tileY + m] = new Tile(); }
                     }
-                    if (Main.tile[tileX, tileY - 1].liquid > 128)
+                    if (Main.tile[tileX, tileY - 1].LiquidAmount > 128)
                     {
-                        if (Main.tile[tileX, tileY + 1].nactive() || Main.tile[tileX, tileY + 2].nactive()) { ai[0] = -1f; }
+                        if (Main.tile[tileX, tileY + 1].HasUnactuatedTile || Main.tile[tileX, tileY + 2].HasUnactuatedTile) { ai[0] = -1f; }
                     }
                     //if npc's y speed goes above max velocity, slow the npc down.
                     if (npc.velocity.Y > velMaxY || npc.velocity.Y < -velMaxY) { npc.velocity.Y *= 0.95f; }
@@ -4809,12 +4811,12 @@ namespace AAMod
 				if (Main.tile[tileX, tileY - 3] == null) Main.tile[tileX, tileY - 3] = new Tile();
 				if (Main.tile[tileX, tileY + 1] == null) Main.tile[tileX, tileY + 1] = new Tile();
 				if (Main.tile[tileX - offset, tileY - 3] == null) Main.tile[tileX - offset, tileY - 3] = new Tile();
-				if ((double)(tileX * 16) < (double)pos.X + (double)codable.width && (double)(tileX * 16 + 16) > (double)pos.X && (Main.tile[tileX, tileY].nactive() && (int)Main.tile[tileX, tileY].slope() == 0 && ((int)Main.tile[tileX, tileY - 1].slope() == 0 && Main.tileSolid[(int)Main.tile[tileX, tileY].type]) && !Main.tileSolidTop[(int)Main.tile[tileX, tileY].type] || Main.tile[tileX, tileY - 1].halfBrick() && Main.tile[tileX, tileY - 1].nactive()) && ((!Main.tile[tileX, tileY - 1].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY - 1].type] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 1].type] || Main.tile[tileX, tileY - 1].halfBrick() && (!Main.tile[tileX, tileY - 4].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY - 4].type] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 4].type])) && ((!Main.tile[tileX, tileY - 2].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY - 2].type] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 2].type]) && (!Main.tile[tileX, tileY - 3].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY - 3].type] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 3].type]) && (!Main.tile[tileX - offset, tileY - 3].nactive() || !Main.tileSolid[(int)Main.tile[tileX - offset, tileY - 3].type]))))
+				if ((double)(tileX * 16) < (double)pos.X + (double)codable.width && (double)(tileX * 16 + 16) > (double)pos.X && (Main.tile[tileX, tileY].HasUnactuatedTile && (int)Main.tile[tileX, tileY].Slope == 0 && ((int)Main.tile[tileX, tileY - 1].Slope == 0 && Main.tileSolid[(int)Main.tile[tileX, tileY].TileType]) && !Main.tileSolidTop[(int)Main.tile[tileX, tileY].TileType] || Main.tile[tileX, tileY - 1].IsHalfBlock && Main.tile[tileX, tileY - 1].HasUnactuatedTile) && ((!Main.tile[tileX, tileY - 1].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 1].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 1].TileType] || Main.tile[tileX, tileY - 1].IsHalfBlock && (!Main.tile[tileX, tileY - 4].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 4].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 4].TileType])) && ((!Main.tile[tileX, tileY - 2].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 2].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 2].TileType]) && (!Main.tile[tileX, tileY - 3].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 3].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 3].TileType]) && (!Main.tile[tileX - offset, tileY - 3].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX - offset, tileY - 3].TileType]))))
 				{
 					float tileWorldY = (float)(tileY * 16);
-					if (Main.tile[tileX, tileY].halfBrick())
+					if (Main.tile[tileX, tileY].IsHalfBlock)
 						tileWorldY += 8f;
-					if (Main.tile[tileX, tileY - 1].halfBrick())
+					if (Main.tile[tileX, tileY - 1].IsHalfBlock)
 						tileWorldY -= 8f;
 					if ((double)tileWorldY < (double)pos.Y + (double)codable.height)
 					{
@@ -4877,15 +4879,15 @@ namespace AAMod
 						Tile tileNear = Main.tile[Math.Min(Main.maxTilesX, tileX - direction), y];
 						if (tile == null) { tile = Main.tile[tileX, y] = new Tile(); }
 						if (tileNear == null) { tileNear = Main.tile[Math.Min(Main.maxTilesX, tileX - direction), y] = new Tile(); }
-						if (tile.nactive() && (y != tileY || (!tile.halfBrick() && tile.slope() == 0)) && Main.tileSolid[tile.type] && (jumpUpPlatforms || !Main.tileSolidTop[tile.type]))
+						if (tile.HasUnactuatedTile && (y != tileY || (!tile.IsHalfBlock && tile.Slope == 0)) && Main.tileSolid[tile.TileType] && (jumpUpPlatforms || !Main.tileSolidTop[tile.TileType]))
 						{
-							if (!Main.tileSolidTop[tile.type])
+							if (!Main.tileSolidTop[tile.TileType])
 							{
 								Rectangle tileHitbox = new Rectangle(tileX * 16, y * 16, 16, 16);
 								tileHitbox.Y = hitbox.Y;
 								if (tileHitbox.Intersects(hitbox)) { newVelocity = velocity; break; }
 							}			
-							if (tileNear.nactive() && Main.tileSolid[tileNear.type] && !Main.tileSolidTop[tileNear.type]){ newVelocity = velocity; break; }
+							if (tileNear.HasUnactuatedTile && Main.tileSolid[tileNear.TileType] && !Main.tileSolidTop[tileNear.TileType]){ newVelocity = velocity; break; }
 							if (target != null && y * 16 < target.Center.Y){ continue; }								
 							lastY = y;
 							newVelocity.Y = -(5f + (float)(tileY - y) * (tileY - y > 3 ? 1f - ((tileY - y - 2) * 0.0525f) : 1f));
@@ -4900,9 +4902,9 @@ namespace AAMod
                     if (Main.tile[tileX + direction, tileY + 1] == null) { Main.tile[tileX, tileY + 1] = new Tile(); }
 					if (Main.tile[tileX + direction, tileY + 2] == null) { Main.tile[tileX, tileY + 2] = new Tile(); }
                     //...and there's a gap in front of the npc, attempt to jump across it.
-                    if (directionY < 0 && (!Main.tile[tileX, tileY + 1].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY + 1].type]) && (!Main.tile[tileX + direction, tileY + 1].nactive() || !Main.tileSolid[(int)Main.tile[tileX + direction, tileY + 1].type]))
+                    if (directionY < 0 && (!Main.tile[tileX, tileY + 1].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY + 1].TileType]) && (!Main.tile[tileX + direction, tileY + 1].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX + direction, tileY + 1].TileType]))
                     {
-						if (!Main.tile[tileX + direction, tileY + 2].nactive() || !Main.tileSolid[(int)Main.tile[tileX, tileY + 2].type] || (target == null || ((target.Center.Y + (target.height * 0.25f)) < tileY * 16f)))
+						if (!Main.tile[tileX + direction, tileY + 2].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY + 2].TileType] || (target == null || ((target.Center.Y + (target.height * 0.25f)) < tileY * 16f)))
 						{
 							newVelocity.Y = -8f;
 							newVelocity.X *= 1.5f * (1f / maxSpeedX);
@@ -4912,7 +4914,7 @@ namespace AAMod
 								{
 									Tile tile = Main.tile[x, tileY + 1];
 									if (tile == null) { tile = Main.tile[x, tileY + 1] = new Tile(); }
-									if (x != tileX && !tile.nactive())
+									if (x != tileX && !tile.HasUnactuatedTile)
 									{
 										newVelocity.Y -= 0.0325f;
 										newVelocity.X += direction * 0.255f;
@@ -4925,7 +4927,7 @@ namespace AAMod
 								{
 									Tile tile = Main.tile[x, tileY + 1];
 									if (tile == null) { tile = Main.tile[x, tileY + 1] = new Tile(); }
-									if (x != tileItX && !tile.nactive())
+									if (x != tileItX && !tile.HasUnactuatedTile)
 									{
 										newVelocity.Y -= 0.0325f;
 										newVelocity.X += direction * 0.255f;
@@ -4968,7 +4970,7 @@ namespace AAMod
                         if (m == -1 && Main.tile[tileX + npc.direction, tileY + m] == null) { Main.tile[tileX + npc.direction, tileY + m] = new Tile(); }
                     if (Main.tile[tileX, tileY + m] == null) { Main.tile[tileX, tileY + m] = new Tile(); }
                 }
-                if (Main.tile[tileX, tileY - 1].nactive() && Main.tile[tileX, tileY - 1].type == 10)
+                if (Main.tile[tileX, tileY - 1].HasUnactuatedTile && Main.tile[tileX, tileY - 1].TileType == 10)
                 {
                     doorCounter += 1f;
                     tickUpdater = 0f;
@@ -4992,7 +4994,7 @@ namespace AAMod
                                 if (interactDoorStyle == 1)
                                 {
                                     WorldGen.KillTile(tileX, tileY);
-                                    openedDoor = !Main.tile[tileX, tileY].nactive();
+                                    openedDoor = !Main.tile[tileX, tileY].HasUnactuatedTile;
                                 }
                                 else
                                 {
@@ -5030,7 +5032,7 @@ namespace AAMod
 				for(int y = topY; x < topY + rect.Height; y++)
 				{
 					Tile tile = Main.tile[x, y];
-					if(tile != null && tile.nactive() && Main.tileSolid[tile.type])
+					if(tile != null && tile.HasUnactuatedTile && Main.tileSolid[tile.TileType])
 					{
 						return false;
 					}
@@ -5102,7 +5104,7 @@ namespace AAMod
                 for (int y2 = tilePosY; y2 < tilePosHeight; y2++)
                 {
                     if (Main.tile[x2, y2] == null) { return false; }
-                    if (Main.tile[x2, y2].nactive() && Main.tileSolid[(int)Main.tile[x2, y2].type])
+                    if (Main.tile[x2, y2].HasUnactuatedTile && Main.tileSolid[(int)Main.tile[x2, y2].TileType])
                     {
                         hitTilePos = new Vector2(x2, y2);
                         return true;
@@ -5887,7 +5889,7 @@ namespace AAMod
         {
             if (Main.netMode != 2 && soundGroup != -1 && sound != -1)
             {
-                Main.PlaySound(soundGroup, (int)npc.Center.X, (int)npc.Center.Y, sound);
+                SoundEngine.PlaySound(soundGroup, (int)npc.Center.X, (int)npc.Center.Y, sound);
             }
             if (Main.netMode != 1)
             {
@@ -5908,7 +5910,7 @@ namespace AAMod
         {
             if (Main.netMode != 2 && soundGroup != -1 && sound != -1)
             {
-                Main.PlaySound(soundGroup, (int)p.Center.X, (int)p.Center.Y, sound);
+                SoundEngine.PlaySound(soundGroup, (int)p.Center.X, (int)p.Center.Y, sound);
             }
             if (p.owner == Main.myPlayer)
             {
@@ -6144,10 +6146,10 @@ namespace AAMod
                         if ((int)vec.X != vecX && (int)vec.Y != vecY)
                         {
                             Tile tile = Main.tile[vecX, vecY];
-                            if (tile != null && tile.nactive())
+                            if (tile != null && tile.HasUnactuatedTile)
                             {
-                                bool ignoreTile = (tileTypesToIgnore == null || tileTypesToIgnore.Length <= 0 ? false : BaseUtility.InArray(tileTypesToIgnore, tile.type));
-                                if (!ignoreTile && Main.tileSolid[(int)tile.type])
+                                bool ignoreTile = (tileTypesToIgnore == null || tileTypesToIgnore.Length <= 0 ? false : BaseUtility.InArray(tileTypesToIgnore, tile.TileType));
+                                if (!ignoreTile && Main.tileSolid[(int)tile.TileType])
                                 {
                                     return returnCenter ? new Vector2((vecX * 16) + 8, (vecY * 16) + 8) : v;
                                 }

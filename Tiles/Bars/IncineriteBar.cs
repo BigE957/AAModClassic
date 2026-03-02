@@ -7,9 +7,9 @@ namespace AAMod.Tiles.Bars
 {
     public class IncineriteBar : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            soundType = 21;
+            HitSound = 21;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;
@@ -21,10 +21,10 @@ namespace AAMod.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            dustType = mod.DustType("IncineriteDust");
-            drop = mod.ItemType("IncineriteBar");   
+            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("IncineriteBar").Type;   
             AddMapEntry(new Color(255, 100, 0));
-			minPick = 0;
+			MinPick = 0;
         }
     }
 }

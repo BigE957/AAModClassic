@@ -7,30 +7,30 @@ namespace AAMod.Items.Tools
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkmatter Jackhammer");
+            // DisplayName.SetDefault("Darkmatter Jackhammer");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 60;
-			item.melee = true;
-			item.width = 52;
-            item.height = 22;
-			item.useTime = 7;
-			item.useAnimation = 15;
-            item.channel = true;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.hammer = 120;
-			item.useStyle = 5;
-			item.knockBack = 6;
-			item.value = 550000;
-            item.UseSound = SoundID.Item23;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("DarkmatterJackhammerPro");
-            item.shootSpeed = 40f;
-            item.tileBoost += 1;
-            item.rare = 9;
+			Item.damage = 60;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 52;
+            Item.height = 22;
+			Item.useTime = 7;
+			Item.useAnimation = 15;
+            Item.channel = true;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.hammer = 120;
+			Item.useStyle = 5;
+			Item.knockBack = 6;
+			Item.value = 550000;
+            Item.UseSound = SoundID.Item23;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("DarkmatterJackhammerPro").Type;
+            Item.shootSpeed = 40f;
+            Item.tileBoost += 1;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -38,9 +38,9 @@ namespace AAMod.Items.Tools
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }

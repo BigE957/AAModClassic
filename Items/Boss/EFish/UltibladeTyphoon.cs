@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,33 +10,33 @@ namespace AAMod.Items.Boss.EFish
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ultiblade Typhoon");
-			Tooltip.SetDefault(@"Casts 3 fast homing razorwheels
-Razorblade Typhoon EX");
+			// DisplayName.SetDefault("Ultiblade Typhoon");
+			/* Tooltip.SetDefault(@"Casts 3 fast homing razorwheels
+Razorblade Typhoon EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.mana = 16;
-			item.damage = 175;
-			item.useStyle = 5;
-			item.shootSpeed = 6f;
-			item.shoot = 409;
-			item.width = 26;
-			item.height = 28;
-			item.UseSound = SoundID.Item84;
-			item.useAnimation = 30;
-			item.useTime = 15;
-			item.autoReuse = true;
-			item.rare = 9;
-			item.noMelee = true;
-			item.knockBack = 6f;
-			item.scale = 0.9f;
-			item.value = Item.sellPrice(0, 25, 0, 0);
-			item.magic = true;
+			Item.mana = 16;
+			Item.damage = 175;
+			Item.useStyle = 5;
+			Item.shootSpeed = 6f;
+			Item.shoot = 409;
+			Item.width = 26;
+			Item.height = 28;
+			Item.UseSound = SoundID.Item84;
+			Item.useAnimation = 30;
+			Item.useTime = 15;
+			Item.autoReuse = true;
+			Item.rare = 9;
+			Item.noMelee = true;
+			Item.knockBack = 6f;
+			Item.scale = 0.9f;
+			Item.value = Item.sellPrice(0, 25, 0, 0);
+			Item.DamageType = DamageClass.Magic;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			float numberProjectiles = 3;
 			float rotation = MathHelper.ToRadians(10);
@@ -53,12 +54,11 @@ Razorblade Typhoon EX");
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);      
+			Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ItemID.RazorbladeTyphoon);
 			recipe.AddIngredient(null, "EXSoul", 1);
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

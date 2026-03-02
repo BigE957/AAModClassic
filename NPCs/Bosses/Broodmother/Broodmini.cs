@@ -11,51 +11,51 @@ namespace AAMod.NPCs.Bosses.Broodmother
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Broodmini");
-            Main.npcFrameCount[npc.type] = 3;
+            // DisplayName.SetDefault("Broodmini");
+            Main.npcFrameCount[NPC.type] = 3;
         }
         public override void SetDefaults()
         {
-            npc.width = 66;
-            npc.height = 56;
-            npc.aiStyle = -1;
-            npc.damage = 30;
-            npc.defense = 0;
-            npc.lifeMax = 75;
-            npc.lavaImmune = true;
-            npc.buffImmune[BuffID.OnFire] = true;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.3f;
-            npc.value = 0f;
-            npc.npcSlots = 0.1f;
-            animationType = NPCID.MothronSpawn;
+            NPC.width = 66;
+            NPC.height = 56;
+            NPC.aiStyle = -1;
+            NPC.damage = 30;
+            NPC.defense = 0;
+            NPC.lifeMax = 75;
+            NPC.lavaImmune = true;
+            NPC.buffImmune[BuffID.OnFire] = true;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.3f;
+            NPC.value = 0f;
+            NPC.npcSlots = 0.1f;
+            AnimationType = NPCID.MothronSpawn;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = npc.life <= 0;		
+			bool isDead = NPC.life <= 0;		
             if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BroodminiGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BroodminiGore2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore2"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
             }
 			for (int m = 0; m < (isDead ? 35 : 6); m++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, DustID.Fire, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, isDead? 2f : 1.5f);
+				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead? 2f : 1.5f);
 			}			
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-                npc.DropLoot(mod.ItemType("Incinerite"), 5, 6);
-                npc.DropLoot(mod.ItemType("BroodScale"), 2, 4);
+                NPC.DropLoot(Mod.Find<ModItem>("Incinerite").Type, 5, 6);
+                NPC.DropLoot(Mod.Find<ModItem>("BroodScale").Type, 2, 4);
         }
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             if (Main.rand.Next(2) == 0 || (Main.expertMode && Main.rand.Next(0) == 0))       //Chances for it to inflict the debuff
             {
@@ -65,239 +65,239 @@ namespace AAMod.NPCs.Bosses.Broodmother
 
         public override void AI()
         {
-            npc.noTileCollide = false;
-            npc.knockBackResist = 0.4f * Main.knockBackMultiplier;
-            npc.noGravity = true;
-            npc.rotation = ((npc.rotation * 9f) + (npc.velocity.X * 0.1f)) / 10f;
-            if (Main.player[npc.target].GetModPlayer<AAPlayer>().ZoneInferno == false)
+            NPC.noTileCollide = false;
+            NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
+            NPC.noGravity = true;
+            NPC.rotation = ((NPC.rotation * 9f) + (NPC.velocity.X * 0.1f)) / 10f;
+            if (Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno == false)
             {
-                if (npc.timeLeft > 5)
-					npc.timeLeft = 5;
-                npc.velocity.Y = npc.velocity.Y - 0.2f;
-                if (npc.velocity.Y < -8f)
+                if (NPC.timeLeft > 5)
+					NPC.timeLeft = 5;
+                NPC.velocity.Y = NPC.velocity.Y - 0.2f;
+                if (NPC.velocity.Y < -8f)
                 {
-                    npc.velocity.Y = -8f;
+                    NPC.velocity.Y = -8f;
                 }
-                npc.noTileCollide = true;
+                NPC.noTileCollide = true;
                 return;
             }
-            if (npc.ai[0] == 0f || npc.ai[0] == 1f)
+            if (NPC.ai[0] == 0f || NPC.ai[0] == 1f)
             {
                 for (int num1328 = 0; num1328 < 200; num1328++)
                 {
-                    if (num1328 != npc.whoAmI && Main.npc[num1328].active && Main.npc[num1328].type == npc.type)
+                    if (num1328 != NPC.whoAmI && Main.npc[num1328].active && Main.npc[num1328].type == NPC.type)
                     {
-                        Vector2 value55 = Main.npc[num1328].Center - npc.Center;
-                        if (value55.Length() < npc.width + npc.height)
+                        Vector2 value55 = Main.npc[num1328].Center - NPC.Center;
+                        if (value55.Length() < NPC.width + NPC.height)
                         {
                             value55.Normalize();
                             value55 *= -0.1f;
-                            npc.velocity += value55;
+                            NPC.velocity += value55;
                             Main.npc[num1328].velocity -= value55;
                         }
                     }
                 }
             }
-            if (npc.target < 0 || Main.player[npc.target].dead || !Main.player[npc.target].active)
+            if (NPC.target < 0 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
-                npc.TargetClosest(true);
-                Vector2 vector209 = Main.player[npc.target].Center - npc.Center;
-                if (Main.player[npc.target].dead || vector209.Length() > 3000f)
+                NPC.TargetClosest(true);
+                Vector2 vector209 = Main.player[NPC.target].Center - NPC.Center;
+                if (Main.player[NPC.target].dead || vector209.Length() > 3000f)
                 {
-                    npc.ai[0] = -1f;
+                    NPC.ai[0] = -1f;
                 }
             }
             else
             {
-                Vector2 vector210 = Main.player[npc.target].Center - npc.Center;
-                if (npc.ai[0] > 1f && vector210.Length() > 1000f)
+                Vector2 vector210 = Main.player[NPC.target].Center - NPC.Center;
+                if (NPC.ai[0] > 1f && vector210.Length() > 1000f)
                 {
-                    npc.ai[0] = 1f;
+                    NPC.ai[0] = 1f;
                 }
             }
-            if (npc.ai[0] == -1f)
+            if (NPC.ai[0] == -1f)
             {
                 Vector2 value56 = new Vector2(0f, -8f);
-                npc.velocity = ((npc.velocity * 9f) + value56) / 10f;
-                npc.noTileCollide = true;
-                npc.dontTakeDamage = true;
+                NPC.velocity = ((NPC.velocity * 9f) + value56) / 10f;
+                NPC.noTileCollide = true;
+                NPC.dontTakeDamage = true;
                 return;
             }
-            if (npc.ai[0] == 0f)
+            if (NPC.ai[0] == 0f)
             {
-                npc.TargetClosest(true);
-                npc.spriteDirection = npc.direction;
-                if (npc.collideX)
+                NPC.TargetClosest(true);
+                NPC.spriteDirection = NPC.direction;
+                if (NPC.collideX)
                 {
-                    npc.velocity.X = npc.velocity.X * (-npc.oldVelocity.X * 0.5f);
-                    if (npc.velocity.X > 4f)
+                    NPC.velocity.X = NPC.velocity.X * (-NPC.oldVelocity.X * 0.5f);
+                    if (NPC.velocity.X > 4f)
                     {
-                        npc.velocity.X = 4f;
+                        NPC.velocity.X = 4f;
                     }
-                    if (npc.velocity.X < -4f)
+                    if (NPC.velocity.X < -4f)
                     {
-                        npc.velocity.X = -4f;
+                        NPC.velocity.X = -4f;
                     }
                 }
-                if (npc.collideY)
+                if (NPC.collideY)
                 {
-                    npc.velocity.Y = npc.velocity.Y * (-npc.oldVelocity.Y * 0.5f);
-                    if (npc.velocity.Y > 4f)
+                    NPC.velocity.Y = NPC.velocity.Y * (-NPC.oldVelocity.Y * 0.5f);
+                    if (NPC.velocity.Y > 4f)
                     {
-                        npc.velocity.Y = 4f;
+                        NPC.velocity.Y = 4f;
                     }
-                    if (npc.velocity.Y < -4f)
+                    if (NPC.velocity.Y < -4f)
                     {
-                        npc.velocity.Y = -4f;
+                        NPC.velocity.Y = -4f;
                     }
                 }
-                Vector2 value57 = Main.player[npc.target].Center - npc.Center;
+                Vector2 value57 = Main.player[NPC.target].Center - NPC.Center;
                 if (value57.Length() > 800f)
                 {
-                    npc.ai[0] = 1f;
-                    npc.ai[1] = 0f;
-                    npc.ai[2] = 0f;
-                    npc.ai[3] = 0f;
+                    NPC.ai[0] = 1f;
+                    NPC.ai[1] = 0f;
+                    NPC.ai[2] = 0f;
+                    NPC.ai[3] = 0f;
                 }
                 else if (value57.Length() > 200f)
                 {
-                    float scaleFactor20 = 5.5f + (value57.Length() / 100f) + (npc.ai[1] / 15f);
+                    float scaleFactor20 = 5.5f + (value57.Length() / 100f) + (NPC.ai[1] / 15f);
                     float num1329 = 40f;
                     value57.Normalize();
                     value57 *= scaleFactor20;
-                    npc.velocity = ((npc.velocity * (num1329 - 1f)) + value57) / num1329;
+                    NPC.velocity = ((NPC.velocity * (num1329 - 1f)) + value57) / num1329;
                 }
-                else if (npc.velocity.Length() > 2f)
+                else if (NPC.velocity.Length() > 2f)
                 {
-                    npc.velocity *= 0.95f;
+                    NPC.velocity *= 0.95f;
                 }
-                else if (npc.velocity.Length() < 1f)
+                else if (NPC.velocity.Length() < 1f)
                 {
-                    npc.velocity *= 1.05f;
+                    NPC.velocity *= 1.05f;
                 }
-                npc.ai[1] += 1f;
-                if (npc.ai[1] >= 90f)
+                NPC.ai[1] += 1f;
+                if (NPC.ai[1] >= 90f)
                 {
-                    npc.ai[1] = 0f;
-                    npc.ai[0] = 2f;
+                    NPC.ai[1] = 0f;
+                    NPC.ai[0] = 2f;
                     return;
                 }
             }
             else
             {
-                if (npc.ai[0] == 1f)
+                if (NPC.ai[0] == 1f)
                 {
-                    npc.collideX = false;
-                    npc.collideY = false;
-                    npc.noTileCollide = true;
-                    npc.knockBackResist = 0f;
-                    if (npc.target < 0 || !Main.player[npc.target].active || Main.player[npc.target].dead)
+                    NPC.collideX = false;
+                    NPC.collideY = false;
+                    NPC.noTileCollide = true;
+                    NPC.knockBackResist = 0f;
+                    if (NPC.target < 0 || !Main.player[NPC.target].active || Main.player[NPC.target].dead)
                     {
-                        npc.TargetClosest(true);
+                        NPC.TargetClosest(true);
                     }
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.direction = -1;
+                        NPC.direction = -1;
                     }
-                    else if (npc.velocity.X > 0f)
+                    else if (NPC.velocity.X > 0f)
                     {
-                        npc.direction = 1;
+                        NPC.direction = 1;
                     }
-                    npc.spriteDirection = npc.direction;
-                    npc.rotation = ((npc.rotation * 9f) + (npc.velocity.X * 0.08f)) / 10f;
-                    Vector2 value58 = Main.player[npc.target].Center - npc.Center;
-                    if (value58.Length() < 300f && !Collision.SolidCollision(npc.position, npc.width, npc.height))
+                    NPC.spriteDirection = NPC.direction;
+                    NPC.rotation = ((NPC.rotation * 9f) + (NPC.velocity.X * 0.08f)) / 10f;
+                    Vector2 value58 = Main.player[NPC.target].Center - NPC.Center;
+                    if (value58.Length() < 300f && !Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
                     {
-                        npc.ai[0] = 0f;
-                        npc.ai[1] = 0f;
-                        npc.ai[2] = 0f;
-                        npc.ai[3] = 0f;
+                        NPC.ai[0] = 0f;
+                        NPC.ai[1] = 0f;
+                        NPC.ai[2] = 0f;
+                        NPC.ai[3] = 0f;
                     }
-                    npc.ai[2] += 0.0166666675f;
-                    float scaleFactor21 = 5.5f + npc.ai[2] + (value58.Length() / 150f);
+                    NPC.ai[2] += 0.0166666675f;
+                    float scaleFactor21 = 5.5f + NPC.ai[2] + (value58.Length() / 150f);
                     float num1330 = 35f;
                     value58.Normalize();
                     value58 *= scaleFactor21;
-                    npc.velocity = ((npc.velocity * (num1330 - 1f)) + value58) / num1330;
+                    NPC.velocity = ((NPC.velocity * (num1330 - 1f)) + value58) / num1330;
                     return;
                 }
-                if (npc.ai[0] == 2f)
+                if (NPC.ai[0] == 2f)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.direction = -1;
+                        NPC.direction = -1;
                     }
-                    else if (npc.velocity.X > 0f)
+                    else if (NPC.velocity.X > 0f)
                     {
-                        npc.direction = 1;
+                        NPC.direction = 1;
                     }
-                    npc.spriteDirection = npc.direction;
-                    npc.rotation = ((npc.rotation * 7f) + (npc.velocity.X * 0.1f)) / 8f;
-                    npc.knockBackResist = 0f;
-                    npc.noTileCollide = true;
-                    Vector2 vector211 = Main.player[npc.target].Center - npc.Center;
+                    NPC.spriteDirection = NPC.direction;
+                    NPC.rotation = ((NPC.rotation * 7f) + (NPC.velocity.X * 0.1f)) / 8f;
+                    NPC.knockBackResist = 0f;
+                    NPC.noTileCollide = true;
+                    Vector2 vector211 = Main.player[NPC.target].Center - NPC.Center;
                     vector211.Y -= 8f;
                     float scaleFactor22 = 9f;
                     float num1331 = 8f;
                     vector211.Normalize();
                     vector211 *= scaleFactor22;
-                    npc.velocity = ((npc.velocity * (num1331 - 1f)) + vector211) / num1331;
-                    if (npc.velocity.X < 0f)
+                    NPC.velocity = ((NPC.velocity * (num1331 - 1f)) + vector211) / num1331;
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.direction = -1;
+                        NPC.direction = -1;
                     }
                     else
                     {
-                        npc.direction = 1;
+                        NPC.direction = 1;
                     }
-                    npc.spriteDirection = npc.direction;
-                    npc.ai[1] += 1f;
-                    if (npc.ai[1] > 10f)
+                    NPC.spriteDirection = NPC.direction;
+                    NPC.ai[1] += 1f;
+                    if (NPC.ai[1] > 10f)
                     {
-                        npc.velocity = vector211;
-                        if (npc.velocity.X < 0f)
+                        NPC.velocity = vector211;
+                        if (NPC.velocity.X < 0f)
                         {
-                            npc.direction = -1;
+                            NPC.direction = -1;
                         }
                         else
                         {
-                            npc.direction = 1;
+                            NPC.direction = 1;
                         }
-                        npc.ai[0] = 2.1f;
-                        npc.ai[1] = 0f;
+                        NPC.ai[0] = 2.1f;
+                        NPC.ai[1] = 0f;
                         return;
                     }
                 }
-                else if (npc.ai[0] == 2.1f)
+                else if (NPC.ai[0] == 2.1f)
                 {
-                    if (npc.velocity.X < 0f)
+                    if (NPC.velocity.X < 0f)
                     {
-                        npc.direction = -1;
+                        NPC.direction = -1;
                     }
-                    else if (npc.velocity.X > 0f)
+                    else if (NPC.velocity.X > 0f)
                     {
-                        npc.direction = 1;
+                        NPC.direction = 1;
                     }
-                    npc.spriteDirection = npc.direction;
-                    npc.velocity *= 1.01f;
-                    npc.knockBackResist = 0f;
-                    npc.noTileCollide = true;
-                    npc.ai[1] += 1f;
+                    NPC.spriteDirection = NPC.direction;
+                    NPC.velocity *= 1.01f;
+                    NPC.knockBackResist = 0f;
+                    NPC.noTileCollide = true;
+                    NPC.ai[1] += 1f;
                     int num1332 = 45;
-                    if (npc.ai[1] > num1332)
+                    if (NPC.ai[1] > num1332)
                     {
-                        if (!Collision.SolidCollision(npc.position, npc.width, npc.height))
+                        if (!Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
                         {
-                            npc.ai[0] = 0f;
-                            npc.ai[1] = 0f;
-                            npc.ai[2] = 0f;
+                            NPC.ai[0] = 0f;
+                            NPC.ai[1] = 0f;
+                            NPC.ai[2] = 0f;
                             return;
                         }
-                        if (npc.ai[1] > num1332 * 2)
+                        if (NPC.ai[1] > num1332 * 2)
                         {
-                            npc.ai[0] = 1f;
-                            npc.ai[1] = 0f;
-                            npc.ai[2] = 0f;
+                            NPC.ai[0] = 1f;
+                            NPC.ai[1] = 0f;
+                            NPC.ai[2] = 0f;
                             return;
                         }
                     }
@@ -311,9 +311,9 @@ namespace AAMod.NPCs.Bosses.Broodmother
 			return ColorUtils.COLOR_GLOWPULSE;
 		}
 
-        public override void PostDraw(SpriteBatch sb, Color dColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(sb, mod.GetTexture("Glowmasks/Broodmini_Glow"), 0, npc, GetGlowAlpha());
+			BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/Broodmini_Glow"), 0, NPC, GetGlowAlpha());
         }		
 		
     }

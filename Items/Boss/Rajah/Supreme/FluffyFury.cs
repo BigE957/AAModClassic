@@ -1,6 +1,8 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah.Supreme
 {
@@ -8,29 +10,29 @@ namespace AAMod.Items.Boss.Rajah.Supreme
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fluffy Fury");
-            Tooltip.SetDefault(@"Converts arrows into splitting Carrows
-Potential lag warning");
+            // DisplayName.SetDefault("Fluffy Fury");
+            /* Tooltip.SetDefault(@"Converts arrows into splitting Carrows
+Potential lag warning"); */
         }
 
         public override void SetDefaults()
         {
-            item.damage = 400;
-            item.ranged = true;
-            item.width = 44;
-            item.height = 76;
-            item.useTime = 10;
-            item.useAnimation = 10;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 3f;
-            item.value = Item.sellPrice(0, 60, 0, 0);
-            item.UseSound = SoundID.Item5;
-            item.autoReuse = true;
-            item.shoot = 1;
-            item.shootSpeed = 16f;
-            item.useAmmo = AmmoID.Arrow;
-            item.rare = 9;
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 44;
+            Item.height = 76;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.knockBack = 3f;
+            Item.value = Item.sellPrice(0, 60, 0, 0);
+            Item.UseSound = SoundID.Item5;
+            Item.autoReuse = true;
+            Item.shoot = 1;
+            Item.shootSpeed = 16f;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.rare = 9;
             AARarity = 14;
         }
 
@@ -38,16 +40,16 @@ Potential lag warning");
         {
             foreach (Terraria.ModLoader.TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity14;
+                    line2.OverrideColor = AAColor.Rarity14;
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			type = mod.ProjectileType("Carrow");
+			type = Mod.Find<ModProjectile>("Carrow").Type;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f;
             int num118 = Main.rand.Next(2,5);

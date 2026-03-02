@@ -10,40 +10,39 @@ namespace AAMod.Items.Melee
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Perfect Chaos Chain");
-            Tooltip.SetDefault(@"Fires a spinning blade that shreds enemies
-Chaos Chain EX");
+            // DisplayName.SetDefault("Perfect Chaos Chain");
+            /* Tooltip.SetDefault(@"Fires a spinning blade that shreds enemies
+Chaos Chain EX"); */
         }
 
         public override void SetDefaults()
         {
-            item.autoReuse = true;
-            item.useStyle = 5;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.knockBack = 1f;
-            item.width = 30;
-            item.height = 10;
-            item.damage = 275;
-            item.shoot = mod.ProjectileType("ChaosChainEX");
-            item.shootSpeed = 18f;
-            item.UseSound = SoundID.Item116;
-            item.rare = 9;
-            item.expert = true; item.expertOnly = true;
-            item.value = Item.sellPrice(1, 0, 0, 0);
-            item.melee = true;
-            item.noMelee = true;
-            item.noUseGraphic = true;
+            Item.autoReuse = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.knockBack = 1f;
+            Item.width = 30;
+            Item.height = 10;
+            Item.damage = 275;
+            Item.shoot = Mod.Find<ModProjectile>("ChaosChainEX").Type;
+            Item.shootSpeed = 18f;
+            Item.UseSound = SoundID.Item116;
+            Item.rare = 9;
+            Item.expert = true; Item.expertOnly = true;
+            Item.value = Item.sellPrice(1, 0, 0, 0);
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "ChaosChain", 1);
             recipe.AddIngredient(null, "EXSoul",1);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

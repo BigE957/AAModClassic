@@ -8,44 +8,44 @@ namespace AAMod.NPCs.Bosses.AH
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sisters Defeat");
-            Terraria.ID.NPCID.Sets.TechnicallyABoss[npc.type] = true;
+            // DisplayName.SetDefault("Sisters Defeat");
+            Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
         }
 
         public override void SetDefaults()
         {
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.width = 100;
-            npc.height = 100;
-            npc.friendly = false;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noGravity = true;
-            npc.aiStyle = -1;
-            npc.timeLeft = 10;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.width = 100;
+            NPC.height = 100;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ChaosSissy");
 
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
         }
         public override void AI()
         {
-            npc.ai[1]++;
-            npc.TargetClosest();
-            Player player = Main.player[npc.target];
+            NPC.ai[1]++;
+            NPC.TargetClosest();
+            Player player = Main.player[NPC.target];
 
             if (AAConfigClient.Instance.NoBossDialogue)
             {
                 AAWorld.downedSisters = true;
-                npc.active = false;
+                NPC.active = false;
             }
 
-            npc.Center = player.Center;
+            NPC.Center = player.Center;
 
-            if (npc.ai[1] == 100)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
+            if (NPC.ai[1] == 100)          //if the timer has gotten to 7.5 seconds, this happens (60 = 1 second)
             {
                 if (AAWorld.downedSisters)
                 {
@@ -57,7 +57,7 @@ namespace AAMod.NPCs.Bosses.AH
                 }
             }
 
-            if (npc.ai[1] == 300)
+            if (NPC.ai[1] == 300)
             {
                 if (AAWorld.downedSisters)
                 {
@@ -69,12 +69,12 @@ namespace AAMod.NPCs.Bosses.AH
                 }
             }
 
-            if (npc.ai[1] == 500)
+            if (NPC.ai[1] == 500)
             {
                 if (AAWorld.downedSisters)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHDeath6"), new Color(102, 20, 48));
-                    npc.active = false;
+                    NPC.active = false;
                     AAWorld.downedSisters = true;
                 }
                 else
@@ -83,11 +83,11 @@ namespace AAMod.NPCs.Bosses.AH
                 }
             }
             
-            if (npc.ai[1] == 700)
+            if (NPC.ai[1] == 700)
             {
                 if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AHDeath8"), new Color(102, 20, 48));
                 AAWorld.downedSisters = true;
-                npc.active = false;
+                NPC.active = false;
             }
         }
     }

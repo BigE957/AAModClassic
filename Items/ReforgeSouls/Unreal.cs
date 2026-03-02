@@ -7,27 +7,26 @@ namespace AAMod.Items.ReforgeSouls
     {
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 32;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.rare = 6;
+            Item.width = 32;
+            Item.height = 32;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = 6;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Unreal Soul");
-            Tooltip.SetDefault(
+            // DisplayName.SetDefault("Unreal Soul");
+            /* Tooltip.SetDefault(
 @"Gives a weapon the ''Unreal'' prefix if it is possible
 Right-click weapon with the soul to set prefix
-Consumes in process");
+Consumes in process"); */
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(Terraria.ID.ItemID.FragmentVortex, 15);
             recipe.AddTile(Terraria.ID.TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

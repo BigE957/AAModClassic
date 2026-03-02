@@ -6,23 +6,23 @@ namespace AAMod.Projectiles.Zero
     {
         public override void SetDefaults()
         {
-            projectile.width = 4;
-            projectile.height = 4;
-            projectile.aiStyle = 1;
-            projectile.hostile = true;
-            projectile.penetrate = -1;
-            projectile.light = 0.3f;
-            projectile.alpha = 255;
-            projectile.extraUpdates = 7;
-            projectile.scale = 1.18f;
-            projectile.timeLeft = 300;
-            projectile.ranged = true;
-            projectile.ignoreWater = true;
+            Projectile.width = 4;
+            Projectile.height = 4;
+            Projectile.aiStyle = 1;
+            Projectile.hostile = true;
+            Projectile.penetrate = -1;
+            Projectile.light = 0.3f;
+            Projectile.alpha = 255;
+            Projectile.extraUpdates = 7;
+            Projectile.scale = 1.18f;
+            Projectile.timeLeft = 300;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ignoreWater = true;
         }
 
 		public override void SetStaticDefaults()
 		{
-		    DisplayName.SetDefault("Omega Shot");
+		    // DisplayName.SetDefault("Omega Shot");
 		}
     }
 }

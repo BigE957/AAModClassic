@@ -10,35 +10,34 @@ namespace AAMod.Items.Armor.Fleshrend
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fleshrend Greaves");
-			Tooltip.SetDefault("7% increased melee damage");
+			// DisplayName.SetDefault("Fleshrend Greaves");
+			// Tooltip.SetDefault("7% increased melee damage");
 
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 20;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 8;
+			Item.width = 22;
+			Item.height = 20;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 8;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.meleeDamage += .07f;
+			player.GetDamage(DamageClass.Melee) += .07f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.CrimsonGreaves, 1);
             recipe.AddIngredient(ItemID.JungleSpores, 6);
             recipe.AddIngredient(ItemID.Bone, 6);
             recipe.AddIngredient(null, "DevilSilk", 6);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

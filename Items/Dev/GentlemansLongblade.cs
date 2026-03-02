@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,38 +11,38 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Gentleman's Longblade");
-            Tooltip.SetDefault(@"Shoots many spooky dapper top hats
+            // DisplayName.SetDefault("Gentleman's Longblade");
+            /* Tooltip.SetDefault(@"Shoots many spooky dapper top hats
 Right clicking thrusts the blade forward
 Left clicking swings the blade
-Gentleman's Rapier EX");
+Gentleman's Rapier EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 400;
-			item.melee = true;
-			item.width = 94;
-			item.height = 96;
-			item.useTime = 8;
-			item.useAnimation = 8;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = 100000;
-			item.rare = 11;
-            item.shoot = mod.ProjectileType("TopHat");
-            item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-            item.shootSpeed = 50f;
+			Item.damage = 400;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 94;
+			Item.height = 96;
+			Item.useTime = 8;
+			Item.useAnimation = 8;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = 100000;
+			Item.rare = 11;
+            Item.shoot = Mod.Find<ModProjectile>("TopHat").Type;
+            Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+            Item.shootSpeed = 50f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(0, 105, 0);
+                    line2.OverrideColor = new Color(0, 105, 0);
                 }
             }
         }
@@ -55,16 +56,16 @@ Gentleman's Rapier EX");
 		{
             if (player.altFunctionUse == 2)
             {
-                item.useStyle = 3;
+                Item.useStyle = 3;
             }
             else
             {
-                item.useStyle = 1;
+                Item.useStyle = 1;
             }
             return base.CanUseItem(player);
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float numberProjectiles = 3 + Main.rand.Next(3); // 3, 4, or 5 shots
             float rotation = MathHelper.ToRadians(45);
@@ -79,11 +80,10 @@ Gentleman's Rapier EX");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "GentlemansRapier");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

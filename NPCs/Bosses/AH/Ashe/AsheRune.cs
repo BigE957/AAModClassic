@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,21 +14,21 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
     {
         public override void SetDefaults()
         {
-            npc.alpha = 255;
-            npc.dontTakeDamage = true;
-            npc.lifeMax = 1;
-            npc.aiStyle = -1;
-            npc.damage = Main.expertMode ? 50 : 84;
-            npc.defense = Main.expertMode ? 1 : 1;
-            npc.knockBackResist = 0.2f;
-            npc.width = 82;
-            npc.height = 82;
-            npc.value = Item.buyPrice(0, 0, 0, 0);
-            npc.lavaImmune = true;
-            npc.noTileCollide = true;
-            npc.noGravity = true;
-            npc.scale = .001f;
-            npc.friendly = false;
+            NPC.alpha = 255;
+            NPC.dontTakeDamage = true;
+            NPC.lifeMax = 1;
+            NPC.aiStyle = -1;
+            NPC.damage = Main.expertMode ? 50 : 84;
+            NPC.defense = Main.expertMode ? 1 : 1;
+            NPC.knockBackResist = 0.2f;
+            NPC.width = 82;
+            NPC.height = 82;
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
+            NPC.lavaImmune = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.scale = .001f;
+            NPC.friendly = false;
         }
 
         public override void SendExtraAI(BinaryWriter writer)
@@ -71,68 +72,68 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                     spinLeft = true;
                 }
                 SpinCheck = true;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
             if (Control == 1)
             {
-                npc.rotation += spinLeft ? .02f : -.02f;
+                NPC.rotation += spinLeft ? .02f : -.02f;
                 if (count == 0)
                 {
-                    if(Main.player[Main.npc[(int)npc.ai[3]].target].position - new Vector2(npc.ai[0], npc.ai[1]) == new Vector2(0f, 0f))
+                    if(Main.player[Main.npc[(int)NPC.ai[3]].target].position - new Vector2(NPC.ai[0], NPC.ai[1]) == new Vector2(0f, 0f))
                     {
                         Runeshootspeed = new Vector2(0, 0);
                     }
                     else
                     {
-                        Runeshootspeed = 10f * Vector2.Normalize(Main.player[Main.npc[(int)npc.ai[3]].target].position - new Vector2(npc.ai[0], npc.ai[1]));
+                        Runeshootspeed = 10f * Vector2.Normalize(Main.player[Main.npc[(int)NPC.ai[3]].target].position - new Vector2(NPC.ai[0], NPC.ai[1]));
                     }
                     if(Main.netMode != 1)
                     {
-                        int SootProj = Projectile.NewProjectile(npc.Center.X + Runeshootspeed.X, npc.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<AsheShot>(), (int)npc.ai[2]/2, 0, Main.myPlayer, npc.whoAmI, 0);
+                        int SootProj = Projectile.NewProjectile(NPC.Center.X + Runeshootspeed.X, NPC.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<AsheShot>(), (int)NPC.ai[2]/2, 0, Main.myPlayer, NPC.whoAmI, 0);
                         Main.projectile[SootProj].alpha = 0;
                     }
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 
                 if(count >= 60)
                 {
                     Control = 2;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
                 count ++;
             }
             else if (Control == 2)
             {
-                npc.rotation -= spinLeft ? .02f : -.02f;
-                if (npc.alpha < 255)
+                NPC.rotation -= spinLeft ? .02f : -.02f;
+                if (NPC.alpha < 255)
                 {
-                    npc.alpha += 5;
+                    NPC.alpha += 5;
                 }
                 else
                 {
-                    npc.active = false;
+                    NPC.active = false;
                 }
-                if (npc.scale < 1)
+                if (NPC.scale < 1)
                 {
-                    npc.scale -= .04f;
+                    NPC.scale -= .04f;
                 }
             }
             else
             {
-                npc.rotation += spinLeft ? .04f : -.04f;
-                if (npc.alpha > 0)
+                NPC.rotation += spinLeft ? .04f : -.04f;
+                if (NPC.alpha > 0)
                 {
-                    npc.alpha -= 5;
+                    NPC.alpha -= 5;
                 }
                 else
                 {
-                    npc.alpha = 0;
+                    NPC.alpha = 0;
                     Control = 1;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
-                if (npc.scale < 1)
+                if (NPC.scale < 1)
                 {
-                    npc.scale += .04f;
+                    NPC.scale += .04f;
                 }
             }
         }
@@ -140,13 +141,13 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawAura(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, auraPercent, 1.4f, npc.scale, npc.rotation, npc.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
+            BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1.4f, NPC.scale, NPC.rotation, NPC.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], red, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

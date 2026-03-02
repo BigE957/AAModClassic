@@ -4,14 +4,14 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swamp Koi");
+            // DisplayName.SetDefault("Swamp Koi");
         }
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
-            item.maxStack = 99;
-            item.rare = 3;
+            Item.width = 22;
+            Item.height = 22;
+            Item.maxStack = 99;
+            Item.rare = 3;
         }
     }
 }

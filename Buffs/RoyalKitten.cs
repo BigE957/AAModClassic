@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class RoyalKitten : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Royal Kitten");
-            Description.SetDefault("'She's so pretty!'");
+            // DisplayName.SetDefault("Royal Kitten");
+            // Description.SetDefault("'She's so pretty!'");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -17,10 +17,10 @@ namespace AAMod.Buffs
         {
             player.buffTime[buffIndex] = 1800000;
             player.GetModPlayer<AAPlayer>().RoyalKitten = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("RoyalKitten")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[Mod.Find<ModProjectile>("RoyalKitten").Type] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, mod.ProjectileType("RoyalKitten"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("RoyalKitten").Type, 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

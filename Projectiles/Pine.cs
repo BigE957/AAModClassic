@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,45 +12,45 @@ namespace AAMod.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pine");
+            // DisplayName.SetDefault("Pine");
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 14;
-            projectile.aiStyle = 1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.magic = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 600;
-            projectile.alpha = 20;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            aiType = ProjectileID.WoodenArrowFriendly;
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = 1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            AIType = ProjectileID.WoodenArrowFriendly;
         }
 
         public override void PostAI()
         {
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
             for (int i = 0; i < Main.rand.Next(5, 10); i++)
             {
                 int x = Main.rand.Next(-6, 6);
                 int y = -Main.rand.Next(3, 5);
-                int p = Projectile.NewProjectile(projectile.position, new Vector2(x, y), ProjectileID.PineNeedleFriendly, projectile.damage, projectile.knockBack, Main.myPlayer);
-                Main.projectile[p].Center = projectile.Center - new Vector2(0, 14);
+                int p = Projectile.NewProjectile(Projectile.position, new Vector2(x, y), ProjectileID.PineNeedleFriendly, Projectile.damage, Projectile.knockBack, Main.myPlayer);
+                Main.projectile[p].Center = Projectile.Center - new Vector2(0, 14);
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return false;
         }
     }

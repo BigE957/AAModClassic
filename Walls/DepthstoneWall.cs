@@ -5,9 +5,9 @@ namespace AAMod.Walls
 {
     public class DepthstoneWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			dustType = mod.DustType("AbyssiumDust");
+			DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
             AddMapEntry(new Color(17, 9, 40));
             Terraria.ID.WallID.Sets.Conversion.Stone[Type] = true;
         }

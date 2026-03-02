@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,24 +14,24 @@ namespace AAMod.NPCs.Bosses.Anubis
 	{				
 		public override void SetStaticDefaults()
 		{
-            Main.npcFrameCount[npc.type] = 4;
+            Main.npcFrameCount[NPC.type] = 4;
 		}
 
         public override void SetDefaults()
         {
-            npc.width = 42;
-            npc.height = 38;
-            npc.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            npc.npcSlots = 1;
-            npc.aiStyle = -1;
-            npc.lifeMax = 2500;
-            npc.defense = 130;
-            npc.damage = 5;
-            npc.HitSound = SoundID.NPCHit31;
-            npc.DeathSound = SoundID.NPCDeath35;
-            npc.knockBackResist = 0f;	
-			npc.noTileCollide = true;		
-			npc.defense = 40;
+            NPC.width = 42;
+            NPC.height = 38;
+            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.npcSlots = 1;
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 2500;
+            NPC.defense = 130;
+            NPC.damage = 5;
+            NPC.HitSound = SoundID.NPCHit31;
+            NPC.DeathSound = SoundID.NPCDeath35;
+            NPC.knockBackResist = 0f;	
+			NPC.noTileCollide = true;		
+			NPC.defense = 40;
         }
 
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -38,7 +39,7 @@ namespace AAMod.NPCs.Bosses.Anubis
 			return false;
 		}
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
 
 		}
@@ -49,40 +50,40 @@ namespace AAMod.NPCs.Bosses.Anubis
 
 		public override void AI()
 		{
-			npc.noGravity = true;
+			NPC.noGravity = true;
 			if(body == -1)
 			{
-				int npcID = BaseAI.GetNPC(npc.Center, mod.NPCType("Anubis"), 500f, null);	
+				int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("Anubis").Type, 500f, null);	
 				if(npcID >= 0) body = npcID;
 			}
 			if(body == -1) return;				
 			NPC anubis = Main.npc[body];
-			if(anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != mod.NPCType("Anubis")){ BaseAI.KillNPCWithLoot(npc); return; }
+			if(anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != Mod.Find<ModNPC>("Anubis").Type){ BaseAI.KillNPCWithLoot(NPC); return; }
 
-			for (int m = npc.oldPos.Length - 1; m > 0; m--)
+			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
 			{
-				npc.oldPos[m] = npc.oldPos[m - 1];
+				NPC.oldPos[m] = NPC.oldPos[m - 1];
 			}
-			npc.oldPos[0] = npc.position;
+			NPC.oldPos[0] = NPC.position;
 
-			int locust = ((Anubis)anubis.modNPC).LocustCount;
-			if(rotValue == -1f) rotValue = (npc.ai[0] % locust) * ((float)Math.PI * 2f / locust);
+			int locust = ((Anubis)anubis.ModNPC).LocustCount;
+			if(rotValue == -1f) rotValue = (NPC.ai[0] % locust) * ((float)Math.PI * 2f / locust);
 			rotValue += 0.05f;
 			while(rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
-			npc.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(160f, 0f), rotValue);
+			NPC.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(160f, 0f), rotValue);
 
-			npc.spriteDirection = (npc.position.X - npc.oldPos[1].X) < 0 ? -1 : 1;
-			npc.rotation = (npc.position.X - npc.oldPos[1].X) * 0.05f;
+			NPC.spriteDirection = (NPC.position.X - NPC.oldPos[1].X) < 0 ? -1 : 1;
+			NPC.rotation = (NPC.position.X - NPC.oldPos[1].X) * 0.05f;
 
             Player player = Main.player[anubis.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, mod.ProjectileType("LocustSpit"), ref npc.ai[2], Main.expertMode ? 120 : 80, npc.damage / 2, 9, true);
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.Find<ModProjectile>("LocustSpit").Type, ref NPC.ai[2], Main.expertMode ? 120 : 80, NPC.damage / 2, 9, true);
 		}
 
-		public override bool PreDraw(SpriteBatch sb, Color dColor)
+		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
-			Color lightColor = BaseDrawing.GetNPCColor(npc, null);
-			if(Main.player[npc.target] != null && Main.player[npc.target].active && !Main.player[npc.target].dead) BaseDrawing.DrawAfterimage(sb, Main.npcTexture[npc.type], 0, npc, 2f, 0.9f, 2, true, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc, lightColor);
+			Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
+			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead) BaseDrawing.DrawAfterimage(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2f, 0.9f, 2, true, 0f, 0f, lightColor);
+            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, lightColor);
 			return false;
 		}		
 	}

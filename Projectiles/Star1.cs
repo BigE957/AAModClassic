@@ -10,16 +10,16 @@ namespace AAMod.Projectiles
 	{
         public override void SetDefaults()
 		{
-            projectile.width = 26;
-            projectile.height = 26;
-            projectile.alpha = 30;
-            projectile.light = 0.2f;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.penetrate = 1;
-            projectile.tileCollide = false;
-            projectile.timeLeft = 300;
-            projectile.magic = true;
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.alpha = 30;
+            Projectile.light = 0.2f;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.penetrate = 1;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 300;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -29,25 +29,25 @@ namespace AAMod.Projectiles
 
         public override void AI()
         {
-            projectile.rotation += .1f;
+            Projectile.rotation += .1f;
             int stardust = ModContent.DustType<Dusts.StarDust>();
-            int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, stardust, projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, stardust, Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, stardust, projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, stardust, Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId3].noGravity = true;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             for (int n = 0; n < 5; n++)
             {
-                float x = projectile.position.X + Main.rand.Next(-400, 400);
-                float y = projectile.position.Y - Main.rand.Next(500, 800);
+                float x = Projectile.position.X + Main.rand.Next(-400, 400);
+                float y = Projectile.position.Y - Main.rand.Next(500, 800);
                 Vector2 vector = new Vector2(x, y);
-                float num13 = projectile.position.X + (projectile.width / 2) - vector.X;
-                float num14 = projectile.position.Y + (projectile.height / 2) - vector.Y;
+                float num13 = Projectile.position.X + (Projectile.width / 2) - vector.X;
+                float num14 = Projectile.position.Y + (Projectile.height / 2) - vector.Y;
                 num13 += Main.rand.Next(-100, 101);
                 int num15 = 23;
                 float num16 = (float)Math.Sqrt(num13 * num13 + num14 * num14);
@@ -55,21 +55,21 @@ namespace AAMod.Projectiles
                 num13 *= num16;
                 num14 *= num16;
                 int num17 = Projectile.NewProjectile(x, y, num13, num14, ModContent.ProjectileType<Stars>(), 70, 5f, Main.myPlayer, 0f, 0f);
-                Main.projectile[num17].ai[1] = projectile.position.Y;
+                Main.projectile[num17].ai[1] = Projectile.position.Y;
             }
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            int stardust = mod.DustType("StarDust");
+            int stardust = Mod.Find<ModDust>("StarDust").Type;
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, stardust, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, stardust, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, stardust, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, stardust, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }

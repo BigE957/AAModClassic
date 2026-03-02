@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,8 +11,8 @@ namespace AAMod.Projectiles.Yamata
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Bomb");     
-            Main.projFrames[projectile.type] = 4;     
+            // DisplayName.SetDefault("Soul Bomb");     
+            Main.projFrames[Projectile.type] = 4;     
 		}
 
         public override Color? GetAlpha(Color lightColor)
@@ -21,43 +22,43 @@ namespace AAMod.Projectiles.Yamata
 
         public override void SetDefaults()
 		{
-			projectile.width = 14;               
-			projectile.height = 14;              
-			projectile.aiStyle = 1;             
-			projectile.friendly = true;         
-			projectile.hostile = false;         
-			projectile.magic = true;           
-			projectile.penetrate = 1;           
-			projectile.timeLeft = 600;          
-			projectile.alpha = 20;              
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-            projectile.aiStyle = 0;
-            projectile.scale *= 1.2f;
+			Projectile.width = 14;               
+			Projectile.height = 14;              
+			Projectile.aiStyle = 1;             
+			Projectile.friendly = true;         
+			Projectile.hostile = false;         
+			Projectile.DamageType = DamageClass.Magic;           
+			Projectile.penetrate = 1;           
+			Projectile.timeLeft = 600;          
+			Projectile.alpha = 20;              
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+            Projectile.aiStyle = 0;
+            Projectile.scale *= 1.2f;
 		}
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 4)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 4)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
 
                 }
             }
-            if (projectile.ai[0] == 0f)
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.rotation += projectile.velocity.X * 0.1f;
+                Projectile.rotation += Projectile.velocity.X * 0.1f;
                 float num689 = 500f;
                 int num690 = -1;
                 for (int num691 = 0; num691 < 200; num691++)
                 {
                     NPC nPC5 = Main.npc[num691];
-                    if (nPC5.CanBeChasedBy(this, false) && Collision.CanHit(projectile.position, projectile.width, projectile.height, nPC5.position, nPC5.width, nPC5.height))
+                    if (nPC5.CanBeChasedBy(this, false) && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, nPC5.position, nPC5.width, nPC5.height))
                     {
-                        float num692 = (nPC5.Center - projectile.Center).Length();
+                        float num692 = (nPC5.Center - Projectile.Center).Length();
                         if (num692 < num689)
                         {
                             num690 = num691;
@@ -65,73 +66,73 @@ namespace AAMod.Projectiles.Yamata
                         }
                     }
                 }
-                projectile.ai[0] = num690 + 1;
-                if (projectile.ai[0] == 0f)
+                Projectile.ai[0] = num690 + 1;
+                if (Projectile.ai[0] == 0f)
                 {
-                    projectile.ai[0] = -15f;
+                    Projectile.ai[0] = -15f;
                 }
-                if (projectile.ai[0] > 0f)
+                if (Projectile.ai[0] > 0f)
                 {
                     float scaleFactor5 = Main.rand.Next(35, 75) / 30f;
-                    projectile.velocity = (projectile.velocity * 20f + Vector2.Normalize(Main.npc[(int)projectile.ai[0] - 1].Center - projectile.Center + new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101))) * scaleFactor5) / 21f;
-                    projectile.netUpdate = true;
+                    Projectile.velocity = (Projectile.velocity * 20f + Vector2.Normalize(Main.npc[(int)Projectile.ai[0] - 1].Center - Projectile.Center + new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101))) * scaleFactor5) / 21f;
+                    Projectile.netUpdate = true;
                 }
             }
-            else if (projectile.ai[0] > 0f)
+            else if (Projectile.ai[0] > 0f)
             {
-                Vector2 value23 = Vector2.Normalize(Main.npc[(int)projectile.ai[0] - 1].Center - projectile.Center);
-                projectile.velocity = (projectile.velocity * 40f + value23 * 12f) / 41f;
+                Vector2 value23 = Vector2.Normalize(Main.npc[(int)Projectile.ai[0] - 1].Center - Projectile.Center);
+                Projectile.velocity = (Projectile.velocity * 40f + value23 * 12f) / 41f;
             }
             else
             {
-                projectile.ai[0] += 1f;
-                projectile.alpha -= 25;
-                if (projectile.alpha < 50)
+                Projectile.ai[0] += 1f;
+                Projectile.alpha -= 25;
+                if (Projectile.alpha < 50)
                 {
-                    projectile.alpha = 50;
+                    Projectile.alpha = 50;
                 }
-                projectile.velocity *= 0.95f;
+                Projectile.velocity *= 0.95f;
             }
-            if (projectile.ai[1] == 0f)
+            if (Projectile.ai[1] == 0f)
             {
-                projectile.ai[1] = Main.rand.Next(80, 121) / 100f;
-                projectile.netUpdate = true;
+                Projectile.ai[1] = Main.rand.Next(80, 121) / 100f;
+                Projectile.netUpdate = true;
             }
-            projectile.scale = projectile.ai[1];
+            Projectile.scale = Projectile.ai[1];
             return;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(mod.BuffType("Moonraze"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
         }
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             float spread = 12f * 0.0174f;
-            double startAngle = Math.Atan2(projectile.velocity.X, projectile.velocity.Y) - spread / 2;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 4;
             for (int i = 0; i < 2; i++)
             {
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("YWSplit"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].melee = false;
-                Main.projectile[proj].magic = true;
-                proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, mod.ProjectileType("YWSplit"), projectile.damage / 6, projectile.knockBack, projectile.owner, 0f, 0f);
-                Main.projectile[proj].melee = false;
-                Main.projectile[proj].magic = true;
+                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Magic;
+                proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(projectile.width, projectile.height), projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(new Vector2(Projectile.width, Projectile.height), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, ModContent.DustType<Dusts.YamataADust>(), -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("Toxiboom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("Toxiboom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

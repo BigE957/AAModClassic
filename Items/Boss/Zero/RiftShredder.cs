@@ -11,50 +11,50 @@ namespace AAMod.Items.Boss.Zero
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rift Shredder");
-			Tooltip.SetDefault("Shoots void stars that shred through reality itself");
+			// DisplayName.SetDefault("Rift Shredder");
+			// Tooltip.SetDefault("Shoots void stars that shred through reality itself");
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 190;
-			item.melee = true;
-			item.width = 94;
-			item.height = 70;
-			item.useTime = 22;
-            item.shoot = mod.ProjectileType("Rift");
-            item.shootSpeed = 10f;
-            item.useAnimation = 22;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = Item.sellPrice(0, 30, 0, 0);
-            item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
-			item.autoReuse = true;
-            item.rare = 9; AARarity = 13;
+			Item.damage = 190;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 94;
+			Item.height = 70;
+			Item.useTime = 22;
+            Item.shoot = Mod.Find<ModProjectile>("Rift").Type;
+            Item.shootSpeed = 10f;
+            Item.useAnimation = 22;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
+			Item.autoReuse = true;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -68,13 +68,12 @@ namespace AAMod.Items.Boss.Zero
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 5);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddIngredient(null, "BreakingDawn");
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)

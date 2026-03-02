@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -13,44 +14,44 @@ namespace AAMod.Projectiles
 	
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Sun Halberd");
+            // DisplayName.SetDefault("Sun Halberd");
 		}	
 
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.aiStyle = -1;
-            projectile.timeLeft = 600;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-            projectile.damage = 1;
-            projectile.penetrate = -1;
-            projectile.hide = true;
-            projectile.ownerHitCheck = true;
-            projectile.melee = true;
-			projectile.alpha = 254;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.aiStyle = -1;
+            Projectile.timeLeft = 600;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.damage = 1;
+            Projectile.penetrate = -1;
+            Projectile.hide = true;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.Melee;
+			Projectile.alpha = 254;
         }
 
 		public override void AI()
 		{
-			AIArcStabSpear(projectile, ref projectile.ai, false);
+			AIArcStabSpear(Projectile, ref Projectile.ai, false);
 			if (Main.rand.Next(3) != 0)
 			{
-				int dustID = Dust.NewDust(projectile.Center, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0);
+				int dustID = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0);
 				Main.dust[dustID].noGravity = true;
 			}			
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.immune[projectile.owner] = 5;
+			target.immune[Projectile.owner] = 5;
 		}
 
-		public override bool PreDraw(SpriteBatch sb, Color dColor)
+		public override bool PreDraw(ref Color lightColor)
 		{
-			BaseDrawing.DrawProjectileSpear(sb, Main.projectileTexture[projectile.type], 0, projectile, null, 0f, 0f);
+			BaseDrawing.DrawProjectileSpear(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, null, 0f, 0f);
 			return false;
 		}
 

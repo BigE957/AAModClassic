@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -11,47 +12,47 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire Soul");
-            Main.npcFrameCount[npc.type] = 6;
+            // DisplayName.SetDefault("Mire Soul");
+            Main.npcFrameCount[NPC.type] = 6;
         }
 
         public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.ShadowFlameApparition);
-            aiType = NPCID.ShadowFlameApparition;
-            npc.aiStyle = NPCID.ShadowFlameApparition;
-            animationType = NPCID.ShadowFlameApparition;
-            npc.npcSlots = 0;
-            npc.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            npc.aiStyle = 86;
-            npc.lifeMax = 1;
-            npc.dontTakeDamage = true;
-            npc.noGravity = true;
-            npc.damage = 200;
-            npc.alpha = 255;
+            NPC.CloneDefaults(NPCID.ShadowFlameApparition);
+            AIType = NPCID.ShadowFlameApparition;
+            NPC.aiStyle = NPCID.ShadowFlameApparition;
+            AnimationType = NPCID.ShadowFlameApparition;
+            NPC.npcSlots = 0;
+            NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
+            NPC.aiStyle = 86;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noGravity = true;
+            NPC.damage = 200;
+            NPC.alpha = 255;
 
         }
         public override void AI()
         {
-            Lighting.AddLight(npc.Center, AAColor.YamataA.R / 255, AAColor.YamataA.G / 255, AAColor.YamataA.B / 255);
-            AAAI.AIShadowflameGhost(npc, ref npc.ai, false, 660f, 0.3f, 15f, 0.2f, 8f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
+            Lighting.AddLight(NPC.Center, AAColor.YamataA.R / 255, AAColor.YamataA.G / 255, AAColor.YamataA.B / 255);
+            AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 15f, 0.2f, 8f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
             if (!NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
             {
-                npc.life = 0;
+                NPC.life = 0;
             }
-            if (npc.alpha != 0)
+            if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, mod.DustType("YamataAuraDust"), 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("YamataAuraDust").Type, 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
             }
-            npc.alpha -= 12;
-            if (npc.alpha < 0)
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
             {
-                npc.alpha = 0;
+                NPC.alpha = 0;
             }
         }
 
@@ -62,20 +63,20 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
         public float auraPercent = 0f;
         public bool auraDirection = true;
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataSoul");
+            Texture2D glowTex = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataSoul");
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc, dColor);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, npc, GetGlowAlpha());
-            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, npc, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
+            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
+            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, GetGlowAlpha());
+            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
             return false;
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(mod.BuffType("HydraToxin"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 600);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,50 +11,50 @@ namespace AAmod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 32;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.magic = true;
-            projectile.tileCollide = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 600;
-            projectile.light = 0.25f;
-            projectile.extraUpdates = 1;
-            projectile.ignoreWater = true;
-            projectile.damage = 10;
-            projectile.scale = 1f;
+            Projectile.width = 32;
+            Projectile.height = 32;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.tileCollide = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.light = 0.25f;
+            Projectile.extraUpdates = 1;
+            Projectile.ignoreWater = true;
+            Projectile.damage = 10;
+            Projectile.scale = 1f;
         }
         public override void AI()
         {
-            projectile.rotation = ((float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f);
-            Lighting.AddLight(projectile.Center, 0.1f, 0.1f, 1f);
+            Projectile.rotation = ((float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f);
+            Lighting.AddLight(Projectile.Center, 0.1f, 0.1f, 1f);
                 if (Main.rand.Next(2) == 0)
                 {
-                    Dust.NewDust(projectile.Center, projectile.width/2, projectile.height/2, mod.DustType("AbyssDust"), projectile.velocity.X * 0.25f, projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, Mod.Find<ModDust>("AbyssDust").Type, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
                 }
-                float magnitude = (float)Math.Sqrt(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y);
+                float magnitude = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
             if (magnitude > 0.5f)
             {
-                    projectile.velocity.X /= 1.005f;
-                    projectile.velocity.Y /= 1.005f;
+                    Projectile.velocity.X /= 1.005f;
+                    Projectile.velocity.Y /= 1.005f;
             }
-                projectile.velocity.Y += 0.05f;
+                Projectile.velocity.Y += 0.05f;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item54, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item54, Projectile.position);
             if (Main.netMode != 1)
             {
                 for (int k = 0; k < Main.rand.Next(3) + 5; k++)
                 {
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, mod.ProjectileType("Drop"), projectile.damage, 2f, projectile.owner,0f,0f);
+                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, Mod.Find<ModProjectile>("Drop").Type, Projectile.damage, 2f, Projectile.owner,0f,0f);
                 }
             }
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) // Want some Venom?
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) // Want some Venom?
         {
             //target.AddBuff(BuffID.Venom, 180);
         }

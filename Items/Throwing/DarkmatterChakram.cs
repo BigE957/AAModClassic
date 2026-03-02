@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -12,27 +13,27 @@ namespace AAMod.Items.Throwing
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darkmatter Spinblade");
+            // DisplayName.SetDefault("Darkmatter Spinblade");
         }
         public override void SetDefaults()
 		{
-            item.damage = 65;            
-            item.melee = true;
-            item.width = 30;
-            item.height = 30;
-	        item.useTime = 16;
-	        item.useAnimation = 16;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-	        item.knockBack = 0;
-	        item.value = 100000;
-	        item.rare = 11;
-	        item.shootSpeed = 12f;
-	        item.shoot = mod.ProjectileType ("DMC");
-	        item.UseSound = SoundID.Item1;
-	        item.autoReuse = true;
-            item.noMelee = true;
-            item.rare = 9;
+            Item.damage = 65;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 30;
+            Item.height = 30;
+	        Item.useTime = 16;
+	        Item.useAnimation = 16;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+	        Item.knockBack = 0;
+	        Item.value = 100000;
+	        Item.rare = 11;
+	        Item.shootSpeed = 12f;
+	        Item.shoot = Mod.Find<ModProjectile>("DMC").Type;
+	        Item.UseSound = SoundID.Item1;
+	        Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -40,23 +41,23 @@ namespace AAMod.Items.Throwing
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -68,7 +69,7 @@ namespace AAMod.Items.Throwing
             );
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 50f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -79,9 +80,9 @@ namespace AAMod.Items.Throwing
             {
                 if(i == 1) continue;
                 offsetAngle = startAngle + (deltaAngle * i);
-                int proj = Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), mod.ProjectileType("DMCE"), damage, knockBack, item.owner);
-                Main.projectile[proj].ranged = false;
-                Main.projectile[proj].magic = true;
+                int proj = Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("DMCE").Type, damage, knockBack, Item.playerIndexTheItemIsReservedFor);
+                Main.projectile[proj].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             return true;
         }
@@ -90,7 +91,7 @@ namespace AAMod.Items.Throwing
         {
             for (int i = 0; i < 1000; ++i)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
                 {
                     return false;
                 }
@@ -99,12 +100,11 @@ namespace AAMod.Items.Throwing
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DarkEnergy", 5);
             recipe.AddIngredient(null, "DarkMatter", 15);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 		}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,56 +11,56 @@ namespace AAmod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 12;
-            projectile.height = 12;
-            projectile.friendly = false;
-            projectile.hostile = false; 
-            projectile.magic = true; 
-            projectile.tileCollide = true;
-            projectile.penetrate = 10;
-            projectile.timeLeft = 600;
-            projectile.light = 0.25f;
-            projectile.extraUpdates = 1;
-            projectile.ignoreWater = true;
-            projectile.damage = 10;
-            projectile.scale = 1f;
-            projectile.usesIDStaticNPCImmunity = false;
-            projectile.usesLocalNPCImmunity = true;
+            Projectile.width = 12;
+            Projectile.height = 12;
+            Projectile.friendly = false;
+            Projectile.hostile = false; 
+            Projectile.DamageType = DamageClass.Magic; 
+            Projectile.tileCollide = true;
+            Projectile.penetrate = 10;
+            Projectile.timeLeft = 600;
+            Projectile.light = 0.25f;
+            Projectile.extraUpdates = 1;
+            Projectile.ignoreWater = true;
+            Projectile.damage = 10;
+            Projectile.scale = 1f;
+            Projectile.usesIDStaticNPCImmunity = false;
+            Projectile.usesLocalNPCImmunity = true;
         }
 
         private const int AI_Timer_Slot = 1;
 
         public float AI_Timer
         {
-            get => projectile.ai[AI_Timer_Slot];
-            set => projectile.ai[AI_Timer_Slot] = value;
+            get => Projectile.ai[AI_Timer_Slot];
+            set => Projectile.ai[AI_Timer_Slot] = value;
         }
 
         public override void AI()
         {
-            projectile.rotation = ((float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f) + ((float)Math.PI);
+            Projectile.rotation = ((float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f) + ((float)Math.PI);
             if (Main.rand.Next(12) == 0)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("AbyssDust"), projectile.velocity.X * 0.25f, projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("AbyssDust").Type, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
             }
 
-            projectile.velocity.Y = projectile.velocity.Y + 0.08f;
-            if (projectile.velocity.Y >= 0)
+            Projectile.velocity.Y = Projectile.velocity.Y + 0.08f;
+            if (Projectile.velocity.Y >= 0)
             {
-                projectile.friendly = true;
+                Projectile.friendly = true;
             }
             else
             {
-                projectile.friendly = false;
+                Projectile.friendly = false;
             }
 
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.NPCHit3, projectile.position);
+            SoundEngine.PlaySound(SoundID.NPCHit3, Projectile.position);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) // Want some Venom?
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) // Want some Venom?
         {
         //target.AddBuff(BuffID.Venom, 180);
         }

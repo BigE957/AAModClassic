@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,37 +9,36 @@ namespace AAMod.Items.Tools
         public override void SetDefaults()
         {
 
-            item.damage = 12;
-            item.melee = true;
-            item.width = 42;
-            item.height = 42;
+            Item.damage = 12;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 42;
+            Item.height = 42;
 
-            item.useTime = 10;
-            item.useAnimation = 14;
-            item.pick = 110;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = 1000;
-            item.rare = 7;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.useTime = 10;
+            Item.useAnimation = 14;
+            Item.pick = 110;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = 1000;
+            Item.rare = 7;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Unity Pickaxe");
-      Tooltip.SetDefault("Can mine mythril and orichalcum.");
+      // DisplayName.SetDefault("Unity Pickaxe");
+      // Tooltip.SetDefault("Can mine mythril and orichalcum.");
     }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.PixieDust, 12);   
 			recipe.AddIngredient(ItemID.CrystalShard, 15);
             recipe.AddTile(TileID.Anvils);   
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

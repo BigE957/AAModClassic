@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,22 +11,22 @@ namespace AAMod.Items.Ranged
         
         public override void SetDefaults()
         {
-            item.damage = 50;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 62;
-            item.height = 24;
-            item.useTime = 7;
-            item.useAnimation = 22;
-            item.useStyle = 5;
-            item.useAmmo = AmmoID.Gel;
-            item.shoot = ModContent.ProjectileType<Projectiles.DragonfireProj>();
-            item.knockBack = 0;
-            item.value = 100000;
-            item.rare = 5;
-            item.UseSound = SoundID.Item34;
-            item.autoReuse = true;
-            item.shootSpeed = 14f;
+            Item.damage = 50;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 62;
+            Item.height = 24;
+            Item.useTime = 7;
+            Item.useAnimation = 22;
+            Item.useStyle = 5;
+            Item.useAmmo = AmmoID.Gel;
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireProj>();
+            Item.knockBack = 0;
+            Item.value = 100000;
+            Item.rare = 5;
+            Item.UseSound = SoundID.Item34;
+            Item.autoReuse = true;
+            Item.shootSpeed = 14f;
         }
 		
 		public override Vector2? HoldoutOffset()
@@ -35,11 +36,11 @@ namespace AAMod.Items.Ranged
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blastshot");
-            Tooltip.SetDefault("Consumes Gel");
+            // DisplayName.SetDefault("Blastshot");
+            // Tooltip.SetDefault("Consumes Gel");
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -52,13 +53,12 @@ namespace AAMod.Items.Ranged
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DragonFire", 5);
             recipe.AddIngredient(null, "IncineriteBar", 10);
             recipe.AddIngredient(null, "SoulOfSmite", 3);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah.Supreme
 {
@@ -7,33 +8,33 @@ namespace AAMod.Items.Boss.Rajah.Supreme
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Bane of the Slaughterer");
-            Tooltip.SetDefault(@"Right click to use as a spear
+            // DisplayName.SetDefault("Bane of the Slaughterer");
+            /* Tooltip.SetDefault(@"Right click to use as a spear
 Left click to use as a javelin
 Throwing Javelins right after a spear thrust throws javelins faster for a moment
-Bane of the Bunny EX");
+Bane of the Bunny EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-            item.damage = 400;
-            item.melee = true;
-            item.width = 92; 
-            item.height = 92;
-            item.noMelee = true;
-            item.noUseGraphic = true;
-            item.channel = true;
-            item.useStyle = 5;
-            item.knockBack = 4f;
-            item.UseSound = SoundID.Item1;
-            item.value = Item.sellPrice(1, 0, 0, 0);
-            item.shoot = mod.ProjectileType("BaneEX");
-            item.rare = 9;
-            item.expert = true; item.expertOnly = true;
-            item.useAnimation = 13;
-            item.useTime = 13;
-            item.autoReuse = true;
-            item.shootSpeed = 12f;
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 92; 
+            Item.height = 92;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.knockBack = 4f;
+            Item.UseSound = SoundID.Item1;
+            Item.value = Item.sellPrice(1, 0, 0, 0);
+            Item.shoot = Mod.Find<ModProjectile>("BaneEX").Type;
+            Item.rare = 9;
+            Item.expert = true; Item.expertOnly = true;
+            Item.useAnimation = 13;
+            Item.useTime = 13;
+            Item.autoReuse = true;
+            Item.shootSpeed = 12f;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -45,17 +46,17 @@ Bane of the Bunny EX");
         {
             if (player.altFunctionUse == 2)
             {
-                item.useAnimation = 11;
-                item.useTime = 11;
-                item.useStyle = 5;
-                item.shoot = mod.ProjectileType("BaneEX");  
+                Item.useAnimation = 11;
+                Item.useTime = 11;
+                Item.useStyle = 5;
+                Item.shoot = Mod.Find<ModProjectile>("BaneEX").Type;  
             }
             else
             {
-                item.useAnimation = 13;
-                item.useTime = 13;
-                item.useStyle = 1;
-                item.shoot = mod.ProjectileType("BaneTEX");
+                Item.useAnimation = 13;
+                Item.useTime = 13;
+                Item.useStyle = 1;
+                Item.shoot = Mod.Find<ModProjectile>("BaneTEX").Type;
             }
             return base.CanUseItem(player);
         }

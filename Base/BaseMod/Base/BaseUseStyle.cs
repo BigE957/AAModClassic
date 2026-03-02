@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Localization;
 
 namespace AAMod
@@ -50,7 +51,7 @@ namespace AAMod
 		 */
 		public static void SetStyleBoss(Player player, Item item, bool useItemHitbox = false, bool center = false)
 		{
-			Rectangle hitbox = (useItemHitbox || Main.netMode == 2 || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, Main.itemTexture[item.type].Width, Main.itemTexture[item.type].Height));
+			Rectangle hitbox = (useItemHitbox || Main.netMode == 2 || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, TextureAssets.Item[item.type].Value.Width, TextureAssets.Item[item.type].Value.Height));
 			player.itemRotation = 0f;
 			player.itemLocation.X = player.position.X + (float)player.width * 0.5f + ((center ? 0f : (float)hitbox.Width * 0.5f) - 9f - player.itemRotation * 14f * (float)player.direction - 4f) * (float)player.direction;
 			player.itemLocation.Y = player.position.Y + (float)hitbox.Height * 0.5f + 4f;
@@ -145,8 +146,8 @@ namespace AAMod
          */
         public static Vector2 MoveItemLocationGun(Vector2 center, Vector2 itemLocation, int direction, Item item)
         {
-            itemLocation.X = center.X - (Main.netMode == 2 || Main.dedServ ? item.width * 0.5f : Main.itemTexture[item.type].Width * 0.5f) - direction * 2;
-			itemLocation.Y = center.Y - (Main.netMode == 2 || Main.dedServ ? item.height * 0.5f : Main.itemTexture[item.type].Height * 0.5f);
+            itemLocation.X = center.X - (Main.netMode == 2 || Main.dedServ ? item.width * 0.5f : TextureAssets.Item[item.type].Value.Width * 0.5f) - direction * 2;
+			itemLocation.Y = center.Y - (Main.netMode == 2 || Main.dedServ ? item.height * 0.5f : TextureAssets.Item[item.type].Value.Height * 0.5f);
             return itemLocation;
         }
 
@@ -173,31 +174,31 @@ namespace AAMod
             if (!basedOnRot ? itemAnimation < itemAnimationMax * 0.33f : ((gravDir == 1f && ((direction == 1 && is30) || (direction == -1 && !is30))) || (gravDir == -1f && ((direction == 1 && !is30) || (direction == -1 && is30)))))
             {
                 float OffsetX = 10.0f;
-                if (Main.itemTexture[item.type].Width > 64) OffsetX = 28.0f;
-                else if (Main.itemTexture[item.type].Width > 32) OffsetX = 14.0f;
-                itemLocation.X = position.X + width * 0.5f + (Main.itemTexture[item.type].Width * 0.5f - OffsetX) * direction;
+                if (TextureAssets.Item[item.type].Value.Width > 64) OffsetX = 28.0f;
+                else if (TextureAssets.Item[item.type].Value.Width > 32) OffsetX = 14.0f;
+                itemLocation.X = position.X + width * 0.5f + (TextureAssets.Item[item.type].Value.Width * 0.5f - OffsetX) * direction;
                 itemLocation.Y = position.Y + 24;
             }
             else if (!basedOnRot ? itemAnimation < itemAnimationMax * 0.66f : ((gravDir == 1f && ((direction == 1 && is60) || (direction == -1 && !is60))) || (gravDir == -1f && ((direction == 1 && !is60) || (direction == -1 && is60)))))
             {
                 float OffsetX = 10.0f;
-                if (Main.itemTexture[item.type].Width > 64) OffsetX = 28.0f; 
-                else if (Main.itemTexture[item.type].Width > 32)  OffsetX = 18.0f;
-                itemLocation.X = position.X + width * 0.5f + (Main.itemTexture[item.type].Width * 0.5f - OffsetX) * direction;
+                if (TextureAssets.Item[item.type].Value.Width > 64) OffsetX = 28.0f; 
+                else if (TextureAssets.Item[item.type].Value.Width > 32)  OffsetX = 18.0f;
+                itemLocation.X = position.X + width * 0.5f + (TextureAssets.Item[item.type].Value.Width * 0.5f - OffsetX) * direction;
                 OffsetX = 10.0f;
-                if (Main.itemTexture[item.type].Height > 64) OffsetX = 14.0f;
-                else if (Main.itemTexture[item.type].Height > 32) OffsetX = 8.0f;
+                if (TextureAssets.Item[item.type].Value.Height > 64) OffsetX = 14.0f;
+                else if (TextureAssets.Item[item.type].Value.Height > 32) OffsetX = 8.0f;
 
                 itemLocation.Y = position.Y + OffsetX;
             }else
             {
                 float OffsetX = 6.0f;
 
-                if (Main.itemTexture[item.type].Width > 64) OffsetX = 28.0f;
-                else if (Main.itemTexture[item.type].Width > 32) OffsetX = 14.0f;
-                itemLocation.X = position.X + width * 0.5f - (Main.itemTexture[item.type].Width * 0.5f - OffsetX) * direction;
+                if (TextureAssets.Item[item.type].Value.Width > 64) OffsetX = 28.0f;
+                else if (TextureAssets.Item[item.type].Value.Width > 32) OffsetX = 14.0f;
+                itemLocation.X = position.X + width * 0.5f - (TextureAssets.Item[item.type].Value.Width * 0.5f - OffsetX) * direction;
                 OffsetX = 10.0f;
-                if (Main.itemTexture[item.type].Height > 64) OffsetX = 14.0f;
+                if (TextureAssets.Item[item.type].Value.Height > 64) OffsetX = 14.0f;
                 itemLocation.Y = position.Y + OffsetX;
             }
             if (gravDir == -1.0f)

@@ -1,5 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Flasks
 {
@@ -7,26 +10,26 @@ namespace AAMod.Items.Flasks
 	{
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 26;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.useTime = 28;
-            item.useAnimation = 28;
-            item.shoot = ProjectileID.CorruptSpray;
-            item.shootSpeed = 1f;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 0, 1, 0);
-            item.rare = 2;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = false;
-            item.noUseGraphic = false;
+            Item.width = 22;
+            Item.height = 26;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.useTime = 28;
+            Item.useAnimation = 28;
+            Item.shoot = ProjectileID.CorruptSpray;
+            Item.shootSpeed = 1f;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 0, 1, 0);
+            Item.rare = 2;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
+            Item.noUseGraphic = false;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Flask");
-            Tooltip.SetDefault(@"Spreads the Corruption");
+            // DisplayName.SetDefault("Shadow Flask");
+            // Tooltip.SetDefault(@"Spreads the Corruption");
         }
 
         public override bool AltFunctionUse(Player player)
@@ -39,20 +42,20 @@ namespace AAMod.Items.Flasks
 
             if (player.altFunctionUse != 2)
             {
-                item.shoot = mod.ProjectileType("CorruptionFlask");
-                item.shootSpeed = 9f;
+                Item.shoot = Mod.Find<ModProjectile>("CorruptionFlask").Type;
+                Item.shootSpeed = 9f;
             }
             else
             {
-                item.shoot = ProjectileID.CorruptSpray;
-                item.shootSpeed = 2f;
+                Item.shoot = ProjectileID.CorruptSpray;
+                Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == mod.ProjectileType("Flask"))
+            if (type == Mod.Find<ModProjectile>("Flask").Type)
             {
                 Projectile.NewProjectile(position, new Microsoft.Xna.Framework.Vector2(speedX, speedY), type, 0, 0, Main.myPlayer, 1);
                 return false;

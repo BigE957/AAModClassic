@@ -12,59 +12,59 @@ namespace AAMod.NPCs.Enemies.Mire
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mosster");
+            // DisplayName.SetDefault("Mosster");
 
-            Main.npcFrameCount[npc.type] = 8;
+            Main.npcFrameCount[NPC.type] = 8;
         }
 
         public override void SetDefaults()
         {
-            npc.lifeMax = 80;   //boss life
-            npc.damage = 30;  //boss damage
-            npc.defense = 8;    //boss defense
-            npc.knockBackResist = 0f;
-            npc.value = Item.sellPrice(0, 0, 6, 45);
-            aiType = NPCID.Crawdad;
-            animationType = NPCID.Crawdad;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.aiStyle = 3;
-            npc.width = 72;
-            npc.height = 78;
-            npc.lavaImmune = false;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MossterBanner");
+            NPC.lifeMax = 80;   //boss life
+            NPC.damage = 30;  //boss damage
+            NPC.defense = 8;    //boss defense
+            NPC.knockBackResist = 0f;
+            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            AIType = NPCID.Crawdad;
+            AnimationType = NPCID.Crawdad;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.aiStyle = 3;
+            NPC.width = 72;
+            NPC.height = 78;
+            NPC.lavaImmune = false;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MossterBanner").Type;
 
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreBackArm"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreBackLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreBody"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreFrontArm"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreFrontLeg"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/MossterGoreHead"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreBackArm"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreBackLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreBody"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreFrontArm"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreFrontLeg"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MossterGoreHead"), 1f);
             }
         }
         
-        public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             SpriteEffects spriteEffects = SpriteEffects.None;
-            if (npc.spriteDirection == 1)
+            if (NPC.spriteDirection == 1)
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(mod.GetTexture("Glowmasks/Mosster_Glow"), new Vector2(npc.Center.X - Main.screenPosition.X, npc.Center.Y - Main.screenPosition.Y),
-            npc.frame, Color.White, npc.rotation,
-            new Vector2(npc.width * 0.5f, npc.height * 0.5f), 1f, spriteEffects, 0f);
+            spriteBatch.Draw(Mod.GetTexture("Glowmasks/Mosster_Glow"), new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
+            NPC.frame, Color.White, NPC.rotation,
+            new Vector2(NPC.width * 0.5f, NPC.height * 0.5f), 1f, spriteEffects, 0f);
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MirePod"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
         }
     }
 }

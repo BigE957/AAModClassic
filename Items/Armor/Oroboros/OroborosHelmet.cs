@@ -11,22 +11,22 @@ namespace AAMod.Items.Armor.Oroboros
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oroboros Wood Helmet");
+            // DisplayName.SetDefault("Oroboros Wood Helmet");
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 28;
-            item.value = 1000;
-            item.rare = 3;
-            item.defense = 4;
+            Item.width = 28;
+            Item.height = 28;
+            Item.value = 1000;
+            Item.rare = 3;
+            Item.defense = 4;
         }
         
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("OroborosChestplate") && legs.type == mod.ItemType("OroborosBoots");
+            return body.type == Mod.Find<ModItem>("OroborosChestplate").Type && legs.type == Mod.Find<ModItem>("OroborosBoots").Type;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -38,11 +38,10 @@ namespace AAMod.Items.Armor.Oroboros
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "OroborosWood", 20);
                 recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

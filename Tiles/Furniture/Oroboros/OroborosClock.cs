@@ -10,7 +10,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosClock : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -27,14 +27,14 @@ namespace AAMod.Tiles.Furniture.Oroboros
 				16
 			};
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
+			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Clock"); // Automatic from .lang files
 			AddMapEntry(new Color(70, 0, 10), name);
-			dustType = mod.DustType("DoomDust");
-			adjTiles = new int[] { TileID.GrandfatherClocks };
+			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			AdjTiles = new int[] { TileID.GrandfatherClocks };
 		}
 
-		public override bool NewRightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			{
 				string text = "AM";
@@ -91,7 +91,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 		{
 			if (closer)
 			{
-				Main.clock = true;
+				Main.SceneMetrics.HasClock = true;
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("OroborosClock"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("OroborosClock").Type);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
@@ -113,8 +113,8 @@ namespace AAMod.Tiles.Furniture.Oroboros
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Oroboros/OroborosClock_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosClock_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,30 +11,30 @@ namespace AAMod.Items.Boss.Greed.WKG
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ore Cannon");
-            Tooltip.SetDefault(@"Uses Some Ores as Ammunition
-Certain ores have special effects when shot");
+            // DisplayName.SetDefault("Ore Cannon");
+            /* Tooltip.SetDefault(@"Uses Some Ores as Ammunition
+Certain ores have special effects when shot"); */
         }
 
         public override void SetDefaults()
         {
 
-            item.damage = 300;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 45;
-            item.useAnimation = 45;
-            item.useStyle = 5;
-            item.knockBack = 0;
-			item.shoot = 10;
-            item.UseSound = SoundID.Item14;
-            item.shootSpeed = 14f;
-            item.expert = true; 
-			item.expertOnly = true;
-            item.autoReuse = true;
-            item.rare = 9;
+            Item.damage = 300;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 45;
+            Item.useAnimation = 45;
+            Item.useStyle = 5;
+            Item.knockBack = 0;
+			Item.shoot = 10;
+            Item.UseSound = SoundID.Item14;
+            Item.shootSpeed = 14f;
+            Item.expert = true; 
+			Item.expertOnly = true;
+            Item.autoReuse = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -41,9 +42,9 @@ Certain ores have special effects when shot");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -66,8 +67,8 @@ Certain ores have special effects when shot");
             ItemID.Meteorite,
             ItemID.DemoniteOre,
             ItemID.CrimtaneOre,
-            AAMod.instance.ItemType("Abyssium"),
-            AAMod.instance.ItemType("Incinerite"),
+            AAMod.instance.Find<ModItem>("Abyssium").Type,
+            AAMod.instance.Find<ModItem>("Incinerite").Type,
             ItemID.Hellstone,
             ItemID.CobaltOre,
             ItemID.PalladiumOre,
@@ -75,14 +76,14 @@ Certain ores have special effects when shot");
             ItemID.OrichalcumOre,
             ItemID.AdamantiteOre,
             ItemID.TitaniumOre,
-            AAMod.instance.ItemType("HallowedOre"),
+            AAMod.instance.Find<ModItem>("HallowedOre").Type,
             ItemID.ChlorophyteOre,
             ItemID.LunarOre,
-            AAMod.instance.ItemType("DarkmatterOre"),
-            AAMod.instance.ItemType("RadiumOre"),
-            AAMod.instance.ItemType("DaybreakIncineriteOre"),
-            AAMod.instance.ItemType("EventideAbyssiumOre"),
-            AAMod.instance.ItemType("Apocalyptite"),
+            AAMod.instance.Find<ModItem>("DarkmatterOre").Type,
+            AAMod.instance.Find<ModItem>("RadiumOre").Type,
+            AAMod.instance.Find<ModItem>("DaybreakIncineriteOre").Type,
+            AAMod.instance.Find<ModItem>("EventideAbyssiumOre").Type,
+            AAMod.instance.Find<ModItem>("Apocalyptite").Type,
         };
         public int projType = -1;
 
@@ -106,8 +107,8 @@ Certain ores have special effects when shot");
 					if (itemFired.type == ItemID.Meteorite) projType = 8;
 					if (itemFired.type == ItemID.DemoniteOre) projType = 9;
 					if (itemFired.type == ItemID.CrimtaneOre) projType = 10;
-					if (itemFired.type == mod.ItemType("Abyssium")) projType = 11;
-					if (itemFired.type == mod.ItemType("Incinerite")) projType = 12;
+					if (itemFired.type == Mod.Find<ModItem>("Abyssium").Type) projType = 11;
+					if (itemFired.type == Mod.Find<ModItem>("Incinerite").Type) projType = 12;
 					if (itemFired.type == ItemID.Hellstone) projType = 13;
 					if (itemFired.type == ItemID.CobaltOre) projType = 14;
 					if (itemFired.type == ItemID.PalladiumOre) projType = 15;
@@ -115,23 +116,23 @@ Certain ores have special effects when shot");
 					if (itemFired.type == ItemID.OrichalcumOre) projType = 17;
 					if (itemFired.type == ItemID.AdamantiteOre) projType = 18;
 					if (itemFired.type == ItemID.TitaniumOre) projType = 19;
-					if (itemFired.type == mod.ItemType("HallowedOre")) projType = 20;
+					if (itemFired.type == Mod.Find<ModItem>("HallowedOre").Type) projType = 20;
 					if (itemFired.type == ItemID.ChlorophyteOre) projType = 21;
 					if (itemFired.type == ItemID.LunarOre) projType = 22;
-                    if (itemFired.type == mod.ItemType("DarkmatterOre")) projType = 23;
-                    if (itemFired.type == mod.ItemType("RadiumOre")) projType = 24;
-                    if (itemFired.type == mod.ItemType("DaybreakIncineriteOre")) projType = 25;
-                    if (itemFired.type == mod.ItemType("EventideAbyssiumOre")) projType = 26;
-                    if (itemFired.type == mod.ItemType("Apocalyptite")) projType = 27;
+                    if (itemFired.type == Mod.Find<ModItem>("DarkmatterOre").Type) projType = 23;
+                    if (itemFired.type == Mod.Find<ModItem>("RadiumOre").Type) projType = 24;
+                    if (itemFired.type == Mod.Find<ModItem>("DaybreakIncineriteOre").Type) projType = 25;
+                    if (itemFired.type == Mod.Find<ModItem>("EventideAbyssiumOre").Type) projType = 26;
+                    if (itemFired.type == Mod.Find<ModItem>("Apocalyptite").Type) projType = 27;
                     return true;
  				}
  			}
             return false;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
  		{
-            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("OreChunkHM"), damage, knockBack, player.whoAmI, 0, projType);
+            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("OreChunkHM").Type, damage, knockBack, player.whoAmI, 0, projType);
             if (Main.projectile[p].ai[1] == 10)
             {
                  Main.projectile[p].knockBack *= 1.5f;
@@ -144,19 +145,18 @@ Certain ores have special effects when shot");
                     Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI, 0, Main.projectile[p].ai[1]);
                 }
             }
-            Main.projectile[p].magic = false;
-            Main.projectile[p].ranged = true;
+            Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            Main.projectile[p].DamageType = DamageClass.Ranged;
             return false;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "GildedGlock", 1);
             recipe.AddIngredient(null, "CovetiteBar", 10);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

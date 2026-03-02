@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class ChaosAltar1 : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = false;
@@ -17,12 +18,12 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.addTile(Type);
             Main.tileHammer[Type] = true;
-			disableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Abyss Altar");
-            dustType = mod.DustType("AbyssiumDust");
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Abyss Altar");
+            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
             AddMapEntry(new Color(0, 0 ,100), name);
-            adjTiles = new int[] { TileID.DemonAltar };
+            AdjTiles = new int[] { TileID.DemonAltar };
         }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

@@ -10,18 +10,18 @@ namespace AAMod.Items.Armor.Mushium
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mushium Shirt");
-            Tooltip.SetDefault("2% Increased life regeneration");
+			// DisplayName.SetDefault("Mushium Shirt");
+            // Tooltip.SetDefault("2% Increased life regeneration");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 50;
-			item.rare = 1;
-			item.defense = 4;
-            item.value = Item.sellPrice(0, 0, 25, 0);
+			Item.width = 30;
+			Item.height = 20;
+			Item.value = 50;
+			Item.rare = 1;
+			Item.defense = 4;
+            Item.value = Item.sellPrice(0, 0, 25, 0);
         }
 
 		public override void UpdateEquip(Player player)
@@ -31,11 +31,10 @@ namespace AAMod.Items.Armor.Mushium
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "MushiumBar", 5);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

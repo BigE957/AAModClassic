@@ -10,27 +10,27 @@ namespace AAMod.Items.Melee
     {
         public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Apocalypse");
-            Tooltip.SetDefault(@"The Flaming Jacks travel towards the sunset, where
+            // DisplayName.SetDefault("Apocalypse");
+            /* Tooltip.SetDefault(@"The Flaming Jacks travel towards the sunset, where
 souls travel to reach the afterlife.
-Horseman's Blade EX");
+Horseman's Blade EX"); */
         }
 
 		public override void SetDefaults()
 		{
-            item.melee = true;
-            item.damage = 1000;
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.UseSound = SoundID.Item1;
-            item.shootSpeed = 20f;
-            item.width = 54;
-			item.height = 54;    
-            item.knockBack = 6.5f;
-            item.useTime = 5;
-			item.useAnimation = 5;
-			item.value = 1000000;
-            item.expert = true; item.expertOnly = true;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.damage = 1000;
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.UseSound = SoundID.Item1;
+            Item.shootSpeed = 20f;
+            Item.width = 54;
+			Item.height = 54;    
+            Item.knockBack = 6.5f;
+            Item.useTime = 5;
+			Item.useAnimation = 5;
+			Item.value = 1000000;
+            Item.expert = true; Item.expertOnly = true;
 
 			glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
 			glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -39,15 +39,14 @@ Horseman's Blade EX");
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.TheHorsemansBlade);
-			recipe.AddIngredient(mod, "EXSoul", 1);
+			recipe.AddIngredient(Mod, "EXSoul", 1);
 			recipe.AddTile(null, "QuantumFusionAccelerator");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             float screenX = Main.screenPosition.X;
             if (player.direction < 0)

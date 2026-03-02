@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Socc : ModBuff
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Socc");
-            Description.SetDefault("Socc.");
+            // DisplayName.SetDefault("Socc");
+            // Description.SetDefault("Socc.");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
@@ -16,7 +16,7 @@ namespace AAMod.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[mod.ProjectileType("SoccMinion")] > 0)
+            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("SoccMinion").Type] > 0)
             {
                 modPlayer.Socc = true;
             }

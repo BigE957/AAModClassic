@@ -6,13 +6,13 @@ namespace AAMod.Walls.Bricks
 {
     public class DarkmatterWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            dustType = mod.DustType("DarkmatterDust");
+            DustType = Mod.Find<ModDust>("DarkmatterDust").Type;
             AddMapEntry(new Color(30, 30, 60));
-            soundType = 21;
-            drop = mod.ItemType("DarkmatterWall");
+            HitSound = 21;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkmatterWall").Type;
             Main.wallHouse[Type] = true;
         }
 

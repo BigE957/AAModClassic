@@ -10,34 +10,34 @@ namespace AAMod.Items.Potions.LuckyPotions
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Lucky Rage Potion");
-			Tooltip.SetDefault("Increases critical chance by 11%");
+			// DisplayName.SetDefault("Lucky Rage Potion");
+			// Tooltip.SetDefault("Increases critical chance by 11%");
 		}
 		
 		public override void SetDefaults()
 		{
-            item.UseSound = SoundID.Item3;
-            item.useStyle = 2;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 15;
-			item.maxStack = 30;
-			item.consumable = true;
-			item.width = 16;
-			item.height = 16;
-			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = 7;
-			item.buffType = mod.BuffType("luckyrage");
-			item.buffTime = 18000;
+            Item.UseSound = SoundID.Item3;
+            Item.useStyle = 2;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 15;
+			Item.maxStack = 30;
+			Item.consumable = true;
+			Item.width = 16;
+			Item.height = 16;
+			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.rare = 7;
+			Item.buffType = Mod.Find<ModBuff>("luckyrage").Type;
+			Item.buffTime = 18000;
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = Color.Gold;
+                    line2.OverrideColor = Color.Gold;
                 }
             }
         }
@@ -45,29 +45,29 @@ namespace AAMod.Items.Potions.LuckyPotions
 
 	public class luckyrage : ModBuff
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override bool IsLoadingEnabled(Mod mod)
 		{
 			texture = "Terraria/Buff_115";
-			return mod.Properties.Autoload;
+			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		}
 
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rage");
-			Description.SetDefault("11% increased critical chance");
+			// DisplayName.SetDefault("Rage");
+			// Description.SetDefault("11% increased critical chance");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = false;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffImmune[115] = true;
-			player.meleeCrit += 11;
-			player.rangedCrit += 11;
-			player.magicCrit += 11;
-			player.thrownCrit += 11;
+			player.GetCritChance(DamageClass.Melee) += 11;
+			player.GetCritChance(DamageClass.Ranged) += 11;
+			player.GetCritChance(DamageClass.Magic) += 11;
+			player.GetCritChance(DamageClass.Throwing) += 11;
 		}
 	}
 }

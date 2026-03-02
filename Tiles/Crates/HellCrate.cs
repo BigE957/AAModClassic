@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -7,10 +8,10 @@ namespace AAMod.Tiles.Crates
 {
     public class HellCrate : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Hell Crate");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Hell Crate");
             Main.tileFrameImportant[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileSolidTop[Type] = true;
@@ -23,7 +24,7 @@ namespace AAMod.Tiles.Crates
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("HellCrate"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("HellCrate").Type);
         }
     }
 }

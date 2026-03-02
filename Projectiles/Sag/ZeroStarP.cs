@@ -10,44 +10,44 @@ namespace AAMod.Projectiles.Sag
 	{
         public override void SetDefaults()
         {
-            projectile.aiStyle = -1;
-            projectile.width = 32;
-	        projectile.height = 32;
-	        projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.tileCollide = false;
-	        projectile.penetrate = -1;
-            projectile.melee = true;
+            Projectile.aiStyle = -1;
+            Projectile.width = 32;
+	        Projectile.height = 32;
+	        Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+	        Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Melee;
         }
         public float[] internalAI = new float[1];
         public float[] shootAI = new float[1];
 
         public override void AI()
         {
-            Player p = Main.player[projectile.owner];
-            BaseAI.AIBoomerang(projectile, ref projectile.ai, p.position, p.width, p.height, true, 20f, 30, 20f, 0.6f, true);
-            int Target = BaseAI.GetNPC(projectile.Center, -1, 500);
+            Player p = Main.player[Projectile.owner];
+            BaseAI.AIBoomerang(Projectile, ref Projectile.ai, p.position, p.width, p.height, true, 20f, 30, 20f, 0.6f, true);
+            int Target = BaseAI.GetNPC(Projectile.Center, -1, 500);
             if (Target != -1 && !Main.npc[Target].friendly)
             {
                 NPC target = Main.npc[Target];
-                int id = BaseAI.ShootPeriodic(projectile, target.position, 14, 14, ModContent.ProjectileType<Darkray>(), ref internalAI[0], 30, projectile.damage, 7, true);
-                Main.projectile[id].melee = true;
-                Main.projectile[id].ranged = false;
+                int id = BaseAI.ShootPeriodic(Projectile, target.position, 14, 14, ModContent.ProjectileType<Darkray>(), ref internalAI[0], 30, Projectile.damage, 7, true);
+                Main.projectile[id].DamageType = DamageClass.Melee;
+                Main.projectile[id].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             }
         }
 
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 8;
             height = 8;
             return true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D Glow = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            BaseDrawing.DrawTexture(spriteBatch, mod.GetTexture("Projectiles/Sag/ZeroStarP"), 0, projectile, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, projectile, AAColor.COLOR_WHITEFADE1, true);
+            Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Projectiles/Sag/ZeroStarP"), 0, Projectile, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, Projectile, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
     }

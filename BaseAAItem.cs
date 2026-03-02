@@ -25,21 +25,21 @@ namespace AAMod.Items
         {
 			if(glowmaskTexture != null)
 			{
-	            Texture2D texture = mod.GetTexture(glowmaskTexture);
+	            Texture2D texture = Mod.GetTexture(glowmaskTexture);
 				spriteBatch.Draw
 				(
 					texture,
 					new Vector2
 					(
-						item.position.X - Main.screenPosition.X + item.width * 0.5f,
-						item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+						Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+						Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
 					),
 					new Rectangle(0, 0, texture.Width, texture.Height),
 					Color.White,
 					rotation,
 					texture.Size() * 0.5f,
 					scale,
-					item.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
+					Item.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
 					0f
 				);
 			}
@@ -51,15 +51,15 @@ namespace AAMod.Items
             {
                 foreach (TooltipLine line2 in list)
                 {
-                    if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                    if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                     {
-                        line2.overrideColor = (Color)customNameColor;
+                        line2.OverrideColor = (Color)customNameColor;
                     }
                 }
                 return;
             }
 
-            BaseAAItem AAitem = (BaseAAItem)item.modItem;
+            BaseAAItem AAitem = (BaseAAItem)Item.ModItem;
             if (AAitem.AARarity != 0)
             {
                 Color Rare;
@@ -73,9 +73,9 @@ namespace AAMod.Items
                 }
                 foreach (TooltipLine line2 in list)
                 {
-                    if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                    if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                     {
-                        line2.overrideColor = Rare;
+                        line2.OverrideColor = Rare;
                     }
                 }
             }

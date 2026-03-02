@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,35 +8,34 @@ namespace AAMod.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Depth Digger");
+            // DisplayName.SetDefault("Depth Digger");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 20;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-            item.tileBoost += 1;
-            item.useTime = 13;
-			item.useAnimation = 22;
-			item.pick = 200;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = 3600;
-			item.rare = 6;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 20;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+            Item.tileBoost += 1;
+            Item.useTime = 13;
+			Item.useAnimation = 22;
+			Item.pick = 200;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = 3600;
+			Item.rare = 6;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "DeepAbyssium", 20);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
 	}

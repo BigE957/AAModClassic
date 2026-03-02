@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader; using Terraria.ID;
 
 namespace AAMod.Items.Blocks.Statues
@@ -6,32 +7,31 @@ namespace AAMod.Items.Blocks.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Top Hat Squirrel Statue");
+            // DisplayName.SetDefault("Top Hat Squirrel Statue");
         }
 
         public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 30;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.value = 50000;
-			item.rare = 1;
-			item.createTile = mod.TileType("DevStatue");
-			item.placeStyle = 11;
+			Item.width = 30;
+			Item.height = 30;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 50000;
+			Item.rare = 1;
+			Item.createTile = Mod.Find<ModTile>("DevStatue").Type;
+			Item.placeStyle = 11;
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.StoneBlock, 50);
             recipe.AddTile(TileID.HeavyWorkBench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +11,7 @@ namespace AAMod.Tiles.Crafters
 {
     public class TerraCore : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
@@ -21,12 +23,12 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Core of Terraria");
-            dustType = 107;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Core of Terraria");
+            DustType = 107;
             AddMapEntry(new Color(40, 200, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[]
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation,
                 TileID.WorkBenches,
@@ -40,10 +42,10 @@ namespace AAMod.Tiles.Crafters
                 TileID.DemonAltar,
                 TileID.Chairs,
                 TileID.Anvils,
-                mod.TileType("HellstoneAnvil"),
-                mod.TileType("HallowedAnvil"),
-                mod.TileType("HallowedForge"),
-                mod.TileType("QuantumFusionAccelerator"),
+                Mod.Find<ModTile>("HellstoneAnvil").Type,
+                Mod.Find<ModTile>("HallowedAnvil").Type,
+                Mod.Find<ModTile>("HallowedForge").Type,
+                Mod.Find<ModTile>("QuantumFusionAccelerator").Type,
                 TileID.MythrilAnvil,
                 TileID.Anvils,
                 TileID.CrystalBall,
@@ -54,7 +56,7 @@ namespace AAMod.Tiles.Crafters
                 TileID.Autohammer,
                 TileID.ImbuingStation
             };
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -75,31 +77,31 @@ namespace AAMod.Tiles.Crafters
             Texture2D texture;
             if (Main.canDrawColorTile(i, j))
             {
-                texture = Main.tileAltTexture[Type, tile.color()];
+                texture = Main.tileAltTexture[Type, tile.TileColor];
             }
             else
             {
-                texture = Main.tileTexture[Type];
+                texture = TextureAssets.Tile[Type].Value;
             }
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
+            int height = tile.TileFrameY == 36 ? 18 : 16;
             int animate = 0;
-            if (tile.frameY >= 56)
+            if (tile.TileFrameY >= 56)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/TerraCore_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/TerraCore_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("TerraCore"));
+            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TerraCore").Type);
         }
     }
 }

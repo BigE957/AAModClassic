@@ -8,18 +8,18 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zero");
-            Main.projFrames[projectile.type] = 7;
+            // DisplayName.SetDefault("Zero");
+            Main.projFrames[Projectile.type] = 7;
         }
         public override void SetDefaults()
         {
-            projectile.width = 1;
-            projectile.height = 1;
-            projectile.penetrate = -1;
-            projectile.hostile = false;
-            projectile.friendly = false;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
+            Projectile.width = 1;
+            Projectile.height = 1;
+            Projectile.penetrate = -1;
+            Projectile.hostile = false;
+            Projectile.friendly = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
         }
         public bool linesaid = false;
         public override void AI()
@@ -32,27 +32,27 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                     linesaid = true;
                 }
             }
-            if (++projectile.frameCounter >= 6)
+            if (++Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 7)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 7)
                 {
-                    projectile.Kill();
+                    Projectile.Kill();
                    
                 }
             }
-            projectile.velocity.X *= 0.00f;
-            projectile.velocity.Y += 0.00f;
+            Projectile.velocity.X *= 0.00f;
+            Projectile.velocity.Y += 0.00f;
            
         }
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (!AAWorld.downedZero && Main.expertMode)
             {
                 if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroDeath3"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
-            int p = Projectile.NewProjectile(projectile.Center, new Vector2(0f, 0f), mod.ProjectileType("ZeroDeath2"), 0, 0);
-            Main.projectile[p].Center = projectile.Center;
+            int p = Projectile.NewProjectile(Projectile.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("ZeroDeath2").Type, 0, 0);
+            Main.projectile[p].Center = Projectile.Center;
         }
     }
 }

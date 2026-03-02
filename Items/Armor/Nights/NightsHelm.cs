@@ -11,27 +11,27 @@ namespace AAMod.Items.Armor.Nights
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Night's Helm");
-			Tooltip.SetDefault("9% increased melee speed");
+			// DisplayName.SetDefault("Night's Helm");
+			// Tooltip.SetDefault("9% increased melee speed");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 28;
-			item.value = 90000;
-			item.rare = 4;
-			item.defense = 6;
+			Item.width = 26;
+			Item.height = 28;
+			Item.value = 90000;
+			Item.rare = 4;
+			Item.defense = 6;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-			player.meleeSpeed += 0.09f;
+			player.GetAttackSpeed(DamageClass.Melee) += 0.09f;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("NightsPlate") && legs.type == mod.ItemType("NightsGreaves");
+			return body.type == Mod.Find<ModItem>("NightsPlate").Type && legs.type == Mod.Find<ModItem>("NightsGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -43,14 +43,13 @@ namespace AAMod.Items.Armor.Nights
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShadowHelmet, 1);
 			recipe.AddIngredient(ItemID.JungleSpores, 5);
 			recipe.AddIngredient(ItemID.Bone, 5);
 			recipe.AddIngredient(null, "DevilSilk", 5);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

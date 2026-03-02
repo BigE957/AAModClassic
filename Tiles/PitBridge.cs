@@ -6,7 +6,7 @@ namespace AAMod.Tiles
 {
     public class PitBridge: ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;

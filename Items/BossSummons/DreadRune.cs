@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 
 //using AAMod.NPCs.Bosses.Infinity;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 using Terraria.Localization;
@@ -16,41 +17,41 @@ namespace AAMod.Items.BossSummons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dread Moon Rune");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"An enchanted tablet radiating dark chaotic energy
+            // DisplayName.SetDefault("Dread Moon Rune");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"An enchanted tablet radiating dark chaotic energy
 Summons Yamata no Orochi
 Can only be used in the mire at night
-Non-Consumable");
+Non-Consumable"); */
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.rare = 2;
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
-            item.consumable = false;
+            Item.width = 20;
+            Item.height = 20;
+            Item.rare = 2;
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
+            Item.consumable = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(146, 30, 68);
+                    line2.OverrideColor = new Color(146, 30, 68);
                 }
             }
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadRuneTrue1"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadRuneTrue2"), new Color(146, 30, 68));
             DreadSigil.SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Yamata.Awakened.YamataA>(), false, new Vector2(player.Center.X, player.Center.Y - 100), Language.GetTextValue("Mods.AAMod.Common.YamataA"));
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), player.position);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), player.position);
             return true;
 		}
 
@@ -68,12 +69,12 @@ Non-Consumable");
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadFalse1"), Color.Indigo, false);
                     return false;
                 }
-                if (NPC.AnyNPCs(mod.NPCType("Yamata")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Yamata").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadFalse2"), new Color(45, 46, 70), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(mod.NPCType("YamataA")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadFalse2"), new Color(146, 30, 68), false);
                     return false;
@@ -83,7 +84,7 @@ Non-Consumable");
                 {
                     return false;
                 }
-                if (NPC.AnyNPCs(mod.NPCType("YamataTransition")))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataTransition").Type))
                 {
                     return false;
                 }

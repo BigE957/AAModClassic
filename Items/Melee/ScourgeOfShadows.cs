@@ -8,38 +8,37 @@ namespace AAMod.Items.Melee
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scourge of the Shadows");
-            Tooltip.SetDefault("Bounce off tiles up to 3 times\nBreaks after hitting an enemy\nSprays little eaters while travelling and on enemy hit\nScourge of the Corruptor EX");
+            // DisplayName.SetDefault("Scourge of the Shadows");
+            // Tooltip.SetDefault("Bounce off tiles up to 3 times\nBreaks after hitting an enemy\nSprays little eaters while travelling and on enemy hit\nScourge of the Corruptor EX");
         }
 
         public override void SetDefaults()
 		{
-            item.autoReuse = true;
-			item.useStyle = 5;
-			item.shootSpeed = 14f;
-			item.shoot = mod.ProjectileType("ScourgeOfShadowsP");
-			item.damage = 130;
-			item.width = 18;
-			item.height = 20;
-			item.UseSound = SoundID.Item39;
-			item.useAnimation = 10;
-			item.useTime = 10;
-			item.noUseGraphic = true;
-			item.noMelee = true;
-			item.value = Item.sellPrice(0, 50, 0, 0);
-			item.knockBack = 5f;
-			item.melee = true;
-			item.rare = 11;
+            Item.autoReuse = true;
+			Item.useStyle = 5;
+			Item.shootSpeed = 14f;
+			Item.shoot = Mod.Find<ModProjectile>("ScourgeOfShadowsP").Type;
+			Item.damage = 130;
+			Item.width = 18;
+			Item.height = 20;
+			Item.UseSound = SoundID.Item39;
+			Item.useAnimation = 10;
+			Item.useTime = 10;
+			Item.noUseGraphic = true;
+			Item.noMelee = true;
+			Item.value = Item.sellPrice(0, 50, 0, 0);
+			Item.knockBack = 5f;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.rare = 11;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ScourgeoftheCorruptor);
             recipe.AddIngredient(null, "EXSoul");
 		    recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 		}
     }
 }

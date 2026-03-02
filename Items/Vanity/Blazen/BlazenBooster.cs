@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,28 +14,28 @@ namespace AAMod.Items.Vanity.Blazen
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Tactical Assault Booster");
-            Tooltip.SetDefault(@"Allows flight and slow fall
+            // DisplayName.SetDefault("Tactical Assault Booster");
+            /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold up to rocket faster
-'Great for impersonating Ancients Awakened Developers!'");
+'Great for impersonating Ancients Awakened Developers!'"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 42;
-			item.height = 42;
-			item.value = 500000;
-			item.rare = 10;
-			item.accessory = true;
+			Item.width = 42;
+			Item.height = 42;
+			Item.value = 500000;
+			Item.rare = 10;
+			Item.accessory = true;
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(0, 0, 255);
+                    line2.OverrideColor = new Color(0, 0, 255);
                 }
             }
         }
@@ -62,7 +63,7 @@ Hold up to rocket faster
                 player.rocketDelay2--;
                 if (player.rocketDelay2 <= 0)
                 {
-                    Main.PlaySound(SoundID.Item13, player.position);
+                    SoundEngine.PlaySound(SoundID.Item13, player.position);
                     player.rocketDelay2 = 60;
                 }
                 int num69 = 2;

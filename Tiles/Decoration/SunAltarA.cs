@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -10,7 +12,7 @@ namespace AAMod.Tiles.Decoration
 {
     public class SunAltarA : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
@@ -19,21 +21,21 @@ namespace AAMod.Tiles.Decoration
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
-            dustType = 1;
-            animationFrameHeight = 56;
-            disableSmartCursor = true;
-            dustType = ModContent.DustType<Dusts.AkumaADust>();
-            adjTiles = new int[] { TileID.LunarMonolith };
+            DustType = 1;
+            AnimationFrameHeight = 56;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            DustType = ModContent.DustType<Dusts.AkumaADust>();
+            AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, mod.ItemType("SunAltarA"));
+            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("SunAltarA").Type);
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
-            if (Main.tile[i, j].frameY >= 56)
+            if (Main.tile[i, j].TileFrameY >= 56)
             {
                 AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
                 modPlayer.AkumaAltar = true;
@@ -52,31 +54,31 @@ namespace AAMod.Tiles.Decoration
             Texture2D texture;
             if (Main.canDrawColorTile(i, j))
             {
-                texture = Main.tileAltTexture[Type, tile.color()];
+                texture = Main.tileAltTexture[Type, tile.TileColor];
             }
             else
             {
-                texture = Main.tileTexture[Type];
+                texture = TextureAssets.Tile[Type].Value;
             }
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
+            int height = tile.TileFrameY == 36 ? 18 : 16;
             int animate = 0;
-            if (tile.frameY >= 56)
+            if (tile.TileFrameY >= 56)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(mod.GetTexture("Glowmasks/SunAltarA_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/SunAltarA_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+            SoundEngine.PlaySound(SoundID.Mech, new Vector2(i * 16, j * 16));
             HitWire(i, j);
             return true;
         }
@@ -85,14 +87,14 @@ namespace AAMod.Tiles.Decoration
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = mod.ItemType("SunAltarA");
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = Mod.Find<ModItem>("SunAltarA").Type;
         }
 
         public override void HitWire(int i, int j)
         {
-            int x = i - (Main.tile[i, j].frameX / 18 % 2);
-            int y = j - (Main.tile[i, j].frameY / 18 % 3);
+            int x = i - (Main.tile[i, j].TileFrameX / 18 % 2);
+            int y = j - (Main.tile[i, j].TileFrameY / 18 % 3);
             for (int l = x; l < x + 2; l++)
             {
                 for (int m = y; m < y + 3; m++)
@@ -101,15 +103,15 @@ namespace AAMod.Tiles.Decoration
                     {
                         Main.tile[l, m] = new Tile();
                     }
-                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
+                    if (Main.tile[l, m].HasTile && Main.tile[l, m].TileType == Type)
                     {
-                        if (Main.tile[l, m].frameY < 56)
+                        if (Main.tile[l, m].TileFrameY < 56)
                         {
-                            Main.tile[l, m].frameY += 56;
+                            Main.tile[l, m].TileFrameY += 56;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 56;
+                            Main.tile[l, m].TileFrameY -= 56;
                         }
                     }
                 }

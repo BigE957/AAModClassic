@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,89 +12,89 @@ namespace AAMod.NPCs.Enemies.Mire
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("...");
-            Main.npcFrameCount[npc.type] = 3;
+			// DisplayName.SetDefault("...");
+            Main.npcFrameCount[NPC.type] = 3;
         }
 
         public override void SetDefaults()
         {
-            npc.aiStyle = -1;
-            npc.defense = 1;
-            npc.knockBackResist = 0f;
-            npc.noGravity = false;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.lifeMax = 1;
-            npc.damage = 0;
-            npc.value = 0;
-            npc.alpha = 50;
-            npc.width = 38;
-            npc.height = 58;
-            npc.rarity = 1;
+            NPC.aiStyle = -1;
+            NPC.defense = 1;
+            NPC.knockBackResist = 0f;
+            NPC.noGravity = false;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.lifeMax = 1;
+            NPC.damage = 0;
+            NPC.value = 0;
+            NPC.alpha = 50;
+            NPC.width = 38;
+            NPC.height = 58;
+            NPC.rarity = 1;
         }
 
         public override void AI()
         {
-            if (Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
+            if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
             {
-                npc.ai[0] = 1;
+                NPC.ai[0] = 1;
             }
-            if (npc.ai[0] == 1)
+            if (NPC.ai[0] == 1)
             {
-                npc.dontTakeDamage = true;
-                if (npc.ai[1] < 255)
+                NPC.dontTakeDamage = true;
+                if (NPC.ai[1] < 255)
                 {
-                    npc.alpha += 4;
+                    NPC.alpha += 4;
                     if (Main.netMode != 1)
                     {
-                        npc.ai[1] += 4;
+                        NPC.ai[1] += 4;
                     }
                 }
                 else
                 {
                     if (Main.netMode != 1)
                     {
-                        npc.active = false;
-                        npc.netUpdate = true;
+                        NPC.active = false;
+                        NPC.netUpdate = true;
                     }
                 }
             }
         }
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             knockback = 0;
             damage = 0;
             crit = false;
-            if (npc.ai[0] != 1)
+            if (NPC.ai[0] != 1)
             {
-                npc.ai[0] = 1;
-                CombatText.NewText(npc.Hitbox, new Color(72, 78, 117), "pathetic.");
+                NPC.ai[0] = 1;
+                CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "pathetic.");
             }
             return false;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.ai[0] == 0)
+            if (NPC.ai[0] == 0)
             {
-                npc.frame.Y = frameHeight;
+                NPC.frame.Y = frameHeight;
             }
             else
             {
-                npc.frame.Y = frameHeight * 2;
+                NPC.frame.Y = frameHeight * 2;
             }
         }
 
-        public override bool PreDraw(SpriteBatch sb, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex = Main.npcTexture[npc.type];
-            Texture2D tex2 = mod.GetTexture("NPCs/Bosses/Hydra/HarukaShade_Glow");
-            BaseDrawing.DrawTexture(sb, tex, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 3, npc.frame, npc.GetAlpha(dColor));
-            if (npc.ai[0] == 0)
+            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
+            Texture2D tex2 = Mod.GetTexture("NPCs/Bosses/Hydra/HarukaShade_Glow");
+            BaseDrawing.DrawTexture(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, NPC.GetAlpha(dColor));
+            if (NPC.ai[0] == 0)
             {
-                Lighting.AddLight(npc.Center, Color.MediumVioletRed.R / 180, Color.MediumVioletRed.G / 180, Color.MediumVioletRed.B / 180);
-                BaseDrawing.DrawTexture(sb, tex2, 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 3, npc.frame, Color.White);
+                Lighting.AddLight(NPC.Center, Color.MediumVioletRed.R / 180, Color.MediumVioletRed.G / 180, Color.MediumVioletRed.B / 180);
+                BaseDrawing.DrawTexture(sb, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, Color.White);
             }
             return false;
         }

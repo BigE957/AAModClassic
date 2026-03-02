@@ -4,7 +4,7 @@
     {
     	public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blade of Fury");
+			// DisplayName.SetDefault("Blade of Fury");
 		}
 
         public override void SetDefaults()

@@ -8,35 +8,34 @@ namespace AAMod.Items.Tools
     {
         public override void SetDefaults()
         {
-            item.damage = 7;
-            item.melee = true;
-            item.width = 32;
-            item.height = 32;
-            item.useTime = 10;
-            item.useAnimation = 19;
-            item.pick = 55;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = Item.sellPrice(0, 0, 10, 0);
-            item.rare = 1;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 7;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 32;
+            Item.height = 32;
+            Item.useTime = 10;
+            Item.useAnimation = 19;
+            Item.pick = 55;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = Item.sellPrice(0, 0, 10, 0);
+            Item.rare = 1;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glowing Mushpick");
+            // DisplayName.SetDefault("Glowing Mushpick");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GlowingMushroom, 5);
             recipe.AddIngredient(null, "GlowingMushiumBar", 3);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

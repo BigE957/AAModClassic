@@ -3,6 +3,8 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,48 +18,48 @@ namespace AAMod.NPCs.Bosses.Zero
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Zero");
-            Main.npcFrameCount[npc.type] = 7;
+            // DisplayName.SetDefault("Zero");
+            Main.npcFrameCount[NPC.type] = 7;
         }
 
         public override void SetDefaults()
         {
-            npc.damage = 50;
-            npc.defense = 150;
-            npc.lifeMax = 350000;
+            NPC.damage = 50;
+            NPC.defense = 150;
+            NPC.lifeMax = 350000;
             if (Main.expertMode)
             {
-                npc.value = 0;
+                NPC.value = 0;
             }
             else
             {
-                npc.value = Item.sellPrice(0, 30, 0, 0);
+                NPC.value = Item.sellPrice(0, 30, 0, 0);
             }
-            npc.width = 206;
-            npc.height = 208;
-            npc.aiStyle = -1;
-            npc.HitSound = SoundID.NPCHit4;
-            npc.DeathSound = SoundID.NPCHit4;
-            npc.noGravity = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Zero");
-            npc.noTileCollide = true;
-            npc.knockBackResist = -1f;
-            npc.boss = true;
-            npc.friendly = false;
-            npc.npcSlots = 100;
-            for (int k = 0; k < npc.buffImmune.Length; k++)
+            NPC.width = 206;
+            NPC.height = 208;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCHit4;
+            NPC.noGravity = true;
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Zero");
+            NPC.noTileCollide = true;
+            NPC.knockBackResist = -1f;
+            NPC.boss = true;
+            NPC.friendly = false;
+            NPC.npcSlots = 100;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
-                npc.buffImmune[k] = true;
+                NPC.buffImmune[k] = true;
             }
-            npc.lavaImmune = true;
-            npc.netAlways = true;
-            musicPriority = MusicPriority.BossHigh;
+            NPC.lavaImmune = true;
+            NPC.netAlways = true;
+            SceneEffectPriority = SceneEffectPriority.BossHigh;
         }
 
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            npc.damage = (int)(npc.damage * .7f);
-            npc.lifeMax = (int)(npc.lifeMax * 0.5f * bossLifeScale);
+            NPC.damage = (int)(NPC.damage * .7f);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -66,39 +68,39 @@ namespace AAMod.NPCs.Bosses.Zero
             return null;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
-            if (npc.life <= (int)(npc.lifeMax * .66f) && !RespawnArms1 && Main.netMode != 1)
+            if (NPC.life <= (int)(NPC.lifeMax * .66f) && !RespawnArms1 && Main.netMode != 1)
             {
                 WeaponCount += 1;
-                npc.ai[1] = 0;
+                NPC.ai[1] = 0;
                 RespawnArms1 = true;
 
                 RespawnArms();
                 if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroBoss10"), Color.Red, false);
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
-            if (npc.life <= (int)(npc.lifeMax * .33f) && !RespawnArms2 && Main.netMode != 1)
+            if (NPC.life <= (int)(NPC.lifeMax * .33f) && !RespawnArms2 && Main.netMode != 1)
             {
                 WeaponCount += 1;
-                npc.ai[1] = 0;
+                NPC.ai[1] = 0;
                 RespawnArms2 = true;
                 RespawnArms();
                 if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroBoss10"), Color.Red, false);
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
-            if (npc.life <= 0 && npc.type == ModContent.NPCType<Zero>())
+            if (NPC.life <= 0 && NPC.type == ModContent.NPCType<Zero>())
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
+                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
                 if (!Main.expertMode)
                 {
                     if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroBoss2"), Color.Red.R, Color.Red.G, Color.Red.B);
@@ -120,12 +122,12 @@ namespace AAMod.NPCs.Bosses.Zero
 
             if (Main.netMode != 1 && !hasArms)
             {
-                npc.ai[0] = 10f;
+                NPC.ai[0] = 10f;
 
                 for (int m = 0; m < WeaponCount; m++)
                 {
-                    int npcID = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType(ArmChoice()), 0, m);
-                    Main.npc[npcID].Center = npc.Center;
+                    int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>(ArmChoice()).Type, 0, m);
+                    Main.npc[npcID].Center = NPC.Center;
                     Main.npc[npcID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                     Main.npc[npcID].velocity *= 8f;
                     Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
@@ -133,32 +135,32 @@ namespace AAMod.NPCs.Bosses.Zero
 
                 internalAI[3] = 1;
                 Distance = 0;
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
             if (Main.expertMode)
             {
-                npc.DropLoot(mod.ItemType("ApocalyptitePlate"), 2, 4);
+                NPC.DropLoot(Mod.Find<ModItem>("ApocalyptitePlate").Type, 2, 4);
 
                 if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (AAWorld.downedZero)
                 {
-                    int z = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("ZeroProtocol"), 0, 0, 0, 0, 0, npc.target);
-                    Main.npc[z].Center = npc.Center;
+                    int z = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroProtocol").Type, 0, 0, 0, 0, 0, NPC.target);
+                    Main.npc[z].Center = NPC.Center;
 
-                    int b = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("ShockwaveBoom"), 0, 1, Main.myPlayer, 0, 0);
-                    Main.projectile[b].Center = npc.Center;
+                    int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    Main.projectile[b].Center = NPC.Center;
                 }
                 else
                 {
-                    int z = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("ZeroTransition"), 0, 0, 0, 0, 0, npc.target);
-                    Main.npc[z].Center = npc.Center;
+                    int z = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroTransition").Type, 0, 0, 0, 0, 0, NPC.target);
+                    Main.npc[z].Center = NPC.Center;
                 }
 
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
             else
             {
@@ -167,8 +169,8 @@ namespace AAMod.NPCs.Bosses.Zero
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("ZeroBoss3"), Color.PaleVioletRed);
                 }
                 AAWorld.downedZero = true;
-                npc.DropLoot(mod.ItemType("ApocalyptitePlate"), 2, 4);
-                npc.DropLoot(mod.ItemType("UnstableSingularity"), 25, 35);
+                NPC.DropLoot(Mod.Find<ModItem>("ApocalyptitePlate").Type, 2, 4);
+                NPC.DropLoot(Mod.Find<ModItem>("UnstableSingularity").Type, 25, 35);
                 string[] lootTable =
                 {
                     "Battery",
@@ -188,13 +190,13 @@ namespace AAMod.NPCs.Bosses.Zero
                     "GenocideCannon"
                 };
                 int loot = Main.rand.Next(lootTable.Length);
-                npc.DropLoot(mod.ItemType(lootTable[loot]));
-                npc.DropLoot(ModContent.ItemType<Items.Pets.ZeroCore>(), 1f / 10f);
-                npc.DropLoot(ModContent.ItemType<Items.Vanity.Mask.ZeroMask>(), 1f / 7f);
-                npc.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
+                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
+                NPC.DropLoot(ModContent.ItemType<Items.Pets.ZeroCore>(), 1f / 10f);
+                NPC.DropLoot(ModContent.ItemType<Items.Vanity.Mask.ZeroMask>(), 1f / 7f);
+                NPC.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
                 if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RealityStone"));
+                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RealityStone").Type);
                 }
             }
         }
@@ -222,61 +224,61 @@ namespace AAMod.NPCs.Bosses.Zero
         public int openFrame;
         public int switchTwoFrame;
 
-        public override bool PreDraw(SpriteBatch spritebatch, Color dColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = mod.GetTexture("Glowmasks/Zero_Glow");
-            Texture2D Shield = mod.GetTexture("NPCs/Bosses/Zero/ZeroShield");
-            Texture2D Ring = mod.GetTexture("NPCs/Bosses/Zero/ZeroShieldRing");
-            Texture2D RingGlow = mod.GetTexture("Glowmasks/ZeroShieldRing_Glow");
-            Texture2D normalAni = mod.GetTexture("NPCs/Bosses/Zero/Zer01");
-            Texture2D normalGlow = mod.GetTexture("NPCs/Bosses/Zero/Zer01_Glow");
-            Texture2D switchOneAni = mod.GetTexture("NPCs/Bosses/Zero/Zer01to2");
-            Texture2D switchOneGlow = mod.GetTexture("NPCs/Bosses/Zero/Zer01to2_Glow");
-            Texture2D openAni = mod.GetTexture("NPCs/Bosses/Zero/Zer02");
-            Texture2D openGlow = mod.GetTexture("NPCs/Bosses/Zero/Zer02_Glow");
-            Texture2D switchTwoAni = mod.GetTexture("NPCs/Bosses/Zero/Zer02to1");
-            Texture2D switchTwoGlow = mod.GetTexture("NPCs/Bosses/Zero/Zer02to1_Glow");
-            Vector2 drawCenter = new Vector2(npc.Center.X, npc.Center.Y);
-            if (npc.ai[1] == 0)
+            Texture2D glowTex = Mod.GetTexture("Glowmasks/Zero_Glow");
+            Texture2D Shield = Mod.GetTexture("NPCs/Bosses/Zero/ZeroShield");
+            Texture2D Ring = Mod.GetTexture("NPCs/Bosses/Zero/ZeroShieldRing");
+            Texture2D RingGlow = Mod.GetTexture("Glowmasks/ZeroShieldRing_Glow");
+            Texture2D normalAni = Mod.GetTexture("NPCs/Bosses/Zero/Zer01");
+            Texture2D normalGlow = Mod.GetTexture("NPCs/Bosses/Zero/Zer01_Glow");
+            Texture2D switchOneAni = Mod.GetTexture("NPCs/Bosses/Zero/Zer01to2");
+            Texture2D switchOneGlow = Mod.GetTexture("NPCs/Bosses/Zero/Zer01to2_Glow");
+            Texture2D openAni = Mod.GetTexture("NPCs/Bosses/Zero/Zer02");
+            Texture2D openGlow = Mod.GetTexture("NPCs/Bosses/Zero/Zer02_Glow");
+            Texture2D switchTwoAni = Mod.GetTexture("NPCs/Bosses/Zero/Zer02to1");
+            Texture2D switchTwoGlow = Mod.GetTexture("NPCs/Bosses/Zero/Zer02to1_Glow");
+            Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
+            if (NPC.ai[1] == 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, Main.npcTexture[npc.type], 0, npc, dColor);
-                BaseDrawing.DrawTexture(spritebatch, glowTex, 0, npc, AAColor.COLOR_WHITEFADE1);
+                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
+                BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, AAColor.COLOR_WHITEFADE1);
             }
-            else if (npc.ai[1] == 1)
+            else if (NPC.ai[1] == 1)
             {
                 int num214 = normalAni.Height / 5;
                 int y6 = num214 * normalFrame;
-                Main.spriteBatch.Draw(normalAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), dColor * ((255 - npc.alpha) / 255f), npc.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), npc.scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(normalGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), AAColor.COLOR_WHITEFADE1, npc.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(normalAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(normalGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
-            else if (npc.ai[1] == 2)
+            else if (NPC.ai[1] == 2)
             {
                 int num214 = switchOneAni.Height / 5;
                 int y6 = num214 * switchOneFrame;
-                Main.spriteBatch.Draw(switchOneAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), dColor * ((255 - npc.alpha) / 255f), npc.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), npc.scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(switchOneGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), AAColor.COLOR_WHITEFADE1, npc.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(switchOneAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(switchOneGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
-            else if (npc.ai[1] == 3)
+            else if (NPC.ai[1] == 3)
             {
                 int num214 = openAni.Height / 5;
                 int y6 = num214 * openFrame;
-                Main.spriteBatch.Draw(openAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), dColor * ((255 - npc.alpha) / 255f), npc.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), npc.scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(openGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), AAColor.COLOR_WHITEFADE1, npc.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(openAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(openGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
-            else if (npc.ai[1] == 4)
+            else if (NPC.ai[1] == 4)
             {
                 int num214 = switchTwoAni.Height / 5;
                 int y6 = num214 * switchTwoFrame;
-                Main.spriteBatch.Draw(switchTwoAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), dColor * ((255 - npc.alpha) / 255f), npc.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), npc.scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(switchTwoGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), AAColor.COLOR_WHITEFADE1, npc.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Main.spriteBatch.Draw(switchTwoAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(switchTwoGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
 
 
             if (ShieldScale > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, Shield, 0, npc.position, npc.width, npc.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
-                BaseDrawing.DrawTexture(spritebatch, Ring, 0, npc.position, npc.width, npc.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, npc.position, npc.width, npc.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), AAColor.COLOR_WHITEFADE1, true);
+                BaseDrawing.DrawTexture(spritebatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
+                BaseDrawing.DrawTexture(spritebatch, Ring, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), dColor, true);
+                BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), AAColor.COLOR_WHITEFADE1, true);
             }
             return false;
         }
@@ -325,24 +327,24 @@ namespace AAMod.NPCs.Bosses.Zero
         {
             if (Main.expertMode)
             {
-                damage = npc.damage / 4;
+                damage = NPC.damage / 4;
             }
             else
             {
-                damage = npc.damage / 2;
+                damage = NPC.damage / 2;
             }
 
-            if (npc.ai[0] > 0)
+            if (NPC.ai[0] > 0)
             {
-                npc.ai[0]--;
+                NPC.ai[0]--;
             }
 
-            npc.TargetClosest();
+            NPC.TargetClosest();
 
-            if (Main.netMode != 1 && internalAI[3] == 0 && npc.ai[1] == 0)
+            if (Main.netMode != 1 && internalAI[3] == 0 && NPC.ai[1] == 0)
             {
                 RespawnArms();
-                npc.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
             if (NPC.AnyNPCs(ModContent.NPCType<VoidStar>()) ||
@@ -354,13 +356,13 @@ namespace AAMod.NPCs.Bosses.Zero
                 NPC.AnyNPCs(ModContent.NPCType<NovaFocus>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<GenocideCannon>()))
             {
-                npc.ai[1] = 0;
+                NPC.ai[1] = 0;
             }
             else
             {
-                if (npc.ai[1] == 0)
+                if (NPC.ai[1] == 0)
                 {
-                    npc.ai[1] = 1;
+                    NPC.ai[1] = 1;
                 }
             }
 
@@ -373,7 +375,7 @@ namespace AAMod.NPCs.Bosses.Zero
                 if (Main.netMode != 1)
                 {
                     Distance = 160f;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
 
@@ -382,16 +384,16 @@ namespace AAMod.NPCs.Bosses.Zero
                 AAWorld.zeroUS = false;
             }
 
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
             RingRoatation += 0.03f;
 
-            if (player.dead || !player.active || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+            if (player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
-                npc.TargetClosest();
-                if (player.dead || !player.active || Math.Abs(npc.position.X - Main.player[npc.target].position.X) > 6000f || Math.Abs(npc.position.Y - Main.player[npc.target].position.Y) > 6000f)
+                NPC.TargetClosest();
+                if (player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
                 {
-                    npc.Transform(ModContent.NPCType<ZeroDeactivated>());
+                    NPC.Transform(ModContent.NPCType<ZeroDeactivated>());
                 }
                 return;
             }
@@ -407,82 +409,82 @@ namespace AAMod.NPCs.Bosses.Zero
 
             if (internalAI[1] == 0)
             {
-                npc.velocity.Y += 0.003f;
-                if (npc.velocity.Y > .3f)
+                NPC.velocity.Y += 0.003f;
+                if (NPC.velocity.Y > .3f)
                 {
                     internalAI[1] = 1f;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
             else if (internalAI[1] == 1)
             {
-                npc.velocity.Y -= 0.003f;
-                if (npc.velocity.Y < -.3f)
+                NPC.velocity.Y -= 0.003f;
+                if (NPC.velocity.Y < -.3f)
                 {
                     internalAI[1] = 0f;
-                    npc.netUpdate = true;
+                    NPC.netUpdate = true;
                 }
             }
 
-            if (npc.ai[1] == 0)
+            if (NPC.ai[1] == 0)
             {
-                npc.dontTakeDamage = true;
-                npc.chaseable = false;
-                npc.damage = 0;
+                NPC.dontTakeDamage = true;
+                NPC.chaseable = false;
+                NPC.damage = 0;
                 saythelinezero = false;
             }
             else
             {
-                npc.dontTakeDamage = false;
-                npc.chaseable = true;
-                npc.damage = 160;
+                NPC.dontTakeDamage = false;
+                NPC.chaseable = true;
+                NPC.damage = 160;
                 if (Main.netMode != 1)
                 {
-                    npc.ai[2]++;
+                    NPC.ai[2]++;
                 }
 
-                if (npc.ai[3] == 3)
+                if (NPC.ai[3] == 3)
                 {
-                    npc.defense = 75;
+                    NPC.defense = 75;
                 }
                 else
                 {
-                    npc.defense = 150;
+                    NPC.defense = 150;
                 }
 
-                if (npc.ai[3] == 0)
+                if (NPC.ai[3] == 0)
                 {
-                    if (npc.ai[2] % 20 == 0)
+                    if (NPC.ai[2] % 20 == 0)
                     {
                         float Speed = 16f;
-                        Vector2 vector8 = new Vector2(npc.position.X + (npc.width / 2), npc.position.Y + (npc.height / 2));
-                        int type = mod.ProjectileType("ZeroBeam1");
-                        Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 33);
+                        Vector2 vector8 = new Vector2(NPC.position.X + (NPC.width / 2), NPC.position.Y + (NPC.height / 2));
+                        int type = Mod.Find<ModProjectile>("ZeroBeam1").Type;
+                        SoundEngine.PlaySound(SoundID.Item33, NPC.position);
                         float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
                         Projectile.NewProjectile(vector8.X, vector8.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     }
-                    if (npc.ai[2] >= 141 && Main.netMode != 1)
+                    if (NPC.ai[2] >= 141 && Main.netMode != 1)
                     {
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 3;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 3;
                     }
                 }
-                else if (npc.ai[3] == 1)
+                else if (NPC.ai[3] == 1)
                 {
-                    if (npc.ai[2] % 30 == 0)
+                    if (NPC.ai[2] % 30 == 0)
                     {
-                        Main.PlaySound(SoundID.Item74, (int)npc.position.X, (int)npc.position.Y);
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 + Main.rand.Next(-14, 14), 0 + Main.rand.Next(-14, 14), mod.ProjectileType("ZeroRocket"), damage, 3); //Originally 85 damage
+                        SoundEngine.PlaySound(SoundID.Item74, NPC.position);
+                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0 + Main.rand.Next(-14, 14), 0 + Main.rand.Next(-14, 14), Mod.Find<ModProjectile>("ZeroRocket").Type, damage, 3); //Originally 85 damage
                     }
-                    if (npc.ai[2] >= 151 && Main.netMode != 1)
+                    if (NPC.ai[2] >= 151 && Main.netMode != 1)
                     {
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 3;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 3;
                     }
                 }
-                else if (npc.ai[3] == 2)
+                else if (NPC.ai[3] == 2)
                 {
-                    if (Collision.CanHit(npc.position, npc.width, npc.height, player.Center, player.width, player.height))
+                    if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.Center, player.width, player.height))
                     {
                         int[] array4 = new int[5];
                         Vector2[] array5 = new Vector2[5];
@@ -493,8 +495,8 @@ namespace AAMod.NPCs.Bosses.Zero
                             if (Main.player[num840].active && !Main.player[num840].dead)
                             {
                                 Vector2 center9 = Main.player[num840].Center;
-                                float num841 = Vector2.Distance(center9, npc.Center);
-                                if (num841 < num839 && Collision.CanHit(npc.Center, 1, 1, center9, 1, 1))
+                                float num841 = Vector2.Distance(center9, NPC.Center);
+                                if (num841 < num839 && Collision.CanHit(NPC.Center, 1, 1, center9, 1, 1))
                                 {
                                     array4[num838] = num840;
                                     array5[num838] = center9;
@@ -509,22 +511,22 @@ namespace AAMod.NPCs.Bosses.Zero
                         {
                             for (int num842 = 0; num842 < num838; num842++)
                             {
-                                Vector2 vector82 = array5[num842] - npc.Center;
+                                Vector2 vector82 = array5[num842] - NPC.Center;
                                 float ai = Main.rand.Next(100);
                                 Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 14f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ZeroShock>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ZeroShock>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                             }
                         }
                     }
-                    if (npc.ai[2] >= 180 && Main.netMode != 1)
+                    if (NPC.ai[2] >= 180 && Main.netMode != 1)
                     {
-                        npc.ai[2] = 0;
-                        npc.ai[3] = 3;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 3;
                     }
                 }
                 else
                 {
-                    if (npc.ai[2] == 5)
+                    if (NPC.ai[2] == 5)
                     {
                         int TeleportPos = Main.rand.Next(5);
                         int VoidHeight = 140;
@@ -534,131 +536,131 @@ namespace AAMod.NPCs.Bosses.Zero
                         switch (TeleportPos)
                         {
                             case 0:
-                                npc.position = Origin;
+                                NPC.position = Origin;
                                 break;
                             case 1:
-                                npc.position = Origin + new Vector2(0, 640);
+                                NPC.position = Origin + new Vector2(0, 640);
                                 break;
                             case 2:
-                                npc.position = Origin + new Vector2(0, -640);
+                                NPC.position = Origin + new Vector2(0, -640);
                                 break;
                             case 3:
-                                npc.position = Origin + new Vector2(640, 0);
+                                NPC.position = Origin + new Vector2(640, 0);
                                 break;
                             case 4:
-                                npc.position = Origin + new Vector2(-640, 0);
+                                NPC.position = Origin + new Vector2(-640, 0);
                                 break;
                         }
                     }
-                    if (npc.life > npc.lifeMax * (2 / 3))
+                    if (NPC.life > NPC.lifeMax * (2 / 3))
                     {
-                        if (npc.ai[2] == 80 || npc.ai[2] == 240) // + lasers
+                        if (NPC.ai[2] == 80 || NPC.ai[2] == 240) // + lasers
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
-                        if (npc.ai[2] == 160 || npc.ai[2] == 320) // x lasers
+                        if (NPC.ai[2] == 160 || NPC.ai[2] == 320) // x lasers
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                     }
-                    else if (npc.life > npc.lifeMax / 3)
+                    else if (NPC.life > NPC.lifeMax / 3)
                     {
-                        if (npc.ai[2] == 80) // + lasers
+                        if (NPC.ai[2] == 80) // + lasers
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
-                        else if (npc.ai[2] == 160)
+                        else if (NPC.ai[2] == 160)
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
-                        else if (npc.ai[2] == 240)
+                        else if (NPC.ai[2] == 240)
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
-                        else if (npc.ai[2] == 320)
+                        else if (NPC.ai[2] == 320)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroBlast"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroBlast"), damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                     }
                     else
                     {
-                        if (npc.ai[2] == 80) // + lasers
+                        if (NPC.ai[2] == 80) // + lasers
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroLaser"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
-                        else if (npc.ai[2] == 160)
+                        else if (NPC.ai[2] == 160)
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroLaser"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
-                        else if (npc.ai[2] == 240)
+                        else if (NPC.ai[2] == 240)
                         {
-                            Main.PlaySound(SoundID.Item73, (int)npc.position.X, (int)npc.position.Y);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, -12f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(0f, 12f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-12f, 0f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(12f, 0f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, 8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(8f, -8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, 8f), mod.ProjectileType("ZeroLaser"), damage, 3);
-                            Projectile.NewProjectile(npc.Center, new Vector2(-8f, -8f), mod.ProjectileType("ZeroLaser"), damage, 3);
+                            SoundEngine.PlaySound(SoundID.Item73, NPC.position);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
                         if (Main.netMode != 1)
                         {
-                            if (npc.ai[2] >= 320)
+                            if (NPC.ai[2] >= 320)
                             {
-                                npc.ai[3] = Main.rand.Next(3);
-                                npc.ai[2] = 0;
-                                npc.netUpdate = true;
+                                NPC.ai[3] = Main.rand.Next(3);
+                                NPC.ai[2] = 0;
+                                NPC.netUpdate = true;
                             }
                         }
                     }
 
                     if (Main.netMode != 1)
                     {
-                        if (npc.ai[2] >= 400)
+                        if (NPC.ai[2] >= 400)
                         {
-                            npc.ai[3] = Main.rand.Next(3);
-                            npc.ai[2] = 0;
-                            npc.netUpdate = true;
+                            NPC.ai[3] = Main.rand.Next(3);
+                            NPC.ai[2] = 0;
+                            NPC.netUpdate = true;
                         }
                     }
                 }
@@ -676,16 +678,16 @@ namespace AAMod.NPCs.Bosses.Zero
 
         public override void FindFrame(int frameHeight)
         {
-            if (npc.ai[1] == 0)
+            if (NPC.ai[1] == 0)
             {
-                npc.frame.Y = 0;
+                NPC.frame.Y = 0;
             }
-            else if (npc.ai[1] == 1)
+            else if (NPC.ai[1] == 1)
             {
-                if (npc.ai[3] == 3)
+                if (NPC.ai[3] == 3)
                 {
                     frameCounters = 0;
-                    npc.ai[1]++;
+                    NPC.ai[1]++;
                 }
                 else
                 {
@@ -701,7 +703,7 @@ namespace AAMod.NPCs.Bosses.Zero
                     }
                 }
             }
-            else if (npc.ai[1] == 2)
+            else if (NPC.ai[1] == 2)
             {
                 frameCounters++;
                 if (frameCounters > 4)
@@ -712,12 +714,12 @@ namespace AAMod.NPCs.Bosses.Zero
                 if (switchOneFrame >= 5)
                 {
                     switchOneFrame = 0;
-                    npc.ai[1]++;
+                    NPC.ai[1]++;
                 }
             }
-            else if (npc.ai[1] == 3)
+            else if (NPC.ai[1] == 3)
             {
-                if (npc.ai[3] == 3)
+                if (NPC.ai[3] == 3)
                 {
                     frameCounters++;
                     if (frameCounters > 4)
@@ -741,7 +743,7 @@ namespace AAMod.NPCs.Bosses.Zero
                     if (switchTwoFrame >= 5)
                     {
                         switchTwoFrame = 0;
-                        npc.ai[1] = 1;
+                        NPC.ai[1] = 1;
                     }
                 }
             }
@@ -781,7 +783,7 @@ namespace AAMod.NPCs.Bosses.Zero
                         break;
                 }
 
-                if (NPC.AnyNPCs(mod.NPCType(Choice)))
+                if (NPC.AnyNPCs(Mod.Find<ModNPC>(Choice).Type))
                 {
                     Choice = null;
                 }
@@ -793,7 +795,7 @@ namespace AAMod.NPCs.Bosses.Zero
         {
             float moveSpeed = 16f;
             float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
+            Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
             if (length < moveSpeed)
             {
@@ -811,9 +813,9 @@ namespace AAMod.NPCs.Bosses.Zero
             {
                 moveSpeed *= 0.5f;
             }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
+            NPC.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
+            NPC.velocity *= moveSpeed;
+            NPC.velocity *= velMultiplier;
         }
     }
 }

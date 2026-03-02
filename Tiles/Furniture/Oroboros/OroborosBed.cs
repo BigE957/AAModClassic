@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +11,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosBed : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -17,16 +19,16 @@ namespace AAMod.Tiles.Furniture.Oroboros
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Oroboros Bed");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Oroboros Bed");
 			AddMapEntry(new Color(70, 0, 10), name);
-			dustType = mod.DustType("DoomDust");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Beds };
-			bed = true;
+			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Beds };
+			bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
 		}
 
-		public override bool HasSmartInteract()
+		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}
@@ -38,17 +40,17 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("OroborosBed"));
+			Item.NewItem(i * 16, j * 16, 64, 32, Mod.Find<ModItem>("OroborosBed").Type);
 		}
 
-		public override bool NewRightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];
-			int spawnX = i - (tile.frameX / 18);
+			int spawnX = i - (tile.TileFrameX / 18);
 			int spawnY = j + 2;
-			spawnX += tile.frameX >= 72 ? 5 : 2;
-			if (tile.frameY % 38 != 0)
+			spawnX += tile.TileFrameX >= 72 ? 5 : 2;
+			if (tile.TileFrameY % 38 != 0)
 			{
 				spawnY--;
 			}
@@ -74,16 +76,16 @@ namespace AAMod.Tiles.Furniture.Oroboros
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY == 36 ? 18 : 16;
-            Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Oroboros/OroborosBed_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosBed_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			player.showItemIcon2 = mod.ItemType("OroborosBed");
+			player.cursorItemIconEnabled = true;
+			player.cursorItemIconID = Mod.Find<ModItem>("OroborosBed").Type;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,8 +10,8 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Bomb");     
-            Main.projFrames[projectile.type] = 4;     
+            // DisplayName.SetDefault("Soul Bomb");     
+            Main.projFrames[Projectile.type] = 4;     
 		}
 
         public override Color? GetAlpha(Color lightColor)
@@ -20,46 +21,46 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
 
         public override void SetDefaults()
 		{
-			projectile.width = 10;
-			projectile.height = 10;
-			projectile.aiStyle = 1;
-			projectile.friendly = false;
-			projectile.hostile = true;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 600;
-			projectile.alpha = 20;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = true;
-            projectile.aiStyle = 0;
+			Projectile.width = 10;
+			Projectile.height = 10;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = false;
+			Projectile.hostile = true;
+			Projectile.penetrate = 1;
+			Projectile.timeLeft = 600;
+			Projectile.alpha = 20;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = true;
+            Projectile.aiStyle = 0;
             
 		}
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 4)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 4)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
         }
 
-        public override void Kill(int timeleft)
+        public override void OnKill(int timeleft)
         {
-            Main.PlaySound(SoundID.Item14, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(projectile.width, projectile.height), projectile.width, projectile.height, 6, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num469 = Dust.NewDust(new Vector2(Projectile.width, Projectile.height), Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(projectile.Center, projectile.width, projectile.height, 6, -projectile.velocity.X * 0.2f,
-                    -projectile.velocity.Y * 0.2f, 100, default);
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("DynaBoom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DynaBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

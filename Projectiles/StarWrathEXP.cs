@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,38 +11,38 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-			projectile.CloneDefaults(503);
-			projectile.aiStyle = 5;
-			aiType = 503;
-			projectile.tileCollide = false;
-			projectile.localNPCHitCooldown = -1;
+			Projectile.CloneDefaults(503);
+			Projectile.aiStyle = 5;
+			AIType = 503;
+			Projectile.tileCollide = false;
+			Projectile.localNPCHitCooldown = -1;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Star Wrath EX");
+            // DisplayName.SetDefault("Star Wrath EX");
         }
 		
 		public override void AI()
 		{
-			projectile.tileCollide = false;
+			Projectile.tileCollide = false;
 		}
 		
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.type = ProjectileID.Bullet;
+			Projectile.type = ProjectileID.Bullet;
 			return false;
 		}
 		
 		public override bool PreKill(int timeLeft)
 		{
-			projectile.type = 503;
+			Projectile.type = 503;
 			return true;
 		}
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Rectangle frame = BaseDrawing.GetFrame(projectile.frame, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, 0, 1, frame, Color.White, true);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Color.White, true);
             return false;
         }
     }

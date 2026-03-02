@@ -9,22 +9,22 @@ namespace AAMod.Water
 		public override bool ChooseWaterStyle()
 		{
             Player player = Main.LocalPlayer;
-            return Main.bgStyle == mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") && Main.dayTime && !AAWorld.downedYamata && player.position.Y < Main.worldSurface * 16.0 && !player.buffImmune[ModContent.BuffType<Buffs.Clueless>()];
+            return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") && Main.dayTime && !AAWorld.downedYamata && player.position.Y < Main.worldSurface * 16.0 && !player.buffImmune[ModContent.BuffType<Buffs.Clueless>()];
         }
         
 		public override int ChooseWaterfallStyle()
 		{
-			return mod.GetWaterfallStyleSlot("FogWaterfallStyle");
+			return Mod.GetWaterfallStyleSlot("FogWaterfallStyle");
 		}
 
 		public override int GetSplashDust()
 		{
-			return mod.DustType("FogWaterSplash");
+			return Mod.Find<ModDust>("FogWaterSplash").Type;
 		}
 
 		public override int GetDropletGore()
 		{
-			return mod.GetGoreSlot("Water/FogDroplet");
+			return Mod.GetGoreSlot("Water/FogDroplet");
 		}
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)

@@ -9,60 +9,60 @@ namespace AAMod.Items.Armor.Champion.Drone
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Legendary Rainbow Cat");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Legendary Rainbow Cat");
+            Main.projFrames[Projectile.type] = 4;
         }
         public override void SetDefaults()
         {
-            projectile.width = 248;
-            projectile.height = 142;
-            projectile.penetrate = -1;
-            projectile.hostile = false;
-            projectile.friendly = false;
-            projectile.alpha = 255;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.ranged = true;
-            projectile.timeLeft = 480;
+            Projectile.width = 248;
+            Projectile.height = 142;
+            Projectile.penetrate = -1;
+            Projectile.hostile = false;
+            Projectile.friendly = false;
+            Projectile.alpha = 255;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.timeLeft = 480;
         }
 
         public Entity target = null;
 
         public override void AI()
         {
-            if (++projectile.frameCounter >= 4)
+            if (++Projectile.frameCounter >= 4)
             {
-                projectile.frameCounter = 0;
-                if (++projectile.frame >= 4)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 4)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
 
-            projectile.ai[0]++;
+            Projectile.ai[0]++;
 
-            if (projectile.ai[0] < 450)
+            if (Projectile.ai[0] < 450)
             {
-                if (projectile.alpha > 0)
+                if (Projectile.alpha > 0)
                 {
-                    projectile.alpha -= 4;
+                    Projectile.alpha -= 4;
                 }
                 else
                 {
-                    projectile.alpha = 0;
+                    Projectile.alpha = 0;
                 }
-                projectile.velocity = default;
+                Projectile.velocity = default;
 
                 Target();
 
-                if (target != null && Main.netMode != 2 && projectile.owner == Main.myPlayer)
+                if (target != null && Main.netMode != 2 && Projectile.owner == Main.myPlayer)
                 {
-                    projectile.localAI[0]--;
-                    if (projectile.localAI[0] <= 0)
+                    Projectile.localAI[0]--;
+                    if (Projectile.localAI[0] <= 0)
                     {
-                        projectile.localAI[0] = 90f;
-                        Vector2 velocity = BaseUtility.RotateVector(default, new Vector2(10f, 0f), BaseUtility.RotationTo(projectile.Center, target.Center));
-                        int projID = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 4f, 0f, 0f, ModContent.ProjectileType<RajahDroneShot>(), projectile.damage, 0f, projectile.owner);
+                        Projectile.localAI[0] = 90f;
+                        Vector2 velocity = BaseUtility.RotateVector(default, new Vector2(10f, 0f), BaseUtility.RotationTo(Projectile.Center, target.Center));
+                        int projID = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 4f, 0f, 0f, ModContent.ProjectileType<RajahDroneShot>(), Projectile.damage, 0f, Projectile.owner);
                         Main.projectile[projID].velocity = velocity;
                         Main.projectile[projID].netUpdate = true;
                     }
@@ -70,15 +70,15 @@ namespace AAMod.Items.Armor.Champion.Drone
             }
             else
             {
-                if (projectile.alpha < 255)
+                if (Projectile.alpha < 255)
                 {
-                    projectile.alpha += 4;
+                    Projectile.alpha += 4;
                 }
 
-                if (projectile.ai[0] >= 480)
+                if (Projectile.ai[0] >= 480)
                 {
-                    Main.player[projectile.owner].AddBuff(mod.BuffType("DroneCool"), 900);
-                    projectile.Kill();
+                    Main.player[Projectile.owner].AddBuff(Mod.Find<ModBuff>("DroneCool").Type, 900);
+                    Projectile.Kill();
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace AAMod.Items.Armor.Champion.Drone
 
         public void Target()
         {
-            Vector2 startPos = projectile.Center;
+            Vector2 startPos = Projectile.Center;
             if (target != null && !CanTarget(target, startPos)) target = null;
             if (target == null)
             {

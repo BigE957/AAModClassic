@@ -8,37 +8,36 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mushroom Bow");
+			// DisplayName.SetDefault("Mushroom Bow");
         }
 
 		public override void SetDefaults()
 		{
-			item.damage = 11;
-			item.ranged = true;
-			item.width = 20;
-			item.height = 40;
-			item.useTime = 24;
-			item.useAnimation = 24;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 1;
-            item.value = Item.sellPrice(0, 0, 10, 50) ;
-			item.rare = 1;
-			item.UseSound = SoundID.Item5;
-			item.autoReuse = false;
-			item.shoot = 10;
-			item.shootSpeed = 7f;
-			item.useAmmo = AmmoID.Arrow;
+			Item.damage = 11;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 20;
+			Item.height = 40;
+			Item.useTime = 24;
+			Item.useAnimation = 24;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 1;
+            Item.value = Item.sellPrice(0, 0, 10, 50) ;
+			Item.rare = 1;
+			Item.UseSound = SoundID.Item5;
+			Item.autoReuse = false;
+			Item.shoot = 10;
+			Item.shootSpeed = 7f;
+			Item.useAmmo = AmmoID.Arrow;
 		}
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Mushroom, 5);
             recipe.AddIngredient(null, "MushiumBar", 3);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -11,29 +13,29 @@ namespace AAMod.Items.BossSummons
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Orchid");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons Plantera
-Can only be used in the underground jungle");
+            // DisplayName.SetDefault("Jungle Orchid");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            /* Tooltip.SetDefault(@"Summons Plantera
+Can only be used in the underground jungle"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 22;
-            item.maxStack = 20;
-            item.value = 1000;
-            item.rare = 6;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
-            item.consumable = true;
+            Item.width = 24;
+            Item.height = 22;
+            Item.maxStack = 20;
+            Item.value = 1000;
+            Item.rare = 6;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.useStyle = 4;
+            Item.consumable = true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             AAModGlobalNPC.SpawnBoss(player, NPCID.Plantera, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Plantera"), false);
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+            SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
@@ -60,7 +62,7 @@ Can only be used in the underground jungle");
                 else
                 if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
                     {
                         NetworkText.FromLiteral(npcName)
                     }), new Color(175, 75, 255), -1);
@@ -68,30 +70,28 @@ Can only be used in the underground jungle");
             }
         }
 
-        public override void UseStyle(Player p) { BaseUseStyle.SetStyleBoss(p, item, true, true); }
-        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, item); return true; }
+        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(p, Item, true, true); }
+        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); return true; }
 
         public override void AddRecipes()
         {
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe(1);
                 recipe.AddIngredient(ItemID.JungleSpores, 10);
                 recipe.AddIngredient(ItemID.SoulofFright, 5);
                 recipe.AddIngredient(ItemID.SoulofMight, 5);
                 recipe.AddIngredient(ItemID.SoulofSight, 5);
                 recipe.AddIngredient(ItemID.ChlorophyteBar, 10);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
+                recipe.Register();
             }
 
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                Recipe recipe = CreateRecipe(1);
 
-                recipe.AddIngredient(mod, "PlanteraPetal", 10);
+                recipe.AddIngredient(Mod, "PlanteraPetal", 10);
                 recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
+                recipe.Register();
             }
         }
     }

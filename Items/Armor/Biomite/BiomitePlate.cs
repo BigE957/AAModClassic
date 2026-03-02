@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,25 +10,24 @@ namespace AAMod.Items.Armor.Biomite
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Biomite Crystalmail");
+			// DisplayName.SetDefault("Biomite Crystalmail");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 24;
-			item.value = 6000;
-			item.rare = 2;
-			item.defense = 5;
+			Item.width = 30;
+			Item.height = 24;
+			Item.value = 6000;
+			Item.rare = 2;
+			Item.defense = 5;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "TerraShard", 25);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

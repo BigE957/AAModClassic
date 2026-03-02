@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.MushroomMonarch
 {
@@ -6,20 +7,20 @@ namespace AAMod.Items.Boss.MushroomMonarch
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 32;
-            item.height = 36;
-            item.rare = 11;
-            item.expert = true; item.expertOnly = true;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 36;
+            Item.rare = 11;
+            Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => mod.NPCType("MushroomMonarch");
+        public override int BossBagNPC => Mod.Find<ModNPC>("MushroomMonarch").Type;
 
         public override bool CanRightClick()
         {
@@ -37,8 +38,8 @@ namespace AAMod.Items.Boss.MushroomMonarch
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(mod.ItemType("Mushium"), Main.rand.Next(30, 40));
-            player.QuickSpawnItem(mod.ItemType("HeartyTruffle"));
+            player.QuickSpawnItem(Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Mod.Find<ModItem>("HeartyTruffle").Type);
         }
     }
 }

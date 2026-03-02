@@ -9,37 +9,36 @@ namespace AAMod.Items.Tools
         public override void SetDefaults()
         {
 
-            item.damage = 15;
-            item.melee = true;
-            item.width = 64;
-            item.height = 64;
-            item.useAnimation = 23;
-            item.useTime = 10;
-            item.pick = 110;
-            item.useStyle = 1;
-            item.knockBack = 1;
-            item.value = Item.sellPrice(0, 1, 8, 0);
-            item.rare = 4;
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.useTurn = true;
+            Item.damage = 15;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 64;
+            Item.height = 64;
+            Item.useAnimation = 23;
+            Item.useTime = 10;
+            Item.pick = 110;
+            Item.useStyle = 1;
+            Item.knockBack = 1;
+            Item.value = Item.sellPrice(0, 1, 8, 0);
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nightaxe");
+            // DisplayName.SetDefault("Nightaxe");
         }
 
         public override void AddRecipes()  
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.NightmarePickaxe);
-            recipe.AddIngredient(mod, "Grasscutter");
-            recipe.AddIngredient(mod, "Toothpick");
+            recipe.AddIngredient(Mod, "Grasscutter");
+            recipe.AddIngredient(Mod, "Toothpick");
             recipe.AddIngredient(ItemID.MoltenPickaxe);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);  
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

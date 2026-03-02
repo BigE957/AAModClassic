@@ -9,23 +9,23 @@ namespace AAMod.Items.Melee
     {
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Terra Broadsword");
+			// DisplayName.SetDefault("Terra Broadsword");
         }
 		public override void SetDefaults()
 		{
             
-			item.damage = 36;
-			item.melee = true;
-			item.width = 30;
-			item.height = 36;
-			item.useTime = 15;
-			item.useAnimation = 15;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = 10000;
-			item.rare = 4;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 36;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 30;
+			Item.height = 36;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = 10000;
+			Item.rare = 4;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -40,15 +40,14 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Bone, 10);
 			recipe.AddIngredient(ItemID.Stinger, 8);
 			recipe.AddIngredient(ItemID.JungleSpores, 6);
 			recipe.AddIngredient(ItemID.CrimtaneBar, 10);
 			recipe.AddIngredient(ItemID.HellstoneBar, 10);
 			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

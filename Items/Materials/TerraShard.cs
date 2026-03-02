@@ -7,22 +7,22 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terra Shard");
+            // DisplayName.SetDefault("Terra Shard");
             // ticksperframe, frameCount
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 18;
-            item.maxStack = 999;
-            item.value = 100;
+            Item.width = 10;
+            Item.height = 18;
+            Item.maxStack = 999;
+            Item.value = 100;
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.LimeGreen.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.LimeGreen.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

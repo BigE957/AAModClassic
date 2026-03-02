@@ -11,28 +11,28 @@ namespace AAMod.Items.Boss.Rajah
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rajah Rabbit's Cloak of Supremecy");
-            Tooltip.SetDefault(@"Every 10% of health lost gives you:
+            // DisplayName.SetDefault("Rajah Rabbit's Cloak of Supremecy");
+            /* Tooltip.SetDefault(@"Every 10% of health lost gives you:
 1. 12% extra attack power to your highest damage type boost
 2. 5% increased movement speed
 All effects of the Sash of Vengeance
-'You have been deemed a worthy successor by the Champion of the Innocent'");
+'You have been deemed a worthy successor by the Champion of the Innocent'"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 66;
-            item.height = 78;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 9;
-            item.accessory = true;
-            item.expert = true; item.expertOnly = true;
-            item.defense = 10;
+            Item.width = 66;
+            Item.height = 78;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 9;
+            Item.accessory = true;
+            Item.expert = true; Item.expertOnly = true;
+            Item.defense = 10;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            Player player = Main.player[item.owner];
+            Player player = Main.player[Item.playerIndexTheItemIsReservedFor];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             Color damageColor = Color.Firebrick;
             string DamageType = "";
@@ -64,14 +64,14 @@ All effects of the Sash of Vengeance
             }
 
             string DamageAmount = (100 * DamageBoost(player)) + "% ";
-            TooltipLine DamageToltip = new TooltipLine(mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageInfo"))
+            TooltipLine DamageToltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageInfo"))
             {
-                overrideColor = damageColor
+                OverrideColor = damageColor
             };
             tooltips.Add(DamageToltip);
 
             string SpeedAmount = (100 * Speed(player)) + "% ";
-            TooltipLine SpeedTooltip = new TooltipLine(mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPSpeedBoost") + SpeedAmount);
+            TooltipLine SpeedTooltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPSpeedBoost") + SpeedAmount);
             tooltips.Add(SpeedTooltip);
 
             base.ModifyTooltips(tooltips);
@@ -90,23 +90,23 @@ All effects of the Sash of Vengeance
 
             if (modPlayer.MeleeHighest(player))
             {
-                player.meleeDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Melee) += DamageBoost(player);
             }
             else if (modPlayer.RangedHighest(player))
             {
-                player.rangedDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Ranged) += DamageBoost(player);
             }
             else if (modPlayer.MagicHighest(player))
             {
-                player.magicDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Magic) += DamageBoost(player);
             }
             else if (modPlayer.SummonHighest(player))
             {
-                player.minionDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Summon) += DamageBoost(player);
             }
             else if (modPlayer.ThrownHighest(player))
             {
-                player.thrownDamage += DamageBoost(player);
+                player.GetDamage(DamageClass.Throwing) += DamageBoost(player);
             }
         }
 

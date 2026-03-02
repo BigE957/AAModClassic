@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
@@ -12,29 +13,29 @@ namespace AAMod.Items.Boss.Akuma   //where is located
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Draconian Fury");
-            Tooltip.SetDefault(@"Rains fire and fury upon your foes
+            // DisplayName.SetDefault("Draconian Fury");
+            /* Tooltip.SetDefault(@"Rains fire and fury upon your foes
 Inflicts Daybroken
-Reign of Fire EX");
+Reign of Fire EX"); */
         }
 
         
         public override void SetDefaults()
         {
-            item.damage = 850;            
-            item.melee = true;            
-            item.width = 86;              
-            item.height = 86;             
-            item.useTime = 60;          
-            item.useAnimation = 60;     
-            item.useStyle = 1;        
-            item.knockBack = 6.5f;      
-            item.value = Item.sellPrice(3, 0, 0, 0);
-			item.UseSound = SoundID.Item20;
-            item.autoReuse = true;   
-            item.expert = true; item.expertOnly = true;
-            item.rare = 9;
-			item.useTurn = true;
+            Item.damage = 850;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 86;              
+            Item.height = 86;             
+            Item.useTime = 60;          
+            Item.useAnimation = 60;     
+            Item.useStyle = 1;        
+            Item.knockBack = 6.5f;      
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+			Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;   
+            Item.expert = true; Item.expertOnly = true;
+            Item.rare = 9;
+			Item.useTurn = true;
             AARarity = 13;
         }
 
@@ -42,23 +43,23 @@ Reign of Fire EX");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/ReignOfFire_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/ReignOfFire_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -80,12 +81,12 @@ Reign of Fire EX");
             }
         }
 
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			if (Main.rand.NextBool(8))
 			{
-				Main.PlaySound(2, player.Center, 124);
-				Main.PlaySound(2, player.Center, 124);
+				SoundEngine.PlaySound(SoundID.Item124, player.Center);
+				SoundEngine.PlaySound(SoundID.Item124, player.Center);
 				Vector2 vector12 = new Vector2(0,0);
 				vector12 = new Vector2(Main.mouseX + Main.screenPosition.X, player.Center.Y);
 				Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -112,7 +113,7 @@ Reign of Fire EX");
 				float num83 = vector13.Y;
 				float speedX5 = num82;
 				float speedY6 = num83 + Main.rand.Next(-30, 30) * 0.02f;
-				int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, mod.ProjectileType("FireProjEX"), item.damage/2, item.knockBack, Main.myPlayer);
+				int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("FireProjEX").Type, Item.damage/2, Item.knockBack, Main.myPlayer);
 				switch (Main.rand.Next(5))
 				{
 					case 0: Main.projectile[p].ai[0] = 1f;
@@ -130,7 +131,7 @@ Reign of Fire EX");
 			return base.UseItem(player);
 		}
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
         }
@@ -138,12 +139,11 @@ Reign of Fire EX");
         
         public override void AddRecipes()  //How to craft this sword
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ReignOfFire");
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

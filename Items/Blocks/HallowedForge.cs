@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -6,33 +7,32 @@ namespace AAMod.Items.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hallowed Forge");
-            Tooltip.SetDefault("It's amazing what this thing CAN'T cook");
+            // DisplayName.SetDefault("Hallowed Forge");
+            // Tooltip.SetDefault("It's amazing what this thing CAN'T cook");
         }
 
         public override void SetDefaults()
         {
-            item.width = 48;
-            item.height = 34;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.rare = 7;
-            item.useStyle = 1;
-            item.consumable = true;
-            item.value = 150000;
-            item.createTile = mod.TileType("HallowedForge");
+            Item.width = 48;
+            Item.height = 34;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.rare = 7;
+            Item.useStyle = 1;
+            Item.consumable = true;
+            Item.value = 150000;
+            Item.createTile = Mod.Find<ModTile>("HallowedForge").Type;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HallowedOre", 20);
             recipe.AddRecipeGroup("AAMod:HForge");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

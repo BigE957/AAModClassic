@@ -10,45 +10,45 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 11;
-            projectile.friendly = true;
-            projectile.penetrate = -1;                       //this is the projectile penetration
-            Main.projFrames[projectile.type] = 4;           //this is projectile frames
-            projectile.hostile = false;
-            projectile.magic = true;                        //this make the projectile do magic damage
-            projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
-            projectile.ignoreWater = true;
+            Projectile.width = 14;
+            Projectile.height = 11;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;                       //this is the projectile penetration
+            Main.projFrames[Projectile.type] = 4;           //this is projectile frames
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;                        //this make the projectile do magic damage
+            Projectile.tileCollide = true;                 //this make that the projectile does not go thru walls
+            Projectile.ignoreWater = true;
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("ESP");
+      // DisplayName.SetDefault("ESP");
     }
 
  
         public override void AI()
         {
                                                           //this make that the projectile faces the right way
-            projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            projectile.localAI[0] += 1f;
-            projectile.alpha = (int)projectile.localAI[0] * 2;
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            Projectile.localAI[0] += 1f;
+            Projectile.alpha = (int)Projectile.localAI[0] * 2;
            
-            if (projectile.localAI[0] > 200f) //projectile time left before disappears
+            if (Projectile.localAI[0] > 200f) //projectile time left before disappears
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
            
         }
-        public override bool PreDraw(SpriteBatch sb, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 10)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 10)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3) 
-                    projectile.frame = 0; 
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3) 
+                    Projectile.frame = 0; 
             }
             return true;
         }

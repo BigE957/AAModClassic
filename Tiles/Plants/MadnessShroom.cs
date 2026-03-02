@@ -6,7 +6,7 @@ namespace AAMod.Tiles.Plants
 {
     public class MadnessShroom : ModTile
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileMergeDirt[Type] = true;
@@ -15,9 +15,9 @@ namespace AAMod.Tiles.Plants
             TileObjectData.newTile.RandomStyleRange = 5;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
-            drop = ModContent.ItemType<Items.Mushrooms.MadnessShroom>();
-            dustType = ModContent.DustType<Dusts.InfinityOverloadP>();
-            soundType = 6;
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Mushrooms.MadnessShroom>();
+            DustType = ModContent.DustType<Dusts.InfinityOverloadP>();
+            HitSound = 6;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

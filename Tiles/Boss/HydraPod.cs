@@ -16,7 +16,7 @@ namespace AAMod.Tiles.Boss
         public int drop4;
         public int drop5;
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileSolid[Type] = false;
@@ -32,15 +32,15 @@ namespace AAMod.Tiles.Boss
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Hydra Pod");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Hydra Pod");
             drop1 = ModContent.ItemType<HydrasSpear>();
             drop2 = ModContent.ItemType<Items.Ranged.Mossket>();
             drop3 = ModContent.ItemType<Items.Magic.GunkWand>();
             drop4 = ModContent.ItemType<Items.Pets.GlowmossBall>();
             drop5 = ModContent.ItemType<Items.Accessories.ShadowBand>();
             AddMapEntry(new Color(17, 26, 41), name);
-            disableSmartCursor = true;
+            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -91,7 +91,7 @@ namespace AAMod.Tiles.Boss
                 AAWorld.SmashHydraPod = 2;
                 if (!Main.dayTime)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, mod.NPCType("Hydra"), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Hydra"));
+                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Hydra").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Hydra"));
                 }
                 else
                 {

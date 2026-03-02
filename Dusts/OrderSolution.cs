@@ -4,9 +4,9 @@ namespace AAMod.Dusts
 {
     public class OrderSolution : ModDust
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			updateType = 110;
+			UpdateType = 110;
 		}
 	}
 }

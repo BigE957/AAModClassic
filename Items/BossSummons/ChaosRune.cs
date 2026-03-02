@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -15,31 +17,31 @@ namespace AAMod.Items.BossSummons
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Rune");
-            ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
-            Tooltip.SetDefault(@"A cursed tablet bursting with chaotic energy
+            // DisplayName.SetDefault("Chaos Rune");
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13;
+            /* Tooltip.SetDefault(@"A cursed tablet bursting with chaotic energy
 Summons Shen Doragon's true awakened form
-Non-Consumable");
+Non-Consumable"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 28;
-            item.rare = 2;
-            item.value = Item.sellPrice(0, 0, 0, 0);
-            item.useAnimation = 45;
-            item.useTime = 45;
-            item.useStyle = 4;
+            Item.width = 18;
+            Item.height = 28;
+            Item.rare = 2;
+            Item.value = Item.sellPrice(0, 0, 0, 0);
+            Item.useAnimation = 45;
+            Item.useTime = 45;
+            Item.useStyle = 4;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(176, 39, 157);
+                    line2.OverrideColor = new Color(176, 39, 157);
                 }
             }
         }
@@ -47,14 +49,14 @@ Non-Consumable");
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
             
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
                 (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 AAColor.Shen3,
@@ -68,8 +70,8 @@ Non-Consumable");
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            Texture2D texture2 = Main.itemTexture[item.type];
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             spriteBatch.Draw(texture2, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             for (int i = 0; i < 4; i++)
             {
@@ -112,12 +114,12 @@ Non-Consumable");
             return true;
         }
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosRuneTrue1"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
             if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosRuneTrue2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-            AAModGlobalNPC.SpawnBoss(player, mod.NPCType("ShenA"), false, 0, 0);
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ShenRoar"), player.position);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("ShenA").Type, false, 0, 0);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ShenRoar"), player.position);
             return true;
         }
     }

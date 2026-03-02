@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,22 +10,22 @@ namespace AAMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cursed Sickle");
+			// DisplayName.SetDefault("Cursed Sickle");
 		}
 
 		public override void SetDefaults()
         {
-            projectile.width = 48;
-            projectile.height = 48;
-            projectile.alpha = 100;
-            projectile.light = 0.2f;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.penetrate = 5;
-            projectile.tileCollide = true;
-            projectile.melee = true;
+            Projectile.width = 48;
+            Projectile.height = 48;
+            Projectile.alpha = 100;
+            Projectile.light = 0.2f;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = 5;
+            Projectile.tileCollide = true;
+            Projectile.DamageType = DamageClass.Melee;
         }
-        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 16;
             height = 16;
@@ -32,31 +33,31 @@ namespace AAMod.Projectiles
         }
 
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			target.AddBuff(BuffID.CursedInferno, 180);
-			target.immune[projectile.owner] = 1;
-			projectile.Kill();
+			target.immune[Projectile.owner] = 1;
+			Projectile.Kill();
 		}
 
 		public override void AI()
         {
-            projectile.rotation += projectile.direction * 0.8f;
-            projectile.ai[0] += 1f;
-            if (projectile.ai[0] >= 30f)
+            Projectile.rotation += Projectile.direction * 0.8f;
+            Projectile.ai[0] += 1f;
+            if (Projectile.ai[0] >= 30f)
             {
-                if (projectile.ai[0] < 100f)
+                if (Projectile.ai[0] < 100f)
                 {
-                    projectile.velocity *= 1.06f;
+                    Projectile.velocity *= 1.06f;
                 }
                 else
                 {
-                    projectile.ai[0] = 200f;
+                    Projectile.ai[0] = 200f;
                 }
             }
             for (int num257 = 0; num257 < 2; num257++)
             {
-                int num258 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100);
+                int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, 0f, 0f, 100);
                 Main.dust[num258].noGravity = true;
             }
         }
@@ -66,14 +67,14 @@ namespace AAMod.Projectiles
             return Color.White;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num611 = 0; num611 < 30; num611++)
             {
-                int num612 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, projectile.velocity.X, projectile.velocity.Y, 100, default, 1.7f);
+                int num612 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1.7f);
                 Main.dust[num612].noGravity = true;
-                Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, projectile.velocity.X, projectile.velocity.Y, 100);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, Projectile.velocity.X, Projectile.velocity.Y, 100);
             }
 
         }

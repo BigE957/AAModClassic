@@ -8,29 +8,29 @@ namespace AAMod.Items.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Star Staff");
-            Item.staff[item.type] = true;
+            // DisplayName.SetDefault("Star Staff");
+            Item.staff[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.damage = 175;
-            item.magic = true;
-            item.mana = 25;
-            item.width = 64;
-            item.height = 64;
-            item.useTime = 5;
-            item.useAnimation = 16;
-            item.reuseDelay = 16;
-            item.useStyle = 5;
-            item.noMelee = true;
-            item.knockBack = 5;
-            item.value = 100000;
-            item.UseSound = SoundID.Item20;
-            item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Star1");
-            item.shootSpeed = 9f;
-            item.rare = 9;
+            Item.damage = 175;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 25;
+            Item.width = 64;
+            Item.height = 64;
+            Item.useTime = 5;
+            Item.useAnimation = 16;
+            Item.reuseDelay = 16;
+            Item.useStyle = 5;
+            Item.noMelee = true;
+            Item.knockBack = 5;
+            Item.value = 100000;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = Mod.Find<ModProjectile>("Star1").Type;
+            Item.shootSpeed = 9f;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -38,21 +38,20 @@ namespace AAMod.Items.Magic
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Stardust", 5);
             recipe.AddIngredient(null, "RadiumBar", 10);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

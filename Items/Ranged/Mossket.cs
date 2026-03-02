@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
 {
@@ -8,22 +9,22 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            item.useStyle = 5;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.width = 24;
-            item.height = 28;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.UseSound = SoundID.Item11;
-            item.damage = 15;
-            item.shootSpeed = 12f;
-            item.noMelee = true;
-            item.knockBack = .5f;
-            item.value = 50000;
-            item.scale = 1f;
-            item.rare = 1;
-            item.ranged = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.width = 24;
+            Item.height = 28;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.UseSound = SoundID.Item11;
+            Item.damage = 15;
+            Item.shootSpeed = 12f;
+            Item.noMelee = true;
+            Item.knockBack = .5f;
+            Item.value = 50000;
+            Item.scale = 1f;
+            Item.rare = 1;
+            Item.DamageType = DamageClass.Ranged;
         }
 		
 		public override Vector2? HoldoutOffset()

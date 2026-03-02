@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 using Terraria.UI.Chat;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -123,9 +124,9 @@ namespace AAMod
 				Vector2 vector4 = basePosition + Vector2.UnitY * scalarY + Vector2.UnitX * 1f;
 				Utils.DrawBorderString(Main.spriteBatch, displayText2, vector4, Microsoft.Xna.Framework.Color.White * displayAlpha, displayScalar, 0.5f, 1f, -1);
 				vector4 += Vector2.UnitX * (progressPercent - 0.5f) * scalarX;
-				Main.spriteBatch.Draw(Main.magicPixel, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 241, 51) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(scalarX * progressPercent, scalarY), SpriteEffects.None, 0f);
-				Main.spriteBatch.Draw(Main.magicPixel, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 165, 0, 127) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(2f, scalarY), SpriteEffects.None, 0f);
-				Main.spriteBatch.Draw(Main.magicPixel, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), Microsoft.Xna.Framework.Color.Black * displayAlpha, 0f, new Vector2(0f, 0.5f), new Vector2(scalarX * (1f - progressPercent), scalarY), SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 241, 51) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(scalarX * progressPercent, scalarY), SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), new Microsoft.Xna.Framework.Color(255, 165, 0, 127) * displayAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(2f, scalarY), SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, vector4, new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, 1, 1)), Microsoft.Xna.Framework.Color.Black * displayAlpha, 0f, new Vector2(0f, 0.5f), new Vector2(scalarX * (1f - progressPercent), scalarY), SpriteEffects.None, 0f);
 			}
 
 			Vector2 center = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 80)) + offset;
@@ -246,17 +247,17 @@ namespace AAMod
             return null;
         }
 
-        public static void AddPlayerLayer(List<PlayerLayer> list, PlayerLayer layer, PlayerLayer parent, bool first)
+        public static void AddPlayerDrawLayer(List<PlayerDrawLayer> list, PlayerDrawLayer layer, PlayerDrawLayer parent, bool first)
         {
             int insertAt = -1;
             for (int m = 0; m < list.Count; m++)
             {
-                PlayerLayer dl = list[m];
+                PlayerDrawLayer dl = list[m];
                 if (dl.Name.Equals(parent.Name)) { insertAt = m; break; }
             }
             if (insertAt == -1) list.Add(layer); else list.Insert(first ? insertAt : insertAt + 1, layer);
         }
-
+		/*
         public static void AddPlayerHeadLayer(List<PlayerHeadLayer> list, PlayerHeadLayer layer, PlayerHeadLayer parent, bool first)
         {
             int insertAt = -1;
@@ -267,7 +268,7 @@ namespace AAMod
             }
             if (insertAt == -1) list.Add(layer); else list.Insert(first ? insertAt : insertAt + 1, layer);
         }
-
+		*/
         /*
          * Returns a rectangle representing the frame on a texture, can offset on the x axis.
          * 
@@ -299,15 +300,15 @@ namespace AAMod
          * Returns true if the given pass is not an effect one. This is primary used for things that don't want to be 
          * drawn in Shadow Aura (Hallow Armor), Shadow Afterimage (Necro Armor), or Glow (Chlorophyte Armor) effects.
          */
-        public static bool IsNormalDrawPass(Player player, PlayerDrawInfo pdi = default(PlayerDrawInfo))
+        public static bool IsNormalDrawPass(Player player, PlayerDrawSet pdi = default(PlayerDrawSet))
         {
-            return player.ghostFade == 0f && player.shadow == 0f && (pdi.Equals(default(PlayerDrawInfo)) || pdi.shadow == 0f);
+            return player.ghostFade == 0f && player.shadow == 0f && (pdi.Equals(default(PlayerDrawSet)) || pdi.shadow == 0f);
         }
 
 		public static int GetDye(Player drawPlayer, int accSlot, bool social = false, bool wings = false)
 		{
 			int dye = accSlot % 10;
-			if (!wings && accSlot < 10 && drawPlayer.hideVisual[dye]) return -1;
+			if (!wings && accSlot < 10 && drawPlayer.hideVisibleAccessory[dye]) return -1;
             return GameShaders.Armor.GetShaderIdFromItemId(drawPlayer.dye[dye].type);
 		}
 
@@ -685,7 +686,7 @@ namespace AAMod
 			for (int m = 3; m < 8 + drawPlayer.extraAccessorySlots; m++)
 			{
 				if (drawPlayer.armor[m + 10].type == itemType) return true;				
-				if (drawPlayer.armor[m + 10].IsBlank() && !drawPlayer.hideVisual[m] && (drawPlayer.armor[m].type == itemType)) return true;				
+				if (drawPlayer.armor[m + 10].IsBlank() && !drawPlayer.hideVisibleAccessory[m] && (drawPlayer.armor[m].type == itemType)) return true;				
 			}				
 			return false;
 		}
@@ -720,7 +721,7 @@ namespace AAMod
             if(ShouldDrawHeldItem(drawPlayer))
             {
                 Item item = drawPlayer.inventory[drawPlayer.selectedItem];
-                DrawHeldSword(sb, (overrideTex != null ? overrideTex : Main.itemTexture[item.type]), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, drawPlayer.gravDir, drawPlayer, frame, frameCount);
+                DrawHeldSword(sb, (overrideTex != null ? overrideTex : TextureAssets.Item[item.type].Value), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, drawPlayer.gravDir, drawPlayer, frame, frameCount);
                 return false;
             }
             return true;
@@ -806,7 +807,7 @@ namespace AAMod
             if(ShouldDrawHeldItem(drawPlayer))
             {
                 Item item = drawPlayer.inventory[drawPlayer.selectedItem];
-                DrawHeldGun(sb, (overrideTex != null ? overrideTex : Main.itemTexture[item.type]), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, shakeX, shakeY, shakeScalarX, shakeScalarY, drawPlayer.gravDir, drawPlayer, frame, frameCount);
+                DrawHeldGun(sb, (overrideTex != null ? overrideTex : TextureAssets.Item[item.type].Value), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, shakeX, shakeY, shakeScalarX, shakeScalarY, drawPlayer.gravDir, drawPlayer, frame, frameCount);
                 return false;
             }
             return true;
@@ -1022,9 +1023,9 @@ namespace AAMod
 						color = Lighting.GetColor((int)mountedCenter.X / 16, (int)(mountedCenter.Y / 16f), color);
 						color = new Microsoft.Xna.Framework.Color((int)((byte)((float)color.R * colorScalar)), (int)((byte)((float)color.G * colorScalar)), (int)((byte)((float)color.B * colorScalar)), (int)((byte)((float)color.A * colorScalar)));
 					}
-					Texture2D tex = (overrideTex != null ? overrideTex : Main.fishingLineTexture);
+					Texture2D tex = (overrideTex != null ? overrideTex : TextureAssets.FishingLine.Value);
 					Vector2 texCenter = new Vector2(tex.Width * 0.5f, tex.Height * 0.5f);	
-					Main.spriteBatch.Draw(Main.fishingLineTexture, new Vector2(mountedCenter.X - Main.screenPosition.X + texCenter.X, mountedCenter.Y - Main.screenPosition.Y + texCenter.Y) - new Vector2(6f, 0f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, tex.Width, (int)textureHeight)), color, rotation, new Vector2((float)tex.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(TextureAssets.FishingLine.Value, new Vector2(mountedCenter.X - Main.screenPosition.X + texCenter.X, mountedCenter.Y - Main.screenPosition.Y + texCenter.Y) - new Vector2(6f, 0f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, tex.Width, (int)textureHeight)), color, rotation, new Vector2((float)tex.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
 				}
 			}
 		}
@@ -1116,7 +1117,7 @@ namespace AAMod
 						}
 						rotation2 = (float)Math.Atan2((double)projLineCenterY, (double)projLineCenterX) - 1.57f;
 						Color color2 = Lighting.GetColor((int)mountedCenter.X / 16, (int)(mountedCenter.Y / 16f), (overrideColor != null ? (Color)overrideColor : new Color(200, 200, 200, 100)));
-						Texture2D tex = (overrideTex != null ? overrideTex : Main.fishingLineTexture);
+						Texture2D tex = (overrideTex != null ? overrideTex : TextureAssets.FishingLine.Value);
 						Vector2 texCenter = new Vector2(tex.Width * 0.5f, tex.Height * 0.5f);
 						sb.Draw(tex, new Vector2(mountedCenter.X - Main.screenPosition.X + (float)texCenter.X * 0.5f, mountedCenter.Y - Main.screenPosition.Y + (float)texCenter.Y * 0.5f), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, tex.Width, (int)num16)), color2, rotation2, new Vector2((float)tex.Width * 0.5f, 0f), 1f, SpriteEffects.None, 0f);
 					}
@@ -1490,14 +1491,14 @@ namespace AAMod
             Vector2 origin = default(Vector2);
             Color lightColor = (overrideColor != null ? (Color)overrideColor : Color.White);
 			Vector2 position = new Vector2(hitbox.Left, hitbox.Top) - Main.screenPosition; 
-			sb.Draw(Main.magicPixel, position, hitbox, lightColor, 0f, origin, 1f, SpriteEffects.None, 0);
+			sb.Draw(TextureAssets.MagicPixel.Value, position, hitbox, lightColor, 0f, origin, 1f, SpriteEffects.None, 0);
         }		
 
 		public static void DrawTileTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool slopeDraw = true, bool flipTex = false, bool ignoreHalfBricks = false, bool? overrideHalfBrick = null, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
 		{
 			Tile tile = Main.tile[x, y]; 
-			int frameX = (tile != null && tile.active() ? tile.frameX : 0);
-			int frameY = (tile != null && tile.active() ? tile.frameY : 0);
+			int frameX = (tile != null && tile.HasTile ? tile.TileFrameX : 0);
+			int frameY = (tile != null && tile.HasTile ? tile.TileFrameY : 0);
 			DrawTileTexture(sb, texture, x, y, 16, 16, frameX, frameY, slopeDraw, flipTex, ignoreHalfBricks, overrideHalfBrick, overrideColor, offset);
 		}
 
@@ -1516,19 +1517,19 @@ namespace AAMod
 		{
 			Tile tile = Main.tile[x, y];
 			//if(!tile.active()){ return; }
-			bool halfBrick = (overrideHalfBrick != null ? (bool)overrideHalfBrick : tile.halfBrick());
+			bool halfBrick = (overrideHalfBrick != null ? (bool)overrideHalfBrick : tile.IsHalfBlock);
 			int halfBrickOffset = halfBrick ? 8 : 0;
 			Color color = Lighting.GetColor(x, y);
 			Vector2 drawOffset = (Main.drawToScreen ? default(Vector2) : new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange)) + offset;
-			if (tile.inActive()){ color = tile.actColor(color); }
+			if (tile.IsActuated){ color = tile.actColor(color); }
 			SpriteEffects effects = (flipTex ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 			Vector2 drawPos = GetTileDrawPosition(x, y, fwidth, fheight, drawOffset);
 			int gfxCheck = (int)(255f * (1f - Main.gfxQuality) + 30f * Main.gfxQuality);
 			int gfxCheck2 = (int)(50f * (1f - Main.gfxQuality) + 2f * Main.gfxQuality);	
-			if (slopeDraw && tile.slope() > 0) //slopes
+			if (slopeDraw && tile.Slope > 0) //slopes
 			{
-				bool rightSlope = tile.rightSlope();
-				bool topSlope = tile.topSlope();
+				bool rightSlope = tile.RightSlope;
+				bool topSlope = tile.TopSlope;
 				for (int m = 0; m < 8; m++)
 				{
 					int xOffset = (rightSlope ? (m * 2) : (16 - m * 2 - 2));
@@ -1540,20 +1541,20 @@ namespace AAMod
 				if (topSlope) sb.Draw(texture, drawPos + new Vector2(0f, 14f), new Rectangle(frameX, frameY + 14, 16, 2), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 				else sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, 16, 2), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 			}else //sidebricks
-			if(!ignoreHalfBricks && Main.tileSolid[(int)tile.type] && !halfBrick && (Main.tile[x - 1, y].halfBrick() || Main.tile[x + 1, y].halfBrick()))
+			if(!ignoreHalfBricks && Main.tileSolid[(int)tile.TileType] && !halfBrick && (Main.tile[x - 1, y].IsHalfBlock || Main.tile[x + 1, y].IsHalfBlock))
 			{
-				if (Main.tile[x - 1, y].halfBrick() && Main.tile[x + 1, y].halfBrick())
+				if (Main.tile[x - 1, y].IsHalfBlock && Main.tile[x + 1, y].IsHalfBlock)
 				{
 					sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 					sb.Draw(texture, drawPos, new Rectangle(126, 0, 16, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 				}else
-				if (Main.tile[x - 1, y].halfBrick())
+				if (Main.tile[x - 1, y].IsHalfBlock)
 				{
 					sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 					sb.Draw(texture, drawPos + new Vector2(4f, 0f), new Rectangle(frameX + 4, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 					sb.Draw(texture, drawPos, new Rectangle(126, 0, 4, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 				}else
-				if (Main.tile[x + 1, y].halfBrick())
+				if (Main.tile[x + 1, y].IsHalfBlock)
 				{
 					sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 					sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
@@ -1563,7 +1564,7 @@ namespace AAMod
 					sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 				}
 			}else
-			if (Lighting.lightMode < 2 && Main.tileSolid[(int)tile.type] && !halfBrick && !tile.inActive())
+			if (Lighting.LegacyEngine.Mode < 2 && Main.tileSolid[(int)tile.TileType] && !halfBrick && !tile.IsActuated)
 			{
 				if ((int)color.R > gfxCheck || (double)color.G > (double)gfxCheck * 1.1 || (double)color.B > (double)gfxCheck * 1.2)
 				{
@@ -1614,7 +1615,7 @@ namespace AAMod
 					sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), color, 0f, default(Vector2), 1f, effects, 0f);
 				}
 			}else
-			if (halfBrickOffset == 8 && (!Main.tile[x, y + 1].active() || !Main.tileSolid[(int)Main.tile[x, y + 1].type] || Main.tile[x, y + 1].halfBrick()))
+			if (halfBrickOffset == 8 && (!Main.tile[x, y + 1].HasTile || !Main.tileSolid[(int)Main.tile[x, y + 1].TileType] || Main.tile[x, y + 1].IsHalfBlock))
 			{
 				sb.Draw(texture, drawPos + new Vector2(0, halfBrickOffset), new Rectangle(frameX, frameY, fwidth, fheight - halfBrickOffset - 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
 				sb.Draw(texture, drawPos + new Vector2(0, 12f), new Rectangle(144, 66, fwidth, 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
@@ -1628,10 +1629,10 @@ namespace AAMod
 		public static void DrawWallTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool drawOutline = false, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
 		{
 			Tile tile = Main.tile[x, y];
-			bool hasWall = tile != null && tile.wall > 0;
-			int wallFrameX = (hasWall ? tile.wallFrameX() : 0);
-			int wallFrameY = (hasWall ? tile.wallFrameY() : 0);
-			int frameOffsetY = (hasWall ? (int)(Main.wallFrame[tile.wall] * 180) : 0);
+			bool hasWall = tile != null && tile.WallType > 0;
+			int wallFrameX = (hasWall ? tile.WallFrameX : 0);
+			int wallFrameY = (hasWall ? tile.WallFrameY : 0);
+			int frameOffsetY = (hasWall ? (int)(Main.wallFrame[tile.WallType] * 180) : 0);
 			DrawWallTexture(sb, texture, x, y, wallFrameX, wallFrameY, frameOffsetY, drawOutline, overrideColor, offset);
 		}
 
@@ -1649,10 +1650,10 @@ namespace AAMod
 			Vector2 drawOffset = (Main.drawToScreen ? default(Vector2) : new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange)) + offset;
 			int tileColor = (int)((Main.tileColor.R + Main.tileColor.G + Main.tileColor.B) / 3);
 			float tileColorFloat = (float)((double)tileColor * 0.53) / 255f;
-			if (Lighting.lightMode == 2){ tileColorFloat = (float)(Main.tileColor.R - 12) / 255f; }else
-			if (Lighting.lightMode == 3){ tileColorFloat = (float)(tileColor - 12) / 255f; }
+			if (Lighting.LegacyEngine.Mode == 2){ tileColorFloat = (float)(Main.tileColor.R - 12) / 255f; }else
+			if (Lighting.LegacyEngine.Mode == 3){ tileColorFloat = (float)(tileColor - 12) / 255f; }
 			Color color = (overrideColor != null ? overrideColor(default(Color)) : Lighting.GetColor(x, y)); 
-			if (Lighting.lightMode < 2)
+			if (Lighting.LegacyEngine.Mode < 2)
 			{
 				if ((int)color.R > gfxCheck || (double)color.G > (double)gfxCheck * 1.1 || (double)color.B > (double)gfxCheck * 1.2)
 				{
@@ -1706,10 +1707,10 @@ namespace AAMod
 			}
 			if (drawOutline && ((double)color.R > (double)gfxCheck2 * 0.4 || (double)color.G > (double)gfxCheck2 * 0.35 || (double)color.B > (double)gfxCheck2 * 0.3))
 			{
-				bool outlineLeft = Main.tile[x - 1, y].wall > 0 && Main.wallBlend[(int)Main.tile[x - 1, y].wall] != Main.wallBlend[(int)Main.tile[x, y].wall];
-				bool outlineRight = Main.tile[x + 1, y].wall > 0 && Main.wallBlend[(int)Main.tile[x + 1, y].wall] != Main.wallBlend[(int)Main.tile[x, y].wall];
-				bool outlineUp = Main.tile[x, y - 1].wall > 0 && Main.wallBlend[(int)Main.tile[x, y - 1].wall] != Main.wallBlend[(int)Main.tile[x, y].wall];
-				bool outlineDown = Main.tile[x, y + 1].wall > 0 && Main.wallBlend[(int)Main.tile[x, y + 1].wall] != Main.wallBlend[(int)Main.tile[x, y].wall];
+				bool outlineLeft = Main.tile[x - 1, y].WallType > 0 && Main.wallBlend[(int)Main.tile[x - 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineRight = Main.tile[x + 1, y].WallType > 0 && Main.wallBlend[(int)Main.tile[x + 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineUp = Main.tile[x, y - 1].WallType > 0 && Main.wallBlend[(int)Main.tile[x, y - 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineDown = Main.tile[x, y + 1].WallType > 0 && Main.wallBlend[(int)Main.tile[x, y + 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
 				if (outlineLeft) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 				if (outlineRight) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X + 14), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(14, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 				if (outlineUp) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
@@ -1783,11 +1784,11 @@ namespace AAMod
             if(drawPlayer.gravDir == -1.0f) { effect = effect | SpriteEffects.FlipVertically; }
 
 			float scale = scaleOverride > 0f ? scaleOverride : 1f;
-			if (sb is List<DrawData>)
+			if (sb is PlayerDrawSet drawset)
 			{
 				DrawData dd = new DrawData(texture, new Vector2((float)((int)(ediPos.X - (int)Main.screenPosition.X - (float)(frame.Width / 2) + (float)(drawPlayer.width / 2))), (float)((int)(ediPos.Y - (int)Main.screenPosition.Y + (float)drawPlayer.height - (float)frame.Height))) + new Vector2(offsetX * scale, offsetY * scale) + locationPos + frameCenter, frame, color, locationRot, frameCenter, scale, effect, 0);
 				dd.shader = shader;
-				((List<DrawData>)sb).Add(dd);
+                drawset.DrawDataCache.Add(dd);
 			}
 			else if (sb is SpriteBatch)
 			{
@@ -1922,10 +1923,10 @@ namespace AAMod
 					base.Shader.Parameters["uLightColor"].SetValue(color.ToVector4());			
 					if(ent is NPC)
 					{
-						Vector4 v4 = new Vector4(0, 0, Main.npcTexture[((NPC)ent).type].Width, Main.npcTexture[((NPC)ent).type].Height);
+						Vector4 v4 = new Vector4(0, 0, TextureAssets.Npc[((NPC)ent).type].Value.Width, TextureAssets.Npc[((NPC)ent).type].Value.Height);
 						Vector4 v4_2 = new Vector4(0, 0, ((NPC)ent).frame.Width, ((NPC)ent).frame.Height);
 						base.Shader.Parameters["uTexSize"].SetValue(v4);			
-						if(((NPC)ent).modNPC is ParentNPC){ base.Shader.Parameters["uFrame"].SetValue(((ParentNPC)((NPC)ent).modNPC).GetFrameV4()); }else
+						if(((NPC)ent).ModNPC is ParentNPC){ base.Shader.Parameters["uFrame"].SetValue(((ParentNPC)((NPC)ent).ModNPC).GetFrameV4()); }else
 						{
 							base.Shader.Parameters["uFrame"].SetValue(v4_2);
 						}
@@ -1933,10 +1934,10 @@ namespace AAMod
 					if(ent is Projectile)
 					{					
 						Projectile proj = (Projectile)ent;
-						Vector4 v4 = new Vector4(0, 0, Main.projectileTexture[proj.type].Width, Main.projectileTexture[proj.type].Height);	
-						Vector4 v4_2 = new Vector4(0, 0, Main.projectileTexture[proj.type].Width, Main.projectileTexture[proj.type].Height / Main.projFrames[proj.type]);							
+						Vector4 v4 = new Vector4(0, 0, TextureAssets.Projectile[proj.type].Value.Width, TextureAssets.Projectile[proj.type].Value.Height);	
+						Vector4 v4_2 = new Vector4(0, 0, TextureAssets.Projectile[proj.type].Value.Width, TextureAssets.Projectile[proj.type].Value.Height / Main.projFrames[proj.type]);							
 						base.Shader.Parameters["uTexSize"].SetValue(v4);
-						if(proj.modProjectile is ParentProjectile){ base.Shader.Parameters["uFrame"].SetValue(((ParentProjectile)proj.modProjectile).GetFrameV4()); }else
+						if(proj.ModProjectile is ParentProjectile){ base.Shader.Parameters["uFrame"].SetValue(((ParentProjectile)proj.ModProjectile).GetFrameV4()); }else
 						{
 							base.Shader.Parameters["uFrame"].SetValue(v4_2);
 						}

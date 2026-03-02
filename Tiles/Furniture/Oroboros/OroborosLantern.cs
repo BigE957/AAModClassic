@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +11,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
 {
     public class OroborosLantern : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -20,29 +21,29 @@ namespace AAMod.Tiles.Furniture.Oroboros
             TileObjectData.newSubTile.LavaDeath = false;
             TileObjectData.newSubTile.LavaPlacement = LiquidPlacement.Allowed;
             TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Oroboros Latern");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Oroboros Latern");
             AddMapEntry(new Color(205, 62, 12), name);
-            dustType = mod.DustType("DoomDust");
-            adjTiles = new int[] { TileID.HangingLanterns };
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            AdjTiles = new int[] { TileID.HangingLanterns };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)
         {
-            int left = i - (Main.tile[i, j].frameX / 18) % 1;
-            int top = j - (Main.tile[i, j].frameY / 18) % 2;
+            int left = i - (Main.tile[i, j].TileFrameX / 18) % 1;
+            int top = j - (Main.tile[i, j].TileFrameY / 18) % 2;
             for (int x = left; x < left + 1; x++)
             {
                 for (int y = top; y < top + 2; y++)
                 {
 
-                    if (Main.tile[x, y].frameX >= 18)
+                    if (Main.tile[x, y].TileFrameX >= 18)
                     {
-                        Main.tile[x, y].frameX -= 18;
+                        Main.tile[x, y].TileFrameX -= 18;
                     }
                     else
                     {
-                        Main.tile[x, y].frameX += 18;
+                        Main.tile[x, y].TileFrameX += 18;
                     }
                 }
             }
@@ -62,7 +63,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX < 18)
+            if (tile.TileFrameX < 18)
             {
                 r = 0.9f;
                 g = 0.2f;
@@ -72,15 +73,15 @@ namespace AAMod.Tiles.Furniture.Oroboros
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, mod.ItemType("OroborosLantern"));
+			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("OroborosLantern").Type);
 			Chest.DestroyChest(i, j);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Color color = new Color(255, 50, 50, 0);
-            int frameX = Main.tile[i, j].frameX;
-            int frameY = Main.tile[i, j].frameY;
+            int frameX = Main.tile[i, j].TileFrameX;
+            int frameY = Main.tile[i, j].TileFrameY;
             int width = 20;
             int offsetY = -2;
             int height = 20;
@@ -92,7 +93,7 @@ namespace AAMod.Tiles.Furniture.Oroboros
             }
             for (int k = 0; k < 7; k++)
             {
-                Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Oroboros/OroborosLantern_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(Mod.GetTexture("Tiles/Furniture/Oroboros/OroborosLantern_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X + offsetX - (width - 16f) / 2f, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
             }
         }
     }

@@ -9,13 +9,13 @@ namespace AAMod.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pure Evil");
-            Tooltip.SetDefault("So insidious, you feel guilty just looking at it");
+            // DisplayName.SetDefault("Pure Evil");
+            // Tooltip.SetDefault("So insidious, you feel guilty just looking at it");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.AnimatesAsSoul[item.type] = true;
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemIconPulse[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
@@ -23,11 +23,11 @@ namespace AAMod.Items.Materials
         {
             Item refItem = new Item();
             refItem.SetDefaults(ItemID.SoulofSight);
-            item.width = refItem.width;
-            item.height = refItem.height;
-            item.maxStack = 999;
-            item.value = 10000;
-            item.rare = 7;
+            Item.width = refItem.width;
+            Item.height = refItem.height;
+            Item.maxStack = 999;
+            Item.value = 10000;
+            Item.rare = 7;
         }
 
         // The following 2 methods are purely to show off these 2 hooks. Don't use them in your own code.
@@ -38,16 +38,16 @@ namespace AAMod.Items.Materials
 
         public override bool GrabStyle(Player player)
         {
-            Vector2 vectorItemToPlayer = player.Center - item.Center;
+            Vector2 vectorItemToPlayer = player.Center - Item.Center;
             Vector2 movement = -vectorItemToPlayer.SafeNormalize(default) * 0.1f;
-            item.velocity = item.velocity + movement;
-            item.velocity = Collision.TileCollision(item.position, item.velocity, item.width, item.height);
+            Item.velocity = Item.velocity + movement;
+            Item.velocity = Collision.TileCollision(Item.position, Item.velocity, Item.width, Item.height);
             return true;
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(item.Center, Color.Purple.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Purple.ToVector3() * 0.55f * Main.essScale);
         }
     }
 }

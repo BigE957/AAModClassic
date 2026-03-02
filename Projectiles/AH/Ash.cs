@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.AH
@@ -8,22 +9,22 @@ namespace AAMod.Projectiles.AH
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ash");
-            Main.projFrames[projectile.type] = 4;
+            // DisplayName.SetDefault("Ash");
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 28;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ignoreWater = true;
-            projectile.penetrate = 1;
-            projectile.alpha = 0;
-            projectile.timeLeft = 255;
-            projectile.tileCollide = true;
-			projectile.magic = true;
+            Projectile.width = 20;
+            Projectile.height = 28;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = 1;
+            Projectile.alpha = 0;
+            Projectile.timeLeft = 255;
+            Projectile.tileCollide = true;
+			Projectile.DamageType = DamageClass.Magic;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -33,30 +34,30 @@ namespace AAMod.Projectiles.AH
 
         public override void AI()
         {
-            if (projectile.timeLeft > 0)
+            if (Projectile.timeLeft > 0)
             {
-                projectile.alpha++;
-                projectile.timeLeft--;
+                Projectile.alpha++;
+                Projectile.timeLeft--;
             }
-            if (projectile.timeLeft == 0)
+            if (Projectile.timeLeft == 0)
             {
-                projectile.Kill();
+                Projectile.Kill();
             }
 
-            projectile.frameCounter++;
-            projectile.rotation = projectile.velocity.ToRotation() - 1.57079637f;
-            if (projectile.frameCounter > 10)
+            Projectile.frameCounter++;
+            Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
+            if (Projectile.frameCounter > 10)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 3)
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
                 {
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                 }
             }
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -64,14 +65,14 @@ namespace AAMod.Projectiles.AH
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(mod.BuffType("DragonFire"), 600);
+            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
         }
     }
 }

@@ -3,9 +3,9 @@ using Terraria.ModLoader;
 
 namespace AAMod.Backgrounds
 {
-    class VoidSurfaceBgStyle : ModSurfaceBgStyle
+    class VoidSurfaceBgStyle : ModSurfaceBackgroundStyle
     {
-        public override bool ChooseBgStyle()
+        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
         {
             return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneVoid;
         }
@@ -35,33 +35,33 @@ namespace AAMod.Backgrounds
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-            return mod.GetBackgroundSlot("BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
         }
 
         public override int ChooseMiddleTexture()
         {
-            return mod.GetBackgroundSlot("BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
         }
 
         public override int ChooseFarTexture()
         {
-            return mod.GetBackgroundSlot("BlankTex");
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "BlankTex");
         }
     }
 
-    public class VoidUGBG : ModUgBgStyle
+    public class VoidUGBG : ModUndergroundBackgroundStyle
     {
-        public override bool ChooseBgStyle()
+        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override UndergroundBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
         {
             return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneVoid;
         }
 
         public override void FillTextureArray(int[] textureSlots)
         {
-            textureSlots[0] = mod.GetBackgroundSlot("Backgrounds/VoidUG");
-            textureSlots[1] = mod.GetBackgroundSlot("Backgrounds/VoidUG");
-            textureSlots[2] = mod.GetBackgroundSlot("Backgrounds/VoidUG");
-            textureSlots[3] = mod.GetBackgroundSlot("Backgrounds/VoidUG");
+            textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/VoidUG");
+            textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/VoidUG");
+            textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/VoidUG");
+            textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/VoidUG");
         }
     }
 }

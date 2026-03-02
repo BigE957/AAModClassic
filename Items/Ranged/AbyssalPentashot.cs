@@ -1,5 +1,6 @@
 using Terraria;
 using System;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -10,30 +11,30 @@ namespace AAMod.Items.Ranged
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Pentashot");
-            Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Abyssal Pentashot");
+            // Tooltip.SetDefault("");
         }
 
         public override void SetDefaults()
         {
-            item.damage = 20;
-            item.noMelee = true;
-            item.ranged = true;
-            item.width = 50;
-            item.height = 20;
-            item.useTime = 40;
-            item.useAnimation = 40;
-            item.useStyle = 5;
-            item.shoot = 10;
-            item.useAmmo = AmmoID.Bullet;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 1, 8, 0);
-            item.rare = 4;
-            item.UseSound = SoundID.Item11;
-            item.shootSpeed = 12f;
+            Item.damage = 20;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 50;
+            Item.height = 20;
+            Item.useTime = 40;
+            Item.useAnimation = 40;
+            Item.useStyle = 5;
+            Item.shoot = 10;
+            Item.useAmmo = AmmoID.Bullet;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 1, 8, 0);
+            Item.rare = 4;
+            Item.UseSound = SoundID.Item11;
+            Item.shootSpeed = 12f;
         }
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 		    float spread = 20f * 0.0174f;
 		    float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
@@ -50,14 +51,13 @@ namespace AAMod.Items.Ranged
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HydraTrishot", 1);
             recipe.AddIngredient(null, "OceanWhaler", 1);
             recipe.AddIngredient(null, "DoomiteAssaultBlaster", 1);
             recipe.AddIngredient(ItemID.SnowballCannon, 1);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

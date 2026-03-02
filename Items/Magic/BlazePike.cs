@@ -8,39 +8,38 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blaze Pike");
-			Tooltip.SetDefault("Very hot to touch");
-			Item.staff[item.type] = true;
+			// DisplayName.SetDefault("Blaze Pike");
+			// Tooltip.SetDefault("Very hot to touch");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 20;
-			item.magic = true;
-			item.mana = 3;
-			item.width = 56;
-			item.height = 56;
-			item.useTime = 27;
-			item.useAnimation = 27;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 5;
-			item.value = 10000;
-			item.rare = 3;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = 664;
-			item.shootSpeed = 6f;
+			Item.damage = 20;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 3;
+			Item.width = 56;
+			Item.height = 56;
+			Item.useTime = 27;
+			Item.useAnimation = 27;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 5;
+			Item.value = 10000;
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = 664;
+			Item.shootSpeed = 6f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "IncineriteBar", 10);
 			recipe.AddIngredient(null, "BroodScale", 10);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

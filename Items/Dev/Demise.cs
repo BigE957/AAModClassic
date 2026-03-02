@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -10,27 +11,27 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Demise");
-			Tooltip.SetDefault(@"A legendary sword that was once wielded by the demon king
+			// DisplayName.SetDefault("Demise");
+			/* Tooltip.SetDefault(@"A legendary sword that was once wielded by the demon king
  Left Click to unleash destructive demonic energy
-Right Click to unleash demon blades that fall from the sky");
+Right Click to unleash demon blades that fall from the sky"); */
 		}
 		public override void SetDefaults()
 		{
-			item.damage = 150;
-			item.melee = true;
-			item.width = 58;
-			item.height = 58;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = 1;
-			item.knockBack = 5;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 9;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("DemiseSphere");
-            item.shootSpeed = 9f;
+			Item.damage = 150;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 58;
+			Item.height = 58;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = 1;
+			Item.knockBack = 5;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = 9;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("DemiseSphere").Type;
+            Item.shootSpeed = 9f;
 		}
 
         public override bool AltFunctionUse(Player player)
@@ -43,27 +44,27 @@ Right Click to unleash demon blades that fall from the sky");
 
             if (player.altFunctionUse == 2)
             {
-                Item.staff[item.type] = false;
-                item.useStyle = 1;
-                item.noMelee = false;
-                item.shoot = mod.ProjectileType("DemiseBlade");
+                Item.staff[Item.type] = false;
+                Item.useStyle = 1;
+                Item.noMelee = false;
+                Item.shoot = Mod.Find<ModProjectile>("DemiseBlade").Type;
             }
             else
             {
-                Item.staff[item.type] = true;
-                item.useStyle = 5;
-                item.noMelee = true;
-                item.shoot = mod.ProjectileType("DemiseSphere");
+                Item.staff[Item.type] = true;
+                Item.useStyle = 5;
+                Item.noMelee = true;
+                Item.shoot = Mod.Find<ModProjectile>("DemiseSphere").Type;
             }
             return base.CanUseItem(player);
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
                 Vector2 vector12 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
-                float num75 = item.shootSpeed;
+                float num75 = Item.shootSpeed;
                 for (int num120 = 0; num120 < 3; num120++)
                 {
                     Vector2 vector2 = player.Center + new Vector2(-(float)Main.rand.Next(0, 401) * player.direction, -600f);
@@ -83,7 +84,7 @@ Right Click to unleash demon blades that fall from the sky");
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, mod.ProjectileType("DemiseBlade"), damage * 3 / 2, knockBack, Main.myPlayer);
+                    Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("DemiseBlade").Type, damage * 3 / 2, knockBack, Main.myPlayer);
                 }
             }
             else
@@ -91,7 +92,7 @@ Right Click to unleash demon blades that fall from the sky");
                 for (int i = 0; i < 3; i++)
                 {
                     Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("DemiseSphere"), damage, knockBack, player.whoAmI);
+                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DemiseSphere").Type, damage, knockBack, player.whoAmI);
                 }
             }
             return false;
@@ -101,9 +102,9 @@ Right Click to unleash demon blades that fall from the sky");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(77, 20, 102);
+                    line2.OverrideColor = new Color(77, 20, 102);
                 }
             }
         }

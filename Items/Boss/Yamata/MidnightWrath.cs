@@ -12,28 +12,28 @@ namespace AAMod.Items.Boss.Yamata
         public override void SetDefaults()
         {
 
-            item.damage = 130;
-            item.ranged = true;
-            item.width = 20;
-            item.height = 20;
-            item.useTime = 8;
-            item.useAnimation = 8;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-            item.knockBack = 0;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.shootSpeed = 10f;
-            item.shoot = mod.ProjectileType("MidnightWrath");
-            item.UseSound = SoundID.Item1;
-            item.autoReuse = true;
-            item.noMelee = true;
-            item.rare = 9; AARarity = 13;
+            Item.damage = 130;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 20;
+            Item.height = 20;
+            Item.useTime = 8;
+            Item.useAnimation = 8;
+            Item.noUseGraphic = true;
+            Item.useStyle = 1;
+            Item.knockBack = 0;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.shootSpeed = 10f;
+            Item.shoot = Mod.Find<ModProjectile>("MidnightWrath").Type;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.rare = 9; AARarity = 13;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Midnight's Wrath");
-            Tooltip.SetDefault("Non-consumable");
+            // DisplayName.SetDefault("Midnight's Wrath");
+            // Tooltip.SetDefault("Non-consumable");
         }
 
 
@@ -41,23 +41,23 @@ namespace AAMod.Items.Boss.Yamata
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13; ;
+                    line2.OverrideColor = AAColor.Rarity13; ;
                 }
             }
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -70,13 +70,12 @@ namespace AAMod.Items.Boss.Yamata
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "DarkmatterKunai", 999);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

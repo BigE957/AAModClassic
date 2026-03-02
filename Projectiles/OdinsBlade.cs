@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,43 +14,43 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 34;
-            projectile.height = 34;
-            projectile.aiStyle = -1;
-            projectile.ranged = true;
-            projectile.penetrate = 3;
-            projectile.light = 0.5f;
-            projectile.friendly = true;
-            projectile.extraUpdates = 1;
-            projectile.scale *= .8f;
+            Projectile.width = 34;
+            Projectile.height = 34;
+            Projectile.aiStyle = -1;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 3;
+            Projectile.light = 0.5f;
+            Projectile.friendly = true;
+            Projectile.extraUpdates = 1;
+            Projectile.scale *= .8f;
         }
 
         public override void AI()
         {
-            if (projectile.localAI[1] > 7f)
+            if (Projectile.localAI[1] > 7f)
             {
-                int num309 = Dust.NewDust(new Vector2(projectile.position.X - projectile.velocity.X * 4f + 2f, projectile.position.Y + 2f - projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), projectile.oldVelocity.X, projectile.oldVelocity.Y, 100, default, 1.25f);
+                int num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
                 Main.dust[num309].velocity *= -0.25f;
-                num309 = Dust.NewDust(new Vector2(projectile.position.X - projectile.velocity.X * 4f + 2f, projectile.position.Y + 2f - projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), projectile.oldVelocity.X, projectile.oldVelocity.Y, 100, default, 1.25f);
+                num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
                 Main.dust[num309].velocity *= -0.25f;
-                Main.dust[num309].position -= projectile.velocity * 0.5f;
+                Main.dust[num309].position -= Projectile.velocity * 0.5f;
             }
 
-            AIThrownWeapon(projectile, ref projectile.ai, false, 40);
+            AIThrownWeapon(Projectile, ref Projectile.ai, false, 40);
 
-            projectile.ai[1]++;
+            Projectile.ai[1]++;
 
-            if (projectile.ai[0] % 5 == 0)
+            if (Projectile.ai[0] % 5 == 0)
             {
-                int p = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("AxisSnow"), projectile.damage, projectile.knockBack * 0.55f, projectile.owner, 0f, Main.rand.Next(3));
-                Main.projectile[p].melee = false;
-                Main.projectile[p].ranged = true;
-                projectile.netUpdate = true;
+                int p = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AxisSnow").Type, Projectile.damage, Projectile.knockBack * 0.55f, Projectile.owner, 0f, Main.rand.Next(3));
+                Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[p].DamageType = DamageClass.Ranged;
+                Projectile.netUpdate = true;
             }
 
-            if (projectile.velocity.Y > 16f)
+            if (Projectile.velocity.Y > 16f)
             {
-                projectile.velocity.Y = 16f;
+                Projectile.velocity.Y = 16f;
                 return;
             }
         }
@@ -67,25 +69,25 @@ namespace AAMod.Projectiles
             if (p.velocity.Y > maxSpeedY) { p.velocity.Y = maxSpeedY; }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
-            Main.PlaySound(SoundID.Item10, projectile.position);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num794 = 4; num794 < 31; num794++)
             {
-                float num795 = projectile.oldVelocity.X * (30f / num794);
-                float num796 = projectile.oldVelocity.Y * (30f / num794);
-                int num797 = Dust.NewDust(new Vector2(projectile.oldPosition.X - num795, projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), projectile.oldVelocity.X, projectile.oldVelocity.Y, 27, default, 1.8f);
+                float num795 = Projectile.oldVelocity.X * (30f / num794);
+                float num796 = Projectile.oldVelocity.Y * (30f / num794);
+                int num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.8f);
                 Main.dust[num797].noGravity = true;
                 Main.dust[num797].velocity *= 0.5f;
-                num797 = Dust.NewDust(new Vector2(projectile.oldPosition.X - num795, projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), projectile.oldVelocity.X, projectile.oldVelocity.Y, 27, default, 1.4f);
+                num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.4f);
                 Main.dust[num797].velocity *= 0.05f;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, .5f, 1f, 10, false, 0f, 0f, new Color(35, 23, 87));
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, Color.White, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, new Color(35, 23, 87));
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, false);
             return false;
         }
     }

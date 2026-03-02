@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Toad
 {
@@ -7,21 +8,21 @@ namespace AAMod.Items.Boss.Toad
         
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treasure Bag");
+			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 
 		public override void SetDefaults()
 		{
-			item.maxStack = 999;
-			item.consumable = true;
-			item.width = 32;
-			item.height = 36;
-			item.rare = 11;
-			item.expert = true; item.expertOnly = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.width = 32;
+			Item.height = 36;
+			Item.rare = 11;
+			Item.expert = true; Item.expertOnly = true;
 		}
 
-        public override int BossBagNPC => mod.NPCType("TruffleToad");
+        public override int BossBagNPC => Mod.Find<ModNPC>("TruffleToad").Type;
 
         public override bool CanRightClick()
 		{
@@ -32,7 +33,7 @@ namespace AAMod.Items.Boss.Toad
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(mod.ItemType("ToadMask"));
+                player.QuickSpawnItem(Mod.Find<ModItem>("ToadMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -41,8 +42,8 @@ namespace AAMod.Items.Boss.Toad
             }
             string[] lootTable = { "MushrockStaff", "ToadTongue", "Todegun" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
-            player.QuickSpawnItem(mod.ItemType("ToadLeg"));
+            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Mod.Find<ModItem>("ToadLeg").Type);
         }
 	}
 }

@@ -8,15 +8,15 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/Projectiles/Cloud";
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Starfury);
-            projectile.penetrate = 14;  
-            projectile.width = 14;
-            projectile.height = 18;
+            Projectile.CloneDefaults(ProjectileID.Starfury);
+            Projectile.penetrate = 14;  
+            Projectile.width = 14;
+            Projectile.height = 18;
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("CGP");
+            // DisplayName.SetDefault("CGP");
         }
 
 

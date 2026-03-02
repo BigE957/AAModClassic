@@ -1,7 +1,9 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Summoning
 {
@@ -9,35 +11,35 @@ namespace AAMod.Items.Summoning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dragon's Pike");
-            Tooltip.SetDefault(@"Summons a fire dragon to fight for you");
+            // DisplayName.SetDefault("Dragon's Pike");
+            // Tooltip.SetDefault(@"Summons a fire dragon to fight for you");
         }
 
         public override void SetDefaults()
         {
-            item.mana = 20;
-            item.damage = 50;
-            item.useStyle = 1;
-            item.shootSpeed = 10f;
-            item.shoot = mod.ProjectileType("DragonHead");
-            item.width = 64;
-            item.height = 64;
-            item.UseSound = SoundID.Item44;
-            item.rare = 8;
-            item.useAnimation = 24;
-            item.useTime = 24;
-            item.noMelee = true;
-            item.knockBack = 2f;
-            item.buffType = mod.BuffType("DragonMinion");
-            item.summon = true;
-            item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.mana = 20;
+            Item.damage = 50;
+            Item.useStyle = 1;
+            Item.shootSpeed = 10f;
+            Item.shoot = Mod.Find<ModProjectile>("DragonHead").Type;
+            Item.width = 64;
+            Item.height = 64;
+            Item.UseSound = SoundID.Item44;
+            Item.rare = 8;
+            Item.useAnimation = 24;
+            Item.useTime = 24;
+            Item.noMelee = true;
+            Item.knockBack = 2f;
+            Item.buffType = Mod.Find<ModBuff>("DragonMinion").Type;
+            Item.DamageType = DamageClass.Summon;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
         }
 		
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 3600, true);
+				player.AddBuff(Item.buffType, 3600, true);
 			}
 		}
 
@@ -56,7 +58,7 @@ namespace AAMod.Items.Summoning
             return true;
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {
@@ -77,8 +79,8 @@ namespace AAMod.Items.Summoning
                 Projectile proj = Main.projectile[i];
                 if (proj.active && proj.owner == player.whoAmI)
                 {
-                    if (headCheck == -1 && proj.type == mod.ProjectileType("DragonHead")) headCheck = i;
-                    if (tailCheck == -1 && proj.type == mod.ProjectileType("DragonTail")) tailCheck = i;
+                    if (headCheck == -1 && proj.type == Mod.Find<ModProjectile>("DragonHead").Type) headCheck = i;
+                    if (tailCheck == -1 && proj.type == Mod.Find<ModProjectile>("DragonTail").Type) tailCheck = i;
                     if (headCheck != -1 && tailCheck != -1) break;
                 }
             }
@@ -86,17 +88,17 @@ namespace AAMod.Items.Summoning
             //initial spawn
             if (headCheck == -1 && tailCheck == -1)
             {
-                int current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("DragonHead"), damage, knockBack, player.whoAmI, 0f, 0f);
+                int current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonHead").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 
                 int previous = 0;
 
                 for (int i = 0; i < 1; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("DragonBody"), damage, knockBack, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockBack, player.whoAmI, current, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, mod.ProjectileType("DragonTail"), damage, knockBack, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonTail").Type, damage, knockBack, player.whoAmI, current, 0f);
 
                 Main.projectile[previous].localAI[1] = current;
                 Main.projectile[previous].netUpdate = true;
@@ -109,7 +111,7 @@ namespace AAMod.Items.Summoning
 
                 for (int i = 0; i < 4; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("DragonBody"), damage, knockBack, player.whoAmI,
+                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockBack, player.whoAmI,
                         Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                     previous = current;

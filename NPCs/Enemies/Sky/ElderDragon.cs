@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAMod.NPCs.Enemies.Sky
 {
@@ -9,68 +10,68 @@ namespace AAMod.NPCs.Enemies.Sky
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Elder Dragon");
-            Main.npcFrameCount[npc.type] = 5;
+            // DisplayName.SetDefault("Elder Dragon");
+            Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
         {
-            npc.width = 38;
-            npc.height = 38;
-            npc.aiStyle = 0;
-            npc.damage = 30;
-            npc.defense = 30;
-            npc.lifeMax = 800;
-            npc.HitSound = SoundID.DD2_WyvernHurt;
-            npc.DeathSound = SoundID.DD2_WyvernDeath;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
-            npc.knockBackResist = 0.05f;
-            npc.npcSlots = 0f;
-            npc.lavaImmune = true;
-            npc.netAlways = true;
-            banner = npc.type;
-			bannerItem = mod.ItemType("ElderDragonBanner");
+            NPC.width = 38;
+            NPC.height = 38;
+            NPC.aiStyle = 0;
+            NPC.damage = 30;
+            NPC.defense = 30;
+            NPC.lifeMax = 800;
+            NPC.HitSound = SoundID.DD2_WyvernHurt;
+            NPC.DeathSound = SoundID.DD2_WyvernDeath;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.knockBackResist = 0.05f;
+            NPC.npcSlots = 0f;
+            NPC.lavaImmune = true;
+            NPC.netAlways = true;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("ElderDragonBanner").Type;
         }
 
         public override void AI()
         {
-            BaseAI.AIFlier(npc, ref npc.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
-            Player player = Main.player[npc.target];
-            if (player.Center.X > npc.Center.X)
+            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
+            Player player = Main.player[NPC.target];
+            if (player.Center.X > NPC.Center.X)
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
             else
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
-            npc.frameCounter++;
-            if (npc.frameCounter >= 10)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 96;
-                if (npc.frame.Y > (96 * 3))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += 96;
+                if (NPC.frame.Y > (96 * 3))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.playerSafe || !Main.hardMode)
+            if (spawnInfo.PlayerSafe || !Main.hardMode)
             {
                 return 0f;
             }
             return SpawnCondition.Sky.Chance * 0.10f;
         }
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
             target.AddBuff(BuffID.OnFire, 180);
         }
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DragonSpirit"));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonSpirit").Type);
         }
     }
 }

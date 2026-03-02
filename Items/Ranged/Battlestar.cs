@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,30 +11,30 @@ namespace AAMod.Items.Ranged
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Battlestar");
-			Tooltip.SetDefault("Turns bullets into chlorophyte bullets!"
-				+ "\n32% chance not to consume ammo.");
+			// DisplayName.SetDefault("Battlestar");
+			/* Tooltip.SetDefault("Turns bullets into chlorophyte bullets!"
+				+ "\n32% chance not to consume ammo."); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 17;
-			item.ranged = true;
-			item.width = 52;
-			item.height = 24;
-			item.useAnimation = 3;
-			item.useTime = 3;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 14, 50, 0);
-			item.rare = 8;
-			item.UseSound = SoundID.Item40;
-			item.autoReuse = true;
-			item.shoot = 10;
-			item.shootSpeed = 16f;
-			item.useAmmo = AmmoID.Bullet;			
-			item.crit = 3;
+			Item.damage = 17;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 52;
+			Item.height = 24;
+			Item.useAnimation = 3;
+			Item.useTime = 3;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 14, 50, 0);
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item40;
+			Item.autoReuse = true;
+			Item.shoot = 10;
+			Item.shootSpeed = 16f;
+			Item.useAmmo = AmmoID.Bullet;			
+			Item.crit = 3;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
@@ -42,19 +43,18 @@ namespace AAMod.Items.Ranged
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShroomiteBar, 14);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
-        public override bool ConsumeAmmo(Player player)
+        public override bool CanConsumeAmmo(Item ammo, Player player)
 		{
 			return Main.rand.NextFloat() >= .32f;
 		}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (type == ProjectileID.Bullet) // or ProjectileID.WoodenArrowFriendly
 			{

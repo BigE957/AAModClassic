@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,36 +12,36 @@ namespace AAMod.Items.Dev
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Umbral Reaper");
-            Tooltip.SetDefault("Left clicking shoots homing spears \n" + "Right clicking shoots a wave of void energy \n" + "'I never touched Valkyrie' \n'" + "-CMD");
+            // DisplayName.SetDefault("Umbral Reaper");
+            // Tooltip.SetDefault("Left clicking shoots homing spears \n" + "Right clicking shoots a wave of void energy \n" + "'I never touched Valkyrie' \n'" + "-CMD");
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 130;
-            item.mana = 8;
-			item.magic = true;
-			item.width = 72;
-			item.height = 72;
-			item.useTime = 26;
-			item.useAnimation = 26;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 100000;
-			item.rare = 9;
-			item.UseSound = SoundID.Item43;
-			item.autoReuse = true;
-            item.noMelee = true;
-            item.shootSpeed = 12f;
+			Item.damage = 130;
+            Item.mana = 8;
+			Item.DamageType = DamageClass.Magic;
+			Item.width = 72;
+			Item.height = 72;
+			Item.useTime = 26;
+			Item.useAnimation = 26;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = 100000;
+			Item.rare = 9;
+			Item.UseSound = SoundID.Item43;
+			Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.shootSpeed = 12f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = new Color(55, 20, 122);
+                    line2.OverrideColor = new Color(55, 20, 122);
                 }
             }
         }
@@ -55,20 +56,20 @@ namespace AAMod.Items.Dev
 
             if (player.altFunctionUse == 2)
             {
-                Item.staff[item.type] = false;
-                item.useStyle = 1;
-                item.shoot = mod.ProjectileType("VoidWave");
+                Item.staff[Item.type] = false;
+                Item.useStyle = 1;
+                Item.shoot = Mod.Find<ModProjectile>("VoidWave").Type;
             }
             else
             {
-                Item.staff[item.type] = true;
-                item.useStyle = 5;
-                item.shoot = mod.ProjectileType("VoidSpear");
+                Item.staff[Item.type] = true;
+                Item.useStyle = 5;
+                Item.shoot = Mod.Find<ModProjectile>("VoidSpear").Type;
             }
             return base.CanUseItem(player);
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.altFunctionUse == 2)
             {

@@ -9,19 +9,19 @@ namespace AAMod.Items.Armor.Dread
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dread Moon Hakama");
-			Tooltip.SetDefault(@"50% increased movement speed
+			// DisplayName.SetDefault("Dread Moon Hakama");
+			/* Tooltip.SetDefault(@"50% increased movement speed
 25% decreased ammo consumption
-The abyssal wrath of the Mire rests in this armor");
+The abyssal wrath of the Mire rests in this armor"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 16;
-			item.value = 3000000;
-			item.defense = 34;
-            item.rare = 9;
+			Item.width = 22;
+			Item.height = 16;
+			Item.value = 3000000;
+			Item.defense = 34;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -29,9 +29,9 @@ The abyssal wrath of the Mire rests in this armor");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -45,13 +45,12 @@ The abyssal wrath of the Mire rests in this armor");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "EventideAbyssium", 18);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "DepthHakama", 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

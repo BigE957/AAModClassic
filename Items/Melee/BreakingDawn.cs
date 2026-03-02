@@ -10,26 +10,26 @@ namespace AAMod.Items.Melee
         
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Breaking Dawn");
+			// DisplayName.SetDefault("Breaking Dawn");
         }
 
 		public override void SetDefaults()
 		{
             
-			item.damage = 90;
-			item.melee = true;
-			item.width = 60;
-			item.height = 60;
-			item.useTime = 15;
-            item.shoot = mod.ProjectileType("MorningStar");
-            item.shootSpeed = 10f;
-            item.useAnimation = 15;
-			item.useStyle = 1;
-			item.knockBack = 3;
-			item.value = 500000;
-			item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
-			item.autoReuse = true;
-            item.rare = 9;
+			Item.damage = 90;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 60;
+			Item.height = 60;
+			Item.useTime = 15;
+            Item.shoot = Mod.Find<ModProjectile>("MorningStar").Type;
+            Item.shootSpeed = 10f;
+            Item.useAnimation = 15;
+			Item.useStyle = 1;
+			Item.knockBack = 3;
+			Item.value = 500000;
+			Item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
+			Item.autoReuse = true;
+            Item.rare = 9;
             AARarity = 12;
         }
 
@@ -37,9 +37,9 @@ namespace AAMod.Items.Melee
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity12;
+                    line2.OverrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -47,12 +47,11 @@ namespace AAMod.Items.Melee
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "Stardust", 5);
             recipe.AddIngredient(null, "RadiumBar", 15);
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)

@@ -10,18 +10,18 @@ namespace AAMod.Items.Armor.AncientGold
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Gold Chainmail");
-            Tooltip.SetDefault(@"You have chance to get gold coins in stoneblocks");
+            // DisplayName.SetDefault("Ancient Gold Chainmail");
+            // Tooltip.SetDefault(@"You have chance to get gold coins in stoneblocks");
         }
 
         public override void SetDefaults()
 		{
-			item.width = 18;
-            item.height = 18;
-            item.defense = 4;
-            item.value = 10000;
-            item.expert = true;
-            item.expertOnly = true;
+			Item.width = 18;
+            Item.height = 18;
+            Item.defense = 4;
+            Item.value = 10000;
+            Item.expert = true;
+            Item.expertOnly = true;
 		}
 
         public override void UpdateEquip(Player player)
@@ -31,7 +31,7 @@ namespace AAMod.Items.Armor.AncientGold
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == ItemID.AncientGoldHelmet && legs.type == mod.ItemType("AncientGoldLeg");
+			return head.type == ItemID.AncientGoldHelmet && legs.type == Mod.Find<ModItem>("AncientGoldLeg").Type;
         }
 
         public override void UpdateArmorSet(Player player)

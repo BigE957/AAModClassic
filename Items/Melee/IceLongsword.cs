@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,39 +9,38 @@ namespace AAMod.Items.Melee   //where is located
         public override void SetDefaults()
         {
 
-            item.damage = 26;          
-            item.melee = true;            
-            item.width = 62;             
-            item.height = 64;             
-            item.useTime = 23;         
-            item.useAnimation = 23;     
-            item.useStyle = 1;        
-            item.knockBack = 2;     
-            item.value = 8000;        
-            item.rare = 3;
-            item.UseSound = SoundID.Item1;      
-            item.autoReuse = true;   
-            item.useTurn = false;
-            item.shoot = mod.ProjectileType("IceChunk");
-            item.shootSpeed = 14f;                        
+            Item.damage = 26;          
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 62;             
+            Item.height = 64;             
+            Item.useTime = 23;         
+            Item.useAnimation = 23;     
+            Item.useStyle = 1;        
+            Item.knockBack = 2;     
+            Item.value = 8000;        
+            Item.rare = 3;
+            Item.UseSound = SoundID.Item1;      
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+            Item.shoot = Mod.Find<ModProjectile>("IceChunk").Type;
+            Item.shootSpeed = 14f;                        
         }
 
     public override void SetStaticDefaults()
     {
-      DisplayName.SetDefault("Ice Longsword");
-      Tooltip.SetDefault("Chuck literal ice at your foes instead of that wimpy little snow bolt");
+      // DisplayName.SetDefault("Ice Longsword");
+      // Tooltip.SetDefault("Chuck literal ice at your foes instead of that wimpy little snow bolt");
     }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);      
+            Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.IceBlade, 1);  
 			recipe.AddIngredient(ItemID.IceBlock, 50);
 			recipe.AddIngredient(ItemID.SnowBlock, 100);
             recipe.AddIngredient(null, "SnowMana", 3);
             recipe.AddTile(TileID.Anvils); 
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
 
         }
     }

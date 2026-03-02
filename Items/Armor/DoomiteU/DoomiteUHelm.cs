@@ -12,43 +12,42 @@ namespace AAMod.Items.Armor.DoomiteU
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Dark Doomite Helmet");
-            Tooltip.SetDefault(@"Increases minion damage by 5%");
+			// DisplayName.SetDefault("Dark Doomite Helmet");
+            // Tooltip.SetDefault(@"Increases minion damage by 5%");
         }
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 24;
-            item.value = Item.sellPrice(0, 0, 5, 0);
-            item.rare = 3;
-            item.defense = 3;
+			Item.width = 22;
+			Item.height = 24;
+            Item.value = Item.sellPrice(0, 0, 5, 0);
+            Item.rare = 3;
+            Item.defense = 3;
         }
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType("DoomiteUPlate") && legs.type == mod.ItemType("DoomiteUGreaves");
+			return body.type == Mod.Find<ModItem>("DoomiteUPlate").Type && legs.type == Mod.Find<ModItem>("DoomiteUGreaves").Type;
 		}
 
 		public override void UpdateArmorSet(Player player)
 		{
 		    player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DoomiteUHelmBonus");
             player.maxMinions += 2;
-			player.minionKB += 1f;
+			player.GetKnockback(DamageClass.Summon).Base += 1f;
         }
 		
 		public override void UpdateEquip(Player player)
 		{
-            player.minionDamage += 0.05f;
+            player.GetDamage(DamageClass.Summon) += 0.05f;
 		}
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "DoomiteScrap", 6);
             recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

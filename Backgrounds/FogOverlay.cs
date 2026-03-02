@@ -74,7 +74,7 @@ namespace AAMod.Backgrounds
             Texture2D fog = mod.GetTexture("Backgrounds/fog");
 
             bool inMire = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
-            if (BasePlayer.HasAccessory(player, AAMod.instance.ItemType("Lantern"), true, false) || AAWorld.downedYamata) inMire = false;
+            if (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AAWorld.downedYamata) inMire = false;
 
             fogOffsetX += 1;
             if (fogOffsetX >= fog.Width) fogOffsetX = 0;

@@ -7,19 +7,19 @@ namespace AAMod.Buffs
 {
     public class DarkCurse : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Curse");
-            Description.SetDefault("You deal significanlty less damage!");
+            // DisplayName.SetDefault("Dark Curse");
+            // Description.SetDefault("You deal significanlty less damage!");
             Main.debuff[Type] = true;
-            longerExpertDebuff = false;
+            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
         }
     }
     public class DarkCurseEffect : GlobalNPC
     {
         public override void DrawEffects(NPC npc, ref Color drawColor)
         {
-            if (npc.HasBuff(mod.BuffType("DarkCurse")))
+            if (npc.HasBuff(Mod.Find<ModBuff>("DarkCurse").Type))
             {
                 drawColor.R = (byte)(drawColor.R * .2f);
                 drawColor.G = (byte)(drawColor.G * .2f);
@@ -27,9 +27,9 @@ namespace AAMod.Buffs
             }
 
         }
-        public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
-            if (npc.HasBuff(mod.BuffType("DarkCurse")))
+            if (npc.HasBuff(Mod.Find<ModBuff>("DarkCurse").Type))
             {
                 damage = (int)(damage * .5f);
             }

@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.Enums;
 using Terraria.Localization;
@@ -12,7 +14,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
     public class BogwoodDresser : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -24,7 +26,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.Origin = new Point16(1, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-			TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
 			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -32,42 +34,42 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Bogwood Dresser");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Bogwood Dresser");
             AddMapEntry(new Color(12, 62, 205), name);
-            dustType = mod.DustType("BogwoodDust");
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.Dressers };
-			dresser = "Bogwood Dresser";
-			dresserDrop = mod.ItemType("BogwoodDresser");
+            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.Dressers };
+			dresser/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Bogwood Dresser";
+			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("BogwoodDresser").Type;
 		}
 
-		public override bool HasSmartInteract()
+		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}
 
-		public override bool NewRightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
-			if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY == 0)
+			if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY == 0)
 			{
 				Main.CancelClothesWindow(true);
 				Main.mouseRightRelease = false;
-				int left = Main.tile[Player.tileTargetX, Player.tileTargetY].frameX / 18;
+				int left = Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameX / 18;
 				left %= 3;
 				left = Player.tileTargetX - left;
-				int top = Player.tileTargetY - Main.tile[Player.tileTargetX, Player.tileTargetY].frameY / 18;
+				int top = Player.tileTargetY - Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY / 18;
 				if (player.sign > -1)
 				{
-					Main.PlaySound(SoundID.MenuClose);
+					SoundEngine.PlaySound(SoundID.MenuClose);
 					player.sign = -1;
 					Main.editSign = false;
 					Main.npcChatText = string.Empty;
 				}
 				if (Main.editChest)
 				{
-					Main.PlaySound(SoundID.MenuTick);
+					SoundEngine.PlaySound(SoundID.MenuTick);
 					Main.editChest = false;
 					Main.npcChatText = string.Empty;
 				}
@@ -82,7 +84,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 					{
 						player.chest = -1;
 						Recipe.FindRecipes();
-						Main.PlaySound(SoundID.MenuClose);
+						SoundEngine.PlaySound(SoundID.MenuClose);
 					}
 					else
 					{
@@ -101,14 +103,14 @@ namespace AAMod.Tiles.Furniture.Bogwood
 						{
 							player.chest = -1;
 							Recipe.FindRecipes();
-							Main.PlaySound(SoundID.MenuClose);
+							SoundEngine.PlaySound(SoundID.MenuClose);
 						}
 						else if (num213 != player.chest && player.chest == -1)
 						{
 							player.chest = num213;
 							Main.playerInventory = true;
 							Main.recBigList = false;
-							Main.PlaySound(SoundID.MenuOpen);
+							SoundEngine.PlaySound(SoundID.MenuOpen);
 							player.chestX = left;
 							player.chestY = top;
 						}
@@ -117,7 +119,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 							player.chest = num213;
 							Main.playerInventory = true;
 							Main.recBigList = false;
-							Main.PlaySound(SoundID.MenuTick);
+							SoundEngine.PlaySound(SoundID.MenuTick);
 							player.chestX = left;
 							player.chestY = top;
 						}
@@ -130,8 +132,8 @@ namespace AAMod.Tiles.Furniture.Bogwood
 				Main.playerInventory = false;
 				player.chest = -1;
 				Recipe.FindRecipes();
-				Main.dresserX = Player.tileTargetX;
-				Main.dresserY = Player.tileTargetY;
+				Main.interactedDresserTopLeftX = Player.tileTargetX;
+				Main.interactedDresserTopLeftY = Player.tileTargetY;
 				Main.OpenClothesWindow();
 			}
 			return true;
@@ -143,39 +145,39 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 			int left = Player.tileTargetX;
 			int top = Player.tileTargetY;
-			left -= tile.frameX % 54 / 18;
-			if (tile.frameY % 36 != 0)
+			left -= tile.TileFrameX % 54 / 18;
+			if (tile.TileFrameY % 36 != 0)
 			{
 				top--;
 			}
 			int chestIndex = Chest.FindChest(left, top);
-			player.showItemIcon2 = -1;
+			player.cursorItemIconID = -1;
 			if (chestIndex < 0)
 			{
-				player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+				player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
 			}
 			else
 			{
 				if (Main.chest[chestIndex].name != "")
 				{
-					player.showItemIconText = Main.chest[chestIndex].name;
+					player.cursorItemIconText = Main.chest[chestIndex].name;
 				}
 				else
 				{
-					player.showItemIconText = chest;
+					player.cursorItemIconText = chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.showItemIconText == chest)
+				if (player.cursorItemIconText == chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.showItemIcon2 = mod.ItemType("ExampleDresser");
-					player.showItemIconText = "";
+					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
+					player.cursorItemIconText = "";
 				}
 			}
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			if (player.showItemIconText == "")
+			player.cursorItemIconEnabled = true;
+			if (player.cursorItemIconText == "")
 			{
-				player.showItemIcon = false;
-				player.showItemIcon2 = 0;
+				player.cursorItemIconEnabled = false;
+				player.cursorItemIconID = 0;
 			}
 		}
 
@@ -185,38 +187,38 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 			int left = Player.tileTargetX;
 			int top = Player.tileTargetY;
-			left -= tile.frameX % 54 / 18;
-			if (tile.frameY % 36 != 0)
+			left -= tile.TileFrameX % 54 / 18;
+			if (tile.TileFrameY % 36 != 0)
 			{
 				top--;
 			}
 			int num138 = Chest.FindChest(left, top);
-			player.showItemIcon2 = -1;
+			player.cursorItemIconID = -1;
 			if (num138 < 0)
 			{
-				player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+				player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
 			}
 			else
 			{
 				if (Main.chest[num138].name != "")
 				{
-					player.showItemIconText = Main.chest[num138].name;
+					player.cursorItemIconText = Main.chest[num138].name;
 				}
 				else
 				{
-					player.showItemIconText = chest;
+					player.cursorItemIconText = chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.showItemIconText == chest)
+				if (player.cursorItemIconText == chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.showItemIcon2 = mod.ItemType("BogwoodDresser");
-					player.showItemIconText = "";
+					player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDresser").Type;
+					player.cursorItemIconText = "";
 				}
 			}
 			player.noThrow = 2;
-			player.showItemIcon = true;
-			if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY > 0)
+			player.cursorItemIconEnabled = true;
+			if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY > 0)
 			{
-				player.showItemIcon2 = ItemID.FamiliarShirt;
+				player.cursorItemIconID = ItemID.FamiliarShirt;
 			}
 		}
 
@@ -227,7 +229,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, dresserDrop);
+			Item.NewItem(i * 16, j * 16, 48, 32, ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */);
 			Chest.DestroyChest(i, j);
 		}
 	}

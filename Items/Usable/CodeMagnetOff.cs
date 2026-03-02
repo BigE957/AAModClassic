@@ -8,17 +8,17 @@ namespace AAMod.Items.Usable
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Binary Code Magnet");
-			Tooltip.SetDefault(@"Pulls items to you by moving its code closer to you
-Right click the item to turn it on");
+            // DisplayName.SetDefault("Binary Code Magnet");
+			/* Tooltip.SetDefault(@"Pulls items to you by moving its code closer to you
+Right click the item to turn it on"); */
 		}
 
         public override void SetDefaults()
         {
-            item.width = item.height = 16;
-            item.rare = 4;
-            item.maxStack = 1;
-			item.value = 8000;
+            Item.width = Item.height = 16;
+            Item.rare = 4;
+            Item.maxStack = 1;
+			Item.value = 8000;
         }
 
         public override bool CanRightClick()
@@ -33,12 +33,11 @@ Right click the item to turn it on");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DoomiteScrap", 20);
             recipe.AddIngredient(null, "Doomite", 20);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

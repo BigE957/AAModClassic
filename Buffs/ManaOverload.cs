@@ -5,14 +5,14 @@ namespace AAMod.Buffs
 {
     public class ManaOverload : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mana Overload");
-            Description.SetDefault("Double magic attack speed");
+            // DisplayName.SetDefault("Mana Overload");
+            // Description.SetDefault("Double magic attack speed");
             Main.debuff[Type] = false;
             Main.pvpBuff[Type] = false;
             Main.buffNoSave[Type] = true;
-            longerExpertDebuff = false;
+            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
         }
         
     }
@@ -20,23 +20,23 @@ namespace AAMod.Buffs
     {
         public override void PostItemCheck()
         {
-            if (player.HasBuff(mod.BuffType("ManaOverload")) && player.HeldItem.magic)
+            if (Player.HasBuff(Mod.Find<ModBuff>("ManaOverload").Type) && Player.HeldItem.CountsAsClass(DamageClass.Magic))
             {
-                if (player.itemAnimation > 0)
+                if (Player.itemAnimation > 0)
                 {
-                    player.itemAnimation--;
+                    Player.itemAnimation--;
                 }
                 else
                 {
-                    player.itemAnimation = 0;
+                    Player.itemAnimation = 0;
                 }
-                if (player.itemTime > 0)
+                if (Player.itemTime > 0)
                 {
-                    player.itemTime--;
+                    Player.itemTime--;
                 }
                 else
                 {
-                    player.itemTime = 0;
+                    Player.itemTime = 0;
                 }
             }
         }

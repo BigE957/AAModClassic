@@ -4,22 +4,23 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
 using Terraria.Audio;
+using Terraria.GameContent;
 
 namespace AAMod
 {
     public abstract class AAProjectile : ParentProjectile
     {
-        public override bool CloneNewInstances => true;
+        protected override bool CloneNewInstances => true;
 
         public string name
         {
             get
             {
-                return projectile.Name;
+                return Projectile.Name;
             }
             set
             {
-                projectile.Name = value;
+                Projectile.Name = value;
             }
         }
 
@@ -55,29 +56,29 @@ namespace AAMod
                 OnSpawnEffects();
                 if (spawnSound != null)
                 {
-                    Main.PlaySound(spawnSound, (int)projectile.Center.X, (int)projectile.Center.Y);
+                    SoundEngine.PlaySound(spawnSound, (int)Projectile.Center.X, (int)Projectile.Center.Y);
                 }
                 firstTick = true;
             }
             return true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color dColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            if (lightColor != null) BaseDrawing.AddLight(projectile.Center, (Color)lightColor, lightIntensity);
+            if (lightColor != null) BaseDrawing.AddLight(Projectile.Center, (Color)lightColor, lightIntensity);
             if (drawCentered || drawCenteredX)
             {
-                Vector2 oldPos = projectile.position;
+                Vector2 oldPos = Projectile.position;
                 if (drawCenteredX)
                 {
-                    projectile.position.X += projectile.Center.X - projectile.position.X;
+                    Projectile.position.X += Projectile.Center.X - Projectile.position.X;
                 }
                 else
                 {
-                    projectile.position += projectile.Center - projectile.position;
+                    Projectile.position += Projectile.Center - Projectile.position;
                 }
-                BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, GetAlpha(dColor));
-                projectile.position = oldPos;
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, GetAlpha(dColor));
+                Projectile.position = oldPos;
                 return false;
             }
             return true;

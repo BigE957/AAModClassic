@@ -6,17 +6,17 @@ namespace AAMod.Buffs
 {
     public class SagOrbiter : ModBuff
 	{
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-			DisplayName.SetDefault("Sagittarius Orbiter");
-            Description.SetDefault("Summons an orbiter to fight for you");
+			// DisplayName.SetDefault("Sagittarius Orbiter");
+            // Description.SetDefault("Summons an orbiter to fight for you");
             Main.buffNoTimeDisplay[Type] = true;		
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[mod.ProjectileType("OrbiterMinion")] > 0)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("OrbiterMinion").Type] > 0)
 			{
 				modPlayer.SagOrbiter = true;
 			}

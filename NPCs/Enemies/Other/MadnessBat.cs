@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAMod.NPCs.Enemies.Other
 {
@@ -8,63 +9,63 @@ namespace AAMod.NPCs.Enemies.Other
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Madness Flier");
-            Main.npcFrameCount[npc.type] = 4;
+            // DisplayName.SetDefault("Madness Flier");
+            Main.npcFrameCount[NPC.type] = 4;
         }
         public override void SetDefaults()
         {
-            npc.width = 30;
-            npc.height = 30;
-            npc.damage = 5;
-            npc.defense = 4;
-            npc.lifeMax = 20;
-            npc.noGravity = true;
-            npc.noTileCollide = false;
-            npc.knockBackResist = 0.5f;
-            npc.value = Item.sellPrice(0, 0, 8, 30);
-            npc.npcSlots = 0f;
-            npc.lavaImmune = true;
-            npc.netAlways = true;
-            npc.aiStyle = 14;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            aiType = NPCID.CaveBat;
-            banner = npc.type;
-			bannerItem = mod.ItemType("MadnessBatBanner");
+            NPC.width = 30;
+            NPC.height = 30;
+            NPC.damage = 5;
+            NPC.defense = 4;
+            NPC.lifeMax = 20;
+            NPC.noGravity = true;
+            NPC.noTileCollide = false;
+            NPC.knockBackResist = 0.5f;
+            NPC.value = Item.sellPrice(0, 0, 8, 30);
+            NPC.npcSlots = 0f;
+            NPC.lavaImmune = true;
+            NPC.netAlways = true;
+            NPC.aiStyle = 14;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            AIType = NPCID.CaveBat;
+            Banner = NPC.type;
+			BannerItem = Mod.Find<ModItem>("MadnessBatBanner").Type;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 8)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 8)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.frame.Y > (frameHeight * 3))
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > (frameHeight * 3))
                 {
-                    npc.frameCounter = 0;
-                    npc.frame.Y = 0;
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
         public override void PostAI()
         {
-            Player player = Main.player[npc.target];
+            Player player = Main.player[NPC.target];
 
-            if (player.Center.X > npc.Center.X)
+            if (player.Center.X > NPC.Center.X)
             {
-                npc.spriteDirection = -1;
+                NPC.spriteDirection = -1;
             }
             else
             {
-                npc.spriteDirection = 1;
+                NPC.spriteDirection = 1;
             }
 
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.playerSafe || Main.hardMode)
+            if (spawnInfo.PlayerSafe || Main.hardMode)
             {
                 return 0f;
             }
@@ -75,24 +76,24 @@ namespace AAMod.NPCs.Enemies.Other
             return SpawnCondition.Underground.Chance * 0.1f;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             for (int k = 0; k < 3; k++)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hitDirection, -1f, 0);
             }
-            if (npc.life <= 0)
+            if (NPC.life <= 0)
             {
                 for (int k = 0; k < 15; k++)
                 {
-                    Dust.NewDust(npc.position, npc.width, npc.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hitDirection, -1f, 0);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hitDirection, -1f, 0);
                 }
             }
         }
 
-        public override void NPCLoot()
+        public override void OnKill()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MadnessFragment"), Main.rand.Next(1,2));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MadnessFragment").Type, Main.rand.Next(1,2));
         }
 
     }

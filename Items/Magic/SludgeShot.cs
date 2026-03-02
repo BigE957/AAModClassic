@@ -8,39 +8,38 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sludge Shot");
-			Tooltip.SetDefault("Eew! It's mossy!");
-			Item.staff[item.type] = true;
+			// DisplayName.SetDefault("Sludge Shot");
+			// Tooltip.SetDefault("Eew! It's mossy!");
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 24;
-			item.magic = true;
-			item.mana = 4;
-			item.width = 45;
-			item.height = 45;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 4;
-			item.value = 10000;
-			item.rare = 3;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("SludgeShotP");
-			item.shootSpeed = 12f;
+			Item.damage = 24;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 4;
+			Item.width = 45;
+			Item.height = 45;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 4;
+			Item.value = 10000;
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = Mod.Find<ModProjectile>("SludgeShotP").Type;
+			Item.shootSpeed = 12f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "AbyssiumBar", 10);
 			recipe.AddIngredient(null, "MirePod", 10);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

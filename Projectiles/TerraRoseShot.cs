@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -10,30 +11,30 @@ namespace AAMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.penetrate = 1;  
-            projectile.width = 18;
-            projectile.height = 18;
-            projectile.tileCollide = false;
-            projectile.friendly = true;
-			projectile.hostile = false;
-            projectile.timeLeft = 900;
-            projectile.magic = true;
+            Projectile.penetrate = 1;  
+            Projectile.width = 18;
+            Projectile.height = 18;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+			Projectile.hostile = false;
+            Projectile.timeLeft = 900;
+            Projectile.DamageType = DamageClass.Magic;
         }
 		
 		public override void AI()
 		{
 			if (Main.rand.NextFloat() < 0.5f)
 			{
-				Vector2 position = projectile.position;
-                int dustId = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width, projectile.height + 5, 107, projectile.velocity.X * 0.2f,
-                projectile.velocity.Y * 0.2f, 100);
+				Vector2 position = Projectile.position;
+                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 107, Projectile.velocity.X * 0.2f,
+                Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[dustId].noGravity = true;
 			}
 		}
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("TerraPetal");
+            // DisplayName.SetDefault("TerraPetal");
 		}
 
         public override Color? GetAlpha(Color lightColor)
@@ -41,9 +42,9 @@ namespace AAMod.Projectiles
             return AAColor.COLOR_WHITEFADE1;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, Main.projectileTexture[projectile.type], 0, projectile, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
     }

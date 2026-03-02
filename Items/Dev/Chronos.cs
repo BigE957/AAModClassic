@@ -9,39 +9,39 @@ namespace AAMod.Items.Dev
     {
         public override void SetDefaults()
         {
-            item.useTime = 25;
-            item.CloneDefaults(ItemID.Terrarian);
+            Item.useTime = 25;
+            Item.CloneDefaults(ItemID.Terrarian);
 
-            item.damage = 350;
-            item.value = 1000000;
-            item.rare = 11;
-            item.knockBack = 1;
-            item.channel = true;
-            item.useStyle = 5;
-            item.useAnimation = 18;
-            item.useTime = 18;
-            item.shoot = mod.ProjectileType("Chronos");
-            item.expert = true; item.expertOnly = true;
+            Item.damage = 350;
+            Item.value = 1000000;
+            Item.rare = 11;
+            Item.knockBack = 1;
+            Item.channel = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 18;
+            Item.useTime = 18;
+            Item.shoot = Mod.Find<ModProjectile>("Chronos").Type;
+            Item.expert = true; Item.expertOnly = true;
         }
 
-        public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= CalcDamageMultiplierFromTimeOfDay(item.damage);
+            mult *= CalcDamageMultiplierFromTimeOfDay(Item.damage);
         }
 
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Chilled, 1000);
         }
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chronos");
-            Tooltip.SetDefault("Time Teller EX\n" +
+            // DisplayName.SetDefault("Chronos");
+            /* Tooltip.SetDefault("Time Teller EX\n" +
                 "Damage changes based on time of day\n" +
                 "Damage is greatest at Midday and Midnight\n" +
                 "'Time is big ball of wibbly-wobbly timey-wimey yo-yos.'\n" +
-                "-Dallin");
+                "-Dallin"); */
         }
 
         public override void UpdateInventory(Player player)
@@ -52,11 +52,10 @@ namespace AAMod.Items.Dev
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "TimeTeller");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 
         public float CalcDamageMultiplierFromTimeOfDay(int baseDamage)

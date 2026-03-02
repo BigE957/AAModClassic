@@ -5,10 +5,10 @@ namespace AAMod.Buffs
 {
     public class Mudkip : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mudkip");
-			Description.SetDefault("So I heard you like mudkips");
+			// DisplayName.SetDefault("Mudkip");
+			// Description.SetDefault("So I heard you like mudkips");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}
@@ -17,10 +17,10 @@ namespace AAMod.Buffs
 		{
 			player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<AAPlayer>().Mudkip = true;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("Mudkip")] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[Mod.Find<ModProjectile>("Mudkip").Type] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.position.X + (player.width / 2), player.position.Y + player.height / 2, 0f, 0f, mod.ProjectileType("Mudkip"), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X + (player.width / 2), player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("Mudkip").Type, 0, 0f, player.whoAmI, 0f, 0f);
 			}
         }
 	}

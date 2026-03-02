@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
@@ -12,48 +13,48 @@ namespace AAMod.Projectiles.Zero
         public override void SetDefaults()
 		{
             
-            projectile.width = 64;
-            projectile.height = 64;
-            projectile.alpha = 100;
-            projectile.light = 0.2f;
-            projectile.aiStyle = 0;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.scale = 0.9f;
-            projectile.melee = true;
-            projectile.timeLeft = 300;
-            projectile.scale = .1f;
-            projectile.usesLocalNPCImmunity = true;
-            projectile.localNPCHitCooldown = -1;
+            Projectile.width = 64;
+            Projectile.height = 64;
+            Projectile.alpha = 100;
+            Projectile.light = 0.2f;
+            Projectile.aiStyle = 0;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.scale = 0.9f;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.timeLeft = 300;
+            Projectile.scale = .1f;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
         }
 		
         public override void AI()
         {
-            projectile.rotation += .05f;
-            if (projectile.ai[0] == 0f)
+            Projectile.rotation += .05f;
+            if (Projectile.ai[0] == 0f)
             {
-                projectile.scale += .02f;
-                if (projectile.scale >= 1)
+                Projectile.scale += .02f;
+                if (Projectile.scale >= 1)
                 {
-                    projectile.ai[0] = 1f;
+                    Projectile.ai[0] = 1f;
                 }
             }
-            if (projectile.ai[0] == 1f)
+            if (Projectile.ai[0] == 1f)
             {
-                projectile.scale -= .02f;
-                if (projectile.scale <= 0)
+                Projectile.scale -= .02f;
+                if (Projectile.scale <= 0)
                 {
-                    projectile.active = false;
+                    Projectile.active = false;
                 }
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = Main.projectileTexture[projectile.type];
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, -projectile.rotation, projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.Yamata, true);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, projectile.position, projectile.width, projectile.height, projectile.scale, projectile.rotation, projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.ZeroShield, true);
+            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.Yamata, true);
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.ZeroShield, true);
             return false;
         }
     }

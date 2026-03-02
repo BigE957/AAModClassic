@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,26 +9,25 @@ namespace AAMod.Items.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shark Launcher");
-			Tooltip.SetDefault("Launches latching deadly shark"
-			+"\nPiranha Gun EX");
+			// DisplayName.SetDefault("Shark Launcher");
+			/* Tooltip.SetDefault("Launches latching deadly shark"
+			+"\nPiranha Gun EX"); */
 		}
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.PiranhaGun);
-			item.damage = 500;
-			item.shoot = mod.ProjectileType("SharkLauncherP");
+			Item.CloneDefaults(ItemID.PiranhaGun);
+			Item.damage = 500;
+			Item.shoot = Mod.Find<ModProjectile>("SharkLauncherP").Type;
 		}
 		
 		public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.PiranhaGun);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
 		
 		public override Vector2? HoldoutOffset()

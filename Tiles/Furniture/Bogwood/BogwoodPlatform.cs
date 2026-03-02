@@ -8,7 +8,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 {
 	public class BogwoodPlatform : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileLighted[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -29,10 +29,10 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            dustType = mod.DustType("BogwoodDust");
-			drop = mod.ItemType("BogwoodPlatform");
-			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Platforms };
+            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("BogwoodPlatform").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[]{ TileID.Platforms };
         }
 
         public override bool CreateDust(int i, int j, ref int type)

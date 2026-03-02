@@ -5,15 +5,15 @@ namespace AAMod.Projectiles
         public override string Texture => "AAMod/BlankTex";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Shot");
+            // DisplayName.SetDefault("Chaos Shot");
         }
 
         public override void SetDefaults()
         {
             base.SetDefaults();
             proType = 2;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
             offsetLeft = true;
         }
     }

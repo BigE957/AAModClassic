@@ -5,9 +5,9 @@ namespace AAMod.Buffs
 {
     public class Electrified : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Electrified");
+			// DisplayName.SetDefault("Electrified");
 			Main.debuff[Type] = true;
 		}
 

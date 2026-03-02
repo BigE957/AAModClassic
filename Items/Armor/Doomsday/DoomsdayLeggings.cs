@@ -12,23 +12,23 @@ namespace AAMod.Items.Armor.Doomsday
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Doomsday Assault Greaves");
-			Tooltip.SetDefault(@"18% increased movement speed
+			// DisplayName.SetDefault("Doomsday Assault Greaves");
+			/* Tooltip.SetDefault(@"18% increased movement speed
 120 increased mana
-The power to destroy entire planets rests in this armor");
+The power to destroy entire planets rests in this armor"); */
 
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -42,10 +42,10 @@ The power to destroy entire planets rests in this armor");
 
         public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 18;
-			item.value = 3000000;
-			item.defense = 28;
+			Item.width = 26;
+			Item.height = 18;
+			Item.value = 3000000;
+			Item.defense = 28;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -59,21 +59,20 @@ The power to destroy entire planets rests in this armor");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "ApocalyptitePlate", 18);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

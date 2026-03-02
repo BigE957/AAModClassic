@@ -12,29 +12,29 @@ namespace AAMod.Items.Boss.Akuma
         public override void SetStaticDefaults()
         {
             
-            DisplayName.SetDefault("Daycrusher");
-            Tooltip.SetDefault(@"Slams into foes with the force of a solar mass
-Inflicts Daybroken");
+            // DisplayName.SetDefault("Daycrusher");
+            /* Tooltip.SetDefault(@"Slams into foes with the force of a solar mass
+Inflicts Daybroken"); */
         }
 
         public override void SetDefaults()
         {
-            item.width = 54;
-            item.height = 44;
-            item.value = Item.sellPrice(0, 30, 0, 0);
-            item.noMelee = true;
-            item.useStyle = 5;
-            item.useAnimation = 40;
-            item.useTime = 40;
-            item.reuseDelay = 10;
-            item.knockBack = 7.5F;
-            item.damage = 400;
-            item.noUseGraphic = true;
-            item.shoot = mod.ProjectileType("Daycrusher");
-            item.shootSpeed = 20F;
-            item.UseSound = SoundID.Item20;
-            item.melee = true;
-            item.rare = 9;
+            Item.width = 54;
+            Item.height = 44;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
+            Item.noMelee = true;
+            Item.useStyle = 5;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
+            Item.reuseDelay = 10;
+            Item.knockBack = 7.5F;
+            Item.damage = 400;
+            Item.noUseGraphic = true;
+            Item.shoot = Mod.Find<ModProjectile>("Daycrusher").Type;
+            Item.shootSpeed = 20F;
+            Item.UseSound = SoundID.Item20;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.rare = 9;
             AARarity = 13;
         }
 
@@ -42,9 +42,9 @@ Inflicts Daybroken");
         {
             foreach (TooltipLine line2 in list)
             {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.OverrideColor = AAColor.Rarity13;
                 }
             }
         }
@@ -52,14 +52,14 @@ Inflicts Daybroken");
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
@@ -73,13 +73,12 @@ Inflicts Daybroken");
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(ItemID.Flairon, 1);
             recipe.AddTile(null, "ACS");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

@@ -8,22 +8,22 @@ namespace AAMod.Water
 	{
 		public override bool ChooseWaterStyle()
 		{
-			return Main.bgStyle == mod.GetSurfaceBgStyleSlot("TerraSurfaceBgStyle");
+			return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("TerraSurfaceBgStyle");
 		}
 
 		public override int ChooseWaterfallStyle()
 		{
-			return mod.GetWaterfallStyleSlot("TerraWaterfallStyle");
+			return Mod.GetWaterfallStyleSlot("TerraWaterfallStyle");
 		}
 
 		public override int GetSplashDust()
 		{
-			return mod.DustType("TerraWaterSplash");
+			return Mod.Find<ModDust>("TerraWaterSplash").Type;
 		}
 
 		public override int GetDropletGore()
 		{
-			return mod.GetGoreSlot("Water/TerraDroplet");
+			return Mod.GetGoreSlot("Water/TerraDroplet");
 		}
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)

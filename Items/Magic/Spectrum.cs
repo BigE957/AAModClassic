@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,42 +8,41 @@ namespace AAMod.Items.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spectrum");
-            Tooltip.SetDefault(@"Focuses a devastating beam of light
-Last Prism EX");
+			// DisplayName.SetDefault("Spectrum");
+            /* Tooltip.SetDefault(@"Focuses a devastating beam of light
+Last Prism EX"); */
            
 		}
 
 	    public override void SetDefaults()
 	    {
-	        item.damage = 150;
-	        item.magic = true;
-	        item.mana = 14;
-	        item.width = 16;
-	        item.height = 16;
-	        item.useTime = 10;
-	        item.useAnimation = 10;
-	        item.reuseDelay = 5;
-	        item.useStyle = 5;
-	        item.UseSound = SoundID.Item13;
-	        item.noMelee = true;
-	        item.noUseGraphic = true;
-			item.channel = true;
-	        item.knockBack = 0f;
-	        item.value = 1000000;
-	        item.shoot = mod.ProjectileType("Spectrum");
-	        item.shootSpeed = 30f;
-			item.rare = 9;
+	        Item.damage = 150;
+	        Item.DamageType = DamageClass.Magic;
+	        Item.mana = 14;
+	        Item.width = 16;
+	        Item.height = 16;
+	        Item.useTime = 10;
+	        Item.useAnimation = 10;
+	        Item.reuseDelay = 5;
+	        Item.useStyle = 5;
+	        Item.UseSound = SoundID.Item13;
+	        Item.noMelee = true;
+	        Item.noUseGraphic = true;
+			Item.channel = true;
+	        Item.knockBack = 0f;
+	        Item.value = 1000000;
+	        Item.shoot = Mod.Find<ModProjectile>("Spectrum").Type;
+	        Item.shootSpeed = 30f;
+			Item.rare = 9;
 	    }
 		
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LastPrism);
-			recipe.AddIngredient(mod.ItemType("EXSoul"));
+			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
 			recipe.AddTile(null, "ACS");
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }
