@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles.Athena
+namespace AAModClassic.Projectiles.Athena
 {
     public class OwlRune : ModProjectile
     {

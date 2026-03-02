@@ -6,8 +6,9 @@ using Terraria.ID;
 
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
+namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     public class AbyssGripOrbiter2 : ModProjectile
     {

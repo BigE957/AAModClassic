@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class Chronos : BaseAAItem
     {

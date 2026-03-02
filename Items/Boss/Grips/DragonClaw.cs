@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Grips
+namespace AAModClassic.Items.Boss.Grips
 {
     public class DragonClaw : ModProjectile
     {

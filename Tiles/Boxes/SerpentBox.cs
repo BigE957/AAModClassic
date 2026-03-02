@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Boxes
+namespace AAModClassic.Tiles.Boxes
 {
     class SerpentBox : ModTile
 	{

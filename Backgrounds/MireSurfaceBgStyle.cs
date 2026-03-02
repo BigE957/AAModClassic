@@ -2,9 +2,9 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAMod.NPCs.Bosses.Yamata.Awakened;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class MireSurfaceBgStyle : ModSurfaceBackgroundStyle
     {

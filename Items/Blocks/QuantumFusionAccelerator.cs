@@ -1,8 +1,11 @@
 using Terraria.ID;
-using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Graphics; using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class QuantumFusionAccelerator : BaseAAItem
     {

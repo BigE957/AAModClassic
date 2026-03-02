@@ -4,8 +4,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     public class AMR : ModProjectile
     {
@@ -65,7 +66,7 @@ namespace AAMod.Projectiles.Zero
 				Vector2 value = Projectile.Center + vector2;
 				for (int i = 0; i < 3; i++)
 				{
-					int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
+					int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, ModContent.DustType<VoidDust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
 					Main.dust[num5].position.Y -= 0.3f;
 					Main.dust[num5].velocity *= 0.66f;
 					Main.dust[num5].noGravity = true;

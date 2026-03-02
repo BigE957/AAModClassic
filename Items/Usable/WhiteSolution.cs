@@ -1,7 +1,8 @@
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Usable
+namespace AAModClassic.Items.Usable
 {
     public class WhiteSolution : BaseAAItem
 	{
@@ -14,7 +15,7 @@ namespace AAMod.Items.Usable
 
 		public override void SetDefaults()
 		{
-			Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.SnowSolution>() - ProjectileID.PureSpray;
+			Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<SnowSolution>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

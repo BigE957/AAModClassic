@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Water
+namespace AAModClassic.Water
 {
     public class TerraWaterfallStyle : ModWaterfallStyle
 	{

@@ -1,9 +1,11 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class AbyssVines : ModTile
     {

@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Anubis
+namespace AAModClassic.Items.Boss.Anubis
 {
     public class ForsakenFragment : BaseAAItem
 	{

@@ -1,10 +1,11 @@
 ﻿using System;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     public class AsheShot : ModProjectile
     {
@@ -66,7 +67,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 200);
         }
     }
 }

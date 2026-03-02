@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader.IO;
 using Terraria.GameInput;
 
-namespace AAMod.Items.Dev.Invoker
+namespace AAModClassic.Items.Dev.Invoker
 {
 	public class InvokerPlayer : ModPlayer
 	{

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Apawn
+namespace AAModClassic.Items.Vanity.Apawn
 
 {
     [AutoloadEquip(EquipType.Body)]

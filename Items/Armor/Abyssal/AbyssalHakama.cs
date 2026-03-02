@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Abyssal
+namespace AAModClassic.Items.Armor.Abyssal
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class AbyssalHakama : BaseAAItem

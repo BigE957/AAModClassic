@@ -2,11 +2,13 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAMod.NPCs.Bosses.Rajah;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Rajah;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class DiamondCarrot : BaseAAItem
     {

@@ -4,8 +4,9 @@ using Terraria;
 
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles.Akuma
+namespace AAModClassic.Projectiles.Akuma
 {
     public class Sunstorm : ModProjectile
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     //[AutoloadBossHead]
     public class NightcrawlerBody : NightcrawlerHead

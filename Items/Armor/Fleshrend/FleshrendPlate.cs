@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Fleshrend
+namespace AAModClassic.Items.Armor.Fleshrend
 {
     [AutoloadEquip(EquipType.Body)]
 	public class FleshrendPlate : BaseAAItem

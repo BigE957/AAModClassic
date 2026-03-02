@@ -8,8 +8,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
     public class Block1 : ModProjectile
     {

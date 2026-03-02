@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Bases
 {
     internal abstract class FallingBlock : ModTile
     {

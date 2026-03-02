@@ -1,8 +1,11 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Items.Boss.Serpent;
 
-namespace AAMod.Items.Boss
+namespace AAModClassic.Items.Boss
 {
     public class FireFrostMedallion : BaseAAItem
     {
@@ -51,11 +54,11 @@ namespace AAMod.Items.Boss
                 int maxAccessoryIndex = 5 + player.extraAccessorySlots;
                 for (int i = 3; i < 3 + maxAccessoryIndex; i++)
                 {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<Djinn.SandstormMedallion>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<SandstormMedallion>())
                     {
                         return false;
                     }
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<Serpent.ArcticMedallion>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<ArcticMedallion>())
                     {
                         return false;
                     }

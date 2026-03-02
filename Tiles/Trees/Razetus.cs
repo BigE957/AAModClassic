@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Trees
+namespace AAModClassic.Tiles.Trees
 {
     public class Razetus : ModCactus
 	{

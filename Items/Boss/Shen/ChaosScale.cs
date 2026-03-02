@@ -6,8 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class ChaosScale : BaseAAItem
     {

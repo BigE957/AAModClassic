@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
     [AutoloadEquip(EquipType.Face)]
     public class CursedEyeofSoulBinder : BaseAAItem

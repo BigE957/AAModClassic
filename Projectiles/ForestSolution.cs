@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     internal class ForestSolution : ModProjectile
     {

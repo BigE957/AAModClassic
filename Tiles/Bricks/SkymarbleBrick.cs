@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
+namespace AAModClassic.Tiles.Bricks
 {
     class SkymarbleBrick : ModTile
     {

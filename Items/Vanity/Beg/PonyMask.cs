@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Beg
+namespace AAModClassic.Items.Vanity.Beg
 {
     [AutoloadEquip(EquipType.Head)]
 	public class PonyMask : BaseAAItem

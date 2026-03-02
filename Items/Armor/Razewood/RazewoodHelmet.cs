@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.Razewood
+namespace AAModClassic.Items.Armor.Razewood
 {
     [AutoloadEquip(EquipType.Head)]
     public class RazewoodHelmet : BaseAAItem

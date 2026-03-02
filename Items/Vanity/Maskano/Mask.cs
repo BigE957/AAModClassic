@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Maskano
+namespace AAModClassic.Items.Vanity.Maskano
 {
     [AutoloadEquip(EquipType.Head)]
 	public class Mask : BaseAAItem

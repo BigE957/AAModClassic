@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Items.Pets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Cerberus
+namespace AAModClassic.Items.Vanity.Cerberus
 {
     public class InvokerBag : BaseAAItem
     {
@@ -35,7 +37,7 @@ namespace AAMod.Items.Vanity.Cerberus
 			player.QuickSpawnItem(ModContent.ItemType<InvokerHood>());
             player.QuickSpawnItem(ModContent.ItemType<InvokerRobe>());
             player.QuickSpawnItem(ModContent.ItemType<InvokerPants>());
-            player.QuickSpawnItem(ModContent.ItemType<Pets.CerberusWhistle>());
+            player.QuickSpawnItem(ModContent.ItemType<CerberusWhistle>());
         }
     }
 }

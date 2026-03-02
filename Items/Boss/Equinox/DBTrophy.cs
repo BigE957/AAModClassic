@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Equinox
+namespace AAModClassic.Items.Boss.Equinox
 {
     public class DBTrophy : BaseAAItem
 	{

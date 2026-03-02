@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class AkumaATrophy : BaseAAItem
 	{

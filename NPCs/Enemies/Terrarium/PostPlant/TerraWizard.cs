@@ -1,10 +1,14 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 {
     public class TerraWizard : ModNPC
 	{
@@ -101,17 +105,17 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
             }
             if (Main.rand.Next(20) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Magic.TerraFocus>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraFocus>());
             }
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
+            target.AddBuff(ModContent.BuffType<Terrablaze>(), 300);
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic.Tiles;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Tiles.Trees
+namespace AAModClassic.Tiles.Trees
 {
     class RazewoodTree : ModTree
     {

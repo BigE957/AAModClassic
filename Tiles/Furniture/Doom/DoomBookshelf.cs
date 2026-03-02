@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Doom
+namespace AAModClassic.Tiles.Furniture.Doom
 {
     public class DoomBookshelf : ModTile
 	{

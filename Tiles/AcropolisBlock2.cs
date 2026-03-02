@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class AcropolisBlock2 : ModTile
     {

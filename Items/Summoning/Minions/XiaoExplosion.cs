@@ -1,7 +1,8 @@
+using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
+namespace AAModClassic.Items.Summoning.Minions
 {
     public class XiaoExplosion : ModProjectile
     {
@@ -43,7 +44,7 @@ namespace AAMod.Items.Summoning.Minions
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 200);
+            target.AddBuff(ModContent.BuffType<DiscordInferno>(), 200);
         }
 
         public override void OnKill(int timeLeft)

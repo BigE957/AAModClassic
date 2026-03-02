@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System;
 using Terraria;
 
-namespace AAMod
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     public class AkumaAttacks
 	{

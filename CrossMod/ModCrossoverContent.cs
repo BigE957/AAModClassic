@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items;
 using System;
 using System.Reflection;
+using AAModClassic;
 
-namespace AAMod
+namespace AAModClassic.CrossMod
 {
     public class ModSupport
     {

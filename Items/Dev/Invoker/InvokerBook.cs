@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Dev.Invoker
+namespace AAModClassic.Items.Dev.Invoker
 {
     [AutoloadEquip(EquipType.HandsOff)]
 	public class InvokerBook : BaseAAItem

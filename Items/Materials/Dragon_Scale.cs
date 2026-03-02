@@ -1,4 +1,4 @@
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     /*public class Dragon_Scale : BaseAAItem
 	{

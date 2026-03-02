@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.Fleshrend
+namespace AAModClassic.Items.Armor.Fleshrend
 {
     [AutoloadEquip(EquipType.Head)]
 	public class FleshrendHelm : BaseAAItem

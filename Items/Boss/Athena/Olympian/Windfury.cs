@@ -3,8 +3,11 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Projectiles.Athena;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Athena.Olympian
+namespace AAModClassic.Items.Boss.Athena.Olympian
 {
     public class Windfury : BaseAAItem
     {
@@ -49,7 +52,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Athena.GaleArrow>(), damage, knockBack * 5, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<GaleArrow>(), damage, knockBack * 5, player.whoAmI, 0f, 0f);
                 return false;
             }
             return true;

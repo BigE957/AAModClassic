@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata
+namespace AAModClassic.NPCs.Bosses.Yamata
 {
     public class Shock : ModProjectile
     {

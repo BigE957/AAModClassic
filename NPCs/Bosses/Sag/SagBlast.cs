@@ -6,9 +6,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Globals;
 
-
-namespace AAMod.NPCs.Bosses.Sag
+namespace AAModClassic.NPCs.Bosses.Sag
 {
     public class SagBlast : ModProjectile
     {

@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Hallam.Shiny
+namespace AAModClassic.Items.Vanity.Hallam.Shiny
 {
     [AutoloadEquip(EquipType.Body)]
     public class ShinyHalTux : BaseAAItem

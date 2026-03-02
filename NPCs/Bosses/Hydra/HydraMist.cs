@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 
-namespace AAMod.NPCs.Bosses.Hydra
+namespace AAModClassic.NPCs.Bosses.Hydra
 {
     internal class HydraMist : ModProjectile
     {

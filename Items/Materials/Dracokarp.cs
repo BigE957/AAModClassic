@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class Dracokarp : BaseAAItem
     {

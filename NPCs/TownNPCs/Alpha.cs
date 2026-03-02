@@ -3,9 +3,19 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.Items.Dev;
+using AAModClassic.Items.Dev;
+using AAModClassic.Items.Vanity.Delly;
+using AAModClassic.Items.Vanity.Aves;
+using AAModClassic.Items.Vanity.Hallam;
+using AAModClassic.Projectiles;
+using AAModClassic.Items.Vanity.Fazer;
+using AAModClassic.Items.Vanity.Moon;
+using AAModClassic;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Vanity.Apawn;
+using AAModClassic.Items.Vanity.Shox;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class Alpha : ModNPC
@@ -116,16 +126,16 @@ namespace AAMod.NPCs.TownNPCs
 		{
 			if (VanityShop)
 			{
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Apawn.ApawnEgg>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<ApawnEgg>());
 				shop.item[nextSlot].shopCustomPrice = new int?(5);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Fazer.WetFurrbag>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<WetFurrbag>());
 				shop.item[nextSlot].shopCustomPrice = new int?(10);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Shox.ShoxBag>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<ShoxBag>());
 				shop.item[nextSlot].shopCustomPrice = new int?(10);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -146,11 +156,11 @@ namespace AAMod.NPCs.TownNPCs
 				shop.item[nextSlot].shopCustomPrice = new int?(15);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Aves.AvesBag>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<AvesBag>());
 				shop.item[nextSlot].shopCustomPrice = new int?(15);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Delly.DellyBag>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<DellyBag>());
 				shop.item[nextSlot].shopCustomPrice = new int?(15);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -158,7 +168,7 @@ namespace AAMod.NPCs.TownNPCs
 				shop.item[nextSlot].shopCustomPrice = new int?(15);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Hallam.MagiciansHat>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<MagiciansHat>());
 				shop.item[nextSlot].shopCustomPrice = new int?(15);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -179,7 +189,7 @@ namespace AAMod.NPCs.TownNPCs
 				shop.item[nextSlot].shopCustomPrice = new int?(25);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Moon.MoonBag>());
+				shop.item[nextSlot].SetDefaults(ModContent.ItemType<MoonBag>());
 				shop.item[nextSlot].shopCustomPrice = new int?(25);
 				shop.item[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -320,7 +330,7 @@ namespace AAMod.NPCs.TownNPCs
 
 		public override void OnKill()
 		{
-			Item.NewItem(NPC.getRect(), ModContent.ItemType<Items.Pets.MudkipBall>());
+			Item.NewItem(NPC.getRect(), ModContent.ItemType<MudkipBall>());
 		}
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -337,7 +347,7 @@ namespace AAMod.NPCs.TownNPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<Projectiles.AmphibiousProjectile>();
+            projType = ModContent.ProjectileType<AmphibiousProjectile>();
             attackDelay = 1;
         }
 

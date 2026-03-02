@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
 	public class ScorchedPlatform : ModTile
 	{

@@ -7,8 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 using Terraria.Graphics.Shaders;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
+namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     public class BlazeCloneClaw : ModProjectile
     {

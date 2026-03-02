@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
+namespace AAModClassic.Items.Pets
 {
     public class DragonsSoul : BaseAAItem
 	{

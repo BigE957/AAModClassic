@@ -2,8 +2,10 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class AkumaABox : BaseAAItem
 	{

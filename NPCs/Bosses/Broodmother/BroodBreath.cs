@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Broodmother
+namespace AAModClassic.NPCs.Bosses.Broodmother
 {
     internal class BroodBreath : ModProjectile
     {
@@ -47,7 +48,7 @@ namespace AAMod.NPCs.Bosses.Broodmother
                     num296 = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<Dusts.BroodmotherDust>();
+                int num297 = ModContent.DustType<BroodmotherDust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 4; num298++)

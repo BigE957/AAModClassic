@@ -1,4 +1,6 @@
-namespace AAMod.Items.Materials
+using AAModClassic;
+
+namespace AAModClassic.Items.Materials
 {
     public class DragonClaw : BaseAAItem
     {

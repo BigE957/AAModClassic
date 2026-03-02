@@ -6,9 +6,11 @@ using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
+using AAModClassic.Base.BaseMod.Base;
+
 //using AAMod.NPCs.Bosses.Infinity;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class VoidSky : CustomSky
     {

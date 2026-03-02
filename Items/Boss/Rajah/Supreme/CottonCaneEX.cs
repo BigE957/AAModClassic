@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Buffs;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
     public class CottonCaneEX : BaseAAItem
     {
@@ -31,7 +33,7 @@ namespace AAMod.Items.Boss.Rajah.Supreme
             Item.UseSound = SoundID.Item44;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.RoyalRabbit>();
             Item.shootSpeed = 10f;
-            Item.buffType = Terraria.ModLoader.ModContent.BuffType<Buffs.RoyalRabbit>();
+            Item.buffType = Terraria.ModLoader.ModContent.BuffType<RoyalRabbit>();
             Item.autoReuse = true;
         }
 		

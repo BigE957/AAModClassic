@@ -6,7 +6,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.CrossMod.Overhaul
 {
     /// <summary>
     /// Sabres are, first and foremost, weapons skills

@@ -1,9 +1,10 @@
+using AAModClassic.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
+namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 {
     public class FlareF : ModProjectile
     {
@@ -44,7 +45,7 @@ namespace AAMod.Projectiles.Akuma.Dawnstrike
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 200);
         }
 
         public override void OnKill(int timeLeft)

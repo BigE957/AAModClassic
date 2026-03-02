@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Gibs
+namespace AAModClassic.Items.Vanity.Gibs
 {
     public class GibsBag : BaseAAItem
     {

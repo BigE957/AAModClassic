@@ -1,7 +1,9 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Athena.Olympian;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class Athena : ModBuff
 	{
@@ -16,7 +18,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Athena").Type] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<Items.Boss.Athena.Olympian.GoddessHarp>(), true, false))
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Athena").Type] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<GoddessHarp>(), true, false))
 			{
 				modPlayer.Athena = true;
 			}

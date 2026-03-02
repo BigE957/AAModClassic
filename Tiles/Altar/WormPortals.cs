@@ -1,10 +1,10 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Altar
+namespace AAModClassic.Tiles.Altar
 {
     public class DBPortal : ModNPC
     {

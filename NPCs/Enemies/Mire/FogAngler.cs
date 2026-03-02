@@ -3,8 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Mire
+namespace AAModClassic.NPCs.Enemies.Mire
 {
     public class FogAngler : ModNPC
 	{

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.CC
+namespace AAModClassic.Items.Vanity.CC
 {
 	[AutoloadEquip(EquipType.Body)]
 	internal class CCRobe : ModItem

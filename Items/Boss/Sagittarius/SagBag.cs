@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Sagittarius
+namespace AAModClassic.Items.Boss.Sagittarius
 {
     public class SagBag : BaseAAItem
     {

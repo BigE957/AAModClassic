@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Greed.WKG
+namespace AAModClassic.Items.Boss.Greed.WKG
 {
     public class CovetiteOre : BaseAAItem
     {

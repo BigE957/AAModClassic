@@ -3,9 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.StripeMan
+namespace AAModClassic.Items.Armor.StripeMan
 {
     [AutoloadEquip(EquipType.Head)]
 	public class StripeManHat : BaseAAItem

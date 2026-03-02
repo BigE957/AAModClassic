@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Other
+namespace AAModClassic.Tiles.Furniture.Other
 {
     public class SpiralStairs : ModTile
 	{

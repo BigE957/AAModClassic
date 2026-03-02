@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
+namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
     public class Hurricane : ModProjectile
     {

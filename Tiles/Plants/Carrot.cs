@@ -1,8 +1,9 @@
+using AAModClassic.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Plants
+namespace AAModClassic.Tiles.Plants
 {
     public class Carrot : ModTile
 	{
@@ -15,7 +16,7 @@ namespace AAMod.Tiles.Plants
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
             ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Potions.Carrot>();
-            DustType = ModContent.DustType<Dusts.CarrotDust>();
+            DustType = ModContent.DustType<CarrotDust>();
             HitSound = 6;
         }
 

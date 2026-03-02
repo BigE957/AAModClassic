@@ -4,8 +4,11 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles.Ore;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Equinox
+namespace AAModClassic.Items.Boss.Equinox
 {
     public class StarIdol : BaseAAItem
 	{
@@ -41,7 +44,7 @@ Can only be used if there arent many radium stars in the world."); */
                 int num4 = 5;
                 while (num4 < Main.worldSurface)
                 {
-                    if (Main.tile[j, num4].HasTile && Main.tile[j, num4].TileType == (ushort)ModContent.TileType<Tiles.Ore.RadiumOre>())
+                    if (Main.tile[j, num4].HasTile && Main.tile[j, num4].TileType == (ushort)ModContent.TileType<RadiumOre>())
                     {
                         num++;
                         if (num > num3)
@@ -78,7 +81,7 @@ Can only be used if there arent many radium stars in the world."); */
                     {
                         if (Vector2.Distance(new Vector2(X, Y), new Vector2(x, y)) <= radius) //Checks if coords are within a circle position
                         {
-                            WorldGen.PlaceTile(x, y, ModContent.TileType<Tiles.Ore.RadiumOre>(), true); //Places tile of type InsertTypeHere at the specified coords
+                            WorldGen.PlaceTile(x, y, ModContent.TileType<RadiumOre>(), true); //Places tile of type InsertTypeHere at the specified coords
                         }
                     }
                 }
@@ -94,7 +97,7 @@ Can only be used if there arent many radium stars in the world."); */
                     {
                         if (Vector2.Distance(new Vector2(X, Y), new Vector2(x, y)) <= radius) //Checks if coords are within a circle position
                         {
-                            WorldGen.PlaceTile(x, y, ModContent.TileType<Tiles.Ore.RadiumOre>(), true); //Places tile of type InsertTypeHere at the specified coords
+                            WorldGen.PlaceTile(x, y, ModContent.TileType<RadiumOre>(), true); //Places tile of type InsertTypeHere at the specified coords
                         }
                     }
                 }

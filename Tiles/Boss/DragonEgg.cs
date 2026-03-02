@@ -1,12 +1,19 @@
-using AAMod.Items.Melee;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Pets;
+using AAModClassic;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Globals;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Magic;
 
-namespace AAMod.Tiles.Boss
+namespace AAModClassic.Tiles.Boss
 {
     public class DragonEgg : ModTile
     {
@@ -35,10 +42,10 @@ namespace AAMod.Tiles.Boss
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Dragon Egg");
             drop1 = ModContent.ItemType<Pyrosphere>();
-            drop2 = ModContent.ItemType<Items.Ranged.Firebuster>();
-            drop3 = ModContent.ItemType<Items.Magic.Volley>();
-            drop4 = ModContent.ItemType<Items.Pets.DragonsSoul>();
-            drop5 = ModContent.ItemType<Items.Accessories.DragonsGuard>();
+            drop2 = ModContent.ItemType<Firebuster>();
+            drop3 = ModContent.ItemType<Volley>();
+            drop4 = ModContent.ItemType<DragonsSoul>();
+            drop5 = ModContent.ItemType<DragonsGuard>();
             AddMapEntry(new Color(102, 45, 42), name);
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
         }

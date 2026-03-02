@@ -6,9 +6,10 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Globals;
 
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
     public class ZeroBlast : ModProjectile
     {

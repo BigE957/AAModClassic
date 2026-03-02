@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.GlowingMushium
+namespace AAModClassic.Items.Armor.GlowingMushium
 {
     [AutoloadEquip(EquipType.Body)]
 	public class ShroomShirt : BaseAAItem

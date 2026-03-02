@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Grox
+namespace AAModClassic.Items.Vanity.Grox
 {
     [AutoloadEquip(EquipType.Body)]
     public class AngryPirateCofferplate : BaseAAItem

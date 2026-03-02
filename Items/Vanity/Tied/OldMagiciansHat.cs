@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Tied
+namespace AAModClassic.Items.Vanity.Tied
 {
     public class OldMagiciansHat : BaseAAItem
     {

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class ShenTooth : ModProjectile
     {

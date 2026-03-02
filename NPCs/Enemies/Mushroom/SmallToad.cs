@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Mushroom
+namespace AAModClassic.NPCs.Enemies.Mushroom
 {
     public class SmallToad : ModNPC
     {

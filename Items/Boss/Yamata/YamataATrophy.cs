@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Yamata
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class YamataATrophy : BaseAAItem
 	{

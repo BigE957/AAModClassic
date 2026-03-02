@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod
 {
     public class MProjectile : GlobalProjectile
 	{

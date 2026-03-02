@@ -1,9 +1,10 @@
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.MushroomMonarch
+namespace AAModClassic.Items.Boss.MushroomMonarch
 {
     public class GlowingMushium : BaseAAItem
     {

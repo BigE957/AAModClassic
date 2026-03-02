@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.AH
+namespace AAModClassic.Items.Boss.AH
 {
     public class HeartOfPassion : BaseAAItem
     {

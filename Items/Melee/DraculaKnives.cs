@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class DraculaKnives : BaseAAItem
 	{

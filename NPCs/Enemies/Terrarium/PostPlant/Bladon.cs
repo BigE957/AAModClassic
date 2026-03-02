@@ -1,10 +1,11 @@
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 {
     public class Bladon : ModNPC
 	{
@@ -367,7 +368,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
             }
         }
 

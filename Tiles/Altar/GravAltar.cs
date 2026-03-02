@@ -1,4 +1,6 @@
-﻿
+﻿using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Greed.WKG;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
@@ -6,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Altar
+namespace AAModClassic.Tiles.Altar
 {
     public class GravAltar : ModTile
     {
@@ -55,7 +57,7 @@ namespace AAMod.Tiles.Altar
         public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            int type = ModContent.ItemType<Items.Boss.Greed.WKG.GravitySphere>();
+            int type = ModContent.ItemType<GravitySphere>();
             if (BasePlayer.HasItem(player, type, 1) && !AAWorld.GravActive)
             {
                 for (int m = 0; m < 50; m++)

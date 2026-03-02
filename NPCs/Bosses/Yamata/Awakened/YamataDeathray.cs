@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     public class YamataDeathray : ModProjectile
     {

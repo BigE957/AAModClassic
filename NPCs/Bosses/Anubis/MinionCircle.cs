@@ -5,8 +5,10 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
     public class MinionCircle : ModNPC
     {

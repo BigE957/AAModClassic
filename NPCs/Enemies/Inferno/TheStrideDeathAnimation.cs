@@ -1,9 +1,8 @@
-
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Inferno
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class TheStrideDeathAnimation : ModNPC
     {

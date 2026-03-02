@@ -6,7 +6,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Blazen
+namespace AAModClassic.Items.Vanity.Blazen
 {
 
     [AutoloadEquip(EquipType.Wings)]

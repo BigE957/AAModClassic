@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Beg
+namespace AAModClassic.Items.Vanity.Beg
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class PonyHoofs : BaseAAItem

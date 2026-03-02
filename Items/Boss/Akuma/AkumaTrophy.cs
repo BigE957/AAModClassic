@@ -1,8 +1,9 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class AkumaTrophy : BaseAAItem
 	{

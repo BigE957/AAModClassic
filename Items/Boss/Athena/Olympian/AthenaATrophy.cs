@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Athena.Olympian
+namespace AAModClassic.Items.Boss.Athena.Olympian
 {
     public class AthenaATrophy : BaseAAItem
 	{

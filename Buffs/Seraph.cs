@@ -1,7 +1,10 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Athena;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class Seraph : ModBuff
 	{
@@ -16,7 +19,7 @@ namespace AAMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Seraph").Type] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<Items.Boss.Athena.SeraphHarp>(), true, false))
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Seraph").Type] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), true, false))
 			{
 				modPlayer.Seraph = true;
 			}

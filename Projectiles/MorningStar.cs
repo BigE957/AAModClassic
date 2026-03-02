@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class MorningStar : ModProjectile
 	{

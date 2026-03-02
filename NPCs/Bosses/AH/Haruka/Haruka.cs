@@ -6,9 +6,13 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Dusts;
+using AAModClassic.NPCs.Bosses.AH;
 
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
+namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {
     [AutoloadBossHead]
     public class Haruka : ModNPC
@@ -143,7 +147,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {

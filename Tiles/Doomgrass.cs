@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAMod.Tiles.Trees;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class Doomgrass : ModTile
     {

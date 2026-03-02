@@ -4,9 +4,11 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Akuma.Lung;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma.Lung;
 
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class LungStaff : BaseAAItem
     {

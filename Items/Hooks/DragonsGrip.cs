@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Hooks
+namespace AAModClassic.Items.Hooks
 {
     class DragonsGrip : BaseAAItem
     {

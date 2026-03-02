@@ -4,11 +4,16 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using AAModClassic.Projectiles.Zero;
+using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Greed;
+using AAModClassic.Buffs;
+using AAModClassic;
+using AAModClassic.CrossMod;
 
-namespace AAMod.Projectiles.Greed.WKG
+namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class OreChunk : ModProjectile
     {
@@ -65,8 +70,8 @@ namespace AAMod.Projectiles.Greed.WKG
             else if(k == ItemID.TungstenOre)
             {
                 Projectile.penetrate = -1;
-                Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-                Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 30;
+                Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+                Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 30;
                 if (Projectile.ai[0] == 1f)
                 {
                     Projectile.rotation = 0;
@@ -297,7 +302,7 @@ namespace AAMod.Projectiles.Greed.WKG
                         float ai = Main.rand.Next(100);
                         Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(3.1415f * 2));
                         Vector2 vector84 = Vector2.Normalize(vector83.RotatedByRandom(0.8)) * 14f;
-                        int id = NewProjectile(Projectile.position.X + Projectile.velocity.X, Projectile.position.Y  + Projectile.velocity.Y, vector84.X * 2, vector84.Y * 2, ModContent.ProjectileType<Zero.ZeroTaze>(), (int) (Projectile.damage * .02f), 0f, Main.myPlayer, vector83.ToRotation(), ai);
+                        int id = NewProjectile(Projectile.position.X + Projectile.velocity.X, Projectile.position.Y  + Projectile.velocity.Y, vector84.X * 2, vector84.Y * 2, ModContent.ProjectileType<ZeroTaze>(), (int) (Projectile.damage * .02f), 0f, Main.myPlayer, vector83.ToRotation(), ai);
                         Main.projectile[id].timeLeft = 30;
                     }
                     Projectile.localAI[0] ++;
@@ -873,7 +878,7 @@ namespace AAMod.Projectiles.Greed.WKG
             }
             else if(k == Mod.Find<ModItem>("DarkmatterOre").Type)
             {
-                target.AddBuff(ModContent.BuffType<Buffs.Electrified>(), 180);
+                target.AddBuff(ModContent.BuffType<Electrified>(), 180);
             }
             else if(k == Mod.Find<ModItem>("DaybreakIncineriteOre").Type)
             {

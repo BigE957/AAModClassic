@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Gibs
+namespace AAModClassic.Items.Vanity.Gibs
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class GibsShorts : BaseAAItem

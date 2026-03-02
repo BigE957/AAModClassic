@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity
+namespace AAModClassic.Items.Vanity
 {
     public class HappySunSticker : BaseAAItem
     {

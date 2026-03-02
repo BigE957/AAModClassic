@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class SparkWand : ModProjectile
     {

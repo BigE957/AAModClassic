@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Grips
+namespace AAModClassic.NPCs.Bosses.Grips
 {
     public class HydraClawM : ModNPC
     {

@@ -1,6 +1,7 @@
-﻿using AAMod.NPCs.Bosses.Athena;
-using AAMod.NPCs.Bosses.Athena.Olympian;
-
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,7 +12,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boss
+namespace AAModClassic.Tiles.Boss
 {
     public class AcropolisAltar : ModTile
     {

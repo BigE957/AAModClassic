@@ -1,6 +1,7 @@
-﻿using Terraria.ID;
+﻿using AAModClassic;
+using Terraria.ID;
 
-namespace AAMod.Items.Misc
+namespace AAModClassic.Items.Misc
 {
     public class TriHeadedKoi : BaseAAItem
     {

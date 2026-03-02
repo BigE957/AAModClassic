@@ -1,3 +1,5 @@
+using AAModClassic;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -6,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
+namespace AAModClassic.Tiles.Decoration
 {
     public class MoonAltar : ModTile
     {
@@ -22,7 +24,7 @@ namespace AAMod.Tiles.Decoration
             DustType = DustID.Stone;
             AnimationFrameHeight = 56;
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
-            DustType = ModContent.DustType<Dusts.YamataDust>();
+            DustType = ModContent.DustType<YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
         }
 

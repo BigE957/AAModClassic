@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Razewood
+namespace AAModClassic.Tiles.Furniture.Razewood
 {
     public class RazewoodChandelier : ModTile
 	{

@@ -6,7 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.EFish
+namespace AAModClassic.Projectiles.EFish
 {
     public class EFlairon : ModProjectile
     {

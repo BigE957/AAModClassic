@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
+namespace AAModClassic.Items.Pets
 {
     public class Seashroom : BaseAAItem
 	{

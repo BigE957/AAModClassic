@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
     public class BlackLotusEmblem : BaseAAItem
     {

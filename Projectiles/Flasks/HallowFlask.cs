@@ -1,3 +1,4 @@
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Flasks
+namespace AAModClassic.Projectiles.Flasks
 {
     public class HallowFlask : ModProjectile
     {

@@ -3,8 +3,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Yamata
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class Crescent : BaseAAItem
     {

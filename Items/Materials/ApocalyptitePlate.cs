@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class ApocalyptitePlate : BaseAAItem
     {

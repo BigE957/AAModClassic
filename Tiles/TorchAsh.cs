@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class TorchAsh : ModTile
     {

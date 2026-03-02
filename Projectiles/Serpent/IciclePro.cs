@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles.Serpent
+namespace AAModClassic.Projectiles.Serpent
 {
     public class IciclePro : ModProjectile
     {

@@ -9,9 +9,13 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Misc;
+using AAModClassic.CrossMod;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class Anubis : ModNPC
@@ -368,7 +372,7 @@ namespace AAMod.NPCs.TownNPCs
 			else
             {
                 Player player = Main.LocalPlayer;
-                int Item = player.FindItem(ModContent.ItemType<Items.Misc.AnubisBook>());
+                int Item = player.FindItem(ModContent.ItemType<AnubisBook>());
                 if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
                 {
                     player.inventory[Item].stack--;
@@ -766,12 +770,12 @@ namespace AAMod.NPCs.TownNPCs
                 }
             }
 
-            if (AAWorld.downedAnubisA && !BasePlayer.HasItem(player, ModContent.ItemType<Items.BossSummons.WormIdol>()))
+            if (AAWorld.downedAnubisA && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
             {
                 if (!mPlayer.GivenWormIdol)
                 {
                     mPlayer.GivenWormIdol = true;
-                    player.QuickSpawnItem(ModContent.ItemType<Items.BossSummons.WormIdol>(), 1);
+                    player.QuickSpawnItem(ModContent.ItemType<WormIdol>(), 1);
                     return Lang.TownNPCAnubis("GetSummonItemChat2");
                 }
             }

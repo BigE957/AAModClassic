@@ -1,4 +1,4 @@
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     /*public class AvesInABox : BaseAAItem
     {

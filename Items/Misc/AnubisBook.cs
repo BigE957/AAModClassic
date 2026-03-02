@@ -1,6 +1,6 @@
 ﻿using Terraria.ID;
 
-namespace AAMod.Items.Misc
+namespace AAModClassic.Items.Misc
 {
     public class AnubisBook : BaseAAItem
     {

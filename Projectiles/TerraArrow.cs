@@ -1,10 +1,11 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class TerraArrow : ModProjectile
     {
@@ -78,7 +79,7 @@ namespace AAMod.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 180);
+            target.AddBuff(ModContent.BuffType<Terrablaze>(), 180);
         }
         public override void OnKill(int timeleft)
         {

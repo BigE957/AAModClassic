@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
+namespace AAModClassic.Water
 {
     public class VoidDroplet : ModGore
 	{

@@ -1,10 +1,12 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 
 
-namespace AAMod.Items.Usable
+namespace AAModClassic.Items.Usable
 {
     public class TreasureRadar : BaseAAItem
 	{

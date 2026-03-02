@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.GlowingMushium
+namespace AAModClassic.Items.Armor.GlowingMushium
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class ShroomPants : BaseAAItem

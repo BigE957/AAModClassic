@@ -1,12 +1,19 @@
-using AAMod.Items.Melee;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Items.Pets;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Magic;
+using AAModClassic;
+using AAModClassic.Items.Melee;
+using AAModClassic.Globals;
+using AAModClassic.Items.Accessories;
 
-namespace AAMod.Tiles.Boss
+namespace AAModClassic.Tiles.Boss
 {
     public class HydraPod : ModTile
     {
@@ -35,10 +42,10 @@ namespace AAMod.Tiles.Boss
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Hydra Pod");
             drop1 = ModContent.ItemType<HydrasSpear>();
-            drop2 = ModContent.ItemType<Items.Ranged.Mossket>();
-            drop3 = ModContent.ItemType<Items.Magic.GunkWand>();
-            drop4 = ModContent.ItemType<Items.Pets.GlowmossBall>();
-            drop5 = ModContent.ItemType<Items.Accessories.ShadowBand>();
+            drop2 = ModContent.ItemType<Mossket>();
+            drop3 = ModContent.ItemType<GunkWand>();
+            drop4 = ModContent.ItemType<GlowmossBall>();
+            drop5 = ModContent.ItemType<ShadowBand>();
             AddMapEntry(new Color(17, 26, 41), name);
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
         }

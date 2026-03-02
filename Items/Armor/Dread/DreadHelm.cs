@@ -2,9 +2,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Armor.Dread
+namespace AAModClassic.Items.Armor.Dread
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DreadHelm : BaseAAItem

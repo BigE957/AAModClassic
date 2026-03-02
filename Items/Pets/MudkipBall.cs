@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
+namespace AAModClassic.Items.Pets
 {
     public class MudkipBall : BaseAAItem
 	{

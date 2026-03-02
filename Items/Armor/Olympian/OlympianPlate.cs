@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Olympian
+namespace AAModClassic.Items.Armor.Olympian
 {
     [AutoloadEquip(EquipType.Body)]
 	public class OlympianPlate : BaseAAItem

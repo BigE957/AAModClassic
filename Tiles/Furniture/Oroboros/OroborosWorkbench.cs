@@ -1,3 +1,4 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Oroboros
+namespace AAModClassic.Tiles.Furniture.Oroboros
 {
     public class OroborosWorkbench : ModTile
 	{

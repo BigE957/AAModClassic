@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class Doomstone : ModTile
     {

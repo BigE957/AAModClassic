@@ -1,7 +1,8 @@
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod
 {
 	public class MNet
 	{

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 
-namespace AAMod.Items.Melee   //where is located
+namespace AAModClassic.Items.Melee   //where is located
 {
     public class DragonBlade : BaseAAItem
     {

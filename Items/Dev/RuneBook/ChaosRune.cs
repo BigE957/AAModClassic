@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.RuneBook
+namespace AAModClassic.Items.Dev.RuneBook
 {
     public class ChaosRune : ModProjectile
     {

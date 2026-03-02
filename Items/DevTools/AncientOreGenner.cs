@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class AncientOreGenner : BaseAAItem
     {

@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System;
 using Terraria.ID;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class GrimReaperScythe : ModProjectile
 	{

@@ -1,8 +1,9 @@
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class Firebuster : BaseAAItem
     {

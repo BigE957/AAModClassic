@@ -1,10 +1,13 @@
+using AAModClassic;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class BreakingDawn : BaseAAItem
     {
@@ -58,7 +61,7 @@ namespace AAMod.Items.Melee
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
             Dust dust;
-            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.StarDust>(), 0f, 0f, 46, default, 1.25f);
+            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<StarDust>(), 0f, 0f, 46, default, 1.25f);
 			dust.noGravity = true;
         }
 	}

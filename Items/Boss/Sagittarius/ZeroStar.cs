@@ -1,8 +1,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Sagittarius
+namespace AAModClassic.Items.Boss.Sagittarius
 {
     public class ZeroStar : BaseAAItem
     {

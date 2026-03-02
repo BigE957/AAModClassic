@@ -1,3 +1,6 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +9,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Flasks
+namespace AAModClassic.Projectiles.Flasks
 {
     public class DarkwaterFlask : ModProjectile
     {
@@ -42,7 +45,7 @@ namespace AAMod.Projectiles.Flasks
             SoundEngine.PlaySound(SoundID.Shatter, position);
 
             int radius = 6;
-            int FlaskDust = ModContent.DustType<Dusts.IndigoSolution>();
+            int FlaskDust = ModContent.DustType<IndigoSolution>();
 
             for (int m = 0; m < 20; m++)
             {

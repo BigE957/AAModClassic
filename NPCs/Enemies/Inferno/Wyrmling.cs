@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Wyrmling
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class Wyrmling : ModNPC
 	{

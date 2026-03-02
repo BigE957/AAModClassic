@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Yamata
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class AbyssalYari : BaseAAItem
     {

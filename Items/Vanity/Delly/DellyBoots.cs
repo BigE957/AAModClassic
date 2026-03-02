@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Delly
+namespace AAModClassic.Items.Vanity.Delly
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DellyBoots : BaseAAItem

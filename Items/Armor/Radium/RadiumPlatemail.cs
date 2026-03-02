@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Radium
+namespace AAModClassic.Items.Armor.Radium
 {
     [AutoloadEquip(EquipType.Body)]
 	public class RadiumPlatemail : BaseAAItem

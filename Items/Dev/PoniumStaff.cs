@@ -1,3 +1,4 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -5,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class PoniumStaff : BaseAAItem
 	{

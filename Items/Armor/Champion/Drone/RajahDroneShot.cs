@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Drone
+namespace AAModClassic.Items.Armor.Champion.Drone
 {
     public class RajahDroneShot : ModProjectile
 	{

@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.UI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Tools
+namespace AAModClassic.Items.Dev.Tools
 {
     public class GroviteTerratool : BaseAAItem
     {
@@ -54,9 +56,9 @@ You may only have a maximum of 2 tool types active"); */
             {
                 Item.autoReuse = true;
                 Item.noUseGraphic = false;
-                Item.pick = UI.TerratoolGroxUI.Pick;
-                Item.axe = UI.TerratoolGroxUI.Axe;
-                Item.hammer = UI.TerratoolGroxUI.Hammer;
+                Item.pick = TerratoolGroxUI.Pick;
+                Item.axe = TerratoolGroxUI.Axe;
+                Item.hammer = TerratoolGroxUI.Hammer;
                 Item.damage = 120;
             }
             else

@@ -1,11 +1,13 @@
 using System;
+using AAModClassic;
+using AAModClassic.Projectiles.Djinn;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Djinn
+namespace AAModClassic.Items.Boss.Djinn
 {
     public class SandstormCrossbow : BaseAAItem
 	{
@@ -42,10 +44,10 @@ namespace AAMod.Items.Boss.Djinn
             switch (Shoot)
             {
                 case 0:
-                    Shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Djinn.DesertBolt1>();
+                    Shoot = Terraria.ModLoader.ModContent.ProjectileType<DesertBolt1>();
                     break;
                 default:
-                    Shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Djinn.DesertBolt2>();
+                    Shoot = Terraria.ModLoader.ModContent.ProjectileType<DesertBolt2>();
                     break;
             }
             float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));

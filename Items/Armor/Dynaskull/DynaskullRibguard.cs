@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Dynaskull
+namespace AAModClassic.Items.Armor.Dynaskull
 {
     [AutoloadEquip(EquipType.Body)]
 	public class DynaskullRibguard : BaseAAItem

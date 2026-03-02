@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,7 +9,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class InfernoSky : CustomSky
     {

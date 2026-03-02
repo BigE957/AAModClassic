@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
+namespace AAModClassic.Items.Pets
 {
     public class ZeroCore : BaseAAItem
 	{

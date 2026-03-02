@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     internal class GBlast : ModProjectile
     {

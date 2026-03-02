@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
+namespace AAModClassic.Walls
 {
     public class LivingBogwoodWall : ModWall
 	{

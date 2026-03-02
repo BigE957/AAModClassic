@@ -6,8 +6,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class Pyrosphere : ModProjectile
 	{

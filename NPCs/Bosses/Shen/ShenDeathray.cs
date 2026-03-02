@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenDeathray : ModProjectile
     {

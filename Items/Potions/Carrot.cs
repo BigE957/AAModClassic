@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Potions
+namespace AAModClassic.Items.Potions
 {
     public class Carrot : BaseAAItem
 	{

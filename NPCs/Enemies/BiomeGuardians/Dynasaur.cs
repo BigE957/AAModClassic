@@ -1,4 +1,6 @@
 using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -8,7 +10,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.BiomeGuardians
+namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 {
     public class Dynasaur : ModNPC
 	{

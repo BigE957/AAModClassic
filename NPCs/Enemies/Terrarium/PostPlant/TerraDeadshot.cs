@@ -1,10 +1,12 @@
+using AAModClassic.Dusts;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 {
     public class TerraDeadshot : ModNPC
     {
@@ -444,8 +446,8 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.RangedDust>();
-                int dust2 = ModContent.DustType<Dusts.RangedDust>();
+                int dust1 = ModContent.DustType<RangedDust>();
+                int dust2 = ModContent.DustType<RangedDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -463,7 +465,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraCrystal>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
             }
         }
     }

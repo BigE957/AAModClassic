@@ -8,9 +8,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Terraria.Graphics.Shaders;
-using AAMod.NPCs.Bosses.AH.Ashe;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.Shen;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
+namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
     [AutoloadBossHead]
     public class FuryAshe : ModNPC

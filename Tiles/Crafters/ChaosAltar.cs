@@ -6,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
+namespace AAModClassic.Tiles.Crafters
 {
     public class ChaosAltar : ModTile
 	{

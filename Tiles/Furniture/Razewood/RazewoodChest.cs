@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Razewood
+namespace AAModClassic.Tiles.Furniture.Razewood
 {
     public class RazewoodChest : ModTile
     {

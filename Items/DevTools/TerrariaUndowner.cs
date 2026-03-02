@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class TerrariaUndowner : BaseAAItem
     {

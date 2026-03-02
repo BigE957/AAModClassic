@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Toad
+namespace AAModClassic.Projectiles.Toad
 {
     public class Toadsplosion : ModProjectile
     {

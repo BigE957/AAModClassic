@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Blazing
+namespace AAModClassic.Items.Armor.Blazing
 {
     [AutoloadEquip(EquipType.Body)]
 	public class BlazingDou : BaseAAItem

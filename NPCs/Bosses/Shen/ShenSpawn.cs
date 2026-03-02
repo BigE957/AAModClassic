@@ -1,4 +1,7 @@
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,7 +10,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenSpawn : ModNPC
     {
@@ -53,9 +56,9 @@ namespace AAMod.NPCs.Bosses.Shen
                     Dust dust2;
                     Vector2 position1 = new Vector2(NPC.Center.X + dustx, NPC.Center.Y);
                     Vector2 position2 = new Vector2(NPC.Center.X - dustx, NPC.Center.Y);
-                    dust1 = Main.dust[Dust.NewDust(position1, 1, 1, ModContent.DustType<Dusts.AkumaDust>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1, 1, 1, ModContent.DustType<AkumaDust>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
-                    dust2 = Main.dust[Dust.NewDust(position2, 1, 1, ModContent.DustType<Dusts.YamataDust>(), 0, 0, 0, default, 1f)];
+                    dust2 = Main.dust[Dust.NewDust(position2, 1, 1, ModContent.DustType<YamataDust>(), 0, 0, 0, default, 1f)];
                     dust2.noGravity = true;
                     dust2.scale *= 1.3f;
                     dust2.velocity.Y -= 6;
@@ -67,7 +70,7 @@ namespace AAMod.NPCs.Bosses.Shen
                 {
                     Dust dust1;
                     Vector2 position1 = NPC.Center;
-                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Discord>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
                     dust1.scale *= 1.3f;
                     dust1.velocity.Y -= 6;
@@ -165,9 +168,9 @@ namespace AAMod.NPCs.Bosses.Shen
                         Dust dust2;
                         Vector2 position1 = new Vector2(NPC.Center.X + dustx, NPC.Center.Y);
                         Vector2 position2 = new Vector2(NPC.Center.X - dustx, NPC.Center.Y);
-                        dust1 = Main.dust[Dust.NewDust(position1, 1, 1, ModContent.DustType<Dusts.AkumaDust>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1, 1, 1, ModContent.DustType<AkumaDust>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
-                        dust2 = Main.dust[Dust.NewDust(position2, 1, 1, ModContent.DustType<Dusts.YamataDust>(), 0, 0, 0, default, 1f)];
+                        dust2 = Main.dust[Dust.NewDust(position2, 1, 1, ModContent.DustType<YamataDust>(), 0, 0, 0, default, 1f)];
                         dust2.noGravity = true;
                         dust2.scale *= 1.3f;
                         dust2.velocity.Y -= 6;
@@ -179,7 +182,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     {
                         Dust dust1;
                         Vector2 position1 = NPC.Center;
-                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Discord>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
                         dust1.scale *= 1.3f;
                         dust1.velocity.Y -= 6;
@@ -454,7 +457,7 @@ namespace AAMod.NPCs.Bosses.Shen
                 {
                     Dust dust1;
                     Vector2 position1 = NPC.Center;
-                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Discord>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
                     dust1.scale *= 1.3f;
                     dust1.velocity.Y -= 6;
@@ -521,7 +524,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     {
                         Dust dust1;
                         Vector2 position1 = NPC.Center;
-                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Discord>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
                         dust1.scale *= 1.3f;
                         dust1.velocity.Y -= 6;

@@ -1,3 +1,5 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -5,7 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.AH
+namespace AAModClassic.Items.Boss.AH
 {
     public class HarukaKunai : BaseAAItem
     {

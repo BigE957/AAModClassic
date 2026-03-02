@@ -1,10 +1,11 @@
 using Terraria;
-using Microsoft.Xna.Framework; 
-using Microsoft.Xna.Framework.Graphics; 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class DarkMatter : BaseAAItem
     {

@@ -1,4 +1,4 @@
-﻿namespace AAMod.Projectiles.Shen
+﻿namespace AAModClassic.Projectiles.Shen
 {
     public class ChaosSlayerSwordRed : ChaosSlayerSword
     {

@@ -1,8 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
+namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
     internal class Mushshot : ModProjectile
     {
@@ -34,7 +36,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<ShroomDust>(), 0f, 0f, 0);
 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -46,7 +48,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
         {
             for (int dust = 0; dust <= 3; dust++)
             {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<ShroomDust>(), Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
             }
         }
     }

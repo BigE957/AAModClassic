@@ -1,10 +1,12 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.BossSummons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Desert
+namespace AAModClassic.NPCs.Enemies.Desert
 {
     public class MiniDjinn : ModNPC
     {
@@ -137,7 +139,7 @@ namespace AAMod.NPCs.Enemies.Desert
         {
             if (Main.rand.Next(4) == 0)
             {
-                NPC.DropLoot(ModContent.ItemType<Items.BossSummons.DjinnLamp>());
+                NPC.DropLoot(ModContent.ItemType<DjinnLamp>());
             }
         }
     }

@@ -3,9 +3,9 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class SingularityVortex : ModProjectile
     {

@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class ShenTerratool : BaseAAItem
     {

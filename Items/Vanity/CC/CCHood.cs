@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.CC
+namespace AAModClassic.Items.Vanity.CC
 {
     [AutoloadEquip(EquipType.Head)]
 	public class CCHood : ModItem

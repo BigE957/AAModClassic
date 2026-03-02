@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Blocks.BogwoodF
+namespace AAModClassic.Items.Blocks.BogwoodF
 {
     public class BogwoodWall : BaseAAItem
     {

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
+namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 {
     public class MagicBlast : ModProjectile
     {

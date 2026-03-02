@@ -5,9 +5,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
+namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
     public class AwakenedLung : ModNPC
 	{

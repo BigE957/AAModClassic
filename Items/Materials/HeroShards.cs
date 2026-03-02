@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class HeroShards : BaseAAItem
 	{

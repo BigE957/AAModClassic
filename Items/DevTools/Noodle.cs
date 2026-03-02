@@ -1,10 +1,11 @@
 ﻿using System;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class Noodle : ModProjectile
     {
@@ -62,7 +63,7 @@ namespace AAMod.Items.DevTools
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.InfinityOverload>(), 300);
+            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 300);
         }
     }
 }

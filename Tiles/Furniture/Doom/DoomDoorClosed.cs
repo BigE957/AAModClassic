@@ -9,7 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
+namespace AAModClassic.Tiles.Furniture.Doom
 {
     public class DoomDoorClosed : ModTile
     {

@@ -1,8 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic.Globals;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Assassin
+namespace AAModClassic.Items.Armor.Assassin
 {
 	[AutoloadEquip(EquipType.Body)]
 	class AssassinShirt : BaseAAItem

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class FungusBox : BaseAAItem
     {

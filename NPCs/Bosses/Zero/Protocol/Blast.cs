@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
+namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
     public class Blast : ModProjectile
     {

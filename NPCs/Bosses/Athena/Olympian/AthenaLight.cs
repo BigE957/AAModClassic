@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
+namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
     public class AthenaLight : ModNPC
     {

@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Athena
+namespace AAModClassic.Projectiles.Athena
 {
     public class GaleArrow : ModProjectile
 	{

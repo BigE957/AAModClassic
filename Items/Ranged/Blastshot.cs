@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class Blastshot : BaseAAItem
     {
@@ -20,7 +22,7 @@ namespace AAMod.Items.Ranged
             Item.useAnimation = 22;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAmmo = AmmoID.Gel;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireProj>();
+            Item.shoot = ModContent.ProjectileType<DragonfireProj>();
             Item.knockBack = 0;
             Item.value = 100000;
             Item.rare = ItemRarityID.Pink;

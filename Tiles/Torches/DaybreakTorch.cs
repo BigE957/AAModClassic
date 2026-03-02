@@ -1,3 +1,4 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Torches
+namespace AAModClassic.Tiles.Torches
 {
     public class DaybreakTorch : ModTile
 	{

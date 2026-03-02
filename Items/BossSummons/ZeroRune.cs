@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.DataStructures;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     //imported from my tAPI mod because I'm lazy
     public class ZeroRune : BaseAAItem

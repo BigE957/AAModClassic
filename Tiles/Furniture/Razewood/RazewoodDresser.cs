@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Furniture.Razewood
+namespace AAModClassic.Tiles.Furniture.Razewood
 {
     public class RazewoodDresser : ModTile
 	{

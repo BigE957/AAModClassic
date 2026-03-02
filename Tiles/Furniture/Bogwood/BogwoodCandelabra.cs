@@ -6,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Bogwood
+namespace AAModClassic.Tiles.Furniture.Bogwood
 {
     public class BogwoodCandelabra : ModTile
 	{

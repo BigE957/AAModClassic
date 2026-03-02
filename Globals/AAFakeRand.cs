@@ -1,7 +1,7 @@
 using System;
 using Terraria.Utilities;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAFakeRand : UnifiedRandom
 	{

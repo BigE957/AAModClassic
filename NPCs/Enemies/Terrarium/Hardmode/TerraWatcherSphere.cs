@@ -1,9 +1,10 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
+namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
 {
     public class TerraWatcherSphere : ModProjectile
     {
@@ -59,7 +60,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
                     Vector2 vector33 = Projectile.position;
                     vector33 -= Projectile.velocity * (num447 * 0.25f);
                     Projectile.alpha = 255;
-                    int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SummonDust>(), 0f, 0f, 200);
+                    int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<SummonDust>(), 0f, 0f, 200);
                     Main.dust[num448].position = vector33;
                     Main.dust[num448].scale = Main.rand.Next(70, 110) * 0.013f;
                     Main.dust[num448].velocity *= 0.2f;

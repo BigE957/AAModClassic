@@ -3,8 +3,12 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Akuma;
 
-namespace AAMod.Items.Boss.Akuma   //where is located
+namespace AAModClassic.Items.Boss.Akuma   //where is located
 {
     public class DragonSlasher : BaseAAItem
     {
@@ -73,7 +77,7 @@ Inflicts Daybroken"); */
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<AkumaDust>(), 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
                 dust.noGravity = true;
             }
         }
@@ -81,7 +85,7 @@ Inflicts Daybroken"); */
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         { 
             target.AddBuff(BuffID.Daybreak, 200);
-            Projectile.NewProjectile((int)target.position.X, (int)target.position.Y, 0, 0, ModContent.ProjectileType<Projectiles.Akuma.AkumaExp>(), Item.damage, 20, Main.myPlayer);
+            Projectile.NewProjectile((int)target.position.X, (int)target.position.Y, 0, 0, ModContent.ProjectileType<AkumaExp>(), Item.damage, 20, Main.myPlayer);
         }
         
         public override void AddRecipes()  //How to craft this sword

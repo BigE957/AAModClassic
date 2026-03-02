@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace AAMod.Items.Blocks
+using AAModClassic;
+namespace AAModClassic.Items.Blocks
 {
     public class Incinerite : BaseAAItem
     {

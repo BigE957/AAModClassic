@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     public class JudgementNPC : ModProjectile
     {

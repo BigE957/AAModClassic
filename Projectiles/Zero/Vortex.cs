@@ -5,8 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     public class Vortex : ModProjectile  
     {

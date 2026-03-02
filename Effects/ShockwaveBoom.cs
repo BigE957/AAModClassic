@@ -1,8 +1,9 @@
 using Terraria.ModLoader;
 using Terraria.Graphics.Effects;
 using Terraria;
+using AAModClassic.Globals;
 
-namespace AAMod
+namespace AAModClassic.Effects
 {
     public class ShockwaveBoom : ModProjectile
     {

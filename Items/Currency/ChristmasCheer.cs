@@ -5,8 +5,10 @@ using Terraria.GameContent.UI;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Items.Currency
+namespace AAModClassic.Items.Currency
 {
     public class ChristmasCheer : BaseAAItem
     {

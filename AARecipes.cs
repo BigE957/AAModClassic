@@ -1,11 +1,13 @@
-﻿using System;
+﻿using AAModClassic.Items.Summoning;
+using AAModClassic.Tiles.Furniture.Razewood;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic
 {
     internal class AARecipes
     {
@@ -166,7 +168,7 @@ namespace AAMod
 
             recipe = GetNewRecipe(ItemID.LavaBucket);
             recipe.AddIngredient(ItemID.EmptyBucket, 1);
-            recipe.AddTile(ModContent.TileType<Tiles.Furniture.Razewood.RazewoodSink>());
+            recipe.AddTile(ModContent.TileType<RazewoodSink>());
             recipe.Register();
             #endregion
         }
@@ -923,8 +925,8 @@ namespace AAMod
 
             RecipeGroup group16 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAMod.Common.evilsummonstaff"), new int[]
             {
-                ModContent.ItemType<Items.Summoning.EaterStaff>(),
-                ModContent.ItemType<Items.Summoning.CrimsonStaff>()
+                ModContent.ItemType<EaterStaff>(),
+                ModContent.ItemType<CrimsonStaff>()
             });
             RecipeGroup.RegisterGroup("AAMod:EvilStaff", group16);
 

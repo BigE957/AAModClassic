@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class Vortex : BaseAAItem
     {

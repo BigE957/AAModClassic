@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
+namespace AAModClassic.Items.Dev.Minions
 {
     public class Fezsplosion : ModProjectile
     {

@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class ChaosSoul : BaseAAItem
     {

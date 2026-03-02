@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-
-namespace AAMod.Items.Armor.Paints
+namespace AAModClassic.Items.Armor.Paints
 {
     [AutoloadEquip(EquipType.Head)]
 	public class TerraPaint : BaseAAItem

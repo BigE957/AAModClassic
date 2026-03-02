@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Dread
+namespace AAModClassic.Items.Armor.Dread
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DreadBoots : BaseAAItem

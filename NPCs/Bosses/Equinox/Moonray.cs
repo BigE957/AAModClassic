@@ -6,7 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class Moonray : ModProjectile
     {

@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class DragonSpirit : BaseAAItem
     {

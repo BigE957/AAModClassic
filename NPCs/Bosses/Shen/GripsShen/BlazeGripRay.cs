@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
+namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     public class BlazeGripRay : ModProjectile
     {

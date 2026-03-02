@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class MushMace : BaseAAItem
     {

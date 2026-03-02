@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Maskano
+namespace AAModClassic.Items.Vanity.Maskano
 {
     public class MaskBag : BaseAAItem
     {

@@ -1,8 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     internal class AsheFlamethrower : ModProjectile
     {
@@ -46,7 +47,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                     num296 = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<Dusts.AkumaDust>();
+                int num297 = ModContent.DustType<AkumaDust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 6; num298++)

@@ -4,8 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Summoning
+namespace AAModClassic.Items.Summoning
 {
     public class SkullStaff : BaseAAItem
     {

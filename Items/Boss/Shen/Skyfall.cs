@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 using System;
 using System.Collections.Generic;
 using Terraria.Audio;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class Skyfall : BaseAAItem
     {

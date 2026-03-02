@@ -6,7 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
+namespace AAModClassic.Projectiles.Djinn
 {
     class Sandstorm : ModProjectile
     {

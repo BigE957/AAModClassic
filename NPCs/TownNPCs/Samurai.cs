@@ -1,3 +1,7 @@
+using AAModClassic;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Items.Potions;
+using AAModClassic.Items.Usable;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -5,7 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class Samurai : ModNPC
@@ -145,13 +149,13 @@ namespace AAMod.NPCs.TownNPCs
             {
                 shop.item[nextSlot].SetDefaults(ItemID.RedDynastyShingles);
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Usable.InfernoSeeds>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<InfernoSeeds>());
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Usable.Sunpowder>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Sunpowder>());
                 nextSlot++;
                 if (AAWorld.downedBrood == true)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.BossSummons.DragonBell>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<DragonBell>());
                     shop.item[nextSlot].value = 100000;
                     nextSlot++;
                 }
@@ -160,18 +164,18 @@ namespace AAMod.NPCs.TownNPCs
             {
                 shop.item[nextSlot].SetDefaults(ItemID.BlueDynastyShingles);
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Usable.MireSeeds>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<MireSeeds>());
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Usable.Moonpowder>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Moonpowder>());
                 nextSlot++;
                 if (AAWorld.downedHydra == true)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.BossSummons.HydraChow>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<HydraChow>());
                     shop.item[nextSlot].value = 100000;
                     nextSlot++;
                 }
             }
-            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Potions.LuckyCracker>());
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<LuckyCracker>());
             shop.item[nextSlot].value = 2000000;
 			nextSlot++;
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Potions.RoninPotion>());

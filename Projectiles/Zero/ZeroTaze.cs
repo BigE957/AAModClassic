@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     public class ZeroTaze : ModProjectile
     {

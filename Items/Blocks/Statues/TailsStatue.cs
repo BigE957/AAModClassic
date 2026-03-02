@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Statues
+namespace AAModClassic.Items.Blocks.Statues
 {
 	public class TailsStatue : BaseAAItem
 	{

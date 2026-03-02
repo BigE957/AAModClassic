@@ -6,9 +6,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.Tiles.Boxes
+namespace AAModClassic.Tiles.Boxes
 {
     class StarBox : ModTile
 	{

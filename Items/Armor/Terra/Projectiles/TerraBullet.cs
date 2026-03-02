@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra.Projectiles
+namespace AAModClassic.Items.Armor.Terra.Projectiles
 {
     public class TerraBullet : ModProjectile
 	{

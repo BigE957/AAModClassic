@@ -1,3 +1,4 @@
+using AAModClassic.Items.Usable;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,7 +11,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
+namespace AAModClassic.Tiles.Chests
 {
     public class InfernoChest : ModTile
 	{
@@ -162,7 +163,7 @@ namespace AAMod.Tiles.Chests
             {
                 if (isLocked)
                 {
-                    int key = ModContent.ItemType<Items.Usable.InfernoKey>();
+                    int key = ModContent.ItemType<InfernoKey>();
                     if (player.ConsumeItem(key) && Chest.Unlock(left, top))
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -225,7 +226,7 @@ namespace AAMod.Tiles.Chests
                 {
                     player.cursorItemIconID = Mod.Find<ModItem>("InfernoChest").Type;
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
-                        player.cursorItemIconID = ModContent.ItemType<Items.Usable.InfernoKey>();
+                        player.cursorItemIconID = ModContent.ItemType<InfernoKey>();
                     player.cursorItemIconText = "";
                 }
             }

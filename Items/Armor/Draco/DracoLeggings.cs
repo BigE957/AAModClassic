@@ -3,9 +3,9 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Items.Armor.Draco
+namespace AAModClassic.Items.Armor.Draco
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DracoLeggings : BaseAAItem

@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
 	public class DoomiteMiningLaser : BaseAAItem
 	{

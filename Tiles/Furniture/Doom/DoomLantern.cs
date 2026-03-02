@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Doom
+namespace AAModClassic.Tiles.Furniture.Doom
 {
     public class DoomLantern : ModTile
 	{

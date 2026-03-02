@@ -7,9 +7,10 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using AAMod.NPCs.Enemies.Sky;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Enemies.Sky;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
     [AutoloadBossHead]
     public class Athena : ModNPC

@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class MagicAcorn : BaseAAItem
     {

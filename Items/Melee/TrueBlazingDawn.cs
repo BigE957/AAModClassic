@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class TrueBlazingDawn : BaseAAItem
 	{

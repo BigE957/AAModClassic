@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.Champion
+namespace AAModClassic.Items.Armor.Champion
 {
     [AutoloadEquip(EquipType.Head)]
     public class ChampionHood : BaseAAItem

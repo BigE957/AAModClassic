@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class AmphibiousProjectile : ModProjectile
     {

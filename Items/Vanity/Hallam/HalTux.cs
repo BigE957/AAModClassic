@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Hallam
+namespace AAModClassic.Items.Vanity.Hallam
 {
     [AutoloadEquip(EquipType.Body)]
     public class HalTux : BaseAAItem

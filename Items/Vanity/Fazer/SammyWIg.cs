@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Fazer
+namespace AAModClassic.Items.Vanity.Fazer
 {
     [AutoloadEquip(EquipType.Head)]
 	public class SammyWig : BaseAAItem

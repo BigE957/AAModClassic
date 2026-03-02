@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Oroboros
+namespace AAModClassic.Tiles.Furniture.Oroboros
 {
     public class OroborosLamp : ModTile
 {

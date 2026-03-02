@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.CrossMod.CalamityMod
 {
     public class CalamityGlobalNPC : GlobalNPC
     {

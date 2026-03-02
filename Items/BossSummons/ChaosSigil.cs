@@ -3,12 +3,17 @@ using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAMod.NPCs.Bosses.Shen;
 using System.Collections.Generic;
 
 using Terraria.ID;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class ChaosSigil : BaseAAItem
     {
@@ -58,7 +63,7 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosSigilFalse1"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.Akuma>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.Awakened.AkumaA>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()) || NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosSigilFalse2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;

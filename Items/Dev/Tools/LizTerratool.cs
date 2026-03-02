@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.UI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Tools
+namespace AAModClassic.Items.Dev.Tools
 {
     public class LizTerratool : BaseAAItem
     {
@@ -54,9 +56,9 @@ You may only have a maximum of 2 tool types active"); */
             {
                 Item.autoReuse = true;
                 Item.noUseGraphic = false;
-                Item.pick = UI.TerratoolLizUI.Pick;
-                Item.axe = UI.TerratoolLizUI.Axe;
-                Item.hammer = UI.TerratoolLizUI.Hammer;
+                Item.pick = TerratoolLizUI.Pick;
+                Item.axe = TerratoolLizUI.Axe;
+                Item.hammer = TerratoolLizUI.Hammer;
                 Item.damage = 120;
             }
             else

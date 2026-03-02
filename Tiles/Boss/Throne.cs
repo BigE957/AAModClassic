@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 
-namespace AAMod.Tiles.Boss
+namespace AAModClassic.Tiles.Boss
 {
 	public class Throne : ModTile
 	{

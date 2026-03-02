@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.RuneBook
+namespace AAModClassic.Items.Dev.RuneBook
 {
     public class DiscordRune : ModProjectile
     {

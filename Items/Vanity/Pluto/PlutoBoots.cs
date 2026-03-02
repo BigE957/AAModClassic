@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Pluto
+namespace AAModClassic.Items.Vanity.Pluto
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class PlutoBoots : BaseAAItem

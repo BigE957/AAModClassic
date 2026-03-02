@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.Ocean
+namespace AAModClassic.Items.Armor.Ocean
 {
     [AutoloadEquip(EquipType.Head)]
 	public class OceanHelm : BaseAAItem

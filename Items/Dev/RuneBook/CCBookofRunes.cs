@@ -3,8 +3,10 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using AAModClassic.Buffs;
+using AAModClassic;
 
-namespace AAMod.Items.Dev.RuneBook
+namespace AAModClassic.Items.Dev.RuneBook
 {
     public class CCBookofRunes : BaseAAItem
 	{
@@ -45,7 +47,7 @@ When player has 3 minion slots it summons terra, chaos and void rune."); */
             if(hideVisual)
             {
                 modPlayer.CCBookEX = false;
-                player.ClearBuff(ModContent.BuffType<Buffs.CCRune>());
+                player.ClearBuff(ModContent.BuffType<CCRune>());
             }
         }
 

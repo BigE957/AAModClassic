@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.ID;
+using AAModClassic.Dusts;
 
-namespace AAMod.Tiles.Plants
+namespace AAModClassic.Tiles.Plants
 {
     public class Mushroom : ModTile
 	{
@@ -19,7 +20,7 @@ namespace AAMod.Tiles.Plants
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
             ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.Mushroom;
-            DustType = ModContent.DustType<Dusts.MushDust>();
+            DustType = ModContent.DustType<MushDust>();
             HitSound = 6;
         }
 

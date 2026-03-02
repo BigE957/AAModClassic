@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Sagittarius
+namespace AAModClassic.Items.Boss.Sagittarius
 {
     public class NeutronStaff : BaseAAItem
     {

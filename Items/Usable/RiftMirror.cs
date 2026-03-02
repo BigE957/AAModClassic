@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Usable
+namespace AAModClassic.Items.Usable
 {
     public class RiftMirror : BaseAAItem
     {

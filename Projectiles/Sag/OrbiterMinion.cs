@@ -1,4 +1,8 @@
 using System;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,7 +11,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.Sag
+namespace AAModClassic.Projectiles.Sag
 {
     public class OrbiterMinion : AAProjectile
 	{

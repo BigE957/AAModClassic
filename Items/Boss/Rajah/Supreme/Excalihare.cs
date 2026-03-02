@@ -1,8 +1,11 @@
+using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
     public class Excalihare : BaseAAItem
 	{
@@ -39,7 +42,7 @@ namespace AAMod.Items.Boss.Rajah.Supreme
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.InfinityOverload>(), 120);
+            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<InfinityOverload>(), 120);
         }
     }
 }

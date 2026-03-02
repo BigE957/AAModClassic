@@ -7,8 +7,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
+namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
     public class FuryAsheOrbiter : ModNPC
     {

@@ -1,3 +1,4 @@
+using AAModClassic.Bases;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -5,7 +6,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     public class MidnightWrath : Javelin
     {

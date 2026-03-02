@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class AsgardianLance : BaseAAItem
 	{

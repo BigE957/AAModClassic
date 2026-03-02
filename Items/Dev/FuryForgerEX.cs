@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class FuryForgerEX : BaseAAItem
 	{

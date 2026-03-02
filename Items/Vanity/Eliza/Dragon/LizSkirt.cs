@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Eliza.Dragon
+namespace AAModClassic.Items.Vanity.Eliza.Dragon
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class LizSkirt : BaseAAItem

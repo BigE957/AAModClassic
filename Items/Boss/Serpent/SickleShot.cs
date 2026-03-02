@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Serpent;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Serpent
+namespace AAModClassic.Items.Boss.Serpent
 {
     public class SickleShot : BaseAAItem
     {
@@ -27,7 +29,7 @@ namespace AAMod.Items.Boss.Serpent
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Serpent.IceArrow>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<IceArrow>();
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 2;
             Item.value = Item.sellPrice(0, 5, 0, 0);

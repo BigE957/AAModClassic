@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
+namespace AAModClassic.Projectiles.Djinn
 {
     public class DesertBolt2 : ModProjectile
     {

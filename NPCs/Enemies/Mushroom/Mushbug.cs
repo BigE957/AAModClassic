@@ -2,8 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Enemies.Mushroom
+namespace AAModClassic.NPCs.Enemies.Mushroom
 {
     public class Mushbug : ModNPC
 	{
@@ -41,7 +43,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
 		public override void HitEffect(NPC.HitInfo hit)
 		{
 
-            int dust1 = ModContent.DustType<Dusts.MushDust>();
+            int dust1 = ModContent.DustType<MushDust>();
             if (NPC.life <= 0)
 			{
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);

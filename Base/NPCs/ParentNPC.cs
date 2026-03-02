@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.NPCs
 {
 	public abstract class ParentNPC : ModNPC
 	{	

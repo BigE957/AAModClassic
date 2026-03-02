@@ -4,8 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Athena
+namespace AAModClassic.Items.Boss.Athena
 {
     public class DivineWindCharm : BaseAAItem
     {

@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class CatsEyeRifleEX : BaseAAItem
     {

@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Dynaskull
+namespace AAModClassic.Items.Armor.Dynaskull
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DynaskullGreaves : BaseAAItem

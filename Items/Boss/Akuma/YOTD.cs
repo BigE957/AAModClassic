@@ -1,11 +1,12 @@
 ﻿using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class YOTD : BaseAAItem
     {

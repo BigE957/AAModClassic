@@ -6,8 +6,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class Discordium : BaseAAItem
     {

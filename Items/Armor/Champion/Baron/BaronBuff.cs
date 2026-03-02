@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Baron
+namespace AAModClassic.Items.Armor.Champion.Baron
 {
     public class BaronBuff : ModBuff
     {

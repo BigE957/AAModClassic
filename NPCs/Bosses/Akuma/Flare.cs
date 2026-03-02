@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     public class Flare : ModProjectile
     {

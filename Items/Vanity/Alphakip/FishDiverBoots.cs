@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Alphakip
+namespace AAModClassic.Items.Vanity.Alphakip
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class FishDiverBoots : BaseAAItem

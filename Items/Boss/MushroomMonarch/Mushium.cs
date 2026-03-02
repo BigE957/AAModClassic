@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.MushroomMonarch
+namespace AAModClassic.Items.Boss.MushroomMonarch
 {
     public class Mushium : BaseAAItem
     {

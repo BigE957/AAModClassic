@@ -2,11 +2,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using AAMod.Dusts;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
+using AAModClassic;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class Nightguard : ModNPC
 	{
@@ -79,7 +81,7 @@ namespace AAMod.NPCs.Enemies.Other
 			{
 				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
 				{
-					NPC.DropLoot(ModContent.ItemType<Items.Materials.DarkEnergy>());
+					NPC.DropLoot(ModContent.ItemType<DarkEnergy>());
 				}
 			}
         }

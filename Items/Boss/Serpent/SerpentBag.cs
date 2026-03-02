@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Serpent
+namespace AAModClassic.Items.Boss.Serpent
 {
     public class SerpentBag : BaseAAItem
     {

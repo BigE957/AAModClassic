@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Dev.DevTile
+namespace AAModClassic.Items.Dev.DevTile
 {
     public class DevTileCreat : GlobalTile
     {

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Shox
+namespace AAModClassic.Items.Vanity.Shox
 {
     [AutoloadEquip(EquipType.Body)]
     public class ShoxPlate : BaseAAItem

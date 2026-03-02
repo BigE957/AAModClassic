@@ -7,8 +7,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Broodmother
+namespace AAModClassic.NPCs.Bosses.Broodmother
 {
     [AutoloadBossHead]
     public class Broodmother : ModNPC

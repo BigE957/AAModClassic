@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class ThunderLordEX : BaseAAItem
     {

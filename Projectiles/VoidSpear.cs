@@ -1,9 +1,11 @@
 using System;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class VoidSpear : ModProjectile
     {
@@ -28,11 +30,11 @@ namespace AAMod.Projectiles
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, new Color(255, 255, 255), 1);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, new Color(255, 255, 255), 1);
                 Main.dust[num469].velocity *= 2f;
             }

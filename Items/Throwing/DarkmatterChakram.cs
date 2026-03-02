@@ -5,8 +5,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Throwing
+namespace AAModClassic.Items.Throwing
 {
     public class DarkmatterChakram : BaseAAItem
 	{

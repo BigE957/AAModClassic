@@ -1,4 +1,5 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
@@ -7,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
+namespace AAModClassic.NPCs.Bosses.Rajah
 {
     public class RabbitcopterSoldier : ModNPC
     {

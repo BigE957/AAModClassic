@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class FAnubisBag : BaseAAItem
     {

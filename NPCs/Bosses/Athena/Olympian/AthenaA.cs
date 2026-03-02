@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
+namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
     [AutoloadBossHead]
     public class AthenaA : ModNPC

@@ -1,7 +1,9 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
     public class ChampionPlate : BaseAAItem
     {

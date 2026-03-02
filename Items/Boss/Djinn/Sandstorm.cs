@@ -1,4 +1,4 @@
-namespace AAMod.Items.Boss.Djinn   //where is located
+namespace AAModClassic.Items.Boss.Djinn   //where is located
 {
     /*public class Sandstorm : BaseAAItem
     {

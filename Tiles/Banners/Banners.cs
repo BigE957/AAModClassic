@@ -9,7 +9,7 @@ using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Banners
+namespace AAModClassic.Tiles.Banners
 {
     public class Banners : ModTile
 	{

@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
+namespace AAModClassic.Items.Pets
 {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM

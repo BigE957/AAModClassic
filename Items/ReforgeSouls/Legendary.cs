@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.ReforgeSouls
+namespace AAModClassic.Items.ReforgeSouls
 {
     public class Legendary : BaseAAItem
     {

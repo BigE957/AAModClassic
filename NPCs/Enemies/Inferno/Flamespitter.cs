@@ -4,8 +4,10 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 using System;
+using AAModClassic.Dusts;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Enemies.Inferno
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public abstract class Flamespitter : ModNPC
 	{
@@ -196,7 +198,7 @@ namespace AAMod.NPCs.Enemies.Inferno
 		public override void HitEffect(NPC.HitInfo hit)
 		{
 
-            int dust1 = ModContent.DustType<Dusts.BroodmotherDust>();
+            int dust1 = ModContent.DustType<BroodmotherDust>();
             if (NPC.life <= 0)
 			{
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);

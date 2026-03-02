@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.PerfectChaos
+namespace AAModClassic.Items.Armor.PerfectChaos
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class PerfectChaosGreaves : BaseAAItem

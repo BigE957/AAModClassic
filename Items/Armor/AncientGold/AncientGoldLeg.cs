@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.AncientGold
+namespace AAModClassic.Items.Armor.AncientGold
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class AncientGoldLeg : BaseAAItem

@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.DoomiteU
+namespace AAModClassic.Items.Armor.DoomiteU
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DoomiteUHelm : BaseAAItem

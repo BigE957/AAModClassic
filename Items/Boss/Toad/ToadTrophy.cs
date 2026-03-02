@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Toad
+namespace AAModClassic.Items.Boss.Toad
 {
     public class ToadTrophy : BaseAAItem
 	{

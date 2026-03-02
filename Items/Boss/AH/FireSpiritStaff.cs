@@ -1,3 +1,7 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Projectiles.AH;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -5,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Boss.AH
+namespace AAModClassic.Items.Boss.AH
 {
     public class FireSpiritStaff : BaseAAItem
     {
@@ -55,7 +59,7 @@ namespace AAMod.Items.Boss.AH
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(Terraria.ModLoader.ModContent.ProjectileType<Projectiles.AH.FireOrbiter>());
+            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(Terraria.ModLoader.ModContent.ProjectileType<FireOrbiter>());
             int SummonCount = 2;
             if (AnyOrbiters)
             {

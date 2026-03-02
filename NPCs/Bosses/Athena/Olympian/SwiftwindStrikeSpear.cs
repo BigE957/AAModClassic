@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
+namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
     public class SwiftwindStrikeSpear : ModProjectile
     {

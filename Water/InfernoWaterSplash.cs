@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
+namespace AAModClassic.Water
 {
     public class InfernoWaterSplash : ModDust
 	{

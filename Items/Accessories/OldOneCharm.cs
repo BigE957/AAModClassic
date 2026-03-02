@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
     public class OldOneCharm : BaseAAItem

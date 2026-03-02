@@ -3,7 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace AAMod.Items.Boss
+namespace AAModClassic.Items.Boss
 {
     public class EXSoul : BaseAAItem
     {

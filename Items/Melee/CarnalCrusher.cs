@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class CarnalCrusher : BaseAAItem
     {

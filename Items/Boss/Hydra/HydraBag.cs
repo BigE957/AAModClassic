@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Hydra
+namespace AAModClassic.Items.Boss.Hydra
 {
     public class HydraBag : BaseAAItem
 	{

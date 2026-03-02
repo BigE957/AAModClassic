@@ -1,4 +1,4 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,7 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     public class AsheVanish : ModNPC
     {

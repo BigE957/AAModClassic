@@ -1,9 +1,13 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Boss.MushroomMonarch;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Mushroom
+namespace AAModClassic.NPCs.Enemies.Mushroom
 {
     public class SmallFrog : ModNPC
     {
@@ -39,7 +43,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
             }
             for (int m = 0; m < (isDead ? 35 : 6); m++)
             {
-                int dustType = ModContent.DustType<Dusts.MushDust>();
+                int dustType = ModContent.DustType<MushDust>();
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
         }
@@ -117,7 +121,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Boss.MushroomMonarch.Mushium>(), Main.rand.Next(1, 5));
+            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Mushium>(), Main.rand.Next(1, 5));
         }
     }
 }

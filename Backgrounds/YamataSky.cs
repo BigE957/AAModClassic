@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class YamataSky : CustomSky
     {

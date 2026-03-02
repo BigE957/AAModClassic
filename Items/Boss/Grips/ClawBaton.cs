@@ -4,8 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Grips
+namespace AAModClassic.Items.Boss.Grips
 {
     public class ClawBaton : BaseAAItem
     {

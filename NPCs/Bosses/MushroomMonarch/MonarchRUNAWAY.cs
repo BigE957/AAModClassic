@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.MushroomMonarch
+namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
     public class MonarchRUNAWAY: ModProjectile
     {

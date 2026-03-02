@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Tied
+namespace AAModClassic.Items.Vanity.Tied
 {
     [AutoloadEquip(EquipType.Legs)]
     public class TiedsLeggings : BaseAAItem

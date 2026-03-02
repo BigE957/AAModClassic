@@ -2,12 +2,15 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
-using AAMod.NPCs.Bosses.MushroomMonarch;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Items.BossSummons;
 
 
-namespace AAMod.Items.BossSummons.Swarm
+namespace AAModClassic.Items.BossSummons.Swarm
 {
     public class Masshroom : BaseAAItem
     {

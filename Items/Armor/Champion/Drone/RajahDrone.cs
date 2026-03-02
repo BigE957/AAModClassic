@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Items.Armor.Champion.Drone
+namespace AAModClassic.Items.Armor.Champion.Drone
 {
     public class RajahDrone : ModProjectile
     {

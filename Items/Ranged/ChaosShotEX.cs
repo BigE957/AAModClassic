@@ -4,8 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class ChaosShotEX : BaseAAItem
     {

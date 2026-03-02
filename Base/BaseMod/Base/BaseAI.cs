@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseAI
     {

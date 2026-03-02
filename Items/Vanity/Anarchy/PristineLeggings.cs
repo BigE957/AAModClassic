@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Anarchy
+namespace AAModClassic.Items.Vanity.Anarchy
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class PristineLeggings : BaseAAItem

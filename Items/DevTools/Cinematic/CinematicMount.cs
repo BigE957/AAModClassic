@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools.Cinematic
+namespace AAModClassic.Items.DevTools.Cinematic
 {
 	public class CinematicMount : ModItem
 	{

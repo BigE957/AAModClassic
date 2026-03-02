@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Furniture
+namespace AAModClassic.Tiles.Furniture
 {
     public class CrystalChandelier : ModTile
 	{

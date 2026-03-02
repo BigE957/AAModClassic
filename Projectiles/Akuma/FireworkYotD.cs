@@ -1,4 +1,4 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
+namespace AAModClassic.Projectiles.Akuma
 {
     public class FireworkYotD : ModProjectile
     {

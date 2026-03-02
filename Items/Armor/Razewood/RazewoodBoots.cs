@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Razewood
+namespace AAModClassic.Items.Armor.Razewood
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class RazewoodBoots : BaseAAItem

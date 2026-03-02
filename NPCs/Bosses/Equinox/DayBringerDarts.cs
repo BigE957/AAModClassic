@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class DayBringerDarts : ModProjectile
     {

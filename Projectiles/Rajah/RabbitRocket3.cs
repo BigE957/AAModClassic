@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
+namespace AAModClassic.Projectiles.Rajah
 {
     public class RabbitRocket3 : ModProjectile
     {

@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Biomite
+namespace AAModClassic.Items.Armor.Biomite
 {
     [AutoloadEquip(EquipType.Body)]
 	public class BiomitePlate : BaseAAItem

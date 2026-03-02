@@ -1,8 +1,10 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class Doomstone : BaseAAItem
     {

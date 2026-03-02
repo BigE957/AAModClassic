@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Athena
+namespace AAModClassic.Items.Boss.Athena
 {
     public class GoddessFeather : BaseAAItem
     {

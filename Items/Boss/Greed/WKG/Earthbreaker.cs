@@ -1,9 +1,11 @@
+using AAModClassic.Buffs;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Greed.WKG
+namespace AAModClassic.Items.Boss.Greed.WKG
 {
     public class Earthbreaker : BaseAAItem
     {
@@ -52,8 +54,8 @@ If the enemy hits the ground after being hit, they will take damage"); */
                 crit = true;
                 if (target.knockBackResist > 0 || !target.boss)
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.Falling>(), 120);
-                    target.GetGlobalNPC<Buffs.FallDamage>().damage = damage;
+                    target.AddBuff(ModContent.BuffType<Falling>(), 120);
+                    target.GetGlobalNPC<FallDamage>().damage = damage;
                 }
             }
         }

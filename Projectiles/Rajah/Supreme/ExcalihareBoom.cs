@@ -1,8 +1,9 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
+namespace AAModClassic.Projectiles.Rajah.Supreme
 {
     public class ExcalihareBoom : ModProjectile
     {
@@ -50,7 +51,7 @@ namespace AAMod.Projectiles.Rajah.Supreme
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.InfinityOverload>(), 120);
+            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 120);
         }
 
         public override void OnKill(int timeLeft)

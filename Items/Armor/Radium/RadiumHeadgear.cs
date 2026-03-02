@@ -1,11 +1,11 @@
-using AAMod.Items.Armor.Darkmatter;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Items.Armor.Darkmatter;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Items.Armor.Radium
+namespace AAModClassic.Items.Armor.Radium
 {
     [AutoloadEquip(EquipType.Head)]
     public class RadiumHeadgear : BaseAAItem

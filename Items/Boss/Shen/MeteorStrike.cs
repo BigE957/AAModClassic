@@ -6,8 +6,10 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Shen   //where is located
+namespace AAModClassic.Items.Boss.Shen   //where is located
 {
     public class MeteorStrike : BaseAAItem
     {

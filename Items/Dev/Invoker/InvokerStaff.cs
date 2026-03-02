@@ -7,9 +7,10 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Dev.Invoker
+namespace AAModClassic.Items.Dev.Invoker
 {
 	public class InvokerStaff : BanishDamageItem
 	{

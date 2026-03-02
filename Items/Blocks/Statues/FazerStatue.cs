@@ -1,7 +1,8 @@
 using Terraria;
-using Terraria.ModLoader; using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ID;
 
-namespace AAMod.Items.Blocks.Statues
+namespace AAModClassic.Items.Blocks.Statues
 {
 	public class FazerStatue : BaseAAItem
     {

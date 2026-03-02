@@ -3,8 +3,11 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class ThunderLord : BaseAAItem
     {
@@ -23,7 +26,7 @@ namespace AAMod.Items.Dev
             {
                 position += muzzleOffset;
             }
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Terraria.ModLoader.ModContent.ProjectileType<Projectiles.ThunderSpark>(), damage, knockBack, Main.myPlayer, 0, 0);
+            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Terraria.ModLoader.ModContent.ProjectileType<ThunderSpark>(), damage, knockBack, Main.myPlayer, 0, 0);
             return false;
         }
 

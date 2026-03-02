@@ -2,8 +2,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     // to investigate: Projectile.Damage, (8843)
     public class Star1 : ModProjectile
@@ -30,7 +31,7 @@ namespace AAMod.Projectiles
         public override void AI()
         {
             Projectile.rotation += .1f;
-            int stardust = ModContent.DustType<Dusts.StarDust>();
+            int stardust = ModContent.DustType<StarDust>();
             int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, stardust, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;

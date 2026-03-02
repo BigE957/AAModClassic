@@ -3,8 +3,9 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class HydraClaw : ModNPC
     {

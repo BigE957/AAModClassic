@@ -1,12 +1,14 @@
 ﻿using System;
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Chaos
+namespace AAModClassic.Items.Armor.Chaos
 {
     public class DragonSpirit : ModProjectile
     {

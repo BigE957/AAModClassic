@@ -4,12 +4,14 @@ using Terraria.Localization;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.AH;
-using AAMod.NPCs.Bosses.AH.Ashe;
-using AAMod.NPCs.Bosses.AH.Haruka;
 using Terraria.DataStructures;
+using AAModClassic.NPCs.Bosses.AH;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.AH.Haruka;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class FlamesOfAnarchy : BaseAAItem
     {

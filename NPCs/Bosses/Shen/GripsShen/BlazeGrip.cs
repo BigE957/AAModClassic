@@ -6,8 +6,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Shaders;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
+namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     [AutoloadBossHead]
     public class BlazeGrip : BaseShenGrips
@@ -40,8 +44,8 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -88,7 +92,7 @@ namespace AAMod.NPCs.Bosses.Shen.GripsShen
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 180);
         }
 
         public override void BossLoot(ref string name, ref int potionType)

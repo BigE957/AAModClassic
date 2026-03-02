@@ -4,8 +4,9 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Rajah;
 
-namespace AAMod.Projectiles.Rajah.Supreme
+namespace AAModClassic.Projectiles.Rajah.Supreme
 
 {
     public class RabbitRocketEX : RabbitRocket3

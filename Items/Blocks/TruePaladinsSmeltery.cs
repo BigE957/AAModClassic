@@ -3,8 +3,9 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class TruePaladinsSmeltery : BaseAAItem
     {

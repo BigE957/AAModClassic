@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Chaos
+namespace AAModClassic.Items.Armor.Chaos
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ChaosFukumen : BaseAAItem

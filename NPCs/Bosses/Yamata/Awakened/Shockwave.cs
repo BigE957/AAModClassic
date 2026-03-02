@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     public class Shockwave : ModProjectile
     {

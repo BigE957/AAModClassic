@@ -4,8 +4,11 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     class RoyalBunnyCage : BaseAAItem
     {

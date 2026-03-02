@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
+namespace AAModClassic.NPCs.Bosses.Sag
 {
     public class SagRocket : ModProjectile
     {

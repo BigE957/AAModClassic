@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     public class YamataAVenom2 : ModProjectile
     {

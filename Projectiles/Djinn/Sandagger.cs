@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
+namespace AAModClassic.Projectiles.Djinn
 {
     public class Sandagger : ModProjectile
     {
@@ -43,7 +44,7 @@ namespace AAMod.Projectiles.Djinn
             }
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SandDust>());
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<SandDust>());
             }
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
         }

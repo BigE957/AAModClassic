@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class Demise : BaseAAItem
 	{

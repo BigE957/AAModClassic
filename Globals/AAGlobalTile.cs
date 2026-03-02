@@ -1,12 +1,15 @@
-using AAMod.Tiles.Plants;
-using AAMod.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using AAModClassic.Tiles.Boss;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Tiles.Plants;
+using AAModClassic.Items.Potions.LuckyPotions;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAGlobalTile : GlobalTile
     {
@@ -192,7 +195,7 @@ namespace AAMod
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
             {
                 return false;
             }
@@ -217,7 +220,7 @@ namespace AAMod
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<Tiles.Boss.AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<Tiles.Boss.AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
             {
                 return false;
             }
@@ -442,7 +445,7 @@ namespace AAMod
                     {
                         if(Main.rand.Next(100) == 0)
                         {
-                            int rarepotion = ModContent.ItemType<Items.Potions.LuckyPotions.luckywrathpotion>();
+                            int rarepotion = ModContent.ItemType<luckywrathpotion>();
                             itemcreat = Item.NewItem(i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else

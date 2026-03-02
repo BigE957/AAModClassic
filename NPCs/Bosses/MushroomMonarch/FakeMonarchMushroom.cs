@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.DataStructures;
 
-namespace AAMod.NPCs.Bosses.MushroomMonarch
+namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
     internal class FakeMonarchMushroom : ModProjectile
     {

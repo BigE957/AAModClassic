@@ -1,3 +1,6 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Flasks;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -5,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class Lovecraftian : ModNPC
@@ -494,7 +497,7 @@ namespace AAMod.NPCs.TownNPCs
             }
             if (AAWorld.squid3 >= 5)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.DarkwaterFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<DarkwaterFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid4 >= 5)
@@ -504,7 +507,7 @@ namespace AAMod.NPCs.TownNPCs
             }
             if (AAWorld.squid5 >= 5)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.CrimsonFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<CrimsonFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid6 >= 5)
@@ -529,24 +532,24 @@ namespace AAMod.NPCs.TownNPCs
             }
             if (AAWorld.squid10 >= 5)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.GlowingSporeSac>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<GlowingSporeSac>());
                 nextSlot++;
             }
             if (AAWorld.squid11 >= 5)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.JungleFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<JungleFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid12 >= 1)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.IceFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<IceFlask>());
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.IcemeltFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<IcemeltFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid13 >= 5)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.ForestFlask>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<ForestFlask>());
                 nextSlot++;
             }
         }

@@ -1,8 +1,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
     public class Mushpick : BaseAAItem
     {

@@ -1,10 +1,12 @@
 using System;
+using AAModClassic.CrossMod;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
+namespace AAModClassic.Projectiles.Thorium
 {
     public class CarrotFarmer : ModProjectile
     {
@@ -95,7 +97,7 @@ namespace AAMod.Projectiles.Thorium
             {
                 for (int u = 0; u < 10; u++)
                 {
-                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
+                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
                     Main.dust[dust].noGravity = true;
                 }
                 float spread = 12f * 0.0174f;
@@ -238,7 +240,7 @@ namespace AAMod.Projectiles.Thorium
             {
                 float velX = Projectile.velocity.X / 3f * m;
                 float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), 0, 0, 0);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<CarrotDust>(), 0, 0, 0);
                 Main.dust[dustID].position.X = Projectile.Center.X - velX;
                 Main.dust[dustID].position.Y = Projectile.Center.Y - velY;
                 Main.dust[dustID].velocity *= 0f;

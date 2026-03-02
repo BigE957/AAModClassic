@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class Soulsplitter : BaseAAItem
 	{

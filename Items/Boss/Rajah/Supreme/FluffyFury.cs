@@ -3,8 +3,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
     public class FluffyFury : BaseAAItem
 	{

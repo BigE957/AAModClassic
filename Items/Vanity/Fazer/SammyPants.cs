@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Fazer
+namespace AAModClassic.Items.Vanity.Fazer
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class SammyPants : BaseAAItem

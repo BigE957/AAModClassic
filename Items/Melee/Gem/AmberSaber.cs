@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee.Gem   //where is located
+namespace AAModClassic.Items.Melee.Gem   //where is located
 {
     public class AmberSaber : BaseAAItem
     {

@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class FATransition : ModNPC
     {

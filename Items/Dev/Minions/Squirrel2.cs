@@ -1,4 +1,4 @@
-﻿namespace AAMod.Items.Dev.Minions
+﻿namespace AAModClassic.Items.Dev.Minions
 {
     public class Squirrel2 : Squirrel1
     {

@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles.Yamata
 {
     public class AcidFlame : ModProjectile
     {
@@ -49,7 +50,7 @@ namespace AAMod.Projectiles
 					num296 = 0.75f;
 				}
 				Projectile.ai[0] += 1f;
-				int num297 = ModContent.DustType<Dusts.YamataDust>();
+				int num297 = ModContent.DustType<YamataDust>();
 				if (Main.rand.Next(2) == 0)
 				{
 					for (int num298 = 0; num298 < 2; num298++)

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
     public class OmegaBullet : ModProjectile
     {

@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class Stardust : BaseAAItem
     {

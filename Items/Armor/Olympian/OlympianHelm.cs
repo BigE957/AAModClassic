@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.Olympian
+namespace AAModClassic.Items.Armor.Olympian
 {
     [AutoloadEquip(EquipType.Head)]
 	public class OlympianHelm : BaseAAItem

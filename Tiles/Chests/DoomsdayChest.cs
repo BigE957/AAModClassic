@@ -1,4 +1,6 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Usable;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -12,7 +14,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
+namespace AAModClassic.Tiles.Chests
 {
     public class DoomsdayChest : ModTile
 	{
@@ -164,7 +166,7 @@ namespace AAMod.Tiles.Chests
             {
                 if (isLocked)
                 {
-                    int key = ModContent.ItemType<Items.Usable.DoomstopperKey>();
+                    int key = ModContent.ItemType<DoomstopperKey>();
                     if (player.ConsumeItem(key) && Chest.Unlock(left, top))
                     {
                         if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -227,7 +229,7 @@ namespace AAMod.Tiles.Chests
                 {
                     player.cursorItemIconID = Mod.Find<ModItem>("DoomsdayChest").Type;
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
-                        player.cursorItemIconID = ModContent.ItemType<Items.Usable.DoomstopperKey>();
+                        player.cursorItemIconID = ModContent.ItemType<DoomstopperKey>();
                     player.cursorItemIconText = "";
                 }
             }

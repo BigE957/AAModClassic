@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire
+namespace AAModClassic.NPCs.Enemies.Mire
 {
     public class Newt : ModNPC
     {

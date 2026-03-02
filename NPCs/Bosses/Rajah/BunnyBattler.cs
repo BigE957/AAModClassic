@@ -5,8 +5,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Rajah
+namespace AAModClassic.NPCs.Bosses.Rajah
 {
     public class BunnyBattler : ModNPC
     {

@@ -1,3 +1,5 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,7 +12,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
+namespace AAModClassic.Tiles.Chests
 {
     public class GreedChest : ModTile
 	{

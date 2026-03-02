@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Demon
+namespace AAModClassic.Items.Armor.Demon
 {
     [AutoloadEquip(EquipType.Body)]
     public class DemonGarb : BaseAAItem

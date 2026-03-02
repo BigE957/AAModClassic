@@ -1,3 +1,4 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -5,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee.Gem   //where is located
+namespace AAModClassic.Items.Melee.Gem   //where is located
 {
     public class PrismaticGreatsword : BaseAAItem
     {

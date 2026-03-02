@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.Hoodlum
+namespace AAModClassic.Items.Armor.Hoodlum
 {
     [AutoloadEquip(EquipType.Head)]
     public class HoodlumHood : BaseAAItem

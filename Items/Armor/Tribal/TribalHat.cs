@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-
-namespace AAMod.Items.Armor.Tribal
+namespace AAModClassic.Items.Armor.Tribal
 {
     [AutoloadEquip(EquipType.Head)]
     public class TribalHat : BaseAAItem

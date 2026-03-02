@@ -1,7 +1,9 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class Terrablaze : ModBuff
 	{

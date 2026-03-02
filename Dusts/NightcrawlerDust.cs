@@ -1,9 +1,10 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Dusts
+namespace AAModClassic.Dusts
 {
     public class NightcrawlerDust : ModDust
     {

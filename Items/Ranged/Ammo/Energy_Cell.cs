@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged.Ammo
+namespace AAModClassic.Items.Ranged.Ammo
 {
     public class Energy_Cell : BaseAAItem
 	{

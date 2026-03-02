@@ -3,9 +3,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Yamata;
+using AAModClassic.Projectiles.Yamata;
 
-namespace AAMod.Items.Boss.Yamata
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class EternalTwilight : BaseAAItem
 	{

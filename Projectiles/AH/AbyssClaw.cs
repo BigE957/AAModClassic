@@ -1,10 +1,11 @@
 ﻿using System;
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
+namespace AAModClassic.Projectiles.AH
 {
     public class AbyssClaw : ModProjectile
     {

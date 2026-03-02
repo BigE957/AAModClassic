@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class ForsakenExplosion : ModProjectile
     {

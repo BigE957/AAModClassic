@@ -1,11 +1,13 @@
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.MushroomMonarch
+namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
     [AutoloadBossHead]
     public class MushroomMonarch : ModNPC

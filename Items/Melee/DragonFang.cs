@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class DragonFang : BaseAAItem
     {

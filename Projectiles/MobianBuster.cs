@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class MobianBuster : ModProjectile
     {

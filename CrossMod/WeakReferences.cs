@@ -2,16 +2,37 @@
 using System;
 using System.Collections.Generic;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Mask;
-using AAMod.Items.BossSummons;
-using AAMod.Items.Blocks.Boxes;
-using AAMod.Items.Blocks;
-using AAMod.Items.Flasks;
-using AAMod.Items.Usable;
-using AAMod.Items.Materials;
 using Terraria;
+using AAModClassic.Items.Boss.Yamata;
+using AAModClassic.Items.Boss.Rajah.Supreme;
+using AAModClassic.Items.Boss.Djinn;
+using AAModClassic.Items.Boss.Anubis;
+using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Blocks.Boxes;
+using AAModClassic.Items.Boss.Anubis.Forsaken;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Items.Boss.Rajah;
+using AAModClassic.Items.Boss.Greed;
+using AAModClassic.Items.Boss.AH;
+using AAModClassic.Items.Boss.Athena.Olympian;
+using AAModClassic.Items.Boss.Toad;
+using AAModClassic.Items.Boss.Sagittarius;
+using AAModClassic.Items.Boss.Serpent;
+using AAModClassic.Items.Flasks;
+using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.Boss.Equinox;
+using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Boss.Hydra;
+using AAModClassic.Items.Boss.Greed.WKG;
+using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.Items.Boss.Grips;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Usable;
 
-namespace AAMod.Globals
+namespace AAModClassic.CrossMod
 {
     internal class WeakReferences
     {
@@ -512,7 +533,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<IntimidatingMushroom>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.MushroomMonarch.MonarchTrophy>(),
+                        ModContent.ItemType<MonarchTrophy>(),
                         ModContent.ItemType<MonarchMask>(),
                         ModContent.ItemType<MonarchBox>()
                     },
@@ -520,7 +541,7 @@ namespace AAMod.Globals
                     {
                         ModContent.ItemType<Items.Boss.MushroomMonarch.MonarchBag>(),
                         ModContent.ItemType<Items.Boss.MushroomMonarch.HeartyTruffle>(),
-                        ModContent.ItemType<Items.Boss.MushroomMonarch.Mushium>(),
+                        ModContent.ItemType<Mushium>(),
                         ModContent.ItemType<SporeSac>()
                     },
                     Lang.BossCheck("Usean") + "[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]",
@@ -542,8 +563,8 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.MushroomMonarch.FungusBag>(),
-                        ModContent.ItemType<Items.Boss.MushroomMonarch.MagicTruffle>(),
+                        ModContent.ItemType<FungusBag>(),
+                        ModContent.ItemType<MagicTruffle>(),
                         ModContent.ItemType<Items.Boss.MushroomMonarch.GlowingMushium>(),
                         ModContent.ItemType<GlowingSporeSac>()
                     },
@@ -568,7 +589,7 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Grips.GripBag>(),
+                        ModContent.ItemType<GripBag>(),
                         ModContent.ItemType<Items.Boss.Grips.ClawOfChaos>(),
                         ModContent.ItemType<Items.Boss.Grips.ClawBaton>()
                     },
@@ -585,7 +606,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<Toadstool>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Toad.ToadTrophy>(),
+                        ModContent.ItemType<ToadTrophy>(),
                         ModContent.ItemType<ToadMask>(),
                         ModContent.ItemType<ToadBox>()
                     },
@@ -594,7 +615,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Toad.ToadBag>(),
                         ModContent.ItemType<Items.Boss.Toad.ToadLeg>(),
                         ModContent.ItemType<Items.Boss.Toad.ToadTongue>(),
-                        ModContent.ItemType<Items.Boss.Toad.Todegun>(),
+                        ModContent.ItemType<Todegun>(),
                         ModContent.ItemType<Items.Boss.Toad.MushrockStaff>(),
                         ModContent.ItemType<GlowingSporeSac>()
                     },
@@ -611,15 +632,15 @@ namespace AAMod.Globals
                     ModContent.ItemType<DragonBell>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Broodmother.BroodmotherTrophy>(),
+                        ModContent.ItemType<BroodmotherTrophy>(),
                         ModContent.ItemType<BroodmotherMask>(),
                         ModContent.ItemType<BroodBox>()
                     },
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Broodmother.BroodBag>(),
-                        ModContent.ItemType<Items.Boss.Broodmother.DragonCape>(),
-                        ModContent.ItemType<Items.Boss.Broodmother.BroodScale>(),
+                        ModContent.ItemType<DragonCape>(),
+                        ModContent.ItemType<BroodScale>(),
                         ModContent.ItemType<Incinerite>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DragonBell").Type + "]" + Lang.BossCheck("BroodmotherInfo"),
@@ -635,7 +656,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<HydraChow>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Hydra.HydraTrophy>(),
+                        ModContent.ItemType<HydraTrophy>(),
                         ModContent.ItemType<HydraMask1>(),
                         ModContent.ItemType<HydraBox>()
                     },
@@ -669,13 +690,13 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Serpent.SerpentBag>(),
                         ModContent.ItemType<Items.Boss.Serpent.ArcticMedallion>(),
                         ModContent.ItemType<Items.Boss.Serpent.BlizzardBuster>(),
-                        ModContent.ItemType<Items.Boss.Serpent.Icepick>(),
-                        ModContent.ItemType<Items.Boss.Serpent.SerpentSpike>(),
+                        ModContent.ItemType<Icepick>(),
+                        ModContent.ItemType<SerpentSpike>(),
                         ModContent.ItemType<Items.Boss.Serpent.SerpentSting>(),
-                        ModContent.ItemType<Items.Boss.Serpent.Sickle>(),
+                        ModContent.ItemType<Sickle>(),
                         ModContent.ItemType<Items.Boss.Serpent.SickleShot>(),
                         ModContent.ItemType<Items.Boss.Serpent.SnakeStaff>(),
-                        ModContent.ItemType<Items.Boss.Serpent.SnowflakeShuriken>(),
+                        ModContent.ItemType<SnowflakeShuriken>(),
                         ModContent.ItemType<Items.Boss.Serpent.SubzeroSlasher>(),
                         ModContent.ItemType<SnowMana>()
                     },
@@ -698,13 +719,13 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Djinn.DjinnBag>(),
+                        ModContent.ItemType<DjinnBag>(),
                         ModContent.ItemType<Items.Boss.Djinn.SandstormMedallion>(),
-                        ModContent.ItemType<Items.Boss.Djinn.DjinnBag>(),
+                        ModContent.ItemType<DjinnBag>(),
                         ModContent.ItemType<Items.Boss.Djinn.Djinnerang>(),
                         ModContent.ItemType<Items.Boss.Djinn.Sandagger>(),
-                        ModContent.ItemType<Items.Boss.Djinn.SandLamp>(),
-                        ModContent.ItemType<Items.Boss.Djinn.SandScepter>(),
+                        ModContent.ItemType<SandLamp>(),
+                        ModContent.ItemType<SandScepter>(),
                         ModContent.ItemType<Items.Boss.Djinn.SandstormCrossbow>(),
                         ModContent.ItemType<Items.Boss.Djinn.SultanScimitar>(),
                         ModContent.ItemType<DesertMana>()
@@ -722,7 +743,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<Lifescanner>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Sagittarius.SagTrophy>(),
+                        ModContent.ItemType<SagTrophy>(),
                         ModContent.ItemType<SagMask>(),
                         ModContent.ItemType<SagBox>()
                     },
@@ -730,7 +751,7 @@ namespace AAMod.Globals
                     {
                         ModContent.ItemType<Items.Boss.Sagittarius.SagBag>(),
                         ModContent.ItemType<Items.Boss.Sagittarius.SagShield>(),
-                        ModContent.ItemType<Items.Boss.Sagittarius.Legg>(),
+                        ModContent.ItemType<Legg>(),
                         ModContent.ItemType<Items.Boss.Sagittarius.NeutronStaff>(),
                         ModContent.ItemType<Items.Boss.Sagittarius.SagCore>(),
                         ModContent.ItemType<Doomite>()
@@ -748,18 +769,18 @@ namespace AAMod.Globals
                     ModContent.ItemType<Scepter>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Anubis.AnubisTrophy>(),
+                        ModContent.ItemType<AnubisTrophy>(),
                         ModContent.ItemType<AnubisMask>(),
                         ModContent.ItemType<AnubisBox>()
                     },
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Anubis.AnubisBag>(),
-                        ModContent.ItemType<Items.Boss.Anubis.ArtifactOfJudgement>(),
+                        ModContent.ItemType<ArtifactOfJudgement>(),
                         ModContent.ItemType<Items.Boss.Anubis.Judgment>(),
                         ModContent.ItemType<Items.Boss.Anubis.JackalsWrath>(),
                         ModContent.ItemType<Items.Boss.Anubis.NeithsString>(),
-                        ModContent.ItemType<Items.Boss.Anubis.SandstormThrower>(),
+                        ModContent.ItemType<SandstormThrower>(),
                         ModContent.ItemType<Items.Boss.Anubis.DesertStaff>(),
                         ModContent.ItemType<Items.Boss.Anubis.SentryOfTheEye>(),
                         ModContent.ItemType<Items.Boss.Anubis.ForsakenFragment>()
@@ -811,12 +832,12 @@ namespace AAMod.Globals
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Greed.GreedBag>(),
-                        ModContent.ItemType<Items.Boss.Greed.DesireCharm>(),
-                        ModContent.ItemType<Items.Boss.Greed.StoneSlammer>(),
+                        ModContent.ItemType<DesireCharm>(),
+                        ModContent.ItemType<StoneSlammer>(),
                         ModContent.ItemType<Items.Boss.Greed.GildedGlock>(),
-                        ModContent.ItemType<Items.Boss.Greed.GoldDigger>(),
-                        ModContent.ItemType<Items.Boss.Greed.Miner>(),
-                        ModContent.ItemType<Items.Boss.Greed.StoneShell>()
+                        ModContent.ItemType<GoldDigger>(),
+                        ModContent.ItemType<Miner>(),
+                        ModContent.ItemType<StoneShell>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenGrub").Type + "]" + Lang.BossCheck("GreedInfo"),
                     null,
@@ -837,14 +858,14 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Rajah.RajahBag>(),
+                        ModContent.ItemType<RajahBag>(),
                         ModContent.ItemType<Items.Boss.Rajah.RajahSash>(),
                         ModContent.ItemType<Items.Boss.Rajah.BaneOfTheBunny>(),
-                        ModContent.ItemType<Items.Boss.Rajah.Punisher>(),
+                        ModContent.ItemType<Punisher>(),
                         ModContent.ItemType<Items.Boss.Rajah.Bunzooka>(),
                         ModContent.ItemType<Items.Boss.Rajah.RoyalScepter>(),
                         ModContent.ItemType<Items.Boss.Rajah.CottonCane>(),
-                        ModContent.ItemType<Items.Boss.Rajah.RabbitcopterEars>(),
+                        ModContent.ItemType<RabbitcopterEars>(),
                         ModContent.ItemType<Items.Boss.Rajah.RajahPelt>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenCarrot").Type + "]" + Lang.BossCheck("RajahRabbitInfo"),
@@ -866,15 +887,15 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.FAnubisBag>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.ArtifactOfGuilt>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.Verdict>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.Soulsplitter>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.Lifeline>(),
+                        ModContent.ItemType<FAnubisBag>(),
+                        ModContent.ItemType<ArtifactOfGuilt>(),
+                        ModContent.ItemType<Verdict>(),
+                        ModContent.ItemType<Soulsplitter>(),
+                        ModContent.ItemType<Lifeline>(),
                         ModContent.ItemType<Items.Boss.Anubis.Forsaken.CursedFury>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.ForsakenStaff>(),
+                        ModContent.ItemType<ForsakenStaff>(),
                         ModContent.ItemType<Items.Boss.Anubis.Forsaken.HorusCane>(),
-                        ModContent.ItemType<Items.Boss.Anubis.Forsaken.SoulFragment>()
+                        ModContent.ItemType<SoulFragment>()
                     },
                     Lang.BossCheck("AnubisAInfo"),
                     null,
@@ -893,13 +914,13 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Athena.Olympian.AthenaABag>(),
-                        ModContent.ItemType<Items.Boss.Athena.Olympian.GoddessHarp>(),
-                        ModContent.ItemType<Items.Boss.Athena.Olympian.Olympia>(),
+                        ModContent.ItemType<AthenaABag>(),
+                        ModContent.ItemType<GoddessHarp>(),
+                        ModContent.ItemType<Olympia>(),
                         ModContent.ItemType<Items.Boss.Athena.Olympian.Windfury>(),
-                        ModContent.ItemType<Items.Boss.Athena.Olympian.GaleForce>(),
+                        ModContent.ItemType<GaleForce>(),
                         ModContent.ItemType<Items.Boss.Athena.Olympian.HurricaneStone>(),
-                        ModContent.ItemType<Items.Boss.Athena.Olympian.StarChart>()
+                        ModContent.ItemType<StarChart>()
                     },
                     Lang.BossCheck("AthenaAInfo"),
                     null,
@@ -921,7 +942,7 @@ namespace AAMod.Globals
                     {
                         ModContent.ItemType<Items.Boss.Greed.WKG.GreedABag>(),
                         ModContent.ItemType<Items.Boss.Greed.WKG.DesireTalisman>(),
-                        ModContent.ItemType<Items.Boss.Greed.WKG.Earthbreaker>(),
+                        ModContent.ItemType<Earthbreaker>(),
                         ModContent.ItemType<Items.Boss.Greed.WKG.OreCannon>(),
                         ModContent.ItemType<Items.Boss.Greed.WKG.OreStaff>(),
                         ModContent.ItemType<Items.Boss.Greed.WKG.Unearther>(),
@@ -941,7 +962,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<EquinoxWorm>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Equinox.DBTrophy>(),
+                        ModContent.ItemType<DBTrophy>(),
                         ModContent.ItemType<Items.Boss.Equinox.NCTrophy>(),
                         ModContent.ItemType<DaybringerMask>(),
                         ModContent.ItemType<NightcrawlerMask>(),
@@ -950,8 +971,8 @@ namespace AAMod.Globals
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Equinox.EquinoxBag>(),
-                        ModContent.ItemType<Items.Boss.Equinox.RadiantStar>(),
-                        ModContent.ItemType<Items.Boss.Equinox.DarkVoid>(),
+                        ModContent.ItemType<RadiantStar>(),
+                        ModContent.ItemType<DarkVoid>(),
                         ModContent.ItemType<Stardust>(),
                         ModContent.ItemType<DarkEnergy>(),
                         ModContent.ItemType<DarkmatterOre>(),
@@ -970,19 +991,19 @@ namespace AAMod.Globals
                     ModContent.ItemType<FlamesOfAnarchy>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.AH.AsheTrophy>(),
+                        ModContent.ItemType<AsheTrophy>(),
                         ModContent.ItemType<Items.Boss.AH.HarukaTrophy>(),
                         ModContent.ItemType<SistersBox>()
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.AH.AHBag>(),
-                        ModContent.ItemType<Items.Boss.AH.HeartOfPassion>(),
-                        ModContent.ItemType<Items.Boss.AH.HeartOfSorrow>(),
-                        ModContent.ItemType<Items.Boss.AH.AshRain>(),
+                        ModContent.ItemType<AHBag>(),
+                        ModContent.ItemType<HeartOfPassion>(),
+                        ModContent.ItemType<HeartOfSorrow>(),
+                        ModContent.ItemType<AshRain>(),
                         ModContent.ItemType<Items.Boss.AH.FuryFlame>(),
                         ModContent.ItemType<Items.Boss.AH.FireSpiritStaff>(),
-                        ModContent.ItemType<Items.Boss.AH.AsheSatchel>(),
+                        ModContent.ItemType<AsheSatchel>(),
                         ModContent.ItemType<Items.Boss.AH.HarukaKunai>(),
                         ModContent.ItemType<Items.Boss.AH.Masamune>(),
                         ModContent.ItemType<Items.Boss.AH.MizuArashi>(),
@@ -1001,7 +1022,7 @@ namespace AAMod.Globals
                     ModContent.ItemType<DraconianSigil>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Akuma.AkumaTrophy>(),
+                        ModContent.ItemType<AkumaTrophy>(),
                         ModContent.ItemType<AkumaMask>(),
                         ModContent.ItemType<AkumaBox>()
                     },
@@ -1014,14 +1035,14 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Akuma.Solar>(),
                         ModContent.ItemType<Items.Boss.Akuma.MorningGlory>(),
                         ModContent.ItemType<Items.Boss.Akuma.RadiantDawn>(),
-                        ModContent.ItemType<Items.Boss.Akuma.YOTD>(),
+                        ModContent.ItemType<YOTD>(),
                         ModContent.ItemType<Items.Boss.Akuma.DaybreakArrow>(),
                         ModContent.ItemType<Items.Boss.Akuma.Dawnstrike>(),
                         ModContent.ItemType<Items.Boss.Akuma.SunStorm>(),
                         ModContent.ItemType<Items.Boss.Akuma.Daystorm>(),
                         ModContent.ItemType<Items.Boss.Akuma.LungStaff>(),
                         ModContent.ItemType<Items.Boss.Akuma.AkumaTerratool>(),
-                        ModContent.ItemType<Items.Boss.Akuma.CrucibleScale>()
+                        ModContent.ItemType<CrucibleScale>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianSigil").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
@@ -1034,14 +1055,14 @@ namespace AAMod.Globals
                     ModContent.ItemType<DraconianRune>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Akuma.AkumaATrophy>(),
+                        ModContent.ItemType<AkumaATrophy>(),
                         ModContent.ItemType<AkumaAMask>(),
                         ModContent.ItemType<AkumaABox>()
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Akuma.AkumaBag>(),
-                        ModContent.ItemType<Items.Boss.Akuma.TaiyangBaolei>()
+                        ModContent.ItemType<AkumaBag>(),
+                        ModContent.ItemType<TaiyangBaolei>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianRune").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
@@ -1064,19 +1085,19 @@ namespace AAMod.Globals
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Yamata.AbyssalYari>(),
-                        ModContent.ItemType<Items.Boss.Yamata.Hydraslayer>(),
-                        ModContent.ItemType<Items.Boss.Yamata.Flairdra>(),
+                        ModContent.ItemType<Hydraslayer>(),
+                        ModContent.ItemType<Flairdra>(),
                         ModContent.ItemType<Items.Boss.Yamata.HydraStabber>(),
-                        ModContent.ItemType<Items.Boss.Yamata.Crescent>(),
+                        ModContent.ItemType<Crescent>(),
                         ModContent.ItemType<Items.Boss.Yamata.AE>(),
                         ModContent.ItemType<Items.Boss.Yamata.Darksprayer>(),
-                        ModContent.ItemType<Items.Boss.Yamata.FallingTwilight>(),
-                        ModContent.ItemType<Items.Boss.Yamata.MidnightWrath>(),
+                        ModContent.ItemType<FallingTwilight>(),
+                        ModContent.ItemType<MidnightWrath>(),
                         ModContent.ItemType<Items.Boss.Yamata.Sevenshot>(),
-                        ModContent.ItemType<Items.Boss.Yamata.ThrowingCrescent>(),
+                        ModContent.ItemType<ThrowingCrescent>(),
                         ModContent.ItemType<Items.Boss.Yamata.Toxibomb>(),
-                        ModContent.ItemType<Items.Boss.Yamata.YamataTerratool>(),
-                        ModContent.ItemType<Items.Boss.Yamata.DreadScale>()
+                        ModContent.ItemType<YamataTerratool>(),
+                        ModContent.ItemType<DreadScale>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadSigil").Type + "]" + Lang.BossCheck("YamataInfo"),
                     null,
@@ -1089,13 +1110,13 @@ namespace AAMod.Globals
                     ModContent.ItemType<DreadRune>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Yamata.YamataATrophy>(),
+                        ModContent.ItemType<YamataATrophy>(),
                         ModContent.ItemType<YamataAMask>(),
                         ModContent.ItemType<YamataABox>()
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Yamata.YamataBag>(),
+                        ModContent.ItemType<YamataBag>(),
                         ModContent.ItemType<Items.Boss.Yamata.Naitokurosu>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadRune").Type + "]" + Lang.BossCheck("YamataInfo"),
@@ -1119,21 +1140,21 @@ namespace AAMod.Globals
                     new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Zero.RiftShredder>(),
-                        ModContent.ItemType<Items.Boss.Zero.EventHorizon>(),
-                        ModContent.ItemType<Items.Boss.Zero.Vortex>(),
+                        ModContent.ItemType<EventHorizon>(),
+                        ModContent.ItemType<Vortex>(),
                         ModContent.ItemType<Items.Boss.Zero.BHB>(),
                         ModContent.ItemType<Items.Boss.Zero.GenocideCannon>(),
                         ModContent.ItemType<Items.Boss.Zero.Gigataser>(),
-                        ModContent.ItemType<Items.Boss.Zero.Neutralizer>(),
-                        ModContent.ItemType<Items.Boss.Zero.OmegaVolley>(),
-                        ModContent.ItemType<Items.Boss.Zero.RealityCannon>(),
+                        ModContent.ItemType<Neutralizer>(),
+                        ModContent.ItemType<OmegaVolley>(),
+                        ModContent.ItemType<RealityCannon>(),
                         ModContent.ItemType<Items.Boss.Zero.TeslaHand>(),
-                        ModContent.ItemType<Items.Boss.Zero.ZeroArrow>(),
+                        ModContent.ItemType<ZeroArrow>(),
                         ModContent.ItemType<Items.Boss.Zero.Battery>(),
-                        ModContent.ItemType<Items.Boss.Zero.VoidStar>(),
+                        ModContent.ItemType<VoidStar>(),
                         ModContent.ItemType<Items.Boss.Zero.DoomRay>(),
                         ModContent.ItemType<Items.Boss.Zero.DoomPortal>(),
-                        ModContent.ItemType<Items.Boss.Zero.ZeroTerratool>(),
+                        ModContent.ItemType<ZeroTerratool>(),
                         ModContent.ItemType<Items.Boss.Zero.UnstableSingularity>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroTesseract").Type + "]" + Lang.BossCheck("ZeroInfo"),
@@ -1151,8 +1172,8 @@ namespace AAMod.Globals
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Zero.ZeroBag>(),
-                        ModContent.ItemType<Items.Boss.Zero.BrokenCode>()
+                        ModContent.ItemType<ZeroBag>(),
+                        ModContent.ItemType<BrokenCode>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroRune").Type + "]" + Lang.BossCheck("ZeroInfo"),
                     null,
@@ -1175,11 +1196,11 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.RajahCache>(),
                         ModContent.ItemType<Items.Boss.Rajah.RajahCape>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.Excalihare>(),
-                        ModContent.ItemType<Items.Boss.Rajah.Supreme.BaneOfTheBunnyEX>(),
+                        ModContent.ItemType<BaneOfTheBunnyEX>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.PunisherEX>(),
-                        ModContent.ItemType<Items.Boss.Rajah.Supreme.FluffyFury>(),
+                        ModContent.ItemType<FluffyFury>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.BunzookaEX>(),
-                        ModContent.ItemType<Items.Boss.Rajah.Supreme.RabbitsWrath>(),
+                        ModContent.ItemType<RabbitsWrath>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.RoyalScepterEX>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.CottonCaneEX>(),
                         ModContent.ItemType<Items.Boss.Rajah.Supreme.ChampionPlate>()
@@ -1197,21 +1218,21 @@ namespace AAMod.Globals
                     ModContent.ItemType<ChaosSigil>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Shen.ShenTrophy>(),
+                        ModContent.ItemType<ShenTrophy>(),
                         ModContent.ItemType<ShenMask>(),
                         ModContent.ItemType<ShenBox>()
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Shen.ChaosSlayer>(),
+                        ModContent.ItemType<ChaosSlayer>(),
                         ModContent.ItemType<Items.Boss.Shen.Astroid>(),
                         ModContent.ItemType<Items.Boss.Shen.Timesplitter>(),
-                        ModContent.ItemType<Items.Boss.Shen.DraconicRipper>(),
+                        ModContent.ItemType<DraconicRipper>(),
                         ModContent.ItemType<Items.Boss.Shen.FlamingTwilight>(),
                         ModContent.ItemType<Items.Boss.Shen.Skyfall>(),
                         ModContent.ItemType<Items.Boss.Shen.MeteorStrike>(),
                         ModContent.ItemType<Items.Boss.Shen.ShenTerratool>(),
-                        ModContent.ItemType<Items.Boss.Shen.ChaosScale>()
+                        ModContent.ItemType<ChaosScale>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosSigil").Type + "]",
                     null,
@@ -1224,13 +1245,13 @@ namespace AAMod.Globals
                     ModContent.ItemType<ChaosRune>(),
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Shen.ShenATrophy>(),
+                        ModContent.ItemType<ShenATrophy>(),
                         ModContent.ItemType<ShenAMask>(),
                         ModContent.ItemType<ShenABox>()
                     },
                     new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Shen.ShenCache>(),
+                        ModContent.ItemType<ShenCache>(),
                         ModContent.ItemType<Items.Boss.Shen.ChaosSoul>()
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosRune").Type + "]",

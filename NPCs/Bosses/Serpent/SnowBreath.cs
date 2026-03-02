@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
+namespace AAModClassic.NPCs.Bosses.Serpent
 {
     internal class SnowBreath : ModProjectile
     {
@@ -61,7 +62,7 @@ namespace AAMod.NPCs.Bosses.Serpent
 
                 if (Projectile.ai[1] == 3)
                 {
-                    num297 = ModContent.DustType<Dusts. BroodmotherDust>();
+                    num297 = ModContent.DustType<BroodmotherDust>();
                 }
 
                 if (Projectile.ai[1] == 4)

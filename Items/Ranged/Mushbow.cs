@@ -1,8 +1,9 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class  Mushbow : BaseAAItem
 	{

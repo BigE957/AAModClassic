@@ -1,4 +1,4 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +9,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
+namespace AAModClassic.NPCs.Bosses.Greed
 {
     public class GreedMinion : ModNPC
 	{

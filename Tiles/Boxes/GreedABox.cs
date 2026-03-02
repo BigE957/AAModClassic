@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Tiles.Boxes
+namespace AAModClassic.Tiles.Boxes
 {
     class GreedABox : ModTile
 	{

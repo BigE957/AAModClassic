@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class SGBox : BaseAAItem
 	{

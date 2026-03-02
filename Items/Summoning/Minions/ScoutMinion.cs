@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
+namespace AAModClassic.Items.Summoning.Minions
 {
 	public class ScoutMinion : ModProjectile
     {

@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Ocean
+namespace AAModClassic.Items.Armor.Ocean
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class OceanBoots : BaseAAItem

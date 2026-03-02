@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Walls
+namespace AAModClassic.Items.Walls
 {
     public class DaybreakWall : BaseAAItem
     {

@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
+namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {
     public class HarukaStrike : ModProjectile
     {

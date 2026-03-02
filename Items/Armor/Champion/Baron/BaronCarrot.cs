@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Baron
+namespace AAModClassic.Items.Armor.Champion.Baron
 {
     public class BaronCarrot : ModProjectile
 	{

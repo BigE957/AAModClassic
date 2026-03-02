@@ -3,9 +3,11 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Armor.Darkmatter
+namespace AAModClassic.Items.Armor.Darkmatter
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DarkmatterGreaves : BaseAAItem

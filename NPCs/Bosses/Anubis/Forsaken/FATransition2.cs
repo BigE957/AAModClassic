@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class FATransition2 : ModNPC
     {

@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls.Bricks
+namespace AAModClassic.Walls.Bricks
 {
     public class EventideWall : ModWall
 	{

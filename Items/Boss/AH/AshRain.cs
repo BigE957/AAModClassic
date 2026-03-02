@@ -4,8 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.AH
+namespace AAModClassic.Items.Boss.AH
 {
     public class AshRain : BaseAAItem
     {

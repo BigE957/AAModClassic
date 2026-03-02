@@ -3,11 +3,15 @@ using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Equinox;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.Equinox;
+using AAModClassic.Tiles.Altar;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class EquinoxWorm : BaseAAItem
     {
@@ -35,7 +39,7 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>()) && !NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>()) && !NPC.AnyNPCs(ModContent.NPCType<Tiles.Altar.WormSpawn>());
+            return !NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>()) && !NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>()) && !NPC.AnyNPCs(ModContent.NPCType<WormSpawn>());
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */

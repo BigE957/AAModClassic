@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Usable
+namespace AAModClassic.Items.Usable
 {
     public class MireKey : BaseAAItem
     {

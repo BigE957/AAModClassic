@@ -3,8 +3,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
+using AAModClassic;
+using AAModClassic.Dusts;
+using AAModClassic.Buffs;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class BlazeClaw : ModNPC
     {
@@ -74,14 +78,14 @@ namespace AAMod.NPCs.Enemies.Other
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>());
+                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<AkumaDust>());
                 }
             }
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 180);
         }
 
         public override void OnKill()

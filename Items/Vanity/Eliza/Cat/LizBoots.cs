@@ -1,10 +1,11 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Eliza.Cat
+namespace AAModClassic.Items.Vanity.Eliza.Cat
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class LizBoots : BaseAAItem

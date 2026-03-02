@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
+namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
     public class WrathHarukaProj : ModProjectile
 	{

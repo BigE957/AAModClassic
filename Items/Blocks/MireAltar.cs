@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class MireAltar : BaseAAItem
 	{

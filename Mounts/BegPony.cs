@@ -1,17 +1,18 @@
 using System;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Mounts
+namespace AAModClassic.Mounts
 {
 	public class BegPony : ModMount
 	{
 		public override void SetStaticDefaults()
 		{
             MountData.spawnDust = DustID.Smoke;
-            MountData.buff = ModContent.BuffType<Buffs.PrettyPony>();
+            MountData.buff = ModContent.BuffType<PrettyPony>();
             MountData.heightBoost = 44;
             MountData.flightTimeMax = 0;
             MountData.fallDamage = 0f;

@@ -4,7 +4,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAMod.Projectiles.Anubis
+namespace AAModClassic.Projectiles.Anubis
 {
     public class EyeOfJudgement : ModProjectile
 	{

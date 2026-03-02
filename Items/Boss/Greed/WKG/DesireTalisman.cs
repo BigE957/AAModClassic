@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Greed.WKG
+namespace AAModClassic.Items.Boss.Greed.WKG
 {
     public class DesireTalisman : BaseAAItem
     {

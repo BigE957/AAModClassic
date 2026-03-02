@@ -1,3 +1,5 @@
+using AAModClassic.Bases;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class DragonSpine : Javelin
     {
@@ -23,8 +25,8 @@ namespace AAMod.Projectiles
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 20;
             maxStickingJavelins = 12;
             rotationOffset = (float)Math.PI / 4;
         }

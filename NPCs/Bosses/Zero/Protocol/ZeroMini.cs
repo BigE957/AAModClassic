@@ -4,8 +4,10 @@ using Terraria.ModLoader;
 
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
+namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
     public class ZeroMini : ModNPC
     {

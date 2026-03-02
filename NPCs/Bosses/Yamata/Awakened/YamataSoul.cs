@@ -4,9 +4,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     public class YamataSoul : ModNPC
     {

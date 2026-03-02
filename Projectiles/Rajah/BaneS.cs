@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
+namespace AAModClassic.Projectiles.Rajah
 {
     public class BaneS : ModProjectile
     {

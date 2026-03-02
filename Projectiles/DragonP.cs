@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class DragonP : ModProjectile
     {

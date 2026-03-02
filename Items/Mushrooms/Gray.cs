@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Mushrooms
+namespace AAModClassic.Items.Mushrooms
 {
     public class Gray : BaseAAItem
     {

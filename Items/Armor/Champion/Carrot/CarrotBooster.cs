@@ -1,10 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Armor.Champion.Carrot
+namespace AAModClassic.Items.Armor.Champion.Carrot
 {
     public class CarrotBooster : BaseAAItem
     {

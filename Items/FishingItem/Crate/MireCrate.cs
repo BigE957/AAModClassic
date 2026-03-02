@@ -1,8 +1,10 @@
-﻿using Terraria;
+﻿using AAModClassic;
+using AAModClassic.Globals;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.FishingItem.Crate
+namespace AAModClassic.Items.FishingItem.Crate
 {
     public class MireCrate : BaseAAItem
     {

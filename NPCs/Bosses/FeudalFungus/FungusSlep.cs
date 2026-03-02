@@ -6,8 +6,10 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
+namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
     public class FungusSlep : ModNPC
     {

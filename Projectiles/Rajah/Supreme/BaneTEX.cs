@@ -1,3 +1,5 @@
+using AAModClassic.Bases;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -5,7 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
+namespace AAModClassic.Projectiles.Rajah.Supreme
 {
     public class BaneTEX : Javelin
     {
@@ -22,8 +24,8 @@ namespace AAMod.Projectiles.Rajah.Supreme
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = 1;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 22;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 22;
             maxStickingJavelins = 12;
             rotationOffset = (float)Math.PI / 4;
             Projectile.extraUpdates = 2;

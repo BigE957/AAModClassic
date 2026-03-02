@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Demon
+namespace AAModClassic.Items.Armor.Demon
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DemonBoots : BaseAAItem

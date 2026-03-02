@@ -1,8 +1,9 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class HorusSummon : ModProjectile
     {
@@ -28,7 +29,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f, 0, default, 2f);
+                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<ForsakenDust>(), 0f, 0f, 0, default, 2f);
                 Main.dust[num469].noGravity = true;
             }
             Projectile.damage = 0;

@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Raider
+namespace AAModClassic.Items.Armor.Raider
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class RaiderLegs : BaseAAItem

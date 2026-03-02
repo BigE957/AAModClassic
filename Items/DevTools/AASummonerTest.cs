@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class AASummonerTest : BaseAAItem
     {

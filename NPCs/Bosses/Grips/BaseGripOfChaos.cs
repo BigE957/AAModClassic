@@ -6,8 +6,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Grips
+namespace AAModClassic.NPCs.Bosses.Grips
 {
     public abstract class BaseGripOfChaos : ModNPC
     {

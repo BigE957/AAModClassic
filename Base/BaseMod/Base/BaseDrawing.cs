@@ -12,8 +12,10 @@ using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using AAModClassic.Base.NPCs;
+using AAModClassic.Base.Projectiles;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class DrawAnimationPrecise : DrawAnimation
 	{

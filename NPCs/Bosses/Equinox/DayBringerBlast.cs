@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using System;
 
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class DayBringerBlast : ModProjectile
     {

@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Critters
+namespace AAModClassic.NPCs.Critters
 {
     public class VoidFlowey : ModNPC
     {

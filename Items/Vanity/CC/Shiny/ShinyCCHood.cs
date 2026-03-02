@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.CC.Shiny
+namespace AAModClassic.Items.Vanity.CC.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ShinyCCHood : ModItem

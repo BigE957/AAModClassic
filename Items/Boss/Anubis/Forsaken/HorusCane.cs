@@ -1,10 +1,11 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class HorusCane : BaseAAItem
     {

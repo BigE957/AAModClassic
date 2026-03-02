@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Greed
+namespace AAModClassic.Items.Boss.Greed
 {
     public class StoneSlammer : BaseAAItem
     {

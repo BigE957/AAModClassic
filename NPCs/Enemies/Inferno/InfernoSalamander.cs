@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Inferno
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
 
     public class InfernoSalamander : ModNPC

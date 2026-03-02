@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Hydra
+namespace AAModClassic.Items.Boss.Hydra
 {
     public class HydraHide : BaseAAItem
     {

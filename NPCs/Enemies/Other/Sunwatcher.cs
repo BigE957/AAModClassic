@@ -2,10 +2,11 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
+using AAModClassic.Dusts;
 
-using AAMod.Dusts;
-
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class Sunwatcher : ModNPC
 	{
@@ -69,7 +70,7 @@ namespace AAMod.NPCs.Enemies.Other
 			{
 				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
 				{
-					NPC.DropLoot(ModContent.ItemType<Items.Materials.Stardust>());
+					NPC.DropLoot(ModContent.ItemType<Stardust>());
 				}
 			}
         }

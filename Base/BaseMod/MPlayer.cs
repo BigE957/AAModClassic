@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod
 {
     public class MPlayer : ModPlayer
     {

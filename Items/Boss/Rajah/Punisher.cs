@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class Punisher : BaseAAItem
     {

@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Kindled
+namespace AAModClassic.Items.Armor.Kindled
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class KindledSuneate : BaseAAItem

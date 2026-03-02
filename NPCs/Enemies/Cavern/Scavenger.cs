@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod.NPCs.Enemies.Cavern
+namespace AAModClassic.NPCs.Enemies.Cavern
 {
     public class Scavenger : ModNPC
     {

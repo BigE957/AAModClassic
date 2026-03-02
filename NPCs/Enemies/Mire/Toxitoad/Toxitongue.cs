@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire.Toxitoad
+namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
 {
     public class Toxitongue : ModProjectile
     {

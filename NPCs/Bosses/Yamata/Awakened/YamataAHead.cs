@@ -4,9 +4,9 @@ using System;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     [AutoloadBossHead]
     public class YamataAHead : ModNPC

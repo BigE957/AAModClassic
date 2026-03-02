@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Deathly
+namespace AAModClassic.Items.Armor.Deathly
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DeathlyGreaves : BaseAAItem

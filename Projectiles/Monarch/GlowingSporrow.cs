@@ -1,4 +1,5 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Monarch
+namespace AAModClassic.Projectiles.Monarch
 {
     public class GlowingSporrow : ModProjectile
     {
@@ -23,8 +24,8 @@ namespace AAMod.Projectiles.Monarch
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 0;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 0;
         }
 
         public override void PostDraw(Color lightColor)

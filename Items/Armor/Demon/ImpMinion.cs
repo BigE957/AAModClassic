@@ -1,3 +1,4 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -5,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Demon
+namespace AAModClassic.Items.Armor.Demon
 {
     public class ImpMinion : ModProjectile
 	{

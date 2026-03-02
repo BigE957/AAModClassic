@@ -1,7 +1,3 @@
-using AAMod.Backgrounds;
-using AAMod.Globals;
-using AAMod.UI;
-using AAMod.UI.Core;
 using AAMod.Items.Dev.Invoker;
 using log4net;
 using Microsoft.Xna.Framework;
@@ -22,8 +18,17 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
 using ReLogic.Content;
+using AAModClassic.Backgrounds;
+using AAModClassic.UI;
+using AAModClassic.Globals;
+using AAModClassic.Base.NPCs;
+using AAModClassic.Base.Projectiles;
+using AAModClassic.UI.Core;
+using AAModClassic.CrossMod;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base.BaseMod;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class AAMod : Mod
     {

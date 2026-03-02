@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Mikpin
+namespace AAModClassic.Items.Vanity.Mikpin
 {
     public class MikBag : BaseAAItem
     {

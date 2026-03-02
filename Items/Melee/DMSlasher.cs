@@ -5,8 +5,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using AAModClassic.CrossMod.Overhaul;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class DMSlasher : BaseAAItem
     {

@@ -1,7 +1,8 @@
+using AAModClassic.CrossMod;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class RajahBag : BaseAAItem
     {

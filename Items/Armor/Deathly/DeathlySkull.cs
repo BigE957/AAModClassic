@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.Deathly
+namespace AAModClassic.Items.Armor.Deathly
 {
     [AutoloadEquip(EquipType.Head)]
     public class DeathlySkull : BaseAAItem

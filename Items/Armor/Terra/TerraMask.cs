@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-
-namespace AAMod.Items.Armor.Terra
+namespace AAModClassic.Items.Armor.Terra
 {
     [AutoloadEquip(EquipType.Head)]
     public class TerraMask : BaseAAItem

@@ -4,8 +4,9 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class CottonCane : BaseAAItem
     {

@@ -1,7 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
+namespace AAModClassic.Tiles.Bricks
 {
     class EventideBrick : ModTile
     {
@@ -13,7 +15,7 @@ namespace AAMod.Tiles.Bricks
             Main.tileBlockLight[Type] = true;
             ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("EventideBrick").Type;   
             AddMapEntry(AAColor.Yamata);
-            DustType = ModContent.DustType<Dusts.AbyssDust>();
+            DustType = ModContent.DustType<AbyssDust>();
         }
     }
 }

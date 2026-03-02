@@ -5,10 +5,13 @@ using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Grips;
 using Terraria.Localization;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.Grips;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     //imported from my tAPI mod because I'm lazy
     public class InterestingClaw : BaseAAItem

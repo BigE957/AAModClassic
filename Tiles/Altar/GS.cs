@@ -1,7 +1,6 @@
-using AAMod.Items;
 using Terraria.ID;
 
-namespace AAMod.Tiles.Altar
+namespace AAModClassic.Tiles.Altar
 {
     public class GS : BaseAAItem
     {

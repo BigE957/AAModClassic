@@ -3,8 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Inferno
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class MagmaSwimmer : ModNPC
 	{

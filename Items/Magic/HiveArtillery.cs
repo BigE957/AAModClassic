@@ -1,11 +1,12 @@
 using System;
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class HiveArtillery : BaseAAItem
 	{
@@ -88,7 +89,7 @@ namespace AAMod.Items.Magic
             if (player.strongBees && Main.rand.Next(2) == 0)
             {
                 makeStrongBee = true;
-                return ModContent.ProjectileType<Projectiles.BeeStrong>();
+                return ModContent.ProjectileType<BeeStrong>();
             }
             makeStrongBee = false;
             return ModContent.ProjectileType<Projectiles.Bee>();

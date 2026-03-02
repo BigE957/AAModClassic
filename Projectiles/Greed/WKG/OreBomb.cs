@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
+namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class OreBomb : ModProjectile
     {

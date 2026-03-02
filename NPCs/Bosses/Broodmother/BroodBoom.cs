@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Broodmother
+namespace AAModClassic.NPCs.Bosses.Broodmother
 {
     public class BroodBoom : ModProjectile
     {

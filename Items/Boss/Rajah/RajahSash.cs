@@ -4,8 +4,9 @@ using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class RajahSash : BaseAAItem
     {

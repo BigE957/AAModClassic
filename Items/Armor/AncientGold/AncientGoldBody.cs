@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.AncientGold
+namespace AAModClassic.Items.Armor.AncientGold
 {
 	[AutoloadEquip(EquipType.Body)]
 	public class AncientGoldBody : BaseAAItem

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using AAModClassic;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,7 +12,7 @@ using Terraria.ModLoader;
 
 
 
-namespace AAMod.Projectiles.Akuma.Lung
+namespace AAModClassic.Projectiles.Akuma.Lung
 {
     public class LungHead : ModProjectile
     {

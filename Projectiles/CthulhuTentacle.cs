@@ -1,9 +1,10 @@
 ﻿using System;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class CthulhuTentacle : ModProjectile
     {
@@ -82,7 +83,7 @@ namespace AAMod.Projectiles
 				int num897 = 0;
 				while (num897 < Projectile.scale * 10f)
 				{
-					int num898 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1.1f);
+					int num898 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>(), Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1.1f);
 					Main.dust[num898].position = (Main.dust[num898].position + Projectile.Center) / 2f;
 					Main.dust[num898].noGravity = true;
 					Main.dust[num898].velocity *= 0.1f;

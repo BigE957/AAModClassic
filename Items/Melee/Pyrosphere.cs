@@ -1,7 +1,9 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class Pyrosphere : BaseAAItem
 	{

@@ -4,8 +4,9 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Akuma
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     public class AkumaBoom : ModProjectile
     {

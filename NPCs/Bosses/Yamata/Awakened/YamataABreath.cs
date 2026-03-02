@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     internal class YamataABreath : ModProjectile
     {
@@ -56,7 +57,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     num296 = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<Dusts.YamataADust>();
+                int num297 = ModContent.DustType<YamataADust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 3; num298++)

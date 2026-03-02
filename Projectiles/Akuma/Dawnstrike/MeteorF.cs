@@ -1,11 +1,11 @@
-﻿
+﻿using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
+namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 {
     public class MeteorF : ModProjectile
     {

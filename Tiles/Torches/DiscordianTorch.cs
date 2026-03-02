@@ -1,3 +1,5 @@
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +11,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Torches
+namespace AAModClassic.Tiles.Torches
 {
     public class DiscordianTorch : ModTile
 	{
@@ -39,7 +41,7 @@ namespace AAMod.Tiles.Torches
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(150, 10, 180), name);
-			DustType = ModContent.DustType<Dusts.Discord>();
+			DustType = ModContent.DustType<Discord>();
 			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DiscordianTorch").Type;
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			AdjTiles = new int[]{ TileID.Torches };

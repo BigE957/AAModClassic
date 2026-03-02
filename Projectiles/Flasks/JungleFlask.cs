@@ -5,9 +5,11 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic;
 
-namespace AAMod.Projectiles.Flasks
+namespace AAModClassic.Projectiles.Flasks
 {
     public class JungleFlask : ModProjectile
     {

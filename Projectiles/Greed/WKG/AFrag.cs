@@ -5,10 +5,11 @@ using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
-using AAMod.Dusts;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles.Greed.WKG
+namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class AFrag : ModProjectile
     {

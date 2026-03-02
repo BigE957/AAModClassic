@@ -1,10 +1,10 @@
-﻿
+﻿using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
     public class UraeusTail : Uraeus
     {

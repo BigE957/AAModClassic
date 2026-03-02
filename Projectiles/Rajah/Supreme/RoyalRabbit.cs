@@ -1,4 +1,7 @@
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,7 +11,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
+namespace AAModClassic.Projectiles.Rajah.Supreme
 {
 	public class RoyalRabbit : ModProjectile
 	{
@@ -335,7 +338,7 @@ namespace AAMod.Projectiles.Rajah.Supreme
                 Main.dust[num15].noGravity = true;
                 Main.dust[num15].scale = 1f + 3 / 3f;
             }
-            target.AddBuff(ModContent.BuffType<Buffs.InfinityOverload>(), 200);
+            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 200);
         }
 
         public override void OnKill(int timeLeft)
@@ -343,7 +346,7 @@ namespace AAMod.Projectiles.Rajah.Supreme
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num585 = 0; num585 < 20; num585++)
             {
-                int num586 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 100, Main.DiscoColor, 2f);
+                int num586 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), 0f, 0f, 100, Main.DiscoColor, 2f);
                 Main.dust[num586].noGravity = true;
                 Main.dust[num586].velocity *= 4f;
             }

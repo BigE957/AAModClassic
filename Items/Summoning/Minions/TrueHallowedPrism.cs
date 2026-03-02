@@ -1,10 +1,13 @@
+using AAModClassic;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
+namespace AAModClassic.Items.Summoning.Minions
 {
     public class TrueHallowedPrism : ModProjectile
 	{
@@ -66,7 +69,7 @@ namespace AAMod.Items.Summoning.Minions
                 int num501 = 20;
                 for (int num502 = 0; num502 < num501; num502++)
                 {
-                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 0, AAColor.Hallow, 1f);
+                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, ModContent.DustType<InfinityOverloadB>(), 0f, 0f, 0, AAColor.Hallow, 1f);
                     Main.dust[num503].velocity *= 2f;
                 }
             }

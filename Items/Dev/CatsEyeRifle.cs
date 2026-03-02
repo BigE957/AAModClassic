@@ -4,8 +4,9 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class CatsEyeRifle : BaseAAItem
     {

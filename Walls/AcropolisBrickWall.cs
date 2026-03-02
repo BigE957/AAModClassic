@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
+namespace AAModClassic.Walls
 {
     public class AcropolisBrickWall : ModWall
 	{

@@ -1,4 +1,4 @@
-﻿namespace AAMod.Projectiles
+﻿namespace AAModClassic.Projectiles
 {
     public class AkumaTooth : ShenTooth
     {

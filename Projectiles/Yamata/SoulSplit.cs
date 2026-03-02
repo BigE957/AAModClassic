@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     public class SoulSplit : ModProjectile
     {

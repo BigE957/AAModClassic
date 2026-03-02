@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Projectiles.Akuma
+namespace AAModClassic.Projectiles.Akuma
 {
     public class MorningGlory : ModProjectile
     {

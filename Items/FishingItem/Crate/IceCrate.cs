@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.FishingItem.Crate
+namespace AAModClassic.Items.FishingItem.Crate
 {
     public class IceCrate : BaseAAItem
     {

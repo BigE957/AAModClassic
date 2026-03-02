@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class ColorUtils
     {

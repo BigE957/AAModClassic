@@ -6,8 +6,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class Shenling : ModNPC
 	{
@@ -364,11 +365,11 @@ namespace AAMod.NPCs.Bosses.Shen
         {
             for (int num468 = 0; num468 < 3; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<Dusts.DiscordLight>(), -NPC.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<DiscordLight>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.DiscordLight>(), -NPC.velocity.X * 0.2f,
+                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<DiscordLight>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
@@ -421,8 +422,8 @@ namespace AAMod.NPCs.Bosses.Shen
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.DiscordLight>();
-                int dust2 = ModContent.DustType<Dusts.DiscordLight>();
+                int dust1 = ModContent.DustType<DiscordLight>();
+                int dust2 = ModContent.DustType<DiscordLight>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -552,8 +553,8 @@ namespace AAMod.NPCs.Bosses.Shen
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.DiscordLight>();
-                int dust2 = ModContent.DustType<Dusts.DiscordLight>();
+                int dust1 = ModContent.DustType<DiscordLight>();
+                int dust2 = ModContent.DustType<DiscordLight>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -683,8 +684,8 @@ namespace AAMod.NPCs.Bosses.Shen
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.DiscordLight>();
-                int dust2 = ModContent.DustType<Dusts.DiscordLight>();
+                int dust1 = ModContent.DustType<DiscordLight>();
+                int dust2 = ModContent.DustType<DiscordLight>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;

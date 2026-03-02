@@ -6,8 +6,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Terraria.Localization;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class HydraChow : BaseAAItem
 	{

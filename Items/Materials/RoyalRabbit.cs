@@ -4,9 +4,11 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class RoyalRabbit : BaseAAItem
     {

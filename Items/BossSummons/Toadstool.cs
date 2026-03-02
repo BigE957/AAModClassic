@@ -4,10 +4,12 @@ using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Toad;
 
-using AAMod.NPCs.Bosses.Toad;
-
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class Toadstool : BaseAAItem
     {

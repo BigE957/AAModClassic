@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Delly
+namespace AAModClassic.Items.Vanity.Delly
 {
     public class DellyBag : BaseAAItem
     {

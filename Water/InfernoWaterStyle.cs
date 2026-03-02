@@ -1,8 +1,9 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
+namespace AAModClassic.Water
 {
     public class InfernoWaterStyle : ModWaterStyle
 	{

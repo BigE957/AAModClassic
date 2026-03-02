@@ -1,3 +1,5 @@
+using AAModClassic.Bases;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -5,7 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
+namespace AAModClassic.Projectiles.Rajah
 {
     public class BaneT : Javelin
     {
@@ -22,8 +24,8 @@ namespace AAMod.Projectiles.Rajah
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = 1;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 20;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 20;
             maxStickingJavelins = 6;
             rotationOffset = (float)Math.PI / 4;
             Projectile.extraUpdates = 1;

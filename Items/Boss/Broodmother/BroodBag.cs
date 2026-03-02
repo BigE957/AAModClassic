@@ -2,7 +2,8 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Broodmother
+using AAModClassic;
+namespace AAModClassic.Items.Boss.Broodmother
 {
     public class BroodBag : BaseAAItem
 	{

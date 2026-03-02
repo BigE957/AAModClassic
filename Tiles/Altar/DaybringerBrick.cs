@@ -1,8 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Altar
+namespace AAModClassic.Tiles.Altar
 {
     class DaybringerBrick : ModTile
     {

@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     public class CrescentSaw : ModProjectile
     {

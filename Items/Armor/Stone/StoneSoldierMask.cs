@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Stone
+namespace AAModClassic.Items.Armor.Stone
 {
     [AutoloadEquip(EquipType.Head)]
 	public class StoneSoldierMask : BaseAAItem

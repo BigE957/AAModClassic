@@ -1,7 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class GreedBG : ModUndergroundBackgroundStyle
     {

@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Greed
+namespace AAModClassic.Items.Boss.Greed
 {
     public class StoneShell : BaseAAItem
     {

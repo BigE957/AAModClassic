@@ -6,8 +6,9 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
+namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
     public class WrathHarukaVanish : ModNPC
     {

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Serpent
+namespace AAModClassic.Projectiles.Serpent
 {
     public class SerpentSpike : ModProjectile
     {

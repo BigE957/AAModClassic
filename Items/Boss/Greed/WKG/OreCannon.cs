@@ -3,9 +3,12 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Items.Boss.Greed.WKG
+namespace AAModClassic.Items.Boss.Greed.WKG
 {
     public class OreCannon : BaseAAItem
     {

@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Hallam
+namespace AAModClassic.Items.Vanity.Hallam
 {
     [AutoloadEquip(EquipType.Head)]
 	public class HalHat : BaseAAItem

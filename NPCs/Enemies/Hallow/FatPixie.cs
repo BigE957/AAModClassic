@@ -1,3 +1,5 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Hallow
+namespace AAModClassic.NPCs.Enemies.Hallow
 {
     public class FatPixie : ModNPC
     {

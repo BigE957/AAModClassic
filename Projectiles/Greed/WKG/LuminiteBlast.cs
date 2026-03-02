@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
+namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class LuminiteBlast : ModProjectile
     {

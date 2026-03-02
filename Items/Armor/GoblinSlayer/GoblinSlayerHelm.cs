@@ -6,7 +6,7 @@ using Terraria.Localization;
 using System;
 using Terraria.ID;
 
-namespace AAMod.Items.Armor.GoblinSlayer
+namespace AAModClassic.Items.Armor.GoblinSlayer
 {
     [AutoloadEquip(EquipType.Head)]
 	public class GoblinSlayerHelm : BaseAAItem

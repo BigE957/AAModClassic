@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class BinaryReassembler : BaseAAItem
     {

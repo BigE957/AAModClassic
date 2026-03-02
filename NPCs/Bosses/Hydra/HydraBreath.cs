@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.NPCs.Bosses.Hydra
+namespace AAModClassic.NPCs.Bosses.Hydra
 {
     internal class HydraBreath : ModProjectile
     {

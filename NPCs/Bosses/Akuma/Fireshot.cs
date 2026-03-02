@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     public class FireShot : ModProjectile
     {

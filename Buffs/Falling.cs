@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Greed.WKG;
+using AAModClassic.Projectiles.Greed.WKG;
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class Falling : ModBuff
 	{

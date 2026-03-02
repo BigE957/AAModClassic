@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
+namespace AAModClassic.Projectiles.Akuma
 {
     public class FlamingMeteor : ModProjectile
     {

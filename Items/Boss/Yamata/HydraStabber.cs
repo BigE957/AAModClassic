@@ -4,8 +4,12 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Buffs;
+using AAModClassic.Dusts;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Yamata   //where is located
+namespace AAModClassic.Items.Boss.Yamata   //where is located
 {
     public class HydraStabber : BaseAAItem
     {
@@ -66,7 +70,7 @@ IInflicts Moonraze"); */
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 46, default, 1.381579f)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<YamataDust>(), 0f, 0f, 46, default, 1.381579f)];
                 dust.noGravity = true;
             }
         }
@@ -84,7 +88,7 @@ IInflicts Moonraze"); */
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
         
         public override void AddRecipes()  //How to craft this sword

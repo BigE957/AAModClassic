@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Bars
+namespace AAModClassic.Tiles.Bars
 {
     public class CovetiteBar : ModTile
     {

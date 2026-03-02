@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 using System;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.Darkmatter
+namespace AAModClassic.Items.Armor.Darkmatter
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DarkmatterHeaddress : BaseAAItem

@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Oroboros
+namespace AAModClassic.Items.Armor.Oroboros
 {
     [AutoloadEquip(EquipType.Body)]
     public class OroborosChestplate : BaseAAItem

@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Assassin
+namespace AAModClassic.Items.Armor.Assassin
 {
     public class AssassinDagger : ModProjectile
 	{

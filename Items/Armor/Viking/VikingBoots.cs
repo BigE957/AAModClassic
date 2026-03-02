@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Viking
+namespace AAModClassic.Items.Armor.Viking
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class VikingBoots : BaseAAItem

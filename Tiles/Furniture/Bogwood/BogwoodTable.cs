@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Furniture.Bogwood
+namespace AAModClassic.Tiles.Furniture.Bogwood
 {
     public class BogwoodTable : ModTile
 	{

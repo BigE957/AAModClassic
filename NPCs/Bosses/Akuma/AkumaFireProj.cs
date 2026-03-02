@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
@@ -7,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Akuma
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     internal class AkumaFireProj : ModProjectile
     {

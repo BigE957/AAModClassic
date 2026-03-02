@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crates
+namespace AAModClassic.Tiles.Crates
 {
     public class DesertCrate : ModTile
     {

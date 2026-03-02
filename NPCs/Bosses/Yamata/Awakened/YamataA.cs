@@ -7,8 +7,14 @@ using Terraria.ModLoader;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
+using AAModClassic.NPCs.Bosses.Yamata;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     [AutoloadBossHead]
     public class YamataA : YamataBoss
@@ -101,8 +107,8 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
         {
             damage = 0;
             
-            int dust1 = ModContent.DustType<Dusts.YamataADust>();
-            int dust2 = ModContent.DustType<Dusts.YamataADust>();
+            int dust1 = ModContent.DustType<YamataADust>();
+            int dust2 = ModContent.DustType<YamataADust>();
             if (NPC.life <= 0)
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
@@ -392,7 +398,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
                     {
-                        Main.player[p].AddBuff(ModContent.BuffType<Buffs.YamataAGravity>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataAGravity>(), 10, true);
                     }
                 }
 

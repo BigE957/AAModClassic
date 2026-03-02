@@ -6,8 +6,10 @@ using Terraria.ModLoader;
 
 using System;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class ForsakenAnubis : ModNPC
     {

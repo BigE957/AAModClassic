@@ -7,7 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class ShenASky : CustomSky
     {

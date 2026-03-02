@@ -2,7 +2,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
+namespace AAModClassic.NPCs.Bosses.Serpent
 {
     public class IceSpike : ModProjectile
     {

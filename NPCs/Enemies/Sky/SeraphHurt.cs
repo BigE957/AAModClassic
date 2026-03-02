@@ -2,11 +2,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using AAMod.NPCs.Bosses.Athena;
 using Terraria.Localization;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.Tiles.Boss;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod.NPCs.Enemies.Sky
+namespace AAModClassic.NPCs.Enemies.Sky
 {
     public class SeraphHurt : ModNPC
 	{
@@ -98,7 +100,7 @@ namespace AAMod.NPCs.Enemies.Sky
                     }
                     if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {
-                        Tiles.Boss.AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"), false);
+                        AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"), false);
                     }
                     BaseAI.KillNPC(NPC); 
                     NPC.netUpdate = true; 

@@ -4,8 +4,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     [AutoloadEquip(EquipType.Back, EquipType.Front)]
     public class RajahCape : BaseAAItem

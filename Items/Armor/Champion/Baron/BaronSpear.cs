@@ -2,10 +2,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using AAMod.Projectiles;
 using Terraria.GameContent;
+using AAModClassic.Bases;
 
-namespace AAMod.Items.Armor.Champion.Baron
+namespace AAModClassic.Items.Armor.Champion.Baron
 {
     public class BaronSpear : Javelin
     {

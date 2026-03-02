@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
+namespace AAModClassic.Projectiles.Anubis.Forsaken
 {
     public class HorusEye : ModProjectile
     {

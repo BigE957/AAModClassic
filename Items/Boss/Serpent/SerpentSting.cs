@@ -1,10 +1,12 @@
+using AAModClassic;
+using AAModClassic.Projectiles.Serpent;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Serpent
+namespace AAModClassic.Items.Boss.Serpent
 {
     public class SerpentSting : BaseAAItem
 	{
@@ -39,7 +41,7 @@ namespace AAMod.Items.Boss.Serpent
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position, new Vector2(speedX, speedY), Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Serpent.Sting>(), damage, knockBack, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
+            Projectile.NewProjectile(position, new Vector2(speedX, speedY), Terraria.ModLoader.ModContent.ProjectileType<Sting>(), damage, knockBack, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false;
         }
 

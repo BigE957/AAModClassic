@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions.Terra
+namespace AAModClassic.Items.Summoning.Minions.Terra
 {
     public class SummonShot : ModProjectile
     {

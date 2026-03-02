@@ -1,9 +1,9 @@
 
 using Terraria;
-using AAMod.Worldgen;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class ChaosConverter : BaseAAItem
 	{

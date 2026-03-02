@@ -1,10 +1,11 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Flasks
+namespace AAModClassic.Items.Flasks
 {
     public class PurityFlask : BaseAAItem
 	{

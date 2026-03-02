@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
+namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
     public class AthenaShock : ModProjectile
     {

@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra.Projectiles
+namespace AAModClassic.Items.Armor.Terra.Projectiles
 {
     public class TerraBoom : ModProjectile
     {

@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using System.Collections.Generic;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class ShenBox : BaseAAItem
 	{

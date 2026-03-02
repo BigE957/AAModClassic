@@ -1,9 +1,10 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Projectiles
+namespace AAModClassic.Tiles.Projectiles
 {
     class TorchsandBall : ModProjectile
     {
@@ -17,7 +18,7 @@ namespace AAMod.Tiles.Projectiles
         {
             if (Main.rand.Next(2) == 0)
             {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.RazewoodDust>(), 0f, 0f, 0);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<RazewoodDust>(), 0f, 0f, 0);
                 Main.dust[dust].velocity.X *= 0.4f;
             }
             Projectile.tileCollide = true;

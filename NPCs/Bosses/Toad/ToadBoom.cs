@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
+namespace AAModClassic.NPCs.Bosses.Toad
 {
     public class ToadBoom : ModProjectile
     {

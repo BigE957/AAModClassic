@@ -4,10 +4,11 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
 
-using AAMod.Dusts;
-
-namespace AAMod.NPCs.Enemies.Void
+namespace AAModClassic.NPCs.Enemies.Void
 {
     public class Scout : ModNPC
 	{

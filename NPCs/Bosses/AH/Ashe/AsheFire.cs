@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     internal class AsheFire : ModProjectile
     {

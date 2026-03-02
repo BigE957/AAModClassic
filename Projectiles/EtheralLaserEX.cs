@@ -9,7 +9,7 @@ using Terraria.GameContent.Shaders;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class EtheralLaserEX : ModProjectile
     {

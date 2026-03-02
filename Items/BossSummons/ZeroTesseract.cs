@@ -7,8 +7,10 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     //imported from my tAPI mod because I'm lazy
     public class ZeroTesseract : BaseAAItem

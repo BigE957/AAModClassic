@@ -1,10 +1,11 @@
+using AAModClassic.Globals;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class DragonClaw : ModNPC
     {

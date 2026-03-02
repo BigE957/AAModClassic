@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
+namespace AAModClassic.Water
 {
     public class VoidWaterStyle : ModWaterStyle
 	{

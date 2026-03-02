@@ -1,9 +1,9 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools.Cinematic
+namespace AAModClassic.Items.DevTools.Cinematic
 {
     public class Feather2 : ModDust
     {

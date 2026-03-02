@@ -1,4 +1,5 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Serpent
+namespace AAModClassic.Projectiles.Serpent
 
 {
     public class BB : ModProjectile
@@ -47,7 +48,7 @@ namespace AAMod.Projectiles.Serpent
         {
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.IceDust>(), -Projectile.velocity.X * 0.2f,
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<IceDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
             }
             target.AddBuff(BuffID.Chilled, 200);
@@ -57,7 +58,7 @@ namespace AAMod.Projectiles.Serpent
         {
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.IceDust>(), -Projectile.velocity.X * 0.2f,
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<IceDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
             }
             return true;

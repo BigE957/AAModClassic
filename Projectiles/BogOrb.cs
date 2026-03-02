@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAmod.Projectiles
+namespace AAModClassic.Projectiles
 {
 
     public class BogOrb : ModProjectile

@@ -1,4 +1,5 @@
-﻿
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class DiscordianInferno : ModProjectile
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Projectiles.Athena
+namespace AAModClassic.Projectiles.Athena
 {
     public class AthenaShockF : ModProjectile
     {
@@ -108,7 +109,7 @@ namespace AAMod.Projectiles.Athena
                         float num851 = Projectile.rotation + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
                         float num852 = (float)Main.rand.NextDouble() * 0.8f + 1f;
                         Vector2 vector84 = new Vector2((float)Math.Cos(num851) * num852, (float)Math.Sin(num851) * num852);
-                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.Discord>(), vector84.X, vector84.Y, 0);
+                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Discord>(), vector84.X, vector84.Y, 0);
                         Main.dust[num853].noGravity = true;
                         Main.dust[num853].scale = 1.2f;
                     }

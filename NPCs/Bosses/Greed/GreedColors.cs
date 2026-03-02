@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace AAMod
+namespace AAModClassic.NPCs.Bosses.Greed
 {
     class GreedColors
     {

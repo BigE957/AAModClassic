@@ -3,8 +3,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Enemies.Mire
+namespace AAModClassic.NPCs.Enemies.Mire
 {
     public class ChaoticTwilight : ModNPC
 	{
@@ -131,7 +132,7 @@ namespace AAMod.NPCs.Enemies.Mire
 		public override void HitEffect(NPC.HitInfo hit)
 		{
 
-            int dust1 = ModContent.DustType<Dusts.MireBubbleDust>();
+            int dust1 = ModContent.DustType<MireBubbleDust>();
             if (NPC.life <= 0)
 			{
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);

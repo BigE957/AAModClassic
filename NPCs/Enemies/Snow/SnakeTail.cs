@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace AAMod.NPCs.Enemies.Snow
+namespace AAModClassic.NPCs.Enemies.Snow
 {
     public class SnakeTail : SnakeHead
 	{

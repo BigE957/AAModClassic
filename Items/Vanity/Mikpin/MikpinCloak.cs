@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Mikpin
+namespace AAModClassic.Items.Vanity.Mikpin
 {
     [AutoloadEquip(EquipType.Body)]
     public class MikpinCloak : BaseAAItem

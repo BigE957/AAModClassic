@@ -4,12 +4,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.Graphics;
-using AAMod.NPCs.Bosses.Yamata.Awakened;
 using Terraria.ModLoader;
 
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class FogOverlay : Overlay
     {

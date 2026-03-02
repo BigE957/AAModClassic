@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Eliza.Cat
+namespace AAModClassic.Items.Vanity.Eliza.Cat
 {
     [AutoloadEquip(EquipType.Head)]
 	public class LizEars : BaseAAItem

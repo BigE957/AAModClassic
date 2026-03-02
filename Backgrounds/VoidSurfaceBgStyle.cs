@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     class VoidSurfaceBgStyle : ModSurfaceBackgroundStyle
     {

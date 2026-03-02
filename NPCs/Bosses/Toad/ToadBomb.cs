@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
+namespace AAModClassic.NPCs.Bosses.Toad
 {
     public class ToadBomb : ModProjectile
 	{

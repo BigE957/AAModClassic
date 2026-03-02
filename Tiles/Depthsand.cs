@@ -4,8 +4,9 @@ using Terraria.ID;
 using Terraria;
 using Microsoft.Xna.Framework;
 using AAMod.Tiles.Trees;
+using AAModClassic.Dusts;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     class Depthsand : ModTile
     {
@@ -19,7 +20,7 @@ namespace AAMod.Tiles
             Main.tileBlockLight[Type] = true;
             //soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(37, 33, 50));
-            DustType = ModContent.DustType<Dusts.BogwoodDust>();
+            DustType = ModContent.DustType<BogwoodDust>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)

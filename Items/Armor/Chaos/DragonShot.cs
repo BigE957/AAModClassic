@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using AAMod.Dusts;
 using Terraria.ModLoader;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.Chaos
+namespace AAModClassic.Items.Armor.Chaos
 {
     public class DragonShot : ModProjectile
     {

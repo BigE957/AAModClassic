@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Inferno
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class Dragron : ModNPC
 	{

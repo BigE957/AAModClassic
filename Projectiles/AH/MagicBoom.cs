@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
+namespace AAModClassic.Projectiles.AH
 {
     public class MagicBoom : ModProjectile
     {

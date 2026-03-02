@@ -6,9 +6,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
+namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 {
     public class Dawnstrike : ModProjectile
     {
@@ -68,7 +71,7 @@ namespace AAMod.Projectiles.Akuma.Dawnstrike
 				Vector2 value = Projectile.Center + vector2;
 				for (int i = 0; i < chargeLevel; i++)
 				{
-                    int type = chargeLevel >= 3 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.AkumaDust>();
+                    int type = chargeLevel >= 3 ? ModContent.DustType<AkumaADust>() : ModContent.DustType<AkumaDust>();
                     int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, type, Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
 					Main.dust[num5].position.Y -= 0.3f;
 					Main.dust[num5].velocity *= 0.66f;

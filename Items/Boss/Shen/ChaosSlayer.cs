@@ -5,8 +5,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class ChaosSlayer : BaseAAItem
 	{

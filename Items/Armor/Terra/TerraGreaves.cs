@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra
+namespace AAModClassic.Items.Armor.Terra
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class TerraGreaves : BaseAAItem

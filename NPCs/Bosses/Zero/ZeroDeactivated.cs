@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
@@ -7,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
 	public class ZeroDeactivated : ModNPC
 	{

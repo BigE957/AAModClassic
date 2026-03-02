@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public interface GoreInfo
     {

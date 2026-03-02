@@ -5,9 +5,10 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles.Flasks
+namespace AAModClassic.Projectiles.Flasks
 {
     public class VoidFlask : ModProjectile
     {

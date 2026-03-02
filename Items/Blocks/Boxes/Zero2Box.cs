@@ -2,8 +2,9 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using System.Collections.Generic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class Zero2Box : BaseAAItem
 	{

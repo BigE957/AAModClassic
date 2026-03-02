@@ -1,11 +1,12 @@
 ﻿using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
+namespace AAModClassic.Items.Summoning.Minions
 {
     public class DragonHead : ModProjectile
     {

@@ -14,7 +14,7 @@ using Terraria.Localization;
 using Terraria.Utilities;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseUtility
     {

@@ -5,9 +5,10 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class TerraRoseShotEX : ModProjectile
     {

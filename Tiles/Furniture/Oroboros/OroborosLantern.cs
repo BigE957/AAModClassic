@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Oroboros
+namespace AAModClassic.Tiles.Furniture.Oroboros
 {
     public class OroborosLantern : ModTile
 	{

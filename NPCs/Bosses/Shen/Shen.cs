@@ -8,9 +8,15 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Shen.Projectiles;
+using AAModClassic.NPCs.Bosses.Shen.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Potions;
+using AAModClassic.Buffs;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     [AutoloadBossHead]
     public class Shen : ModNPC
@@ -51,7 +57,7 @@ namespace AAMod.NPCs.Bosses.Shen
             {
                 NPC.buffImmune[k] = true;
             }
-            NPC.buffImmune[ModContent.BuffType<Buffs.Terrablaze>()] = false;
+            NPC.buffImmune[ModContent.BuffType<Terrablaze>()] = false;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -103,7 +109,7 @@ namespace AAMod.NPCs.Bosses.Shen
                 potionType = 0;
                 return;
             }
-            potionType = ModContent.ItemType<Items.Potions.GrandHealingPotion>();
+            potionType = ModContent.ItemType<GrandHealingPotion>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -230,8 +236,8 @@ namespace AAMod.NPCs.Bosses.Shen
                 {
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
-                        int dust = spawnDust == 1 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.YamataADust>();
-                        if (Main.rand.Next(4) == 0) dust = ModContent.DustType<Dusts.Discord>();
+                        int dust = spawnDust == 1 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<YamataADust>();
+                        if (Main.rand.Next(4) == 0) dust = ModContent.DustType<Discord>();
                         int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].noLight = true;

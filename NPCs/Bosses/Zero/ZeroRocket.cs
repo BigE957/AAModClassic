@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
     public class ZeroRocket : ModProjectile
 	{

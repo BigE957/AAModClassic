@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.RazewoodF
+namespace AAModClassic.Items.Blocks.RazewoodF
 {
     public class RazewoodSink : ModItem
     {

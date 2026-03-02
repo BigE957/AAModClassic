@@ -1,4 +1,7 @@
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Djinn;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -11,7 +14,7 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Djinn
+namespace AAModClassic.NPCs.Bosses.Djinn
 {
     [AutoloadBossHead]
     public class Djinn : ModNPC
@@ -42,7 +45,7 @@ namespace AAMod.NPCs.Bosses.Djinn
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Djinn");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Djinn.DjinnBag>();
+            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<DjinnBag>();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

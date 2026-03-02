@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Materials
+namespace AAModClassic.Items.Materials
 {
     public class OrderBar : BaseAAItem
     {

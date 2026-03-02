@@ -5,8 +5,11 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Dyes
+namespace AAModClassic.Items.Dyes
 {
     public class DoomsdayDye : BaseAAItem
     {

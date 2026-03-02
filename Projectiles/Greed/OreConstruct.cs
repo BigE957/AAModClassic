@@ -1,3 +1,5 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -5,7 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 
 
-namespace AAMod.Projectiles.Greed
+namespace AAModClassic.Projectiles.Greed
 {
     public class OreConstruct : AAProjectile
 	{

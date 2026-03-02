@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.GoblinSlayer
+namespace AAModClassic.Items.Armor.GoblinSlayer
 {
     [AutoloadEquip(EquipType.Body)]
 	public class GoblinSlayerChest : BaseAAItem

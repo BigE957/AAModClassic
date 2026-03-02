@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Djinn
+namespace AAModClassic.NPCs.Bosses.Djinn
 {
     public class Menacing : ModProjectile
 	{

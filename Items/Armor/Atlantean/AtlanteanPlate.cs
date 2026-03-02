@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Atlantean
+namespace AAModClassic.Items.Armor.Atlantean
 {
     [AutoloadEquip(EquipType.Body)]
 	public class AtlanteanPlate : BaseAAItem

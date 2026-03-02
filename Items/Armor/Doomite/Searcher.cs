@@ -1,9 +1,11 @@
 ﻿using System;
+using AAModClassic;
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Doomite
+namespace AAModClassic.Items.Armor.Doomite
 {
     public class Searcher : ModProjectile
     {
@@ -202,7 +204,7 @@ namespace AAMod.Items.Armor.Doomite
 			if (Projectile.ai[0] == 0f)
 			{
 				float scaleFactor3 = 8f;
-				int num658 = ModContent.ProjectileType<Summoning.Minions.ProbeShot>();
+				int num658 = ModContent.ProjectileType<ProbeShot>();
 				if (flag25 && Projectile.ai[1] == 0f)
 				{
 					Projectile.ai[1] += 1f;

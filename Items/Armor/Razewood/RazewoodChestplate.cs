@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Razewood
+namespace AAModClassic.Items.Armor.Razewood
 {
     [AutoloadEquip(EquipType.Body)]
     public class RazewoodChestplate : BaseAAItem

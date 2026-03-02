@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
+namespace AAModClassic.Tiles.Chests
 {
     public class MireChest : ModTile
 	{

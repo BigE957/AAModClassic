@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.ReforgeSouls
+namespace AAModClassic.Items.ReforgeSouls
 {
     public class Unreal : BaseAAItem
     {

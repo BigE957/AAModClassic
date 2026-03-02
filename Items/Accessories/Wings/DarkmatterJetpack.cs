@@ -1,10 +1,11 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Accessories.Wings
+namespace AAModClassic.Items.Accessories.Wings
 {
     [AutoloadEquip(EquipType.Wings)]
 	public class DarkmatterJetpack : BaseAAItem

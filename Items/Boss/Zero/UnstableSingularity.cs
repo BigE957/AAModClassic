@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class UnstableSingularity : BaseAAItem
     {

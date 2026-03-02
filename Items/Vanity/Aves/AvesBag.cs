@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Aves
+namespace AAModClassic.Items.Vanity.Aves
 {
     public class AvesBag : BaseAAItem
     {

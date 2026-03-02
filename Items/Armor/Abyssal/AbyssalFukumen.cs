@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Abyssal
+namespace AAModClassic.Items.Armor.Abyssal
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AbyssalFukumen : BaseAAItem

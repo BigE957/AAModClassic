@@ -1,10 +1,11 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
 
     public class RabbitsWrath : BaseAAItem

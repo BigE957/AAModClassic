@@ -1,10 +1,11 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
+namespace AAModClassic.Tiles.Ore
 {
     public class DiscordiumOre : ModTile
     {

@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
     public class Feather : ModDust
 	{

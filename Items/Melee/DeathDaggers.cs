@@ -1,11 +1,13 @@
 using System;
+using AAModClassic;
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class DeathDaggers : BaseAAItem
 	{
@@ -20,7 +22,7 @@ namespace AAMod.Items.Melee
             Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 8f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DeathDagger>();
+            Item.shoot = ModContent.ProjectileType<DeathDagger>();
             Item.damage = 29;
             Item.width = 54;
             Item.height = 54;

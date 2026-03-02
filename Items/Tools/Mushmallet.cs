@@ -2,7 +2,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
     public class Mushmallet : BaseAAItem
     {

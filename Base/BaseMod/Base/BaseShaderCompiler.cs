@@ -1,4 +1,4 @@
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseShaderCompiler
 	{

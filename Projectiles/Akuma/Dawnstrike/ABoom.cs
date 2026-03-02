@@ -3,8 +3,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
+namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 {
     public class ABoom : ModProjectile
     {

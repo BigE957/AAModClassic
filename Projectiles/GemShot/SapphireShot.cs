@@ -1,3 +1,5 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,7 +9,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.GemShot
+namespace AAModClassic.Projectiles.GemShot
 {
     class SapphireShot : ModProjectile
     {
@@ -39,7 +41,7 @@ namespace AAMod.Projectiles.GemShot
             for (int num339 = 0; num339 < 16; num339++)
             {
                 Dust dust1;
-                dust1 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0, 0, 0, Color.Blue, 1f)];
+                dust1 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0, 0, 0, Color.Blue, 1f)];
                 dust1.noGravity = true;
             }
         }
@@ -50,7 +52,7 @@ namespace AAMod.Projectiles.GemShot
             for (int num506 = 0; num506 < 15; num506++)
             {
                 Dust dust1;
-                dust1 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0, 0, 0, Color.Blue, 1f)];
+                dust1 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0, 0, 0, Color.Blue, 1f)];
                 dust1.noGravity = true;
             }
         }

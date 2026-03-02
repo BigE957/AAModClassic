@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Apawn
+namespace AAModClassic.Items.Vanity.Apawn
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ApawnHelm : BaseAAItem

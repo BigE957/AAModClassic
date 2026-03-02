@@ -1,10 +1,12 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using System;
 
 using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.AH
+namespace AAModClassic.Projectiles.AH
 {
     public class FireOrbiter : AAProjectile
 	{

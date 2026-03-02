@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Witch
+namespace AAModClassic.Items.Armor.Witch
 {
     public class FlameSoulShot : ModProjectile
 	{

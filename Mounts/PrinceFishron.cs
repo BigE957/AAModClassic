@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Mounts
+namespace AAModClassic.Mounts
 {
 	public class PrinceFishron : ModMount
 	{

@@ -1,6 +1,7 @@
+using AAModClassic;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class RajahTrophy : BaseAAItem
 	{

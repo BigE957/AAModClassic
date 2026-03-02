@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.BogwoodF
+namespace AAModClassic.Items.Blocks.BogwoodF
 {
     public class BogwoodBathtub : ModItem
     {

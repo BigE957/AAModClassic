@@ -1,6 +1,6 @@
 using Terraria.Localization;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class Lang
     {

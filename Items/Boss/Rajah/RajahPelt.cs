@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class RajahPelt : BaseAAItem
 	{

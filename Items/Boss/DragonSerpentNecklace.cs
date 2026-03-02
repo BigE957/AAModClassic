@@ -1,8 +1,11 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic;
+using AAModClassic.Items.Boss.Hydra;
 
-namespace AAMod.Items.Boss
+namespace AAModClassic.Items.Boss
 {
     public class DragonSerpentNecklace : BaseAAItem
     {
@@ -47,11 +50,11 @@ Ignores 5 Enemy defense"); */
                 int maxAccessoryIndex = 5 + player.extraAccessorySlots;
                 for (int i = 3; i < 3 + maxAccessoryIndex; i++)
                 {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<Broodmother.DragonCape>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<DragonCape>())
                     {
                         return false;
                     }
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<Hydra.HydraPendant>())
+                    if (slot != i && player.armor[i].type == ModContent.ItemType<HydraPendant>())
                     {
                         return false;
                     }

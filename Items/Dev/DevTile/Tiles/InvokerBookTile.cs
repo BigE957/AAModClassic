@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ObjectData;
 
-namespace AAMod.Items.Dev.DevTile.Tiles
+namespace AAModClassic.Items.Dev.DevTile.Tiles
 {
     public class InvokerBookTile : ModTile
 	{

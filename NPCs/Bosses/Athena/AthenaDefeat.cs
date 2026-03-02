@@ -1,10 +1,12 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
     public class AthenaDefeat : ModNPC
     {
@@ -117,7 +119,7 @@ namespace AAMod.NPCs.Bosses.Athena
                             if (NPC.ai[0] >= 1200)
                             {
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaDefeat9"), Color.CornflowerBlue);
-                                AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<Olympian.AthenaA>(), false, NPC.Center);
+                                AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
 
                                 int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer);
                                 Main.projectile[b].Center = NPC.Center;

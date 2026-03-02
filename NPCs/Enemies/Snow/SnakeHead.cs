@@ -1,8 +1,12 @@
-﻿using Terraria;
+﻿using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.NPCs.Bosses.Serpent;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Snow
+namespace AAModClassic.NPCs.Enemies.Snow
 {
     public class SnakeHead : ModNPC
 	{
@@ -74,7 +78,7 @@ namespace AAMod.NPCs.Enemies.Snow
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0);
             }
             if (NPC.life == 0)
             {
@@ -87,7 +91,7 @@ namespace AAMod.NPCs.Enemies.Snow
 
         public override bool PreKill()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Bosses.Serpent.SerpentHead>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<SerpentHead>()))
             {
                 return false;
             }
@@ -97,7 +101,7 @@ namespace AAMod.NPCs.Enemies.Snow
         {
             if (Main.rand.Next(4) == 0)
             {
-                NPC.DropLoot(ModContent.ItemType<Items.BossSummons.SubzeroCrystal>());
+                NPC.DropLoot(ModContent.ItemType<SubzeroCrystal>());
             }
         }
     }

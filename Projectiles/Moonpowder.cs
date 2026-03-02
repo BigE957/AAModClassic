@@ -2,11 +2,11 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Walls;
-using AAMod.Dusts;
-using AAMod.Tiles;
+using AAModClassic.Tiles;
+using AAModClassic.Walls;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     internal class Moonpowder : ModProjectile
     {

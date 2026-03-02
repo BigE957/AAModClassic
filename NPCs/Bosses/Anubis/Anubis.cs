@@ -5,8 +5,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
     public class Anubis : ModNPC
     {
@@ -440,11 +443,11 @@ namespace AAMod.NPCs.Bosses.Anubis
                 if (!AAWorld.AnubisAwakened)
                 {
                     AAWorld.AnubisAwakened = true;
-                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Forsaken.FATransition>());
+                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
                 }
                 else
                 {
-                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Forsaken.FATransition>());
+                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
                 }
                 return;
             }

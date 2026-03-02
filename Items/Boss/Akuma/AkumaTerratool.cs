@@ -1,8 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.UI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class AkumaTerratool : BaseAAItem
     {
@@ -67,9 +70,9 @@ You may only have a maximum of 2 tool types active
             {
                 Item.autoReuse = true;
                 Item.noUseGraphic = false;
-                Item.pick = UI.TerratoolAUI.Pick;
-                Item.axe = UI.TerratoolAUI.Axe;
-                Item.hammer = UI.TerratoolAUI.Hammer;
+                Item.pick = TerratoolAUI.Pick;
+                Item.axe = TerratoolAUI.Axe;
+                Item.hammer = TerratoolAUI.Hammer;
                 Item.damage = 100;
             }
             else

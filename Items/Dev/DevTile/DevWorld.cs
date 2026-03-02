@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ModLoader.IO;
 
-namespace AAMod.Items.Dev.DevTile
+namespace AAModClassic.Items.Dev.DevTile
 {
     public class DevWorld : ModSystem
 	{

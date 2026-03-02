@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
+namespace AAModClassic.NPCs.Bosses.Rajah
 {
     public class RajahBookIt : ModProjectile
     {

@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.UI;
 
-namespace AAMod.UI.Core
+namespace AAModClassic.UI.Core
 {
     // © Even More Modifiers by Jofairden
     internal abstract class ToggableUI : UIState

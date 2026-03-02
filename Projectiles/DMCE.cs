@@ -1,9 +1,10 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class DMCE : ModProjectile
       {
@@ -60,10 +61,10 @@ namespace AAMod.Projectiles
         }
           public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
           {
-                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 1.5f;
-                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100);
                 Main.dust[num580].velocity *= 1.5f;
           }
 

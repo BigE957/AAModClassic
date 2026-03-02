@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Equinox
+namespace AAModClassic.Items.Boss.Equinox
 {
     public class Equinox : BaseAAItem
     {

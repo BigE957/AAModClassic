@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Greed
+namespace AAModClassic.Items.Boss.Greed
 {
     public class CharmBuff : ModBuff
 	{

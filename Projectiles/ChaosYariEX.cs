@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class ChaosYariEX : ModProjectile
     {
@@ -38,14 +40,14 @@ namespace AAMod.Projectiles
         	Projectile.position += Projectile.velocity * Projectile.ai[0];
         	if (Main.rand.Next(5) == 0)
             {
-                int DustType = ModContent.DustType<Dusts.AkumaADust>();
+                int DustType = ModContent.DustType<AkumaADust>();
                 if (Main.rand.Next(3) == 0)
                 {
-                    DustType = ModContent.DustType<Dusts.YamataADust>();
+                    DustType = ModContent.DustType<YamataADust>();
                 }
                 if (Main.rand.Next(3) == 1)
                 {
-                    DustType = ModContent.DustType<Dusts.Discord>();
+                    DustType = ModContent.DustType<Discord>();
                 }
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustType, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }

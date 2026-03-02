@@ -7,8 +7,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Enums;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
+namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
     public class EchoRay : ModProjectile
     {

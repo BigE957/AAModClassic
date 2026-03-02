@@ -1,4 +1,4 @@
-﻿namespace AAMod.NPCs.Enemies.Inferno.Magmalgam
+﻿namespace AAModClassic.NPCs.Enemies.Inferno.Magmalgam
 {
     /*public class Magmalgam : ModNPC
     {

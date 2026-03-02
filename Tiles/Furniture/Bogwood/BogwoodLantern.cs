@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Bogwood
+namespace AAModClassic.Tiles.Furniture.Bogwood
 {
     public class BogwoodLantern : ModTile
 	{

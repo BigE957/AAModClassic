@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Tribal
+namespace AAModClassic.Items.Armor.Tribal
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class TribalKilt : BaseAAItem

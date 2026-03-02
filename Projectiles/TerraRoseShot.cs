@@ -5,8 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class TerraRoseShot : ModProjectile
     {

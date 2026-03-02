@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.Witch
+namespace AAModClassic.Items.Armor.Witch
 {
     [AutoloadEquip(EquipType.Head)]
 	public class WitchHood : BaseAAItem

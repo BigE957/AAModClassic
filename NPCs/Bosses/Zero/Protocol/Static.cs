@@ -1,11 +1,12 @@
 using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
+namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
     public class Static : ModProjectile
     {

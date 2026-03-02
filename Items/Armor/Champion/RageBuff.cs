@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion
+namespace AAModClassic.Items.Armor.Champion
 {
     public class RageBuff : ModBuff
     {

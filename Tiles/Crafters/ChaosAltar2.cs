@@ -5,8 +5,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Tiles.Crafters
+namespace AAModClassic.Tiles.Crafters
 {
     public class ChaosAltar2 : ModTile
 	{

@@ -3,8 +3,9 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Dev.RuneBook
+namespace AAModClassic.Items.Dev.RuneBook
 {
     public class CCRuneNovaRay : ModProjectile
     {

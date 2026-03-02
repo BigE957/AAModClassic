@@ -4,13 +4,18 @@ using Terraria.GameContent;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Shen;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Shen;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class ChaosRune : BaseAAItem
     {
@@ -92,7 +97,7 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosRuneYamataFalse"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.Akuma>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.Awakened.AkumaA>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.AkumaTransition>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()) || NPC.AnyNPCs(ModContent.NPCType<AkumaA>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Akuma.AkumaTransition>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosRuneAkumaFalse"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;

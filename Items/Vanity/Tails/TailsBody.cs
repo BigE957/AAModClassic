@@ -2,8 +2,9 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Tails
+namespace AAModClassic.Items.Vanity.Tails
 
 {
     [AutoloadEquip(EquipType.Body)]

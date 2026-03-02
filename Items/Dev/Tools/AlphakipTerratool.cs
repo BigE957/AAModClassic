@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Tools
+namespace AAModClassic.Items.Dev.Tools
 {
     public class AlphakipTerratool : BaseAAItem
     {

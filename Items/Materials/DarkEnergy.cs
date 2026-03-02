@@ -2,7 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-namespace AAMod.Items.Materials
+
+namespace AAModClassic.Items.Materials
 {
     public class DarkEnergy : BaseAAItem
     {

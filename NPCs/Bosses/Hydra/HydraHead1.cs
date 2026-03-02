@@ -7,9 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.Audio;
 using System.IO;
-using AAMod.NPCs.Enemies.Mire;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Enemies.Mire;
+using AAModClassic;
 
-namespace AAMod.NPCs.Bosses.Hydra
+namespace AAModClassic.NPCs.Bosses.Hydra
 {
     [AutoloadBossHead]
     public class HydraHead1 : ModNPC

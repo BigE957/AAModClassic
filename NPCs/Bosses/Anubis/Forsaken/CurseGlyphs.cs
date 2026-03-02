@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class CurseGlyphs : ModProjectile
 	{				

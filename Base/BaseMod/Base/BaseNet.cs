@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseNet
     {

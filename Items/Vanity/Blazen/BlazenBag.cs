@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Blazen
+namespace AAModClassic.Items.Vanity.Blazen
 {
     public class BlazenBag : BaseAAItem
     {

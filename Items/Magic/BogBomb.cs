@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Magic        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
+namespace AAModClassic.Items.Magic        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
     public class BogBomb : BaseAAItem
     {

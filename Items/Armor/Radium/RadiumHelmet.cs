@@ -1,4 +1,3 @@
-using AAMod.Items.Armor.Darkmatter;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,9 +5,11 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Items.Armor.Darkmatter;
+using AAModClassic;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Items.Armor.Radium
+namespace AAModClassic.Items.Armor.Radium
 {
     [AutoloadEquip(EquipType.Head)]
 	public class RadiumHelmet : BaseAAItem

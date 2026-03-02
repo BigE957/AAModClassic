@@ -3,8 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using AAModClassic;
 
-namespace AAMod.Items.Potions.LuckyPotions
+namespace AAModClassic.Items.Potions.LuckyPotions
 {
     public class luckyswiftnesspotion : BaseAAItem
 	{

@@ -9,17 +9,19 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.GameContent.Generation;
 using Terraria.ModLoader.IO;
-using AAMod.Tiles.Ore;
-using AAMod.Tiles;
-using AAMod.Tiles.Crafters;
-using AAMod.Worldgeneration;
-using AAMod.Worldgen;
 using Terraria.Utilities;
 using Terraria.Localization;
-using AAMod.Walls;
 using Terraria.WorldBuilding;
+using AAModClassic.Tiles;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.Walls;
+using AAModClassic.Worldgeneration;
+using AAModClassic.Tiles.Ore;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Globals;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class AAWorld : ModSystem
     {
@@ -1207,11 +1209,11 @@ namespace AAMod
                 {
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(Main.maxTilesX / 2, Main.maxTilesY / 2), -1)];
                     Vector2 spawnpoint = player.Center - new Vector2(250, 200);
-                    int Seraph = NPC.NewNPC((int)spawnpoint.X, (int)spawnpoint.Y, ModContent.NPCType<NPCs.Bosses.Athena.SeraphHerald>());
+                    int Seraph = NPC.NewNPC((int)spawnpoint.X, (int)spawnpoint.Y, ModContent.NPCType<SeraphHerald>());
                     NPC Seraph1 = Main.npc[Seraph];
                     for (int i = 0; i < 5; i++)
                     {
-                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<NPCs.Bosses.Athena.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     AthenaHerald = true;
                 }

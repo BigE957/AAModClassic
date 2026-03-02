@@ -1,10 +1,12 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
+namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
 {
     public class BaneTEXR : ModProjectile
     {
@@ -30,7 +32,7 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
         {
             Rectangle myRect = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
             bool flag3 = Projectile.Colliding(myRect, target.getRect());
-            target.AddBuff(ModContent.BuffType<Buffs.SpearStuck>(), 2);
+            target.AddBuff(ModContent.BuffType<SpearStuck>(), 2);
             if (flag3 && !StuckInEnemy)
             {
                 StuckInEnemy = true;

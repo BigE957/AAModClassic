@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-
-namespace AAMod.Items.Armor.Nights
+namespace AAModClassic.Items.Armor.Nights
 {
     [AutoloadEquip(EquipType.Head)]
 	public class NightsHelm : BaseAAItem

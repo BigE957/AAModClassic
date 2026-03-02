@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     public class AbyssArrow : ModProjectile
 	{

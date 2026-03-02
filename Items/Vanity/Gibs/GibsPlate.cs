@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Gibs
+namespace AAModClassic.Items.Vanity.Gibs
 
 {
     [AutoloadEquip(EquipType.Body)]

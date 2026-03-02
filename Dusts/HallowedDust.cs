@@ -1,8 +1,9 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Dusts
+namespace AAModClassic.Dusts
 {
     public class HallowedDust : ModDust
 	{

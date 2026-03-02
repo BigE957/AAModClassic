@@ -5,8 +5,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class EventHorizon : BaseAAItem
 	{

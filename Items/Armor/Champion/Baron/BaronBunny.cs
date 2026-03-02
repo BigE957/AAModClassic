@@ -6,9 +6,10 @@ using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Rajah.Supreme;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Projectiles.Rajah.Supreme;
 
-namespace AAMod.Items.Armor.Champion.Baron
+namespace AAModClassic.Items.Armor.Champion.Baron
 {
     public class BaronBunny : ModProjectile
     {

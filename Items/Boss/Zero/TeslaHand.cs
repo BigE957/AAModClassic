@@ -4,8 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class TeslaHand : BaseAAItem
     {

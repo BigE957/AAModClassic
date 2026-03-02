@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Alphakip
+namespace AAModClassic.Items.Vanity.Alphakip
 {
 
     [AutoloadEquip(EquipType.Wings)]

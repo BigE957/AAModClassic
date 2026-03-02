@@ -1,8 +1,10 @@
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Alphakip.Shiny;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Vanity.Alphakip.Shiny;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Alphakip
+namespace AAModClassic.Items.Vanity.Alphakip
 {
     public class AlphaBag : BaseAAItem
     {
@@ -33,7 +35,7 @@ namespace AAMod.Items.Vanity.Alphakip
                 player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverMask>());
                 player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverJacket>());
                 player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverBoots>());
-                player.QuickSpawnItem(ModContent.ItemType<Pets.MudkipBallS>());
+                player.QuickSpawnItem(ModContent.ItemType<MudkipBallS>());
                 if (Main.hardMode)
                 {
                     player.QuickSpawnItem(ModContent.ItemType<ShinyKipronWings>());
@@ -43,7 +45,7 @@ namespace AAMod.Items.Vanity.Alphakip
 			player.QuickSpawnItem(ModContent.ItemType<FishDiverMask>());
             player.QuickSpawnItem(ModContent.ItemType<FishDiverJacket>());
             player.QuickSpawnItem(ModContent.ItemType<FishDiverBoots>());
-            player.QuickSpawnItem(ModContent.ItemType<Pets.MudkipBall>());
+            player.QuickSpawnItem(ModContent.ItemType<MudkipBall>());
             if (Main.hardMode)
             {
                 player.QuickSpawnItem(ModContent.ItemType<KipronWings>());

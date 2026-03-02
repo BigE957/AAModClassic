@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Atlantean
+namespace AAModClassic.Items.Armor.Atlantean
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AtlanteanHelm : BaseAAItem

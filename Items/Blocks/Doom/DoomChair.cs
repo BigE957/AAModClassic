@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Doom
+namespace AAModClassic.Items.Blocks.Doom
 {
     public class DoomChair : ModItem
     {

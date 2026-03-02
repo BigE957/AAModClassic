@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Invoker
+namespace AAModClassic.Items.Dev.Invoker
 {
     [AutoloadEquip(EquipType.Body)]
 	public class InvokerBody : EquipTexture

@@ -1,18 +1,4 @@
-﻿using AAMod.Buffs;
-using AAMod.Items;
-using AAMod.NPCs.Bosses.Akuma;
-using AAMod.NPCs.Bosses.Akuma.Awakened;
-using AAMod.NPCs.Bosses.Athena;
-using AAMod.NPCs.Bosses.Athena.Olympian;
-using AAMod.NPCs.Bosses.Shen;
-using AAMod.NPCs.Bosses.Yamata;
-using AAMod.NPCs.Bosses.Yamata.Awakened;
-using AAMod.NPCs.Bosses.Zero;
-using AAMod.NPCs.Bosses.Zero.Protocol;
-using AAMod.NPCs.Bosses.Anubis.Forsaken;
-using AAMod.Items.FishingItem;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -30,8 +16,31 @@ using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using Terraria.Localization;
 using Terraria.Audio;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.Items.Dev.RuneBook;
+using AAModClassic.Buffs;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.Items.FishingItem;
+using AAModClassic.Globals;
+using AAModClassic.Items.Vanity.Delly;
+using AAModClassic.Items.Armor.Champion;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Armor.Terra.Projectiles;
+using AAModClassic.Items.Vanity.Aves;
+using AAModClassic.Items.Vanity.Hallam;
+using AAModClassic.Items.Usable;
+using AAModClassic.Projectiles.AH;
+using AAModClassic.Dusts;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Yamata;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 
-namespace AAMod
+namespace AAModClassic
 {
     public partial class AAPlayer : ModPlayer
     {
@@ -1550,7 +1559,7 @@ namespace AAMod
 
                 if (Player.ownedProjectileCounts[Mod.Find<ModProjectile>("FireOrbiter").Type] > 0)
                 {
-                    Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<Projectiles.AH.FireOrbiter>()) * .1f;
+                    Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<FireOrbiter>()) * .1f;
 
                     if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscCounter % 3 == 0)
                     {
@@ -1560,7 +1569,7 @@ namespace AAMod
 
                             if (projectile != null && projectile.active)
                             {
-                                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDustLight>());
+                                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<AkumaDustLight>());
 
                                 Main.dust[dustID].position += Player.position - Player.oldPosition;
                                 Main.dust[dustID].velocity = (Player.Center - projectile.Center) * 0.05f;
@@ -1789,7 +1798,7 @@ namespace AAMod
                 if (slotscanuse > 1)
                 {
                     bool RuneControl = Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>()] > 1;
-                    bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.VoidRune>()] > 1;
+                    bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
                         Player.ClearBuff(ModContent.BuffType<CCRune>());
@@ -1815,17 +1824,17 @@ namespace AAMod
                     }
                     if (CCBookEX)
                     {
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.TerraRune>()] < 1 && slotscanuse > 1f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.TerraRune>(), (int)(1 * Player.GetDamage(DamageClass.Summon)).Flat, 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraRune>(), (int)(1 * Player.GetDamage(DamageClass.Summon)).Flat, 0, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.ChaosRune>()] < 1 && slotscanuse > 2f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.ChaosRune>(), (int)(400 * Player.GetDamage(DamageClass.Summon)).Flat, 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<ChaosRune>(), (int)(400 * Player.GetDamage(DamageClass.Summon)).Flat, 4f, Player.whoAmI, 0f, 0f);
                         }
-                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.VoidRune>()] < 1 && slotscanuse > 3f)
+                        if (Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.VoidRune>(), (int)(800 * Player.GetDamage(DamageClass.Summon)).Flat, 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<VoidRune>(), (int)(800 * Player.GetDamage(DamageClass.Summon)).Flat, 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                 }
@@ -1846,12 +1855,12 @@ namespace AAMod
                 {
                     BuffLength = 600;
                 }
-                Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageBuff>(), BuffLength);
+                Player.AddBuff(ModContent.BuffType<RageBuff>(), BuffLength);
                 int RageCooldown = BuffLength * 4;
                 Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageCool>(), RageCooldown);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<Items.Armor.Champion.RageBuff>()))
+            if (Player.HasBuff(ModContent.BuffType<RageBuff>()))
             {
                 Player.armorEffectDrawShadowLokis = true;
             }
@@ -1895,8 +1904,8 @@ namespace AAMod
                     RoseCooldown = 600;
                     float playerY = Player.position.Y + Player.height;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X - 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<Items.Armor.Terra.Projectiles.TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<Items.Armor.Terra.Projectiles.TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X - 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
                 }
             }
         }
@@ -2579,7 +2588,7 @@ namespace AAMod
 
                                 if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
                                 {
-                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0);
+                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Discord>(), 0f, 0f, 0);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
 
                                     Dust expr_292_cp_0 = Main.dust[dust];
@@ -2640,7 +2649,7 @@ namespace AAMod
                 {
                     case 0:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Hallam.MagiciansHat>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MagiciansHat>());
 
                         if (dropType >= 4)
                         {
@@ -2720,7 +2729,7 @@ namespace AAMod
                         break;
 
                     case 7:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Delly.DellyBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<DellyBag>());
 
                         break;
 
@@ -2779,7 +2788,7 @@ namespace AAMod
 
                     case 12:
 
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Aves.AvesBag>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AvesBag>());
 
                         if (dropType >= 3)
                         {
@@ -3074,7 +3083,7 @@ namespace AAMod
                 RiftPos = Player.position;
                 for (int m = 0; m < 58; m++)
                 {
-                    if (Player.inventory[m].type == ModContent.ItemType<Items.Usable.RiftMirror>())
+                    if (Player.inventory[m].type == ModContent.ItemType<RiftMirror>())
                     {
                         SoundEngine.PlaySound(SoundID.Item6, Player.position);
                         Player.Spawn(PlayerSpawnContext.RecallFromItem);
@@ -3086,7 +3095,7 @@ namespace AAMod
             {
                 for (int m = 0; m < 58; m++)
                 {
-                    if (Player.inventory[m].type == ModContent.ItemType<Items.Usable.RiftMirror>())
+                    if (Player.inventory[m].type == ModContent.ItemType<RiftMirror>())
                     {
                         SoundEngine.PlaySound(SoundID.Item6, Player.position);
                         LeaveDust(Player);
@@ -3693,7 +3702,7 @@ namespace AAMod
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Discord>(), 0f, -2.5f, 0);
 
                     Main.dust[dust].alpha = 100;
                     Main.dust[dust].noGravity = true;

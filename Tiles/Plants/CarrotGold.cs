@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.ID;
 
-namespace AAMod.Tiles.Plants
+namespace AAModClassic.Tiles.Plants
 {
     public class CarrotGold : ModTile
 	{

@@ -1,8 +1,9 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
+namespace AAModClassic.Projectiles.Shen
 {
     public class SkyfallR : ModProjectile
     {
@@ -66,7 +67,7 @@ namespace AAMod.Projectiles.Shen
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             EnemyHit = true;
-            target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
 
         public override void OnKill(int timeLeft)

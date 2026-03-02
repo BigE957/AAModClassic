@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Mushium
+namespace AAModClassic.Items.Armor.Mushium
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class MushiumPants : BaseAAItem

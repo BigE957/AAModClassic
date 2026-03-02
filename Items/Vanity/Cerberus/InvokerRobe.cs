@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Cerberus
+namespace AAModClassic.Items.Vanity.Cerberus
 {
     [AutoloadEquip(EquipType.Body)]
     public class InvokerRobe : BaseAAItem

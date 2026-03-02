@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Mushrooms
+namespace AAModClassic.Items.Mushrooms
 {
     public class Rainbow : BaseAAItem
     {

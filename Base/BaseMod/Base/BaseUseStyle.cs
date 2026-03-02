@@ -6,7 +6,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseUseStyle
     {

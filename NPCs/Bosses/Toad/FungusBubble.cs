@@ -1,8 +1,10 @@
+using AAModClassic.Buffs;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
+namespace AAModClassic.NPCs.Bosses.Toad
 {
     public class FungusBubble : ModProjectile
     {
@@ -74,14 +76,14 @@ namespace AAMod.NPCs.Bosses.Toad
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
-            target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), 180);
+            target.AddBuff(ModContent.BuffType<Shroomed>(), 180);
         }
 
         public override void OnKill(int timeLeft)
         {
             for (int dust = 0; dust <= 5; dust++)
             {
-                int dustType = ModContent.DustType<Dusts.ShroomDust>();
+                int dustType = ModContent.DustType<ShroomDust>();
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, dustType, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
             }
         }

@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks.RazewoodF
+namespace AAModClassic.Items.Blocks.RazewoodF
 {
     public class RazewoodWall : BaseAAItem
     {

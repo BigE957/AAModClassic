@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     public class RealityLaser : ModProjectile
     {

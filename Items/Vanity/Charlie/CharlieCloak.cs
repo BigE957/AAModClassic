@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Charlie
+namespace AAModClassic.Items.Vanity.Charlie
 
 {
     [AutoloadEquip(EquipType.Body)]

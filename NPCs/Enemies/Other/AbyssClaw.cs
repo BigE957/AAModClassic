@@ -3,8 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Other
+namespace AAModClassic.NPCs.Enemies.Other
 {
     public class AbyssClaw : ModNPC
     {

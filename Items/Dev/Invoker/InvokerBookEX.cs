@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic;
 
-namespace AAMod.Items.Dev.Invoker
+namespace AAModClassic.Items.Dev.Invoker
 {
     [AutoloadEquip(EquipType.HandsOff)]
 	public class InvokerBookEX : BaseAAItem

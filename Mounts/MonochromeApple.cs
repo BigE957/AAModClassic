@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Items;
+using AAModClassic;
 
-namespace AAMod.Mounts
+namespace AAModClassic.Mounts
 {
 	public class MonochromeApple : BaseAAItem
 	{

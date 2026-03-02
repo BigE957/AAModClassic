@@ -1,10 +1,11 @@
+using AAModClassic.Projectiles.GemShot;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee.Gem
+namespace AAModClassic.Items.Melee.Gem
 {
     public class AmberGreatsword : BaseAAItem
     {
@@ -24,7 +25,7 @@ namespace AAMod.Items.Melee.Gem
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = false;   
             Item.useTurn = true; 
-			Item.shoot = ModContent.ProjectileType<Projectiles.GemShot.AmberShot>();
+			Item.shoot = ModContent.ProjectileType<AmberShot>();
 			Item.shootSpeed = 12f;
         }
 

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Bogwood
+namespace AAModClassic.Items.Armor.Bogwood
 {
     [AutoloadEquip(EquipType.Body)]
     public class BogwoodChestplate : BaseAAItem

@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Tiles.Ore
+namespace AAModClassic.Tiles.Ore
 {
     public class LuminiteOre : ModTile
     {

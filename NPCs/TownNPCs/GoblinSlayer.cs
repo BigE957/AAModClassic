@@ -1,3 +1,5 @@
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Armor.GoblinSlayer;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -5,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
 	public class GoblinSlayer : ModNPC
@@ -205,15 +207,15 @@ namespace AAMod.NPCs.TownNPCs
 		{
             if (Goblin)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Armor.GoblinSlayer.GoblinSlayerHelm>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<GoblinSlayerHelm>());
                 shop.item[nextSlot].shopCustomPrice = new int?(10);
                 shop.item[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Armor.GoblinSlayer.GoblinSlayerChest>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<GoblinSlayerChest>());
                 shop.item[nextSlot].shopCustomPrice = new int?(15);
                 shop.item[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Armor.GoblinSlayer.GoblinSlayerGreaves>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<GoblinSlayerGreaves>());
                 shop.item[nextSlot].shopCustomPrice = new int?(12);
                 shop.item[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
                 nextSlot++;
@@ -284,7 +286,7 @@ namespace AAMod.NPCs.TownNPCs
             }
             else if (OOA)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Accessories.OldOneCharm>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<OldOneCharm>());
                 shop.item[nextSlot].shopCustomPrice = new int?(5);
                 shop.item[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
                 nextSlot++;
@@ -746,7 +748,7 @@ namespace AAMod.NPCs.TownNPCs
                 shop.item[nextSlot].shopCustomPrice = new int?(50);
                 shop.item[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Accessories.Energy_Conduit>());
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Energy_Conduit>());
                 shop.item[nextSlot].shopCustomPrice = new int?(50);
                 shop.item[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
                 nextSlot++;

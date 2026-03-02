@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class NightcrawlerNothing : ModProjectile
     {
@@ -52,7 +53,7 @@ namespace AAMod.NPCs.Bosses.Equinox
 				SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
 				for (int num124 = 0; num124 < 10; num124++)
 				{
-					int num125 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), Projectile.velocity.X, Projectile.velocity.Y, 100, Color.White, 2f);
+					int num125 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<DarkmatterDust>(), Projectile.velocity.X, Projectile.velocity.Y, 100, Color.White, 2f);
 					Main.dust[num125].noGravity = true;
 					Main.dust[num125].velocity = Projectile.Center - Main.dust[num125].position;
 					Main.dust[num125].velocity.Normalize();
@@ -71,7 +72,7 @@ namespace AAMod.NPCs.Bosses.Equinox
 			{
 				for (int num155 = 0; num155 < 2; num155++)
 				{
-					int num156 = Dust.NewDust(new Vector2(Projectile.position.X + 4f, Projectile.position.Y + 4f), Projectile.width - 8, Projectile.height - 8, ModContent.DustType<Dusts.DarkmatterDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.5f);
+					int num156 = Dust.NewDust(new Vector2(Projectile.position.X + 4f, Projectile.position.Y + 4f), Projectile.width - 8, Projectile.height - 8, ModContent.DustType<DarkmatterDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.5f);
 					Main.dust[num156].position -= Projectile.velocity;
 					Main.dust[num156].noGravity = true;
 					Dust expr_7ED9_cp_0 = Main.dust[num156];
@@ -84,7 +85,7 @@ namespace AAMod.NPCs.Bosses.Equinox
 			{
 				for (int num157 = 0; num157 < 2; num157++)
 				{
-					int num158 = Dust.NewDust(new Vector2(Projectile.position.X + 4f, Projectile.position.Y + 4f), Projectile.width - 8, Projectile.height - 8, ModContent.DustType<Dusts.DarkmatterDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 2f);
+					int num158 = Dust.NewDust(new Vector2(Projectile.position.X + 4f, Projectile.position.Y + 4f), Projectile.width - 8, Projectile.height - 8, ModContent.DustType<DarkmatterDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 2f);
 					Main.dust[num158].position -= Projectile.velocity * 2f;
 					Main.dust[num158].noGravity = true;
 					Dust expr_7FDC_cp_0 = Main.dust[num158];

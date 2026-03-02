@@ -1,6 +1,6 @@
 ﻿using Terraria.ID;
 
-namespace AAMod
+namespace AAModClassic
 {
     internal static class AASets
     {

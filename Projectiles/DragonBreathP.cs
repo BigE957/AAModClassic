@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
+namespace AAModClassic.Projectiles   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
 {
     public class DragonBreathP : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {

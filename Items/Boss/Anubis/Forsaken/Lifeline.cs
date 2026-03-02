@@ -3,8 +3,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Anubis.Forsaken;
 
-namespace AAMod.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class Lifeline : BaseAAItem
     {
@@ -47,11 +48,11 @@ Forsaken arrows lower enemy contact damage"); */
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 				if (i == 0)
 				{
-					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Projectiles.Anubis.Forsaken.EnchancedMummyArrowD>(), damage, knockBack, player.whoAmI);
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<EnchancedMummyArrowD>(), damage, knockBack, player.whoAmI);
 				}
 				if (i == 1)
 				{
-					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Projectiles.Anubis.Forsaken.EnchancedMummyArrow>(), damage, knockBack, player.whoAmI);
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<EnchancedMummyArrow>(), damage, knockBack, player.whoAmI);
 				}
 			}
             return false;

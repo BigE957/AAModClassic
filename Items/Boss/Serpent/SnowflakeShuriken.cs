@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Serpent
+namespace AAModClassic.Items.Boss.Serpent
 {
     public class SnowflakeShuriken : BaseAAItem
 	{

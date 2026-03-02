@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items
+namespace AAModClassic
 {
     public abstract class BaseAAItem : ModItem
     {

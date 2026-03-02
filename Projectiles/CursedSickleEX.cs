@@ -1,10 +1,11 @@
 using System;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class CursedSickleEX : ModProjectile
     {
@@ -166,7 +167,7 @@ namespace AAMod.Projectiles
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire>(), 210);
+            target.AddBuff(ModContent.BuffType<CursedHellfire>(), 210);
         }
 
         public override void AI()
@@ -197,7 +198,7 @@ namespace AAMod.Projectiles
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire>(), 210);
+            target.AddBuff(ModContent.BuffType<CursedHellfire>(), 210);
         }
 
         public override void AI()

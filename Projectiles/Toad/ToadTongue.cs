@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Toad
+namespace AAModClassic.Projectiles.Toad
 {
     public class ToadTongue : ModProjectile
     {

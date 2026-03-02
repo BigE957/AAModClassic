@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAMod.Items.Mushrooms
+namespace AAModClassic.Items.Mushrooms
 {
     public class Pink : BaseAAItem
     {

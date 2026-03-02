@@ -1,11 +1,12 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
+namespace AAModClassic.NPCs.Bosses.Greed
 {
     public class GreedSpawn : ModNPC
     {

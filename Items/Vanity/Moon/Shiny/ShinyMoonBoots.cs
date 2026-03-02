@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Moon.Shiny
+namespace AAModClassic.Items.Vanity.Moon.Shiny
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class ShinyMoonBoots : BaseAAItem

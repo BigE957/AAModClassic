@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public abstract class ArmorBonusSphere : ModProjectile
     {

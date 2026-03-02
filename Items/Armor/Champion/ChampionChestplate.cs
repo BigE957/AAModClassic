@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion
+namespace AAModClassic.Items.Armor.Champion
 {
     [AutoloadEquip(EquipType.Body)]
 	public class ChampionChestplate : BaseAAItem

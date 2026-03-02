@@ -4,7 +4,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Trees
+namespace AAModClassic.Tiles.Trees
 {
     class MushroomTree : ModTree
     {

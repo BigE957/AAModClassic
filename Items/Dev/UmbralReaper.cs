@@ -6,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class UmbralReaper : BaseAAItem
 	{

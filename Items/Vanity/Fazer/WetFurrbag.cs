@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Fazer
+namespace AAModClassic.Items.Vanity.Fazer
 {
     public class WetFurrbag : BaseAAItem
     {

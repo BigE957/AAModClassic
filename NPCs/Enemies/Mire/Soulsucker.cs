@@ -3,8 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Enemies.Mire
+namespace AAModClassic.NPCs.Enemies.Mire
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
     public class Soulsucker : ModNPC

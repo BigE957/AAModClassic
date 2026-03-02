@@ -1,5 +1,6 @@
-﻿using AAMod.NPCs.Bosses.Greed;
-
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Greed;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
@@ -8,7 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boss
+namespace AAModClassic.Tiles.Boss
 {
     public class GreedAltar : ModTile
     {

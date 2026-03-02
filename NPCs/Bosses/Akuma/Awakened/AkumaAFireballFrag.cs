@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
+namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
     public class AkumaAFireballFrag : ModProjectile
     {

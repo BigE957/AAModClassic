@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Fargo
+namespace AAModClassic.Items.Vanity.Fargo
 {
     [AutoloadEquip(EquipType.Head)]
 	public class FargoHat : BaseAAItem

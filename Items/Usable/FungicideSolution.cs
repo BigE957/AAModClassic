@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Items.Usable
+namespace AAModClassic.Items.Usable
 {
     public class FungicideSolution : BaseAAItem
 	{

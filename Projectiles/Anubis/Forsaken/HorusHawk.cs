@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
+namespace AAModClassic.Projectiles.Anubis.Forsaken
 {
     public class HorusHawk : ModProjectile
 	{

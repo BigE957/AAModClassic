@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class AAConfigClient : ModConfig
     {

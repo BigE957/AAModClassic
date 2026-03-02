@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.Projectiles.Greed
+namespace AAModClassic.Projectiles.Greed
 {
     public class Gold : ModProjectile
     {

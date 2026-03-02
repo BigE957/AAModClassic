@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAMod.Items.FishingItem
+namespace AAModClassic.Items.FishingItem
 {
     public class ShinyCharmFish : BaseAAItem
 	{

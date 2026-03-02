@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class ZeroBag : BaseAAItem
     {

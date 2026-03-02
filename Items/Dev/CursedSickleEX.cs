@@ -1,3 +1,4 @@
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class CursedSickleEX : BaseAAItem
 	{

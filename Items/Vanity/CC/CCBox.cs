@@ -1,8 +1,11 @@
+using AAModClassic;
+using AAModClassic.Items.Accessories.Wings;
+using AAModClassic.Items.Vanity.CC.Shiny;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.CC
+namespace AAModClassic.Items.Vanity.CC
 {
     public class CCBox : BaseAAItem
     {
@@ -35,10 +38,10 @@ namespace AAMod.Items.Vanity.CC
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
                 player.QuickSpawnItem(ModContent.ItemType<Shiny.ShinyCCHood>());
-                player.QuickSpawnItem(ModContent.ItemType<Shiny.ShinyCCRobe>());
+                player.QuickSpawnItem(ModContent.ItemType<ShinyCCRobe>());
                 if (Main.hardMode)
                 {
-                    player.QuickSpawnItem(ModContent.ItemType<Accessories.Wings.MagmancerWings>());
+                    player.QuickSpawnItem(ModContent.ItemType<MagmancerWings>());
                 }
                 return;
             }
@@ -46,7 +49,7 @@ namespace AAMod.Items.Vanity.CC
             player.QuickSpawnItem(ModContent.ItemType<CCRobe>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Accessories.Wings.AquamancerWings>());
+                player.QuickSpawnItem(ModContent.ItemType<AquamancerWings>());
             }
         }
     }

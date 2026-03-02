@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Hallam.Shiny
+namespace AAModClassic.Items.Vanity.Hallam.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ShinyHalHat : BaseAAItem

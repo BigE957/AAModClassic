@@ -1,3 +1,5 @@
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -5,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     class TitanEX : ModProjectile
     {
@@ -84,7 +86,7 @@ namespace AAMod.Projectiles
             Lighting.AddLight(vector14, 1f, 0.2f, 2f);
             if (Main.rand.Next(3) == 0)
             {
-                int num30 = Dust.NewDust(vector14 - Projectile.Size / 2f, Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord>(), Projectile.velocity.X, Projectile.velocity.Y, 100, AAColor.Shen2, 1f);
+                int num30 = Dust.NewDust(vector14 - Projectile.Size / 2f, Projectile.width, Projectile.height, ModContent.DustType<Discord>(), Projectile.velocity.X, Projectile.velocity.Y, 100, AAColor.Shen2, 1f);
                 Main.dust[num30].noGravity = true;
                 Main.dust[num30].position -= Projectile.velocity;
             }

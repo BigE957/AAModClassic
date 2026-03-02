@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Walls;
-using AAMod.Dusts;
-using AAMod.Tiles;
+using AAModClassic.Walls;
+using AAModClassic.Dusts;
+using AAModClassic.Tiles;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     internal class Antifungus : ModProjectile
     {

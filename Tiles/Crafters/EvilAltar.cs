@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -5,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
+namespace AAModClassic.Tiles.Crafters
 {
     public class EvilAltar : ModTile
 	{
@@ -21,7 +22,7 @@ namespace AAMod.Tiles.Crafters
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Evil Altar");
-            DustType = ModContent.DustType<Dusts.InfinityOverloadP>();
+            DustType = ModContent.DustType<InfinityOverloadP>();
             AddMapEntry(new Color(120, 0, 160), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

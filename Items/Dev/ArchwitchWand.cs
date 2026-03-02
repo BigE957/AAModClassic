@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class ArchwitchWand : BaseAAItem
     {

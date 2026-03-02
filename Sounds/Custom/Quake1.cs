@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Sounds.Custom
+namespace AAModClassic.Sounds.Custom
 {
     public class Quake1 : ModSound
     {

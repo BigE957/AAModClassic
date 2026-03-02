@@ -1,8 +1,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class ShenABox : BaseAAItem
 	{

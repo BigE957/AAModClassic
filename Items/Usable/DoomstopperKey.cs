@@ -3,7 +3,8 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
-namespace AAMod.Items.Usable
+using AAModClassic;
+namespace AAModClassic.Items.Usable
 {
     public class DoomstopperKey : BaseAAItem
     {

@@ -4,8 +4,9 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic;
 
-namespace AAMod.Items.Summoning
+namespace AAModClassic.Items.Summoning
 {
     public class DoomiteSignalC : BaseAAItem
     {

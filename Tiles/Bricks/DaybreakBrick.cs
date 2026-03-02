@@ -1,7 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Globals;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
+namespace AAModClassic.Tiles.Bricks
 {
     class DaybreakBrick : ModTile
     {

@@ -1,6 +1,6 @@
 ﻿using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class FreedomBall : ModProjectile
     {

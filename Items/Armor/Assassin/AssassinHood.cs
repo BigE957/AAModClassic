@@ -1,9 +1,10 @@
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Assassin
+namespace AAModClassic.Items.Armor.Assassin
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AssassinHood : BaseAAItem

@@ -3,8 +3,11 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Projectiles.Zero;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class Gigataser : BaseAAItem
     {
@@ -55,7 +58,7 @@ namespace AAMod.Items.Boss.Zero
                 Vector2 vector82 = new Vector2(speedX, speedY);
                 float ai = Main.rand.Next(100);
                 Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.6)) * 14f;
-                Projectile.NewProjectile(position.X, position.Y, vector83.X * 2, vector83.Y * 2, ModContent.ProjectileType<Projectiles.Zero.ZeroTaze>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                Projectile.NewProjectile(position.X, position.Y, vector83.X * 2, vector83.Y * 2, ModContent.ProjectileType<ZeroTaze>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
             }
             return false;
         }

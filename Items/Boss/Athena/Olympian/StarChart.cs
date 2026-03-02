@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Athena.Olympian
+namespace AAModClassic.Items.Boss.Athena.Olympian
 {
     public class StarChart : BaseAAItem
     {

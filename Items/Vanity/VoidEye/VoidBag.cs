@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.VoidEye
+namespace AAModClassic.Items.Vanity.VoidEye
 {
     public class VoidBag : BaseAAItem
     {

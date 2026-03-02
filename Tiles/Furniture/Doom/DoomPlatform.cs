@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
+namespace AAModClassic.Tiles.Furniture.Doom
 {
 	public class DoomPlatform : ModTile
 	{

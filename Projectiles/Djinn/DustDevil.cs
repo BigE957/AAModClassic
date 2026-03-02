@@ -1,10 +1,11 @@
 ﻿using System;
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
+namespace AAModClassic.Projectiles.Djinn
 {
     public class DustDevil : ModProjectile
     {

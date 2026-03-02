@@ -6,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Banners
+namespace AAModClassic.Tiles.Banners
 {
     public class ThixxieBanner : ModTile
 	{

@@ -3,8 +3,11 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Projectiles.Anubis;
+using AAModClassic.Items.Ranged;
 
-namespace AAMod.Items.Boss.Anubis
+namespace AAModClassic.Items.Boss.Anubis
 {
     public class NeithsString : BaseAAItem
     {
@@ -48,7 +51,7 @@ Converts wooden arrows into slower, but high-damaging mummy arrows"); */
 			{
                 if (type == ProjectileID.WoodenArrowFriendly)
                 {
-                    type = ModContent.ProjectileType<Projectiles.Anubis.MummyArrow>();
+                    type = ModContent.ProjectileType<MummyArrow>();
                     Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
                     Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X * .7f, perturbedSpeed.Y * .7f, type, (int)(damage * 1.5f), knockBack, player.whoAmI);
                 }
@@ -68,7 +71,7 @@ Converts wooden arrows into slower, but high-damaging mummy arrows"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Ranged.FossilBoneslinger>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<FossilBoneslinger>(), 1);
             recipe.AddIngredient(null, "ForsakenFragment", 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

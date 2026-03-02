@@ -6,8 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAModClassic.Dusts;
+using AAModClassic;
 
-namespace AAMod.NPCs.Bosses.Wyrm
+namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class Wyrm : ModNPC
 	{
@@ -274,8 +276,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -326,8 +328,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -446,8 +448,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 NPC.height = 40;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -575,8 +577,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -695,8 +697,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
-                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust1 = ModContent.DustType<AkumaDust>();
+                int dust2 = ModContent.DustType<AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;

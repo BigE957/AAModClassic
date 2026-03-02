@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Tails
+namespace AAModClassic.Items.Vanity.Tails
 {
     [AutoloadEquip(EquipType.Legs)]
     public class TailsLegs : BaseAAItem

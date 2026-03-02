@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Viking
+namespace AAModClassic.Items.Armor.Viking
 {
     [AutoloadEquip(EquipType.Body)]
 	public class VikingPlate : BaseAAItem

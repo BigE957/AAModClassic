@@ -1,8 +1,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class SaltwaterSpear : BaseAAItem
 	{

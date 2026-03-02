@@ -1,7 +1,9 @@
 using Terraria;
-using Terraria.ModLoader; using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks.Statues
+namespace AAModClassic.Items.Blocks.Statues
 {
 	public class AlphakipStatue : BaseAAItem
     {

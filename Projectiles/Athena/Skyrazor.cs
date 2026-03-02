@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Athena
+namespace AAModClassic.Projectiles.Athena
 {
     public class Skyrazor : ModProjectile
     {

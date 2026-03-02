@@ -1,10 +1,11 @@
 using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
+namespace AAModClassic.NPCs.Bosses.Sag
 {
     public class SagSpark : ModProjectile
     {

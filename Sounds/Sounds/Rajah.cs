@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Sounds.Sounds
+namespace AAModClassic.Sounds.Sounds
 {
     public class Rajah : ModSound
     {

@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod.Tiles.Decoration
+namespace AAModClassic.Tiles.Decoration
 {
     public class EnderMemory : ModTile
     {

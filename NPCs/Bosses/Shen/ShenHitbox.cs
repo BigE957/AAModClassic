@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenHitbox : ModNPC
     {

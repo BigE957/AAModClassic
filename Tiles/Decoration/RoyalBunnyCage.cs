@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
+namespace AAModClassic.Tiles.Decoration
 {
     public class RoyalBunnyCage : ModTile
     {

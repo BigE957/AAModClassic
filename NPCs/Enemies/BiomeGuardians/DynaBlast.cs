@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.BiomeGuardians
+namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 {
     public class DynaBlast : ModProjectile
 	{

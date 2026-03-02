@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.Localization;
 
-namespace AAMod
+namespace AAModClassic
 {
 	public class CustomCurrency : CustomCurrencySingleCoin
 	{

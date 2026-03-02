@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
+namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
     public class GlitchBoom : ModProjectile
     {

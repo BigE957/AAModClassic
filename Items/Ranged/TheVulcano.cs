@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class TheVulcano : BaseAAItem
     {
@@ -19,7 +21,7 @@ namespace AAMod.Items.Ranged
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Vulcan>();
+            Item.shoot = ModContent.ProjectileType<Vulcan>();
             Item.knockBack = 4;
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item34;

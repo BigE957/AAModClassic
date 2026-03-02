@@ -3,8 +3,10 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
     public class DarkmatterPitchet : BaseAAItem
     {

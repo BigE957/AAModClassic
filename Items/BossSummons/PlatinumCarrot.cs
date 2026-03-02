@@ -2,11 +2,13 @@ using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Rajah;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Rajah;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class PlatinumCarrot : BaseAAItem
     {

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 
-namespace AAMod.UI.Core
+namespace AAModClassic.UI.Core
 {
     internal sealed class UIColorImageButton : UIImageButton
     {

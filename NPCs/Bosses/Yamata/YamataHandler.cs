@@ -1,4 +1,5 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
@@ -6,7 +7,7 @@ using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.NPCs.Bosses.Yamata
 {
     public abstract class YamataBoss : ParentNPC
 	{

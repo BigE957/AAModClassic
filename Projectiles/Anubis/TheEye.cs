@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
+namespace AAModClassic.Projectiles.Anubis
 {
     public class TheEye : ModProjectile
     {

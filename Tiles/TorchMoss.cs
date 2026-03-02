@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
+using AAModClassic.Items.Blocks;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class TorchMoss : ModTile
     {
@@ -22,7 +23,7 @@ namespace AAMod.Tiles
             Main.tileLighted[Type] = true;
             DustType = Mod.Find<ModDust>("RazeleafDust").Type;
             AddMapEntry(new Color(255, 153, 51));
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Blocks.Torchstone>();
+            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Torchstone>();
         }
 
         public override void RandomUpdate(int i, int j)

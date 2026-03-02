@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Hoodlum
+namespace AAModClassic.Items.Armor.Hoodlum
 {
     [AutoloadEquip(EquipType.Body)]
 	public class HoodlumShirt : BaseAAItem

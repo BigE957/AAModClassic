@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
+namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
     public class AkumaRock : ModProjectile
     {

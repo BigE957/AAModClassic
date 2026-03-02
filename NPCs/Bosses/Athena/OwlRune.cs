@@ -4,10 +4,11 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
-using AAMod.NPCs.Enemies.Sky;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Enemies.Sky;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
     public class OwlRune : ModNPC
     {

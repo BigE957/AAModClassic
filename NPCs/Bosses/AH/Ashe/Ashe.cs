@@ -8,8 +8,11 @@ using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using System;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.AH;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     [AutoloadBossHead]
     public class Ashe : ModNPC

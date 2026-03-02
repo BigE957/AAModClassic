@@ -4,8 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
+using AAModClassic;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class PerfectChaos : BaseAAItem
 	{

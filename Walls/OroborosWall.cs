@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
+namespace AAModClassic.Walls
 {
     public class OroborosWall : ModWall
 	{

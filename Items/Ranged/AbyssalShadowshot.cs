@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles;
+using AAModClassic;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class AbyssalShadowshot : BaseAAItem
     {
@@ -46,7 +48,7 @@ namespace AAMod.Items.Ranged
 		    	offsetAngle = startAngle + (deltaAngle * i);
 		    	Projectile.NewProjectile(position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
             }
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Shadowshot>(), (int)(damage * 1.0f), knockBack, Main.myPlayer);
+            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Shadowshot>(), (int)(damage * 1.0f), knockBack, Main.myPlayer);
             return false;
 		}
 

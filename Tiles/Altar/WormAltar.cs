@@ -7,8 +7,11 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.Tiles.Altar
+namespace AAModClassic.Tiles.Altar
 {
     public class WormAltar : ModTile
     {
@@ -49,7 +52,7 @@ namespace AAMod.Tiles.Altar
         public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            int type = ModContent.ItemType<Items.BossSummons.WormIdol>();
+            int type = ModContent.ItemType<WormIdol>();
             bool Worms = NPC.AnyNPCs(ModContent.NPCType<WormSpawn>());
             if (BasePlayer.HasItem(player, type, 1) && !Worms)
             {

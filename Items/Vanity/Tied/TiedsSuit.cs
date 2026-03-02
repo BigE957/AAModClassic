@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Tied
+namespace AAModClassic.Items.Vanity.Tied
 {
     [AutoloadEquip(EquipType.Body)]
 	class TiedsSuit : BaseAAItem

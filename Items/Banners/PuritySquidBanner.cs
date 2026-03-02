@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Banners
+namespace AAModClassic.Items.Banners
 {
 	public class PuritySquidBanner : BaseAAItem
 	{

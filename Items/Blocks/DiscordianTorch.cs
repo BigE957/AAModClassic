@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
 	public class DiscordianTorch : BaseAAItem
     {

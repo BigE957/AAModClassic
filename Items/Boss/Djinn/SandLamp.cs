@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Djinn
+namespace AAModClassic.Items.Boss.Djinn
 {
     public class SandLamp : BaseAAItem
     {

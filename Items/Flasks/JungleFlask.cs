@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Flasks
+namespace AAModClassic.Items.Flasks
 {
     public class JungleFlask : BaseAAItem
     {

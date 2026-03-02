@@ -7,8 +7,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAAI
 	{

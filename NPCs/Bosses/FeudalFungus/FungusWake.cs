@@ -5,8 +5,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
+namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
     public class FungusWake : ModNPC
     {

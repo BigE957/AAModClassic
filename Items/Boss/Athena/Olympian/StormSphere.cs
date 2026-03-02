@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Athena.Olympian
+namespace AAModClassic.Items.Boss.Athena.Olympian
 {
     public class StormSphere : BaseAAItem
     {

@@ -6,8 +6,10 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 using Terraria.ID;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Tiles.Crafters
+namespace AAModClassic.Tiles.Crafters
 {
     public class TerraPrism : ModTile
     {

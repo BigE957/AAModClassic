@@ -2,9 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Projectiles.Sag
+namespace AAModClassic.Projectiles.Sag
 {
     class ZeroStarP : ModProjectile
 	{

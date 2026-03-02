@@ -1,10 +1,12 @@
+using AAModClassic;
+using AAModClassic.Items.Boss.Djinn;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Anubis
+namespace AAModClassic.Items.Boss.Anubis
 {
     public class SentryOfTheEye : BaseAAItem
     {
@@ -68,7 +70,7 @@ namespace AAMod.Items.Boss.Anubis
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Djinn.SandScepter>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SandScepter>(), 1);
             recipe.AddIngredient(null, "ForsakenFragment", 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

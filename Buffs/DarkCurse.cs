@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class DarkCurse : ModBuff
     {

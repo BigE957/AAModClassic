@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Sagittarius
+namespace AAModClassic.Items.Boss.Sagittarius
 {
     public class Legg : BaseAAItem
     {

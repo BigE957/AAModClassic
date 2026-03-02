@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Doomite
+namespace AAModClassic.Items.Armor.Doomite
 {
     [AutoloadEquip(EquipType.Body)]
 	public class DoomiteBreastplate : BaseAAItem

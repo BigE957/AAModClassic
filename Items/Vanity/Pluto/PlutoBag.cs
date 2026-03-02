@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Pluto.Shiny;
+using AAModClassic.Items.Vanity.Pluto.Shiny;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Pluto
+namespace AAModClassic.Items.Vanity.Pluto
 {
     public class PlutoBag : BaseAAItem
     {

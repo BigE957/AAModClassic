@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Grips
+namespace AAModClassic.Items.Boss.Grips
 {
     public class GripBag : BaseAAItem
 	{

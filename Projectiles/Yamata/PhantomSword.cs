@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
 
     public class PhantomSword : ModProjectile

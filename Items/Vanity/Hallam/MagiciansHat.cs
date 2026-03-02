@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Hallam.Shiny;
 using Terraria.ID;
+using AAModClassic.Items.Vanity.Hallam.Shiny;
 
-namespace AAMod.Items.Vanity.Hallam
+namespace AAModClassic.Items.Vanity.Hallam
 {
     public class MagiciansHat : BaseAAItem
     {

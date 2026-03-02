@@ -1,9 +1,10 @@
-﻿using Terraria;
+﻿using AAModClassic.Dusts;
+using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class MireLeaf : ModProjectile
     {
@@ -40,7 +41,7 @@ namespace AAMod.Projectiles
 
             for (int m = 0; m < 12; m++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.BogleafDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, Microsoft.Xna.Framework.Color.White, 1.2f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<BogleafDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, Microsoft.Xna.Framework.Color.White, 1.2f);
             }
         }
     }

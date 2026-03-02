@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Athena.Olympian;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
     public class OlympianDragon : ModNPC
     {

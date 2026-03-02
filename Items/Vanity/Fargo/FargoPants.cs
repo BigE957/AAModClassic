@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Fargo
+namespace AAModClassic.Items.Vanity.Fargo
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class FargoPants : BaseAAItem

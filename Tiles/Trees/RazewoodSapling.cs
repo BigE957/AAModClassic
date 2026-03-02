@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trees
+namespace AAModClassic.Tiles.Trees
 {
     class RazewoodSapling : ModTile
     {

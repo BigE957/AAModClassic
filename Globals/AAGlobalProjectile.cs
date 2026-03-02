@@ -3,9 +3,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAMod.Tiles;
+using AAModClassic.Tiles;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAGlobalProjectile : GlobalProjectile
     {

@@ -4,9 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.NPCs.Bosses.AH.Haruka
+namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {
     [AutoloadBossHead]
     public class HarukaClone : ModNPC

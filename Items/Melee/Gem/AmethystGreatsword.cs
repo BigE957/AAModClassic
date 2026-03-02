@@ -1,10 +1,12 @@
+using AAModClassic;
+using AAModClassic.Projectiles.GemShot;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee.Gem   //where is located
+namespace AAModClassic.Items.Melee.Gem   //where is located
 {
     public class AmethystGreatsword : BaseAAItem
     {
@@ -24,7 +26,7 @@ namespace AAMod.Items.Melee.Gem   //where is located
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = false;   
             Item.useTurn = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.GemShot.AmethystShot>();
+            Item.shoot = ModContent.ProjectileType<AmethystShot>();
             Item.shootSpeed = 7f;
         }
 

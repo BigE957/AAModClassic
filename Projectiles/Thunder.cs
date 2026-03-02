@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class Thunder : ModProjectile
     {

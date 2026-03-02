@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
+namespace AAModClassic.Projectiles.AH
 {
     public class Surasshu : ModProjectile
     {

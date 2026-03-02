@@ -1,3 +1,4 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -5,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning
+namespace AAModClassic.Items.Summoning
 {
     public class HallowStaff : BaseAAItem
     {

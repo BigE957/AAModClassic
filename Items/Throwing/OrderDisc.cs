@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Throwing
+namespace AAModClassic.Items.Throwing
 {
 	public class OrderDisc : BaseAAItem
 	{

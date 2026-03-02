@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Mask
+namespace AAModClassic.Items.Vanity.Mask
 {
     [AutoloadEquip(EquipType.Head)]
 	public class AthenaAMask : BaseAAItem

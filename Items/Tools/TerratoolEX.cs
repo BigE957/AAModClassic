@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.UI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
     public class TerratoolEX : BaseAAItem
     {
@@ -55,9 +57,9 @@ Terratool EX"); */
             {
                 Item.autoReuse = true;
                 Item.noUseGraphic = false;
-                Item.pick = UI.TerratoolEXUI.Pick;
-                Item.axe = UI.TerratoolEXUI.Axe;
-                Item.hammer = UI.TerratoolEXUI.Hammer;
+                Item.pick = TerratoolEXUI.Pick;
+                Item.axe = TerratoolEXUI.Axe;
+                Item.hammer = TerratoolEXUI.Hammer;
                 Item.damage = 120;
             }
             else

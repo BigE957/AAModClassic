@@ -3,8 +3,9 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class Gunk : ModProjectile
     {

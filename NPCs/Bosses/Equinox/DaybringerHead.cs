@@ -5,11 +5,13 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using AAMod.Dusts;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     [AutoloadBossHead]	
 	public class DaybringerHead : ModNPC

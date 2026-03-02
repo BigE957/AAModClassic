@@ -3,10 +3,9 @@ using System.Linq;
 using Terraria;
 using Terraria.ModLoader;
 using System.Reflection;
-using AAMod.Items;
 using Microsoft.Xna.Framework;
 
-namespace AAMod
+namespace AAModClassic.CrossMod.CalamityMod
 {
     public abstract class RogueWeapon : BaseAAItem
 	{

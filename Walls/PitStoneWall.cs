@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
+namespace AAModClassic.Walls
 {
     public class PitStoneWall : ModWall
 	{

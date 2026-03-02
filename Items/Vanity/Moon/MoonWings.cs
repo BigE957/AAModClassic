@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Moon
+namespace AAModClassic.Items.Vanity.Moon
 {
 
     [AutoloadEquip(EquipType.Wings)]

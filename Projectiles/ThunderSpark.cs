@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class ThunderSpark : ModProjectile
 	{

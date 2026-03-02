@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Alphakip.Shiny
+namespace AAModClassic.Items.Vanity.Alphakip.Shiny
 
 {
     [AutoloadEquip(EquipType.Body)]

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Projectiles
+namespace AAModClassic.Tiles.Projectiles
 {
     class DepthsandBall : ModProjectile
     {

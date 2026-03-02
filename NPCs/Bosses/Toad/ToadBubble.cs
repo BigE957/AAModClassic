@@ -1,11 +1,13 @@
 ﻿using System;
+using AAModClassic.Buffs;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
+namespace AAModClassic.NPCs.Bosses.Toad
 {
     public class ToadBubble : ModProjectile
     {
@@ -46,12 +48,12 @@ namespace AAMod.NPCs.Bosses.Toad
             {
                 for (int m = 0; m < 3; m++)
                 {
-                    int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0f, 0f, 100, Color.White, 1.6f);
+                    int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<ShroomDust>(), 0f, 0f, 100, Color.White, 1.6f);
                     Main.dust[dustID].velocity = -Projectile.velocity * 0.5f;
                     Main.dust[dustID].noLight = false;
                     Main.dust[dustID].noGravity = true;
                 }
-                int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0f, 0f, 100, Color.Purple, 2f);
+                int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<ShroomDust>(), 0f, 0f, 100, Color.Purple, 2f);
                 Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;
                 Main.dust[dustID2].noLight = false;
                 Main.dust[dustID2].noGravity = true;
@@ -70,7 +72,7 @@ namespace AAMod.NPCs.Bosses.Toad
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), 300);
+            target.AddBuff(ModContent.BuffType<Shroomed>(), 300);
         }
 
         public override void OnKill(int timeLeft)
@@ -92,7 +94,7 @@ namespace AAMod.NPCs.Bosses.Toad
 	    	}
         	for (int dust = 0; dust <= 5; dust++)
             {
-                int dustType = ModContent.DustType<Dusts.ShroomDust>();
+                int dustType = ModContent.DustType<ShroomDust>();
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, dustType, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
         	}
         }

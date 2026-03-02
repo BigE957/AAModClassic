@@ -6,7 +6,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Hooks
+namespace AAModClassic.Items.Hooks
 {
 	internal class GripsOfChaos : ModItem
 	{

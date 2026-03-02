@@ -5,8 +5,10 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.Tiles.Ore
+namespace AAModClassic.Tiles.Ore
 {
     public class Apocalyptite : ModTile
     {

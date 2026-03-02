@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
 
-namespace AAMod.Tiles.Furniture.Oroboros
+namespace AAModClassic.Tiles.Furniture.Oroboros
 {
     public class OroborosBookcase : ModTile
 	{

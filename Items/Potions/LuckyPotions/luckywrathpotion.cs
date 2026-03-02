@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
-namespace AAMod.Items.Potions.LuckyPotions
+namespace AAModClassic.Items.Potions.LuckyPotions
 {
     public class luckywrathpotion : BaseAAItem
 	{

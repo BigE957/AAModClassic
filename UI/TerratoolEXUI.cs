@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace AAMod.UI
+namespace AAModClassic.UI
 {
     internal sealed class TerratoolEXUI : TerratoolUI
     {

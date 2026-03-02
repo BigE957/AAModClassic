@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Armor.Stone
+namespace AAModClassic.Items.Armor.Stone
 {
     [AutoloadEquip(EquipType.Body)]
 	public class StoneSoldierPlate : BaseAAItem

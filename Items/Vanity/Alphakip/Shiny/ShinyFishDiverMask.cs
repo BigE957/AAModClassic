@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Alphakip.Shiny
+namespace AAModClassic.Items.Vanity.Alphakip.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ShinyFishDiverMask : BaseAAItem

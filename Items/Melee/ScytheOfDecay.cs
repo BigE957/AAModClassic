@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Melee     //We need player to basically indicate the folder where it is to be read from, so you the texture will load correctly
+namespace AAModClassic.Items.Melee     //We need player to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
     public class ScytheOfDecay : BaseAAItem
     {

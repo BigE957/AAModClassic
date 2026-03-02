@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
     internal class Runefire : ModProjectile
     {

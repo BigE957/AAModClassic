@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Raider
+namespace AAModClassic.Items.Armor.Raider
 {
     [AutoloadEquip(EquipType.Body)]
 	public class RaiderChest : BaseAAItem

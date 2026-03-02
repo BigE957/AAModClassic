@@ -4,8 +4,10 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.PerfectChaos
+namespace AAModClassic.Items.Armor.PerfectChaos
 {
     [AutoloadEquip(EquipType.Head)]
     public class PerfectChaosVisor : BaseAAItem

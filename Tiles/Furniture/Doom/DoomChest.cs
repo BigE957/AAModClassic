@@ -1,5 +1,5 @@
 using System;
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,7 +12,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
+namespace AAModClassic.Tiles.Furniture.Doom
 {
     public class DoomChest : ModTile
     {

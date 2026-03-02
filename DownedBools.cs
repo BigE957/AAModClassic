@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using System.IO;
 
-namespace AAMod
+namespace AAModClassic
 {
     public class DownedBools : ModSystem
     {

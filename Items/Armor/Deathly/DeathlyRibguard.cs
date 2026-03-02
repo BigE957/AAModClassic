@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Deathly
+namespace AAModClassic.Items.Armor.Deathly
 {
     [AutoloadEquip(EquipType.Body)]
     public class DeathlyRibguard : BaseAAItem

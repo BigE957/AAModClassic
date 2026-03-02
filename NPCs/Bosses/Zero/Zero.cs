@@ -1,5 +1,9 @@
 using System;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,7 +13,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
     [AutoloadBossHead]
     public class Zero : ModNPC
@@ -191,8 +195,8 @@ namespace AAMod.NPCs.Bosses.Zero
                 };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(ModContent.ItemType<Items.Pets.ZeroCore>(), 1f / 10f);
-                NPC.DropLoot(ModContent.ItemType<Items.Vanity.Mask.ZeroMask>(), 1f / 7f);
+                NPC.DropLoot(ModContent.ItemType<ZeroCore>(), 1f / 10f);
+                NPC.DropLoot(ModContent.ItemType<ZeroMask>(), 1f / 7f);
                 NPC.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
                 if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
                 {

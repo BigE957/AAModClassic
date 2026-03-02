@@ -1,6 +1,6 @@
-using AAMod.NPCs.Enemies.Sky;
+using AAModClassic.NPCs.Enemies.Sky;
 
-namespace AAMod.NPCs.Bosses.Athena
+namespace AAModClassic.NPCs.Bosses.Athena
 {
 	public class SeraphA : Seraph
 	{

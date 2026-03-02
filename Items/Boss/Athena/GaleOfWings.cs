@@ -1,10 +1,11 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Athena
+namespace AAModClassic.Items.Boss.Athena
 {
     public class GaleOfWings : BaseAAItem
     {

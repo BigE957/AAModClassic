@@ -1,12 +1,13 @@
-using AAMod.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic.Items.Materials;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
     public class Lantern : BaseAAItem
     {

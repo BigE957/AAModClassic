@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Walls
+namespace AAModClassic.Items.Walls
 {
     public class DoomsdayWall : BaseAAItem
     {

@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
+namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
     public class CurseCircle : ModNPC
     {

@@ -7,11 +7,17 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System.IO;
-using AAMod.Items.Boss.Rajah;
 using Terraria.Graphics.Shaders;
-using AAMod.NPCs.Bosses.Rajah.Supreme;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Potions;
+using AAModClassic.NPCs.Bosses.Rajah.Supreme;
+using AAModClassic;
+using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Rajah.Supreme;
+using AAModClassic.CrossMod;
+using AAModClassic.Items.Boss.Rajah;
 
-namespace AAMod.NPCs.Bosses.Rajah
+namespace AAModClassic.NPCs.Bosses.Rajah
 {
     [AutoloadBossHead]
     public class Rajah : ModNPC
@@ -1076,7 +1082,7 @@ namespace AAMod.NPCs.Bosses.Rajah
                 }
                 else
                 {
-                    NPC.DropLoot(ModContent.ItemType<Items.Boss.Rajah.Supreme.ChampionPlate>(), Main.rand.Next(15, 31));
+                    NPC.DropLoot(ModContent.ItemType<ChampionPlate>(), Main.rand.Next(15, 31));
                     string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
@@ -1115,7 +1121,7 @@ namespace AAMod.NPCs.Bosses.Rajah
         {
             if (isSupreme)
             {
-                potionType = ModContent.ItemType<Items.Potions.TheBigOne>();
+                potionType = ModContent.ItemType<TheBigOne>();
                 return;
             }
             potionType = ItemID.GreaterHealingPotion;

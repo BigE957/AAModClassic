@@ -2,9 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
 
 
-namespace AAMod.Items.Armor.Dynaskull
+namespace AAModClassic.Items.Armor.Dynaskull
 {
     [AutoloadEquip(EquipType.Head)]
 	public class Dynaskull : BaseAAItem

@@ -8,8 +8,10 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
 
-namespace AAMod.NPCs.Bosses.Hydra
+namespace AAModClassic.NPCs.Bosses.Hydra
 {
     [AutoloadBossHead]
     public class Hydra : ModNPC

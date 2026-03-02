@@ -4,7 +4,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
+namespace AAModClassic.NPCs.Bosses.Sag
 {
     public class SagVortex : ModProjectile
 	{

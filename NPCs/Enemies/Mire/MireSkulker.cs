@@ -1,9 +1,9 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire
+namespace AAModClassic.NPCs.Enemies.Mire
 {
 
     public class MireSkulker : ModNPC

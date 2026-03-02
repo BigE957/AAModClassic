@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Rajah.Supreme;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah.Supreme
+namespace AAModClassic.Items.Boss.Rajah.Supreme
 {
     public class RoyalScepterEX : BaseAAItem
     {
@@ -15,7 +17,7 @@ namespace AAMod.Items.Boss.Rajah.Supreme
             Item.damage = 260;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shootSpeed = 9f;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.CarrotEX>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<CarrotEX>();
             Item.width = 58;
             Item.height = 57;
             Item.UseSound = SoundID.Item39;

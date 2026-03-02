@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
+namespace AAModClassic.Projectiles.Shen
 {
     public class MeteorBoomBlue : ModProjectile
     {

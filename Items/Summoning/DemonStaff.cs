@@ -5,7 +5,7 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning
+namespace AAModClassic.Items.Summoning
 {
     public class DemonStaff : BaseAAItem
     {

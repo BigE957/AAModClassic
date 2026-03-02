@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Items.Blocks.Boxes
+namespace AAModClassic.Items.Blocks.Boxes
 {
     public class StarBox : BaseAAItem
     {

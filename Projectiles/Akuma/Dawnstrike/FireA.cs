@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
+namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 {
     internal class FireA : ModProjectile
     {

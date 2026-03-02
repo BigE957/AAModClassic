@@ -4,10 +4,12 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.Tiles;
-using AAMod.Tiles.Plants;
+using AAModClassic.Items.Mushrooms;
+using AAModClassic;
+using AAModClassic.Tiles.Plants;
+using AAModClassic.Tiles;
 
-namespace AAMod.NPCs.TownNPCs
+namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
     public class Mushman : ModNPC
@@ -188,7 +190,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = SpecialChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Rainbow>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Rainbow>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -258,7 +260,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Red>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Red>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -286,7 +288,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Yellow>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Yellow>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -300,7 +302,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Green>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -314,7 +316,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Green>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -328,7 +330,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Green>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Green>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -342,7 +344,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Blue>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -356,7 +358,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Blue>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -370,7 +372,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Blue>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Blue>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -384,7 +386,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Purple>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Purple>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -398,7 +400,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Purple>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Purple>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -412,7 +414,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Gray>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Gray>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -426,7 +428,7 @@ namespace AAMod.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Mushrooms.Pink>(), 5);
+                    player.QuickSpawnItem(ModContent.ItemType<Pink>(), 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;

@@ -1,5 +1,8 @@
 using System;
 using System.IO;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,7 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Yamata
+namespace AAModClassic.NPCs.Bosses.Yamata
 {
     [AutoloadBossHead]
     public class Yamata : YamataBoss
@@ -347,7 +350,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
                     {
-                        Main.player[p].AddBuff(ModContent.BuffType<Buffs.YamataGravity>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataGravity>(), 10, true);
                     }
                 }
                 NoFlyCountDown--;

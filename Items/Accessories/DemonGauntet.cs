@@ -4,9 +4,11 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]

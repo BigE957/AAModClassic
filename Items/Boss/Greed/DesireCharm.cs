@@ -4,7 +4,7 @@ using Terraria.Localization;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Greed
+namespace AAModClassic.Items.Boss.Greed
 {
     public class DesireCharm : BaseAAItem
     {

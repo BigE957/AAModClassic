@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class GunkWand : BaseAAItem
     {

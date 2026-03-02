@@ -3,9 +3,11 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
 
-namespace AAMod.Projectiles.Zero
+namespace AAModClassic.Projectiles.Zero
 {
     // to investigate: Projectile.Damage, (8843)
     class Horizon : ModProjectile

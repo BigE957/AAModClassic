@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
+namespace AAModClassic.Projectiles.Djinn
 {
     public class SandSpray : ModProjectile
     {

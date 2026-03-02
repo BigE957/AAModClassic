@@ -5,8 +5,9 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Events;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AANet
     {

@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace AAMod.Items.Boss.Equinox
+
+namespace AAModClassic.Items.Boss.Equinox
 {
     public class EquinoxBag : BaseAAItem
 	{

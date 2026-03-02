@@ -1,10 +1,11 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class PonyBoomEX : ModProjectile
     {
@@ -57,7 +58,7 @@ namespace AAMod.Projectiles
             }
             for (int num457 = 0; num457 < 10; num457++)
             {
-                int num458 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.2f);
+                int num458 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.2f);
                 Main.dust[num458].noGravity = true;
                 Main.dust[num458].velocity *= 0.5f;
                 Main.dust[num458].velocity += Projectile.velocity * 0.1f;

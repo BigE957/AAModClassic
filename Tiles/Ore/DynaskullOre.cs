@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
+namespace AAModClassic.Tiles.Ore
 {
     public class DynaskullOre : ModTile
     {

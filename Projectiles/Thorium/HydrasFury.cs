@@ -1,10 +1,11 @@
 using System;
+using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
+namespace AAModClassic.Projectiles.Thorium
 {
     public class HydrasFury : ModProjectile
 	{

@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.MushroomMonarch
+namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
     public class RedMushling : ModNPC
     {

@@ -4,9 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Armor.Draco
+namespace AAModClassic.Items.Armor.Draco
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DracoHelm : BaseAAItem

@@ -4,8 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
+using AAModClassic;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class TrueGong : BaseAAItem
     {

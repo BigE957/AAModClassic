@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Pluto.Shiny
+namespace AAModClassic.Items.Vanity.Pluto.Shiny
 
 {
     [AutoloadEquip(EquipType.Body)]

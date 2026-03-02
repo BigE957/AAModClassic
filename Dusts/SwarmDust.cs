@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Dusts
+namespace AAModClassic.Dusts
 {
     public class SwarmDust : ModDust
 	{

@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System;
 using Terraria.ID;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     public class AbyssalYariP : ModProjectile
     {

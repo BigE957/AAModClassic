@@ -3,8 +3,9 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles.AH
+namespace AAModClassic.Projectiles.AH
 {
     public class Mizu : ModProjectile
     {
@@ -132,13 +133,13 @@ namespace AAMod.Projectiles.AH
             }
             for (int num87 = 0; num87 < 20; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuAuraDust>(), 0f, 0f, 200, default, 3.7f);
+                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuAuraDust>(), 0f, 0f, 200, default, 3.7f);
                 Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuAuraDust>(), 0f, 0f, 100, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuAuraDust>(), 0f, 0f, 100, default, 1.5f);
                 Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -149,7 +150,7 @@ namespace AAMod.Projectiles.AH
             }
             for (int num89 = 0; num89 < 20; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuAuraDust>(), 0f, 0f, 0, default, 2.7f);
+                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuAuraDust>(), 0f, 0f, 0, default, 2.7f);
                 Main.dust[num90].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;

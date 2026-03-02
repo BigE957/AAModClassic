@@ -1,9 +1,11 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class ChaosShot1 : ModProjectile
     {
@@ -33,7 +35,7 @@ namespace AAMod.Projectiles
 
         public override void AI()
         {
-            int dustType = proType == 0 ? ModContent.DustType<Dusts.DiscordLight>() : proType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataDustLight>();
+            int dustType = proType == 0 ? ModContent.DustType<DiscordLight>() : proType == 1 ? ModContent.DustType<AkumaDustLight>() : ModContent.DustType<YamataDustLight>();
             if (Projectile.ai[1] != 0)
             {
                 Projectile.extraUpdates = 1;
@@ -83,7 +85,7 @@ namespace AAMod.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            int dustType = proType == 0 ? 0 : proType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataAuraDust>();
+            int dustType = proType == 0 ? 0 : proType == 1 ? ModContent.DustType<AkumaDustLight>() : ModContent.DustType<YamataAuraDust>();
             if (proType != 0)
             {
                 for (int i = 0; i < 4; i++)

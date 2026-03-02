@@ -1,9 +1,9 @@
-
+using AAModClassic.Base.BaseMod;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BasePlayer
     {

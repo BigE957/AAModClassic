@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Tools
+namespace AAModClassic.Items.Tools
 {
     public class MadnessHammer : BaseAAItem
     {

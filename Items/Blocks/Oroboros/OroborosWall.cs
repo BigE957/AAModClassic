@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Blocks.Oroboros
+namespace AAModClassic.Items.Blocks.Oroboros
 {
     public class OroborosWall : BaseAAItem
     {

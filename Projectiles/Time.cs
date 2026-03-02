@@ -1,9 +1,10 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class Time : ModProjectile
     {
@@ -48,7 +49,7 @@ namespace AAMod.Projectiles
                 }
                 else
                 {
-                    Buff = ModContent.BuffType<Buffs.Moonraze>();
+                    Buff = ModContent.BuffType<Moonraze>();
                 }
 
                 target.AddBuff(Buff, 180);

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Equinox
+namespace AAModClassic.Items.Boss.Equinox
 {
     [AutoloadEquip(EquipType.HandsOn)]
     public class RadiantStar : BaseAAItem

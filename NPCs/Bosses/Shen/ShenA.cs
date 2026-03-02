@@ -1,4 +1,8 @@
-﻿
+﻿using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +13,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.Bosses.Shen
+namespace AAModClassic.NPCs.Bosses.Shen
 {
     [AutoloadBossHead]
     public class ShenA : Shen
@@ -116,7 +120,7 @@ namespace AAMod.NPCs.Bosses.Shen
                 {
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
-                        int dust = ModContent.DustType<Dusts.DiscordLight>();
+                        int dust = ModContent.DustType<DiscordLight>();
                         int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].noLight = true;

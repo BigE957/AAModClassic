@@ -1,9 +1,10 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.StripeMan
+namespace AAModClassic.Items.Armor.StripeMan
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class StripeManPants : BaseAAItem

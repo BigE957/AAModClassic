@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Imp
+namespace AAModClassic.Items.Armor.Imp
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class ImpBoots : BaseAAItem

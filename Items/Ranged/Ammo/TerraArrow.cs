@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Ranged.Ammo
+namespace AAModClassic.Items.Ranged.Ammo
 {
     public class TerraArrow : BaseAAItem
 	{

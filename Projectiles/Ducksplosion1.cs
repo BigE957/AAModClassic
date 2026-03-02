@@ -1,7 +1,8 @@
+using AAModClassic.Buffs;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class Ducksplosion1 : ModProjectile
     {
@@ -42,7 +43,7 @@ namespace AAMod.Projectiles
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Electrified>(), 200);
+            target.AddBuff(ModContent.BuffType<Electrified>(), 200);
         }
 
 

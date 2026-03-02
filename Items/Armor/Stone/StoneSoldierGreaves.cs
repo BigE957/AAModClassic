@@ -1,8 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Armor.Stone
+namespace AAModClassic.Items.Armor.Stone
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class StoneSoldierGreaves : BaseAAItem

@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Anubis;
+using AAModClassic.Projectiles.Anubis;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class AnubisBlockBook : BaseAAItem
     {

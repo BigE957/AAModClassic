@@ -3,13 +3,15 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
-using AAMod.NPCs.Bosses.Yamata.Awakened;
 
 using System.IO;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 
-namespace AAMod.NPCs.Bosses.Yamata
+namespace AAModClassic.NPCs.Bosses.Yamata
 {
     [AutoloadBossHead]
     public class YamataHeadF1 : ModNPC

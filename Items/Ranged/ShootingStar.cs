@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class ShootingStar : BaseAAItem
     {

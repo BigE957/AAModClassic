@@ -6,8 +6,9 @@ using Terraria.ModLoader;
 
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Anubis
+namespace AAModClassic.NPCs.Bosses.Anubis
 {
 	public class EyeSentry : ModNPC
     {

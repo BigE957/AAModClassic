@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks
+namespace AAModClassic.Items.Blocks
 {
     public class Apocalyptite : BaseAAItem
     {

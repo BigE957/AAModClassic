@@ -1,10 +1,11 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
+namespace AAModClassic.NPCs.Bosses.Toad
 {
     public class Seed : ModProjectile
     {
@@ -43,7 +44,7 @@ namespace AAMod.NPCs.Bosses.Toad
         {
             for (int i = 0; i < 5; i++)
             {
-                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0f, 0f, 100, default, 1.2f);
+                int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<ShroomDust>(), 0f, 0f, 100, default, 1.2f);
                 Main.dust[dustIndex].velocity *= 1.8f;
             }
         }

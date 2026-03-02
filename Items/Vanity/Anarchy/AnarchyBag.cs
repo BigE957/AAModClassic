@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Anarchy
+namespace AAModClassic.Items.Vanity.Anarchy
 {
     public class AnarchyBag : BaseAAItem
     {

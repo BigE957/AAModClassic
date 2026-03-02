@@ -1,9 +1,10 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
+namespace AAModClassic.Projectiles.Yamata
 {
     class Masamune : ModProjectile
     {
@@ -31,7 +32,7 @@ namespace AAMod.Projectiles.Yamata
         {
             if (Main.rand.Next(2) == 0)
             {
-                int num137 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 0, default, 1f);
+                int num137 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), 0f, 0f, 0, default, 1f);
                 Dust expr_5E31_cp_0 = Main.dust[num137];
                 expr_5E31_cp_0.velocity.X *= 0.4f;
             }
@@ -44,7 +45,7 @@ namespace AAMod.Projectiles.Yamata
                     Vector2 vector56 = Vector2.Normalize(Projectile.velocity) * new Vector2(Projectile.width, Projectile.height) / 2f;
                     vector56 = vector56.RotatedBy((num694 - (num693 / 2 - 1)) * 3.1415926535897931 / (float)num693, default) + Projectile.Center;
                     Vector2 value24 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-                    int num695 = Dust.NewDust(vector56 + value24, 0, 0, ModContent.DustType<Dusts.YamataDust>(), value24.X * 2f, value24.Y * 2f, 100, default, 1.4f);
+                    int num695 = Dust.NewDust(vector56 + value24, 0, 0, ModContent.DustType<YamataDust>(), value24.X * 2f, value24.Y * 2f, 100, default, 1.4f);
                     Main.dust[num695].noGravity = true;
                     Main.dust[num695].noLight = true;
                     Main.dust[num695].velocity /= 4f;

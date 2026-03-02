@@ -7,8 +7,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     public class AsheOrbiter : ModNPC
     {

@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
-using AAMod.Tiles;
+using AAModClassic.Dusts;
+using AAModClassic.Tiles;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     internal class SPORZ : ModProjectile
     {

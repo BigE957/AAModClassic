@@ -1,8 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic.Globals;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed
+namespace AAModClassic.Projectiles.Greed
 {
     public class GoldFountain : ModProjectile
     {

@@ -4,7 +4,7 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 
-namespace AAMod.Items.Currency
+namespace AAModClassic.Items.Currency
 {
     public class MartianCredit : BaseAAItem
     {

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Ohno
+namespace AAModClassic.Items.Vanity.Ohno
 {
     public class ono : BaseAAItem
 	{

@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Tiles.Plants;
+using AAModClassic.Tiles.Plants;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     public class MireGrass : ModTile
     {

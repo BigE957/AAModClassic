@@ -3,9 +3,9 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-
-namespace AAMod.Items.Armor.Darkmatter
+namespace AAModClassic.Items.Armor.Darkmatter
 {
     [AutoloadEquip(EquipType.Body)]
 	public class DarkmatterBreastplate : BaseAAItem

@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Accessories
+namespace AAModClassic.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
     public class OrnateBand : BaseAAItem

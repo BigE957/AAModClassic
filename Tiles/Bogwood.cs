@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     class Bogwood : ModTile
     {

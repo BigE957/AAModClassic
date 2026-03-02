@@ -2,13 +2,16 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
-using AAMod.NPCs.Bosses.Anubis;
-using AAMod.NPCs.Bosses.Anubis.Forsaken;
 using Terraria.ModLoader;
 
 using Terraria.ID;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.Dusts;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class Scepter : BaseAAItem
     {
@@ -69,13 +72,13 @@ Can only be used in the desert on the surface
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 50, default, 3.7f);
+                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<JudgementDust>(), 0f, 0f, 50, default, 3.7f);
                 Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 25, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<JudgementDust>(), 0f, 0f, 25, default, 1.5f);
                 Main.dust[num88].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -86,7 +89,7 @@ Can only be used in the desert on the surface
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 2.7f);
+                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<JudgementDust>(), 0f, 0f, 0, default, 2.7f);
                 Main.dust[num90].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
@@ -95,7 +98,7 @@ Can only be used in the desert on the surface
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 1.5f);
+                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<JudgementDust>(), 0f, 0f, 0, default, 1.5f);
                 Main.dust[num92].position = npc.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;

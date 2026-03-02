@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -6,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
+namespace AAModClassic.Tiles.Crafters
 {
     public class TruePaladinsSmeltery : ModTile
     {
@@ -24,7 +25,7 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("True Paladin's Smeltery");
-            DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
+            DustType = ModContent.DustType<DaybreakIncineriteDust>();
             AddMapEntry(new Color(40, 40, 40), name);
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
             AdjTiles = new int[]

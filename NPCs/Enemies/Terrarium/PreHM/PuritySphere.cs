@@ -1,10 +1,11 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PreHM
+namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 {
     public class PuritySphere : ModNPC
 	{
@@ -62,7 +63,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PreHM
         {
             if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
             }
         }
 

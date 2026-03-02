@@ -6,7 +6,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Backgrounds
 {
     public class MireSky : CustomSky
     {

@@ -5,7 +5,7 @@ using Terraria.ID;
 using System;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Djinn
+namespace AAModClassic.Items.Boss.Djinn
 {
     public class SandScepter : BaseAAItem
     {

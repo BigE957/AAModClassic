@@ -2,8 +2,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Melee
+namespace AAModClassic.Items.Melee
 {
     public class TrueCopperShortsword : BaseAAItem
     {

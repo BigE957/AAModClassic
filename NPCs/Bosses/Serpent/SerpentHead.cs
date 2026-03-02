@@ -1,13 +1,16 @@
 ﻿using System;
 using System.IO;
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
+namespace AAModClassic.NPCs.Bosses.Serpent
 {
     [AutoloadBossHead]	
 	public class SerpentHead : ModNPC
@@ -740,7 +743,7 @@ namespace AAMod.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
@@ -765,7 +768,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                 NPC.DropLoot(Mod.Find<ModItem>("SnowMana").Type, 10, 15);
                 string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
                 int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Items.Vanity.Mask.SerpentMask.type, 1f / 7);
+                NPC.DropLoot(SerpentMask.type, 1f / 7);
                 if (Main.rand.Next(9) == 0)
                 {
                     NPC.DropLoot(Mod.Find<ModItem>("SnowflakeShuriken").Type, 90, 120);
@@ -1185,7 +1188,7 @@ namespace AAMod.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
@@ -1567,7 +1570,7 @@ namespace AAMod.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {

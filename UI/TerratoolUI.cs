@@ -1,4 +1,4 @@
-﻿using AAMod.UI.Core;
+﻿using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.UI;
 
-namespace AAMod.UI
+namespace AAModClassic.UI
 {
     internal abstract class TerratoolUI : ToggableUI
     {

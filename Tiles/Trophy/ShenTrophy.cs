@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trophy
+namespace AAModClassic.Tiles.Trophy
 {
     public class ShenTrophy : ModTile
 	{

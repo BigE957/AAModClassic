@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class TerraFocus : BaseAAItem
     {
@@ -26,7 +28,7 @@ namespace AAMod.Items.Magic
             Item.damage = 50;
             Item.UseSound = SoundID.Item9;
             Item.crit = 20;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.MagicBlastF>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<MagicBlastF>();
             Item.mana = 14;
             Item.rare = ItemRarityID.LightRed;
             Item.value = 300000;

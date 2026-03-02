@@ -3,11 +3,12 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic;
 
-using AAMod.NPCs.Bosses.Athena;
-using AAMod.NPCs.Bosses.Athena.Olympian;
-
-namespace AAMod.NPCs.Enemies.Sky
+namespace AAModClassic.NPCs.Enemies.Sky
 {
 	public class Seraph : ModNPC
 	{

@@ -1,7 +1,8 @@
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Assassin
+namespace AAModClassic.Items.Armor.Assassin
 {
     public class AssassinHurt : ModBuff
 	{

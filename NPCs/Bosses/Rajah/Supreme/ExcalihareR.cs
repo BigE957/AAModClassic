@@ -6,9 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using AAModClassic.Buffs;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
+namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
 {
     public class ExcalihareR : ModProjectile
     {
@@ -112,7 +113,7 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.InfinityOverload>(), 120);
+            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 120);
             int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoomR>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;

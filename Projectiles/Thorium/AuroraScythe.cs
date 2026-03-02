@@ -1,11 +1,12 @@
-
+using AAModClassic.CrossMod;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
+namespace AAModClassic.Projectiles.Thorium
 {
     public class AuroraScythe : ModProjectile
     { 
@@ -198,7 +199,7 @@ namespace AAMod.Projectiles.Thorium
             {
                 float velX = Projectile.velocity.X / 3f * m;
                 float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.IceDust>(), 0, 0, 0);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<IceDust>(), 0, 0, 0);
                 //int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, 55, 0f, 0f, 0, default, 1.2f);
                 Main.dust[dustID].position.X = Projectile.Center.X - velX;
                 Main.dust[dustID].position.Y = Projectile.Center.Y - velY;

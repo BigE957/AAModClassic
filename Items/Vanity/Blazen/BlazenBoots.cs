@@ -1,9 +1,10 @@
+using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Blazen
+namespace AAModClassic.Items.Vanity.Blazen
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class BlazenBoots : BaseAAItem

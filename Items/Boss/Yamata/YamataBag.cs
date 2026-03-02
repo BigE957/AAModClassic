@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-namespace AAMod.Items.Boss.Yamata
+
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class YamataBag : BaseAAItem
     {

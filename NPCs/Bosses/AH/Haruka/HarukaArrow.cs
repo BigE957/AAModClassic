@@ -5,8 +5,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Dusts;
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
+namespace AAModClassic.NPCs.Bosses.AH.Haruka
 {
     public class HarukaArrow : ModProjectile
 	{
@@ -55,7 +56,7 @@ namespace AAMod.NPCs.Bosses.AH.Haruka
 		{
 			for (int k = 0; k < 5; k++)
 			{
-			     Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
+			     Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>(), Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 			

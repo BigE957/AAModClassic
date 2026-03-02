@@ -4,8 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAMod.Tiles.Trees;
+using AAModClassic.Dusts;
 
-namespace AAMod.Tiles
+namespace AAModClassic.Tiles
 {
     class Torchsand : ModTile
     {
@@ -21,7 +22,7 @@ namespace AAMod.Tiles
             //soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(50, 35, 22));
             TileID.Sets.Conversion.Sand[Type] = true;
-            DustType = ModContent.DustType<Dusts.RazewoodDust>();
+            DustType = ModContent.DustType<RazewoodDust>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)

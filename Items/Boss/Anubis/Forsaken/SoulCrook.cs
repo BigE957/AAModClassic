@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Boss.Anubis.Forsaken
+namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
     public class SoulCrook : BaseAAItem
 	{

@@ -7,16 +7,18 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using AAMod.Tiles;
-using AAMod.Walls;
 using Terraria.Utilities;
-using AAMod.Tiles.Chests;
-using AAMod.Tiles.Crafters;
-using AAMod.Tiles.Boss;
 using Terraria.WorldBuilding;
+using AAModClassic.Items.Ranged;
+using AAMod;
+using AAModClassic.Walls;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Tiles.Chests;
+using AAModClassic.Tiles.Boss;
 
-namespace AAMod.Worldgeneration
+namespace AAModClassic.Worldgeneration
 {
     public class MireBiome : MicroBiome
 	{
@@ -880,7 +882,7 @@ namespace AAMod.Worldgeneration
                 int type;
                 if (specialItem == 1)
                 {
-                    type = ModContent.ItemType<Items.Ranged.OdinsBlade>();
+                    type = ModContent.ItemType<OdinsBlade>();
                 }
                 else if (specialItem == 2)
                 {

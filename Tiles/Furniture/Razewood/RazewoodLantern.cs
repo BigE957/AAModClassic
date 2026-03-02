@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Razewood
+namespace AAModClassic.Tiles.Furniture.Razewood
 {
     public class RazewoodLantern : ModTile
 	{

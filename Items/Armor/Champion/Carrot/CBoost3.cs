@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Carrot
+namespace AAModClassic.Items.Armor.Champion.Carrot
 {
     public class CBoost3 : ModBuff
     {

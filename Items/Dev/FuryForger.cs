@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using System;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class FuryForger : BaseAAItem
 	{

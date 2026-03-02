@@ -1,8 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Potions
+namespace AAModClassic.Items.Potions
 {
     public class RoninPotion : BaseAAItem
 	{

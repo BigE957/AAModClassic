@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Tails
+namespace AAModClassic.Items.Vanity.Tails
 {
     public class TailsToolbox : BaseAAItem
     {

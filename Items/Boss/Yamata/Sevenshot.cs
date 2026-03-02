@@ -4,9 +4,11 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Yamata;
+using AAModClassic.Projectiles.Yamata;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Yamata
+namespace AAModClassic.Items.Boss.Yamata
 {
     public class Sevenshot : BaseAAItem
 	{

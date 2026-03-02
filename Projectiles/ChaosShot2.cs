@@ -1,4 +1,4 @@
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     public class ChaosShot2 : ChaosShot1
     {

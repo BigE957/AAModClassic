@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.CrossMod.CalamityMod;
+using AAModClassic.CrossMod;
 
-namespace AAMod.Items.DevTools
+namespace AAModClassic.Items.DevTools
 {
     public class RogueTest : RogueWeapon
     {

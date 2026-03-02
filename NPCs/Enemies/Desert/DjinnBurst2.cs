@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Desert
+namespace AAModClassic.NPCs.Enemies.Desert
 {
     public class DjinnBurst2 : ModProjectile
     {

@@ -1,10 +1,12 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 
-namespace AAMod.NPCs.Bosses.MushroomMonarch
+namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
     public class MonarchSlep : ModNPC
     {

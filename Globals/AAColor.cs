@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 
 using System;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
 	public static class AAColor
     {

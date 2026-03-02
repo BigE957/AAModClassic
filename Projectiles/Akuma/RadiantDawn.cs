@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
 
-
-namespace AAMod.Projectiles.Akuma
+namespace AAModClassic.Projectiles.Akuma
 {
     public class RadiantDawn : ModProjectile
     {

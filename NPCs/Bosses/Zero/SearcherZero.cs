@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 using Terraria.Audio;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Zero
+namespace AAModClassic.NPCs.Bosses.Zero
 {
     public class SearcherZero : ModNPC
 	{

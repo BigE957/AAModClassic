@@ -1,8 +1,9 @@
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
+namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
     public class AsheSpark : ModProjectile
     {
@@ -50,7 +51,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 200);
         }
 
         public override void OnKill(int timeLeft)

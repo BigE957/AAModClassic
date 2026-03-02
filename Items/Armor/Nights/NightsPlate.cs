@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Nights
+namespace AAModClassic.Items.Armor.Nights
 {
     [AutoloadEquip(EquipType.Body)]
     public class NightsPlate : BaseAAItem

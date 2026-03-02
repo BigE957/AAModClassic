@@ -1,3 +1,4 @@
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -5,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class DraconicRipper : BaseAAItem
 	{

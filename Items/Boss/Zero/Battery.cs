@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class Battery : BaseAAItem
 	{

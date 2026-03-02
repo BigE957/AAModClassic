@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Chaos
+namespace AAModClassic.Items.Armor.Chaos
 {
     [AutoloadEquip(EquipType.Body)]
 	public class ChaosDou : BaseAAItem

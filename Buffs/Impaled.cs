@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Buffs
+namespace AAModClassic.Buffs
 {
     public class Impaled : ModBuff
     {

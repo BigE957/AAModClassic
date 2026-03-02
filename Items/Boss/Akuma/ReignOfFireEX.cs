@@ -4,8 +4,9 @@ using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Akuma   //where is located
+namespace AAModClassic.Items.Boss.Akuma   //where is located
 {
     public class ReignOfFireEX : BaseAAItem
     {

@@ -4,8 +4,10 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Rajah;
+using AAModClassic;
 
-namespace AAMod.Items.Boss.Rajah
+namespace AAModClassic.Items.Boss.Rajah
 {
     public class RoyalScepter : BaseAAItem
     {
@@ -15,7 +17,7 @@ namespace AAMod.Items.Boss.Rajah
             Item.damage = 74;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shootSpeed = 9f;
-            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Carrot>();
+            Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Carrot>();
             Item.width = 58;
             Item.height = 57;
             Item.UseSound = SoundID.Item39;

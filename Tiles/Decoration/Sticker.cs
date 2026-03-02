@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
+namespace AAModClassic.Tiles.Decoration
 {
     public class Sticker : ModTile
 	{

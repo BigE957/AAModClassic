@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Charlie
+namespace AAModClassic.Items.Vanity.Charlie
 {
     public class CharlieBag : BaseAAItem
     {

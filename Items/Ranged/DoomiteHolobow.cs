@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Projectiles;
 
-namespace AAMod.Items.Ranged
+namespace AAModClassic.Items.Ranged
 {
     public class DoomiteHolobow : BaseAAItem
     {
@@ -43,7 +45,7 @@ namespace AAMod.Items.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<Projectiles.HoloArrow>(), Item.damage, knockBack, player.whoAmI);
+            Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<HoloArrow>(), Item.damage, knockBack, player.whoAmI);
             return false;
         }
     }

@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Toad
+namespace AAModClassic.Projectiles.Toad
 {
     public class ToadShot : ModProjectile
 	{

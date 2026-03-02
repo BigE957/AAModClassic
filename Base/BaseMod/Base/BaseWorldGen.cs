@@ -7,8 +7,9 @@ using Terraria.ID;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.WorldBuilding;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod
+namespace AAModClassic.Base.BaseMod.Base
 {
     public class BaseWorldGen
     {

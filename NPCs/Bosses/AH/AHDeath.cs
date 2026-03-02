@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH
+namespace AAModClassic.NPCs.Bosses.AH
 {
     public class AHDeath : ModNPC
     {

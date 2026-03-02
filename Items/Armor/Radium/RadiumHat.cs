@@ -4,8 +4,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Armor.Radium
+namespace AAModClassic.Items.Armor.Radium
 {
     [AutoloadEquip(EquipType.Head)]
 	public class RadiumHat : BaseAAItem

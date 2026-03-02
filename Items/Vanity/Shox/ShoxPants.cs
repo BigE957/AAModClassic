@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Shox
+namespace AAModClassic.Items.Vanity.Shox
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class ShoxPants : BaseAAItem

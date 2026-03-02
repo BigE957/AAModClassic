@@ -8,8 +8,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
+namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     public abstract class BaseShenGrips : ModNPC
     {

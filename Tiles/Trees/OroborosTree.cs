@@ -1,10 +1,10 @@
-﻿using AAMod.Tiles.Ore;
+﻿using AAModClassic.Tiles.Ore;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Trees
+namespace AAModClassic.Tiles.Trees
 {
     class OroborosTree : ModTree
     {

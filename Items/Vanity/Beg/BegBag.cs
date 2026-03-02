@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Beg
+namespace AAModClassic.Items.Vanity.Beg
 {
     public class BegBag : BaseAAItem
     {

@@ -2,10 +2,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 
-using AAMod.Dusts;
-
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class Equiprobe : ModNPC
 	{

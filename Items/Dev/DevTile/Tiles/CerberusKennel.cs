@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 
-namespace AAMod.Items.Dev.DevTile.Tiles
+namespace AAModClassic.Items.Dev.DevTile.Tiles
 {
     public class CerberusKennel : ModTile
 	{

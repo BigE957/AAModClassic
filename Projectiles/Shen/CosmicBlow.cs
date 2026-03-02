@@ -1,11 +1,12 @@
 ﻿using System;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
+namespace AAModClassic.Projectiles.Shen
 {
     public class CosmicBlow : ModProjectile
     {
@@ -147,7 +148,7 @@ namespace AAMod.Projectiles.Shen
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 100, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<YamataDust>(), 0f, 0f, 100, default, 1.5f);
                 Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -167,7 +168,7 @@ namespace AAMod.Projectiles.Shen
             }
             for (int num91 = 0; num91 < 10; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 0, default, 1.5f);
+                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<YamataDust>(), 0f, 0f, 0, default, 1.5f);
                 Main.dust[num92].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;

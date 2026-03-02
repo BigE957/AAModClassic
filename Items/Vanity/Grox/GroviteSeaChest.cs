@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Grox
+namespace AAModClassic.Items.Vanity.Grox
 {
     public class GroviteSeaChest : BaseAAItem
     {

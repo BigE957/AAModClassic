@@ -1,10 +1,11 @@
 using System;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
+namespace AAModClassic.NPCs.Bosses.Rajah
 {
     public class CarrotFarmerR : ModProjectile
     {
@@ -78,7 +79,7 @@ namespace AAMod.NPCs.Bosses.Rajah
             {
                 for (int u = 0; u < 10; u++)
                 {
-                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
+                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
                     Main.dust[dust].noGravity = true;
                 }
                 float spread = 12f * 0.0174f;

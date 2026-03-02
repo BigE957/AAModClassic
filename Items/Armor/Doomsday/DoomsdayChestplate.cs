@@ -3,9 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Armor.Doomsday
+namespace AAModClassic.Items.Armor.Doomsday
 {
     [AutoloadEquip(EquipType.Body)]
 	public class DoomsdayChestplate : BaseAAItem

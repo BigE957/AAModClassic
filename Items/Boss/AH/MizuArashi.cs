@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.AH
+namespace AAModClassic.Items.Boss.AH
 {
     public class MizuArashi : BaseAAItem
     {

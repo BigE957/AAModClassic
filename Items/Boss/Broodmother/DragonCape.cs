@@ -1,8 +1,10 @@
 using Terraria;
-using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Graphics; using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Broodmother
+namespace AAModClassic.Items.Boss.Broodmother
 {
     [AutoloadEquip(EquipType.Back, EquipType.Front)]
     public class DragonCape : BaseAAItem

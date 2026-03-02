@@ -1,4 +1,5 @@
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,7 +9,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     class OdinsBlade : ModProjectile
     {
@@ -29,9 +30,9 @@ namespace AAMod.Projectiles
         {
             if (Projectile.localAI[1] > 7f)
             {
-                int num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
+                int num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
                 Main.dust[num309].velocity *= -0.25f;
-                num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
+                num309 = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 8, 8, ModContent.DustType<SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
                 Main.dust[num309].velocity *= -0.25f;
                 Main.dust[num309].position -= Projectile.velocity * 0.5f;
             }
@@ -76,10 +77,10 @@ namespace AAMod.Projectiles
             {
                 float num795 = Projectile.oldVelocity.X * (30f / num794);
                 float num796 = Projectile.oldVelocity.Y * (30f / num794);
-                int num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.8f);
+                int num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.8f);
                 Main.dust[num797].noGravity = true;
                 Main.dust[num797].velocity *= 0.5f;
-                num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<Dusts.SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.4f);
+                num797 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num795, Projectile.oldPosition.Y - num796), 8, 8, ModContent.DustType<SnowDustLight>(), Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 27, default, 1.4f);
                 Main.dust[num797].velocity *= 0.05f;
             }
         }

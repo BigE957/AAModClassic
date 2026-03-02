@@ -5,8 +5,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Critters
+namespace AAModClassic.NPCs.Critters
 {
     public class RoyalRabbit : ModNPC
     {

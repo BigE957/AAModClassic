@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Maskano
+namespace AAModClassic.Items.Vanity.Maskano
 {
     [AutoloadEquip(EquipType.Body)]
     public class MaskPlate : BaseAAItem

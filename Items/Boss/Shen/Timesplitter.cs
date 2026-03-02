@@ -1,9 +1,11 @@
+using AAModClassic;
+using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Shen
+namespace AAModClassic.Items.Boss.Shen
 {
     public class Timesplitter : BaseAAItem
     {

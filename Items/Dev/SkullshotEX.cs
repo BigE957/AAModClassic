@@ -4,8 +4,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic.Projectiles;
 
-namespace AAMod.Items.Dev
+namespace AAModClassic.Items.Dev
 {
     public class SkullshotEX : BaseAAItem
     {
@@ -74,7 +75,7 @@ Super Skullshot EX"); */
                 Item.useAnimation = 20;
                 Item.useTime = 9;
                 Item.reuseDelay = 20;
-                Item.shoot = ModContent.ProjectileType<Projectiles.Hellshot>();
+                Item.shoot = ModContent.ProjectileType<Hellshot>();
             }
             else
             {
@@ -100,7 +101,7 @@ Super Skullshot EX"); */
             }
             else
             {
-                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Hellshot>(), damage, knockBack, Main.myPlayer, 0f, 0f);
+                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Hellshot>(), damage, knockBack, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;

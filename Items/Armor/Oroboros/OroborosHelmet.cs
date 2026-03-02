@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-
-namespace AAMod.Items.Armor.Oroboros
+namespace AAModClassic.Items.Armor.Oroboros
 {
     [AutoloadEquip(EquipType.Head)]
     public class OroborosHelmet : BaseAAItem

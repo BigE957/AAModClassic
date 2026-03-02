@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.Doomite
+namespace AAModClassic.Items.Armor.Doomite
 {
     [AutoloadEquip(EquipType.Head)]
     public class DoomiteVisor : BaseAAItem

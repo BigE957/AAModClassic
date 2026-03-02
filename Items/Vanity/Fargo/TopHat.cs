@@ -1,7 +1,8 @@
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Fargo
+namespace AAModClassic.Items.Vanity.Fargo
 {
     public class TopHat : BaseAAItem
     {

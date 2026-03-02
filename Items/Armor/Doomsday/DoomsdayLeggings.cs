@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Globals;
 
 
-namespace AAMod.Items.Armor.Doomsday
+namespace AAModClassic.Items.Armor.Doomsday
 {
     [AutoloadEquip(EquipType.Legs)]
 	public class DoomsdayLeggings : BaseAAItem

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.NPCs.Bosses.Greed
+namespace AAModClassic.NPCs.Bosses.Greed
 {
     public class TreasurePro : ModProjectile
 	{

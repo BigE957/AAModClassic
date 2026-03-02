@@ -8,8 +8,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Bosses.Akuma
+namespace AAModClassic.NPCs.Bosses.Akuma
 {
     [AutoloadBossHead]
     public class Akuma : ModNPC

@@ -2,11 +2,15 @@ using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.NPCs.Bosses.Rajah;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
+using AAModClassic.Globals;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic;
+using AAModClassic.Items.Potions;
+using AAModClassic.NPCs.Bosses.Rajah;
 
-namespace AAMod.Items.BossSummons
+namespace AAModClassic.Items.BossSummons
 {
     public class GoldenCarrot : BaseAAItem
     {
@@ -49,7 +53,7 @@ namespace AAMod.Items.BossSummons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ModContent.ItemType<Potions.Carrot>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Carrot>(), 5);
             recipe.AddIngredient(ItemID.GoldBar, 10);
             recipe.AddIngredient(ItemID.GoldBunny, 1);
             recipe.AddTile(TileID.MythrilAnvil);

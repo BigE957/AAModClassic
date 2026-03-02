@@ -1,10 +1,10 @@
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls.Bricks
+namespace AAModClassic.Walls.Bricks
 {
     public class EquinoxWall : ModWall
     {

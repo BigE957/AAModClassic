@@ -4,14 +4,17 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAMod.Items.Boss.Akuma;
-using AAMod.Items.Boss.Grips;
-using AAMod.Items;
-using AAMod.Items.Dev.Invoker;
-using AAMod.Items.Usable;
 using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Usable;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic;
+using AAModClassic.Items.Boss.Grips;
+using AAModClassic.Items.Boss.Greed.WKG;
+using AAModClassic.Items.Dev.Invoker;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAModGlobalItem : GlobalItem
 	{
@@ -215,7 +218,7 @@ namespace AAMod
                         {
                             return false;
                         }
-                        if (slot != i && player.armor[i].type == ModContent.ItemType<Items.Boss.Broodmother.DragonCape>())
+                        if (slot != i && player.armor[i].type == ModContent.ItemType<DragonCape>())
                         {
                             return false;
                         }
@@ -362,7 +365,7 @@ namespace AAMod
                 }
                 else if (modPlayer.GreedTalisman)
                 {
-                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.WKG.TalismanBuff>(), 240);
+                    player.AddBuff(ModContent.BuffType<TalismanBuff>(), 240);
                     if (modPlayer.GreedyDamage < 40)
                     {
                         modPlayer.GreedyDamage += 1;
@@ -502,7 +505,7 @@ namespace AAMod
                 }
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
-                    int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.SoulOfSpite>() : ModContent.ItemType<Items.Materials.SoulOfSmite>();
+                    int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.SoulOfSpite>() : ModContent.ItemType<SoulOfSmite>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
 

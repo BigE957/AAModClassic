@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.EFish
+namespace AAModClassic.Items.Boss.EFish
 {
     public class EFlairon : BaseAAItem
     {

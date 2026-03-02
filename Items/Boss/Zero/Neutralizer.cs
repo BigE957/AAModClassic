@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class Neutralizer : BaseAAItem
 	{

@@ -4,8 +4,9 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.Items.Dev.Minions
+namespace AAModClassic.Items.Dev.Minions
 {
     public class Acorn : ModProjectile
     {

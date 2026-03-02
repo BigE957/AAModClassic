@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
+namespace AAModClassic.NPCs.Bosses.Greed
 {
     public class CovStalactitePro : ModProjectile
 	{

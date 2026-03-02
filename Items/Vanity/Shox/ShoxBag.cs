@@ -1,7 +1,8 @@
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Shox
+namespace AAModClassic.Items.Vanity.Shox
 {
     public class ShoxBag : BaseAAItem
     {

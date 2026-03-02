@@ -6,22 +6,25 @@ using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Events;
-using AAMod.NPCs.Bosses.Shen;
-using AAMod.NPCs.Bosses.Rajah;
-using AAMod.NPCs.Enemies.Terrarium.PreHM;
-using AAMod.NPCs.Enemies.Terrarium.Hardmode;
-using AAMod.NPCs.Enemies.Terrarium.PostPlant;
-using AAMod.NPCs.Bosses.Serpent;
-using AAMod.NPCs.Enemies.Snow;
-using AAMod.NPCs.Enemies.Sky;
-using AAMod.NPCs.Enemies.Cavern;
-using AAMod.Items.Currency;
 using System;
 using Terraria.Localization;
 using log4net;
 using Terraria.ModLoader.Utilities;
+using AAModClassic.Dusts;
+using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
+using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
+using AAModClassic.NPCs.Enemies.Snow;
+using AAModClassic.NPCs.Bosses.Serpent;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Currency;
+using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
+using AAModClassic.Items.Materials;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Enemies.Cavern;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Enemies.Sky;
 
-namespace AAMod
+namespace AAModClassic.Globals
 {
     public class AAModGlobalNPC : GlobalNPC
     {
@@ -458,7 +461,7 @@ namespace AAMod
 
             if ((npc.type == NPCID.ArmoredViking || npc.type == NPCID.UndeadViking) && NPC.downedBoss3 && Main.rand.Next(3) == 0)
             {
-                npc.DropLoot(ModContent.ItemType<Items.Materials.VikingRelic>(), Main.rand.Next(1, 3));
+                npc.DropLoot(ModContent.ItemType<VikingRelic>(), Main.rand.Next(1, 3));
             }
 
             if (AASets.Goblins[npc.type] && NPC.downedGoblins)
@@ -752,7 +755,7 @@ namespace AAMod
                 int dustCount = Math.Max(1, Math.Min(5, Math.Max(npc.width, npc.height) / 10));
                 for (int i = 0; i < dustCount; i++)
                 {
-                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Dusts.Moonraze>(), 0f, 1f, 0);
+                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Moonraze>(), 0f, 1f, 0);
                     if (Main.dust[num4].velocity.Y > 0) Main.dust[num4].velocity.Y *= -1;
                     Main.dust[num4].noGravity = true;
                     Main.dust[num4].scale += Main.rand.NextFloat();
@@ -763,7 +766,7 @@ namespace AAMod
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
+                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Discord>(), 0f, -2.5f, 0);
                     Main.dust[num4].alpha = 100;
                     Main.dust[num4].noGravity = true;
                     Main.dust[num4].scale += Main.rand.NextFloat();
@@ -810,7 +813,7 @@ namespace AAMod
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, DustID.Terra, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, ModContent.DustType<Dusts.VoidDust>(), default, 3.5f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, DustID.Terra, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, ModContent.DustType<VoidDust>(), default, 3.5f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;

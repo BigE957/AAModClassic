@@ -1,8 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAMod.Items.Boss.Greed.WKG
+namespace AAModClassic.Items.Boss.Greed.WKG
 {
     public class GravitySphere : BaseAAItem
     {

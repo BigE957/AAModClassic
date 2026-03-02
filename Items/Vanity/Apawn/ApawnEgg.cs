@@ -1,7 +1,8 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.Apawn
+namespace AAModClassic.Items.Vanity.Apawn
 {
     public class ApawnEgg : BaseAAItem
     {

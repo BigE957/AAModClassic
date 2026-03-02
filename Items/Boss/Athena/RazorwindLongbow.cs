@@ -3,8 +3,10 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic;
+using AAModClassic.Projectiles.Athena;
 
-namespace AAMod.Items.Boss.Athena
+namespace AAModClassic.Items.Boss.Athena
 {
     public class RazorwindLongbow : BaseAAItem
     {
@@ -38,7 +40,7 @@ namespace AAMod.Items.Boss.Athena
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Athena.WindArrow>(), damage, knockBack * 3, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<WindArrow>(), damage, knockBack * 3, player.whoAmI, 0f, 0f);
                 return false;
             }
             return true;

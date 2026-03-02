@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAMod.Items.Armor.Chaos
+namespace AAModClassic.Items.Armor.Chaos
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ChaosMask : BaseAAItem

@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace AAMod.Items.Flasks
+namespace AAModClassic.Items.Flasks
 {
     public class SquidList : BaseAAItem
     {

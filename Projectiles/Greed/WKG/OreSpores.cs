@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
+namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class OreSpores : ModProjectile
     {

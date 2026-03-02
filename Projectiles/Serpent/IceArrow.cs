@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Serpent
+namespace AAModClassic.Projectiles.Serpent
 {
     public class IceArrow : ModProjectile
 	{

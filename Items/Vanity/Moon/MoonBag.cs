@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Moon.Shiny;
+using AAModClassic.Items.Vanity.Moon.Shiny;
 
-namespace AAMod.Items.Vanity.Moon
+namespace AAModClassic.Items.Vanity.Moon
 {
     public class MoonBag : BaseAAItem
     {

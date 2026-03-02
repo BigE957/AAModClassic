@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Dusts;
+using AAModClassic.Dusts;
 
-namespace AAMod.Projectiles
+namespace AAModClassic.Projectiles
 {
     internal class JungleSolution : ModProjectile
     {

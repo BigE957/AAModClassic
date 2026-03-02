@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 
-namespace AAMod.Items.Boss.Zero
+namespace AAModClassic.Items.Boss.Zero
 {
     public class OmegaVolleyExtraAmmo : ModProjectile
 	{

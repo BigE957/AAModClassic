@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace AAMod.Items.Vanity.Eliza.Cat
+namespace AAModClassic.Items.Vanity.Eliza.Cat
 {
     [AutoloadEquip(EquipType.Body)]
     public class LizShirt : BaseAAItem

@@ -4,8 +4,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
+using AAModClassic.Dusts;
 
-namespace AAMod.Tiles.Boxes
+namespace AAModClassic.Tiles.Boxes
 {
     class ToadBox : ModTile
 	{
@@ -21,7 +22,7 @@ namespace AAMod.Tiles.Boxes
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<Dusts.ShroomDust>();
+            DustType = ModContent.DustType<ShroomDust>();
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 

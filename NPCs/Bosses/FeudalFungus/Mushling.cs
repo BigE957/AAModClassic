@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
+namespace AAModClassic.NPCs.Bosses.FeudalFungus
 {
     public class Mushling : ModNPC
     {

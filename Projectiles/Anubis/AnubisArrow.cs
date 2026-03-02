@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
+namespace AAModClassic.Projectiles.Anubis
 {
     public class AnubisArrow : ModProjectile
 	{

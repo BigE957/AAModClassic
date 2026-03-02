@@ -2,8 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Globals;
 
-namespace AAMod.NPCs.Enemies.Mushroom
+namespace AAModClassic.NPCs.Enemies.Mushroom
 {
     public class MushroomZombie : ModNPC
 	{

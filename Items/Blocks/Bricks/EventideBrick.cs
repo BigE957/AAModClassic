@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Bricks
+namespace AAModClassic.Items.Blocks.Bricks
 {
     public class EventideBrick : BaseAAItem
     {

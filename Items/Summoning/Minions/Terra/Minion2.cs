@@ -1,11 +1,12 @@
-
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions.Terra
+namespace AAModClassic.Items.Summoning.Minions.Terra
 {
     public class Minion2 : ModProjectile
 	{

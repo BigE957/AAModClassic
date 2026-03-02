@@ -8,8 +8,10 @@ using Terraria.ModLoader;
 
 using System.IO;
 using Terraria.Graphics.Shaders;
+using AAModClassic.Items.Materials;
+using AAModClassic.Base.BaseMod.Base;
 
-namespace AAMod.NPCs.Bosses.Sag
+namespace AAModClassic.NPCs.Bosses.Sag
 {
     [AutoloadBossHead]
     public class Sag : ModNPC
@@ -479,7 +481,7 @@ namespace AAMod.NPCs.Bosses.Sag
                 string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.Center, ModContent.ItemType<Items.Materials.Doomite>(), Main.rand.Next(20, 30));
+                Item.NewItem(NPC.Center, ModContent.ItemType<Doomite>(), Main.rand.Next(20, 30));
             }
             else
             {

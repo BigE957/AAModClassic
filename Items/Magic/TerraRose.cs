@@ -4,8 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using AAModClassic;
 
-namespace AAMod.Items.Magic
+namespace AAModClassic.Items.Magic
 {
     public class TerraRose : BaseAAItem
 	{

@@ -1,6 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAMod.Items.Boss.Hydra
+namespace AAModClassic.Items.Boss.Hydra
 {
     public class HydraTrophy : BaseAAItem
 	{

@@ -1,6 +1,6 @@
 ﻿using Terraria;
 
-namespace AAMod.NPCs.Bosses.Equinox
+namespace AAModClassic.NPCs.Bosses.Equinox
 {
     public class Sunbeam : Moonray
     {

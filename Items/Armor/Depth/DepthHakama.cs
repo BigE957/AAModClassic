@@ -1,8 +1,9 @@
+using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Depth
+namespace AAModClassic.Items.Armor.Depth
 {
     [AutoloadEquip(EquipType.Legs)]
     public class DepthHakama : BaseAAItem

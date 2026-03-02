@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Oroboros
+namespace AAModClassic.Items.Blocks.Oroboros
 {
     public class OroborosBathtub : ModItem
     {

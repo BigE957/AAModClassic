@@ -1,10 +1,11 @@
-﻿
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Void
+namespace AAModClassic.NPCs.Enemies.Void
 {
     public class Searcher1 : ModNPC
 	{
@@ -39,7 +40,7 @@ namespace AAMod.NPCs.Enemies.Void
             bool isDead = NPC.life <= 0;
             for (int m = 0; m < (isDead ? 25 : 5); m++)
             {
-                int dustType = ModContent.DustType<Dusts.VoidDust>();
+                int dustType = ModContent.DustType<VoidDust>();
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
             }
 

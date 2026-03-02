@@ -3,8 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
+using AAModClassic;
 
-namespace AAMod.Items.Vanity.Pluto.Shiny
+namespace AAModClassic.Items.Vanity.Pluto.Shiny
 {
     [AutoloadEquip(EquipType.Head)]
 	public class ShinyPlutoMask : BaseAAItem
