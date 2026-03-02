@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Sounds.Sounds
 {
+    /*
     public class MOARGONG : ModSound
     {
         public override SoundEffectInstance PlaySound(ref SoundEffectInstance soundInstance, float volume, float pan, SoundType type)
@@ -17,4 +18,5 @@ namespace AAModClassic.Sounds.Sounds
             return soundInstance;
         }
     }
+    */
 }

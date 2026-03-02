@@ -1,4 +1,4 @@
-using AAMod.Items.Dev.Invoker;
+using AAModClassic.Items.Dev.Invoker;
 using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

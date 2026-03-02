@@ -1015,13 +1015,13 @@ namespace AAModClassic
 
             if (Naitokurosu)
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
                 target.AddBuff(buff, 1000);
             }
 
@@ -1067,7 +1067,7 @@ namespace AAModClassic
             }
             else if (HeartS && Player.statLife < (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+                target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
             }
 
             if (dracoSet)
@@ -1162,7 +1162,7 @@ namespace AAModClassic
 
                 if (dreadSet)
                 {
-                    target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
                 }
 
                 if (DynaskullSet && Main.rand.Next(4) == 0)
@@ -1191,7 +1191,7 @@ namespace AAModClassic
             {
                 if (MoonSet)
                 {
-                    target.AddBuff(ModContent.BuffType<Moonraze>(), 300);
+                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 300);
                 }
 
                 if (zeroSet)
@@ -1274,13 +1274,13 @@ namespace AAModClassic
 
             if (Naitokurosu && (proj.CountsAsClass(DamageClass.Ranged) || proj.minion))
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
                 target.AddBuff(buff, 1000);
             }
 

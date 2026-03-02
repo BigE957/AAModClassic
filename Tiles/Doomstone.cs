@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Tiles.Trees;
+using AAModClassic.Tiles.Trees;
 using Terraria.ID;
 using AAModClassic;
 
