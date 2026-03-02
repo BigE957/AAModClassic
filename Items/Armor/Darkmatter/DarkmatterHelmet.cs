@@ -23,7 +23,7 @@ Dark, yet still barely visible"); */
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -132,48 +132,38 @@ Dark, yet still barely visible"); */
             {
                 if(badShield)
                 {
-                    damage = (int)(damage * 1.4f);
+                    modifiers.IncomingDamageMultiplier *= 1.4f;
                 }
                 else
                 {
-                    damage = (int)(damage * .6f);
+                    modifiers.IncomingDamageMultiplier *= 0.6f;
                     ShieldCoolDown = 1800;
                 }
                 
             }
-            return base.ModifyHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
-        public static readonly PlayerLayer drawShield = new PlayerLayer("AAMod", "drawShield", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
+        public class drawShield : PlayerDrawLayer// = new PlayerLayer("AAMod", "drawShield", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
+            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.ElectrifiedDebuffFront);
 
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = AAMod.instance;
-            Texture2D texture = mod.GetTexture("Items/Armor/Darkmatter/DarkmatterShield");
-            if(drawPlayer.GetModPlayer<HelmetEffects>().badShield)
+            protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                texture = mod.GetTexture("Items/Armor/Radium/RadiumShield");
-            }
-            if (drawPlayer.GetModPlayer<HelmetEffects>().ShieldTime>0)
-            {
-                Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, 0) + Vector2.UnitY*-30 - Main.screenPosition;
+                Player drawPlayer = drawInfo.drawPlayer;
+                Mod mod = AAMod.instance;
+                Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkmatterShield").Value;
+                if(drawPlayer.GetModPlayer<HelmetEffects>().badShield)
+                {
+                    texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumShield").Value;
+                }
+                if (drawPlayer.GetModPlayer<HelmetEffects>().ShieldTime>0)
+                {
+                    Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, 0) + Vector2.UnitY*-30 - Main.screenPosition;
 
-                DrawData data = new DrawData(texture, Center, null, Color.White, 0f, texture.Size() * .5f, 1f + (.1f * (float)Math.Sin(drawPlayer.GetModPlayer<HelmetEffects>().yetAnotherTrigCounter)), SpriteEffects.None, 0);
-                data.shader = drawInfo.cBody;
-                Main.playerDrawData.Add(data);
-            }
-        });
-        public override void ModifyDrawLayers(List<PlayerLayer> layers)
-        {
-
-
-            int frontLayer = layers.FindIndex(PlayerLayer => PlayerLayer.Name.Equals("MiscEffectsFront"));
-            if (frontLayer != -1)
-            {
-                drawShield.visible = true;
-                layers.Insert(frontLayer + 1, drawShield);
+                    DrawData data = new DrawData(texture, Center, null, Color.White, 0f, texture.Size() * .5f, 1f + (.1f * (float)Math.Sin(drawPlayer.GetModPlayer<HelmetEffects>().yetAnotherTrigCounter)), SpriteEffects.None, 0);
+                    data.shader = drawInfo.cBody;
+                    drawInfo.DrawDataCache.Add(data);
+                }
             }
         }
-
-    }
-    
+    }   
 }
