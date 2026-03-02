@@ -6,8 +6,11 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Akuma;
+using AAModClassic;
+using AAModClassic.Globals;
 
-namespace AAMod.Items.Boss.Akuma
+namespace AAModClassic.Items.Boss.Akuma
 {
     public class SunStorm : BaseAAItem
   {
@@ -91,7 +94,7 @@ Right click and hold to release and aim manually"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<Projectiles.Akuma.SunstormFireball>());
+            bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<SunstormFireball>());
             for (int Loops = 0; Loops < 4; Loops++)
             {
                 Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockBack, Main.myPlayer, 0, 0);
