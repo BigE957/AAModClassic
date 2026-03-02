@@ -19,11 +19,11 @@ namespace AAMod.Items.Boss.Anubis
 
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
-            Item.shoot = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 2;
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
             Item.shootSpeed = 25f;

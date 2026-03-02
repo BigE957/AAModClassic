@@ -14,14 +14,16 @@ namespace AAMod.Items.Armor.Paints
 			// DisplayName.SetDefault("Chlorophyte Face Paint");
 			/* Tooltip.SetDefault(@"38% increased minion damage
 +80 mana"); */
-		}
+			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+
+        }
 
 		public override void SetDefaults()
 		{
 			Item.width = 30;
 			Item.height = 28;
 			Item.value = 60000;
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.defense = 5;
 		}
 		
@@ -30,13 +32,6 @@ namespace AAMod.Items.Armor.Paints
             player.GetDamage(DamageClass.Summon) += .38f;
             player.statManaMax2 += 80;
 		}
-
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
-        }
-
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{

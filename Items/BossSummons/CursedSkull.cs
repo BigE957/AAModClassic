@@ -23,10 +23,10 @@ Can only be used at night"); */
             Item.height = 22;
             Item.maxStack = 20;
             Item.value = 1000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
         }
 

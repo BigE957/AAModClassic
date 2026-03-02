@@ -25,10 +25,10 @@ Blade of Night EX"); */
 			Item.height = 100;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7;
 			Item.value = Item.sellPrice(1, 1, 50, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("UmbreonSPProjectile").Type;

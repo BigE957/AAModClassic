@@ -62,57 +62,57 @@ namespace AAMod
                 {
                     switch (item.rare)
                     {
-                        case 0:
+                        case ItemRarityID.White:
                             item.value = Item.sellPrice(0, 0, 25, 0);
                             break;
 
-                        case 1:
+                        case ItemRarityID.Blue:
                             item.value = Item.sellPrice(0, 0, 50, 0);
                             break;
 
-                        case 2:
+                        case ItemRarityID.Green:
                             item.value = Item.sellPrice(0, 0, 75, 0);
                             break;
 
-                        case 3:
+                        case ItemRarityID.Orange:
                             item.value = Item.sellPrice(0, 1, 0, 0);
                             break;
 
-                        case 4:
+                        case ItemRarityID.LightRed:
                             item.value = Item.sellPrice(0, 2, 0, 0);
                             break;
 
-                        case 5:
+                        case ItemRarityID.Pink:
                             item.value = Item.sellPrice(0, 4, 0, 0);
                             break;
 
-                        case 6:
+                        case ItemRarityID.LightPurple:
                             item.value = Item.sellPrice(0, 6, 0, 0);
                             break;
 
-                        case 7:
+                        case ItemRarityID.Lime:
                             item.value = Item.sellPrice(0, 8, 0, 0);
                             break;
 
-                        case 8:
+                        case ItemRarityID.Yellow:
                             item.value = Item.sellPrice(0, 10, 0, 0);
                             break;
 
-                        case 9:
+                        case ItemRarityID.Cyan:
                             item.value = Item.sellPrice(0, 15, 0, 0);
                             break;
 
-                        case 10:
+                        case ItemRarityID.Red:
                             item.value = Item.sellPrice(0, 20, 0, 0);
                             break;
 
-                        case 11:
+                        case ItemRarityID.Purple:
                             item.value = Item.sellPrice(0, 25, 0, 0);
                             break;
                     }
                 }
             }
-            if(item.CountsAsClass(DamageClass.Magic) && item.useStyle == 5 && !Item.staff[item.type] && item.width < item.height * 1.25 && !item.channel)
+            if(item.CountsAsClass(DamageClass.Magic) && item.useStyle == ItemUseStyleID.Shoot && !Item.staff[item.type] && item.width < item.height * 1.25 && !item.channel)
             {
                 spellbookmagic = true;
             }
@@ -531,7 +531,7 @@ namespace AAMod
             {
                 int tileTargetX = (int)((Main.mouseX + Main.screenPosition.X) / 16f);
 				int tileTargetY = (int)((Main.mouseY + Main.screenPosition.Y) / 16f);
-                if(Main.tile[tileTargetX, tileTargetY].HasTile && Main.tile[tileTargetX, tileTargetY].TileType == 219 && item.createTile > 0 && (Main.tileSand[item.createTile] || TileID.Sets.Conversion.Sand[item.createTile]))
+                if(Main.tile[tileTargetX, tileTargetY].HasTile && Main.tile[tileTargetX, tileTargetY].TileType == TileID.Extractinator && item.createTile > TileID.Dirt && (Main.tileSand[item.createTile] || TileID.Sets.Conversion.Sand[item.createTile]))
                 {
                     bool flag = player.position.X / 16f - Player.tileRangeX - player.inventory[player.selectedItem].tileBoost - player.blockRange <= Player.tileTargetX && (player.position.X + player.width) / 16f + Player.tileRangeX + player.inventory[player.selectedItem].tileBoost - 1f + player.blockRange >= Player.tileTargetX && player.position.Y / 16f - Player.tileRangeY - player.inventory[player.selectedItem].tileBoost - player.blockRange <= Player.tileTargetY && (player.position.Y + player.height) / 16f + Player.tileRangeY + player.inventory[player.selectedItem].tileBoost - 2f + player.blockRange >= Player.tileTargetY;
                     if(flag && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
@@ -546,7 +546,7 @@ namespace AAMod
                                 player.inventory[i].stack--;
                                 if (player.inventory[i].stack <= 0)
                                 {
-                                    player.inventory[i].SetDefaults(0, false);
+                                    player.inventory[i].SetDefaults(ItemID.None, false);
                                 }
                                 break;
                             }
@@ -1018,9 +1018,9 @@ namespace AAMod
             {
                 Vector2 vector = Main.ReverseGravitySupport(Main.MouseScreen, 0f) + Main.screenPosition;
                 int number = Item.NewItem(Item.GetSource_NaturalSpawn(), (int)vector.X, (int)vector.Y, 1, 1, result, stack, false, -1, false, false);
-                if (Main.netMode == 1)
+                if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
-                    NetMessage.SendData(21, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.SyncItem, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
                 }
             }
         }

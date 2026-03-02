@@ -15,11 +15,11 @@ namespace AAMod.Items.Magic
             Item.height = 38;
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 1;        
+            Item.useStyle = ItemUseStyleID.Swing;        
             Item.noMelee = true;
             Item.knockBack = 2;        
             Item.value = 1000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;

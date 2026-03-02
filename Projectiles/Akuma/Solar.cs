@@ -13,7 +13,7 @@ namespace AAMod.Projectiles.Akuma   //The directory for your .cs and .png; Examp
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -33,7 +33,7 @@ namespace AAMod.Projectiles.Akuma   //The directory for your .cs and .png; Examp
             Projectile.extraUpdates = 2;
             Projectile.width = 16;
             Projectile.height = 16;
-            Projectile.aiStyle = 99;
+            Projectile.aiStyle = ProjAIStyleID.Yoyo;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;

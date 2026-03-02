@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Zero
 {
@@ -23,15 +24,15 @@ namespace AAMod.Items.Boss.Zero
             Item.height = 24;
             Item.useTime = 45;
             Item.useAnimation = 45; 
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Shock");
             Item.shoot = Mod.Find<ModProjectile>("ZeroTaze").Type;
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.shootSpeed = 12f;
             Item.crit += 5;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.autoReuse = true;
         }

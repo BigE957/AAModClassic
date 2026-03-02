@@ -23,12 +23,12 @@ namespace AAMod.Items.Ranged
             Item.height = 64; //Hitbox height
             Item.useTime = 25; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
             Item.useAnimation = 25;  //The animations time length
-            Item.useStyle = 5; //The style in which the item gets used. 5 for bows.
-            Item.shoot = 1; //Makes the bow shoot arrows
+            Item.useStyle = ItemUseStyleID.Shoot; //The style in which the item gets used. 5 for bows.
+            Item.shoot = ProjectileID.WoodenArrowFriendly; //Makes the bow shoot arrows
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 0; //The amount of knockback the item has
             Item.value = Item.sellPrice(0, 0, 8, 0);
-            Item.rare = 3; //The item's name color
+            Item.rare = ItemRarityID.Orange; //The item's name color
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = false; //if the Bow autoreuses or not
             Item.shootSpeed = 5f; //The arrows speed when shot

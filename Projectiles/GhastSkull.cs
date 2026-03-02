@@ -60,7 +60,7 @@ namespace AAMod.Projectiles
             {
                 for (int num107 = 0; num107 < 3; num107++)
                 {
-                    int num108 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 180, 0f, 0f, 0);
+                    int num108 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.DungeonSpirit, 0f, 0f, 0);
                     Main.dust[num108].noGravity = true;
                     Main.dust[num108].velocity *= 0.3f;
                     Main.dust[num108].noLight = true;
@@ -80,7 +80,7 @@ namespace AAMod.Projectiles
                         Vector2 vector14 = Vector2.UnitX * 0f;
                         vector14 += -Vector2.UnitY.RotatedBy(num110 * (6.28318548f / num109)) * new Vector2(1f, 4f);
                         vector14 = vector14.RotatedBy(Projectile.velocity.ToRotation());
-                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, 180, 0f, 0f, 0);
+                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, DustID.DungeonSpirit, 0f, 0f, 0);
                         Main.dust[num111].scale = 1.5f;
                         Main.dust[num111].noLight = true;
                         Main.dust[num111].noGravity = true;
@@ -150,17 +150,17 @@ namespace AAMod.Projectiles
             int height3 = num84;
             for (int num85 = 0; num85 < 4; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 180, 0f, 0f, 100);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.DungeonSpirit, 0f, 0f, 100);
                 Main.dust[num86].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 20; num87++)
             {
-                int num794 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 180, 0f, 0f, 0);
+                int num794 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.DungeonSpirit, 0f, 0f, 0);
                 Main.dust[num794].velocity *= 0.1f;
                 Main.dust[num794].scale = 1.3f;
                 Main.dust[num794].noGravity = true;
                 Main.dust[num794].velocity += Projectile.DirectionTo(Main.dust[num794].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num794 = Dust.NewDust(position, num84, height3, 60, 0f, 0f, 100);
+                num794 = Dust.NewDust(position, num84, height3, DustID.RedTorch, 0f, 0f, 100);
                 Main.dust[num794].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num794].velocity *= 2f;
                 Main.dust[num794].noGravity = true;
@@ -171,7 +171,7 @@ namespace AAMod.Projectiles
             }
             for (int num89 = 0; num89 < 20; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, 180, 0f, 0f, 0);
+                int num90 = Dust.NewDust(position, num84, height3, DustID.DungeonSpirit, 0f, 0f, 0);
                 Main.dust[num90].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation()) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
@@ -180,7 +180,7 @@ namespace AAMod.Projectiles
             }
             for (int num91 = 0; num91 < 70; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, 180, 0f, 0f, 0);
+                int num92 = Dust.NewDust(position, num84, height3, DustID.DungeonSpirit, 0f, 0f, 0);
                 Main.dust[num92].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation()) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;

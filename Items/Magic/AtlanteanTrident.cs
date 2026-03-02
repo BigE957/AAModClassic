@@ -25,11 +25,11 @@ namespace AAMod.Items.Magic
 			Item.height = 68;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 4;
 			Item.value = 500000;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
 			Item.shoot = ProjectileID.WaterBolt;

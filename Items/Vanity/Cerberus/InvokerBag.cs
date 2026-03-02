@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Cerberus
@@ -16,7 +17,7 @@ namespace AAMod.Items.Vanity.Cerberus
             Item.maxStack = 1;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;

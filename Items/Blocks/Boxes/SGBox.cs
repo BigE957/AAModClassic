@@ -16,7 +16,7 @@ namespace AAMod.Items.Blocks.Boxes
 
 		public override void SetDefaults()
 		{
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
@@ -25,11 +25,11 @@ namespace AAMod.Items.Blocks.Boxes
 			Item.createTile = Mod.Find<ModTile>("SGBox").Type;
             Item.width = 72;
 			Item.height = 36;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
             Item.value = 10000;
 			Item.accessory = true;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
 

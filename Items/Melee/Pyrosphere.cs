@@ -15,9 +15,9 @@ namespace AAMod.Items.Melee
             Item.width = 30;
             Item.height = 30;
             Item.maxStack = 1;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = BaseUtility.CalcValue(0, 0, 90, 50);
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.UseSound = SoundID.Item1;

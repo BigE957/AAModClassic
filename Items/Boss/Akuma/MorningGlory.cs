@@ -25,7 +25,7 @@ namespace AAMod.Items.Boss.Akuma
             Item.damage = 197;
             Item.knockBack = 4f;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.UseSound = SoundID.Item20;
             Item.useAnimation = 19;
             Item.useTime = 19;
@@ -35,7 +35,7 @@ namespace AAMod.Items.Boss.Akuma
             Item.noMelee = true;
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

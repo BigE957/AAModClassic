@@ -22,7 +22,7 @@ namespace AAMod.Items.Magic
             Item.useTime = 5;
             Item.useAnimation = 16;
             Item.reuseDelay = 16;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 5;
             Item.value = 100000;
@@ -30,7 +30,7 @@ namespace AAMod.Items.Magic
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Star1").Type;
             Item.shootSpeed = 9f;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

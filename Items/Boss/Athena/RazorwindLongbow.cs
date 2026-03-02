@@ -23,12 +23,12 @@ namespace AAMod.Items.Boss.Athena
             Item.height = 62;
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
-            Item.shoot = 1;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = false;
             Item.shootSpeed = 14f;

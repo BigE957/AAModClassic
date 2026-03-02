@@ -13,10 +13,10 @@ namespace AAMod.Items.Melee
 
             Item.damage = 14;                            
             Item.value = 1000000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.knockBack = 1;
             Item.channel = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
             Item.shoot = Mod.Find<ModProjectile>("Depthwalker").Type;  

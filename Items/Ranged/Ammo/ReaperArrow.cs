@@ -22,7 +22,7 @@ namespace AAMod.Items.Ranged.Ammo
 			Item.consumable = true;             //You need to set the item consumable so that the ammo would automatically consumed
 			Item.knockBack = 7f;
 			Item.value = 100;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.shoot = Mod.Find<ModProjectile>("ReaperArrow").Type;   //The projectile shoot when your weapon using this ammo
 			Item.shootSpeed = 2f;                  //The speed of the projectile
 			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.

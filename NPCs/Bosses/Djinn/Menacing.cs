@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Djinn
@@ -13,7 +14,7 @@ namespace AAMod.NPCs.Bosses.Djinn
 		{
             Projectile.width = 10;
             Projectile.height = 10;
-            Projectile.aiStyle = 127;
+            Projectile.aiStyle = ProjAIStyleID.AncientStorm;
             Projectile.hostile = true;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;

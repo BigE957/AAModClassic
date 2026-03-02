@@ -18,7 +18,7 @@ Chaos Chain EX"); */
         public override void SetDefaults()
         {
             Item.autoReuse = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
             Item.knockBack = 1f;
@@ -28,7 +28,7 @@ Chaos Chain EX"); */
             Item.shoot = Mod.Find<ModProjectile>("ChaosChainEX").Type;
             Item.shootSpeed = 18f;
             Item.UseSound = SoundID.Item116;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.expert = true; Item.expertOnly = true;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Athena
@@ -62,7 +63,7 @@ namespace AAMod.Projectiles.Athena
 
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 76, 0f, 0f, 0, Color.White, 1f);
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Snow, 0f, 0f, 0, Color.White, 1f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].alpha = 20;
             }

@@ -24,10 +24,10 @@ namespace AAMod.Items.Summoning
             Item.height = 28;
             Item.useTime = 36;
             Item.useAnimation = 36;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 3;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item44;
             Item.shoot = Mod.Find<ModProjectile>("DoomiteProbe").Type;
             Item.shootSpeed = 10f;

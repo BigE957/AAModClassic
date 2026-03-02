@@ -21,7 +21,7 @@ namespace AAMod.Items.Boss.Athena
         {
             Item.mana = 10;
             Item.damage = 100;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("OwlRune").Type;
             Item.width = 64;
@@ -34,7 +34,7 @@ namespace AAMod.Items.Boss.Athena
             Item.knockBack = 5f;
             Item.DamageType = DamageClass.Summon;
             Item.sentry = true;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

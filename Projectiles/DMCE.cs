@@ -18,7 +18,7 @@ namespace AAMod.Projectiles
 	    Projectile.aiStyle = -1;
             Projectile.width = 38;
             Projectile.height = 60;
-            Projectile.aiStyle = 27;
+            Projectile.aiStyle = ProjAIStyleID.Beam;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = 2;

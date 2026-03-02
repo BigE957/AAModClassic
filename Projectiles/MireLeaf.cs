@@ -16,7 +16,7 @@ namespace AAMod.Projectiles
             Projectile.arrow = true;
             Projectile.width = 34;
             Projectile.height = 22;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             AIType = ProjectileID.WoodenArrowFriendly;
@@ -29,7 +29,7 @@ namespace AAMod.Projectiles
             {
                 Projectile.ai[0] = 0f;
                 Projectile.netUpdate = true;
-                int dustIndex = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 41);
+                int dustIndex = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.GlowingMushroom);
                 Main.dust[dustIndex].velocity *= 0.3f;
             }
         }

@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Rajah
 {
@@ -23,7 +24,7 @@ Immunity to fall damage"); */
             Item.width = 20;
             Item.height = 20;
             Item.value = Item.sellPrice(0, 12, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.accessory = true;
             Item.expertOnly = true;
             Item.expert = true;

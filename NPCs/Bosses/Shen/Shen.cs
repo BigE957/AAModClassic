@@ -251,7 +251,7 @@ namespace AAMod.NPCs.Bosses.Shen
 
                 if (player.dead || !player.active || Vector2.Distance(NPC.Center, player.Center) > 10000)
                 {
-                    if (Main.netMode != 1 && FleeTimer[0]++ >= 120)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && FleeTimer[0]++ >= 120)
                     {
                         if (FleeTimer[0] < 130)
                         {
@@ -267,7 +267,7 @@ namespace AAMod.NPCs.Bosses.Shen
                         {
                             NPC.velocity.Y = -6f;
                         }
-                        if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                        if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
                     }
                 }
                 else
@@ -302,7 +302,7 @@ namespace AAMod.NPCs.Bosses.Shen
                         NPC.ai[1] = 0;
                         Roar(roarTimerMax, false);
                         NPC.netUpdate = true;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -2; i <= 2; i++)
                                 Projectile.NewProjectile(NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), Spread, NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
                     }
@@ -413,7 +413,7 @@ namespace AAMod.NPCs.Bosses.Shen
                         NPC.ai[2] = 0;
                         Roar(roarTimerMax, false);
                         NPC.netUpdate = true;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             Vector2 spawnPos = NPC.Center;
                             spawnPos.X += 250 * (NPC.Center.X < player.Center.X ? 1 : -1);
@@ -456,7 +456,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     if (++NPC.ai[2] > 3)
                     {
                         NPC.ai[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
                             Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
@@ -497,7 +497,7 @@ namespace AAMod.NPCs.Bosses.Shen
                         NPC.netUpdate = true;
                         NPC.velocity.X = -30 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y = 5f;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, Vector2.Zero, Homing, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
                     }
                     NPC.rotation = 0;
@@ -524,7 +524,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     {
                         Roar(roarTimerMax, false);
                         NPC.ai[2] = 0;
-                        if (Main.netMode != 1) //spawn lightning
+                        if (Main.netMode != NetmodeID.MultiplayerClient) //spawn lightning
                         {
                             Vector2 infernoPos = new Vector2(200f, NPC.direction == 1 ? 65f : -45f);
                             Vector2 vel = new Vector2(MathHelper.Lerp(6f, 8f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-4f, 4f, (float)Main.rand.NextDouble()));
@@ -573,7 +573,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     if (++NPC.ai[2] > 5)
                     {
                         NPC.ai[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.004f;
                             Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
@@ -733,7 +733,7 @@ namespace AAMod.NPCs.Bosses.Shen
             if (NPC.life <= NPC.lifeMax / 2 && !SpawnGrips && !isAwakened)
             {
                 SpawnGrips = true;
-                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon2"), Color.DarkMagenta);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon2"), Color.DarkMagenta);
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("AbyssGrip").Type, false, 0, 0);
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("BlazeGrip").Type, false, 0, 0);
                 SoundEngine.PlaySound(SoundID.Roar, player.position);
@@ -744,15 +744,15 @@ namespace AAMod.NPCs.Bosses.Shen
 
                 if (AAWorld.downedShen)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon3"), Color.DarkMagenta);
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon4"), new Color(102, 20, 48));
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon5"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon3"), Color.DarkMagenta);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon4"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon5"), new Color(72, 78, 117));
                 }
                 else
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon6"), Color.DarkMagenta);
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon7"), new Color(102, 20, 48));
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon8"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon6"), Color.DarkMagenta);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon7"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon8"), new Color(72, 78, 117));
                 }
 
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("FuryAshe").Type, false, 0, 0);
@@ -763,11 +763,11 @@ namespace AAMod.NPCs.Bosses.Shen
             {
                 if (AAWorld.downedShen)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon19"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon19"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 else
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon20"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon20"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 Health4 = true;
                 NPC.netUpdate = true;
@@ -776,11 +776,11 @@ namespace AAMod.NPCs.Bosses.Shen
             {
                 if (AAWorld.downedShen)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon21"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon21"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 else
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon22"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon22"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 Health3 = true;
                 NPC.netUpdate = true;
@@ -789,11 +789,11 @@ namespace AAMod.NPCs.Bosses.Shen
             {
                 if (AAWorld.downedShen)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon23"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon23"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 else
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon24"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon24"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 }
                 Health1 = true;
                 NPC.netUpdate = true;
@@ -809,11 +809,11 @@ namespace AAMod.NPCs.Bosses.Shen
                 {
                     if (!AAWorld.downedShen)
                     {
-                        if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon16"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon16"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
                     else
                     {
-                        if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ShenDoragon18"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon18"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
                     AAWorld.downedShen = true;
                     NPC.DropLoot(Mod.Find<ModItem>("ChaosScale").Type, 20, 30);
@@ -862,7 +862,7 @@ namespace AAMod.NPCs.Bosses.Shen
         {
             int pID = -1;
             if (damage == -1) { Projectile proj = new Projectile(); proj.SetDefaults(projType); damage = proj.damage; }
-            bool properSide = codable is NPC ? Main.netMode != 1 : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true;
+            bool properSide = codable is NPC ? Main.netMode != NetmodeID.MultiplayerClient : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true;
             if (properSide)
             {
                 Vector2 targetCenter = position + new Vector2(width * 0.5f, height * 0.5f);

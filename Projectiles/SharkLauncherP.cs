@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -14,8 +15,8 @@ namespace AAMod.Projectiles
 		public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(190);
-			Projectile.aiStyle = 39;
-			AIType = 190;
+			Projectile.aiStyle = ProjAIStyleID.MechanicalPiranha;
+			AIType = ProjectileID.MechanicalPiranha;
 		}
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

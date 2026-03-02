@@ -31,7 +31,7 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
         {
             Item.width = 18;
             Item.height = 20;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
         }
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -13,8 +14,8 @@ namespace AAMod.Projectiles
             Projectile.penetrate = -1;  
             Projectile.width = 22;
             Projectile.height = 32;
-			Projectile.aiStyle = 3;
-			AIType = 106;
+			Projectile.aiStyle = ProjAIStyleID.Boomerang;
+			AIType = ProjectileID.LightDisc;
         }
 
 		public override void SetStaticDefaults()

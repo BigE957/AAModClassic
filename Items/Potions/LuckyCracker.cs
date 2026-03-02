@@ -15,7 +15,7 @@ namespace AAMod.Items.Potions
 		public override void SetDefaults()
 		{
             Item.UseSound = SoundID.Item2;
-            Item.useStyle = 2;
+            Item.useStyle = ItemUseStyleID.EatFood;
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
@@ -24,7 +24,7 @@ namespace AAMod.Items.Potions
 			Item.width = 16;
 			Item.height = 16;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
-			Item.rare = 7;
+			Item.rare = ItemRarityID.Lime;
 			Item.buffType = BuffID.WellFed;
 			Item.buffTime = 52000;
 			Item.buffTime = 18000;

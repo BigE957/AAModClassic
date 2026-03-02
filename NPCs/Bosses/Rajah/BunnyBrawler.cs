@@ -29,7 +29,7 @@ namespace AAMod.NPCs.Bosses.Rajah
             NPC.npcSlots = 0f;
             NPC.HitSound = SoundID.NPCHit14;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.aiStyle = 41;
+            NPC.aiStyle = NPCAIStyleID.Herpling;
             AIType = NPCID.Derpling;
             AnimationType = NPCID.Derpling;
         }

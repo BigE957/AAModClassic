@@ -15,9 +15,9 @@ namespace AAMod.Items.Throwing
             Item.maxStack = 5;
             Item.damage = 42;                            
             Item.value = 6;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.knockBack = 5;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.shoot = Mod.Find<ModProjectile>("HellBallP").Type;

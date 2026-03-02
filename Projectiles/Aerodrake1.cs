@@ -55,7 +55,7 @@ namespace AAMod.Projectiles
 			MathHelper.ToRadians(90f);
             if (Main.rand.Next(1) == 0)
             {
-                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 200, default, 0.8f);
+                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustnumber].velocity *= 0.3f;
             }
         }
@@ -63,7 +63,7 @@ namespace AAMod.Projectiles
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 200, default, 0.8f);
+            int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 200, default, 0.8f);
             Main.dust[dustnumber].velocity *= 0.3f;
         }
 

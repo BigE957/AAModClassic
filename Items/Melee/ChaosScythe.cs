@@ -12,7 +12,7 @@ namespace AAMod.Items.Melee   //where is located
         public override void SetDefaults()
         {
             Item.noUseGraphic = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.damage = 350;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;           
             Item.width = 56;              

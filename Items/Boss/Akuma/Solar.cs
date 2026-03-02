@@ -23,14 +23,14 @@ Inflicts daybroken"); */
             Item.CloneDefaults(ItemID.Terrarian);
             Item.damage = 350;                            
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.knockBack = 1;
             Item.channel = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
             Item.shoot = Mod.Find<ModProjectile>("Solar").Type;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

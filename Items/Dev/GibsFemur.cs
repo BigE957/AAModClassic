@@ -22,9 +22,9 @@ namespace AAMod.Items.Dev
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 120;                            
             Item.value = 600000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.knockBack = 5;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.shoot = Mod.Find<ModProjectile>("GibsFemur").Type;

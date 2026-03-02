@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Dusts
@@ -6,7 +7,7 @@ namespace AAMod.Dusts
     {
         public override void SetStaticDefaults()
         {
-            UpdateType = 3;
+            UpdateType = DustID.GrassBlades;
         }
     }
 }

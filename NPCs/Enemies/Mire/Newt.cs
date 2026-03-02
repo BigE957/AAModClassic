@@ -26,7 +26,7 @@ namespace AAMod.NPCs.Enemies.Mire
             NPC.lifeMax = 60;
             NPC.knockBackResist = 0.55f;
             NPC.value = 100f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
@@ -113,7 +113,7 @@ namespace AAMod.NPCs.Enemies.Mire
             if (tongueAttack == true)
             {
                 tongueTimer++;
-                NPC.aiStyle = 0;
+                NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
                 NPC.velocity.X = 0;
                 if (tongueTimer == 35)
                 {
@@ -136,7 +136,7 @@ namespace AAMod.NPCs.Enemies.Mire
             }
             if (tongueAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
-                NPC.aiStyle = 3;
+                NPC.aiStyle = NPCAIStyleID.Fighter;
             }
         }
 

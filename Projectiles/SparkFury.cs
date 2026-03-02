@@ -49,7 +49,7 @@ namespace AAMod.Projectiles
                 }
                 if (Main.rand.Next(100) < num15)
                 {
-                    int num18 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 150);
+                    int num18 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 150);
                     Main.dust[num18].position = (Main.dust[num18].position + Projectile.Center) / 2f;
                     Main.dust[num18].noGravity = true;
                     Main.dust[num18].velocity *= 2f;

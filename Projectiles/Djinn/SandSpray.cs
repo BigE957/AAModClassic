@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Djinn
@@ -42,7 +43,7 @@ namespace AAMod.Projectiles.Djinn
 				float xPos = Projectile.velocity.X / 3f * i;
 				float yPos = Projectile.velocity.Y / 3f * i;
 				int eggroll = 14;
-				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X + eggroll, Projectile.position.Y + eggroll), Projectile.width - eggroll * 2, Projectile.height - eggroll * 2, 269, 0f, 0f, 100);
+				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X + eggroll, Projectile.position.Y + eggroll), Projectile.width - eggroll * 2, Projectile.height - eggroll * 2, DustID.Sandnado, 0f, 0f, 100);
 				Main.dust[dustIndex].noGravity = true;
 				Main.dust[dustIndex].velocity *= 0.1f;
 				Main.dust[dustIndex].velocity += Projectile.velocity * 0.5f;
@@ -54,7 +55,7 @@ namespace AAMod.Projectiles.Djinn
 			if (Main.rand.Next(8) == 0)
 			{
 				int eggplant = 16;
-				int dustIndex2 = Dust.NewDust(new Vector2(Projectile.position.X + eggplant, Projectile.position.Y + eggplant), Projectile.width - eggplant * 2, Projectile.height - eggplant * 2, 269, 0f, 0f, 100, default, 0.5f);
+				int dustIndex2 = Dust.NewDust(new Vector2(Projectile.position.X + eggplant, Projectile.position.Y + eggplant), Projectile.width - eggplant * 2, Projectile.height - eggplant * 2, DustID.Sandnado, 0f, 0f, 100, default, 0.5f);
 				Main.dust[dustIndex2].velocity *= 0.25f;
 				Main.dust[dustIndex2].velocity += Projectile.velocity * 0.5f;
 				return;

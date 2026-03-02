@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 namespace AAMod.Items.Blocks
 {
     public class Incinerite : BaseAAItem
@@ -16,9 +17,9 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 0, 8, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("IncineriteOre").Type; //put your CustomBlock Tile name
         }

@@ -20,11 +20,11 @@ namespace AAMod.Items.Magic
             Item.height = 42;
             Item.useTime = 32;
             Item.useAnimation = 32;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 5;
             Item.value = 1000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("MadnessSphere").Type;

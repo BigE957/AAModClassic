@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Zero
@@ -8,7 +9,7 @@ namespace AAMod.Projectiles.Zero
         {
             Projectile.width = 4;
             Projectile.height = 4;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.hostile = true;
             Projectile.penetrate = -1;
             Projectile.light = 0.3f;

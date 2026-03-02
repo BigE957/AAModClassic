@@ -48,7 +48,7 @@ namespace AAMod.Projectiles
 					int num3;
 					for (int num567 = 0; num567 < 1000; num567 = num3 + 1)
 					{
-						if (Main.projectile[num567].active && Main.projectile[num567].owner == Projectile.owner && Main.projectile[num567].type == 344)
+						if (Main.projectile[num567].active && Main.projectile[num567].owner == Projectile.owner && Main.projectile[num567].type == ProjectileID.NorthPoleSnowflake)
 						{
 							num566++;
 						}
@@ -126,7 +126,7 @@ namespace AAMod.Projectiles
 			{
 				float num370 = Projectile.oldVelocity.X * (30f / num369);
 				float num371 = Projectile.oldVelocity.Y * (30f / num369);
-				int num372 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num370, Projectile.oldPosition.Y - num371), 8, 8, 180, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.2f);
+				int num372 = Dust.NewDust(new Vector2(Projectile.oldPosition.X - num370, Projectile.oldPosition.Y - num371), 8, 8, DustID.DungeonSpirit, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.2f);
 				Main.dust[num372].noGravity = true;
 				Dust dust = Main.dust[num372];
 				dust.velocity *= 0.5f;

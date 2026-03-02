@@ -18,7 +18,7 @@ namespace AAMod.Items.Materials
 			Item.height = 20;
 			Item.maxStack = 999;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 		}
 
         public override void AddRecipes()

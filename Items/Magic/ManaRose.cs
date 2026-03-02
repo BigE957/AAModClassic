@@ -23,11 +23,11 @@ Right Clicking fires a piercing rose"); */
             Item.height = 60;
             Item.useTime = 18;
             Item.useAnimation = 18;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; //so the item's animation doesn't do damage
             Item.knockBack = 5;
             Item.value = 100000;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("ManaShot").Type;

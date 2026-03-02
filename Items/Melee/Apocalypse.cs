@@ -20,7 +20,7 @@ Horseman's Blade EX"); */
 		{
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.damage = 1000;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.autoReuse = true;
             Item.UseSound = SoundID.Item1;
             Item.shootSpeed = 20f;

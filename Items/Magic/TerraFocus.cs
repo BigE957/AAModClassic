@@ -15,7 +15,7 @@ namespace AAMod.Items.Magic
 
         public override void SetDefaults()
         {
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 12;
             Item.useTime = 4;
             Item.reuseDelay = Item.useAnimation + 6;
@@ -28,7 +28,7 @@ namespace AAMod.Items.Magic
             Item.crit = 20;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.MagicBlastF>();
             Item.mana = 14;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = 300000;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Magic;

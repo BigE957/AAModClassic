@@ -24,10 +24,10 @@ namespace AAMod.Items.Tools
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
 			Item.pick = 110;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 0;
 			Item.value = Item.sellPrice(0, 1, 8, 0);
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("ShadowDrill").Type;

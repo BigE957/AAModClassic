@@ -15,7 +15,7 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
 		{
             Item.autoReuse = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 14f;
 			Item.shoot = Mod.Find<ModProjectile>("ScourgeOfShadowsP").Type;
 			Item.damage = 130;
@@ -29,7 +29,7 @@ namespace AAMod.Items.Melee
 			Item.value = Item.sellPrice(0, 50, 0, 0);
 			Item.knockBack = 5f;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
         }
 
         public override void AddRecipes()

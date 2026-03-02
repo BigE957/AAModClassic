@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 namespace AAMod.Items.Blocks
 {
     public class DynaskullOre : BaseAAItem
@@ -16,8 +17,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("DynaskullOre").Type; //put your CustomBlock Tile name
         }

@@ -16,11 +16,11 @@ namespace AAMod.Items.Magic
 
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;     
+            Item.useStyle = ItemUseStyleID.Shoot;     
             Item.noMelee = true;
             Item.knockBack = 6;        
             Item.value = 10000;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;

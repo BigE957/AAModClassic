@@ -29,7 +29,7 @@ Non-consumable"); */
             Item.shoot = Mod.Find<ModProjectile>("DaybreakArrow").Type;
 			Item.shootSpeed = 3f;
 			Item.ammo = AmmoID.Arrow;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

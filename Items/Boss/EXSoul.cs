@@ -25,7 +25,7 @@ namespace AAMod.Items.Boss
             Item.height = refItem.height;
             Item.maxStack = 999;
             Item.value = 1000000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
             
         }

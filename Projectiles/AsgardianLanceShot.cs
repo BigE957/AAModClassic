@@ -11,13 +11,13 @@ namespace AAMod.Projectiles
         {
             Projectile.width = 20;
             Projectile.height = 20;
-            Projectile.aiStyle = 27;
+            Projectile.aiStyle = ProjAIStyleID.Beam;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 240;
             Projectile.tileCollide = false;
-            AIType = 27;
+            AIType = ProjectileID.WaterBolt;
         }
 
         public override void PostAI()

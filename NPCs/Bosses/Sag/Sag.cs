@@ -202,12 +202,12 @@ namespace AAMod.NPCs.Bosses.Sag
 
                 for (int num242 = 0; num242 < 5; num242++)
                 {
-                    int num243 = Dust.NewDust(SparkPos, 0, 0, 226, SparkSpeed.X, SparkSpeed.Y, 0, default, 1f);
+                    int num243 = Dust.NewDust(SparkPos, 0, 0, DustID.Electric, SparkSpeed.X, SparkSpeed.Y, 0, default, 1f);
                     Main.dust[num243].scale = 0.5f;
                     Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
 
-                if (!lowHealth && Main.netMode != 1)
+                if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Lang.BossChat("SagChat"), true, true);
                     lowHealth = true;
@@ -229,7 +229,7 @@ namespace AAMod.NPCs.Bosses.Sag
                     BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<SagShot>(), ref NPC.ai[2], 60, NPC.damage / 4, 9, false, new Vector2(-36 * NPC.direction, -51));
                     break;
                 case 1:
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[0]++;
                         if (internalAI[0] > 180)
@@ -244,7 +244,7 @@ namespace AAMod.NPCs.Bosses.Sag
                     }
                     break;
                 case 2:
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[0]++;
                         if (internalAI[0] > 210)
@@ -259,7 +259,7 @@ namespace AAMod.NPCs.Bosses.Sag
                     }
                     break;
                 case 3:
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[0]++;
                         if (internalAI[0] > 240)
@@ -274,7 +274,7 @@ namespace AAMod.NPCs.Bosses.Sag
                     }
                     break;
                 case 4:
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[0]++;
                     }
@@ -398,20 +398,20 @@ namespace AAMod.NPCs.Bosses.Sag
                 int height3 = num84;
                 for (int num85 = 0; num85 < 3; num85++)
                 {
-                    int num86 = Dust.NewDust(position, num84, height3, 226, 0f, 0f, 100, default, 1.5f);
+                    int num86 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 100, default, 1.5f);
                     Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 }
                 for (int num87 = 0; num87 < 7; num87++)
                 {
-                    int num88 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                    int num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                     Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                     Main.dust[num88].noGravity = true;
                     Main.dust[num88].noLight = true;
                     Main.dust[num88].velocity *= 3f;
                     Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                    num88 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                    num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                     Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                     Main.dust[num88].velocity *= 2f;
@@ -423,7 +423,7 @@ namespace AAMod.NPCs.Bosses.Sag
                 }
                 for (int num89 = 0; num89 < 5; num89++)
                 {
-                    int num90 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                    int num90 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                     Main.dust[num90].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                     Main.dust[num90].noGravity = true;
@@ -433,7 +433,7 @@ namespace AAMod.NPCs.Bosses.Sag
                 }
                 for (int num91 = 0; num91 < 15; num91++)
                 {
-                    int num92 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                    int num92 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                     Main.dust[num92].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                     Main.dust[num92].noGravity = true;

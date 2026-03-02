@@ -34,7 +34,7 @@ namespace AAMod.Projectiles
                 Projectile.localAI[0] += 1f;
             }
             Projectile.ai[0] += 1f;
-            if (Projectile.type == 296)
+            if (Projectile.type == ProjectileID.InfernoFriendlyBlast)
             {
                 Projectile.ai[0] += 3f;
             }
@@ -48,7 +48,7 @@ namespace AAMod.Projectiles
                 num461 = 0f;
                 Projectile.Kill();
             }
-            if (Projectile.type == 296)
+            if (Projectile.type == ProjectileID.InfernoFriendlyBlast)
             {
                 num461 *= 0.7f;
             }

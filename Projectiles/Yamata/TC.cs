@@ -27,7 +27,7 @@ namespace AAMod.Projectiles.Yamata
 
         public override void PostAI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 ProjTimer++;
                 if (ProjTimer >= 20)

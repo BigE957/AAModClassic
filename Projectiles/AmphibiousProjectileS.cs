@@ -41,7 +41,7 @@ namespace AAMod.Projectiles
             }
             if (Main.rand.Next(3) == 0)
             {
-                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 186, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.RedsWingsRun, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
         }
         public override void OnKill(int timeleft)

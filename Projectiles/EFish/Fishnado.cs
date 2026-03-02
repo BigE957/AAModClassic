@@ -95,7 +95,7 @@ namespace AAMod.Projectiles.EFish
             }
             Vector2 center = Main.player[Projectile.owner].Center;
             Vector2 value = new Vector2(0.5f);
-            if (Projectile.type == 423)
+            if (Projectile.type == ProjectileID.UFOMinion)
             {
                 value.Y = 0f;
             }

@@ -22,7 +22,7 @@ You have more chance to get a crate among the extra booty"); */
 		{
             Item.width = 22;
 			Item.height = 18;
-			Item.rare = -1;
+			Item.rare = ItemRarityID.Gray;
 			Item.defense = 1;
             Item.value = Item.sellPrice(0, 0, 0, 1);
         }

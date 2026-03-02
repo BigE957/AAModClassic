@@ -20,10 +20,10 @@ namespace AAMod.Items.Boss.Serpent
 			Item.useTime = 20;
 			Item.useAnimation = 20;
             Item.noUseGraphic = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 0;
 			Item.value = 100;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.shootSpeed = 12f;
 			Item.shoot = Mod.Find<ModProjectile>("SS").Type;
 			Item.UseSound = SoundID.Item1;

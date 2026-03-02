@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Zero.Protocol
@@ -37,7 +38,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             Projectile.velocity.Y += 0.00f;
             if (Projectile.timeLeft == 913)
             {
-                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
     }

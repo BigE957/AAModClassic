@@ -33,7 +33,7 @@ namespace AAMod.Projectiles.Djinn
 
         public override bool OnTileCollide(Vector2 velocityChange)
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
                 SoundEngine.PlaySound(SoundID.Dig, Projectile.position);

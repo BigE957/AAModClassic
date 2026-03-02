@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
@@ -17,8 +18,8 @@ namespace AAMod.Items.Blocks
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 1000;
 			Item.createTile = Mod.Find<ModTile>("GreedChest").Type;

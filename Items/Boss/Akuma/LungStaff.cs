@@ -21,7 +21,7 @@ namespace AAMod.Items.Boss.Akuma
         {
             Item.mana = 20;
             Item.damage = 100;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
             Item.shoot = Mod.Find<ModProjectile>("LungHead").Type;
             Item.width = 64;
@@ -33,7 +33,7 @@ namespace AAMod.Items.Boss.Akuma
             Item.knockBack = 2f;
             Item.buffType = Mod.Find<ModBuff>("LungMinion").Type;
             Item.DamageType = DamageClass.Summon;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.value = Item.sellPrice(0, 30, 0, 0);
 

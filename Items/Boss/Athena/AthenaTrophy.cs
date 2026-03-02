@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Athena
 {
@@ -17,11 +18,11 @@ namespace AAMod.Items.Boss.Athena
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = Mod.Find<ModTile>("AthenaTrophy").Type;
 		}
 	}

@@ -78,12 +78,12 @@ namespace AAMod.Tiles.Boss
             if (AAWorld.SmashHydraPod == 2)
             {
                 AAWorld.SmashHydraPod--;
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TilesInfo("HydraPod1"), Color.Blue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("HydraPod1"), Color.Blue);
             }
             else if (AAWorld.SmashHydraPod == 1)
             {
                 AAWorld.SmashHydraPod--;
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TilesInfo("HydraPod2"), Color.Blue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("HydraPod2"), Color.Blue);
             }
             else
             {
@@ -95,7 +95,7 @@ namespace AAMod.Tiles.Boss
                 }
                 else
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.TilesInfo("HydraPod3"), Color.Blue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("HydraPod3"), Color.Blue);
                 }
             }
         }

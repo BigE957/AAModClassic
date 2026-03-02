@@ -22,7 +22,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.lifeMax = 1;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = Main.expertMode ? 50 : 84;
             NPC.defense = Main.expertMode ? 1 : 1;
             NPC.knockBackResist = 0.2f;
@@ -61,7 +61,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                 }
             }
             NPC.ai[0] += 1f;
-            if (NPC.ai[0] % 30f == 0f && NPC.ai[0] < 180f && Main.netMode != 1)
+            if (NPC.ai[0] % 30f == 0f && NPC.ai[0] < 180f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int[] array4 = new int[5];
                 Vector2[] array5 = new Vector2[5];
@@ -107,7 +107,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                         num844 = 0.5f;
                     }
                     Vector2 value47 = new Vector2(-NPC.width * 0.2f * NPC.scale, 0f).RotatedBy(num844 * 6.28318548f, default).RotatedBy(NPC.velocity.ToRotation(), default);
-                    int num845 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, 226, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num845 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, DustID.Electric, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num845].position = NPC.Center + value47;
                     Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - NPC.Center) * 2f;
                     Main.dust[num845].noGravity = true;
@@ -124,7 +124,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                         num847 = 0.5f;
                     }
                     Vector2 value48 = new Vector2(-NPC.width * 0.6f * NPC.scale, 0f).RotatedBy(num847 * 6.28318548f, default).RotatedBy(NPC.velocity.ToRotation(), default);
-                    int num848 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, 226, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num848 = Dust.NewDust(NPC.Center - Vector2.One * 5f, 10, 10, DustID.Electric, -NPC.velocity.X / 3f, -NPC.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num848].velocity = Vector2.Zero;
                     Main.dust[num848].position = NPC.Center + value48;
                     Main.dust[num848].noGravity = true;

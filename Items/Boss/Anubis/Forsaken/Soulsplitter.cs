@@ -17,7 +17,7 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
 			Item.knockBack = 5f;
@@ -30,7 +30,7 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;
             Item.noUseGraphic = true;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 		}
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

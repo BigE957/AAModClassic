@@ -26,15 +26,15 @@ Certain ores have special effects when shot"); */
             Item.height = 20;
             Item.useTime = 45;
             Item.useAnimation = 45;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 0;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 14f;
             Item.expert = true; 
 			Item.expertOnly = true;
             Item.autoReuse = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.GameContent.UI;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Currency
 {
@@ -29,7 +30,7 @@ namespace AAMod.Items.Currency
             Item.height = 16;
             Item.maxStack = 999;
             Item.value = 1000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         int counter = 0;
@@ -47,7 +48,7 @@ namespace AAMod.Items.Currency
                 }
             }
 
-            Texture2D itemTex = Mod.GetTexture("Items/Currency/ChristmasCheerA");
+            Texture2D itemTex = ModContent.Request<Texture2D>("Items/Currency/ChristmasCheerA").Value;
 
             Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 4, 0, 0);
 
@@ -63,7 +64,7 @@ namespace AAMod.Items.Currency
         {
         }
 
-        public override void GetPriceText(string[] lines, ref int currentLine, int price)
+        public override void GetPriceText(string[] lines, ref int currentLine, long price)
         {
             Color color2 = color * (Main.mouseTextColor / 255f);
             lines[currentLine++] = string.Format("[c/{0:X2}{1:X2}{2:X2}:{3} {4} {5}]", new object[]

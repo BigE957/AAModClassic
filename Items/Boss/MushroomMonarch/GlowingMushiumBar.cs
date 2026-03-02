@@ -13,13 +13,13 @@ namespace AAMod.Items.Boss.MushroomMonarch
             Item.width = 30;
             Item.height = 24;
             Item.maxStack = 99;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("GlowingMushiumBar").Type;
             Item.value = Item.sellPrice(0, 0, 9, 0);

@@ -113,7 +113,7 @@ namespace AAMod.NPCs.Bosses.Yamata
             float playerDistance = targetPlayer == null ? 99999f : Vector2.Distance(targetPlayer.Center, NPC.Center);
             if (!Body.NPC.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghost hands'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -186,7 +186,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                 return;
             }
 
-            if (Main.netMode != 1 && !YamataHead.EATTHELITTLEMAGGOT)
+            if (Main.netMode != NetmodeID.MultiplayerClient && !YamataHead.EATTHELITTLEMAGGOT)
             {
                 if (NPC.alpha <= 0)
                 {

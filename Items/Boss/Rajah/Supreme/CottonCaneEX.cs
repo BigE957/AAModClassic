@@ -24,10 +24,10 @@ namespace AAMod.Items.Boss.Rajah.Supreme
             Item.height = 28;
             Item.useTime = 36;
             Item.useAnimation = 36;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 3;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.RoyalRabbit>();
             Item.shootSpeed = 10f;

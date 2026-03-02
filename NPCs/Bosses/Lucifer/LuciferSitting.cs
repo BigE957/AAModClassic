@@ -41,7 +41,7 @@ namespace AAMod.NPCs.Bosses.Lucifer
             NPC.velocity.X = NPC.velocity.Y = 0f;
             NPC.dontTakeDamage = true;
             NPC.immune[255] = 30;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.homeless = false;
                 NPC.homeTileX = -1;

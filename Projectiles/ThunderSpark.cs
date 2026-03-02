@@ -15,7 +15,7 @@ namespace AAMod.Projectiles
 
 		public override void SetDefaults()
         {
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;

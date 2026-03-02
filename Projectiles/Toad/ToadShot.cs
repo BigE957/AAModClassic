@@ -17,7 +17,7 @@ namespace AAMod.Projectiles.Toad
 		{
 			Projectile.width = 14;
 			Projectile.height = 32;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
 			Projectile.hostile = false;
             Projectile.timeLeft = 600;

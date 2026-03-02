@@ -118,7 +118,7 @@ namespace AAMod.Projectiles.Yamata
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -161,7 +161,7 @@ namespace AAMod.Projectiles.Yamata
                 int num3;
                 for (int num622 = 0; num622 < 20; num622 = num3 + 1)
                 {
-                    int num623 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 184, 0f, 0f, 0);
+                    int num623 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.ScourgeOfTheCorruptor, 0f, 0f, 0);
                     Dust dust = Main.dust[num623];
                     dust.scale *= 1.1f;
                     Main.dust[num623].noGravity = true;
@@ -169,7 +169,7 @@ namespace AAMod.Projectiles.Yamata
                 }
                 for (int num624 = 0; num624 < 30; num624 = num3 + 1)
                 {
-                    int num625 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 184, 0f, 0f, 0);
+                    int num625 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.ScourgeOfTheCorruptor, 0f, 0f, 0);
                     Dust dust = Main.dust[num625];
                     dust.velocity *= 2.5f;
                     dust = Main.dust[num625];

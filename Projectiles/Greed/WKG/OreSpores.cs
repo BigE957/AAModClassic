@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Greed.WKG
@@ -15,7 +16,7 @@ namespace AAMod.Projectiles.Greed.WKG
         {
             Projectile.width = 32;
             Projectile.height = 32;
-            Projectile.aiStyle = 106;
+            Projectile.aiStyle = ProjAIStyleID.SporeGas;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.alpha = 255;

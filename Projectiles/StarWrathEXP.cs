@@ -12,8 +12,8 @@ namespace AAMod.Projectiles
         public override void SetDefaults()
         {
 			Projectile.CloneDefaults(503);
-			Projectile.aiStyle = 5;
-			AIType = 503;
+			Projectile.aiStyle = ProjAIStyleID.FallingStar;
+			AIType = ProjectileID.StarWrath;
 			Projectile.tileCollide = false;
 			Projectile.localNPCHitCooldown = -1;
         }
@@ -36,7 +36,7 @@ namespace AAMod.Projectiles
 		
 		public override bool PreKill(int timeLeft)
 		{
-			Projectile.type = 503;
+			Projectile.type = ProjectileID.StarWrath;
 			return true;
 		}
         public override bool PreDraw(ref Color lightColor)

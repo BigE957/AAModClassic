@@ -17,7 +17,7 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
         {
             Item.autoReuse = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.knockBack = 15f;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Melee
             Item.shoot = Mod.Find<ModProjectile>("ChaosChain").Type;
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item10;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;

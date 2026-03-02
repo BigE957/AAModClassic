@@ -21,10 +21,10 @@ namespace AAMod.Items.FishingItem
 			Item.height = 40;
 			Item.useTime = 27;
 			Item.useAnimation = 27;  
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 2;
 			Item.value = Item.sellPrice(0, 4, 0, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = true;

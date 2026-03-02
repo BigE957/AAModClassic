@@ -20,9 +20,9 @@ namespace AAMod.Projectiles
 		{
 			Projectile.CloneDefaults(477);
 			Projectile.penetrate = 3;
-			Projectile.aiStyle = 1; 
+			Projectile.aiStyle = ProjAIStyleID.Arrow; 
 			Projectile.extraUpdates = 1;
-			AIType = 477;           
+			AIType = ProjectileID.CrystalDart;           
 		}
 		
 		public override Color? GetAlpha(Color lightColor)

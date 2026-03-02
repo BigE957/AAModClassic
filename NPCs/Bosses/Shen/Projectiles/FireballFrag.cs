@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Shen.Projectiles
@@ -52,7 +53,7 @@ namespace AAMod.NPCs.Bosses.Shen.Projectiles
                 Main.dust[dustIndex].velocity *= 1.4f;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Vector2 vel = Vector2.Normalize(Projectile.velocity);
                 const float ai = 0.01f;
@@ -118,7 +119,7 @@ namespace AAMod.NPCs.Bosses.Shen.Projectiles
                 Main.dust[dustIndex].velocity *= 1.4f;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Vector2 vel = Vector2.Normalize(Projectile.velocity);
                 const float ai = 0.01f;

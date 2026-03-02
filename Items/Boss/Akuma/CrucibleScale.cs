@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Akuma
 {
@@ -19,7 +20,7 @@ namespace AAMod.Items.Boss.Akuma
             Item.height = 30;
             Item.maxStack = 999;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

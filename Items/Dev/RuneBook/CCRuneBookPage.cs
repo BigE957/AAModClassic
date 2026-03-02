@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 
 namespace AAMod.Items.Dev.RuneBook
 {
@@ -33,7 +34,7 @@ When player has 3 minion slots, it summons bunny, discord and energy rune."); */
             Item.width = 32;
             Item.height = 32;
             Item.value = 100000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
         }
 

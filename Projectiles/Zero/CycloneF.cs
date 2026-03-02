@@ -33,7 +33,7 @@ namespace AAMod.Projectiles.Zero
         {
             Projectile.rotation += 0.03f;
             Projectile.velocity *= 0;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Projectile.ai[1]++;
             }

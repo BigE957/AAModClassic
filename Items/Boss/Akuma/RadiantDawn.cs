@@ -22,10 +22,10 @@ namespace AAMod.Items.Boss.Akuma
             Item.shoot = Mod.Find<ModProjectile>("RadiantDawn").Type;
             Item.useTime = 10;
             Item.useAnimation = 10;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.channel = true;
             Item.noMelee = true;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             AARarity = 13;
             Item.shootSpeed = 8f;
             Item.noUseGraphic = true;

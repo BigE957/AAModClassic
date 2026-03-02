@@ -21,9 +21,9 @@ namespace AAMod.Items.Dev.Minions
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.penetrate = 2;
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
             Projectile.timeLeft = 600;
-            AIType = 48;
+            AIType = ProjectileID.ThrowingKnife;
         }
 
         public override void AI()

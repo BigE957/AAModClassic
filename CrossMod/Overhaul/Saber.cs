@@ -71,15 +71,15 @@ namespace AAMod
                     }
 
                     // Set item time anyway, if not shoot, also make next slash upwards
-                    if (item.shoot <= 0 && player.itemTime == 0)
+                    if (item.shoot <= ProjectileID.None && player.itemTime == 0)
                     { player.itemTime = item.useTime; item.isBeingGrabbed = false; }
                 }
 
-                item.useStyle = 0;
+                item.useStyle = ItemUseStyleID.None;
             }
             else
             {
-                item.useStyle = 1;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.beingGrabbed = false;
             }
 
@@ -117,7 +117,7 @@ namespace AAMod
                                 Main.rand.Next(-2048, 2048) * (0.003f * player.itemTime) - 4);
                             Dust d = Main.dust[Dust.NewDust(
                                 player.MountedCenter + vector, 1, 1,
-                                45, 0, 0, 255,
+                                DustID.ManaRegeneration, 0, 0, 255,
                                 chargeColour, 1.5f)];
                             d.velocity = -vector / 16;
                             d.velocity -= player.velocity / 8;
@@ -208,7 +208,7 @@ namespace AAMod
                 }
             }
 
-            if (!quiet && Main.netMode == 1 && Main.myPlayer == player.whoAmI)
+            if (!quiet && Main.netMode == NetmodeID.MultiplayerClient && Main.myPlayer == player.whoAmI)
             {
                 NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
                 NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);

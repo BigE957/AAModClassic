@@ -14,7 +14,7 @@ namespace AAMod.Projectiles
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -71,7 +71,7 @@ namespace AAMod.Projectiles
             {
                 for (int num107 = 0; num107 < 3; num107++)
                 {
-                    int num108 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 240, 0f, 0f, 0);
+                    int num108 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Granite, 0f, 0f, 0);
                     Main.dust[num108].noGravity = true;
                     Main.dust[num108].velocity *= 0.3f;
                     Main.dust[num108].noLight = true;
@@ -91,7 +91,7 @@ namespace AAMod.Projectiles
                         Vector2 vector14 = Vector2.UnitX * 0f;
                         vector14 += -Vector2.UnitY.RotatedBy(num110 * (6.28318548f / num109), default) * new Vector2(1f, 4f);
                         vector14 = vector14.RotatedBy(Projectile.velocity.ToRotation(), default);
-                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, 62, 0f, 0f, 0);
+                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, DustID.PurpleTorch, 0f, 0f, 0);
                         Main.dust[num111].scale = 1.5f;
                         Main.dust[num111].noLight = true;
                         Main.dust[num111].noGravity = true;
@@ -117,18 +117,18 @@ namespace AAMod.Projectiles
             int height3 = num84;
             for (int num85 = 0; num85 < 4; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 20; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, 62, 0f, 0f, 200, default, 3.7f);
+                int num88 = Dust.NewDust(position, num84, height3, DustID.PurpleTorch, 0f, 0f, 200, default, 3.7f);
                 Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num88 = Dust.NewDust(position, num84, height3, 62, 0f, 0f, 100, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, DustID.PurpleTorch, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num88].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -139,7 +139,7 @@ namespace AAMod.Projectiles
             }
             for (int num89 = 0; num89 < 20; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, 62, 0f, 0f, 0, default, 2.7f);
+                int num90 = Dust.NewDust(position, num84, height3, DustID.PurpleTorch, 0f, 0f, 0, default, 2.7f);
                 Main.dust[num90].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
@@ -148,7 +148,7 @@ namespace AAMod.Projectiles
             }
             for (int num91 = 0; num91 < 70; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 0, default, 1.5f);
+                int num92 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 0, default, 1.5f);
                 Main.dust[num92].position = Projectile.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(Projectile.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;

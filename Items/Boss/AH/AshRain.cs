@@ -35,11 +35,11 @@ Right click to detonate fireballs"); */
             Item.height = 28;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;    
+            Item.useStyle = ItemUseStyleID.Shoot;    
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 25, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.mana = 5;
             Item.autoReuse = true;

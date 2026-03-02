@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAMod
@@ -34,10 +35,10 @@ namespace AAMod
 				player.direction = (center.X > player.Center.X ? 1 : -1);
 				player.itemRotation = (float)Math.Atan2(distY * player.direction, distX * player.direction);
 
-				if (player.whoAmI == Main.myPlayer && Main.netMode != 0)
+				if (player.whoAmI == Main.myPlayer && Main.netMode != NetmodeID.SinglePlayer)
 				{
-					NetMessage.SendData(13, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
-					NetMessage.SendData(41, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+					NetMessage.SendData(MessageID.PlayerControls, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+					NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
 				}
 			}
 			MoveItemLocationGun(player, item);
@@ -51,7 +52,7 @@ namespace AAMod
 		 */
 		public static void SetStyleBoss(Player player, Item item, bool useItemHitbox = false, bool center = false)
 		{
-			Rectangle hitbox = (useItemHitbox || Main.netMode == 2 || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, TextureAssets.Item[item.type].Value.Width, TextureAssets.Item[item.type].Value.Height));
+			Rectangle hitbox = (useItemHitbox || Main.netMode == NetmodeID.Server || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, TextureAssets.Item[item.type].Value.Width, TextureAssets.Item[item.type].Value.Height));
 			player.itemRotation = 0f;
 			player.itemLocation.X = player.position.X + (float)player.width * 0.5f + ((center ? 0f : (float)hitbox.Width * 0.5f) - 9f - player.itemRotation * 14f * (float)player.direction - 4f) * (float)player.direction;
 			player.itemLocation.Y = player.position.Y + (float)hitbox.Height * 0.5f + 4f;
@@ -60,10 +61,10 @@ namespace AAMod
 				player.itemRotation = -player.itemRotation;
 				player.itemLocation.Y = player.position.Y + (float)player.height + (player.position.Y - player.itemLocation.Y);
 			}
-			if (Main.myPlayer == player.whoAmI && Main.netMode != 0)
+			if (Main.myPlayer == player.whoAmI && Main.netMode != NetmodeID.SinglePlayer)
 			{
-				NetMessage.SendData(13, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
-				NetMessage.SendData(41, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+				NetMessage.SendData(MessageID.PlayerControls, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+				NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
 			}
 		}
 
@@ -88,10 +89,10 @@ namespace AAMod
                 float distY = Main.mouseY + Main.screenPosition.Y - player.Center.Y; 
                 player.itemRotation = (float)Math.Atan2(distY * player.direction, distX * player.direction);
 
-                if(Main.netMode != 0)
+                if(Main.netMode != NetmodeID.SinglePlayer)
                 {
-                    NetMessage.SendData(13, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
-                    NetMessage.SendData(41, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+                    NetMessage.SendData(MessageID.PlayerControls, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
+                    NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0f, 0f, 0f, 0);
                 }
             }
             MoveItemLocationGun(player, item);
@@ -118,10 +119,10 @@ namespace AAMod
         {
 			player.itemRotation = ((float)player.itemAnimation / player.itemAnimationMax - 0.5f) * -player.direction * 3.5f - player.direction * 0.3f;
 			if (player.gravDir == -1f) { player.itemRotation *= -1; }
-			if (Main.myPlayer == player.whoAmI && Main.netMode != 0)
+			if (Main.myPlayer == player.whoAmI && Main.netMode != NetmodeID.SinglePlayer)
 			{
-				NetMessage.SendData(13, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0.0f, 0.0f, 0.0f, 0);
-                NetMessage.SendData(41, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0.0f, 0.0f, 0.0f, 0);
+				NetMessage.SendData(MessageID.PlayerControls, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0.0f, 0.0f, 0.0f, 0);
+                NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, NetworkText.FromLiteral(""), player.whoAmI, 0.0f, 0.0f, 0.0f, 0);
             }
 			MoveItemLocationSword(player, item, basedOnRot);
         }
@@ -146,8 +147,8 @@ namespace AAMod
          */
         public static Vector2 MoveItemLocationGun(Vector2 center, Vector2 itemLocation, int direction, Item item)
         {
-            itemLocation.X = center.X - (Main.netMode == 2 || Main.dedServ ? item.width * 0.5f : TextureAssets.Item[item.type].Value.Width * 0.5f) - direction * 2;
-			itemLocation.Y = center.Y - (Main.netMode == 2 || Main.dedServ ? item.height * 0.5f : TextureAssets.Item[item.type].Value.Height * 0.5f);
+            itemLocation.X = center.X - (Main.netMode == NetmodeID.Server || Main.dedServ ? item.width * 0.5f : TextureAssets.Item[item.type].Value.Width * 0.5f) - direction * 2;
+			itemLocation.Y = center.Y - (Main.netMode == NetmodeID.Server || Main.dedServ ? item.height * 0.5f : TextureAssets.Item[item.type].Value.Height * 0.5f);
             return itemLocation;
         }
 

@@ -24,11 +24,11 @@ Storm Rifle EX"); */
             Item.height = 30;
             Item.useTime = 2; 
             Item.useAnimation = 6; 
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = Mod.Find<ModProjectile>("SThunderBullet").Type;
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Thunderlord");
             Item.autoReuse = true; 
             Item.shootSpeed = 9f;

@@ -20,7 +20,7 @@ namespace AAMod.Items.Armor.Kindled
 			Item.width = 24;
 			Item.height = 20;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.defense = 7;
 		}
 

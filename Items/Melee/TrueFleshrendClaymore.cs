@@ -23,10 +23,10 @@ Despite the name, it's not actually made of flesh"); */
 			Item.height = 71;
 			Item.useTime = 29;
 			Item.useAnimation = 29;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 8;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("TrueFleshClaymoreShot").Type;

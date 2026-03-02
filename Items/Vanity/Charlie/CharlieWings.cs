@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Charlie
@@ -22,7 +23,7 @@ Hold down and jump to hover for an extended period of time
             Item.width = 42;
             Item.height = 42;
             Item.value = 500000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
         }
 

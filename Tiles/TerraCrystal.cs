@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles
@@ -14,7 +15,7 @@ namespace AAMod.Tiles
             Main.tileMerge[Type][Mod.Find<ModTile>("TerraWood").Type] = true;
             HitSound = 21;
             Main.tileLighted[Type] = true;
-            DustType = 107;
+            DustType = DustID.Terra;
             AddMapEntry(new Color(39, 125, 37));
         }
 

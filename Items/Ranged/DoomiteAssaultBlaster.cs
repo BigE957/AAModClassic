@@ -11,7 +11,7 @@ namespace AAMod.Items.Ranged
         public override void SetDefaults()
         {
             Item.autoReuse = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 19;
             Item.useTime = 19;
             Item.width = 52;
@@ -21,7 +21,7 @@ namespace AAMod.Items.Ranged
             Item.damage = 15;
             Item.shootSpeed = 9f;
             Item.noMelee = true;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.autoReuse = true;
             Item.DamageType = DamageClass.Ranged;
             Item.value = 20000;

@@ -11,10 +11,10 @@ namespace AAMod.Projectiles
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.penetrate = 1;
-			Projectile.aiStyle = 27;
+			Projectile.aiStyle = ProjAIStyleID.Beam;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.timeLeft = 1200;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;

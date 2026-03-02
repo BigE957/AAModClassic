@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Grips
@@ -11,7 +12,7 @@ namespace AAMod.Items.Boss.Grips
             Item.width = 26;
             Item.height = 30;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = -12;
+            Item.rare = ItemRarityID.Expert;
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
         }

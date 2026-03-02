@@ -26,7 +26,7 @@ namespace AAMod.Tiles.Boss
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-            DustType = 7;
+            DustType = DustID.WoodFurniture;
             MinPick = 500;
             MineResist = 10f;
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
@@ -49,7 +49,7 @@ namespace AAMod.Tiles.Boss
                     int n = NPC.NewNPC(i + 1, j + 1, Mod.Find<ModNPC>("LuciferSitting").Type);
                     if (Main.netMode == NetmodeID.Server)
                     {
-                        NetMessage.SendData(23, -1, -1, null, n);
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
                 }
             }

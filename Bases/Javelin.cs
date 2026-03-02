@@ -57,7 +57,7 @@ namespace AAMod.Projectiles
 
                 // Sync the drop for multiplayer
                 // Note the usage of Terraria.ID.MessageID, please use projectile!
-                if (Main.netMode == 1 && item >= 0)
+                if (Main.netMode == NetmodeID.MultiplayerClient && item >= 0)
                 {
                     NetMessage.SendData(MessageID.SyncItem, -1, -1, null, item, 1f);
                 }

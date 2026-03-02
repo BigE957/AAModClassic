@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Hydra
 {
@@ -19,11 +20,11 @@ namespace AAMod.Items.Boss.Hydra
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
 			Item.createTile = Mod.Find<ModTile>("HydraTrophy").Type;
 		}

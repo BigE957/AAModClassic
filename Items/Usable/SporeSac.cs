@@ -18,9 +18,9 @@ namespace AAMod.Items.Usable
 			Item.useAnimation = 28;
 			Item.shoot = Mod.Find<ModProjectile>("SPORZ").Type;
 			Item.shootSpeed = 1f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = Item.sellPrice(0, 0, 1, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}

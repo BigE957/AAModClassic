@@ -19,7 +19,7 @@ namespace AAMod.Projectiles.Akuma
         {
             Projectile.width = 14;
             Projectile.height = 14;
-            Projectile.aiStyle = 34;
+            Projectile.aiStyle = ProjAIStyleID.FireWork;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.timeLeft = 45;

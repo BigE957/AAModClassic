@@ -114,7 +114,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			}
 			if (player.editedChestName)
 			{
-				NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
+				NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
 				player.editedChestName = false;
 			}
 			if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -127,7 +127,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					NetMessage.SendData(31, -1, -1, null, left, top, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, null, left, top, 0f, 0f, 0, 0, 0);
 					Main.stackSplit = 600;
 				}
 			}
@@ -197,7 +197,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 			if (player.cursorItemIconText == "")
 			{
 				player.cursorItemIconEnabled = false;
-				player.cursorItemIconID = 0;
+				player.cursorItemIconID = ItemID.None;
 			}
 		}
 	}

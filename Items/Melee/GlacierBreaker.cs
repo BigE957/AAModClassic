@@ -17,7 +17,7 @@ namespace AAMod.Items.Melee   //where is located
 
             Item.knockBack = 6;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.autoReuse = true;   
             Item.useTurn = false;
             Item.shoot = Mod.Find<ModProjectile>("GlacierBreaker").Type;

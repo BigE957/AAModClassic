@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -22,8 +23,8 @@ Used to create ancient crafting stations"); */
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 11;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Purple;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
             Item.createTile = Mod.Find<ModTile>("TerraCore").Type;

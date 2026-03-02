@@ -5,6 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 
 namespace AAMod.Items.Armor.Radium
@@ -26,7 +27,7 @@ Shines with the light of a starry night sky"); */
 			Item.height = 20;
 			Item.value = 300000;
 			Item.defense = 30;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 
@@ -55,7 +56,7 @@ Shines with the light of a starry night sky"); */
 		{
             const float effectRange = 500;
             player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHelmetBonus");
-            if (Main.netMode != 0)
+            if (Main.netMode != NetmodeID.SinglePlayer)
             {
                 for (int p = 0; p < Main.player.Length; p++)
                 {

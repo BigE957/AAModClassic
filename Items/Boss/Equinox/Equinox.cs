@@ -22,7 +22,7 @@ Gives immensely increased stats
             Item.width = 32;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
         }

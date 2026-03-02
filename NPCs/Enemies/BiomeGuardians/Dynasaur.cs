@@ -39,7 +39,7 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
 
 		public override void OnKill()
 		{
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				for (int m = 0; m < 8; m++)
 				{
@@ -62,13 +62,13 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
         {
             Player player = Main.player[NPC.target];
             NPC.noGravity = true;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[3]++;
             }
             if (NPC.ai[3] > 240)
             {
-                if (SelectPoint && Main.netMode != 1)
+                if (SelectPoint && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     float Point = 500 * NPC.direction;
                     MovePoint = player.Center + new Vector2(Point, 500f);
@@ -76,7 +76,7 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
                     NPC.netUpdate = true;
                 }
                 MoveToPoint(MovePoint);
-                if (NPC.ai[3] > 300 && Main.netMode != 1)
+                if (NPC.ai[3] > 300 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai = new float[4];
                     NPC.netUpdate = true;
@@ -216,7 +216,7 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
                         NPC.ai[2] = -300f;
                     }
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0] += 1f;
                     if (NPC.ai[0] == 20f || NPC.ai[0] == 40f || NPC.ai[0] == 60f || NPC.ai[0] == 80f || NPC.ai[0] == 100f)

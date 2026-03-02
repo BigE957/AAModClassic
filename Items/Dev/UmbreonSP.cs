@@ -22,10 +22,10 @@ namespace AAMod.Items.Dev
 			Item.height = 84;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
 			Item.value = Item.sellPrice(0, 1, 50, 0);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("UmbreonSPProjectile").Type;

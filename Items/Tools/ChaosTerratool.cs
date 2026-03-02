@@ -12,13 +12,13 @@ namespace AAMod.Items.Tools
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 54;
             Item.height = 60;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 5;
             Item.useAnimation = 20;
             Item.tileBoost += 3;
             Item.knockBack = 3;
             Item.value = 1000000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;

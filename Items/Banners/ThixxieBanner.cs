@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Banners
@@ -14,9 +15,9 @@ namespace AAMod.Items.Banners
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.createTile = Mod.Find<ModTile>("ThixxieBanner").Type;
 			Item.placeStyle = 0;

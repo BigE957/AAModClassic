@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
@@ -16,7 +17,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
             Projectile.timeLeft = 800;
             Projectile.penetrate = 10;
             Projectile.tileCollide = true;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
         }
 
 		public override void SetStaticDefaults()

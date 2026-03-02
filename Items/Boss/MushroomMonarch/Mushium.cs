@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Boss.MushroomMonarch
 {
     public class Mushium : BaseAAItem
@@ -7,7 +9,7 @@ namespace AAMod.Items.Boss.MushroomMonarch
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 999;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.value = Terraria.Item.sellPrice(0, 0, 3, 0);
         }
 

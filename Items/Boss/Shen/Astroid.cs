@@ -21,10 +21,10 @@ Inflicts Discordian Inferno"); */
             Item.width = 20;
             Item.height = 20;
             Item.value = Item.sellPrice(1, 50, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
 
             Item.noMelee = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 7.5F;

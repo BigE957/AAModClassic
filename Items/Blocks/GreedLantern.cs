@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -16,7 +17,7 @@ namespace AAMod.Items.Blocks
 			Item.height = 34;
             Item.value = 150;
             Item.maxStack = 99;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTime = 10;
             Item.useAnimation = 15;
             Item.useTurn = true;

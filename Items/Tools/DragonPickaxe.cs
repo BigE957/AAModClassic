@@ -17,10 +17,10 @@ namespace AAMod.Items.Tools
             Item.useTime = 12;
             Item.useAnimation = 24;
             Item.pick = 130;    //pickaxe power
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 0;
             Item.value = 10;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;

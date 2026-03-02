@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
 
 namespace AAMod.NPCs.Bosses.Hydra
 {
@@ -47,7 +48,7 @@ namespace AAMod.NPCs.Bosses.Hydra
             Rectangle rectangle5 = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
             for (int num886 = 0; num886 < 1000; num886++)
             {
-                if (num886 != Projectile.whoAmI && Main.projectile[num886].active && Main.projectile[num886].type >= 511 && Main.projectile[num886].type <= 513)
+                if (num886 != Projectile.whoAmI && Main.projectile[num886].active && Main.projectile[num886].type >= ProjectileID.ToxicCloud && Main.projectile[num886].type <= ProjectileID.ToxicCloud3)
                 {
                     Rectangle value53 = new Rectangle((int)Main.projectile[num886].position.X, (int)Main.projectile[num886].position.Y, Main.projectile[num886].width, Main.projectile[num886].height);
                     if (rectangle5.Intersects(value53))

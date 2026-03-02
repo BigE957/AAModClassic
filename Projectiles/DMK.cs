@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -12,7 +13,7 @@ namespace AAMod.Projectiles
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -35,9 +36,9 @@ namespace AAMod.Projectiles
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 2;
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
             Projectile.timeLeft = 600;
-            AIType = 48;
+            AIType = ProjectileID.ThrowingKnife;
         }
 
         public override bool PreDraw(ref Color lightColor)

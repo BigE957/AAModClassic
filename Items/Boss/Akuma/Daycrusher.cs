@@ -23,7 +23,7 @@ Inflicts Daybroken"); */
             Item.height = 44;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.reuseDelay = 10;
@@ -34,7 +34,7 @@ Inflicts Daybroken"); */
             Item.shootSpeed = 20F;
             Item.UseSound = SoundID.Item20;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

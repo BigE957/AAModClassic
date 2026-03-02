@@ -17,7 +17,7 @@ namespace AAMod.NPCs.Enemies.Sky
         {
             NPC.width = 38;
             NPC.height = 38;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 30;
             NPC.defense = 30;
             NPC.lifeMax = 800;

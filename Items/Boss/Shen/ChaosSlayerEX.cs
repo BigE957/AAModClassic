@@ -22,7 +22,7 @@ Chaos Slayer EX"); */
             Item.width = 85;
             Item.height = 85;
             Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.UseSound = SoundID.Item103;

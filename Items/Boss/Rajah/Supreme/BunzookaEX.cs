@@ -25,7 +25,7 @@ Bunnyzooka EX"); */
             Item.height = 28;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; //so the item's animation doesn't do damage
             Item.knockBack = 7.5f;
             Item.value = Item.sellPrice(0, 5, 0, 0);
@@ -34,7 +34,7 @@ Bunnyzooka EX"); */
             Item.shootSpeed = 24f;
             Item.shoot = Mod.Find<ModProjectile>("RabbitRocketEX").Type;
             Item.useAmmo = AmmoID.Rocket;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.expert = true; Item.expertOnly = true;
         }
 

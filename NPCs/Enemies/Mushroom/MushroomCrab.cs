@@ -17,7 +17,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
         {
             NPC.width = 44;
             NPC.height = 34;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.damage = 16;
             NPC.defense = 20;
             NPC.lifeMax = 140;

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Mask
@@ -18,7 +19,7 @@ namespace AAMod.Items.Vanity.Mask
         {
             Item.width = 24;
             Item.height = 26;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
 

@@ -22,7 +22,7 @@ namespace AAMod.NPCs.Enemies.Snow
             NPC.lifeMax = 250;
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;

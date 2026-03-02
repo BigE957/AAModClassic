@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using Terraria.ID;
 
 namespace AAMod.Items.Mushrooms
 {
@@ -18,7 +19,7 @@ namespace AAMod.Items.Mushrooms
         {
             Item.width = 16;
             Item.height = 16;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.maxStack = 99;
             Item.expert = true; Item.expertOnly = true;
             Item.value = Item.sellPrice(0, 0, 0, 0);

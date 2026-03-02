@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using Terraria;
+using Terraria.ID;
 
 
 namespace AAMod.Items.Boss.Toad
@@ -20,7 +21,7 @@ Increased jump height"); */
             Item.width = 34;
             Item.height = 34;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.accessory = true;
             Item.expertOnly = true;
             Item.expert = true; Item.expertOnly = true;

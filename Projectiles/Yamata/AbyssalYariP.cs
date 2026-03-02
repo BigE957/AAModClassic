@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using System;
+using Terraria.ID;
 
 namespace AAMod.Projectiles.Yamata
 {
@@ -12,7 +13,7 @@ namespace AAMod.Projectiles.Yamata
             Projectile.width = 75;
             Projectile.height = 75;
             Projectile.scale = 1.1f;
-            Projectile.aiStyle = 19;
+            Projectile.aiStyle = ProjAIStyleID.Spear;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;

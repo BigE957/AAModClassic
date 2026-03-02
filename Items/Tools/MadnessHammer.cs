@@ -10,7 +10,7 @@ namespace AAMod.Items.Tools
         {
             Item.width = 40;
             Item.height = 40;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 30;
             Item.useTime = 24;

@@ -17,14 +17,14 @@ namespace AAMod.Items.Boss.Yamata
 			Item.useTime = 5;
 			Item.useAnimation = 8;
             Item.noUseGraphic = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 1;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.shootSpeed = 15f;
 			Item.shoot = Mod.Find<ModProjectile>("TC").Type;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void SetStaticDefaults()

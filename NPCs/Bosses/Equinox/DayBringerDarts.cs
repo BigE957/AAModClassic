@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Equinox
@@ -30,9 +31,9 @@ namespace AAMod.NPCs.Bosses.Equinox
                 Projectile.Kill();
             }
 
-            int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, new Color(250, 244, 171), 2f);
+            int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, new Color(250, 244, 171), 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 100, new Color(250, 244, 171), 2f);
+            int dustId3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, new Color(250, 244, 171), 2f);
             Main.dust[dustId3].noGravity = true;
         }
 

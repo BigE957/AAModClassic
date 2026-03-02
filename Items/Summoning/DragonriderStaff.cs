@@ -19,13 +19,13 @@ namespace AAMod.Items.Summoning
         {
             Item.mana = 20;
             Item.damage = 50;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
             Item.shoot = Mod.Find<ModProjectile>("DragonHead").Type;
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.noMelee = true;

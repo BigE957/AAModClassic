@@ -47,7 +47,7 @@ namespace AAMod
                 projectile.velocity = reflectvelocity;
                 projectile.rotation += projectile.velocity.ToRotation() - oldvelocity.ToRotation();
             }
-            if (!projectile.minion && projectile.type > 0 && !projectile.CountsAsClass(DamageClass.Melee) && !projectile.CountsAsClass(DamageClass.Magic) && !projectile.CountsAsClass(DamageClass.Ranged))
+            if (!projectile.minion && projectile.type > ProjectileID.None && !projectile.CountsAsClass(DamageClass.Melee) && !projectile.CountsAsClass(DamageClass.Magic) && !projectile.CountsAsClass(DamageClass.Ranged))
             {
                 for (int j = 0; j < 1000; j++)
                 {
@@ -236,9 +236,9 @@ namespace AAMod
                         if (CreatItem.stack > 0)
                         {
                             int number = Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, item.type, 1, false, 0, true, false);
-                            if (Main.netMode == 1)
+                            if (Main.netMode == NetmodeID.MultiplayerClient)
                             {
-                                NetMessage.SendData(21, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
+                                NetMessage.SendData(MessageID.SyncItem, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
                             }
                         }
                         else
@@ -266,37 +266,37 @@ namespace AAMod
                     {
                         if (Main.tile[k, l].TileType == ModContent.TileType<InfernoGrass>() || Main.tile[k, l].TileType == ModContent.TileType<MireGrass>() || Main.tile[k, l].TileType == ModContent.TileType<Mycelium>() || Main.tile[k, l].TileType == ModContent.TileType<Doomgrass>())
                         {
-                            Main.tile[k, l].TileType = 2;
+                            Main.tile[k, l].TileType = TileID.Grass;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (Main.tile[k, l].TileType == ModContent.TileType<Torchstone>() || Main.tile[k, l].TileType == ModContent.TileType<Depthstone>() || Main.tile[k, l].TileType == ModContent.TileType<DoomstoneB>())
                         {
-                            Main.tile[k, l].TileType = 1;
+                            Main.tile[k, l].TileType = TileID.Stone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsand>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsand>())
                         {
-                            Main.tile[k, l].TileType = 53;
+                            Main.tile[k, l].TileType = TileID.Sand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (Main.tile[k, l].TileType == ModContent.TileType<TorchsandHardened>() || Main.tile[k, l].TileType == ModContent.TileType<DepthsandHardened>())
                         {
-                            Main.tile[k, l].TileType = 397;
+                            Main.tile[k, l].TileType = TileID.HardenedSand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsandstone>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsandstone>())
                         {
-                            Main.tile[k, l].TileType = 396;
+                            Main.tile[k, l].TileType = TileID.Sandstone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
                         else if (Main.tile[k, l].TileType == ModContent.TileType<Torchice>() || Main.tile[k, l].TileType == ModContent.TileType<IndigoIce>())
                         {
-                            Main.tile[k, l].TileType = 161;
+                            Main.tile[k, l].TileType = TileID.IceBlock;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
                         }
@@ -307,7 +307,7 @@ namespace AAMod
 
         public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
 		{
-            if (projectile.type != 356 && (projectile.minion || projectile.sentry) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().CursedEyeofSoulBinder)
+            if (projectile.type != ProjectileID.SpectreWrath && (projectile.minion || projectile.sentry) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().CursedEyeofSoulBinder)
             {
                 int num = Main.rand.Next(1, 3);
                 for(int i = 0; i < num; i++)

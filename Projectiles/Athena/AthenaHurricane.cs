@@ -99,7 +99,7 @@ namespace AAMod.Projectiles.Athena
 					value77.X *= -1f;
 					Vector2 value78 = new Vector2(6f, 10f);
 					Vector2 position3 = vector146 + value74 * value77 * 0.5f + value78;
-					Dust dust33 = Main.dust[Dust.NewDust(position3, 0, 0, 16, 0f, 0f, 0, default, 1.5f)];
+					Dust dust33 = Main.dust[Dust.NewDust(position3, 0, 0, DustID.Cloud, 0f, 0f, 0, default, 1.5f)];
 					dust33.position = position3;
 					dust33.customData = vector146 + value78;
 					dust33.fadeIn = 1f;
@@ -236,9 +236,9 @@ namespace AAMod.Projectiles.Athena
             }
             int num557 = 8;
 
-            int dustId = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 76, 0f, 0f, 0);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, DustID.Snow, 0f, 0f, 0);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 76, 0f, 0f, 0);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, DustID.Snow, 0f, 0f, 0);
             Main.dust[dustId3].noGravity = true;
         }
 
@@ -254,10 +254,10 @@ namespace AAMod.Projectiles.Athena
             }
             for (int num579 = 0; num579 < 20; num579++)
             {
-                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Snow, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 2f;
-                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 76, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Snow, -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num580].velocity *= 2f;
             }
         }

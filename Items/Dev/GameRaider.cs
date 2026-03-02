@@ -23,7 +23,7 @@ namespace AAMod.Items.Dev
             Item.height = 28;
             Item.useTime = 35;
             Item.useAnimation = 35;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 7.5f;
             Item.value = Item.sellPrice(0, 5, 0, 0);
@@ -32,7 +32,7 @@ namespace AAMod.Items.Dev
             Item.shootSpeed = 25f;
             Item.shoot = Mod.Find<ModProjectile>("GameRocket").Type;
             Item.useAmmo = AmmoID.Rocket;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

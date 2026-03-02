@@ -97,7 +97,7 @@ namespace AAMod.Projectiles.Thorium
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(44, 200, false);
+                target.AddBuff(BuffID.Frostburn, 200, false);
             }
         }
 

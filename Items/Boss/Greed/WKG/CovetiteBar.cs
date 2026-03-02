@@ -16,12 +16,12 @@ namespace AAMod.Items.Boss.Greed.WKG
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.value = 16000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("CovetiteBar").Type;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

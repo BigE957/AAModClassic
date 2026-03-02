@@ -19,11 +19,11 @@ namespace AAMod.Items.Magic
             Item.height = 38;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.value = 1000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Gunk").Type;

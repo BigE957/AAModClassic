@@ -16,36 +16,36 @@ namespace AAMod.Projectiles
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(133);
-			Projectile.aiStyle = 16;
-			AIType = 133;
+			Projectile.aiStyle = ProjAIStyleID.Explosive;
+			AIType = ProjectileID.GrenadeI;
         }
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			Projectile.type = 133;
+			Projectile.type = ProjectileID.GrenadeI;
 			Projectile.timeLeft = 3;
 			return true;
 		}
 		
 		public override void OnKill(int timeLeft)
 		{
-			Projectile.type = 133;
+			Projectile.type = ProjectileID.GrenadeI;
 			SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
 			int num3;
 			for (int num729 = 0; num729 < 30; num729 = num3 + 1)
 			{
-				int num730 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default, 1.5f);
+				int num730 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
 				Dust dust = Main.dust[num730];
 				dust.velocity *= 1.4f;
 				num3 = num729;
 			}
 			for (int num731 = 0; num731 < 20; num731 = num3 + 1)
 			{
-				int num732 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 3.5f);
+				int num732 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 3.5f);
 				Main.dust[num732].noGravity = true;
 				Dust dust = Main.dust[num732];
 				dust.velocity *= 7f;
-				num732 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 1.5f);
+				num732 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.5f);
 				dust = Main.dust[num732];
 				dust.velocity *= 3f;
 				num3 = num731;

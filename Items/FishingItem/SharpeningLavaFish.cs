@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.FishingItem
 {
@@ -18,9 +19,9 @@ namespace AAMod.Items.FishingItem
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             AARarity = 6;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 128000;
             Item.createTile = Mod.Find<ModTile>("SharpeningLavaFishTile").Type;

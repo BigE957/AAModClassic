@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,8 +10,8 @@ namespace AAMod.Projectiles
         public override void SetDefaults()
         {
 			Projectile.CloneDefaults(344);
-			Projectile.aiStyle = 1;
-			AIType = 344;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
+			AIType = ProjectileID.NorthPoleSnowflake;
 			Main.projFrames[Projectile.type] = 3;
 			Projectile.light = 1f;
         }
@@ -25,7 +26,7 @@ namespace AAMod.Projectiles
 			int num3;
 			for (int num367 = 0; num367 < 3; num367 = num3 + 1)
 			{
-				int num368 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 180, 0f, 0f, 0);
+				int num368 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.DungeonSpirit, 0f, 0f, 0);
 				Main.dust[num368].noGravity = true;
 				Main.dust[num368].scale = Projectile.scale;
 				num3 = num367;

@@ -27,13 +27,13 @@ namespace AAMod.Items.Boss.Zero
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.useAnimation = 10;
             Item.useTime = 10;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2f;
             Item.UseSound = SoundID.Item116;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = Mod.Find<ModProjectile>("EventHorizon").Type;
             Item.shootSpeed = 22f;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
 

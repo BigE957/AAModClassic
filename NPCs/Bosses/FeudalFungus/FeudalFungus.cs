@@ -54,7 +54,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             NPC.defense = 12;    //boss defense
             NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
             NPC.value = Item.sellPrice(0, 0, 50, 0);
-            NPC.aiStyle = 26;
+            NPC.aiStyle = NPCAIStyleID.Unicorn;
             NPC.width = 74;
             NPC.height = 108;
             NPC.npcSlots = 1f;
@@ -133,7 +133,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
             NPC.noTileCollide = true;
 
-            if (Main.netMode != 1 && internalAI[1] != AISTATE_SHOOT)
+            if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[1] != AISTATE_SHOOT)
 			{
                 internalAI[0]++;
                 if (internalAI[0] >= 180)
@@ -155,7 +155,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             else if (internalAI[1] == AISTATE_SHOOT)
             {
                 BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 56f, null);
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[0]++;
                 }
@@ -171,7 +171,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
             NPC.rotation = 0;
 
-            if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != 1)
+            if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[4] = 0;
                 Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));

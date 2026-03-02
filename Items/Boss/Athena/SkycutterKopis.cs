@@ -19,10 +19,10 @@ namespace AAMod.Items.Boss.Athena
 			Item.height = 50;
             Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = Item.sellPrice(gold: 1);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Skyblade").Type;

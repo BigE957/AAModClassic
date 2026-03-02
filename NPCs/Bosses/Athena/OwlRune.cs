@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using AAMod.NPCs.Enemies.Sky;
+using Terraria.ID;
 
 namespace AAMod.NPCs.Bosses.Athena
 {
@@ -15,7 +16,7 @@ namespace AAMod.NPCs.Bosses.Athena
             NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.lifeMax = 1;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = Main.expertMode ? 50 : 84;
             NPC.defense = 1;
             NPC.knockBackResist = 0f;
@@ -36,7 +37,7 @@ namespace AAMod.NPCs.Bosses.Athena
             {
                 NPC.alpha -= 5;
                 NPC.scale += .019f;
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0]++;
                     if (NPC.ai[0] >= 51)
@@ -59,7 +60,7 @@ namespace AAMod.NPCs.Bosses.Athena
                 {
                     NPC.scale = 1;
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0]++;
                     if (NPC.ai[0] >= 300)
@@ -88,7 +89,7 @@ namespace AAMod.NPCs.Bosses.Athena
             }
             else
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0]++;
                     if (NPC.ai[0] >= 51)

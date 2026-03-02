@@ -21,7 +21,7 @@ namespace AAMod.NPCs.Bosses.Anubis
             NPC.lifeMax = 500;
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;

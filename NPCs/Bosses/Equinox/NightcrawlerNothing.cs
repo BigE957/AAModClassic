@@ -131,7 +131,7 @@ namespace AAMod.NPCs.Bosses.Equinox
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(163, 60);
+            target.AddBuff(BuffID.Obstructed, 60);
         }
 
         public void SpawnDust()

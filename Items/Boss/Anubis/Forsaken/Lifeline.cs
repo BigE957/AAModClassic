@@ -18,14 +18,14 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
             Item.height = 60;
             Item.useTime = 14;
             Item.useAnimation = 14;
-            Item.useStyle = 5;
-            Item.shoot = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 2;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
             Item.shootSpeed = 25f;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void SetStaticDefaults()

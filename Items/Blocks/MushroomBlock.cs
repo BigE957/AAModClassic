@@ -16,8 +16,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("MushroomBlock").Type; //put your CustomBlock Tile name
         }

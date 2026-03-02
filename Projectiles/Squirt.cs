@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -45,11 +46,11 @@ namespace AAMod.Projectiles
         {
             for (int num468 = 0; num468 < 5; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 4, -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.TintableDust, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, Color.White, 1f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 4, -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.TintableDust, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, Color.White, 1f);
                 Main.dust[num469].velocity *= 2f;
             }

@@ -13,7 +13,7 @@ namespace AAMod.Items.Blocks
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -23,7 +23,7 @@ namespace AAMod.Items.Blocks
             Item.placeStyle = 0;
             Item.width = 28;
             Item.height = 26;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.value = 1000;
             Item.accessory = false;
         }

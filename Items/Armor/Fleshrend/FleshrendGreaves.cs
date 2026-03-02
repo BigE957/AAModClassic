@@ -20,7 +20,7 @@ namespace AAMod.Items.Armor.Fleshrend
 			Item.width = 22;
 			Item.height = 20;
 			Item.value = 90000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 8;
 		}
 

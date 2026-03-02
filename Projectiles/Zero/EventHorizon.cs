@@ -14,7 +14,7 @@ namespace AAMod.Projectiles.Zero
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -31,7 +31,7 @@ namespace AAMod.Projectiles.Zero
         {
             Projectile.width = 16;
             Projectile.height = 16;
-            Projectile.aiStyle = 75;
+            Projectile.aiStyle = ProjAIStyleID.HeldProjectile;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;

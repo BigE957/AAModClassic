@@ -24,17 +24,17 @@ namespace AAMod.Items.Boss.Yamata
             Item.useAnimation = 17;
             Item.useTime = 5;
             Item.reuseDelay = 7;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2.5f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
-            Item.shoot = 1;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.shootSpeed = 16f;
             Item.useAmmo = AmmoID.Arrow;
             Item.expert = true; Item.expertOnly = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
 
         public override bool CanConsumeAmmo(Item ammo, Player player)

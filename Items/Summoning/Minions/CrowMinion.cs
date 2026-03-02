@@ -18,8 +18,8 @@ namespace AAMod.Items.Summoning.Minions
         public override void SetDefaults()
         {
 			Projectile.CloneDefaults(317);
-			Projectile.aiStyle = 54;
-			AIType = 317;
+			Projectile.aiStyle = ProjAIStyleID.Raven;
+			AIType = ProjectileID.Raven;
             Projectile.width = 40;
             Projectile.height = 32;
             Projectile.timeLeft = 18000;

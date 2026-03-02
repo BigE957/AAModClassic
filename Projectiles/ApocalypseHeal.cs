@@ -47,7 +47,7 @@ namespace AAMod.Projectiles
 					{
 						Main.player[num487].statLife = Main.player[num487].statLifeMax2;
 					}
-					NetMessage.SendData(66, -1, -1, null, num487, 1, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, num487, 1, 0f, 0f, 0, 0, 0);
 				}
 				Projectile.Kill();
             }
@@ -61,7 +61,7 @@ namespace AAMod.Projectiles
             {
                 float num494 = Projectile.velocity.X * 0.334f * num493;
                 float num495 = -(Projectile.velocity.Y * 0.334f) * num493;
-                int num496 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 1.1f);
+                int num496 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.1f);
                 Main.dust[num496].noGravity = true;
                 Main.dust[num496].velocity *= 0f;
                 Dust expr_153E2_cp_0 = Main.dust[num496];
@@ -73,7 +73,7 @@ namespace AAMod.Projectiles
             {
                 float num498 = Projectile.velocity.X * 0.2f * num497;
                 float num499 = -(Projectile.velocity.Y * 0.2f) * num497;
-                int num500 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 1.3f);
+                int num500 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 1.3f);
                 Main.dust[num500].noGravity = true;
                 Main.dust[num500].velocity *= 0f;
                 Dust expr_154F9_cp_0 = Main.dust[num500];
@@ -94,7 +94,7 @@ namespace AAMod.Projectiles
 			Projectile.position.Y = Projectile.position.Y - Projectile.height / 2;
 			for (int num621 = 0; num621 < 10; num621++)
 			{
-				int num622 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 2f);
+				int num622 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 2f);
 				Main.dust[num622].velocity *= 3f;
 				if (Main.rand.Next(2) == 0)
 				{
@@ -104,10 +104,10 @@ namespace AAMod.Projectiles
 			}
 			for (int num623 = 0; num623 < 15; num623++)
 			{
-				int num624 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 66, 0f, 0f, 100, default, 3f);
+				int num624 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.RainbowTorch, 0f, 0f, 100, default, 3f);
 				Main.dust[num624].noGravity = true;
 				Main.dust[num624].velocity *= 5f;
-				num624 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 2f);
+				num624 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 2f);
 				Main.dust[num624].velocity *= 2f;
 			}
         }

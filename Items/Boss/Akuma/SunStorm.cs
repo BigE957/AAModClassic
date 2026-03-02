@@ -23,7 +23,7 @@ Right click and hold to release and aim manually"); */
         {
             Item.autoReuse = true;
             Item.mana = 15;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.damage = 450;
             Item.useAnimation = 30;
             Item.useTime = 30;
@@ -34,7 +34,7 @@ Right click and hold to release and aim manually"); */
             Item.knockBack = 4.5f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.DamageType = DamageClass.Magic;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.noMelee = true;
             Item.UseSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);

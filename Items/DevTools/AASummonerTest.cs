@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.DevTools
 {
@@ -16,11 +17,11 @@ namespace AAMod.Items.DevTools
         {
             Item.width = 16;
             Item.height = 16;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
         public override bool CanUseItem(Player player)

@@ -61,7 +61,7 @@ namespace AAMod.NPCs.Bosses.Shen
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 228, 0f, 0f, 100, default, 2f);
+                    int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GoldFlame, 0f, 0f, 100, default, 2f);
                     Main.dust[num2].noGravity = true;
                     Main.dust[num2].noLight = true;
                 }
@@ -92,7 +92,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     NPC.velocity.Y = NPC.velocity.Y + num4;
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
 
                 if (NPC.ai[0] == 0f)
@@ -122,10 +122,10 @@ namespace AAMod.NPCs.Bosses.Shen
                         NPC.netUpdate = true;
                     }
                     int num10 = ModContent.NPCType<ShenlingTail>();
-                    if(Main.netMode != 1)
+                    if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         int num11 = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-                        if (Main.netMode == 2 && num11 < 200) NetMessage.SendData(23, -1, -1, null, num11);
+                        if (Main.netMode == NetmodeID.Server && num11 < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, num11);
                         Main.npc[num11].ai[3] = NPC.whoAmI;
                         Main.npc[num11].realLife = NPC.whoAmI;
                         Main.npc[num11].ai[1] = num9;
@@ -445,7 +445,7 @@ namespace AAMod.NPCs.Bosses.Shen
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -576,7 +576,7 @@ namespace AAMod.NPCs.Bosses.Shen
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -707,7 +707,7 @@ namespace AAMod.NPCs.Bosses.Shen
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {

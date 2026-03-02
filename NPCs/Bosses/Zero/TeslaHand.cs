@@ -82,19 +82,19 @@ namespace AAMod.NPCs.Bosses.Zero
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(zero.Center, zero.Center + new Vector2(((Zero)zero.ModNPC).Distance, 0f), rotValue);
 
-            if (Main.netMode != 1) { NPC.ai[2]++; }
+            if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 
             Player player = Main.player[zero.target];
 
             int aiTimerFire = Main.expertMode ? 120 : 180;
 
-            if (zero.ai[0] > 0 && Main.netMode != 1)
+            if (zero.ai[0] > 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.active = false;
                 NPC.netUpdate = true;
             }
 
-            if (Main.netMode != 1) { NPC.ai[2]++; }
+            if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 
             if (NPC.ai[2] == aiTimerFire)
             {

@@ -58,12 +58,12 @@ namespace AAMod.Tiles.Furniture.Oroboros
 			if (player.SpawnX == spawnX && player.SpawnY == spawnY)
 			{
 				player.RemoveSpawn();
-				if (Main.netMode != 1) BaseUtility.Chat(Lang.TilesInfo("Spawnpointremoved"), 255, 240, 20, false);
+				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("Spawnpointremoved"), 255, 240, 20, false);
 			}
 			else if (Player.CheckSpawn(spawnX, spawnY))
 			{
 				player.ChangeSpawn(spawnX, spawnY);
-				if (Main.netMode != 1) BaseUtility.Chat(Lang.TilesInfo("Spawnpointset"), 255, 240, 20, false);
+				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("Spawnpointset"), 255, 240, 20, false);
 			}
 			return true;
         }

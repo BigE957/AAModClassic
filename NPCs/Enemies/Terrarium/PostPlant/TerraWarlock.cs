@@ -123,7 +123,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
             {
                 NPC.spriteDirection = 1;
             }
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				internalAI[0]++;
 				if (internalAI[0] >= 240)

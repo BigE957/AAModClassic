@@ -20,7 +20,7 @@ namespace AAMod.Projectiles
 			Projectile.height = 18;
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 600;
-			AIType = 1;
+			AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.arrow = true;
         }
 
@@ -28,7 +28,7 @@ namespace AAMod.Projectiles
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 107,
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.Terra,
 				Projectile.velocity.X * .5f, Projectile.velocity.Y * .5f, 200, Scale: .6f);
 				dust.velocity += Projectile.velocity * 0.4f;
 				dust.velocity *= 0.3f;
@@ -51,7 +51,7 @@ namespace AAMod.Projectiles
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 107, -Projectile.velocity.X * 0.2f,
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, .6f);
             }
         }

@@ -20,7 +20,7 @@ namespace AAMod.NPCs.Bosses.Zero
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;        
+			Projectile.aiStyle = ProjAIStyleID.Arrow;        
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
@@ -49,7 +49,7 @@ namespace AAMod.NPCs.Bosses.Zero
 
         public override void PostAI()
         {
-            if (Main.netMode != 1) a++;
+            if (Main.netMode != NetmodeID.MultiplayerClient) a++;
             if (a == 40)
             {
                 Projectile.tileCollide = true;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Anubis.Forsaken
@@ -16,8 +17,8 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 			Item.height = 32;
 			Item.maxStack = 99;
 			Item.value = 20000;
-			Item.rare = 5;
-            Item.rare = 9;
+			Item.rare = ItemRarityID.Pink;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

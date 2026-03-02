@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Witch
@@ -20,7 +21,7 @@ A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
 		{
 			Item.width = 14;
 			Item.height = 14;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.value = 300000;
             Item.defense = 26;

@@ -24,8 +24,8 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 5;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Pink;
             Item.consumable = true;
             Item.value = 150;
             Item.createTile = Mod.Find<ModTile>("HaphestusForge").Type;

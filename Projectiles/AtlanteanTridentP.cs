@@ -20,8 +20,8 @@ namespace AAMod.Projectiles
 			Projectile.friendly = true;
 			Projectile.timeLeft = 300;
 			Projectile.alpha = 150;
-			Projectile.aiStyle = 1;
-			AIType = 14;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
+			AIType = ProjectileID.Bullet;
 		}
 
 		public override void SetStaticDefaults()
@@ -34,11 +34,11 @@ namespace AAMod.Projectiles
 			Projectile.alpha = 150;
 			for (int index1 = 0; index1 < 2; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 2f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Water_Space, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 2f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
 				Main.dust[index2].scale *= 0.75f;
-				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 1f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Water_Space, (float)(-Projectile.velocity.X * 0.2), (float)(-Projectile.velocity.Y * 0.2), 50, new Color(), 1f);
 				Main.dust[index3].velocity *= 2f;
 				Main.dust[index3].scale *= 0.75f;
 				Main.dust[index3].noGravity = true;
@@ -61,10 +61,10 @@ namespace AAMod.Projectiles
 			SoundEngine.PlaySound(SoundID.Item54, Projectile.position);
 			for (int index1 = 0; index1 < 10; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 3.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Water_Space, 0.0f, 0.0f, 50, new Color(), 3.5f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 2f;
-				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 103, 0.0f, 0.0f, 50, new Color(), 1.5f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Water_Space, 0.0f, 0.0f, 50, new Color(), 1.5f);
 				Main.dust[index3].velocity *= 2f;
 			}
 		}

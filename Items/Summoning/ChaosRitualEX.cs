@@ -25,7 +25,7 @@ namespace AAMod.Items.Summoning
             Item.height = 24;
             Item.useTime = 36;
             Item.useAnimation = 36;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.knockBack = 3;
@@ -34,7 +34,7 @@ namespace AAMod.Items.Summoning
             Item.shootSpeed = 10f;
             Item.buffType = Mod.Find<ModBuff>("XiaoDoragon").Type;
             Item.autoReuse = true;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.expert = true;
             Item.expertOnly = true;
             Item.value = Item.sellPrice(0, 30, 0, 0);

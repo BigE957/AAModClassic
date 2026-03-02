@@ -12,7 +12,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
             Item.DamageType = DamageClass.Magic;                     
             Item.width = 24;
             Item.height = 28;
-            Item.useStyle = 5;        
+            Item.useStyle = ItemUseStyleID.Shoot;        
             Item.noMelee = true;
             Item.knockBack = 6;
             Item.mana = 8;             
@@ -22,7 +22,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
             Item.useAnimation = 28;
             Item.shoot = Mod.Find<ModProjectile>("HurricaneSpawn").Type;
             Item.shootSpeed = 9f;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

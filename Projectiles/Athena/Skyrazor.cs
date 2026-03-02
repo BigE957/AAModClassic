@@ -43,7 +43,7 @@ namespace AAMod.Projectiles.Athena
                     Vector2 vector56 = Vector2.Normalize(Projectile.velocity) * new Vector2(Projectile.width, Projectile.height) / 2f;
                     vector56 = vector56.RotatedBy((num694 - (3 / 2 - 1)) * 3.1415926535897931 / 3f, default) + Projectile.Center;
                     Vector2 value24 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-                    int num695 = Dust.NewDust(vector56 + value24, 0, 0, 217, value24.X * 2f, value24.Y * 2f, DustID.Electric, default, 1.4f);
+                    int num695 = Dust.NewDust(vector56 + value24, 0, 0, DustID.FishronWings, value24.X * 2f, value24.Y * 2f, DustID.Electric, default, 1.4f);
                     Main.dust[num695].noLight = true;
                     Main.dust[num695].velocity /= 4f;
                     Main.dust[num695].velocity -= Projectile.velocity;

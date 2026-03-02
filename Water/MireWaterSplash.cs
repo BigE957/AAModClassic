@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Water
@@ -7,7 +8,7 @@ namespace AAMod.Water
 	{
 		public override void SetStaticDefaults()
 		{
-			UpdateType = 33;
+			UpdateType = DustID.Water;
 		}
 
 		public override void OnSpawn(Dust dust)

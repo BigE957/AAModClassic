@@ -26,12 +26,12 @@ Chaos Bustershot EX"); */
             Item.height = 20;
             Item.useTime = 45;
             Item.useAnimation = 45;
-            Item.useStyle = 5;
-            Item.shoot = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Bullet;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(5, 0, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 12f;
             Item.expert = true; Item.expertOnly = true;

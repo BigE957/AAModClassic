@@ -15,7 +15,7 @@ namespace AAMod.Items.Boss.Anubis
 		public override void SetDefaults()
 		{
 			Item.autoReuse = true;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
 			Item.knockBack = 5f;
@@ -23,7 +23,7 @@ namespace AAMod.Items.Boss.Anubis
 			Item.height = 28;
 			Item.damage = 30;
 			Item.UseSound = SoundID.Item71;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.shoot = Mod.Find<ModProjectile>("PhantomBlade").Type;
 			Item.shootSpeed = 14f;
 			Item.value = 10000;

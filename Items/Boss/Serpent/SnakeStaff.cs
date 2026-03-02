@@ -20,7 +20,7 @@ Summons 2 segments for each minion slot"); */
         {
             Item.mana = 10;
             Item.damage = 11;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
             Item.shoot = Mod.Find<ModProjectile>("SerpentHead").Type;
             Item.width = 26;
@@ -28,7 +28,7 @@ Summons 2 segments for each minion slot"); */
             Item.UseSound = SoundID.Item44;
             Item.useAnimation = 36;
             Item.useTime = 36;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.noMelee = true;
             Item.knockBack = 2f;

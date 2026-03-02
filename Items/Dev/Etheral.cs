@@ -28,7 +28,7 @@ namespace AAMod.Items.Dev
 
         public override void SetDefaults()
 		{
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 7;
             Item.useTime = 7;
             Item.mana = 10;

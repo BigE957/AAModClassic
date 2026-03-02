@@ -19,16 +19,16 @@ Razorblade Typhoon EX"); */
 		{
 			Item.mana = 16;
 			Item.damage = 175;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 6f;
-			Item.shoot = 409;
+			Item.shoot = ProjectileID.Typhoon;
 			Item.width = 26;
 			Item.height = 28;
 			Item.UseSound = SoundID.Item84;
 			Item.useAnimation = 30;
 			Item.useTime = 15;
 			Item.autoReuse = true;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.noMelee = true;
 			Item.knockBack = 6f;
 			Item.scale = 0.9f;

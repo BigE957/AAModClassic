@@ -63,7 +63,7 @@ namespace AAMod.NPCs.TownNPCs
 			NPC.friendly = true;
 			NPC.width = 18;
             NPC.height = 40;
-            NPC.aiStyle = 7;
+            NPC.aiStyle = NPCAIStyleID.Passive;
 			NPC.damage = 10;
 			NPC.defense = 68;
 			NPC.lifeMax = 160000;
@@ -463,7 +463,7 @@ namespace AAMod.NPCs.TownNPCs
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)

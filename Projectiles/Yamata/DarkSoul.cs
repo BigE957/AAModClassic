@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Yamata
@@ -15,7 +16,7 @@ namespace AAMod.Projectiles.Yamata
         {
             Projectile.width = 6;
             Projectile.height = 6;
-            Projectile.aiStyle = 59;
+            Projectile.aiStyle = ProjAIStyleID.SpectreWrath;
             Projectile.alpha = 255;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.tileCollide = false;

@@ -41,7 +41,7 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
                 SoundEngine.PlaySound(SoundID.Zombie9, NPC.position);
             }
             NPC.noGravity = true;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[3]++;
                 if (NPC.ai[3] > 400)
@@ -191,7 +191,7 @@ namespace AAMod.NPCs.Enemies.BiomeGuardians
                 }
                 MeleeMovement(MovePoint);
                 NPC.netUpdate = true;
-                if (Vector2.Distance(MovePoint, NPC.Center) < 20 && Main.netMode != 1)
+                if (Vector2.Distance(MovePoint, NPC.Center) < 20 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;

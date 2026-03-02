@@ -23,7 +23,7 @@ namespace AAMod.Items.Blocks
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = Mod.Find<ModTile>("DaybreakTorch").Type;
 			Item.flame = true;

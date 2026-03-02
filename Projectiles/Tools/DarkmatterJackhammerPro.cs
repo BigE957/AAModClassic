@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Tools
@@ -11,7 +12,7 @@ namespace AAMod.Projectiles.Tools
 
             Projectile.width = 22;
             Projectile.height = 52;
-            Projectile.aiStyle = 20;
+            Projectile.aiStyle = ProjAIStyleID.Drill;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -20,7 +21,7 @@ namespace AAMod.Tiles.Trophy
             TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
 			TileObjectData.addAlternate(1);
             TileObjectData.addTile(Type);
-            DustType = 7;
+            DustType = DustID.WoodFurniture;
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			AddMapEntry(new Color(120, 85, 60));
 		}

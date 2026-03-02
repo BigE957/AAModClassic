@@ -29,11 +29,11 @@ Prismeow EX"); */
             Item.height = 52;
 			Item.useTime = 60;
 			Item.useAnimation = 60;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item44;
 			Item.autoReuse = false;
 			Item.shoot = Mod.Find<ModProjectile>("RainbowCatPro").Type;

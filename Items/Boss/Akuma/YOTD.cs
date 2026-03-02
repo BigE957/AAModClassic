@@ -21,7 +21,7 @@ namespace AAMod.Items.Boss.Akuma
         public override void SetDefaults()
         {
             Item.crit = 14;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.autoReuse = true;
             Item.useAnimation = 25;
             Item.useTime = 25;
@@ -35,7 +35,7 @@ namespace AAMod.Items.Boss.Akuma
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.knockBack = 2f;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.DamageType = DamageClass.Ranged;
         }

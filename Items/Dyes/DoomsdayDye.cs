@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 using Terraria.DataStructures;
 using Terraria;
+using Terraria.ID;
 
 namespace AAMod.Items.Dyes
 {
@@ -32,7 +33,7 @@ namespace AAMod.Items.Dyes
             Item.width = 15;
             Item.height = 15;
             Item.maxStack = 99;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type);
             Item.value = BaseUtility.CalcValue(0, 10, 0, 0);
         }

@@ -23,7 +23,7 @@ Allows you to breath underwater"); */
 			Item.width = 22;
 			Item.height = 24;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.defense = 18;
         }
 		

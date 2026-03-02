@@ -62,7 +62,7 @@ namespace AAMod.NPCs.Bosses.Zero
         public override void HitEffect(NPC.HitInfo hit)
         {
             bool flag = NPC.life <= 0 || (!NPC.active && NPC.AnyNPCs(ModContent.NPCType<Zero>()));
-            if (flag && Main.netMode != 1)
+            if (flag && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int ind = NPC.NewNPC((int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
                 Main.npc[ind].Center = NPC.Center;
@@ -73,7 +73,7 @@ namespace AAMod.NPCs.Bosses.Zero
                 {
                     Dust dust;
                     Vector2 position = NPC.Center;
-                    dust = Main.dust[Dust.NewDust(position, 42, 47, 226, 0f, 0f, 0, new Color(255, 0, 0), 1.513158f)];
+                    dust = Main.dust[Dust.NewDust(position, 42, 47, DustID.Electric, 0f, 0f, 0, new Color(255, 0, 0), 1.513158f)];
                     dust.shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
             }
@@ -108,7 +108,7 @@ namespace AAMod.NPCs.Bosses.Zero
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(zero.Center, zero.Center + new Vector2(((Zero)zero.ModNPC).Distance, 0f), rotValue);
 
-            if (Main.netMode != 1) { NPC.ai[2]++; }
+            if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 
             Player player = Main.player[zero.target];
 

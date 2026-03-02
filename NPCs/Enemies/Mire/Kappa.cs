@@ -25,7 +25,7 @@ namespace AAMod.NPCs.Enemies.Mire
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath2;
 			NPC.value = 450f;
-			NPC.aiStyle = 0;
+			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			AnimationType = NPCID.CreatureFromTheDeep;
             Banner = NPC.type;
 			BannerItem = Mod.Find<ModItem>("KappaBanner").Type;
@@ -373,7 +373,7 @@ namespace AAMod.NPCs.Enemies.Mire
                     Main.tile[num177 - NPC.direction, num178 + 1] = new Tile();
                 }
                 Main.tile[num177, num178 + 1].IsHalfBlock;
-                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == 10 || Main.tile[num177, num178 - 1].TileType == 388) && flag6)
+                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6)
                 {
                     NPC.ai[2] += 1f;
                     NPC.ai[3] = 0f;
@@ -382,7 +382,7 @@ namespace AAMod.NPCs.Enemies.Mire
                        
                         NPC.velocity.X = 0.5f * -NPC.direction;
                         int num179 = 5;
-                        if (Main.tile[num177, num178 - 1].TileType == 388)
+                        if (Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed)
                         {
                             num179 = 2;
                         }

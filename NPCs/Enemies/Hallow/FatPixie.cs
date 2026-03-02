@@ -94,7 +94,7 @@ namespace AAMod.NPCs.Enemies.Hallow
 
         public override void OnKill()
         {
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.PixieDust, Main.rand.Next(5, 7));
         }
 

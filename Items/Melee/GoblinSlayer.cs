@@ -21,10 +21,10 @@ namespace AAMod.Items.Melee
 			Item.height = 46;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
 			Item.value = Item.sellPrice (0, 1, 0, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 		}
@@ -38,11 +38,11 @@ namespace AAMod.Items.Melee
         {
             if (player.altFunctionUse == 2)
             {
-                Item.useStyle = 3;
+                Item.useStyle = ItemUseStyleID.Thrust;
             }
             else
             {
-                Item.useStyle = 1;
+                Item.useStyle = ItemUseStyleID.Swing;
             }
             return base.CanUseItem(player);
         }

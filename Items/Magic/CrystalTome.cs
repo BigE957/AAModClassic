@@ -17,15 +17,15 @@ namespace AAMod.Items.Magic
             Item.height = 28;
             Item.useTime = 14;     
             Item.useAnimation = 14; 
-            Item.useStyle = 5;      
+            Item.useStyle = ItemUseStyleID.Shoot;      
             Item.noMelee = true;    
             Item.knockBack = 1;  
             Item.value = Item.sellPrice(0, 5, 0, 0); 
-            Item.rare = 7;   
+            Item.rare = ItemRarityID.Lime;   
             Item.mana = 9;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true; 
-            Item.shoot = 89;    
+            Item.shoot = ProjectileID.CrystalBullet;    
             Item.shootSpeed = 8f;    
         }
 

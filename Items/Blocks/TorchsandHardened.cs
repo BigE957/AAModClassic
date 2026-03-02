@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
@@ -13,8 +14,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 2;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Green;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("TorchsandHardened").Type; //put your CustomBlock Tile name
         }

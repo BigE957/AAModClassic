@@ -12,7 +12,7 @@ namespace AAMod.Items.Boss.Grips
             Item.width = 30;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
             Item.defense = 3;

@@ -19,7 +19,7 @@ namespace AAMod.Items.Armor.Deathly
             Item.width = 38;
             Item.height = 34;
             Item.value = 90000;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.defense = 8;
         }
 

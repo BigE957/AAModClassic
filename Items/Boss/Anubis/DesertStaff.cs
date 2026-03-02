@@ -22,11 +22,11 @@ namespace AAMod.Items.Boss.Anubis
 			Item.height = 76;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.value = 10000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("DesertBlast").Type;

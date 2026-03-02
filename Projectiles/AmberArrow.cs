@@ -19,7 +19,7 @@ namespace AAMod.Projectiles
 			Projectile.height = 18;
 			Projectile.penetrate = 5;
 			Projectile.timeLeft = 600;
-			AIType = 1;
+			AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.arrow = true;
         }
 

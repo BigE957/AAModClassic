@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.UI;
+using Terraria.ID;
 using Terraria.Localization;
 
 namespace AAMod.Items.Currency
@@ -25,7 +26,7 @@ namespace AAMod.Items.Currency
             Item.height = 16;
             Item.maxStack = 999;
             Item.value = 1000;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
     }
     public class MCredit : CustomCurrencySingleCoin

@@ -22,7 +22,7 @@ namespace AAMod.Projectiles.Akuma
         {
             Projectile.width = 22;
             Projectile.height = 22;
-            Projectile.aiStyle = 75;
+            Projectile.aiStyle = ProjAIStyleID.HeldProjectile;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
@@ -84,7 +84,7 @@ namespace AAMod.Projectiles.Akuma
                 Vector2 value = Projectile.Center + vector2;
                 for (int i = 0; i < 2; i++)
                 {
-                    int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, 135, Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
+                    int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, DustID.IceTorch, Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
                     Main.dust[num5].velocity *= 0.66f;
                     Main.dust[num5].noGravity = true;
                     Main.dust[num5].scale = 1.4f;

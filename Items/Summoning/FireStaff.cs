@@ -16,7 +16,7 @@ namespace AAMod.Items.Summoning
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("BabyPhoenix").Type;
             Item.damage = 12;
@@ -28,7 +28,7 @@ namespace AAMod.Items.Summoning
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 0, 27, 0);
             Item.knockBack = 7.5f;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
         }

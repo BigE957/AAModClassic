@@ -22,8 +22,8 @@ Now you don't have to clutter your base with 12 crafting stations!"); */
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 9;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Cyan;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
             Item.createTile = Mod.Find<ModTile>("FurnitureDynamo").Type;

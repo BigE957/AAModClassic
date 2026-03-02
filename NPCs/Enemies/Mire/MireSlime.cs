@@ -15,7 +15,7 @@ namespace AAMod.NPCs.Enemies.Mire
 
 		public override void SetDefaults()
 		{
-            NPC.aiStyle = 1;
+            NPC.aiStyle = NPCAIStyleID.Slime;
             NPC.noGravity = false;
             NPC.noTileCollide = false;
             NPC.width = 32;
@@ -28,7 +28,7 @@ namespace AAMod.NPCs.Enemies.Mire
             NPC.value = 60f;
             NPC.lavaImmune = true;
             NPC.knockBackResist = 0.5f;
-            AnimationType = 81;
+            AnimationType = NPCID.CorruptSlime;
 			Banner = NPC.type;
 			BannerItem = Mod.Find<ModItem>("MireSlimeBanner").Type;
         }

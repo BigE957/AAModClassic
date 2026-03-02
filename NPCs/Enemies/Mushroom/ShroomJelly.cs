@@ -20,7 +20,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
             NPC.noGravity = true;
             NPC.width = 26;
             NPC.height = 26;
-            NPC.aiStyle = 18;
+            NPC.aiStyle = NPCAIStyleID.Jellyfish;
             NPC.damage = 20;
             NPC.defense = 20;
             NPC.lifeMax = 70;

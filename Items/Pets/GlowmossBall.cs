@@ -17,14 +17,14 @@ Don?t ask what makes it glow, Trust me"); */
 		public override void SetDefaults()
 		{
 			Item.damage = 0;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = Mod.Find<ModProjectile>("Glowmoss").Type;
 			Item.width = 16;
 			Item.height = 30;
 			Item.UseSound = SoundID.Item2;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 5, 50, 0);
 			Item.buffType = Mod.Find<ModBuff>("Glowmoss").Type;

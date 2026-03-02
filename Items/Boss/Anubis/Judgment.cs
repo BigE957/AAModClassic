@@ -22,9 +22,9 @@ namespace AAMod.Items.Boss.Anubis
 			Item.height = 52;
 			Item.useTime = 21;
 			Item.useAnimation = 21;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = 100000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
             Item.knockBack = 4;
             Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;

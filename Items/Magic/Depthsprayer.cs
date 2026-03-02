@@ -17,7 +17,7 @@ namespace AAMod.Items.Magic
 		{
 			Item.mana = 9;
 			Item.autoReuse = true;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 15;
 			Item.useTime = 5;
 			Item.knockBack = 4f;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Magic
 			Item.shoot = Mod.Find<ModProjectile>("Depthsprayer").Type;
 			Item.shootSpeed = 12f;
 			Item.UseSound = SoundID.Item13;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.value = 250000;
 			Item.DamageType = DamageClass.Magic;
 			Item.noMelee = true;

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Yamata
@@ -57,7 +58,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                 NPC.Center = player.Center - new Vector2(0, 300f);
             }
 			
-			if(Main.netMode != 2) //clientside stuff
+			if(Main.netMode != NetmodeID.Server) //clientside stuff
 			{
 				NPC.frameCounter++;
 				if (NPC.frameCounter >= 7)
@@ -107,34 +108,34 @@ namespace AAMod.NPCs.Bosses.Yamata
 					}
 				}
 			}
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				NPC.ai[0]++;
 
 				if (NPC.ai[0] == 375)    
 				{
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition1"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition1"), new Color(45, 46, 70));
 					NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 650)
 				{
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition2"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition2"), new Color(45, 46, 70));
 				}else
 				if (NPC.ai[0] == 900)
 				{
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition3"), new Color(45, 46, 70));
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition7"), Color.PaleVioletRed);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition3"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition7"), Color.PaleVioletRed);
                     NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 1100)
 				{
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition4"), new Color(146, 30, 68));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition4"), new Color(146, 30, 68));
 				}else
 				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
 				{
 					AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-					if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition6"), new Color(146, 30, 68));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition6"), new Color(146, 30, 68));
 
                     int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
@@ -145,7 +146,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                     int height3 = num84;
                     for (int num85 = 0; num85 < 3; num85++)
                     {
-                        int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                        int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                         Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                     }
                     for (int num87 = 0; num87 < 15; num87++)
@@ -203,7 +204,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                     NPC.Center = player.Center - new Vector2(0, 300f);
                 }
 
-                if (Main.netMode != 2) //clientside stuff
+                if (Main.netMode != NetmodeID.Server) //clientside stuff
                 {
                     NPC.frameCounter++;
                     if (NPC.frameCounter >= 7)
@@ -241,7 +242,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                         }
                     }
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0]++;
                     if (NPC.ai[0] == 180)
@@ -252,7 +253,7 @@ namespace AAMod.NPCs.Bosses.Yamata
                     if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
                     {
                         AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;

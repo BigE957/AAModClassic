@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Assassin
@@ -13,13 +14,14 @@ namespace AAMod.Items.Armor.Assassin
 20% decreased ammo consumption
 +50 Max Life
 A dark armor infused with the shadow of midnight"); */
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
 		{
 			Item.width = 14;
 			Item.height = 14;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.value = 300000;
             Item.defense = 29;
@@ -45,10 +47,5 @@ A dark armor infused with the shadow of midnight"); */
             player.statLifeMax2 += 50;
             player.ammoCost80 = true;
         }
-
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
-		{
-			drawHands = true;
-		}
 	}
 }

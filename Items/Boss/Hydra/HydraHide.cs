@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Boss.Hydra
 {
     public class HydraHide : BaseAAItem
@@ -8,7 +10,7 @@ namespace AAMod.Items.Boss.Hydra
             Item.width = 22;
             Item.height = 24;
             Item.maxStack = 99;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
 			
         }
         

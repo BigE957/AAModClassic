@@ -17,10 +17,10 @@ namespace AAMod.Items.Tools
             Item.useTime = 10;
             Item.useAnimation = 14;
             Item.pick = 110;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 1;
             Item.value = 1000;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;

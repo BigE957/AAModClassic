@@ -27,9 +27,9 @@ namespace AAMod.Items.Ranged
 			Item.useTime = 10;
 			Item.useAnimation = 10;
 			Item.value = 200000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.autoReuse = true;
-			Item.shoot = 163;
+			Item.shoot = ProjectileID.Flare;
 			Item.useAmmo = AmmoID.Flare;
 			Item.UseSound = SoundID.Item11;
 		}
@@ -45,7 +45,7 @@ namespace AAMod.Items.Ranged
 			{
 				for(int i = 0; i < 1000; ++i)
 				{
-					if(Main.projectile[i].active && (Main.projectile[i].type == 163 || Main.projectile[i].type == 310))
+					if(Main.projectile[i].active && (Main.projectile[i].type == ProjectileID.Flare || Main.projectile[i].type == ProjectileID.BlueFlare))
 					{
 						Main.projectile[i].Kill();
 					}

@@ -23,10 +23,10 @@ Cursed Sickle EX"); */
             Item.width = 40;
             Item.height = 40;
             Item.maxStack = 1;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.value = BaseUtility.CalcValue(0, 5, 0, 0);
             Item.UseSound = SoundID.Item71;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.damage = 280;

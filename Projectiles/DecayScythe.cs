@@ -15,7 +15,7 @@ namespace AAMod.Projectiles     //We need this to basically indicate the folder 
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -71,7 +71,7 @@ namespace AAMod.Projectiles     //We need this to basically indicate the folder 
             player.itemTime = 2;
             player.itemAnimation = 2;
             player.itemRotation = Projectile.rotation;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Projectile.ai[1]++;
                 if (Projectile.ai[1] > 20)

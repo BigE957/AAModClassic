@@ -51,11 +51,11 @@ namespace AAMod.Projectiles
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Torch, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 6, -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Torch, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0, new Color(50, 200, 0), 1f);
                 Main.dust[num469].velocity *= 2f;
             }

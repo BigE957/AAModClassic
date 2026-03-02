@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.AH
@@ -24,14 +25,14 @@ Right click to shoot a blade wave"); */
             Item.channel = true;
             Item.useAnimation = 25;
             Item.useTime = 15;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useTime = 5;
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
             Item.shootSpeed = 15f;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 
@@ -63,7 +64,7 @@ Right click to shoot a blade wave"); */
                 Item.channel = false;
                 Item.useAnimation = 15;
                 Item.useTime = 15;
-                Item.useStyle = 1;
+                Item.useStyle = ItemUseStyleID.Swing;
                 Item.autoReuse = true;
                 Item.shoot = Mod.Find<ModProjectile>("MasamuneSlash").Type;
                 Item.shootSpeed = 12f;
@@ -77,7 +78,7 @@ Right click to shoot a blade wave"); */
                 Item.channel = true;
                 Item.useAnimation = 25;
                 Item.useTime = 5;
-                Item.useStyle = 5;
+                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.autoReuse = false;
                 Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
                 Item.shootSpeed = 15f;

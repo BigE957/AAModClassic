@@ -18,7 +18,7 @@ namespace AAMod.Items.Summoning.Minions
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.penetrate = 1;

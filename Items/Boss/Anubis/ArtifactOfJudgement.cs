@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Anubis
 {
@@ -22,7 +23,7 @@ Your defense is lowered and speed is raised while the Eye is active"); */
             Item.width = 26;
             Item.height = 34;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.accessory = true;
             Item.expert = true;
             Item.expertOnly = true;

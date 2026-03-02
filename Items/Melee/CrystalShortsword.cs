@@ -14,10 +14,10 @@ namespace AAMod.Items.Melee
             Item.height = 42;
             Item.useTime = 24;
             Item.useAnimation = 28;     
-            Item.useStyle = 3;
+            Item.useStyle = ItemUseStyleID.Thrust;
             Item.knockBack = 1;
             Item.value = 1000;        
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;

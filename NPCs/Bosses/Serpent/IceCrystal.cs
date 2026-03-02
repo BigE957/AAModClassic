@@ -27,7 +27,7 @@ namespace AAMod.NPCs.Bosses.Serpent
 
         public override void AI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[2]++;
             }

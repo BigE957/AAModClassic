@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace AAMod.Items.Armor.Witch
 {
@@ -23,7 +24,7 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 			Item.width = 16;
 			Item.height = 16;
             Item.value = 300000;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.defense = 24;
         }

@@ -4,6 +4,7 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAMod.Projectiles
 {
@@ -26,7 +27,7 @@ namespace AAMod.Projectiles
 			if (Main.rand.NextFloat() < 0.5f)
 			{
 				Vector2 position = Projectile.position;
-                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 107, Projectile.velocity.X * 0.2f,
+                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.Terra, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[dustId].noGravity = true;
 			}

@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Equinox
 {
@@ -13,7 +14,7 @@ namespace AAMod.Items.Boss.Equinox
             Item.width = 32;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
         }

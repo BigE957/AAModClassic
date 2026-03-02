@@ -17,7 +17,7 @@ namespace AAMod.Projectiles.Zero
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;        
+			Projectile.aiStyle = ProjAIStyleID.Arrow;        
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;

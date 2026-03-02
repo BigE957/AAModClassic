@@ -15,7 +15,7 @@ namespace AAMod.Items.Ranged
 
 		public override void SetDefaults()
 		{
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.autoReuse = true;
 			Item.useAnimation = 65;
 			Item.useTime = 65;
@@ -28,7 +28,7 @@ namespace AAMod.Items.Ranged
 			Item.noMelee = true;
 			Item.value = 50000;
 			Item.knockBack = 6f;
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = Mod.Find<ModItem>("M79Round").Type;
 		}

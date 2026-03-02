@@ -18,7 +18,7 @@ namespace AAMod.Items.Boss.Greed.WKG
             Item.mana = 10;
             Item.width = 38;
             Item.height = 44;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 5;
             Item.UseSound = SoundID.Item20;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Boss.Greed.WKG
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.shootSpeed = 12;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

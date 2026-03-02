@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Maskano
@@ -29,7 +30,7 @@ namespace AAMod.Items.Vanity.Maskano
         {
             Item.width = 16;
             Item.height = 22;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
     }

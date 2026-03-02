@@ -19,10 +19,10 @@ namespace AAMod.Items.Throwing
 			Item.useAnimation = 20;
 			Item.shoot = Mod.Find<ModProjectile>("MurkyGelP").Type;
 			Item.shootSpeed = 9f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 0, 0, 25);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.noMelee = true;

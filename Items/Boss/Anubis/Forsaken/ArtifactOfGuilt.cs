@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Anubis.Forsaken
 {
@@ -22,7 +23,7 @@ You will get major damage and speed boosts while Eye is active"); */
             Item.width = 26;
             Item.height = 34;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.expert = true;
             Item.expertOnly = true;

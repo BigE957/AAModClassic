@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged.Ammo
@@ -13,7 +14,7 @@ namespace AAMod.Items.Ranged.Ammo
 			Item.height = 16;
 			Item.maxStack = 999;
 			Item.value = Item.sellPrice(0, 0, 20, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.consumable = true;
 			Item.shoot = Mod.Find<ModProjectile>("M79P").Type;
 			Item.ammo = Item.type;

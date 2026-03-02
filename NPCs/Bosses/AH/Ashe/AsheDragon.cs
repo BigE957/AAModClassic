@@ -24,7 +24,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             NPC.npcSlots = 5f;
             NPC.width = 32;
             NPC.height = 32;
-            NPC.aiStyle = 6;
+            NPC.aiStyle = NPCAIStyleID.Worm;
             NPC.netAlways = true;
             NPC.damage = 100;
             NPC.defense = 40;
@@ -55,7 +55,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    int dust = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 228, 0f, 0f, 100, default, 2f);
+                    int dust = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GoldFlame, 0f, 0f, 100, default, 2f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].noLight = true;
                 }
@@ -88,7 +88,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 }
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0f)
                 {
@@ -116,10 +116,10 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                             type = ModContent.NPCType<AsheDragonTail>();
                         }
 
-                        if(Main.netMode != 1)
+                        if(Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             int newNPC = NPC.NewNPC((int)NPC.Center.X, (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-                            if (Main.netMode == 2 && newNPC < 200) NetMessage.SendData(23, -1, -1, null, newNPC);
+                            if (Main.netMode == NetmodeID.Server && newNPC < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNPC);
                             Main.npc[newNPC].ai[3] = NPC.whoAmI;
                             Main.npc[newNPC].realLife = NPC.whoAmI;
                             Main.npc[newNPC].ai[1] = npcWhoAmI;
@@ -436,7 +436,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
 
             NPC.direction = NPC.velocity.X < 0f ? -1 : 1;
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -581,7 +581,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 NPC.timeLeft = 300;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -722,7 +722,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 NPC.timeLeft = 300;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -862,7 +862,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 NPC.timeLeft = 300;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {
@@ -1002,7 +1002,7 @@ namespace AAMod.NPCs.Bosses.AH.Ashe
                 NPC.timeLeft = 300;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                 {

@@ -21,12 +21,12 @@ namespace AAMod.Items.Melee
 			Item.height = 46;
 			Item.useTime = 30;
 			Item.useAnimation = 15;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = Mod.Find<ModProjectile>("MagicPro").Type;
 			Item.shootSpeed = 8f;
 			Item.knockBack = 5;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

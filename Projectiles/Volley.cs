@@ -18,7 +18,7 @@ namespace AAMod.Projectiles
         {
             Projectile.width = 14;
             Projectile.height = 32;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.hostile = false;
@@ -60,7 +60,7 @@ namespace AAMod.Projectiles
             SoundEngine.PlaySound(SoundID.DD2_BetsyFireballImpact, Projectile.Center);
             if (Main.rand.Next(3) == 0)
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 6,
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.Torch,
                     Projectile.velocity.X * .2f, Projectile.velocity.Y * .2f, 200, Scale: 1.2f);
                 dust.velocity += Projectile.velocity * 0.3f;
                 dust.velocity *= 0.2f;

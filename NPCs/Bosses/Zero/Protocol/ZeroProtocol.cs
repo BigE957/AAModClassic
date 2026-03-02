@@ -38,7 +38,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             NPC.width = 170;
             NPC.height = 170;
             NPC.friendly = false;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.value = Item.sellPrice(0, 40, 0, 0);
             NPC.npcSlots = 1f;
             NPC.boss = true;
@@ -107,7 +107,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             {
                 if (!AAWorld.downedZero)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
                     Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZeroRune").Type);
                 }
 
@@ -152,7 +152,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
         {
             if (Counter[0] > 3000 && NPC.ai[0] != 4 && NPC.ai[0] != 2 && !isCharging)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Teleport(Main.rand.Next(2) == 0? 1:2);
                     NPC.ai[0] = 4;
@@ -178,7 +178,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             }
             if (NPC.life <= 0 && !Main.expertMode)
             {
-                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
 
@@ -270,7 +270,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                 NPC.ai[3] = 0;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 AAWorld.zeroUS = false;
             }
@@ -349,7 +349,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                             Teleport(3);
                             if (NPC.life > NPC.lifeMax / 2)
                             {
-                                if(Main.netMode != 1)
+                                if(Main.netMode != NetmodeID.MultiplayerClient)
                                 {
                                     if (Main.rand.Next(2) == 0)
                                     {
@@ -385,7 +385,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                             }
                             else
                             {
-                                if(Main.netMode != 1)
+                                if(Main.netMode != NetmodeID.MultiplayerClient)
                                 {
                                     int dirX = player.velocity.X > 0? 1:-1;
                                     int dirY = player.velocity.Y > 0? 1:-1;
@@ -427,7 +427,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                         if (NPC.ai[2] == (NPC.life < NPC.lifeMax / 2 ? 200 : 300))
                         {
                             Teleport(3);
-                            if(Main.netMode != 1)
+                            if(Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 int a = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
                                 Main.projectile[a].Center = NPC.Center + new Vector2(-100, 0);
@@ -510,7 +510,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                         
                         if (NPC.ai[1]++ == 100)
                         {
-                            if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened11"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened11"), Color.Red.R, Color.Red.G, Color.Red.B);
                             if (ShootDir == new Vector2(0,0)) ShootDir = NPC.DirectionTo(player.Center);
                             Projectile.NewProjectile(NPC.Center + 60f * ShootDir, 10f * ShootDir, ModContent.ProjectileType<EchoRay>(), 100, 3f, Main.myPlayer, 0, NPC.whoAmI);
                             NPC.ai[3] = 1f;
@@ -553,22 +553,22 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                 if(NPC.ai[2] == 10)
                 {
 
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened8"), Color.Red.R, Color.Red.G, Color.Red.B);
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened9"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened8"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened9"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 if(NPC.ai[2] == 40)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened10"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened10"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 if(NPC.ai[2] == 110)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI/2;
                 if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 60:80) == 20)
                 {
                     Teleport(3);
-                    if(Main.netMode != 1) NPC.NewNPC((int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), ModContent.NPCType<ZeroMini>());
+                    if(Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC((int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.Next(2) == 0? -1:1), ModContent.NPCType<ZeroMini>());
                 }
                 Counterattack = false;
                 NPC.ai[1] = 0f;
@@ -580,7 +580,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                 NPC.position = player.Center - new Vector2(0, 600);
                 NPC.velocity *= 0;
 
-                if(NPC.ai[2] == 240 && Main.netMode != 1)
+                if(NPC.ai[2] == 240 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.NewNPC((int)player.Center.X, (int)player.Center.Y + 500, ModContent.NPCType<ZeroEcho>());
                     NPC.NewNPC((int)player.Center.X, (int)player.Center.Y - 500, ModContent.NPCType<ZeroEcho>());
@@ -648,7 +648,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
 
         private void AIChange()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[0] = Main.rand.Next(5);
                 NPC.ai[1] = 0;
@@ -686,11 +686,11 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                     {
                         if (player.dead || !player.active)
                         {
-                            if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened6"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened6"), Color.Red.R, Color.Red.G, Color.Red.B);
                         }
                         else if (tooFar)
                         {
-                            if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("ZeroAwakened7"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroAwakened7"), Color.Red.R, Color.Red.G, Color.Red.B);
                         }
                         PlayerDead = true;
                     }
@@ -702,7 +702,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
                     NPC.ai[1] = 0;
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;
-                    if (NPC.position.Y + NPC.height - NPC.velocity.Y <= 0 && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                    if (NPC.position.Y + NPC.height - NPC.velocity.Y <= 0 && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
                     return false;
                 }
             }
@@ -760,20 +760,20 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 226, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 7; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                int num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                 Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                num88 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                 Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                 Main.dust[num88].velocity *= 2f;
@@ -785,7 +785,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             }
             for (int num89 = 0; num89 < 5; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                int num90 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                 Main.dust[num90].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num90].noGravity = true;
@@ -795,7 +795,7 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
             }
             for (int num91 = 0; num91 < 15; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, 226, 0, 0, 100, new Color(), 2f);
+                int num92 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
                 Main.dust[num92].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                 Main.dust[num92].noGravity = true;

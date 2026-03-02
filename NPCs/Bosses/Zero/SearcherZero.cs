@@ -6,6 +6,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using Terraria.Audio;
+using Terraria.ID;
 
 namespace AAMod.NPCs.Bosses.Zero
 {
@@ -49,7 +50,7 @@ namespace AAMod.NPCs.Bosses.Zero
             Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
             BaseAI.LookAt(playerActive ? player.Center : (NPC.Center + NPC.velocity), NPC, 0);
-            if (Main.netMode != 1 && playerActive)
+            if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
             {
                 shootAI++;
                 if (shootAI >= 90)

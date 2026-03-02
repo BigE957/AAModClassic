@@ -20,9 +20,9 @@ namespace AAMod.Items.Boss.Sagittarius
             Item.width = 30;
             Item.height = 34;
             Item.maxStack = 1;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = BaseUtility.CalcValue(0, 0, 60, 0);
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 35;
             Item.useTime = 35;
             Item.UseSound = SoundID.Item8;

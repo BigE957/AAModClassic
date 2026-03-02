@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
@@ -18,7 +19,7 @@ namespace AAMod.Items.Melee
             Item.useStyle = 100;
             Item.knockBack = 3f;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;      
+            Item.rare = ItemRarityID.Purple;      
             Item.shoot = Mod.Find<ModProjectile>("DarkShredders").Type;
             Item.noUseGraphic = true;
         }

@@ -73,7 +73,7 @@ namespace AAMod
 				 int x = chest.x; int y = chest.y;
 				 if (distance != -1 && Vector2.Distance(origin, new Vector2((x * 16f) + 8f, (y * 16f) + 8f)) > distance){ continue; }
 				 Tile tile = Main.tile[x, y];
-				 if (tile == null || !tile.HasTile || tile.TileType != 21) { continue; } //if not a vanilla chest, ignore it
+				 if (tile == null || !tile.HasTile || tile.TileType != TileID.Containers) { continue; } //if not a vanilla chest, ignore it
 				 if (chestStyles == default(int[]) || IsVanillaChestOfStyle(chest, chestStyles))
 				 {
 					 if (special == -1) 
@@ -119,7 +119,7 @@ namespace AAMod
                 int x = chest.x; int y = chest.y;
                 if (y < minY || y > maxY) { continue; }
                 Tile tile = Main.tile[x, y];
-                if (tile == null || !tile.HasTile || tile.TileType != 21) { continue; } //if not a vanilla chest, ignore it
+                if (tile == null || !tile.HasTile || tile.TileType != TileID.Containers) { continue; } //if not a vanilla chest, ignore it
                 if (chestStyles == default(int[]) || IsVanillaChestOfStyle(chest, chestStyles))
                 {
                     if (special == -1) { chests.Add(chest); }else
@@ -149,7 +149,7 @@ namespace AAMod
             x = Math.Max(0, Math.Min(Main.maxTilesX, x));
             y = Math.Max(0, Math.Min(Main.maxTilesY, y));
             Tile tile = Main.tile[x, y];
-            if(tile != null && tile.HasTile && tile.TileType == 21)
+            if(tile != null && tile.HasTile && tile.TileType == TileID.Containers)
             {
 				foreach (int chestStyle in chestStyles)
 				{
@@ -2142,13 +2142,13 @@ namespace AAMod
                         if (dist < (double)explosionIntensity)
                         {
                             Vector2 dustPos = new Vector2(x1 * 16, y1 * 16);
-                            Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), 31, 0f, 0f, 100, Color.White, 2f);
+                            Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), DustID.Smoke, 0f, 0f, 100, Color.White, 2f);
 
-                            int fireID = Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), 6, 0f, 0f, 100, Color.White, 2f);
+                            int fireID = Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), DustID.Torch, 0f, 0f, 100, Color.White, 2f);
                             Main.dust[fireID].noGravity = true;
                             Main.dust[fireID].velocity *= 5f;
 
-                            fireID = Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), 6, 0f, 0f, 100, Color.White, 1f);
+                            fireID = Dust.NewDust(dustPos, 1 + rand.Next(16), 1 + rand.Next(16), DustID.Torch, 0f, 0f, 100, Color.White, 1f);
                             Main.dust[fireID].velocity *= 3f;
                         }
                     }
@@ -2165,7 +2165,7 @@ namespace AAMod
                         float distX = Math.Abs((float)x1 - position.X / 16f);
                         float distY = Math.Abs((float)y1 - position.Y / 16f);
                         double dist = Math.Sqrt((double)(distX * distX + distY * distY));
-                        if (dist < (double)explosionIntensity && Main.tile[x1, y1] != null && Main.tile[x1, y1].WallType == 0)
+                        if (dist < (double)explosionIntensity && Main.tile[x1, y1] != null && Main.tile[x1, y1].WallType == WallID.None)
                         {
                             updateWalls = true;
                             break;
@@ -2184,16 +2184,16 @@ namespace AAMod
                             bool canExplode = true;
                             if (Main.tile[x2, y2] != null && Main.tile[x2, y2].HasTile)
                             {
-                                if (BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, (int)Main.tile[x2, y2].TileType) || Main.tile[x2, y2].TileType == 21 || Main.tile[x2, y2].TileType == 26 || Main.tile[x2, y2].TileType == 107 || Main.tile[x2, y2].TileType == 108 || Main.tile[x2, y2].TileType == 111)
+                                if (BaseUtility.InArray(BaseConstants.TILEIDS_DUNGEONSTRICT, (int)Main.tile[x2, y2].TileType) || Main.tile[x2, y2].TileType == TileID.Containers || Main.tile[x2, y2].TileType == TileID.DemonAltar || Main.tile[x2, y2].TileType == TileID.Cobalt || Main.tile[x2, y2].TileType == TileID.Mythril || Main.tile[x2, y2].TileType == TileID.Adamantite)
                                 {
                                     canExplode = false;
                                 }
-                                if (!Main.hardMode && Main.tile[x2, y2].TileType == 58) { canExplode = false; }
+                                if (!Main.hardMode && Main.tile[x2, y2].TileType == TileID.Hellstone) { canExplode = false; }
 
                                 if (canExplode)
                                 {
                                     WorldGen.KillTile(x2, y2, false, false, false);
-                                    if (sync && !Main.tile[x2, y2].HasTile && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 0, (float)x2, (float)y2, 0f, 0); }
+                                    if (sync && !Main.tile[x2, y2].HasTile && Main.netMode != NetmodeID.SinglePlayer) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 0, (float)x2, (float)y2, 0f, 0); }
                                 }
                             }
                             if (canExplode)
@@ -2202,10 +2202,10 @@ namespace AAMod
                                 {
                                     for (int y3 = y2 - 1; y3 <= y2 + 1; y3++)
                                     {
-                                        if (Main.tile[x3, y3] != null && Main.tile[x3, y3].WallType > 0 && updateWalls)
+                                        if (Main.tile[x3, y3] != null && Main.tile[x3, y3].WallType > WallID.None && updateWalls)
                                         {
                                             WorldGen.KillWall(x3, y3, false);
-                                            if(sync && Main.tile[x3, y3].WallType == 0 && Main.netMode != 0) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 2, (float)x3, (float)y3, 0f, 0); }
+                                            if(sync && Main.tile[x3, y3].WallType == WallID.None && Main.netMode != NetmodeID.SinglePlayer) { NetMessage.SendData(BaseConstants.NET_TILE_UPDATE, -1, -1, NetworkText.FromLiteral(""), 2, (float)x3, (float)y3, 0f, 0); }
                                         }
                                     }
                                 }

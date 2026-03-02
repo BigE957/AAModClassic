@@ -19,10 +19,10 @@ namespace AAMod.Items.Usable
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 999;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = BaseUtility.CalcValue(0, 0, 0, 5);
 
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;

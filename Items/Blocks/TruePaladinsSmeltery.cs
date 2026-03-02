@@ -2,6 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 
 namespace AAMod.Items.Blocks
 {
@@ -26,8 +27,8 @@ Functions as most necessary crafting stations"); */
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
             Item.createTile = Mod.Find<ModTile>("TruePaladinsSmeltery").Type;

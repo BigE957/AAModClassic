@@ -18,7 +18,7 @@ namespace AAMod.Items.Summoning.Minions
         {
             Projectile.CloneDefaults(309);
 			Projectile.minion = true;
-			AIType = 309;
+			AIType = ProjectileID.FrostBlastFriendly;
         }
 
         public override void OnKill(int timeLeft)
@@ -28,7 +28,7 @@ namespace AAMod.Items.Summoning.Minions
 			int num3;
 			for (int num501 = 0; num501 < num500; num501 = num3 + 1)
 			{
-				int num502 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 185, 0f, 0f, 0);
+				int num502 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.FrostHydra, 0f, 0f, 0);
 				if (Main.rand.Next(2) == 0)
 				{
 					Dust dust = Main.dust[num502];

@@ -15,7 +15,7 @@ namespace AAMod.Items.Melee
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 27;
@@ -26,7 +26,7 @@ namespace AAMod.Items.Melee
             Item.knockBack = 4f;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.value = 5400;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.shoot = Mod.Find<ModProjectile>("DoomShot").Type;

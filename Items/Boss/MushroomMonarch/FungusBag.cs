@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.MushroomMonarch
@@ -17,7 +18,7 @@ namespace AAMod.Items.Boss.MushroomMonarch
             Item.consumable = true;
             Item.width = 32;
             Item.height = 36;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
         }
         public override int BossBagNPC => Mod.Find<ModNPC>("FeudalFungus").Type;

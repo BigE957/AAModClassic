@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Vanity.Cerberus
 {
@@ -30,7 +31,7 @@ Great for impersonating Awakened Devs!"); */
         {
             Item.width = 18;
             Item.height = 20;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
     }

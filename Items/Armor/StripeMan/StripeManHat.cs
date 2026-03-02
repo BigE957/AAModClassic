@@ -24,7 +24,7 @@ You can put any sand into the Extractinator"); */
 		{
 			Item.width = 22;
 			Item.height = 16;
-			Item.rare = -1;
+			Item.rare = ItemRarityID.Gray;
             Item.value = Item.sellPrice(0, 0, 0, 1);
             Item.defense = 1;
 		}

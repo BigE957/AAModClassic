@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Accessories
@@ -11,7 +12,7 @@ namespace AAMod.Items.Accessories
             Item.width = 32;
             Item.height = 24;
             Item.value = Item.sellPrice(0, 8, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.accessory = true;
         }
 

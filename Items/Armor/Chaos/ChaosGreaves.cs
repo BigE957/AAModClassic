@@ -19,7 +19,7 @@ namespace AAMod.Items.Armor.Chaos
             Item.width = 22;
             Item.height = 16;
             Item.defense = 20;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
         }
 
         public override void UpdateEquip(Player player)

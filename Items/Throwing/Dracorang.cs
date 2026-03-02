@@ -16,9 +16,9 @@ namespace AAMod.Items.Throwing
 			Item.useTime = 20;
 			Item.damage = 50;                            
 			Item.value = 20;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.knockBack = 4;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
 			Item.shoot = Mod.Find<ModProjectile>("DracorangP").Type;
 			Item.width = 22;

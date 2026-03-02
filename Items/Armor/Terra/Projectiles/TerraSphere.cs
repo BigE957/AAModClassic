@@ -64,7 +64,7 @@ namespace AAMod.Items.Armor.Terra.Projectiles
             Main.projectile[p].Center = Projectile.Center;
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 107, -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Terra, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;

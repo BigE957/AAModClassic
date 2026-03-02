@@ -29,13 +29,13 @@ Conflagrate Staff EX"); */
 			Item.height = 64;
 			Item.useTime = 26;
 			Item.useAnimation = 26;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.shoot = Mod.Find<ModProjectile>("EnderMinionEX").Type;
             Item.buffType = Mod.Find<ModBuff>("EnderMinionBuffEX").Type;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;
 			Item.shootSpeed = 7f;	//The buff added to player after used the item

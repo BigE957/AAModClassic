@@ -23,7 +23,7 @@ Your magic attacks inflicts moonraze
             Item.width = 32;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 50, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
         }
 

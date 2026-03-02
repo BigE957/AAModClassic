@@ -17,9 +17,9 @@ namespace AAMod.Items.DevTools.Cinematic
 			Item.height = 28;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = Item.sellPrice(0, 0, 0, 0);
-			Item.rare = -12;
+			Item.rare = ItemRarityID.Expert;
 			Item.UseSound = SoundID.Item25;
 			Item.noMelee = true;
 			Item.mountType = Mod.Find<ModMount>("CinematicThing").Type;

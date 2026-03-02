@@ -94,10 +94,10 @@ namespace AAMod.NPCs.Bosses.Equinox
                 //emit dust
                 for (int i = 0; i < 5; i++)
                 {
-                    int d1 = Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2, Projectile.height / 2) + Projectile.velocity * muzzleDist, 1, 1, 6, 0f, 0f, 100, new Color(250, 244, 171), 1.5f);
+                    int d1 = Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2, Projectile.height / 2) + Projectile.velocity * muzzleDist, 1, 1, DustID.Torch, 0f, 0f, 100, new Color(250, 244, 171), 1.5f);
                     Main.dust[d1].noGravity = true;
                     Main.dust[d1].velocity *= 0.4f;
-                    d1 = Dust.NewDust(endPos + new Vector2(Projectile.width / 2, Projectile.height / 2), 0, 0, 6, 0f, 0f, 100, new Color(250, 244, 171), 1f);
+                    d1 = Dust.NewDust(endPos + new Vector2(Projectile.width / 2, Projectile.height / 2), 0, 0, DustID.Torch, 0f, 0f, 100, new Color(250, 244, 171), 1f);
                     Main.dust[d1].noGravity = true;
                     Main.dust[d1].velocity *= 0.4f;
                 }
@@ -131,7 +131,7 @@ namespace AAMod.NPCs.Bosses.Equinox
             Projectile.scale *= 0.992f;
             if (Projectile.ai[1] > 0.12f) Projectile.ai[1] *= 0.98f;
 
-            int d1 = Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2f, Projectile.height / 2f), 1, 1, 1, 0f, 0f, 100, new Color(250, 244, 171), 1f);
+            int d1 = Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2f, Projectile.height / 2f), 1, 1, DustID.Stone, 0f, 0f, 100, new Color(250, 244, 171), 1f);
             Main.dust[d1].noGravity = true;
             Main.dust[d1].velocity *= 0.5f;
 
@@ -153,7 +153,7 @@ namespace AAMod.NPCs.Bosses.Equinox
         {
             for (int j = 0; j < 40; j++)
             {
-                int d2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 1, j / 90f * -Projectile.velocity.X, j / 90f * -Projectile.velocity.Y, 100, new Color(250, 244, 171), 1.2f);
+                int d2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Stone, j / 90f * -Projectile.velocity.X, j / 90f * -Projectile.velocity.Y, 100, new Color(250, 244, 171), 1.2f);
                 Main.dust[d2].noGravity = true;
                 Main.dust[d2].velocity *= 0.6f;
             }

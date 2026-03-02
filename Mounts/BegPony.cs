@@ -60,7 +60,7 @@ namespace AAMod.Mounts
             MountData.swimFrameCount = MountData.inAirFrameCount;
             MountData.swimFrameDelay = MountData.inAirFrameDelay;
             MountData.swimFrameStart = MountData.inAirFrameStart;
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 MountData.backTexture = Mod.GetTexture("Mounts/BegPony");
                 MountData.backTextureExtra = null;

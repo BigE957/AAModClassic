@@ -15,15 +15,15 @@ namespace AAMod.Items.Magic
             Item.height = 28;
             Item.useTime = 18;
             Item.useAnimation = 18;
-            Item.useStyle = 5;        
+            Item.useStyle = ItemUseStyleID.Shoot;        
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = 664;  
+            Item.shoot = ProjectileID.DD2FlameBurstTowerT1Shot;  
             Item.shootSpeed = 11f;     
         }   
 

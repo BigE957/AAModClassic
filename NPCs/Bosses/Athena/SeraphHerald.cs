@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Athena
@@ -51,7 +52,7 @@ namespace AAMod.NPCs.Bosses.Athena
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 200);
             MoveToPoint(wantedVelocity);
 
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 NPC.frameCounter++;
                 if (NPC.frameCounter >= 6)
@@ -64,7 +65,7 @@ namespace AAMod.NPCs.Bosses.Athena
                     NPC.frame.Y = 0;
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (Vector2.Distance(player.Center, NPC.Center) > 2200)
                 {
@@ -80,29 +81,29 @@ namespace AAMod.NPCs.Bosses.Athena
 
                 if (NPC.ai[0] == 1)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald1"), Color.CadetBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald1"), Color.CadetBlue);
                     NPC.netUpdate = true;
                 }
                 else
                 if (NPC.ai[0] == 120)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald2"), Color.CadetBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald2"), Color.CadetBlue);
                 }
                 else
                 if (NPC.ai[0] == 240)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald3"), Color.CadetBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald3"), Color.CadetBlue);
                 }
                 else
                 if (NPC.ai[0] == 360)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald4"), Color.CadetBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald4"), Color.CadetBlue);
                 }
                 if (!AAWorld.downedGreed)
                 {
                     if (NPC.ai[0] >= 480)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
 
                         for (int i = 0; i < 5; i++)
                         {
@@ -117,12 +118,12 @@ namespace AAMod.NPCs.Bosses.Athena
                 {
                     if (NPC.ai[0] == 480)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald6"), Color.CadetBlue);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald6"), Color.CadetBlue);
                     }
 
                     if (NPC.ai[0] >= 600)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SeraphHerald5"), Color.CadetBlue);
 
                         for (int i = 0; i < 5; i++)
                         {
@@ -148,7 +149,7 @@ namespace AAMod.NPCs.Bosses.Athena
                 NPC.spriteDirection = -1;
             }
             NPC.rotation = NPC.velocity.X * 0.1f;
-            if (NPC.type == 210 || NPC.type == 211)
+            if (NPC.type == NPCID.Bee || NPC.type == NPCID.BeeSmall)
             {
                 NPC.frameCounter += 1.0;
                 NPC.rotation = NPC.velocity.X * 0.2f;

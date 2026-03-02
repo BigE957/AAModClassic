@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Ohno
@@ -17,7 +18,7 @@ namespace AAMod.Items.Vanity.Ohno
 			Item.height = 16;
 			Item.accessory = true;
 			Item.value = 100;
-			Item.rare = -1;
+			Item.rare = ItemRarityID.Gray;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 

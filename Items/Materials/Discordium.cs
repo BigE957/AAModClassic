@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAMod.Items.Materials
 {
@@ -13,7 +14,7 @@ namespace AAMod.Items.Materials
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -47,7 +48,7 @@ namespace AAMod.Items.Materials
             Item.height = 10;
             Item.maxStack = 999;
             Item.value = 10000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.glowMask = customGlowMask;
         }
 

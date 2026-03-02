@@ -1,26 +1,37 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Trees
 {
     class BogPalmTree : ModPalmTree
     {
-        private Mod mod => AAMod.instance;
+        public override TreePaintingSettings TreeShaderSettings => new();
+
+        public override void SetStaticDefaults()
+        {
+
+        }
 
         public override int DropWood()
         {
-            return mod.Find<ModItem>("Bogwood").Type;
+            return AAMod.instance.Find<ModItem>("Bogwood").Type;
         }
 
-        public override Texture2D GetTexture()
+        public override Asset<Texture2D> GetOasisTopTextures()
         {
-
-            return mod.GetTexture("Tiles/Trees/BogPalmTree");
+            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTreetops");
         }
 
-        public override Texture2D GetTopTextures()
+        public override Asset<Texture2D> GetTexture()
         {
-            return mod.GetTexture("Tiles/Trees/BogPalmTreetops");
+            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTree");
+        }
+
+        public override Asset<Texture2D> GetTopTextures()
+        {
+            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTreetops");
         }
     }
 }

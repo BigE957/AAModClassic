@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -15,8 +16,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("DaybreakIncineriteOre").Type; //put your CustomBlock Tile name
         }

@@ -16,7 +16,7 @@ namespace AAMod.Items.Blocks.RazewoodF
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createWall = Mod.Find<ModWall>("RazewoodWall").Type;
         }

@@ -19,7 +19,7 @@ namespace AAMod.Items.Melee
             Item.width = 64;
             Item.height = 64;
             Item.shoot = Mod.Find<ModProjectile>("Axis").Type;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 30;
 			Item.useTime = 30;
 			Item.shootSpeed = 4.75f;
@@ -30,7 +30,7 @@ namespace AAMod.Items.Melee
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
         }
 
 		public override void AddRecipes()

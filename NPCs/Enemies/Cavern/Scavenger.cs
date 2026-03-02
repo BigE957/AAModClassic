@@ -24,9 +24,9 @@ namespace AAMod.NPCs.Enemies.Cavern
             NPC.height = 50;
             NPC.defense = 0;
             NPC.lifeMax = 1000;
-            NPC.aiStyle = 6;
+            NPC.aiStyle = NPCAIStyleID.Worm;
             AIType = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.knockBackResist = 0f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -72,7 +72,7 @@ namespace AAMod.NPCs.Enemies.Cavern
                     Main.npc[a].ai[2] = NPC.whoAmI;
                     Main.npc[a].ai[1] = Previous;
                     Main.npc[Previous].ai[0] = a;
-                    NetMessage.SendData(23, -1, -1, null, a, 0f, 0f, 0f, 0);
+                    NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, a, 0f, 0f, 0f, 0);
                     Previous = a;
                 }
                 NPC.ai[2] = 1;

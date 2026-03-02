@@ -25,10 +25,10 @@ namespace AAMod.Items.Dev
             Item.height = 56;
             Item.useTime = 20;
             Item.useAnimation = 40;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.UseSound = new LegacySoundStyle(2, 105, Terraria.Audio.SoundType.Sound);
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("ArchwitchStorm").Type;

@@ -67,8 +67,8 @@ namespace AAMod.Tiles.Crafters
         public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(159, 36000, true);
-            player.AddBuff(74, 36000, true);
+            player.AddBuff(BuffID.Sharpened, 36000, true);
+            player.AddBuff(BuffID.WeaponImbueFire, 36000, true);
 			SoundEngine.PlaySound(SoundID.Item37, player.position);
             return true;
         }

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -31,7 +32,7 @@ namespace AAMod.Projectiles
                 Projectile.Kill();
                 return;
             }
-            if (Projectile.type != 481)
+            if (Projectile.type != ProjectileID.ChainGuillotine)
             {
                 Main.player[Projectile.owner].itemAnimation = 5;
                 Main.player[Projectile.owner].itemTime = 5;
@@ -74,7 +75,7 @@ namespace AAMod.Projectiles
                 Projectile.tileCollide = false;
                 Projectile.rotation = (float)Math.Atan2(num167, num166) - 1.57f;
                 float num169 = 20f;
-                if (Projectile.type == 262)
+                if (Projectile.type == ProjectileID.GolemFist)
                 {
                     num169 = 30f;
                 }
@@ -87,20 +88,20 @@ namespace AAMod.Projectiles
                 num167 *= num168;
                 Projectile.velocity.X = num166;
                 Projectile.velocity.Y = num167;
-                if (Projectile.type == 262 && Projectile.velocity.X < 0f)
+                if (Projectile.type == ProjectileID.GolemFist && Projectile.velocity.X < 0f)
                 {
                     Projectile.spriteDirection = 1;
                 }
-                else if (Projectile.type == 262)
+                else if (Projectile.type == ProjectileID.GolemFist)
                 {
                     Projectile.spriteDirection = -1;
                 }
-                if (Projectile.type == 271 && Projectile.velocity.X < 0f)
+                if (Projectile.type == ProjectileID.BoxingGlove && Projectile.velocity.X < 0f)
                 {
                     Projectile.spriteDirection = 1;
                     return;
                 }
-                if (Projectile.type == 271)
+                if (Projectile.type == ProjectileID.BoxingGlove)
                 {
                     Projectile.spriteDirection = -1;
                     return;

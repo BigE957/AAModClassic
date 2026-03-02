@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.CC
@@ -17,7 +18,7 @@ namespace AAMod.Items.Vanity.CC
 		{
 			Item.width = 18;
 			Item.height = 14;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
 		}
 
@@ -27,10 +28,10 @@ namespace AAMod.Items.Vanity.CC
 			equipSlot = EquipLoader.GetEquipSlot(Mod, "CCRobe_Legs", EquipType.Legs);
 		}
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */ 
-		{
-			drawHands = false;
-		}
+		//public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */ 
+		//{
+		//	drawHands = false;
+		//}
 
 		public override void ModifyTooltips(List<TooltipLine> list)
 		{

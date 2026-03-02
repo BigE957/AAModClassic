@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Vanity.Hallam
 {
@@ -29,7 +30,7 @@ namespace AAMod.Items.Vanity.Hallam
         {
             Item.width = 20;
             Item.height = 14;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
 	}

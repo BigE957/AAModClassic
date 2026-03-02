@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -21,8 +22,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 10;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 2;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Green;
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.expert = true; Item.expertOnly = true;

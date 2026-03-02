@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -20,9 +21,9 @@ namespace AAMod.Items.Blocks
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.createTile = Mod.Find<ModTile>("MoonAltar").Type;
 		}

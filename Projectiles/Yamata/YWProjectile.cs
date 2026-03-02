@@ -31,7 +31,7 @@ namespace AAMod.Projectiles.Yamata
             Projectile.ignoreWater = true;
             Projectile.penetrate = 4; //
             Projectile.timeLeft = 300;
-            Projectile.aiStyle = 1; //
+            Projectile.aiStyle = ProjAIStyleID.Arrow; //
             AIType = ProjectileID.Bullet;
         }
 
@@ -60,9 +60,9 @@ namespace AAMod.Projectiles.Yamata
             }
             int num557 = 8;
             //dust!
-            int dustId = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 6, 0f, 0f, 0);
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, DustID.Torch, 0f, 0f, 0);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, 6, 0f, 0f, 0);
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X + num557, Projectile.position.Y + num557), Projectile.width - num557 * 2, Projectile.height - num557 * 2, DustID.Torch, 0f, 0f, 0);
             Main.dust[dustId3].noGravity = true;
 
             const int aislotHomingCooldown = 0;

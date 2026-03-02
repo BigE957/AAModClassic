@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Boss.Yamata
 {
@@ -19,11 +20,11 @@ namespace AAMod.Items.Boss.Yamata
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             Item.expert = true; Item.expertOnly = true;
 			Item.createTile = Mod.Find<ModTile>("YamataATrophy").Type;
 		}

@@ -58,7 +58,7 @@ namespace AAMod.Projectiles.Anubis
                 float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
                 float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
 
-                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != 488 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
+                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != NPCID.TargetDummy && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, target.position, target.width, target.height))
                 {
                     if (Projectile.ai[0] > 20f)
                     {

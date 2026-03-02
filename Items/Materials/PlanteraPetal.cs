@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Materials
 {
     public class PlanteraPetal : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Materials
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 99;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
         }
     }
 }

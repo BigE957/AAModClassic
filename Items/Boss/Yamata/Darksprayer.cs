@@ -24,7 +24,7 @@ Inflicts Moonrazed"); */
             Item.height = 34;
             Item.useTime = 19;
             Item.useAnimation = 19;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAmmo = AmmoID.Rocket;
             Item.knockBack = 8f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
@@ -32,7 +32,7 @@ Inflicts Moonrazed"); */
             Item.autoReuse = true;   
             Item.shootSpeed = 20f;
             Item.shoot = Mod.Find<ModProjectile>("Moonblow").Type;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.noMelee = true;
         }
 

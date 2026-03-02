@@ -12,7 +12,7 @@ namespace AAMod.Items.Melee
         {
 			Item.CloneDefaults(ItemID.StarWrath);
 			Item.autoReuse = true;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.width = 48;
 			Item.height = 56;
 			Item.scale = 1.2f;

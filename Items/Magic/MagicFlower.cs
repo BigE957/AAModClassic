@@ -21,11 +21,11 @@ namespace AAMod.Items.Magic
 			Item.height = 32;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 5;
 			Item.value = 1000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("ManaShot").Type;

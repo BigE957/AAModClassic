@@ -97,15 +97,15 @@ namespace AAMod.Projectiles
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int index1 = 0; index1 < 30; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0.0f, 0.0f, 100, new Color(), 1.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0.0f, 0.0f, 100, new Color(), 1.5f);
 				Main.dust[index2].velocity *= 1.4f;
 			}
 			for (int index1 = 0; index1 < 20; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 3.5f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0.0f, 0.0f, 100, new Color(), 3.5f);
 				Main.dust[index2].noGravity = true;
 				Main.dust[index2].velocity *= 7f;
-				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0.0f, 0.0f, 100, new Color(), 1.5f);
+				int index3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0.0f, 0.0f, 100, new Color(), 1.5f);
 				Main.dust[index3].velocity *= 3f;
 			}
 			for (int index1 = 0; index1 < 2; ++index1)

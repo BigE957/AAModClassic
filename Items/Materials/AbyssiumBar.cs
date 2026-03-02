@@ -16,9 +16,9 @@ namespace AAMod.Items.Materials
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.value = 16000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("AbyssiumBar").Type;
 			

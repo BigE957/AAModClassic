@@ -38,7 +38,7 @@ namespace AAMod.Items.Materials
             Item.height = 24;
             Item.maxStack = 999;
             Item.value = 1000;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
         }
 
         public override void PostUpdate()

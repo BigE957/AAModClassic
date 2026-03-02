@@ -80,7 +80,7 @@ namespace AAMod.Projectiles
 			Lighting.AddLight(vector14, 0.5f, 0.3f, 0.32f);
 			if (Main.rand.Next(3) == 0)
 			{
-				int num30 = Dust.NewDust(vector14 - Projectile.Size / 2f, Projectile.width, Projectile.height, 63, Projectile.velocity.X, Projectile.velocity.Y, 100, Color.Red, 2f);
+				int num30 = Dust.NewDust(vector14 - Projectile.Size / 2f, Projectile.width, Projectile.height, DustID.WhiteTorch, Projectile.velocity.X, Projectile.velocity.Y, 100, Color.Red, 2f);
 				Main.dust[num30].noGravity = true;
 				Main.dust[num30].position -= Projectile.velocity;
 			}

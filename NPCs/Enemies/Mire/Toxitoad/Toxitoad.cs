@@ -28,7 +28,7 @@ namespace AAMod.NPCs.Enemies.Mire.Toxitoad
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 100000f;
             NPC.knockBackResist = 0.1f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             NPC.rarity = 2;
             Banner = NPC.type;
@@ -154,7 +154,7 @@ namespace AAMod.NPCs.Enemies.Mire.Toxitoad
             if (biteAttack == true)
             {
                 biteTimer++;
-                NPC.aiStyle = 0; // so the dude doesnt spaz right and left when not moving
+                NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer; // so the dude doesnt spaz right and left when not moving
                 NPC.velocity.X = 0; // stops the dude from moving right or left
                 if (biteTimer >= 30) // when 30 frames have gone by, reset all those values
                 {
@@ -177,7 +177,7 @@ namespace AAMod.NPCs.Enemies.Mire.Toxitoad
             if (tongueAttack == true)
             {
                 tongueTimer++;
-                NPC.aiStyle = 0;
+                NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
                 NPC.velocity.X = 0;
                 if (tongueTimer >= 35)
                 {
@@ -203,7 +203,7 @@ namespace AAMod.NPCs.Enemies.Mire.Toxitoad
             }
             if (tongueAttack == false && biteAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
-                NPC.aiStyle = 3;
+                NPC.aiStyle = NPCAIStyleID.Fighter;
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

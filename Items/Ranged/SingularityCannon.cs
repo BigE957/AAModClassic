@@ -15,11 +15,11 @@ namespace AAMod.Items.Ranged
             Item.height = 64;
             Item.useTime = 40;
             Item.useAnimation = 30;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Singularity>();
             Item.knockBack = 5;
             Item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item12;
             Item.autoReuse = true;
             Item.shootSpeed = 22f;

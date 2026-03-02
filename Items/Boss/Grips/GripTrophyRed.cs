@@ -2,6 +2,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using Terraria.ID;
 namespace AAMod.Items.Boss.Grips
 {
     public class GripTrophyRed : BaseAAItem
@@ -21,11 +22,11 @@ namespace AAMod.Items.Boss.Grips
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 1;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Blue;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = Mod.Find<ModTile>("GripRedTrophy").Type;
 		}
 

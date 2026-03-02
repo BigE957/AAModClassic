@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Greed
@@ -42,7 +43,7 @@ namespace AAMod.NPCs.Bosses.Greed
             Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(0, 300f));
 
-            if (Main.netMode != 2) //clientside stuff
+            if (Main.netMode != NetmodeID.Server) //clientside stuff
             {
                 if (NPC.ai[0] > 175)
                 {
@@ -54,13 +55,13 @@ namespace AAMod.NPCs.Bosses.Greed
                 }
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[0]++;
 
                 if (NPC.ai[0] == 175)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition1"), Color.Goldenrod);
                     }
@@ -70,14 +71,14 @@ namespace AAMod.NPCs.Bosses.Greed
                 }
                 else if (NPC.ai[0] == 350)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition2"), Color.Goldenrod);
                     }
                 }
                 else if (NPC.ai[0] == 500)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition3"), Color.Goldenrod);
                     }
@@ -88,7 +89,7 @@ namespace AAMod.NPCs.Bosses.Greed
                 {
                     AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("GreedA").Type, true, NPC.Center, Lang.BossChat("GreedAName"), false);
 
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Lang.BossChat("GreedTransition4"), Color.Goldenrod);
                     }

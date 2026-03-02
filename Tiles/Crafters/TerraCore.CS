@@ -25,7 +25,7 @@ namespace AAMod.Tiles.Crafters
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Core of Terraria");
-            DustType = 107;
+            DustType = DustID.Terra;
             AddMapEntry(new Color(40, 200, 0), name);
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
             AdjTiles = new int[]

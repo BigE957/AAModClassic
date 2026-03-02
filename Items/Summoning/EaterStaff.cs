@@ -17,7 +17,7 @@ namespace AAMod.Items.Summoning
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("DemonEater").Type;
             Item.damage = 9;
@@ -29,7 +29,7 @@ namespace AAMod.Items.Summoning
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.knockBack = 5f;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
         }

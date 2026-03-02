@@ -25,7 +25,7 @@ Hold up to rocket faster
 			Item.width = 42;
 			Item.height = 42;
 			Item.value = 500000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.accessory = true;
 		}
 

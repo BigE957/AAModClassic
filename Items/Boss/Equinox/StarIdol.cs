@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Equinox
 {
@@ -20,11 +21,11 @@ Can only be used if there arent many radium stars in the world."); */
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 30;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
 			Item.expert = true;
             Item.value = BaseUtility.CalcValue(0, 15, 0, 0);
 
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.consumable = true;		
@@ -47,11 +48,11 @@ Can only be used if there arent many radium stars in the world."); */
                         {
                             if (Main.dayTime)
                             {
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(43, 178, 245));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(43, 178, 245));
                             }
                             else
                             {
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(0, 255, 181));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(0, 255, 181));
                             }
                             return false;
                         }
@@ -65,7 +66,7 @@ Can only be used if there arent many radium stars in the world."); */
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             
-            if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedEquinoxInfo"), Color.Violet);
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedEquinoxInfo"), Color.Violet);
             for (int i = 0; i < Main.maxTilesX / 50; ++i)
             {
                 int X = WorldGen.genRand.Next(Main.maxTilesX / 10 * 2, (int)(Main.maxTilesX / 10 * 4.5f));

@@ -19,9 +19,9 @@ namespace AAMod.Items.Boss.Toad
             Item.width = 54;
             Item.height = 44;
             Item.value = Item.sellPrice(0, 0, 70, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.noMelee = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 8f;

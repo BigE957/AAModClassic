@@ -26,11 +26,11 @@ It's the stick that's magic. The diamond is just for show
 			Item.height = 58;
 			Item.useTime = 5;
 			Item.useAnimation = 5;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 5;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("Crystal").Type;
@@ -61,7 +61,7 @@ It's the stick that's magic. The diamond is just for show
                 Item.mana = 6;
                 Item.useTime = 30;
                 Item.useAnimation = 30;
-                Item.useStyle = 5;
+                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true; //so the item's animation doesn't do damage
                 Item.damage = 270;
                 Item.shoot = Mod.Find<ModProjectile>("BigCrystal").Type;
@@ -70,7 +70,7 @@ It's the stick that's magic. The diamond is just for show
             else
             {
                 Item.mana = 6;
-                Item.useStyle = 5;
+                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.useTime = 5;
                 Item.useAnimation = 5;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

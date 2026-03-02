@@ -58,12 +58,12 @@ namespace AAMod.Items.Dev.Invoker
 			Item.scale = 0.65f;
 			Item.width = 41;
 			Item.height = 41;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.damage = 200;
 			Item.noMelee = true;
 			Item.autoReuse = true;
 			Item.reuseDelay = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
 			Item.shoot = Mod.Find<ModProjectile>("InvokerStaffproj").Type; 
@@ -76,7 +76,7 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				Item.noMelee = false;
 				Item.staff[Item.type] = false;
-				Item.useStyle = 1;
+				Item.useStyle = ItemUseStyleID.Swing;
 				Item.damage = (int)(200 * player.GetDamage(DamageClass.Summon));
 				Item.DamageType = DamageClass.Summon;
 				return true;
@@ -85,7 +85,7 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				Item.noMelee = true;
 				Item.staff[Item.type] = true;
-				Item.useStyle = 5;
+				Item.useStyle = ItemUseStyleID.Shoot;
 				return true;
 			}
 			return true;
@@ -335,10 +335,10 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				for (int i = 0; i < 200; i++)
 				{
-					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == 318 || (Main.npc[i].type == 22 && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == 54 && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
+					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
 					{
 						bool flag;
-						if (Main.npc[i].type == 414)
+						if (Main.npc[i].type == NPCID.SolarCrawltipedeTail)
 						{
 							Rectangle rect = Main.npc[i].getRect();
 							int num = 8;
@@ -477,7 +477,7 @@ namespace AAMod.Items.Dev.Invoker
 				
 				if(npc.realLife >= 0) 
 				{
-					if(npc.type == 13) Main.npc[npc.realLife].boss = true;
+					if(npc.type == NPCID.EaterofWorldsHead) Main.npc[npc.realLife].boss = true;
 					Main.npc[npc.realLife].NPCLoot();//This need change in AAMod
 					for(int i = 0; i < 200 ; i++)
 					{
@@ -724,7 +724,7 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				float num578 = Projectile.velocity.X * 0.2f * num577;
 				float num579 = -(Projectile.velocity.Y * 0.2f) * num577;
-				int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 20, Color.DarkBlue, 2f);
+				int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.SpectreStaff, 0f, 0f, 20, Color.DarkBlue, 2f);
 				Main.dust[num580].noGravity = true;
 				Main.dust[num580].velocity *= 0f;
 				Main.dust[num580].position.X = Main.dust[num580].position.X - num578;
@@ -811,7 +811,7 @@ namespace AAMod.Items.Dev.Invoker
 					{
 						Main.player[num492].statLife = Main.player[num492].statLifeMax2;
 					}
-					NetMessage.SendData(66, -1, -1, null, num492, num497, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, num492, num497, 0f, 0f, 0, 0, 0);
 				}
 				Projectile.Kill();
 			}
@@ -824,7 +824,7 @@ namespace AAMod.Items.Dev.Invoker
 			{
 				float num503 = Projectile.velocity.X * 0.2f * num502;
 				float num504 = -(Projectile.velocity.Y * 0.2f) * num502;
-				int num505 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 20, Color.OrangeRed, 1.3f);
+				int num505 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.SpectreStaff, 0f, 0f, 20, Color.OrangeRed, 1.3f);
 				Main.dust[num505].noGravity = true;
 				Main.dust[num505].velocity *= 0f;
 				Main.dust[num505].position.X = Main.dust[num505].position.X - num503;
@@ -868,7 +868,7 @@ namespace AAMod.Items.Dev.Invoker
 			
 			count ++;
 
-			int numa = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 175, 0f, 0f, 30, Color.OrangeRed, 1.3f);
+			int numa = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.SpectreStaff, 0f, 0f, 30, Color.OrangeRed, 1.3f);
 			Main.dust[numa].noGravity = true;
 			Main.dust[numa].alpha ++;
 			

@@ -31,7 +31,7 @@ namespace AAMod.Items.Boss.Zero
             Item.height = 24;
             Item.useTime = 36;
             Item.useAnimation = 36;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.knockBack = 3;
@@ -40,7 +40,7 @@ namespace AAMod.Items.Boss.Zero
             Item.shootSpeed = 10f;
             Item.buffType = Mod.Find<ModBuff>("Protocol").Type;
             Item.autoReuse = true;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 

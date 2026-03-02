@@ -187,7 +187,7 @@ namespace AAMod
                     }
                 }
             }
-            if (sync && Main.netMode != 0)
+            if (sync && Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendTileSquare(-1, (int)(position.X / 16f), (int)(position.Y / 16f), (radius * 2) + 2);
             }
@@ -226,7 +226,7 @@ namespace AAMod
 			if (liquidType == 1) { Main.tile[x, y].LiquidType = LiquidID.Lava; Main.tile[x, y].honey/* tModPorter Suggestion: LiquidType = ... */(false); }else
 			if (liquidType == 2) { Main.tile[x, y].lava/* tModPorter Suggestion: LiquidType = ... */(false); Main.tile[x, y].LiquidType = LiquidID.Honey; }
             if(updateFlow){ Liquid.AddWater(x, y); }
-            if (sync && Main.netMode != 0) { NetMessage.SendTileSquare(-1, x, y, 1); }
+            if (sync && Main.netMode != NetmodeID.SinglePlayer) { NetMessage.SendTileSquare(-1, x, y, 1); }
         }
 
         /**
@@ -243,7 +243,7 @@ namespace AAMod
                 }
             }
             int size = (width > height ? width : height);
-            if (sync && Main.netMode != 0)
+            if (sync && Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendTileSquare(-1, x + (int)(width * 0.5F) - 1, y + (int)(height * 0.5F) - 1, size + 4);
             }
@@ -286,11 +286,11 @@ namespace AAMod
                         {
                             int x2 = (int)newPos.X + x1;
                             int y2 = (int)newPos.Y + y1;
-                            if (x1 == 0 && y1 == 0 && Main.tile[x2, y2].TileType == 21) //is a chest, special case to prevent dupe glitch
+                            if (x1 == 0 && y1 == 0 && Main.tile[x2, y2].TileType == TileID.Containers) //is a chest, special case to prevent dupe glitch
                             {
                                 KillChestAndItems(x2, y2);
                             }
-                            Main.tile[x, y].TileType = 0;
+                            Main.tile[x, y].TileType = TileID.Dirt;
                             Main.tile[x, y].HasTile = false;
 							if (!silent) { WorldGen.KillTile(x, y, false, false, true); }
                             if (removeLiquid)
@@ -358,10 +358,10 @@ namespace AAMod
             if(wall != -1)
             {
                 if(wall == -2){ wall = 0; }
-                Main.tile[x, y].WallType = 0;
+                Main.tile[x, y].WallType = WallID.None;
                 WorldGen.PlaceWall(x, y, wall, true);
             }
-            if (sync && Main.netMode != 0)
+            if (sync && Main.netMode != NetmodeID.SinglePlayer)
             {
                 int sizeWidth = tileWidth + (int)Math.Max(0, (width - 1));
                 int sizeHeight = tileHeight + (int)Math.Max(0, (height - 1));
@@ -422,11 +422,11 @@ namespace AAMod
 				{
 					//SmoothTiles(x, y, x + (vertical ? thickness : Math.Abs(endX - x)), y + (vertical ? Math.Abs(endY - y) : thickness));
 				}
-				if (sync && Main.netMode != 0)
+				if (sync && Main.netMode != NetmodeID.SinglePlayer)
 				{
 					int size = ((endY - y) > (endX - x) ? (endY - y) : (endX - x));
 					if (thickness > size) size = thickness;
-					NetMessage.SendData(20, -1, -1, NetworkText.FromLiteral(""), size, (float)x, (float)y, 0f, 0);
+					NetMessage.SendData(MessageID.TileSquare, -1, -1, NetworkText.FromLiteral(""), size, (float)x, (float)y, 0f, 0);
 				}
 			}else //genning a line that isn't straight
 			{
@@ -462,10 +462,10 @@ namespace AAMod
 							//if (gen.slope) SmoothTiles(x2, y2, x2 + 1, y2 + 1);
 						}
 					}
-					if (sync && Main.netMode != 0 && ((!horizontal && Math.Abs(lastY - point.Y) >= 5) || (horizontal && Math.Abs(lastY - point.Y) >= 5) || (way + 1 > length)))
+					if (sync && Main.netMode != NetmodeID.SinglePlayer && ((!horizontal && Math.Abs(lastY - point.Y) >= 5) || (horizontal && Math.Abs(lastY - point.Y) >= 5) || (way + 1 > length)))
 					{
 						int size = (int)Math.Max(5, thickness);
-						NetMessage.SendData(10, -1, -1, NetworkText.FromLiteral(""), lastX, lastY, size, size, 0);
+						NetMessage.SendData(MessageID.TileSection, -1, -1, NetworkText.FromLiteral(""), lastX, lastY, size, size, 0);
 						lastX = point.X; lastY = point.Y;
 					}
 					way += 1;
@@ -582,7 +582,7 @@ namespace AAMod
                 }
             }
             int size = (width > height ? width : height);
-            if(sync && Main.netMode != 0)
+            if(sync && Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendTileSquare(-1, x + (int)(width * 0.5F) - 1, y + (int)(height * 0.5F) - 1, size + 4);
             }
@@ -634,7 +634,7 @@ namespace AAMod
                 }
             }
             WorldGen.SquareTileFrame(x + 1, y, true);
-            if(sync && Main.netMode != 0)
+            if(sync && Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendTileSquare(-1, x, y, 2);
             }
@@ -647,7 +647,7 @@ namespace AAMod
 			{
 				for (int y = topY; y < bottomY; y++)
 				{
-					if (Main.tile[x, y].TileType != 48 && Main.tile[x, y].TileType != 137 && Main.tile[x, y].TileType != 232 && Main.tile[x, y].TileType != 191 && Main.tile[x, y].TileType != 151 && Main.tile[x, y].TileType != 274)
+					if (Main.tile[x, y].TileType != TileID.Spikes && Main.tile[x, y].TileType != TileID.Traps && Main.tile[x, y].TileType != TileID.WoodenSpikes && Main.tile[x, y].TileType != TileID.LivingWood && Main.tile[x, y].TileType != TileID.SandstoneBrick && Main.tile[x, y].TileType != TileID.SandStoneSlab)
 					{
 						if (!Main.tile[x, y - 1].HasTile)
 						{
@@ -722,9 +722,9 @@ namespace AAMod
 									}
 								}
 							}
-							else if (!Main.tile[x, y].HasTile && Main.tile[x, y + 1].TileType != 151 && Main.tile[x, y + 1].TileType != 274)
+							else if (!Main.tile[x, y].HasTile && Main.tile[x, y + 1].TileType != TileID.SandstoneBrick && Main.tile[x, y + 1].TileType != TileID.SandStoneSlab)
 							{
-								if (Main.tile[x + 1, y].TileType != 190 && Main.tile[x + 1, y].TileType != 48 && Main.tile[x + 1, y].TileType != 232 && WorldGen.SolidTile(x - 1, y + 1) && WorldGen.SolidTile(x + 1, y) && !Main.tile[x - 1, y].HasTile && !Main.tile[x + 1, y - 1].HasTile)
+								if (Main.tile[x + 1, y].TileType != TileID.MushroomBlock && Main.tile[x + 1, y].TileType != TileID.Spikes && Main.tile[x + 1, y].TileType != TileID.WoodenSpikes && WorldGen.SolidTile(x - 1, y + 1) && WorldGen.SolidTile(x + 1, y) && !Main.tile[x - 1, y].HasTile && !Main.tile[x + 1, y - 1].HasTile)
 								{
 									WorldGen.PlaceTile(x, y, (int)Main.tile[x, y + 1].TileType, false, false, -1, 0);
 									if (WorldGen.genRand.Next(2) == 0)
@@ -736,7 +736,7 @@ namespace AAMod
 										WorldGen.PoundTile(x, y);
 									}
 								}
-								if (Main.tile[x - 1, y].TileType != 190 && Main.tile[x - 1, y].TileType != 48 && Main.tile[x - 1, y].TileType != 232 && WorldGen.SolidTile(x + 1, y + 1) && WorldGen.SolidTile(x - 1, y) && !Main.tile[x + 1, y].HasTile && !Main.tile[x - 1, y - 1].HasTile)
+								if (Main.tile[x - 1, y].TileType != TileID.MushroomBlock && Main.tile[x - 1, y].TileType != TileID.Spikes && Main.tile[x - 1, y].TileType != TileID.WoodenSpikes && WorldGen.SolidTile(x + 1, y + 1) && WorldGen.SolidTile(x - 1, y) && !Main.tile[x + 1, y].HasTile && !Main.tile[x - 1, y - 1].HasTile)
 								{
 									WorldGen.PlaceTile(x, y, (int)Main.tile[x, y + 1].TileType, false, false, -1, 0);
 									if (WorldGen.genRand.Next(2) == 0)
@@ -768,7 +768,7 @@ namespace AAMod
 			{
 				for (int y = topY; y < bottomY; y++)
 				{
-					if (WorldGen.genRand.Next(2) == 0 && !Main.tile[x, y - 1].HasTile && Main.tile[x, y].TileType != 137 && Main.tile[x, y].TileType != 48 && Main.tile[x, y].TileType != 232 && Main.tile[x, y].TileType != 191 && Main.tile[x, y].TileType != 151 && Main.tile[x, y].TileType != 274 && Main.tile[x, y].TileType != 75 && Main.tile[x, y].TileType != 76 && WorldGen.SolidTile(x, y) && Main.tile[x - 1, y].TileType != 137 && Main.tile[x + 1, y].TileType != 137)
+					if (WorldGen.genRand.Next(2) == 0 && !Main.tile[x, y - 1].HasTile && Main.tile[x, y].TileType != TileID.Traps && Main.tile[x, y].TileType != TileID.Spikes && Main.tile[x, y].TileType != TileID.WoodenSpikes && Main.tile[x, y].TileType != TileID.LivingWood && Main.tile[x, y].TileType != TileID.SandstoneBrick && Main.tile[x, y].TileType != TileID.SandStoneSlab && Main.tile[x, y].TileType != TileID.ObsidianBrick && Main.tile[x, y].TileType != TileID.HellstoneBrick && WorldGen.SolidTile(x, y) && Main.tile[x - 1, y].TileType != TileID.Traps && Main.tile[x + 1, y].TileType != TileID.Traps)
 					{
 						if (WorldGen.SolidTile(x, y + 1) && WorldGen.SolidTile(x + 1, y) && !Main.tile[x - 1, y].HasTile)
 						{
@@ -855,7 +855,7 @@ namespace AAMod
 				{
 					WorldGen.TileFrame(point.X, point.Y, false, false);
 					Tile tile = Main.tile[point.X, point.Y];
-					if (tile != null && tile.WallType > 0) Framing.WallFrame(point.X, point.Y, false);
+					if (tile != null && tile.WallType > WallID.None) Framing.WallFrame(point.X, point.Y, false);
 				}
 				points.Clear();
 			}
@@ -869,7 +869,7 @@ namespace AAMod
 
 			public bool ValidTile(int x, int y)
 			{
-				return Main.tile[x, y] == null || (!Main.tile[x, y].HasTile && Main.tile[x, y].WallType == 0);
+				return Main.tile[x, y] == null || (!Main.tile[x, y].HasTile && Main.tile[x, y].WallType == WallID.None);
 			}
 
 			public class TileData

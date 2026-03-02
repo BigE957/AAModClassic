@@ -56,7 +56,7 @@ namespace AAMod.NPCs.Enemies.Void
             {
                 BaseAI.LookAt(player.Center, NPC, 3, 0, .1f, false);
             }
-            if (Main.netMode != 1 && playerActive)
+            if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
 			{
 				shootAI++;
 				if(shootAI >= 90)

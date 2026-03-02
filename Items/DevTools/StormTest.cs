@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using AAMod.Items.DevTools.Cinematic;
+using Terraria.ID;
 
 namespace AAMod.Items.DevTools
 {
@@ -20,15 +21,15 @@ namespace AAMod.Items.DevTools
             Item.height = 16;
             Item.useTime = 60;
             Item.useAnimation = 60;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 1;
             Item.value = 0;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.autoReuse = false;
             Item.useTurn = true;
             Item.expert = true; Item.expertOnly = true;
             Item.shootSpeed = 9f;
-            Item.shoot = 1;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.noUseGraphic = true;
         }
 		

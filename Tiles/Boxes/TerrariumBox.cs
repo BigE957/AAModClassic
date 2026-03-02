@@ -4,6 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
+using Terraria.ID;
 
 namespace AAMod.Tiles.Boxes
 {
@@ -21,7 +22,7 @@ namespace AAMod.Tiles.Boxes
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType =  107;
+            DustType = DustID.Terra;
             AddMapEntry(new Color(100, 200, 0), name);
 		}
 

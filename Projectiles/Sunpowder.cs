@@ -96,37 +96,37 @@ namespace AAMod.Projectiles
                         }
                         else if (type == ModContent.TileType<Depthstone>())
                         {
-                            Main.tile[k, l].TileType = 1;
+                            Main.tile[k, l].TileType = TileID.Stone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<MireGrass>())
                         {
-                            Main.tile[k, l].TileType = 60;
+                            Main.tile[k, l].TileType = TileID.JungleGrass;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<IndigoIce>())
                         {
-                            Main.tile[k, l].TileType = 161;
+                            Main.tile[k, l].TileType = TileID.IceBlock;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Depthsandstone>())
                         {
-                            Main.tile[k, l].TileType = 396;
+                            Main.tile[k, l].TileType = TileID.Sandstone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Depthsand>())
                         {
-                            Main.tile[k, l].TileType = 53;
+                            Main.tile[k, l].TileType = TileID.Sand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<DepthsandHardened>())
                         {
-                            Main.tile[k, l].TileType = 397;
+                            Main.tile[k, l].TileType = TileID.HardenedSand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }

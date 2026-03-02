@@ -23,10 +23,10 @@ namespace AAMod.Projectiles.Flasks
             Projectile.height = 10;
             Projectile.damage = 0;
             Projectile.penetrate = -1;
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
             Projectile.timeLeft = 600;
             Projectile.tileCollide = true;
-            AIType = 510;
+            AIType = ProjectileID.ToxicFlask;
         }
 
         public override bool PreDraw(ref Color lightColor)

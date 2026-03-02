@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Projectiles
 {
@@ -9,7 +10,7 @@ namespace AAMod.Projectiles
         {
             Projectile.width = 100;
             Projectile.height = 100;
-            Projectile.aiStyle = 19;
+            Projectile.aiStyle = ProjAIStyleID.Spear;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;

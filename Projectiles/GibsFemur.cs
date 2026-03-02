@@ -86,7 +86,7 @@ namespace AAMod.Projectiles
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num604 = 0; num604 < 10; num604++)
             {
-                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 26, 0f, 0f, 0, default, 0.8f);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Bone, 0f, 0f, 0, default, 0.8f);
             }
         }
     }

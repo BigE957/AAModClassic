@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Vanity.VoidEye
 {
@@ -29,7 +30,7 @@ namespace AAMod.Items.Vanity.VoidEye
         {
             Item.width = 22;
             Item.height = 30;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
 	}

@@ -38,7 +38,7 @@ namespace AAMod.NPCs.TownNPCs
 			NPC.friendly = true;
 			NPC.width = 18;
 			NPC.height = 40;
-			NPC.aiStyle = 7;
+			NPC.aiStyle = NPCAIStyleID.Passive;
 			NPC.damage = 40;
 			NPC.defense = 38;
 			NPC.lifeMax = 600;

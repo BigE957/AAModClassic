@@ -24,14 +24,14 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 			Item.height = 76;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("ForsakenStaffBlast").Type;
 			Item.shootSpeed = 16f;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 		}
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

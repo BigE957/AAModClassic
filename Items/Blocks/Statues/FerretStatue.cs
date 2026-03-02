@@ -18,10 +18,10 @@ namespace AAMod.Items.Blocks.Statues
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 50000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = Mod.Find<ModTile>("DevStatue").Type;
 			Item.placeStyle = 14;
         }

@@ -15,11 +15,11 @@ namespace AAMod.Items.Boss.Athena
             Item.DamageType = DamageClass.Magic;                     
             Item.width = 24;
             Item.height = 28;
-            Item.useStyle = 5;        
+            Item.useStyle = ItemUseStyleID.Shoot;        
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.mana = 8;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;

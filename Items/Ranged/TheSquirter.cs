@@ -20,11 +20,11 @@ namespace AAMod.Items.Ranged
             Item.height = 26;
             Item.useTime = 13;
             Item.useAnimation = 13;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = Mod.Find<ModProjectile>("Squirt").Type;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.Item34;
             Item.autoReuse = false;
             Item.shootSpeed = 14f;

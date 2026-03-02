@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Radium
@@ -19,7 +20,7 @@ Shines with the light of a starry night sky"); */
 			Item.height = 18;
 			Item.value = 300000;
 			Item.defense = 20;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

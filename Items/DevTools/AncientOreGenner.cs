@@ -17,11 +17,11 @@ namespace AAMod.Items.DevTools
         {
             Item.width = 16;
             Item.height = 16;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
         }
 
@@ -39,7 +39,7 @@ namespace AAMod.Items.DevTools
             {
                 int tilesX = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
-                if (Main.tile[tilesX, tilesY].TileType == 1)
+                if (Main.tile[tilesX, tilesY].TileType == TileID.Stone)
                 {
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("IncineriteOre").Type);
                 }
@@ -49,7 +49,7 @@ namespace AAMod.Items.DevTools
             {
                 int tilesX = WorldGen.genRand.Next(0, x);
                 int tilesY = WorldGen.genRand.Next(0, y);
-                if (Main.tile[tilesX, tilesY].TileType == 59)
+                if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
                 }
@@ -59,7 +59,7 @@ namespace AAMod.Items.DevTools
             {
                 int tilesX = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
-                if (Main.tile[tilesX, tilesY].TileType == 59)
+                if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("AbyssiumOre").Type);
                 }
@@ -80,7 +80,7 @@ namespace AAMod.Items.DevTools
             {
                 int i = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int j = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
-                while (Main.tile[i, j].TileType != 1)
+                while (Main.tile[i, j].TileType != TileID.Stone)
                 {
                     i = WorldGen.genRand.Next(0, Main.maxTilesX);
                     j = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);

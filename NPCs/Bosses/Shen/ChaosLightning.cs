@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
@@ -110,7 +111,7 @@ namespace AAMod.NPCs.Bosses.Shen
                     if (Main.rand.Next(5) == 0)
                     {
                         Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
-                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, 31, 0f, 0f, 100, default, 1.5f);
+                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
                         Main.dust[num854].velocity *= 0.5f;
                         Main.dust[num854].velocity.Y = -Math.Abs(Main.dust[num854].velocity.Y);
                         return;

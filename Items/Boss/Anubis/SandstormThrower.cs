@@ -22,12 +22,12 @@ namespace AAMod.Items.Boss.Anubis
 			Item.height = 38;
 			Item.useTime = 3;
 			Item.useAnimation = 5;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 4f;
 			Item.UseSound = SoundID.Item34;
             Item.value = Item.buyPrice(0, 1, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Anubis.SandstormFlame>();
 			Item.shootSpeed = 12f;

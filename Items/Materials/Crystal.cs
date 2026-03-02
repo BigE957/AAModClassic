@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Materials
@@ -23,7 +24,7 @@ namespace AAMod.Items.Materials
             Item.height = 16;
             Item.maxStack = 999;
             Item.value = 10000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -62,7 +63,7 @@ namespace AAMod.Items.Materials
             Item.height = 16;
             Item.maxStack = 999;
             Item.value = 10000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -111,7 +112,7 @@ namespace AAMod.Items.Materials
             Item.height = 16;
             Item.maxStack = 999;
             Item.value = 10000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         public override Color? GetAlpha(Color lightColor)

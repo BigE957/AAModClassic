@@ -126,7 +126,7 @@ namespace AAMod.NPCs.Bosses.Equinox
                 NPC.ai[1] = 0;
             }
 
-            if (NPC.ai[1] == aiTimerFire && Main.netMode != 1)
+            if (NPC.ai[1] == aiTimerFire && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Vector2 speed = new Vector2(1f, 0f).RotatedBy((float)(Main.rand.NextDouble() * 3.1415f)) * 6f;
                 Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, Mod.Find<ModProjectile>("NightcrawlerNothing").Type, NPC.damage / 4, 0, Main.myPlayer);
@@ -153,7 +153,7 @@ namespace AAMod.NPCs.Bosses.Equinox
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(163, 60);
+            target.AddBuff(BuffID.Obstructed, 60);
         }
 
         public void SpawnDust()

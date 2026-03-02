@@ -61,7 +61,7 @@ namespace AAMod.Items.Summoning.Minions
                 int num501 = 50;
                 for (int num502 = 0; num502 < num501; num502++)
                 {
-                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, 107, 0f, 0f, 0);
+                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, DustID.Terra, 0f, 0f, 0);
                     Main.dust[num503].noGravity = true;
                     Main.dust[num503].velocity *= 2f;
                     Main.dust[num503].scale *= 1.15f;

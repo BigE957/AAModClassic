@@ -18,8 +18,8 @@ namespace AAMod.Projectiles
             Projectile.friendly = true;
 			Projectile.timeLeft = 300;
 			Projectile.alpha = 0;
-			Projectile.aiStyle = 1;
-			AIType = 14;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
+			AIType = ProjectileID.Bullet;
 		}
 
 		public override void SetStaticDefaults()
@@ -33,7 +33,7 @@ namespace AAMod.Projectiles
 			Projectile.alpha = 0;
 			if (Main.rand.Next(3) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 6,
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.Torch,
 					Projectile.velocity.X * .2f, Projectile.velocity.Y * .2f, 200, Scale: 1.2f);
 				dust.velocity += Projectile.velocity * 0.3f;
 				dust.velocity *= 0.2f;

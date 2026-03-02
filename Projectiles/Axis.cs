@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles
@@ -9,7 +10,7 @@ namespace AAMod.Projectiles
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(342);
-			Projectile.aiStyle = 19;
+			Projectile.aiStyle = ProjAIStyleID.Spear;
         }
 
         public override void SetStaticDefaults()

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -22,7 +23,7 @@ Dark boots infused with the shadow of midnight"); */
 			Item.height = 16;
 			Item.value = 300000;
 			Item.defense = 20;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

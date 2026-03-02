@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.RazewoodF
@@ -19,7 +20,7 @@ namespace AAMod.Items.Blocks.RazewoodF
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = Mod.Find<ModTile>("RazewoodPlatform").Type;
 		}

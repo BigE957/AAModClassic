@@ -24,7 +24,7 @@ Titan Axe EX"); */
             Item.noUseGraphic = true;
             Item.channel = true;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useTime = 20;
             Item.knockBack = 4f;
             Item.autoReuse = false;
@@ -46,7 +46,7 @@ Titan Axe EX"); */
             if (player.altFunctionUse == 2)
             {
                 Item.damage = 300;
-                Item.useStyle = 1;
+                Item.useStyle = ItemUseStyleID.Swing;
                 Item.DamageType = DamageClass.Throwing;
                 Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Item.shoot = Mod.Find<ModProjectile>("TitanAxeEX").Type;
@@ -54,7 +54,7 @@ Titan Axe EX"); */
             else
             {
                 Item.damage = 450;
-                Item.useStyle = 5;
+                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
                 Item.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Item.shoot = Mod.Find<ModProjectile>("TitanEX").Type;

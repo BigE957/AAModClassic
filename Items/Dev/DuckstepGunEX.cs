@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
@@ -25,17 +26,17 @@ namespace AAMod.Items.Dev
 			Item.height = 42;
 			Item.useTime = 10;
 			Item.useAnimation = 10;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 4;
 			Item.value = 3000000;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/QUAK");
             Item.autoReuse = true;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 15f;
             Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
             glowmaskDrawType = GLOWMASKTYPE_GUN;
             glowmaskDrawColor = Color.White;  

@@ -22,12 +22,12 @@ namespace AAMod.Items.Ranged
             Item.height = 64;
             Item.useTime = 23;
             Item.useAnimation = 23;
-            Item.useStyle = 5;
-            Item.shoot = 1;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 0, 60, 0);
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item12;
             Item.autoReuse = true;
             Item.shootSpeed = 40f;

@@ -481,11 +481,11 @@ namespace AAMod
             for (int i = -48; i < ItemLoader.ItemCount; i++)
 			{
 				item.netDefaults(i);
-                if(item.createTile > 0 && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != 441 && item.createTile != 468)
+                if(item.createTile > TileID.Dirt && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != TileID.FakeContainers && item.createTile != TileID.FakeContainers2)
                 {
                     Config.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
                 }
-                if(item.buffType > 0 && item.buffType != 26 && item.buffTime > 0 && item.type > 3930)
+                if(item.buffType > 0 && item.buffType != BuffID.WellFed && item.buffTime > 0 && item.type > ItemID.Celeb2)
                 {
                     Config.LuckyPotion.Add(item.type, item.value);
                 }
@@ -614,7 +614,7 @@ namespace AAMod
 
         public void CleanupStaticArrays()
         {
-            if (Main.netMode != 2) //handle clearing all static texture arrays
+            if (Main.netMode != NetmodeID.Server) //handle clearing all static texture arrays
             {
                 precachedTextures.Clear();
 
@@ -1015,11 +1015,11 @@ namespace AAMod
         {
             if (!AAConfigClient.Instance.NoBossDialogue)
             {
-                if (Main.netMode == 0) { Main.NewText(s, colorR, colorG, colorB); }
+                if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }
                 else
-                if (Main.netMode == 1) { Main.NewText(s, colorR, colorG, colorB); }
+                if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
                 else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-                if (sync && Main.netMode == 2) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
+                if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
             }
         }
 
@@ -1103,7 +1103,7 @@ namespace AAMod
                     Main.projectile[projID].friendly = friendly;
                     Main.projectile[projID].hostile = hostile;
                 }
-                if (Main.netMode == 2) MNet.SendBaseNetMessage(0, owner, projID, friendly, hostile);
+                if (Main.netMode == NetmodeID.Server) MNet.SendBaseNetMessage(0, owner, projID, friendly, hostile);
             }
             else
             if (msg == MsgType.SyncAI) //sync AI array
@@ -1126,7 +1126,7 @@ namespace AAMod
                 {
                     ((ParentProjectile)Main.projectile[id].ModProjectile).SetAI(newAI, aitype);
                 }
-                if (Main.netMode == 2) BaseNet.SyncAI(classID, id, newAI, aitype);
+                if (Main.netMode == NetmodeID.Server) BaseNet.SyncAI(classID, id, newAI, aitype);
             }
         }
     }

@@ -25,9 +25,9 @@ namespace AAMod.NPCs.Enemies.Mire
 			NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 240000f;
             NPC.knockBackResist = .30f;
-            NPC.aiStyle = 87;
+            NPC.aiStyle = NPCAIStyleID.BiomeMimic;
             AIType = NPCID.Zombie;
-            AnimationType = 475;
+            AnimationType = NPCID.BigMimicHallow;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

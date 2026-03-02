@@ -45,7 +45,7 @@ The power to destroy entire planets rests in this armor"); */
             Item.height = 18;
             Item.value = 3000000;
             Item.defense = 28;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

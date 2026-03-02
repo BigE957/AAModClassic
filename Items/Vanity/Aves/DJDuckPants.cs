@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Aves
@@ -29,7 +30,7 @@ namespace AAMod.Items.Vanity.Aves
         {
             Item.width = 22;
             Item.height = 18;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
     }

@@ -19,7 +19,7 @@ namespace AAMod.Items.Boss.Yamata
             Item.useTime = 8;
             Item.useAnimation = 8;
             Item.noUseGraphic = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 10f;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Boss.Yamata
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void SetStaticDefaults()

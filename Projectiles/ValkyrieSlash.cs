@@ -21,9 +21,9 @@ namespace AAMod.Projectiles
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
-            Projectile.aiStyle = 75;
+            Projectile.aiStyle = ProjAIStyleID.HeldProjectile;
 			Projectile.netUpdate = true;
-            AIType = 595;
+            AIType = ProjectileID.Arkhalis;
         }
         public override void AI()
         {
@@ -32,7 +32,7 @@ namespace AAMod.Projectiles
                 //Do net updatey thing. Syncs this projectile.
 				if (Main.rand.Next(3) == 0)
                 {
-                 int num30 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
+                 int num30 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
                     Main.dust[num30].noGravity = true;
                     Main.dust[num30].position -= Projectile.velocity;
                 }

@@ -20,8 +20,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 2;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Green;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 100;
             Item.createTile = Mod.Find<ModTile>("SpiralStairs").Type;

@@ -15,7 +15,7 @@ namespace AAMod.Items.Tools
 
         public override void SetDefaults()
         {
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 25;
             Item.useTime = 15;
             Item.shootSpeed = 36f;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Tools
             Item.axe = 30;
             Item.UseSound = SoundID.Item23;
             Item.shoot = Mod.Find<ModProjectile>("MiningLaser").Type;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 54, 0);
             Item.tileBoost = 2;
             Item.noMelee = true;

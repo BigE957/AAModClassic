@@ -18,7 +18,7 @@ namespace AAMod.Items.Armor.Razewood
             Item.width = 26;
             Item.height = 18;
             Item.value = 100;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.defense = 1;
         }
 

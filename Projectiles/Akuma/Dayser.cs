@@ -18,7 +18,7 @@ namespace AAMod.Projectiles.Akuma
             Projectile.CloneDefaults(ProjectileID.LaserMachinegunLaser);
             Projectile.width = 5;
             Projectile.height = 5;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.alpha = 255;
             Projectile.scale = 1f;

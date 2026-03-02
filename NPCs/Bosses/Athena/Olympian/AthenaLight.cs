@@ -20,7 +20,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 			NPC.alpha = 255;
 			NPC.dontTakeDamage = true;
             NPC.lifeMax = 2000;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 70;
             NPC.defense = 60;
             NPC.knockBackResist = 0.2f;
@@ -56,7 +56,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             {
                 NPC.velocity.Y -= NPC.ai[1];
                 NPC.ai[1]++;
-                if (NPC.ai[1] > 40 && Main.netMode != 1)
+                if (NPC.ai[1] > 40 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.active = false;
                     NPC.netUpdate = true;

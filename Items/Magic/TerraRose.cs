@@ -28,11 +28,11 @@ Right Clicking fires a piercing rose"); */
 			Item.height = 60;
 			Item.useTime = 12;
 			Item.useAnimation = 12;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 6;
             Item.value = Item.sellPrice(0, 20, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("TerraRoseShot").Type;

@@ -20,10 +20,10 @@ namespace AAMod.Items.Melee
 			Item.height = 76;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item19;
 			Item.autoReuse = false;
 			Item.shoot = Mod.Find<ModProjectile>("TrueAbyssalTwilightShot").Type;

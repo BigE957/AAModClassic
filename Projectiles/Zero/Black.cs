@@ -26,13 +26,13 @@ namespace AAMod.Projectiles.Zero
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
 			Projectile.scale = 1f;
-			AIType = 14;
+			AIType = ProjectileID.Bullet;
 			flag1 = true;
         }
         public bool flag1;
 		public override void AI()
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 235, Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-1f, 1f), 6, new Color(0, 127, 0, 255), Projectile.scale * 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.LifeDrain, Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-1f, 1f), 6, new Color(0, 127, 0, 255), Projectile.scale * 1.5f);
             Main.dust[num].noGravity = true;
             Main.dust[num].velocity *= 1.5f;
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
@@ -46,7 +46,7 @@ namespace AAMod.Projectiles.Zero
 			Projectile.timeLeft = 2;
 			for (var i = 0; i < 20; i++)
 			{
-				int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 235, Main.rand.NextFloat(-6f, 6f), Main.rand.NextFloat(-1f, 1f), 6, new Color(0, 127, 0, 255), Projectile.scale * 1.5f);
+				int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.LifeDrain, Main.rand.NextFloat(-6f, 6f), Main.rand.NextFloat(-1f, 1f), 6, new Color(0, 127, 0, 255), Projectile.scale * 1.5f);
 				Main.dust[num].noGravity = true;
 				Main.dust[num].velocity *= 1.5f;
 			}

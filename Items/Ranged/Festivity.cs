@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Ranged
@@ -17,7 +18,7 @@ namespace AAMod.Items.Ranged
 
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(3546);
+			Item.CloneDefaults(ItemID.FireworksLauncher);
 			Item.damage = 375;
          
 
@@ -26,7 +27,7 @@ namespace AAMod.Items.Ranged
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3546);
+			recipe.AddIngredient(ItemID.FireworksLauncher);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();

@@ -22,19 +22,19 @@ Super Skullshot EX"); */
         {
             Item.autoReuse = true;
             Item.knockBack = 7f;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.width = 70;
             Item.height = 32;
-            Item.shoot = 10;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Bullet;
             Item.UseSound = SoundID.Item36;
             Item.damage = 90;
             Item.shootSpeed = 9f;
             Item.noMelee = true;
             Item.value = 100000;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.DamageType = DamageClass.Ranged;
             Item.expert = true; Item.expertOnly = true;
         }
@@ -83,7 +83,7 @@ Super Skullshot EX"); */
                 Item.useAnimation = 24;
                 Item.useTime = 24;
                 Item.reuseDelay = 0;
-                Item.shoot = 10;
+                Item.shoot = ProjectileID.PurificationPowder;
             }
             return base.CanUseItem(player);
         }

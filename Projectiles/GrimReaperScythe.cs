@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using System;
+using Terraria.ID;
 
 namespace AAMod.Projectiles
 {
@@ -18,7 +19,7 @@ namespace AAMod.Projectiles
 			Projectile.width = 60;
 			Projectile.height = 52;
 			Projectile.penetrate = 10;
-			AIType = 274;
+			AIType = ProjectileID.DeathSickle;
 		}
 		
 		public override void AI()
@@ -33,7 +34,7 @@ namespace AAMod.Projectiles
 			bool target = false;
 			for (int k = 0; k < 200; k++)
 			{
-				if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != 488)
+				if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != NPCID.TargetDummy)
 				{
 					Vector2 newMove = Main.npc[k].Center - Projectile.Center;
 					float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
@@ -70,7 +71,7 @@ namespace AAMod.Projectiles
 		{
 			for (int num298 = 0; num298 < 30; num298++)
 			{
-				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 184, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+				Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.ScourgeOfTheCorruptor, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
 			}
 		}
 	}

@@ -25,9 +25,9 @@ namespace AAMod.Items.Boss.Serpent
             Item.UseSound = SoundID.Item1;
             Item.noMelee = true;
             Item.noUseGraphic = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 5, 0, 0); 
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.shootSpeed = 5f;
             Item.shoot = Mod.Find<ModProjectile>("SerpentSpike").Type;  
             Item.autoReuse = true;

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Toad
@@ -18,7 +19,7 @@ namespace AAMod.Items.Boss.Toad
 			Item.consumable = true;
 			Item.width = 32;
 			Item.height = 36;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
 		}
 

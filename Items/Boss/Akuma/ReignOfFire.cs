@@ -27,13 +27,13 @@ Inflicts Daybroken"); */
             Item.height = 86;
             Item.useTime = 60;
             Item.useAnimation = 60;     
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6.5f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
 			Item.useTurn = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

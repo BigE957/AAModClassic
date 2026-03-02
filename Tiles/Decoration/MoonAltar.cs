@@ -19,7 +19,7 @@ namespace AAMod.Tiles.Decoration
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
-            DustType = 1;
+            DustType = DustID.Stone;
             AnimationFrameHeight = 56;
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
             DustType = ModContent.DustType<Dusts.YamataDust>();

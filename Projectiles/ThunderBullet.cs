@@ -17,7 +17,7 @@ namespace AAMod.Projectiles
 
 		public override void SetDefaults()
 		{
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.width = 10;
             Projectile.height = 10;

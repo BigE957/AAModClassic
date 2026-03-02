@@ -22,14 +22,14 @@ namespace AAMod.Items.Ranged
 			Item.useTime = 9;
             Item.reuseDelay = 16;
             Item.useAnimation = 19;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 1;
 			Item.value = 1200;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = false;
-			Item.shoot = 10; //idk why but all the guns in the vanilla source have this
+			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
 			Item.shootSpeed = 5f;
 			Item.useAmmo = AmmoID.Bullet;
 		}

@@ -19,10 +19,10 @@ namespace AAMod.Items.Throwing
 			Item.useAnimation = 10;
 			Item.shoot = Mod.Find<ModProjectile>("SpookyKnife").Type;
 			Item.shootSpeed = 14f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = Item.sellPrice(0, 0, 5, 0);
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.crit = 15;

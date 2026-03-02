@@ -25,16 +25,16 @@ namespace AAMod.Items.Boss.Yamata
 	        Item.height = 26;
 	        Item.useTime = 16;
 	        Item.useAnimation = 16;
-	        Item.useStyle = 5;
+	        Item.useStyle = ItemUseStyleID.Shoot;
 	        Item.noMelee = true;
 	        Item.knockBack = 4.5f;
 	        Item.value = Item.sellPrice(0, 30, 0, 0);
 	        Item.UseSound = SoundID.Item36;
 	        Item.autoReuse = true;
-	        Item.shoot = 10;
+	        Item.shoot = ProjectileID.PurificationPowder;
 	        Item.shootSpeed = 20f;
 	        Item.useAmmo = 97;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

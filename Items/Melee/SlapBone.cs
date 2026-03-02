@@ -14,7 +14,7 @@ namespace AAMod.Items.Melee
 			Item.useAnimation = 15;     
 			Item.knockBack = 100;
             Item.value = Item.sellPrice(0, 25, 0, 0);
-            Item.rare = 5;            
+            Item.rare = ItemRarityID.Pink;            
 		}
 
 		public override void SetStaticDefaults()

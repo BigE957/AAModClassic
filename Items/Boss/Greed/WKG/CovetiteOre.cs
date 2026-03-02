@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Greed.WKG
@@ -14,11 +15,11 @@ namespace AAMod.Items.Boss.Greed.WKG
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 1, 8, 0);
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("CovetiteOre").Type;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

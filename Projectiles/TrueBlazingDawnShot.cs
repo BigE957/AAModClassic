@@ -24,7 +24,7 @@ namespace AAMod.Projectiles
             {
                 Dust dust;
                 Vector2 position = Projectile.position;
-                dust = Main.dust[Dust.NewDust(position, 30, 30, 29, 0f, 0f, 60, new Color(0, 242, 255), 1.381579f)];
+                dust = Main.dust[Dust.NewDust(position, 30, 30, DustID.WaterCandle, 0f, 0f, 60, new Color(0, 242, 255), 1.381579f)];
                 dust.noGravity = true;
                 dust.fadeIn = 1.421053f;
             }

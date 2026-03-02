@@ -14,7 +14,7 @@ namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: Tu
             Projectile.extraUpdates = 0;
             Projectile.width = 14;//Set the projectile hitbox width
             Projectile.height = 14; //Set the projectile hitbox height            
-            Projectile.aiStyle = 99; // aiStyle 99 is used for all yoyos, and is Extremely suggested, as yoyo are extremely difficult without them
+            Projectile.aiStyle = ProjAIStyleID.Yoyo; // aiStyle 99 is used for all yoyos, and is Extremely suggested, as yoyo are extremely difficult without them
             Projectile.friendly = true;  //Tells the game whether it is friendly to players/friendly npcs or not
             Projectile.penetrate = -1; //Tells the game how many enemies it can hit before being destroyed. -1 = never
             Projectile.DamageType = DamageClass.Melee; //Tells the game whether it is a melee projectile or not        
@@ -33,7 +33,7 @@ namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: Tu
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)

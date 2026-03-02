@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Rajah
@@ -19,7 +20,7 @@ namespace AAMod.Items.Boss.Rajah
             Item.height = 20;
             Item.accessory = true;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

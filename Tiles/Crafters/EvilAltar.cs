@@ -17,7 +17,7 @@ namespace AAMod.Tiles.Crafters
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.StyleWrapLimit = 36;
 			TileObjectData.addTile(Type);
-			DustType = 7;
+			DustType = DustID.WoodFurniture;
 			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Evil Altar");

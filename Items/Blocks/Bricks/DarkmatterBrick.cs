@@ -16,7 +16,7 @@ namespace AAMod.Items.Blocks.Bricks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("DarkmatterBrick").Type;
         }

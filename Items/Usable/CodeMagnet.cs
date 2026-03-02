@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Usable
@@ -15,7 +16,7 @@ Right click the item to turn it off"); */
         public override void SetDefaults()
         {
             Item.width = Item.height = 16;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.maxStack = 1;
 			Item.value = 8000;
         }

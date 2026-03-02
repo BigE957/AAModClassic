@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Materials
 {
@@ -13,13 +14,13 @@ namespace AAMod.Items.Materials
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 99;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("DoomiteBar").Type;
             Item.value = Terraria.Item.sellPrice(0, 0, 32, 0);

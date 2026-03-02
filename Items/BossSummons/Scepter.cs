@@ -26,10 +26,10 @@ Can only be used in the desert on the surface
             Item.width = 24;
             Item.height = 22;
             Item.value = 0;
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.consumable = false;
         }
@@ -38,12 +38,12 @@ Can only be used in the desert on the surface
         {
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ScepterBossFalse1"), Color.Gold, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ScepterBossFalse1"), Color.Gold, false);
                 return true;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ScepterBossFalse2"), Color.Gold, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ScepterBossFalse2"), Color.Gold, false);
                 return true;
             }
 
@@ -64,7 +64,7 @@ Can only be used in the desert on the surface
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = npc.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)

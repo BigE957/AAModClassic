@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
@@ -25,15 +26,15 @@ namespace AAMod.Items.Dev
 			Item.height = 36;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 4;
 			Item.value = 1000000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = new LegacySoundStyle(29, 10, Terraria.Audio.SoundType.Sound);
             Item.autoReuse = true;
-			Item.shoot = 10; //idk why but all the guns in the vanilla source have this
+			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
 			Item.shootSpeed = 12f;
             Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
 

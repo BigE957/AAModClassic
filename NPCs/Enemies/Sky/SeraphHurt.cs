@@ -48,7 +48,7 @@ namespace AAMod.NPCs.Enemies.Sky
 
             NPC.ai[0]++;
 
-            if (NPC.ai[0] == 120 && Main.netMode != 1)
+            if (NPC.ai[0] == 120 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.netUpdate = true;
             }
@@ -57,7 +57,7 @@ namespace AAMod.NPCs.Enemies.Sky
                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                 NPC.netUpdate = true;
             }
-            if (NPC.ai[0] >= 240 && NPC.dontTakeDamage && Main.netMode != 1)
+            if (NPC.ai[0] >= 240 && NPC.dontTakeDamage && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.dontTakeDamage = false;
                 NPC.netUpdate = true;
@@ -90,7 +90,7 @@ namespace AAMod.NPCs.Enemies.Sky
 
                 Vector2 Acropolis = new Vector2(Origin.X + (80 * 16), Origin.Y + (79 * 16));
 
-                if (Vector2.Distance(NPC.Center, Acropolis) > 90 * 16 && Main.netMode != 1)
+                if (Vector2.Distance(NPC.Center, Acropolis) > 90 * 16 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     for (int a = 0; a < 8; a++)
                     {

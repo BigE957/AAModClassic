@@ -37,7 +37,7 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
         {
             Item.width = 26;
             Item.height = 20;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
         }
 

@@ -23,9 +23,9 @@ namespace AAMod.Projectiles.Djinn
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 2;
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
             Projectile.timeLeft = 600;
-            AIType = 48;
+            AIType = ProjectileID.ThrowingKnife;
         }
 
         public override bool PreDraw(ref Color lightColor)

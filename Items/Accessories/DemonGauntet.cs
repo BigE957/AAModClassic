@@ -31,7 +31,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
             Item.width = 45;
             Item.height = 48;
             Item.value = Item.sellPrice(0, 12, 0, 0);
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.accessory = true;
             Item.defense = 8;
             

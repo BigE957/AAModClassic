@@ -22,7 +22,7 @@ namespace AAMod.Items.Tools
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.hammer = 120;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 6;
 			Item.value = 550000;
             Item.UseSound = SoundID.Item23;
@@ -30,7 +30,7 @@ namespace AAMod.Items.Tools
             Item.shoot = Mod.Find<ModProjectile>("DarkmatterJackhammerPro").Type;
             Item.shootSpeed = 40f;
             Item.tileBoost += 1;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

@@ -17,13 +17,13 @@ namespace AAMod.Items.Tools
             Item.useAnimation = 20;
             Item.axe = 50;
             Item.hammer = 45;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
             Item.value = 10;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

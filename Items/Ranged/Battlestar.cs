@@ -24,14 +24,14 @@ namespace AAMod.Items.Ranged
 			Item.height = 24;
 			Item.useAnimation = 3;
 			Item.useTime = 3;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 2;
 			Item.value = Item.sellPrice(0, 14, 50, 0);
-			Item.rare = 8;
+			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item40;
 			Item.autoReuse = true;
-			Item.shoot = 10;
+			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 16f;
 			Item.useAmmo = AmmoID.Bullet;			
 			Item.crit = 3;

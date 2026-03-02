@@ -19,7 +19,7 @@ namespace AAMod.Items.Boss.EFish
 			Item.width = 42;
 			Item.height = 42;
 			Item.value = 500000;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Item.accessory = true;
 		}
         

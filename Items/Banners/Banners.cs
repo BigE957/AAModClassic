@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Banners
@@ -48,10 +49,10 @@ namespace AAMod.Items.Banners
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 99;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.value = BaseUtility.CalcValue(0, 0, 10, 0);
 
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;

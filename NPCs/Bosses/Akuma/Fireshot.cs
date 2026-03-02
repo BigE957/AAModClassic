@@ -18,7 +18,7 @@ namespace AAMod.NPCs.Bosses.Akuma
             Projectile.CloneDefaults(ProjectileID.LaserMachinegunLaser);
             Projectile.width = 5;
             Projectile.height = 5;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.alpha = 50;

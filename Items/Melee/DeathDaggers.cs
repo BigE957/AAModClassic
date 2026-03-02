@@ -18,7 +18,7 @@ namespace AAMod.Items.Melee
         public override void SetDefaults()
 		{
             Item.autoReuse = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 8f;
             Item.shoot = ModContent.ProjectileType<Projectiles.DeathDagger>();
             Item.damage = 29;
@@ -33,7 +33,7 @@ namespace AAMod.Items.Melee
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.knockBack = 1f;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

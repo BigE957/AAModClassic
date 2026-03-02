@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.Enums;
 using Terraria.GameContent.Shaders;
 using Terraria.Graphics.Effects;
+using Terraria.ID;
 
 namespace AAMod.Projectiles
 {
@@ -211,7 +212,7 @@ namespace AAMod.Projectiles
 					float num844 = Projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
 					float num845 = (float)Main.rand.NextDouble() * 0.8f + 1f;
 					Vector2 vector81 = new Vector2((float)Math.Cos(num844) * num845, (float)Math.Sin(num844) * num845);
-					int num846 = Dust.NewDust(vector80, 0, 0, 261, vector81.X, vector81.Y, 0, new Color(255, 250, 205), 1f);
+					int num846 = Dust.NewDust(vector80, 0, 0, DustID.AncientLight, vector81.X, vector81.Y, 0, new Color(255, 250, 205), 1f);
 					Main.dust[num846].color = color;
 					Main.dust[num846].scale = 1.1f;
 					if (Projectile.scale > 1f) 
@@ -232,7 +233,7 @@ namespace AAMod.Projectiles
 				if (Main.rand.Next(5) == 0) 
 				{
 					Vector2 value42 = Projectile.velocity.RotatedBy(1.5707963705062866, default) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
-					int num847 = Dust.NewDust(vector80 + value42 - Vector2.One * 4f, 8, 8, 261, 0f, 0f, 100, new Color(255, 250, 205), 1f);
+					int num847 = Dust.NewDust(vector80 + value42 - Vector2.One * 4f, 8, 8, DustID.AncientLight, 0f, 0f, 100, new Color(255, 250, 205), 1f);
 					Main.dust[num847].velocity *= 0.5f;
 					Main.dust[num847].velocity.Y = -Math.Abs(Main.dust[num847].velocity.Y);
 				}
@@ -240,7 +241,7 @@ namespace AAMod.Projectiles
 				float value43 = 0.1f * (float)Math.Sin(Main.GlobalTimeWrappedHourly * 20f);
 				Vector2 size = new Vector2(Projectile.velocity.Length() * Projectile.localAI[1], Projectile.width * Projectile.scale);
 				float num848 = Projectile.velocity.ToRotation();
-				if (Main.netMode != 2) 
+				if (Main.netMode != NetmodeID.Server) 
 				{
 					((WaterShaderData)Filters.Scene["WaterDistortion"].GetShader()).QueueRipple(Projectile.position + new Vector2(size.X * 0.5f, 0f).RotatedBy(num848, default), new Color(0.5f, 0.1f * Math.Sign(value43) + 0.5f, 0f, 1f) * Math.Abs(value43), size, RippleShape.Square, num848);
 				}

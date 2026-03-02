@@ -24,7 +24,7 @@ namespace AAMod.Tiles.Decoration
             disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            DustType = 128;
+            DustType = DustID.Chlorophyte;
             soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
         }
 

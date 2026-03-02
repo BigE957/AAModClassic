@@ -23,14 +23,14 @@ namespace AAMod.Items.Boss.Athena.Olympian
             Item.height = 50;
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
-            Item.shoot = 1;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ProjectileID.WoodenArrowFriendly;
             Item.useAmmo = AmmoID.Arrow;
             Item.knockBack = 0;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
             Item.shootSpeed = 10f;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

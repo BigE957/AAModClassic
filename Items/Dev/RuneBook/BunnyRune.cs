@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev.RuneBook
@@ -138,7 +139,7 @@ namespace AAMod.Items.Dev.RuneBook
                         {
                             Main.player[Projectile.owner].statLife = Main.player[Projectile.owner].statLifeMax2;
                         }
-                        NetMessage.SendData(66, -1, -1, null, Projectile.owner, 1, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, Projectile.owner, 1, 0f, 0f, 0, 0, 0);
                         Projectile.netUpdate = true;
                     }
                 }

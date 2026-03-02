@@ -131,12 +131,12 @@ namespace AAMod.Projectiles.Shen
             int height3 = num84;
             for (int num85 = 0; num85 < 1; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
 			for (int num852 = 0; num852 < 3; num852++)
             {
-                int num862 = Dust.NewDust(position, num84, height3, 244, 0f, 0f, 100, default, 1.5f);
+                int num862 = Dust.NewDust(position, num84, height3, DustID.CopperCoin, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num862].position = Projectile.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 10; num87++)

@@ -28,7 +28,7 @@ namespace AAMod.NPCs.Enemies.Mire
             AnimationType = NPCID.Crawdad;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.width = 72;
             NPC.height = 78;
             NPC.lavaImmune = false;

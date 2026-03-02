@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
@@ -10,8 +11,8 @@ namespace AAMod.Items.Melee
 			Item.height = 48;
 			Item.useAnimation = 25;
 			Item.useTime = 15;
-			Item.useStyle = 5;
-			Item.rare = 1;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.rare = ItemRarityID.Blue;
 			Item.noUseGraphic = true;
 			Item.channel = true;
 			Item.noMelee = true;

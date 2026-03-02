@@ -24,14 +24,14 @@ namespace AAMod.Items.Tools
             Item.tileBoost += 4;
             Item.damage = 60;
             Item.knockBack = 4;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 5;
             Item.useAnimation = 19;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.UseSound = SoundID.Item1;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

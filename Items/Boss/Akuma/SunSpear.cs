@@ -33,9 +33,9 @@ Inflicts daybroken"); */
             Item.noUseGraphic = true;
             Item.useTurn = true;
 			Item.autoReuse = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.shoot = Mod.Find<ModProjectile>("SunSpear").Type;  //put your Spear projectile name
             Item.shootSpeed = 7f;

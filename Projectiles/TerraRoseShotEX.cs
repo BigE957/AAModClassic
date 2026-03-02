@@ -51,7 +51,7 @@ namespace AAMod.Projectiles
 			if (Main.rand.NextFloat() < 0.8f)
 			{
 				Vector2 position = Projectile.position;
-                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, 107, Projectile.velocity.X * 0.2f,
+                int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, DustID.Terra, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[dustId].noGravity = true;
 
@@ -93,7 +93,7 @@ namespace AAMod.Projectiles
 			Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
 			for (int index1 = 0; index1 < 20; ++index1)
 			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 74, 0.0f, 0.0f, 100, new Color(), 1f);
+				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GreenFairy, 0.0f, 0.0f, 100, new Color(), 1f);
 				Main.dust[index2].velocity *= 1.1f;
 				Main.dust[index2].scale *= 0.99f;
 			}

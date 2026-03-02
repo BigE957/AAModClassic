@@ -18,12 +18,12 @@ namespace AAMod.Items.Ranged
             Item.height = 24;
             Item.useTime = 7;
             Item.useAnimation = 22;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAmmo = AmmoID.Gel;
             Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireProj>();
             Item.knockBack = 0;
             Item.value = 100000;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item34;
             Item.autoReuse = true;
             Item.shootSpeed = 14f;

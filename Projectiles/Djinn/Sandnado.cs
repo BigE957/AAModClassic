@@ -95,7 +95,7 @@ namespace AAMod.Projectiles.Djinn
                     value77.X *= -1f;
                     Vector2 value78 = new Vector2(6f, 10f);
                     Vector2 position3 = vector145 + value74 * value77 * 0.5f + value78;
-                    Dust dust34 = Main.dust[Dust.NewDust(position3, 0, 0, 269, 0f, 0f, 0, default, 1f)];
+                    Dust dust34 = Main.dust[Dust.NewDust(position3, 0, 0, DustID.Sandnado, 0f, 0f, 0, default, 1f)];
                     dust34.position = position3;
                     dust34.customData = vector145 + value78;
                     dust34.fadeIn = 1f;

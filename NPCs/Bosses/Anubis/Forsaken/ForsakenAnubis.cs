@@ -132,7 +132,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             {
                 if (internalAI[2] == 0)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int m = 0; m < RuneCount; m++)
                         {
@@ -328,7 +328,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                         Max = 4;
                     }
 
-                    if (NPC.ai[1] > 120 &&  Main.netMode != 1)
+                    if (NPC.ai[1] > 120 &&  Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         float rotation = 2f * (float)Math.PI / Max;
                         Vector2 vel = NPC.velocity;
@@ -567,7 +567,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 
             if (!AAWorld.downedAnubisA)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("FAnubisWin"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FAnubisWin"), Color.ForestGreen);
             }
 
             AAWorld.downedAnubisA = true;
@@ -604,9 +604,9 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                 if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
                 {
                     deathtimer++;
-                    if (Main.netMode != 1 && deathtimer > 240)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("FAnubis"), Color.ForestGreen);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FAnubis"), Color.ForestGreen);
                         int a = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
@@ -653,7 +653,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -727,7 +727,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -773,7 +773,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)

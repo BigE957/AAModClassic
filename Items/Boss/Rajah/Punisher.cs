@@ -14,7 +14,7 @@ namespace AAMod.Items.Boss.Rajah
 
         public override void SetDefaults()
         {
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 17;
             Item.useTime = 17;
             Item.autoReuse = true;
@@ -25,7 +25,7 @@ namespace AAMod.Items.Boss.Rajah
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Punisher>();
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noUseGraphic = true;

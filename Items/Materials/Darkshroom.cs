@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Materials
 {
     public class Darkshroom : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Materials
             Item.width = 22;
             Item.height = 22;
             Item.maxStack = 99;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
         }
     }
 }

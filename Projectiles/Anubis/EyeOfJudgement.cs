@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 
 namespace AAMod.Projectiles.Anubis
 {
@@ -46,7 +47,7 @@ namespace AAMod.Projectiles.Anubis
                 float shootToY = target.position.Y + target.height * 0.5f - Projectile.Center.Y;
                 float distance = (float)Math.Sqrt(shootToX * shootToX + shootToY * shootToY);
 
-                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != 488)
+                if (distance < 600f && target.catchItem == 0 && !target.friendly && target.active && target.type != NPCID.TargetDummy)
                 {
                     if (Projectile.ai[0] > 30f) // Time in (60 = 1 second) 
                     {

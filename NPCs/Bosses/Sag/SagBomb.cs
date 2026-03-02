@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Sag
@@ -21,7 +22,7 @@ namespace AAMod.NPCs.Bosses.Sag
             Projectile.height = 26;
             Projectile.friendly = false;
             Projectile.tileCollide = true;
-            AIType = 48;
+            AIType = ProjectileID.ThrowingKnife;
             Projectile.hostile = true;
             Projectile.penetrate = 1;
         }

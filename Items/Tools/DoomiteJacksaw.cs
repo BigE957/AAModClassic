@@ -25,10 +25,10 @@ namespace AAMod.Items.Tools
 			Item.useTime = 12;
 			Item.hammer = 70;
 			Item.axe = 30;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 0;
 			Item.value = 15000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("DoomiteJacksaw").Type;

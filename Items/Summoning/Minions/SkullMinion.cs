@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Summoning.Minions
@@ -252,7 +253,7 @@ namespace AAMod.Items.Summoning.Minions
         {
             if (Main.rand.Next(6) == 0)
             {
-                int num25 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default, 2f);
+                int num25 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default, 2f);
                 Main.dust[num25].velocity *= 0.3f;
                 Main.dust[num25].noGravity = true;
                 Main.dust[num25].noLight = true;

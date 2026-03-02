@@ -21,7 +21,7 @@ It looks like it hasn't been touched in years"); */
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 99;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void HoldItem(Player player)

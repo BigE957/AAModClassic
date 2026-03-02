@@ -25,10 +25,10 @@ Demise EX"); */
 			Item.height = 58;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("DemiseSphereEX").Type;
@@ -47,7 +47,7 @@ Demise EX"); */
             if (player.altFunctionUse == 2)
             {
                 Item.staff[Item.type] = false;
-                Item.useStyle = 1;
+                Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
                 Item.shoot = Mod.Find<ModProjectile>("DemiseBladeEX").Type;
                 Item.shootSpeed = 15f;
@@ -55,7 +55,7 @@ Demise EX"); */
             else
             {
                 Item.staff[Item.type] = true;
-                Item.useStyle = 5;
+                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
                 Item.shoot = Mod.Find<ModProjectile>("DemiseSphereEX").Type;
                 Item.shootSpeed = 13f;

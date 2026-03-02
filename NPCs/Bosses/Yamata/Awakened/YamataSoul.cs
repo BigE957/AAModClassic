@@ -24,7 +24,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
             AnimationType = NPCID.ShadowFlameApparition;
             NPC.npcSlots = 0;
             NPC.value = BaseUtility.CalcValue(0, 0, 0, 0);
-            NPC.aiStyle = 86;
+            NPC.aiStyle = NPCAIStyleID.AncientVision;
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;

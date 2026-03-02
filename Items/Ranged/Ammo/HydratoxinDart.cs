@@ -22,7 +22,7 @@ namespace AAMod.Items.Ranged.Ammo
 			Item.knockBack = 3f;
 			Item.shootSpeed = 4f;
 			Item.DamageType = DamageClass.Ranged;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.consumable = true;
 		}
 

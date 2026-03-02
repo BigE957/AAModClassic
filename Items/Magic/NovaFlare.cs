@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
@@ -17,7 +18,7 @@ namespace AAMod.Items.Magic
 
 		public override void SetDefaults()
 		{
-			Item.CloneDefaults(3570);
+			Item.CloneDefaults(ItemID.LunarFlareBook);
 			Item.useTime = 8;
 			Item.useAnimation = 8;
 			Item.damage = 175;
@@ -84,7 +85,7 @@ namespace AAMod.Items.Magic
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(3570);
+			recipe.AddIngredient(ItemID.LunarFlareBook);
 			recipe.AddIngredient(null, "EXSoul");
 			recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();

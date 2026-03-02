@@ -14,11 +14,11 @@ namespace AAMod.Items.Boss.Serpent
             Item.height = 28; 
             Item.useTime = 17;  
             Item.useAnimation = 17;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; 
             Item.knockBack = 1;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.mana = 9;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;

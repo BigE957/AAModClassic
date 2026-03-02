@@ -23,11 +23,11 @@ namespace AAMod.Items.Blocks
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.createTile = Mod.Find<ModTile>("DragonfireTorch").Type;
 			Item.flame = true;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.value = Item.sellPrice(0, 0, 1, 0);
 		}
 

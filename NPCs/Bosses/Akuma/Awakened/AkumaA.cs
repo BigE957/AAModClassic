@@ -89,7 +89,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(internalAI[1]);
                 writer.Write(internalAI[2]);
@@ -99,7 +99,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 internalAI[1] = reader.ReadFloat();
                 internalAI[2] = reader.ReadFloat();
@@ -148,7 +148,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 NPC.alpha = 0;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.localAI[2] == 0)
                 {
@@ -195,7 +195,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                             if (weakness == false)
                             {
                                 weakness = true;
-                                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("Akuma1"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma1"), Color.DeepSkyBlue);
                             }
                         }
                     }
@@ -218,7 +218,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                     if (++NPC.ai[2] > 60)
                     {
                         NPC.ai[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, 20f * Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAFireballFrag>(), NPC.damage / 4, 0f, Main.myPlayer);
                     }
                     if (++NPC.ai[1] > 300)
@@ -252,7 +252,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                     if (++NPC.ai[3] > 40)
                     {
                         NPC.ai[3] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             bool fire = true;
                             for (int i = 0; i < Main.maxNPCs; i++)
@@ -271,7 +271,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                     }
                     if (++NPC.ai[1] > 240 || (NPC.ai[2] > 0 ? NPC.Center.X > player.Center.X + 700 : NPC.Center.X < player.Center.X - 700))
                     {
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             bool fire = true;
                             for (int i = 0; i < Main.maxNPCs; i++)
@@ -306,7 +306,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
                         NPC.netUpdate = true;
-                        if (Main.netMode != 1) //fire deathray
+                        if (Main.netMode != NetmodeID.MultiplayerClient) //fire deathray
                             Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaADeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0, NPC.whoAmI);
                     }
                     break;
@@ -325,7 +325,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 case 6: //fire lasers from all segments, slower now
                     targetPos = player.Center;
                     MovementWorm(targetPos, 10f, 0.26f);
-                    if (NPC.ai[1] == 120 - 60 && Main.netMode != 1)
+                    if (NPC.ai[1] == 120 - 60 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         bool fire = true;
                         for (int i = 0; i < Main.maxNPCs; i++)
@@ -382,7 +382,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                     NPC.velocity *= 0.9875f;
                     if (++NPC.ai[2] == 30)
                     {
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             bool fire = true;
                             for (int i = 0; i < Main.maxNPCs; i++)
@@ -406,7 +406,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                         NPC.ai[1] = 0;
                         NPC.ai[2] = 0;
                         NPC.netUpdate = true;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             bool fire = true;
                             for (int i = 0; i < Main.maxNPCs; i++)
@@ -432,20 +432,20 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                     if (NPC.ai[2] == 0)
                     {
                         NPC.ai[2] = 1;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target); 
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
                             if (AAWorld.downedAkuma)
                             {
-                                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA1"), Color.DeepSkyBlue);
-                                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA2"), new Color(102, 20, 48));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA1"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA2"), new Color(102, 20, 48));
                             }
                             else
                             {
-                                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA3"), new Color(102, 20, 48));
-                                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA4"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA3"), new Color(102, 20, 48));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA4"), Color.DeepSkyBlue);
                             }
                         }
                     }
@@ -476,7 +476,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
 
             if (!Main.dayTime)
             {
-                if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA8"), Color.DeepSkyBlue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA8"), Color.DeepSkyBlue);
                 Main.dayTime = true;
                 Main.time = 0;
             }
@@ -485,7 +485,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
             {
                 if (Loludided == false)
                 {
-                    if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA9"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA9"), new Color(180, 41, 32));
                     Loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -602,7 +602,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 {
                     Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DraconianRune").Type);
                 }
-                if (Main.netMode != 1) AAMod.Chat(AAWorld.downedAkuma ? Lang.BossChat("AkumaA10") : Lang.BossChat("AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(AAWorld.downedAkuma ? Lang.BossChat("AkumaA10") : Lang.BossChat("AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
                 AAWorld.downedAkuma = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
@@ -619,7 +619,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 NPC.DropBossBags();
                 return;
             }
-            if (Main.netMode != 1) AAMod.Chat(Lang.BossChat("AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
             return;
         }
 
@@ -787,14 +787,14 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
             }
 
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("AkumaA").Type)
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
                     NPC.active = false;
-                    NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                 }
             }
 

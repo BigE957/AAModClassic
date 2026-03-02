@@ -19,7 +19,7 @@ namespace AAMod.NPCs.Bosses.Athena
         {
             NPC.width = 38;
             NPC.height = 38;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 30;
             NPC.defense = 30;
             NPC.lifeMax = 150;
@@ -49,7 +49,7 @@ namespace AAMod.NPCs.Bosses.Athena
                     }
                 }
                 NPC.alpha += 3;
-                if (NPC.alpha >= 255 && Main.netMode != 1)
+                if (NPC.alpha >= 255 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.active = false;
                 }

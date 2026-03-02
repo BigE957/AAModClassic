@@ -41,7 +41,7 @@ namespace AAMod.Items.Summoning.Minions
 					Vector2 vector6 = Vector2.Normalize(Projectile.velocity) * new Vector2(Projectile.width / 2f, Projectile.height) * 0.75f;
 					vector6 = vector6.RotatedBy((num227 - (num226 / 2 - 1)) * 6.28318548f / num226, default) + Projectile.Center;
 					Vector2 vector7 = vector6 - Projectile.Center;
-					int num228 = Dust.NewDust(vector6 + vector7, 0, 0, 235, vector7.X * 1.75f, vector7.Y * 1.75f, 100, default, 1.1f);
+					int num228 = Dust.NewDust(vector6 + vector7, 0, 0, DustID.LifeDrain, vector7.X * 1.75f, vector7.Y * 1.75f, 100, default, 1.1f);
 					Main.dust[num228].noGravity = true;
 					Main.dust[num228].velocity = vector7;
 				}

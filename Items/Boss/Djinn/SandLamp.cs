@@ -21,11 +21,11 @@ namespace AAMod.Items.Boss.Djinn
             Item.height = 28;
             Item.useTime = 15;
             Item.useAnimation = 18;
-            Item.useStyle = 5;    
+            Item.useStyle = ItemUseStyleID.Shoot;    
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.mana = 7;          
             Item.UseSound = SoundID.Item21;      
             Item.autoReuse = true;

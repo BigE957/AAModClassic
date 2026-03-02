@@ -91,7 +91,7 @@ namespace AAMod.Projectiles.Anubis
                 {
                     for (int m = 0; m < 40; m++)
                     {
-                        Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 32, 0f, 0f, 100, default, 1.6f);
+                        Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Sand, 0f, 0f, 100, default, 1.6f);
                     }
                     clearCheck.Kill();
                     Projectile.Kill();
@@ -103,7 +103,7 @@ namespace AAMod.Projectiles.Anubis
         {
             for (int m = 0; m < 40; m++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 32, 0f, 0f, 100, default, 1.6f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Sand, 0f, 0f, 100, default, 1.6f);
             }
             SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
         }

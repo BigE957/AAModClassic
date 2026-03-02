@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
@@ -24,12 +25,12 @@ namespace AAMod.Items.Melee
             Item.shoot = Mod.Find<ModProjectile>("MorningStar").Type;
             Item.shootSpeed = 10f;
             Item.useAnimation = 15;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = 500000;
 			Item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
 			Item.autoReuse = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

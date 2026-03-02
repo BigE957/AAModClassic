@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 
 namespace AAMod.Items.Materials
 {
@@ -16,7 +17,7 @@ namespace AAMod.Items.Materials
 			Item.height = 34;
 			Item.maxStack = 99;
 			Item.value = Item.sellPrice(0, 0, 8, 0);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 		}
 	}
 }

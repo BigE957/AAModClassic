@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Alphakip.Shiny
@@ -32,7 +33,7 @@ namespace AAMod.Items.Vanity.Alphakip.Shiny
         {
             Item.width = 22;
             Item.height = 18;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
         public override void AddRecipes()

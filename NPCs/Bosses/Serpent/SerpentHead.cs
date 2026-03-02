@@ -31,7 +31,7 @@ namespace AAMod.NPCs.Bosses.Serpent
             NPC.value = 50000f;
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
@@ -127,7 +127,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                 NPC.TargetClosest(true);
             }
             NPC.velocity.Length();
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (internalAI[4] != 1)
                 {
@@ -147,7 +147,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                         Main.npc[segment].realLife = NPC.whoAmI;
                         Main.npc[segment].ai[1] = whoamI;
                         Main.npc[whoamI].ai[0] = segment;
-                        NetMessage.SendData(23, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
                         whoamI = segment;
                     }
                     internalAI[4] = 1;
@@ -454,7 +454,7 @@ namespace AAMod.NPCs.Bosses.Serpent
 
         public override void FindFrame(int frameHeight)
         {
-            if (Main.netMode != 2 && !tongueFlick && Main.rand.Next(20) == 0)
+            if (Main.netMode != NetmodeID.Server && !tongueFlick && Main.rand.Next(20) == 0)
             {
                 tongueFlick = true;
             }
@@ -580,7 +580,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                     Main.raining = true;
                     if (Main.netMode == NetmodeID.Server)
                     {
-                        NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
                     }
                 }
                 RunOnce = 1;
@@ -595,7 +595,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                 Main.raining = false;
                 if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
                 }
             }
         }
@@ -665,7 +665,7 @@ namespace AAMod.NPCs.Bosses.Serpent
                 if (fireAttack == true)
                 {
                     attackTimer++;
-                    if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(103))
+                    if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(BuffID.Wet))
                     {
                         for (int i = 0; i < 5; ++i)
                         {
@@ -807,7 +807,7 @@ namespace AAMod.NPCs.Bosses.Serpent
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
@@ -1218,7 +1218,7 @@ namespace AAMod.NPCs.Bosses.Serpent
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
-            AnimationType = 10;
+            AnimationType = NPCID.GiantWormHead;
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;

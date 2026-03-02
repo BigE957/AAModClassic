@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.MushroomMonarch
 {
@@ -19,7 +20,7 @@ Don't lick it."); */
             Item.width = 26;
             Item.height = 26;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
         }

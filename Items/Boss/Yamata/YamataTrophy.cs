@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Yamata
 {
@@ -32,11 +33,11 @@ namespace AAMod.Items.Boss.Yamata
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 2000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.createTile = Mod.Find<ModTile>("YamataTrophy").Type;
 		}
 	}

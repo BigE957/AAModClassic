@@ -19,7 +19,7 @@ namespace AAMod.Items.Materials
             Item.width = 22;
             Item.height = 22;
 			Item.maxStack = 99;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.value = 10000;
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

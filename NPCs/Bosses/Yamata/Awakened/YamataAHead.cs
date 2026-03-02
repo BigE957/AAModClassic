@@ -95,7 +95,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
 
             if (!Body.NPC.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghost hands'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -156,7 +156,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     if (internalAI[3] == 0)
                     {
                         internalAI[3] = 1;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, Vector2.Zero, ModContent.ProjectileType<YamataHarukaProj>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target);
 
 
@@ -198,7 +198,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     if (++internalAI[2] > 20)
                     {
                         internalAI[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 240)
@@ -214,7 +214,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     if (++internalAI[2] > 60)
                     {
                         internalAI[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 180)
@@ -233,7 +233,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                 case 4: //shoot direct aim deathrays
                     if (internalAI[1] == NPC.ai[3] * 60 - 30)
                     {
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), Mod.Find<ModProjectile>("YamataDeathraySmall").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
                     if (++internalAI[1] > 360)
@@ -251,7 +251,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     if (++internalAI[2] > 90)
                     {
                         internalAI[2] = 0;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -1; i <= 1; i++)
                             Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
@@ -284,7 +284,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
                     if (--internalAI[2] < 0)
                     {
                         internalAI[2] = 120;
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 360)

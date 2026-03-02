@@ -18,7 +18,7 @@ namespace AAMod.Items.Armor.Raider
 			Item.width = 22;
 			Item.height = 24;
             Item.value = Item.sellPrice(0, 0, 5, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.defense = 10;
         }
 

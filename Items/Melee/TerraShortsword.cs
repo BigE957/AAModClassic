@@ -20,10 +20,10 @@ namespace AAMod.Items.Melee
 			Item.height = 36;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 10000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
         }
@@ -33,7 +33,7 @@ namespace AAMod.Items.Melee
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 107, 0f, 0f, 46, default, .5f)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Terra, 0f, 0f, 46, default, .5f)];
                 dust.noGravity = true;
             }
         }

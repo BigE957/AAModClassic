@@ -20,7 +20,7 @@ namespace AAMod.Projectiles
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1; 
+			Projectile.aiStyle = ProjAIStyleID.Arrow; 
 			Projectile.friendly = true;    
 			Projectile.hostile = false;     
 			Projectile.DamageType = DamageClass.Ranged;         

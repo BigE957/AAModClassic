@@ -89,7 +89,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
 	    	}
         	for (int dust = 0; dust <= 10; dust++)
         	{
-        		Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 235, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+        		Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.LifeDrain, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
         	}
         }
     }

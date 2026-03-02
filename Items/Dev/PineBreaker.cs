@@ -25,10 +25,10 @@ namespace AAMod.Items.Dev
 			Item.height = 64;
 			Item.useTime = 32;
 			Item.useAnimation = 32;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 4;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("Pine").Type;

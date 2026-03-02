@@ -21,12 +21,12 @@ namespace AAMod.Items.Ranged
             Item.height = 22;
             Item.useTime = 3;
             Item.useAnimation = 15;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; //so the item's animation doesn't do damage
             Item.knockBack = 3.25f;
             Item.UseSound = SoundID.Item34;
             Item.value = 1000000;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Toxifire").Type; //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 7.5f;

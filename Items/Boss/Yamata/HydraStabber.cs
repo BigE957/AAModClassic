@@ -29,7 +29,7 @@ IInflicts Moonraze"); */
             Item.useTime = 10;          
             Item.useAnimation = 30;
             Item.reuseDelay = 32;
-            Item.useStyle = 3;        
+            Item.useStyle = ItemUseStyleID.Thrust;        
             Item.knockBack = 2f;      
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.UseSound = SoundID.Item103;      
@@ -37,7 +37,7 @@ IInflicts Moonraze"); */
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<Projectiles.Yamata.AbyssLash>();
             Item.shootSpeed = 10;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

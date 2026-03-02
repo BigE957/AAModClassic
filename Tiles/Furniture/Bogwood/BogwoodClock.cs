@@ -81,7 +81,7 @@ namespace AAMod.Tiles.Furniture.Bogwood
 				}
 				//Whack it all together to get a HH:MM format
 				var newText = string.Concat(Language.GetTextValue("CLI.Time_Command") + ": ", intTime, ":", text2, " ", text);
-				if (Main.netMode != 1) BaseUtility.Chat(newText, 255, 240, 20);
+				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(newText, 255, 240, 20);
 			}
 			return true;
 		}

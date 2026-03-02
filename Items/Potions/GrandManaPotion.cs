@@ -15,7 +15,7 @@ namespace AAMod.Items.Potions
         {
             Item.UseSound = SoundID.Item3;
             Item.healMana = 400;
-            Item.useStyle = 2;
+            Item.useStyle = ItemUseStyleID.EatFood;
             Item.useTurn = true;
             Item.useAnimation = 17;
             Item.useTime = 17;
@@ -24,7 +24,7 @@ namespace AAMod.Items.Potions
             Item.width = 14;
             Item.height = 24;
             Item.value = 50000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
 		}
 
 		public override void AddRecipes()

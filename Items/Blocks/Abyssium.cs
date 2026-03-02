@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAMod.Items.Blocks
 {
@@ -12,8 +13,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Blue;
             Item.value = Terraria.Item.sellPrice(0, 0, 8, 0);
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("AbyssiumOre").Type;

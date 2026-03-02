@@ -15,9 +15,9 @@ namespace AAMod.Items.Throwing
 			Item.useTime = 12;
 			Item.damage = 75;                            
 			Item.value = 20;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.knockBack = 4;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 12;
 			Item.shoot = Mod.Find<ModProjectile>("OrderDiscP").Type;
 			Item.width = 46;

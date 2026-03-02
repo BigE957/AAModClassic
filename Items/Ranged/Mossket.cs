@@ -9,12 +9,12 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
             Item.width = 24;
             Item.height = 28;
-            Item.shoot = 10;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Bullet;
             Item.UseSound = SoundID.Item11;
             Item.damage = 15;
@@ -23,7 +23,7 @@ namespace AAMod.Items.Ranged
             Item.knockBack = .5f;
             Item.value = 50000;
             Item.scale = 1f;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.DamageType = DamageClass.Ranged;
         }
 		

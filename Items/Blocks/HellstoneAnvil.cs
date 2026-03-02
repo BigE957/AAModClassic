@@ -21,8 +21,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 3;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Orange;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
             Item.createTile = Mod.Find<ModTile>("HellstoneAnvil").Type;

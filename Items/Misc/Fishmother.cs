@@ -1,4 +1,6 @@
-﻿namespace AAMod.Items.Misc
+﻿using Terraria.ID;
+
+namespace AAMod.Items.Misc
 {
     public class Fishmother : BaseAAItem
     {
@@ -15,7 +17,7 @@
             Item.width = 26;
             Item.height = 26;
             Item.uniqueStack = true;
-            Item.rare = -11;
+            Item.rare = ItemRarityID.Quest;
         }
 
         public override bool IsQuestFish()

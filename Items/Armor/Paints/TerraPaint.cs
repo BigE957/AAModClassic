@@ -21,7 +21,7 @@ namespace AAMod.Items.Armor.Paints
 			Item.width = 30;
 			Item.height = 28;
 			Item.value = 60000;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.defense = 6;
 		}
 		

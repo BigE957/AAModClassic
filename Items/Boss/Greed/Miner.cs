@@ -21,10 +21,10 @@ namespace AAMod.Items.Boss.Greed
             Item.useTime = 13;
             Item.useAnimation = 20;
             Item.pick = 205;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;
@@ -43,63 +43,63 @@ namespace AAMod.Items.Boss.Greed
         public bool PickCheck(Tile tile, int pickPower)
         {
 			ModTile tile2 = TileLoader.GetTile(tile.TileType);
-            if (tile.TileType == 211 && pickPower < 200)
+            if (tile.TileType == TileID.Chlorophyte && pickPower < 200)
 			{
 				return false;
 			}
-			else if ((tile.TileType == 25 || tile.TileType == 203) && pickPower < 65)
+			else if ((tile.TileType == TileID.Ebonstone || tile.TileType == TileID.Crimstone) && pickPower < 65)
 			{
 				return false;
 			}
-			else if (tile.TileType == 117 && pickPower < 65)
+			else if (tile.TileType == TileID.Pearlstone && pickPower < 65)
 			{
 				return false;
 			}
-			else if (tile.TileType == 37 && pickPower < 50)
+			else if (tile.TileType == TileID.Meteorite && pickPower < 50)
 			{
 				return false;
 			}
-			else if (tile.TileType == 404 && pickPower < 65)
+			else if (tile.TileType == TileID.DesertFossil && pickPower < 65)
 			{
 				return false;
 			}
-			else if ((tile.TileType == 22 || tile.TileType == 204) && pickPower < 55)
+			else if ((tile.TileType == TileID.Demonite || tile.TileType == TileID.Crimtane) && pickPower < 55)
 			{
 				return false;
 			}
-			else if (tile.TileType == 56 && pickPower < 65)
+			else if (tile.TileType == TileID.Obsidian && pickPower < 65)
 			{
 				return false;
 			}
-			else if (tile.TileType == 58 && pickPower < 65)
+			else if (tile.TileType == TileID.Hellstone && pickPower < 65)
 			{
 				return false;
 			}
-			else if ((tile.TileType == 226 || tile.TileType == 237) && pickPower < 210)
+			else if ((tile.TileType == TileID.LihzahrdBrick || tile.TileType == TileID.LihzahrdAltar) && pickPower < 210)
 			{
 				return false;
 			}
-			else if (tile.TileType == 107 && pickPower < 100)
+			else if (tile.TileType == TileID.Cobalt && pickPower < 100)
 			{
 				return false;
 			}
-			else if (tile.TileType == 108 && pickPower < 110)
+			else if (tile.TileType == TileID.Mythril && pickPower < 110)
 			{
 				return false;
 			}
-			else if (tile.TileType == 111 && pickPower < 150)
+			else if (tile.TileType == TileID.Adamantite && pickPower < 150)
 			{
 				return false;
 			}
-			else if (tile.TileType == 221 && pickPower < 100)
+			else if (tile.TileType == TileID.Palladium && pickPower < 100)
 			{
 				return false;
 			}
-			else if (tile.TileType == 222 && pickPower < 110)
+			else if (tile.TileType == TileID.Orichalcum && pickPower < 110)
 			{
 				return false;
 			}
-			else if (tile.TileType == 223 && pickPower < 150)
+			else if (tile.TileType == TileID.Titanium && pickPower < 150)
 			{
 				return false;
 			}

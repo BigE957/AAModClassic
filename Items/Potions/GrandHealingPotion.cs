@@ -20,12 +20,12 @@ namespace AAMod.Items.Potions
 			Item.healLife = 400;
             Item.useAnimation = 17;
 			Item.useTime = 17;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 			Item.potion = true;
 			Item.value = 50000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
 		}
 
 		public override void AddRecipes()

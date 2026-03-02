@@ -57,7 +57,7 @@ namespace AAMod.Projectiles
             }
             for (int num257 = 0; num257 < 2; num257++)
             {
-                int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, 0f, 0f, 100);
+                int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.CursedTorch, 0f, 0f, 100);
                 Main.dust[num258].noGravity = true;
             }
         }
@@ -72,9 +72,9 @@ namespace AAMod.Projectiles
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num611 = 0; num611 < 30; num611++)
             {
-                int num612 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1.7f);
+                int num612 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.CursedTorch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 1.7f);
                 Main.dust[num612].noGravity = true;
-                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 75, Projectile.velocity.X, Projectile.velocity.Y, 100);
+                Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.CursedTorch, Projectile.velocity.X, Projectile.velocity.Y, 100);
             }
 
         }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Yamata.Awakened
@@ -49,7 +50,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
             Projectile.velocity.X *= 0.00f;
             Projectile.velocity.Y *= 0.00f;
             if (++Projectile.localAI[0] == 6)
-                if (Main.netMode != 1 && Projectile.ai[0] != 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0] != 0)
                 {
                     Projectile.ai[0] -= Projectile.ai[0] > 0 ? 1 : -1; //approach 0
                     Projectile.NewProjectile(Projectile.Center + Vector2.UnitX * Math.Sign(Projectile.ai[0]) * Projectile.width, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);

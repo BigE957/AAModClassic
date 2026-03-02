@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Yamata
@@ -26,7 +27,7 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.expert = true; Item.expertOnly = true;
             Item.accessory = true;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
 

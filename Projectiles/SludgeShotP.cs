@@ -16,8 +16,8 @@ namespace AAMod.Projectiles
         public override void SetDefaults()
         {
 			Projectile.CloneDefaults(261);
-			Projectile.aiStyle = 14;
-			AIType = 261;
+			Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
+			AIType = ProjectileID.BoulderStaffOfEarth;
             Projectile.width = 32;
             Projectile.height = 32;
             Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;

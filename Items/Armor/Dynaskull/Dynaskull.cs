@@ -21,7 +21,7 @@ namespace AAMod.Items.Armor.Dynaskull
 			Item.width = 30;
 			Item.height = 28;
 			Item.value = 90000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.defense = 7;
 		}
 		

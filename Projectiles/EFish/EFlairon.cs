@@ -18,7 +18,7 @@ namespace AAMod.Projectiles.EFish
         {
             Projectile.width = 26;
             Projectile.height = 26;
-            Projectile.aiStyle = 69;
+            Projectile.aiStyle = ProjAIStyleID.Flairon;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.alpha = 255;
@@ -116,7 +116,7 @@ namespace AAMod.Projectiles.EFish
 				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage, 0, Main.myPlayer);
 			}
             Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            if (Projectile.type == 33 || Projectile.type == 106)
+            if (Projectile.type == ProjectileID.ThornChakram || Projectile.type == ProjectileID.LightDisc)
             {
                 if (Projectile.velocity.X != oldVelocity.X)
                 {

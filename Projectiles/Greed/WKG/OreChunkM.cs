@@ -20,7 +20,7 @@ namespace AAMod.Projectiles.Greed.WKG
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.ignoreWater = true;
-            Projectile.aiStyle = 14;
+            Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
         }
         public override void SetStaticDefaults()
         {

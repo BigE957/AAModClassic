@@ -36,7 +36,7 @@ namespace AAMod.NPCs.Bosses.Anubis
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
-			if (Main.netMode == 2) { return; }
+			if (Main.netMode == NetmodeID.Server) { return; }
 			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);

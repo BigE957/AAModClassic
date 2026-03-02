@@ -72,7 +72,7 @@ namespace AAMod.NPCs.Bosses.Broodmother
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int projID = Projectile.NewProjectile(Projectile.Top.X, Projectile.Top.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("BroodBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 				Main.projectile[projID].Bottom = Projectile.Bottom + new Vector2(0, 10);

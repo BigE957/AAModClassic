@@ -25,8 +25,8 @@ Allows you to work with Dark Matter and Radium"); */
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
             Item.createTile = Mod.Find<ModTile>("RadiantArcanum").Type;

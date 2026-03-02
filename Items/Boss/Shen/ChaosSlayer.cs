@@ -23,7 +23,7 @@ blades go through tiles
             Item.width = 85;
             Item.height = 85;
             Item.value = Item.sellPrice(1, 50, 0, 0);
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.UseSound = SoundID.Item103;
@@ -34,7 +34,7 @@ blades go through tiles
 			Item.shoot = Mod.Find<ModProjectile>("ChaosSlayerSword").Type;
 			Item.shootSpeed = 5;
             Item.useTurn = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
         }
 

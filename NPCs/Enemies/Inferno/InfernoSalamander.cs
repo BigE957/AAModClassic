@@ -25,7 +25,7 @@ namespace AAMod.NPCs.Enemies.Inferno
             NPC.defense = 14;    //boss defense
             NPC.knockBackResist = 1f;   //this boss will behavior like the DemonEye  //boss frame/animation 
             NPC.value = Item.sellPrice(0, 0, 6, 45);
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
@@ -116,7 +116,7 @@ namespace AAMod.NPCs.Enemies.Inferno
             if (biteAttack == true)
             {
                 biteTimer++;
-                NPC.aiStyle = 0; // so the dude doesnt spaz right and left when not moving
+                NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer; // so the dude doesnt spaz right and left when not moving
                 NPC.velocity.X = 0; // stops the dude from moving right or left
                 if (biteTimer >= 30) // when 30 frames have gone by, reset all those values
                 {
@@ -128,7 +128,7 @@ namespace AAMod.NPCs.Enemies.Inferno
             }
             if (biteAttack == false) // so it changes back to aiStyle 3 after the attacks are done
             {
-                NPC.aiStyle = 3;
+                NPC.aiStyle = NPCAIStyleID.Fighter;
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

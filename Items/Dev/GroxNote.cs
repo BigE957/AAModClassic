@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev
@@ -28,7 +29,7 @@ namespace AAMod.Items.Dev
             Item.width = 22;
             Item.height = 22;
             Item.value = 0;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 	}
 }

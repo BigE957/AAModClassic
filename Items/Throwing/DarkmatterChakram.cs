@@ -24,16 +24,16 @@ namespace AAMod.Items.Throwing
 	        Item.useTime = 16;
 	        Item.useAnimation = 16;
             Item.noUseGraphic = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
 	        Item.knockBack = 0;
 	        Item.value = 100000;
-	        Item.rare = 11;
+	        Item.rare = ItemRarityID.Purple;
 	        Item.shootSpeed = 12f;
 	        Item.shoot = Mod.Find<ModProjectile>("DMC").Type;
 	        Item.UseSound = SoundID.Item1;
 	        Item.autoReuse = true;
             Item.noMelee = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }
 

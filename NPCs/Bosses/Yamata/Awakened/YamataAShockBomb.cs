@@ -53,7 +53,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item89);
-	    	if (Main.netMode != 1)
+	    	if (Main.netMode != NetmodeID.MultiplayerClient)
 	    	{
                 const float ai0 = 20;
                 Projectile.NewProjectile(Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
@@ -61,7 +61,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
             }
         	for (int dust = 0; dust <= 10; dust++)
         	{
-        		Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 235, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+        		Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.LifeDrain, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
         	}
         }
     }

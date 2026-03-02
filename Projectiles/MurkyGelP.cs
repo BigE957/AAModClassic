@@ -16,8 +16,8 @@ namespace AAMod.Projectiles
 		public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(261);
-			Projectile.aiStyle = 14;
-			AIType = 261;
+			Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
+			AIType = ProjectileID.BoulderStaffOfEarth;
 			Projectile.width = 20;
 			Projectile.height = 18;
             Projectile.DamageType = DamageClass.Ranged;
@@ -47,7 +47,7 @@ namespace AAMod.Projectiles
 			Projectile.alpha = 0;
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 195,
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.BatScepter,
 				Projectile.velocity.X * .2f, Projectile.velocity.Y * .2f, 200, Scale: 1.2f);
 				dust.velocity += Projectile.velocity * 0.3f;
 				dust.velocity *= 0.2f;

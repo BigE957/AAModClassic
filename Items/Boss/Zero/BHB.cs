@@ -21,11 +21,11 @@ namespace AAMod.Items.Boss.Zero
             Item.height = 34;
             Item.useTime = 6;
             Item.useAnimation = 6;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; //so the item's animation doesn't do damage
             Item.knockBack = 2.5f;
             Item.value = 4000000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/BHB");
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("RedBullet").Type; //idk why but all the guns in the vanilla source have this

@@ -11,6 +11,7 @@ using Terraria.DataStructures;
 using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
 
 namespace AAMod
 {
@@ -410,7 +411,7 @@ namespace AAMod
             float cr = 1f; float cg = 1f; float cb = 1f; float ca = 1f;
 			if (effects && honey && Main.rand.Next(30) == 0)
 			{
-				int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 152, 0f, 0f, 150, default(Color), 1f);
+				int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Honey, 0f, 0f, 150, default(Color), 1f);
 				Main.dust[dustID].velocity.Y = 0.3f;
 				Main.dust[dustID].velocity.X *= 0.1f;
 				Main.dust[dustID].scale += (float)Main.rand.Next(3, 4) * 0.1f;
@@ -423,7 +424,7 @@ namespace AAMod
             {
 				if (effects && Main.rand.Next(30) == 0)
 				{
-					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 46, 0f, 0f, 120, default(Color), 0.2f);
+					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Poisoned, 0f, 0f, 120, default(Color), 0.2f);
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].fadeIn = 1.9f;
 					if (codable is Player) Main.playerDrawDust.Add(dustID);
@@ -435,7 +436,7 @@ namespace AAMod
 			{
 				if (effects && Main.rand.Next(10) == 0)
 				{
-					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 171, 0f, 0f, 100, default(Color), 0.5f);
+					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Venom, 0f, 0f, 100, default(Color), 0.5f);
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].fadeIn = 1.5f;
 					if (codable is Player) Main.playerDrawDust.Add(dustID);
@@ -456,7 +457,7 @@ namespace AAMod
 			{
 				if (effects)
 				{
-					int dustID = Dust.NewDust(new Vector2(codable.position.X - 2f, codable.position.Y - 2f), codable.width + 4, codable.height + 4, 6, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 2f);
+					int dustID = Dust.NewDust(new Vector2(codable.position.X - 2f, codable.position.Y - 2f), codable.width + 4, codable.height + 4, DustID.Torch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 2f);
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].velocity *= 1.8f;
 					Main.dust[dustID].velocity.Y -= 0.75f;
@@ -475,7 +476,7 @@ namespace AAMod
 				{
 					if (Main.rand.Next(4) < 3)
 					{
-						int dustID = Dust.NewDust(new Vector2(codable.position.X - 2f, codable.position.Y - 2f), codable.width + 4, codable.height + 4, 135, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
+						int dustID = Dust.NewDust(new Vector2(codable.position.X - 2f, codable.position.Y - 2f), codable.width + 4, codable.height + 4, DustID.IceTorch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
 						Main.dust[dustID].noGravity = true;
 						Main.dust[dustID].velocity *= 1.8f;
 						Main.dust[dustID].velocity.Y -= 0.5f;
@@ -500,7 +501,7 @@ namespace AAMod
 				{
 					if (Main.rand.Next(4) != 0)
 					{
-						int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, 6, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
+						int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, DustID.Torch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
 						Main.dust[dustID].noGravity = true;
 						Main.dust[dustID].velocity *= 1.8f;
 						Main.dust[dustID].velocity.Y -= 0.5f;
@@ -525,7 +526,7 @@ namespace AAMod
 				position.X -= 2f; position.Y -= 2f;
 				if (Main.rand.Next(2) == 0)
 				{
-					int dustID = Dust.NewDust(position, codable.width + 4, codable.height + 2, 211, 0f, 0f, 50, default(Color), 0.8f);
+					int dustID = Dust.NewDust(position, codable.width + 4, codable.height + 2, DustID.Wet, 0f, 0f, 50, default(Color), 0.8f);
 					if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 					if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 					Main.dust[dustID].noLight = true;
@@ -535,7 +536,7 @@ namespace AAMod
 					if(codable is Player) Main.playerDrawDust.Add(dustID);
 				}else
 				{
-					int dustID = Dust.NewDust(position, codable.width + 8, codable.height + 8, 211, 0f, 0f, 50, default(Color), 1.1f);
+					int dustID = Dust.NewDust(position, codable.width + 8, codable.height + 8, DustID.Wet, 0f, 0f, 50, default(Color), 1.1f);
 					if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 					if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 					Main.dust[dustID].noLight = true;
@@ -556,7 +557,7 @@ namespace AAMod
 					{
 						Vector2 position2 = codable.position;
 						position2.X -= 2f; position2.Y -= 2f;
-						int dustID = Dust.NewDust(position2, codable.width + 4, codable.height + 2, 4, 0f, 0f, alpha, newColor, 1.4f);
+						int dustID = Dust.NewDust(position2, codable.width + 4, codable.height + 2, DustID.TintableDust, 0f, 0f, alpha, newColor, 1.4f);
 						if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 						if (Main.rand.Next(2) == 0) Main.dust[dustID].alpha += 25;
 						Main.dust[dustID].noLight = true;
@@ -575,7 +576,7 @@ namespace AAMod
 				{
 					if (Main.rand.Next(4) != 0)
 					{
-						int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, 75, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
+						int dustID = Dust.NewDust(codable.position - new Vector2(2f, 2f), codable.width + 4, codable.height + 4, DustID.CursedTorch, codable.velocity.X * 0.4f, codable.velocity.Y * 0.4f, 100, default(Color), 3.5f);
 						Main.dust[dustID].noGravity = true;
 						Main.dust[dustID].velocity *= 1.8f;
 						Main.dust[dustID].velocity.Y -= 0.5f;
@@ -609,7 +610,7 @@ namespace AAMod
 				bool dead = (codable is Player ? ((Player)codable).dead : codable is NPC ? ((NPC)codable).life <= 0 : false);
 				if (effects && !dead && Main.rand.Next(30) == 0)
 				{
-					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 5, 0f, 0f, 0, default(Color), 1f);
+					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Blood, 0f, 0f, 0, default(Color), 1f);
 					Main.dust[dustID].velocity.Y += 0.5f;
 					Main.dust[dustID].velocity *= 0.25f;
 					if (codable is Player) Main.playerDrawDust.Add(dustID);
@@ -637,7 +638,7 @@ namespace AAMod
 					Vector2 value2 = new Vector2((float)Main.rand.Next(-10, 11), (float)Main.rand.Next(-10, 11));
 					value2.Normalize(); value2.X *= 0.66f; value2.Y = Math.Abs(value2.Y);
 					Vector2 vector = value2 * (float)Main.rand.Next(3, 5) * 0.25f;
-					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 188, vector.X, vector.Y * 0.5f, 100, default(Color), 1.5f);
+					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.FartInAJar, vector.X, vector.Y * 0.5f, 100, default(Color), 1.5f);
 					Main.dust[dustID].velocity *= 0.1f;
 					Main.dust[dustID].velocity.Y -= 0.5f;
 					if (codable is Player) Main.playerDrawDust.Add(dustID);
@@ -652,7 +653,7 @@ namespace AAMod
             {
 				if (effects && !Main.gamePaused && Main.instance.IsActive && Main.rand.Next(50) == 0)
 				{
-					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, 15, 0f, 0f, 150, default(Color), 0.8f);
+					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.MagicMirror, 0f, 0f, 150, default(Color), 0.8f);
 					Main.dust[dustID].velocity *= 0.1f;
 					Main.dust[dustID].noLight = true;
 					if (codable is Player) Main.playerDrawDust.Add(dustID);
@@ -677,7 +678,7 @@ namespace AAMod
         public static bool ShouldDrawArmor(Player drawPlayer, int armorType, int itemType = -1)
         {
 			if (drawPlayer.merman || drawPlayer.wereWolf) { return false; }
-            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > 0) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type > 0); }
+            if (itemType == -1) { return (drawPlayer.armor[10 + armorType].type > ItemID.None) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type > ItemID.None); }
             return (drawPlayer.armor[10 + armorType].type == itemType) || (drawPlayer.armor[10 + armorType].IsBlank() && drawPlayer.armor[0 + armorType].type == itemType);
         }
 
@@ -706,7 +707,7 @@ namespace AAMod
          */
         public static bool ShouldDrawHeldItem(Item item, int itemAnimation, bool isWet, bool isDead = false)
         {
-            return ((itemAnimation > 0 || item.holdStyle > 0) && item.type > 0 && !isDead && !item.noUseGraphic && (!isWet || !item.noWet));
+            return ((itemAnimation > 0 || item.holdStyle > 0) && item.type > ItemID.None && !isDead && !item.noUseGraphic && (!isWet || !item.noWet));
         }
 
         /*
@@ -1629,7 +1630,7 @@ namespace AAMod
 		public static void DrawWallTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool drawOutline = false, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
 		{
 			Tile tile = Main.tile[x, y];
-			bool hasWall = tile != null && tile.WallType > 0;
+			bool hasWall = tile != null && tile.WallType > WallID.None;
 			int wallFrameX = (hasWall ? tile.WallFrameX : 0);
 			int wallFrameY = (hasWall ? tile.WallFrameY : 0);
 			int frameOffsetY = (hasWall ? (int)(Main.wallFrame[tile.WallType] * 180) : 0);
@@ -1707,10 +1708,10 @@ namespace AAMod
 			}
 			if (drawOutline && ((double)color.R > (double)gfxCheck2 * 0.4 || (double)color.G > (double)gfxCheck2 * 0.35 || (double)color.B > (double)gfxCheck2 * 0.3))
 			{
-				bool outlineLeft = Main.tile[x - 1, y].WallType > 0 && Main.wallBlend[(int)Main.tile[x - 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
-				bool outlineRight = Main.tile[x + 1, y].WallType > 0 && Main.wallBlend[(int)Main.tile[x + 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
-				bool outlineUp = Main.tile[x, y - 1].WallType > 0 && Main.wallBlend[(int)Main.tile[x, y - 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
-				bool outlineDown = Main.tile[x, y + 1].WallType > 0 && Main.wallBlend[(int)Main.tile[x, y + 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineLeft = Main.tile[x - 1, y].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x - 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineRight = Main.tile[x + 1, y].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x + 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineUp = Main.tile[x, y - 1].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x, y - 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
+				bool outlineDown = Main.tile[x, y + 1].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x, y + 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
 				if (outlineLeft) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 				if (outlineRight) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X + 14), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(14, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 				if (outlineUp) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
@@ -1878,7 +1879,7 @@ namespace AAMod
 
 		public virtual void Draw(SpriteBatch sb, Color color, Item item, Vector2 pos, float sc) 
         {
-            if(Main.playerInventory || item.type <= 0 || item.stack <= 0 || item.type != itemType) return;
+            if(Main.playerInventory || item.type <= ItemID.None || item.stack <= 0 || item.type != itemType) return;
             int totalItemCount = 0;
             if(ammoItemTypes != default(int[])){ totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoItemTypes, false, true, true); }
             if(ammoTypes != default(int[])){ totalItemCount += BasePlayer.GetItemstackSum(Main.player[Main.myPlayer], ammoTypes, true, true, true); }

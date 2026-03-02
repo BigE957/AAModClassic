@@ -19,7 +19,7 @@ namespace AAMod.Items.Dev
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("Squirrel1").Type;
             Item.damage = 120;
@@ -31,7 +31,7 @@ namespace AAMod.Items.Dev
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.knockBack = 5f;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
 			Item.buffType = Mod.Find<ModBuff>("Squirrel").Type;

@@ -112,7 +112,7 @@ namespace AAMod.NPCs.Bosses.Hydra
 
             if (!NPC.AnyNPCs(ModContent.NPCType<Hydra>()))
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghosting'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -127,7 +127,7 @@ namespace AAMod.NPCs.Bosses.Hydra
 
             if (!bodyNPC.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghosting'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -164,7 +164,7 @@ namespace AAMod.NPCs.Bosses.Hydra
                 damage = NPC.damage / 2;
             }
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[1]++;
 
@@ -230,7 +230,7 @@ namespace AAMod.NPCs.Bosses.Hydra
 
         public override void PostAI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[NPC.target];
                 bool Red = Head == 5 || Head == 8;

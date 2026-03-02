@@ -21,7 +21,7 @@ namespace AAMod.Items.Materials
             Item.width = 48;
             Item.height = 48;
             Item.maxStack = 99;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.value = 10000;
         }
 

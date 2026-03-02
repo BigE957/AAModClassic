@@ -14,11 +14,11 @@ namespace AAMod.Items.Boss.Greed
             Item.height = 46;
             Item.useTime = 40;
             Item.useAnimation = 40;
-            Item.useStyle = 5;     
+            Item.useStyle = ItemUseStyleID.Shoot;     
             Item.noMelee = true;
             Item.knockBack = 1;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;

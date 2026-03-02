@@ -36,7 +36,7 @@ namespace AAMod.NPCs.TownNPCs
             NPC.friendly = true;
             NPC.width = 18;
             NPC.height = 40;
-            NPC.aiStyle = 7;
+            NPC.aiStyle = NPCAIStyleID.Passive;
             NPC.damage = 40;
             NPC.defense = 38;
             NPC.lifeMax = 600;
@@ -466,7 +466,7 @@ namespace AAMod.NPCs.TownNPCs
                         int itemID = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("SquidList").Type, 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
-                            NetMessage.SendData(21, -1, -1, null, itemID, 1f, 0f, 0f, 0, 0, 0);
+                            NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 1f, 0f, 0f, 0, 0, 0);
                         }
                     }
                     else

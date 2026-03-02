@@ -24,11 +24,11 @@ namespace AAMod.Items.Dev
 			Item.height = 88;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 3;
 			Item.value = 1000000;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("PonyBoomEX").Type;

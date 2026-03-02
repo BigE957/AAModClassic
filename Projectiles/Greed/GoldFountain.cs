@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Projectiles.Greed
@@ -48,7 +49,7 @@ namespace AAMod.Projectiles.Greed
 
             int FountainCount = AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<GoldFountain>());
             if (FountainCount < 1) FountainCount = 1;
-            if (Main.netMode != 1 && Projectile.ai[0]++ >= 5 * FountainCount)
+            if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0]++ >= 5 * FountainCount)
             {
                 Projectile.NewProjectile(Projectile.position.X + 30f, Projectile.position.Y + 30f, Main.rand.Next(-3, 4), Main.rand.Next(-3, 10), ModContent.ProjectileType<Gold>(), Projectile.damage, 1, Projectile.owner, 0, 0);
                 Projectile.ai[0] = 0;

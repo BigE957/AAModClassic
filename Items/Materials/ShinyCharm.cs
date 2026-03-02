@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Materials
 {
     public class ShinyCharm : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Materials
             Item.width = 22;
             Item.height = 36;
             Item.maxStack = 99;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
     }
 }

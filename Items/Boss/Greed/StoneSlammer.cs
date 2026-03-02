@@ -20,10 +20,10 @@ namespace AAMod.Items.Boss.Greed
 			Item.height = 42;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 14;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.scale *= 1.3f;

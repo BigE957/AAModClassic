@@ -16,7 +16,7 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("HorusEye").Type;
             Item.damage = 200;
@@ -30,7 +30,7 @@ namespace AAMod.Items.Boss.Anubis.Forsaken
             Item.DamageType = DamageClass.Summon;
             Item.mana = 30;
             Item.sentry = true;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

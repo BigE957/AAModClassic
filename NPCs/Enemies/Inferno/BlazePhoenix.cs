@@ -85,7 +85,7 @@ namespace AAMod.NPCs.Enemies.Inferno
         
         public override void OnKill()
         {
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonFire").Type, 1 + Main.rand.Next(2));
 			}

@@ -26,9 +26,9 @@ namespace AAMod.Items.Melee
             Item.UseSound = SoundID.Item1;
             Item.noMelee = true;
             Item.noUseGraphic = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 2, 40, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.shootSpeed = 5f;
             Item.shoot = Mod.Find<ModProjectile>("HydraSpear").Type;  //put your Spear projectile name
         }

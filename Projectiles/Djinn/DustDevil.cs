@@ -33,7 +33,7 @@ namespace AAMod.Projectiles.Djinn
             Projectile.netImportant = true;
             Projectile.width = 28;
             Projectile.height = 40;
-            Projectile.aiStyle = 62;
+            Projectile.aiStyle = ProjAIStyleID.Hornet;
             Projectile.penetrate = -1;
             Projectile.timeLeft *= 5;
             Projectile.minion = true;
@@ -110,7 +110,7 @@ namespace AAMod.Projectiles.Djinn
             }
             Vector2 center = Main.player[Projectile.owner].Center;
             Vector2 value = new Vector2(0.5f);
-            if (Projectile.type == 423)
+            if (Projectile.type == ProjectileID.UFOMinion)
             {
                 value.Y = 0f;
             }

@@ -90,10 +90,10 @@ namespace AAMod
 			}
 			if(player.editedChestName)
 			{
-				NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
+				NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
 				player.editedChestName = false;
 			}
-			if(Main.netMode == 1)
+			if(Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				if(left == player.chestX && top == player.chestY && player.chest >= 0)
 				{
@@ -102,7 +102,7 @@ namespace AAMod
 					SoundEngine.PlaySound(SoundID.MenuClose);
 				}else
 				{
-					NetMessage.SendData(31, -1, -1, NetworkText.FromLiteral(""), left, (float)top, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, NetworkText.FromLiteral(""), left, (float)top, 0f, 0f, 0, 0, 0);
 					Main.stackSplit = 600;
 				}
 			}else
@@ -310,7 +310,7 @@ namespace AAMod
         private static FieldInfo soundField = null, soundInstanceField = null;
         public static void PlaySound(object soundType, int x, int y, object sound, bool stop = true, bool newInstance = true, float? overrideVolume = null, float? overridePitch = null)
         {
-			if (Main.netMode == 2 || Main.dedServ || Main.soundVolume == 0f) return;
+			if (Main.netMode == NetmodeID.Server || Main.dedServ || Main.soundVolume == 0f) return;
 
 			Rectangle screenRect = new Rectangle((int)(Main.screenPosition.X - (float)(Main.screenWidth * 2)), (int)(Main.screenPosition.Y - (float)(Main.screenHeight * 2)), Main.screenWidth * 5, Main.screenHeight * 5);
 			Rectangle locRect = new Rectangle(x, y, 1, 1);
@@ -891,9 +891,9 @@ namespace AAMod
          */
         public static void Chat(string s, byte colorR = (byte)255, byte colorG = (byte)255, byte colorB = (byte)255, bool sync = true)
         {
-            if (Main.netMode == 0) { Main.NewText(s, colorR, colorG, colorB); }else
-			if (Main.netMode == 1) { Main.NewText(s, colorR, colorG, colorB); }else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-            if (sync && Main.netMode == 2) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
+            if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }else
+			if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
+            if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), -1); }
         }
 
         public static Vector2[] ChainVector2(Vector2 start, Vector2 end, float jump = 0f)

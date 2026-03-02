@@ -21,11 +21,11 @@ namespace AAMod.Items.Ranged
 			Item.height = 20;
 			Item.useTime = 5;
 			Item.useAnimation = 13;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = 50000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item85;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("Bubble").Type;

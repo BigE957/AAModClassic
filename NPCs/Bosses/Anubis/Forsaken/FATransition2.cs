@@ -38,7 +38,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             NPC.dontTakeDamage = true;
 
             NPC.ai[3] = 39;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
                 if (NPC.velocity.Y == 0)

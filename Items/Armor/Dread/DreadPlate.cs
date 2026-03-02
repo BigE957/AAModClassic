@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -23,7 +24,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 			Item.height = 20;
 			Item.value = 3000000;
 			Item.defense = 44;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

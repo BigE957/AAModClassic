@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 
 
 namespace AAMod.Items.Usable
@@ -17,10 +18,10 @@ namespace AAMod.Items.Usable
         {
             Item.width = 30;
             Item.height = 38;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = BaseUtility.CalcValue(0, 2, 0, 0);
 
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 50;
             Item.useTime = 50;
             //item.UseSound = mod.SoundItem("LiquidRadarUse");			
@@ -28,7 +29,7 @@ namespace AAMod.Items.Usable
 
         public override bool? UseItem(Player p)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (Main.myPlayer == p.whoAmI && Main.netMode != 2)
+            if (Main.myPlayer == p.whoAmI && Main.netMode != NetmodeID.Server)
             {
                 int cX = (int)(p.Center.X / 16f); int cY = (int)(p.Center.Y / 16f);
                 int range = 200;

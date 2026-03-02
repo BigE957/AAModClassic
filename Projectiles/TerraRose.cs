@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -50,11 +51,11 @@ namespace AAMod.Projectiles
 
 		public override void PostAI()
 		{
-			if (Main.netMode != 2 && Projectile.alpha < 170 && Projectile.alpha + 5 >= 170)
+			if (Main.netMode != NetmodeID.Server && Projectile.alpha < 170 && Projectile.alpha + 5 >= 170)
 			{
 				for (int j = 0; j < 4; j++)
 				{
-					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 48, Projectile.velocity.X * 0.025f, Projectile.velocity.Y * 0.025f, 107, Color.White, j == 0 ? 1.1f : 1.2f);
+					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Cobalt, Projectile.velocity.X * 0.025f, Projectile.velocity.Y * 0.025f, 107, Color.White, j == 0 ? 1.1f : 1.2f);
 				}
 			}
 		}

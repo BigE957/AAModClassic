@@ -19,7 +19,7 @@ namespace AAMod.Projectiles.Akuma.Dawnstrike
             Projectile.CloneDefaults(ProjectileID.LaserMachinegunLaser);
             Projectile.width = 5;
             Projectile.height = 5;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.alpha = 255;

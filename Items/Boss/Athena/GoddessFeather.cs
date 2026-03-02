@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Boss.Athena
 {
     public class GoddessFeather : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Boss.Athena
             Item.height = 22;
             Item.maxStack = 99;
             Item.value = 50000;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
         }
     }
 }

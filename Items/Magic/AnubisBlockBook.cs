@@ -17,7 +17,7 @@ namespace AAMod.Items.Magic
             Item.height = 28;
             Item.useTime = 90;
             Item.useAnimation = 90;
-            Item.useStyle = 5;        
+            Item.useStyle = ItemUseStyleID.Shoot;        
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.knockBack = 8;
@@ -26,7 +26,7 @@ namespace AAMod.Items.Magic
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<BlockA>();  
             Item.shootSpeed = 11f;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }   
 
         public override void SetStaticDefaults()

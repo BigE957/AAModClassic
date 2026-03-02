@@ -11,7 +11,7 @@ namespace AAMod.Items.Summoning.Minions
         {
             Projectile.netImportant = true;
             Projectile.CloneDefaults(533); // ID for Deadly Sphere proj
-            AIType = 533;
+            AIType = ProjectileID.DeadlySphere;
             Projectile.width = 62;
             Projectile.height = 62;
             Projectile.friendly = true;

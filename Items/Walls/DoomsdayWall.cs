@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Walls
@@ -15,7 +16,7 @@ namespace AAMod.Items.Walls
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createWall = Mod.Find<ModWall>("DoomsdayWall").Type; //put your CustomBlock Tile name
         }

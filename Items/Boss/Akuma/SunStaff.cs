@@ -24,7 +24,7 @@ Inflicts Daybroken"); */
         {
             Item.mana = 10;
             Item.damage = 1000;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("SunOrb").Type;
             Item.width = 64;
@@ -37,7 +37,7 @@ Inflicts Daybroken"); */
             Item.knockBack = 5f;
             Item.DamageType = DamageClass.Summon;
             Item.sentry = true;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }
 

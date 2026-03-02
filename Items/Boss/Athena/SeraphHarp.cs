@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Athena
@@ -17,7 +18,7 @@ Seraph is boosted by minion damage"); */
 	        Item.width = 20;
 	        Item.height = 26;
             Item.value = Item.buyPrice(0, 15, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
 	        Item.accessory = true;
             Item.expert = true;
             Item.expertOnly = true;

@@ -15,9 +15,9 @@ namespace AAMod.Items.Melee
 
 		public override void SetDefaults()
 		{
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.DD2_SonicBoomBladeSlash;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.damage = 1250;
             Item.useAnimation = 15;
             Item.useTime = 15;
@@ -57,7 +57,7 @@ namespace AAMod.Items.Melee
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 6, 0f, 0f, 46)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Torch, 0f, 0f, 46)];
                 dust.noGravity = true;
             }
         }

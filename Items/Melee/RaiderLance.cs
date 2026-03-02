@@ -25,9 +25,9 @@ namespace AAMod.Items.Melee
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.autoReuse = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = 10800;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.shootSpeed = 7f;
             Item.shoot = Mod.Find<ModProjectile>("RaiderLance").Type;  //put your Spear projectile name
         }

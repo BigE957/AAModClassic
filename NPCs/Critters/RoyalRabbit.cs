@@ -26,7 +26,7 @@ namespace AAMod.NPCs.Critters
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             NPC.npcSlots = 0f;
-            NPC.aiStyle = 7;
+            NPC.aiStyle = NPCAIStyleID.Passive;
             AIType = NPCID.Bunny;  //npc behavior
             AnimationType = NPCID.Bunny;
             NPC.dontTakeDamageFromHostiles = false;
@@ -42,13 +42,13 @@ namespace AAMod.NPCs.Critters
             int bunnyKills = NPC.killCount[Item.NPCtoBanner(NPCID.Bunny)];
             if (bunnyKills % 100 == 0 && bunnyKills < 1000)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossSummonsInfo("RoyalRabbit1"), 107, 137, 179);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossSummonsInfo("RoyalRabbit1"), 107, 137, 179);
                 SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), NPC.Center);
                 AAModGlobalNPC.SpawnRajah(player, true, new Vector2(NPC.Center.X, NPC.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
             }
             if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossSummonsInfo("RoyalRabbit2") + player.name.ToUpper() + "!!!", 107, 137, 179);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossSummonsInfo("RoyalRabbit2") + player.name.ToUpper() + "!!!", 107, 137, 179);
                 SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), NPC.Center);
                 AAModGlobalNPC.SpawnRajah(player, true, new Vector2(NPC.Center.X, NPC.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
             }

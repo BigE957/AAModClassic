@@ -15,11 +15,11 @@ namespace AAMod.Items.Magic
             Item.DamageType = DamageClass.Magic;                     
             Item.width = 24;
             Item.height = 28;
-            Item.useStyle = 5;        
+            Item.useStyle = ItemUseStyleID.Shoot;        
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;

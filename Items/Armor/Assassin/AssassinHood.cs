@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -19,7 +20,7 @@ A dark hood infused with the shadow of midnight"); */
 			Item.width = 16;
 			Item.height = 16;
             Item.value = 300000;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
             Item.defense = 25;
 		}

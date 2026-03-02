@@ -16,7 +16,7 @@ namespace AAMod.NPCs.Enemies.Mire
 
 		public override void SetDefaults()
 		{
-            NPC.aiStyle = 1;
+            NPC.aiStyle = NPCAIStyleID.Slime;
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             NPC.width = 64;

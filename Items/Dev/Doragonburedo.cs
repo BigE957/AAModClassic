@@ -12,7 +12,7 @@ namespace AAMod.Items.Dev
         {
             // DisplayName.SetDefault("Doragonburedo");
             // Tooltip.SetDefault("'I'm gonna wipe their whole team' \n" + "-Jace");
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Microsoft.Xna.Framework.Graphics.Texture2D[] glowMasks = new Microsoft.Xna.Framework.Graphics.Texture2D[TextureAssets.GlowMask.Value.Length + 1];
                 for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
@@ -38,7 +38,7 @@ namespace AAMod.Items.Dev
             Item.useAnimation = 6;
             Item.knockBack = 6;      //Sword knockback
             Item.value = 100000;        
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.autoReuse = true;   //if it's capable of autoswing.
             Item.useTurn = true;
             Item.shoot = Mod.Find<ModProjectile>("Ryugen").Type;

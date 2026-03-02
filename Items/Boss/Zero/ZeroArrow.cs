@@ -26,10 +26,10 @@ Non-consumable"); */
             Item.consumable = false;
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
 			Item.shoot = Mod.Find<ModProjectile>("ZeroArrow").Type;
 			Item.ammo = AmmoID.Arrow;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)

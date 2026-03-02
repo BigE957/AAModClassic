@@ -22,7 +22,7 @@ Grants hunter & night vision"); */
             Item.width = 38;
             Item.height = 34;
             Item.value = 90000;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.defense = 6;
         }
 

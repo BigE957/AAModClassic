@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Mounts
@@ -53,7 +54,7 @@ namespace AAMod.Mounts
 			MountData.swimFrameCount = 8;
 			MountData.swimFrameDelay = 4;
 			MountData.swimFrameStart = 15;
-			if (Main.netMode != 2)
+			if (Main.netMode != NetmodeID.Server)
 			{
 				MountData.backTexture = Mod.GetTexture("Mounts/PrinceFishron");
 				MountData.backTextureGlow = Mod.GetTexture("Mounts/PrinceFishron_Glow");
@@ -82,7 +83,7 @@ namespace AAMod.Mounts
 			if (Math.Abs(player.velocity.X) > 4f)
 			{
 				Rectangle rect = player.getRect();
-				Dust.NewDust(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, 15);
+				Dust.NewDust(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, DustID.MagicMirror);
 			}
 		}
 	}

@@ -73,7 +73,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 else
                     NPC.ai[3] = 0;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0)
                 {
@@ -230,7 +230,7 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
             if (!Main.dayTime)
             {
                 NPC.velocity.Y = NPC.velocity.Y - 1f;
-                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
             }
 
             
@@ -339,14 +339,14 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
 
             AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("AwakenedLung").Type)
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
                     NPC.active = false;
-                    NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                 }
             }
 
@@ -440,14 +440,14 @@ namespace AAMod.NPCs.Bosses.Akuma.Awakened
                 NPC.timeLeft = 300;
             AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("AwakenedLung").Type)
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
                     NPC.active = false;
-                    NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                 }
             }
 

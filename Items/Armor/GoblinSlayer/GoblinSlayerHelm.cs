@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using System;
+using Terraria.ID;
 
 namespace AAMod.Items.Armor.GoblinSlayer
 {
@@ -22,7 +23,7 @@ namespace AAMod.Items.Armor.GoblinSlayer
 			Item.width = 26;
 			Item.height = 22;
 			Item.value = Item.sellPrice (0, 0, 5, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.defense = 6;
 		}
 
@@ -96,7 +97,7 @@ namespace AAMod.Items.Armor.GoblinSlayer
             }
             for (float num6 = 1f; num6 <= num5; num6 += 1f)
             {
-                Dust dust = Main.dust[Dust.NewDust(player.Center, 0, 0, 182, 0f, 0f, 0, default, 1f)];
+                Dust dust = Main.dust[Dust.NewDust(player.Center, 0, 0, DustID.TheDestroyer, 0f, 0f, 0, default, 1f)];
                 dust.position = Vector2.Lerp(vector5, vector4, num6 / num5);
                 dust.noGravity = true;
                 dust.velocity = Vector2.Zero;

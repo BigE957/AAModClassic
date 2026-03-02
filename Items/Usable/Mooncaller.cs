@@ -17,11 +17,11 @@ Non-Consumable"); */
         {
             Item.width = 16;
             Item.height = 16;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.

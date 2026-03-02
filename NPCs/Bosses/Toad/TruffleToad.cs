@@ -213,7 +213,7 @@ namespace AAMod.NPCs.Bosses.Toad
                 }
                 AIChangeRate = 120;
                 JumpX = 8f; JumpY = -10f; JumpX2 = 10f; JumpY2 = -14f;
-                if (Main.netMode != 2 && Main.LocalPlayer.miscCounter % 2 == 0)
+                if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscCounter % 2 == 0)
                 {
                     for (int m = 0; m < Shrooms.Length; m++)
                     {
@@ -269,7 +269,7 @@ namespace AAMod.NPCs.Bosses.Toad
                 {
                     SoundEngine.PlaySound(SoundID.Zombie13, NPC.position);
                 }
-                if (internalAI[1] >= AIChangeRate && Main.netMode != 1)
+                if (internalAI[1] >= AIChangeRate && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.velocity.X = 0f;
                     internalAI[1] = 0;
@@ -281,14 +281,14 @@ namespace AAMod.NPCs.Bosses.Toad
             }
             else if (internalAI[0] == AISTATE_BARF)
             {
-                if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                 {
                     internalAI[1]++;
                 }
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] >= 35)
                 {
-                    if (NPC.velocity.Y == 0 && Main.netMode != 1)
+                    if (NPC.velocity.Y == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[2]++;
                     }
@@ -320,7 +320,7 @@ namespace AAMod.NPCs.Bosses.Toad
                 AITortoise();
                 NPC.wet = false;
                 //BaseAI.AISlime(npc, ref npc.ai, false, -10, JumpX, JumpY, JumpX2, JumpY2);
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[1]++;
                 }
@@ -336,14 +336,14 @@ namespace AAMod.NPCs.Bosses.Toad
             }
             else if (internalAI[0] == AISTATE_BUBBLES)
             {
-                if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                 {
                     internalAI[1]++;
                 }
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] >= 35)
                 {
-                    if (NPC.velocity.Y == 0 && Main.netMode != 1)
+                    if (NPC.velocity.Y == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[2]++;
                     }
@@ -372,14 +372,14 @@ namespace AAMod.NPCs.Bosses.Toad
             }
             else if (internalAI[0] == AISTATE_SEED)
             {
-                if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                 {
                     internalAI[1]++;
                 }
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] >= 35)
                 {
-                    if (NPC.velocity.Y == 0 && Main.netMode != 1)
+                    if (NPC.velocity.Y == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[2]++;
                     }
@@ -410,7 +410,7 @@ namespace AAMod.NPCs.Bosses.Toad
             {
                 if (internalAI[2] == 0)
                 {
-                    if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                     {
                         NPC.TargetClosest(true);
                         NPC.velocity.X = 6 * NPC.direction;
@@ -429,7 +429,7 @@ namespace AAMod.NPCs.Bosses.Toad
                         {
                             for (int num623 = 0; num623 < 4; num623++)
                             {
-                                int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, 31, 0f, 0f, 100, default, 1.5f);
+                                int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
                                 Main.dust[num624].velocity *= 0.2f;
                             }
                             int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
@@ -490,14 +490,14 @@ namespace AAMod.NPCs.Bosses.Toad
             }
             else if (internalAI[0] == AISTATE_BUBBLES2)
             {
-                if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                 {
                     internalAI[1]++;
                 }
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] >= 35)
                 {
-                    if (NPC.velocity.Y == 0 && Main.netMode != 1)
+                    if (NPC.velocity.Y == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[2]++;
                     }
@@ -525,7 +525,7 @@ namespace AAMod.NPCs.Bosses.Toad
             }
             else if (internalAI[0] == AISTATE_TOADS)
             {
-                if (Main.netMode != 1 && NPC.velocity.Y == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0)
                 {
                     internalAI[1]++;
                 }
@@ -641,7 +641,7 @@ namespace AAMod.NPCs.Bosses.Toad
             position.X += NPC.velocity.X;
             int num514 = (int)((position.X + NPC.width / 2 + (NPC.width / 2 + 1) * num513) / 16f);
             int num515 = (int)((position.Y + NPC.height - 1f) / 16f);
-            if (num514 * 16 < position.X + NPC.width && num514 * 16 + 16 > position.X && ((Main.tile[num514, num515].HasUnactuatedTile && !Main.tile[num514, num515].TopSlope && !Main.tile[num514, num515 - 1].TopSlope && ((Main.tileSolid[Main.tile[num514, num515].TileType] && !Main.tileSolidTop[Main.tile[num514, num515].TileType]) || (flag31 && Main.tileSolidTop[Main.tile[num514, num515].TileType] && (!Main.tileSolid[Main.tile[num514, num515 - 1].TileType] || !Main.tile[num514, num515 - 1].HasUnactuatedTile) && Main.tile[num514, num515].TileType != 16 && Main.tile[num514, num515].TileType != 18 && Main.tile[num514, num515].TileType != 134))) || (Main.tile[num514, num515 - 1].IsHalfBlock && Main.tile[num514, num515 - 1].HasUnactuatedTile)) && (!Main.tile[num514, num515 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 1].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 1].TileType] || (Main.tile[num514, num515 - 1].IsHalfBlock && (!Main.tile[num514, num515 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 4].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 4].TileType]))) && (!Main.tile[num514, num515 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 2].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 2].TileType]) && (!Main.tile[num514, num515 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 3].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 3].TileType]) && (!Main.tile[num514 - num513, num515 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514 - num513, num515 - 3].TileType] || Main.tileSolidTop[Main.tile[num514 - num513, num515 - 3].TileType]))
+            if (num514 * 16 < position.X + NPC.width && num514 * 16 + 16 > position.X && ((Main.tile[num514, num515].HasUnactuatedTile && !Main.tile[num514, num515].TopSlope && !Main.tile[num514, num515 - 1].TopSlope && ((Main.tileSolid[Main.tile[num514, num515].TileType] && !Main.tileSolidTop[Main.tile[num514, num515].TileType]) || (flag31 && Main.tileSolidTop[Main.tile[num514, num515].TileType] && (!Main.tileSolid[Main.tile[num514, num515 - 1].TileType] || !Main.tile[num514, num515 - 1].HasUnactuatedTile) && Main.tile[num514, num515].TileType != TileID.Anvils && Main.tile[num514, num515].TileType != TileID.WorkBenches && Main.tile[num514, num515].TileType != TileID.MythrilAnvil))) || (Main.tile[num514, num515 - 1].IsHalfBlock && Main.tile[num514, num515 - 1].HasUnactuatedTile)) && (!Main.tile[num514, num515 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 1].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 1].TileType] || (Main.tile[num514, num515 - 1].IsHalfBlock && (!Main.tile[num514, num515 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 4].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 4].TileType]))) && (!Main.tile[num514, num515 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 2].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 2].TileType]) && (!Main.tile[num514, num515 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514, num515 - 3].TileType] || Main.tileSolidTop[Main.tile[num514, num515 - 3].TileType]) && (!Main.tile[num514 - num513, num515 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num514 - num513, num515 - 3].TileType] || Main.tileSolidTop[Main.tile[num514 - num513, num515 - 3].TileType]))
             {
                 float num516 = num515 * 16;
                 if (Main.tile[num514, num515].IsHalfBlock)
@@ -788,7 +788,7 @@ namespace AAMod.NPCs.Bosses.Toad
                         NPC.knockBackResist = 0f;
                         if (Main.rand.Next(3) < 2)
                         {
-                            int num536 = Dust.NewDust(NPC.Center - new Vector2(30f), 60, 60, 6, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f, 90, default(Color), 1.5f);
+                            int num536 = Dust.NewDust(NPC.Center - new Vector2(30f), 60, 60, DustID.Torch, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f, 90, default(Color), 1.5f);
                             Main.dust[num536].noGravity = true;
                             Dust dust3 = Main.dust[num536];
                             dust3.velocity *= 0.2f;
@@ -803,11 +803,11 @@ namespace AAMod.NPCs.Bosses.Toad
                                 Vector2 vector68 = NPC.Center - new Vector2(50f);
                                 for (int num537 = 0; num537 < 32; num537 = num + 1)
                                 {
-                                    int num538 = Dust.NewDust(vector68, 100, 100, 6, 0f, 0f, 100, default(Color), 2.5f);
+                                    int num538 = Dust.NewDust(vector68, 100, 100, DustID.Torch, 0f, 0f, 100, default(Color), 2.5f);
                                     Main.dust[num538].noGravity = true;
                                     Dust dust3 = Main.dust[num538];
                                     dust3.velocity *= 3f;
-                                    num538 = Dust.NewDust(vector68, 100, 100, 6, 0f, 0f, 100, default(Color), 1.5f);
+                                    num538 = Dust.NewDust(vector68, 100, 100, DustID.Torch, 0f, 0f, 100, default(Color), 1.5f);
                                     dust3 = Main.dust[num538];
                                     dust3.velocity *= 2f;
                                     Main.dust[num538].noGravity = true;
@@ -827,7 +827,7 @@ namespace AAMod.NPCs.Bosses.Toad
                             }
                             for (int num541 = 0; num541 < 5; num541 = num + 1)
                             {
-                                int num542 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 31, 0f, 0f, 100, default(Color), 1.5f);
+                                int num542 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
                                 Main.dust[num542].velocity = Main.dust[num542].velocity * Main.rand.NextFloat();
                                 num = num541;
                             }

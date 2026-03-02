@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Charlie
@@ -30,7 +31,7 @@ namespace AAMod.Items.Vanity.Charlie
         {
             Item.width = 22;
             Item.height = 18;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
         }
     }

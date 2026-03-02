@@ -30,14 +30,14 @@ namespace AAMod.Projectiles
         {
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             Projectile.ai[0] += 1f;
-            if ((Projectile.ai[0] >= 5f && Projectile.type != 253) || (Projectile.type == 253 && Projectile.ai[0] >= 8f))
+            if ((Projectile.ai[0] >= 5f && Projectile.type != ProjectileID.BallofFrost) || (Projectile.type == ProjectileID.BallofFrost && Projectile.ai[0] >= 8f))
             {
                 Projectile.position += Projectile.velocity;
                 Projectile.Kill();
             }
             else
             {
-                if (Projectile.type == 15 && Projectile.velocity.Y > 4f)
+                if (Projectile.type == ProjectileID.BallofFire && Projectile.velocity.Y > 4f)
                 {
                     if (Projectile.velocity.Y != velocity.Y)
                     {

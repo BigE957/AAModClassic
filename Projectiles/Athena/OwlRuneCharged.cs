@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
 
 namespace AAMod.Projectiles.Athena
 {
@@ -174,7 +175,7 @@ namespace AAMod.Projectiles.Athena
                 }
             }
             shoot += 1f;
-            if (shoot % 30f == 0f && shoot < 180f && Main.netMode != 1)
+            if (shoot % 30f == 0f && shoot < 180f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int[] array4 = new int[5];
                 Vector2[] array5 = new Vector2[5];
@@ -220,7 +221,7 @@ namespace AAMod.Projectiles.Athena
                         num844 = 0.5f;
                     }
                     Vector2 value47 = new Vector2(-Projectile.width * 0.2f * Projectile.scale, 0f).RotatedBy(num844 * 6.28318548f, default).RotatedBy(Projectile.velocity.ToRotation(), default);
-                    int num845 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, 226, -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num845 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, DustID.Electric, -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num845].position = Projectile.Center + value47;
                     Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - Projectile.Center) * 2f;
                     Main.dust[num845].noGravity = true;
@@ -237,7 +238,7 @@ namespace AAMod.Projectiles.Athena
                         num847 = 0.5f;
                     }
                     Vector2 value48 = new Vector2(-Projectile.width * 0.6f * Projectile.scale, 0f).RotatedBy(num847 * 6.28318548f, default).RotatedBy(Projectile.velocity.ToRotation(), default);
-                    int num848 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, 226, -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num848 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, DustID.Electric, -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num848].velocity = Vector2.Zero;
                     Main.dust[num848].position = Projectile.Center + value48;
                     Main.dust[num848].noGravity = true;

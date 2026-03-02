@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
@@ -22,8 +23,8 @@ Functions as most hardmode crafting stations + A workbench and heavy workbench")
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 9;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Cyan;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
             Item.createTile = Mod.Find<ModTile>("PaladinsSmeltery").Type;

@@ -136,7 +136,7 @@ namespace AAMod.Projectiles
             {
                 float velX = Projectile.velocity.X / 3f * m;
                 float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 75, 0, 0, 0);
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.CursedTorch, 0, 0, 0);
                 Main.dust[dustID].position.X = Projectile.Center.X - velX;
                 Main.dust[dustID].position.Y = Projectile.Center.Y - velY;
                 Main.dust[dustID].velocity *= 0f;

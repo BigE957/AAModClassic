@@ -79,7 +79,7 @@ namespace AAMod.NPCs.Bosses.Broodmother
             {
                 NPC.Transform(Mod.Find<ModNPC>("Broodmini").Type);
             }
-            if (Main.netMode != 1 && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[3] >= hatchTimer * 0.75)
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[3] >= hatchTimer * 0.75)
             {
                 float wiggleAmount = NPC.ai[3] - (hatchTimer * 0.75f);
                 wiggleAmount /= hatchTimer * 0.25f;

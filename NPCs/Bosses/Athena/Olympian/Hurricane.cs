@@ -93,7 +93,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                     value77.X *= -1f;
                     Vector2 value78 = new Vector2(6f, 10f);
                     Vector2 position3 = vector146 + value74 * value77 * 0.5f + value78;
-                    Dust dust33 = Main.dust[Dust.NewDust(position3, 0, 0, 16, 0f, 0f, 0, default, 1.5f)];
+                    Dust dust33 = Main.dust[Dust.NewDust(position3, 0, 0, DustID.Cloud, 0f, 0f, 0, default, 1.5f)];
                     dust33.position = position3;
                     dust33.customData = vector146 + value78;
                     dust33.fadeIn = 1f;

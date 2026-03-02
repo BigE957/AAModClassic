@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.NPCs.Bosses.Yamata.Awakened
@@ -18,7 +19,7 @@ namespace AAMod.NPCs.Bosses.Yamata.Awakened
 		{
 			Projectile.width = 70;
 			Projectile.height = 70;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = false;
 			Projectile.hostile = true;
 			Projectile.penetrate = 1;

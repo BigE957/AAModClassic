@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Athena.Olympian
 {
@@ -19,7 +20,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
             Item.height = 10;
             Item.maxStack = 999;
             Item.value = 10000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override Color? GetAlpha(Color lightColor)

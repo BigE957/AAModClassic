@@ -23,11 +23,11 @@ Wand of Sparking EX"); */
             Item.shoot = Mod.Find<ModProjectile>("SparkWand").Type;
             Item.useTime = 10;
             Item.useAnimation = 10;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.channel = true;
             Item.sellPrice(3, 0, 0, 0);
             Item.noMelee = true;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.shootSpeed = 12f;
 			Item.noUseGraphic = true;
             Item.expert = true; Item.expertOnly = true;

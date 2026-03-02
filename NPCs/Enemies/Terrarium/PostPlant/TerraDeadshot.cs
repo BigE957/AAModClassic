@@ -165,7 +165,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                 {
                     Vector2 position = NPC.Center + new Vector2(NPC.direction * -14, -8f) - Vector2.One * 4f;
                     Vector2 velocity = new Vector2(NPC.direction * -6, 12f) * 0.2f + Utils.RandomVector2(Main.rand, -1f, 1f) * 0.1f;
-                    Dust dust6 = Main.dust[Dust.NewDust(position, 8, 8, 229, velocity.X, velocity.Y, 100, Color.Transparent, 1f + Main.rand.NextFloat() * 0.5f)];
+                    Dust dust6 = Main.dust[Dust.NewDust(position, 8, 8, DustID.Vortex, velocity.X, velocity.Y, 100, Color.Transparent, 1f + Main.rand.NextFloat() * 0.5f)];
                     dust6.noGravity = true;
                     dust6.velocity = velocity;
                     dust6.customData = this;
@@ -198,7 +198,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                 NPC.velocity.Y = -5f;
                 NPC.ai[2] = 1f;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.localAI[2] += 1f;
                 if (NPC.localAI[2] >= 360 + Main.rand.Next(360) && NPC.Distance(Main.player[NPC.target].Center) < 400f && Math.Abs(NPC.DirectionTo(Main.player[NPC.target].Center).Y) < 0.5f && Collision.CanHitLine(NPC.Center, 0, 0, Main.player[NPC.target].Center, 0, 0))
@@ -348,7 +348,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                     Main.tile[num177 - NPC.direction, num178 + 1] = new Tile();
                 }
                 Main.tile[num177, num178 + 1].IsHalfBlock;
-                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == 10 || Main.tile[num177, num178 - 1].TileType == 388) && flag6)
+                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6)
                 {
                     NPC.ai[2] += 1f;
                     NPC.ai[3] = 0f;
@@ -357,7 +357,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
 
                         NPC.velocity.X = 0.5f * -NPC.direction;
                         int num179 = 5;
-                        if (Main.tile[num177, num178 - 1].TileType == 388)
+                        if (Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed)
                         {
                             num179 = 2;
                         }

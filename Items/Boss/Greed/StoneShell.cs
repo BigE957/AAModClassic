@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Boss.Greed
 {
     public class StoneShell : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Boss.Greed
             Item.width = 14;
             Item.height = 24;
 			Item.maxStack = 99;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
     }
 }

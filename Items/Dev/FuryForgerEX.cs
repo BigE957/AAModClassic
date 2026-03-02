@@ -22,10 +22,10 @@ Fury Forger EX"); */
 			Item.height = 88;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 50, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.expert = true; Item.expertOnly = true;

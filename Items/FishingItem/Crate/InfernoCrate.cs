@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.FishingItem.Crate
@@ -9,12 +10,12 @@ namespace AAMod.Items.FishingItem.Crate
         {
             Item.width = 16;
             Item.height = 16;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.maxStack = 99;
             Item.useAnimation = 15;
             Item.useTime = 15;
             Item.autoReuse = true;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.createTile = Mod.Find<ModTile>("InfernoCrate").Type;

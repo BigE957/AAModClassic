@@ -173,7 +173,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
                     NPC.velocity.Y = -5f;
                     NPC.ai[2] = 1f;
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.localAI[2] += 1f;
                     if (NPC.localAI[2] >= 360 + Main.rand.Next(360) && NPC.Distance(Main.player[NPC.target].Center) < 400f && Math.Abs(NPC.DirectionTo(Main.player[NPC.target].Center).Y) < 0.5f && Collision.CanHitLine(NPC.Center, 0, 0, Main.player[NPC.target].Center, 0, 0))

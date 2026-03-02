@@ -52,7 +52,7 @@ namespace AAMod.Projectiles.Zero
             {
                 NPC target = Main.npc[u];
 
-                if (target.active && (target.type < 548 || target.type > 578) && target.type != NPCID.TargetDummy && !target.friendly && !target.boss && target.CanBeChasedBy(Projectile, false) && Vector2.Distance(Projectile.Center, target.Center) < 100)
+                if (target.active && (target.type < NPCID.DD2EterniaCrystal || target.type > NPCID.DD2LightningBugT3) && target.type != NPCID.TargetDummy && !target.friendly && !target.boss && target.CanBeChasedBy(Projectile, false) && Vector2.Distance(Projectile.Center, target.Center) < 100)
                 {
                     float num3 = 10f;
                     Vector2 vector = new Vector2(target.position.X + target.width / 2, target.position.Y + target.height / 2);

@@ -19,7 +19,7 @@ namespace AAMod.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.CloneDefaults(3859);
+            Item.CloneDefaults(ItemID.DD2BetsyBow);
 			Item.damage = 475;
 			Item.shootSpeed = 16f;
         }
@@ -27,7 +27,7 @@ namespace AAMod.Items.Ranged
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(3859);
+            recipe.AddIngredient(ItemID.DD2BetsyBow);
 			recipe.AddIngredient(ItemID.DaedalusStormbow);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddTile(null, "QuantumFusionAccelerator");
@@ -67,8 +67,8 @@ namespace AAMod.Items.Ranged
 			vector6.X = Main.mouseX + Main.screenPosition.X - vector2.X;
 			vector6.Y = Main.mouseY + Main.screenPosition.Y - vector2.Y - 1000f;
 			player.itemRotation = (float)Math.Atan2(vector6.Y * player.direction, vector6.X * player.direction);
-			NetMessage.SendData(13, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
-			NetMessage.SendData(41, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+			NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
+			NetMessage.SendData(MessageID.ShotAnimationAndSound, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0, 0, 0);
 			int num90 = 5;
 			if (Main.rand.Next(2) == 0)
 			{

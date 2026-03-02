@@ -16,7 +16,7 @@ namespace AAMod.Items.Boss.EFish
         {
             Item.CloneDefaults(ItemID.Flairon);
             Item.damage = 350;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.shoot = Mod.Find<ModProjectile>("EFlairon").Type;
         }
 

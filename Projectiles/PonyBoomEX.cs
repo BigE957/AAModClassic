@@ -18,7 +18,7 @@ namespace AAMod.Projectiles
         {
             Projectile.width = 12;
             Projectile.height = 12;
-            Projectile.aiStyle = 50;
+            Projectile.aiStyle = ProjAIStyleID.Inferno;
             Projectile.friendly = true;
             Projectile.alpha = 255;
             Projectile.DamageType = DamageClass.Magic;

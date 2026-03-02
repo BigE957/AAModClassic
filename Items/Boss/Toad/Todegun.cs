@@ -17,7 +17,7 @@ namespace AAMod.Items.Boss.Toad
 		public override void SetDefaults()
 		{
 			Item.damage = 59;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.reuseDelay = 10;
@@ -27,7 +27,7 @@ namespace AAMod.Items.Boss.Toad
             Item.height = 16;
             Item.damage = 15;
             Item.UseSound = SoundID.DD2_BetsysWrathShot;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 70, 0);
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;

@@ -17,7 +17,7 @@ namespace AAMod.NPCs.Enemies.Inferno
 
 		public override void SetDefaults()
 		{
-            NPC.aiStyle = 1;
+            NPC.aiStyle = NPCAIStyleID.Slime;
             NPC.noGravity = false;
             NPC.noTileCollide = false;
             NPC.width = 32;
@@ -30,7 +30,7 @@ namespace AAMod.NPCs.Enemies.Inferno
             NPC.value = 60f;
             NPC.lavaImmune = true;
             NPC.knockBackResist = 0.5f;
-            AnimationType = 81;
+            AnimationType = NPCID.CorruptSlime;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
 			BannerItem = Mod.Find<ModItem>("InfernalSlimeBanner").Type;

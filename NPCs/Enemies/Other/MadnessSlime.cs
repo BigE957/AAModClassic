@@ -15,14 +15,14 @@ namespace AAMod.NPCs.Enemies.Other
 		
 		public override void SetDefaults()
 		{
-			NPC.aiStyle = 1;
+			NPC.aiStyle = NPCAIStyleID.Slime;
 			NPC.damage = 7;
             NPC.width = 30;
 			NPC.height = 22;
 			NPC.defense = 4;
 			NPC.lifeMax = 25;
 			NPC.knockBackResist = 0f;
-			AnimationType = 81;
+			AnimationType = NPCID.CorruptSlime;
 			NPC.value = Item.sellPrice(0, 0, 5, 0);
 			NPC.alpha = 60;
 			NPC.lavaImmune = false;

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -33,26 +34,26 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
 
         public override void AI()
         {
-            if (NPC.velocity.Y == 0 && Main.netMode != 1)
+            if (NPC.velocity.Y == 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.ai[0]++;
             }
 
             if (NPC.ai[0] == 120)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat1"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat1"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 240)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat2"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat2"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 360)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat3"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat3"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 480)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat4"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat4"), 107, 137, 179, true);
             }
             if (NPC.ai[0] >= 600)
             {
@@ -62,7 +63,7 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
             }
             if (NPC.ai[0] == 600)
             {
-                if (Main.netMode != 1) BaseUtility.Chat("...", 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("...", 107, 137, 179, true);
             }
             if (NPC.ai[0] >= 840)
             {
@@ -71,32 +72,32 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
             }
             if (NPC.ai[0] == 840)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat5"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat5"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 960)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat6"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat6"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1080)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat7"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat7"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1200)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat8"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat8"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1380)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat9"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat9"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1540)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat10"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat10"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1660)
             {
                 string Name;
-                if (Main.netMode != 0)
+                if (Main.netMode != NetmodeID.SinglePlayer)
                 {
                     Name = "Terrarians";
                 }
@@ -104,25 +105,25 @@ namespace AAMod.NPCs.Bosses.Rajah.Supreme
                 {
                     Name = Main.LocalPlayer.name;
                 }
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat11") + Name + "?", 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat11") + Name + "?", 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1780)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat12"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat12"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 1900)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat13"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat13"), 107, 137, 179, true);
             }
             if (NPC.ai[0] == 2020)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat14"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat14"), 107, 137, 179, true);
             }
             if (NPC.ai[0] >= 2180)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat15"), 107, 137, 179, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat15"), 107, 137, 179, true);
                 AAWorld.downedRajahsRevenge = true;
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat16"), Color.Green, true);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat16"), Color.Green, true);
                 int p = Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 0, 0, Main.myPlayer);
                 Main.projectile[p].position = NPC.position;
                 NPC.active = false;

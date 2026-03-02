@@ -165,7 +165,7 @@ namespace AAMod
 
         public static bool IsBlank(this Item item)
         {
-            if (item.type <= 0 || item.stack <= 0) return true;
+            if (item.type <= ItemID.None || item.stack <= 0) return true;
             return string.IsNullOrEmpty(item.Name);
         }
 
@@ -190,10 +190,10 @@ namespace AAMod
 
 
         //returns the name of the client's player. If the player is null or it's called on the server, it returns null.
-		public static string NAME_MAINPLAYER { get { return Main.netMode == 2 || Main.player[Main.myPlayer] == null ? null : Main.player[Main.myPlayer].name; } }
+		public static string NAME_MAINPLAYER { get { return Main.netMode == NetmodeID.Server || Main.player[Main.myPlayer] == null ? null : Main.player[Main.myPlayer].name; } }
         
         //returns the client player. If the player is null or it's called on the server, it returns null.
-        public static Player MAINPLAYER { get { return Main.netMode == 2 ? null : Main.player[Main.myPlayer]; } }
+        public static Player MAINPLAYER { get { return Main.netMode == NetmodeID.Server ? null : Main.player[Main.myPlayer]; } }
 
         //returns the name of the given npc. If the npc isn't in the world, it returns null.
         public static string NAME_GUIDE { get { return NPC.AnyNPCs(22) ? NPC.firstNPCName(22) : null; } }

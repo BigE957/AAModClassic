@@ -19,7 +19,7 @@ namespace AAMod.Items.Armor.Oroboros
             Item.width = 28;
             Item.height = 28;
             Item.value = 1000;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.defense = 4;
         }
         

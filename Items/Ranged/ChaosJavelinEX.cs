@@ -20,7 +20,7 @@ Chaos Javelin EX"); */
             Item.damage = 400;
             Item.knockBack = 5f;
             Item.DamageType = DamageClass.Ranged;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.UseSound = SoundID.Item1;
             Item.useAnimation = 15;
             Item.useTime = 15;
@@ -30,7 +30,7 @@ Chaos Javelin EX"); */
             Item.noMelee = true;
             Item.autoReuse = true;
             Item.value = Item.sellPrice(5, 0, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
         }
 

@@ -18,7 +18,7 @@ namespace AAMod.Projectiles.Yamata   //The directory for your .cs and .png; Exam
             Projectile.extraUpdates = 3;
             Projectile.width = 16;
             Projectile.height = 16; 
-            Projectile.aiStyle = 99;
+            Projectile.aiStyle = ProjAIStyleID.Yoyo;
             Projectile.friendly = true; 
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
@@ -35,7 +35,7 @@ namespace AAMod.Projectiles.Yamata   //The directory for your .cs and .png; Exam
 
         public override void PostAI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 ProjTimer++;
                 if (ProjTimer >= 50)

@@ -119,7 +119,7 @@ namespace AAMod.NPCs.Bosses.Anubis
 
             if (NPC.life < NPC.lifeMax / 3 && internalAI[2] == 0)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     for (int m = 0; m < LocustCount; m++)
                     {
@@ -410,9 +410,9 @@ namespace AAMod.NPCs.Bosses.Anubis
                 if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
                 {
                     deathtimer++;
-                    if (Main.netMode != 1 && deathtimer > 240)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisFalse"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisFalse"), Color.Gold);
                         int a = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
@@ -530,7 +530,7 @@ namespace AAMod.NPCs.Bosses.Anubis
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -604,7 +604,7 @@ namespace AAMod.NPCs.Bosses.Anubis
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -669,7 +669,7 @@ namespace AAMod.NPCs.Bosses.Anubis
             NPC.dontTakeDamage = true;
 
             NPC.ai[3] = 39;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
                 if (NPC.velocity.Y == 0)
@@ -681,28 +681,28 @@ namespace AAMod.NPCs.Bosses.Anubis
                             if (internalAI[1] == 60)
                             {
                                 string s = Main.ActivePlayersCount > 1 ? Lang.BossChat("AnubisGuys") : Lang.BossChat("Anubisbud");
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis1") + s + Lang.BossChat("Anubis2"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis1") + s + Lang.BossChat("Anubis2"), Color.Gold);
                             }
 
                             if (internalAI[1] == 150)
                             {
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis3"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis3"), Color.Gold);
                             }
 
                             if (internalAI[1] == 240)
                             {
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis4"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis4"), Color.Gold);
                             }
 
                             if (internalAI[1] == 320)
                             {
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis5"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis5"), Color.Gold);
                             }
 
                             if (internalAI[1] >= 410)
                             {
                                 Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Anubis");
-                                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis6"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis6"), Color.Gold);
                                 internalAI[0] = 1;
                                 Teleport();
                                 NPC.netUpdate = true;
@@ -711,7 +711,7 @@ namespace AAMod.NPCs.Bosses.Anubis
                         else
                         {
                             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Anubis");
-                            if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("Anubis7"), Color.Gold);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis7"), Color.Gold);
                             internalAI[0] = 1;
                             Teleport();
                             NPC.netUpdate = true;

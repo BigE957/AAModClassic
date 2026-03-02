@@ -57,7 +57,7 @@ namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
                         int height3 = num84;
                         for (int num85 = 0; num85 < 3; num85++)
                         {
-                            int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                            int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                             Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                         }
                         for (int num87 = 0; num87 < 15; num87++)
@@ -82,10 +82,10 @@ namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
                             NPC.ai[2] = 1;
                             for (int Loop = 0; Loop < 20; Loop++)
                             {
-                                int Smoke2 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y + 31), NPC.width, NPC.height, 186, 1 * Main.rand.NextFloat(-1, 1), -1, 0);
+                                int Smoke2 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y + 31), NPC.width, NPC.height, DustID.RedsWingsRun, 1 * Main.rand.NextFloat(-1, 1), -1, 0);
                                 Main.dust[Smoke2].noGravity = true;
                                 Main.dust[Smoke2].noLight = true;
-                                int Smoke = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y + 31), NPC.width, NPC.height, 186, 1 * Main.rand.NextFloat(-1, 1), -1, 0, default, 2f);
+                                int Smoke = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y + 31), NPC.width, NPC.height, DustID.RedsWingsRun, 1 * Main.rand.NextFloat(-1, 1), -1, 0, default, 2f);
                                 Main.dust[Smoke].noGravity = true;
                                 Main.dust[Smoke].noLight = true;
                             }

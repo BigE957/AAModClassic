@@ -29,7 +29,7 @@ namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 0f;
             NPC.knockBackResist = 0.05f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.lavaImmune = true;
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
@@ -41,14 +41,14 @@ namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+                Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
             }
-            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
-            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, 107, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, DustID.Terra, NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

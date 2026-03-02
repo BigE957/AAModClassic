@@ -14,9 +14,9 @@ namespace AAMod.Items.Throwing
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.damage = 140;                            
             Item.value = 20;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.knockBack = 2;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 19;
             Item.useTime = 19;
             Item.shoot = Mod.Find<ModProjectile>("SpookerangP").Type;

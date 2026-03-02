@@ -22,13 +22,13 @@ namespace AAMod.Items.Melee
 			Item.height = 64;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = 50000;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = 15;
+			Item.shoot = ProjectileID.BallofFire;
 			Item.shootSpeed = 10f;
 		}
 
@@ -49,7 +49,7 @@ namespace AAMod.Items.Melee
         {
             if (Main.rand.NextFloat() < 1f)
             {
-                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 6, 0f, 0f, 46, default, 1.381579f);
+                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Torch, 0f, 0f, 46, default, 1.381579f);
             }
         }
 

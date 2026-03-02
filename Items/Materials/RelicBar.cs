@@ -15,14 +15,14 @@ namespace AAMod.Items.Materials
         {
             Item.width = 30;
             Item.height = 24;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.maxStack = 99;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.rare = 10;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Red;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("RelicBar").Type;
             Item.value = Terraria.Item.sellPrice(0, 0, 32, 0);

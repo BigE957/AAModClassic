@@ -13,7 +13,7 @@ namespace AAMod.Items.Boss.Sagittarius
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 38;
             Item.useTime = 38;
             Item.knockBack = 8f;
@@ -22,7 +22,7 @@ namespace AAMod.Items.Boss.Sagittarius
             Item.damage = 42;
             Item.scale = 1.05f;
             Item.UseSound = SoundID.Item1;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = 150000;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.autoReuse = true;

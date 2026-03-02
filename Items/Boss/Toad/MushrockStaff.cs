@@ -17,11 +17,11 @@ namespace AAMod.Items.Boss.Toad
 			Item.mana = 6;
 			Item.width = 58;
 			Item.height = 58;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = true;
 			Item.knockBack = 5;
 			Item.value = 100000;
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.shoot = Mod.Find<ModProjectile>("ToadRock").Type;

@@ -1,4 +1,6 @@
-﻿namespace AAMod.Items.Misc
+﻿using Terraria.ID;
+
+namespace AAMod.Items.Misc
 {
     public class AnubisBook : BaseAAItem
     {
@@ -19,7 +21,7 @@ give you something for it."); */
             Item.maxStack = 1;
             Item.width = 28;
             Item.height = 30;
-            Item.rare = -11;
+            Item.rare = ItemRarityID.Quest;
         }
     }
 }

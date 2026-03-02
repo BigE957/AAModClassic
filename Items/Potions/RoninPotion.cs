@@ -21,12 +21,12 @@ namespace AAMod.Items.Potions
 			Item.healLife = 50;
             Item.useAnimation = 17;
 			Item.useTime = 17;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 			Item.potion = true;
 			Item.value = 50000;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
 		}
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */

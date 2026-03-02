@@ -31,7 +31,7 @@ namespace AAMod.Projectiles.Yamata
             Projectile.ignoreWater = true;
             Projectile.penetrate = 4; //
             Projectile.timeLeft = 120;
-            Projectile.aiStyle = 1; //
+            Projectile.aiStyle = ProjAIStyleID.Arrow; //
             AIType = ProjectileID.Bullet;
         }
 

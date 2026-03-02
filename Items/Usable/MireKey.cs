@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Usable
 {
     public class MireKey : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Usable
         public override void SetDefaults()
         {
             Item.width = Item.height = 16;
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.maxStack = 99;
 			Item.value = 800000;
             Item.noMelee = true;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.CC.Shiny
@@ -17,7 +18,7 @@ namespace AAMod.Items.Vanity.CC.Shiny
 		{
 			Item.width = 18;
 			Item.height = 14;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.vanity = true;
 		}
 

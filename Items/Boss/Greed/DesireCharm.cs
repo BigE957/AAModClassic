@@ -2,6 +2,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.Localization;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.Greed
 {
@@ -20,7 +21,7 @@ Caps out at 20% damage"); */
             Item.width = 20;
             Item.height = 20;
             Item.value = Item.sellPrice(0, 6, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
             Item.expertOnly = true;
             Item.expert = true;

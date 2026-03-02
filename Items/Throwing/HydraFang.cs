@@ -19,10 +19,10 @@ namespace AAMod.Items.Throwing
 			Item.useAnimation = 17;
 			Item.shoot = Mod.Find<ModProjectile>("HydraFangP").Type;
 			Item.shootSpeed = 16f;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
 			Item.value = Item.sellPrice(0, 0, 1, 0);
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item19;
 			Item.autoReuse = true;
 			Item.crit = 10;

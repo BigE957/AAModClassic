@@ -16,7 +16,7 @@ namespace AAMod.Items.Melee
             Item.height = 66;    
             Item.knockBack = 7;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.autoReuse = true;
             Item.useTurn = false;
             Item.shoot = Mod.Find<ModProjectile>("Ryusei").Type;

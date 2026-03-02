@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Tiles.Altar
@@ -51,58 +52,58 @@ namespace AAMod.Tiles.Altar
 
             NPC.ai[0]++;
 
-            string s = Main.netMode == 0 ? "" : Lang.TheEquinox("s");
+            string s = Main.netMode == NetmodeID.SinglePlayer ? "" : Lang.TheEquinox("s");
 
             if (NPC.ai[0] == 180)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn1"), new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn1"), new Color(0, 255, 181));
             }
 
             if (NPC.ai[0] == 360)
             {
 
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn2") + s + Lang.TheEquinox("WormSpawn3"), new Color(43, 178, 245));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn2") + s + Lang.TheEquinox("WormSpawn3"), new Color(43, 178, 245));
             }
 
             if (NPC.ai[0] == 540)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn4"), new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn4"), new Color(0, 255, 181));
             }
 
             if (NPC.ai[0] == 720)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn5"), new Color(43, 178, 245));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn5"), new Color(43, 178, 245));
             }
             if (NPC.ai[0] == 900)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn6") + s + Lang.TheEquinox("WormSpawn7"), new Color(43, 178, 245));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn6") + s + Lang.TheEquinox("WormSpawn7"), new Color(43, 178, 245));
             }
 
             if (NPC.ai[0] == 960)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn8"), new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn8"), new Color(0, 255, 181));
             }
 
             if (NPC.ai[0] == 1140)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn9"), new Color(43, 178, 245));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn9"), new Color(43, 178, 245));
             }
 
             if (NPC.ai[0] == 1320)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn10"), new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn10"), new Color(0, 255, 181));
             }
 
             if (NPC.ai[0] == 1520)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn11"), new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn11"), new Color(0, 255, 181));
             }
 
             if (NPC.ai[0] >= 1880)
             {
-                string name = Main.netMode == 0 ? player.name : Lang.TheEquinox("heroes");
+                string name = Main.netMode == NetmodeID.SinglePlayer ? player.name : Lang.TheEquinox("heroes");
 
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.TheEquinox("WormSpawn12") + name + ".", new Color(0, 255, 181));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TheEquinox("WormSpawn12") + name + ".", new Color(0, 255, 181));
 
                 AAWorld.WormActive = true;
                 NPC.active = false;

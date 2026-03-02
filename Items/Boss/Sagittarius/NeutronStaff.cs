@@ -14,11 +14,11 @@ namespace AAMod.Items.Boss.Sagittarius
             Item.height = 38;
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2;
             Item.value = 10000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.mana = 2;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;

@@ -15,9 +15,9 @@ namespace AAMod.Items.Boss.MushroomMonarch
 			Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.useTime = 10;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("MushiumBar").Type;
             Item.value = Terraria.Item.sellPrice(0, 0, 9, 0);

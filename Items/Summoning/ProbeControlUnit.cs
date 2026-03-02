@@ -17,7 +17,7 @@ namespace AAMod.Items.Summoning
 
         public override void SetDefaults()
         {
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("ProbeMinion").Type;
             Item.damage = 14;
@@ -29,7 +29,7 @@ namespace AAMod.Items.Summoning
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 0, 27, 0);
             Item.knockBack = 7.5f;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
         }

@@ -92,7 +92,7 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
                 {
                     for (int m = 0; m < 80; m++)
                     {
-                        Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 32, 0f, 0f, 100, new Color(32, 32, 46), 1.6f);
+                        Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Sand, 0f, 0f, 100, new Color(32, 32, 46), 1.6f);
                     }
                     clearCheck.Kill();
                     Projectile.Kill();

@@ -43,7 +43,7 @@ namespace AAMod.NPCs.Bosses.Sag
 		public bool spawnSound = false;
         public override void AI()
         {
-			if(Main.netMode != 2 && !spawnSound)
+			if(Main.netMode != NetmodeID.Server && !spawnSound)
 			{
 				SoundEngine.PlaySound(SoundID.Item33, Projectile.position);				
 				spawnSound = true;

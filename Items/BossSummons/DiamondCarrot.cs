@@ -22,12 +22,12 @@ Non-consumable"); */
         {
             Item.width = 24;
             Item.height = 24;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noUseGraphic = true;
             Item.consumable = false;
             Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah");
@@ -54,12 +54,12 @@ Non-consumable"); */
         {
             if (!AAWorld.downedRajahsRevenge)
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DiamondCarrotRajahText1"), 107, 137, 179);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DiamondCarrotRajahText1"), 107, 137, 179);
             }
             else
             {
                 string Name;
-                if (Main.netMode != 0)
+                if (Main.netMode != NetmodeID.SinglePlayer)
                 {
                     Name = "Terrarians";
                 }
@@ -67,7 +67,7 @@ Non-consumable"); */
                 {
                     Name = Main.LocalPlayer.name;
                 }
-                if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
             }
             int overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
             AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("SupremeRajah").Type, false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAMod.Common.SupremeRajah"));

@@ -25,19 +25,19 @@ Uses Bullets and Bones as ammo
         {
             Item.autoReuse = true;
             Item.knockBack = 7f;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 34;
             Item.useTime = 34;
             Item.width = 46;
             Item.height = 20;
-            Item.shoot = 10;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Bullet;
             Item.UseSound = SoundID.Item36;
             Item.damage = 90;
             Item.shootSpeed = 6f;
             Item.noMelee = true;
             Item.value = 100000;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.DamageType = DamageClass.Ranged;
         }
 

@@ -19,7 +19,7 @@ namespace AAMod.NPCs.Bosses.Shen
         {
             Projectile.width = 30;
             Projectile.height = 30;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.penetrate = -1;
             Projectile.friendly = false;
             Projectile.hostile = true;

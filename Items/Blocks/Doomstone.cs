@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Blocks
 {
@@ -15,8 +16,8 @@ namespace AAMod.Items.Blocks
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
-            Item.useStyle = 1;
-            Item.rare = 9;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.consumable = true;
             Item.createTile = Mod.Find<ModTile>("Doomstone").Type; //put your CustomBlock Tile name

@@ -259,7 +259,7 @@ namespace AAMod.Items.Dev.Invoker
 						Player.lifeRegenCount++;
 						if ((Main.rand.Next(30000) < Player.lifeRegenTime || Main.rand.Next(30) == 0))
 						{
-							int num5 = Dust.NewDust(Player.position, Player.width, Player.height, 55, 0f, 0f, 200, default, 0.5f);
+							int num5 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.Pixie, 0f, 0f, 200, default, 0.5f);
 							Main.dust[num5].noGravity = true;
 							Main.dust[num5].velocity *= 0.75f;
 							Main.dust[num5].fadeIn = 1.3f;
@@ -292,7 +292,7 @@ namespace AAMod.Items.Dev.Invoker
 							float num3 = (float)Math.Sqrt(num * num + num2 * num2);
 							if (num3 < 800f)
 							{
-								Main.player[myPlayer].AddBuff(43, 20, true);
+								Main.player[myPlayer].AddBuff(BuffID.PaladinsShield, 20, true);
 							}
 						}
 					}
@@ -384,7 +384,7 @@ namespace AAMod.Items.Dev.Invoker
 			Lighting.AddLight(vector21, 0.8f, 0.8f, 0.8f);
 			if (Main.rand.Next(3) == 0)
 			{
-				int num2 = Dust.NewDust(vector21 - Projectile.Size / 2f, Projectile.width, Projectile.height, 63, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
+				int num2 = Dust.NewDust(vector21 - Projectile.Size / 2f, Projectile.width, Projectile.height, DustID.WhiteTorch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
 				Main.dust[num2].noGravity = true;
 				Main.dust[num2].position -= Projectile.velocity;
 			}

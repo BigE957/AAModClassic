@@ -96,37 +96,37 @@ namespace AAMod.Projectiles
                         }
                         else if (type == ModContent.TileType<Torchstone>())
                         {
-                            Main.tile[k, l].TileType = 1;
+                            Main.tile[k, l].TileType = TileID.Stone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<InfernoGrass>())
                         {
-                            Main.tile[k, l].TileType = 2;
+                            Main.tile[k, l].TileType = TileID.Grass;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Torchice>())
                         {
-                            Main.tile[k, l].TileType = 161;
+                            Main.tile[k, l].TileType = TileID.IceBlock;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Torchsandstone>())
                         {
-                            Main.tile[k, l].TileType = 396;
+                            Main.tile[k, l].TileType = TileID.Sandstone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<Torchsand>())
                         {
-                            Main.tile[k, l].TileType = 53;
+                            Main.tile[k, l].TileType = TileID.Sand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
                         else if (type == ModContent.TileType<TorchsandHardened>())
                         {
-                            Main.tile[k, l].TileType = 397;
+                            Main.tile[k, l].TileType = TileID.HardenedSand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }

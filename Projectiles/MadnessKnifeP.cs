@@ -36,7 +36,7 @@ namespace AAMod.Projectiles
 		{
 			for (int k = 0; k < 5; k++)
 			{
-				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 200, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
+				int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Worm, Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
 			}
 			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 			

@@ -14,11 +14,11 @@ namespace AAMod.Items.Magic        //We need this to basically indicate the fold
             Item.height = 8;
             Item.useTime = 40;
             Item.useAnimation = 40;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true; //Why would you hit anyone with a book?
             Item.knockBack = 4;
             Item.value = 10000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("BogOrb").Type;

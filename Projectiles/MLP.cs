@@ -12,7 +12,7 @@ namespace AAMod.Projectiles
             Projectile.width = 20;
             Projectile.height = 20;
             Projectile.scale = 1.1f;
-            Projectile.aiStyle = 19;
+            Projectile.aiStyle = ProjAIStyleID.Spear;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;

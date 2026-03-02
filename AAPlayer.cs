@@ -914,7 +914,7 @@ namespace AAMod
                     for (int i = 0; i < 40; i++)
                     {
                         Vector2 position = new Vector2(Player.Center.X - 40, Player.Center.Y - 40);
-                        Dust.NewDust(position, 80, 80, 108, 0f, 0f, 124, new Color(255, 50, 0), 1f);
+                        Dust.NewDust(position, 80, 80, DustID.RainCloud, 0f, 0f, 124, new Color(255, 50, 0), 1f);
                     }
 
                     for (int i = 0; i < Main.maxNPCs; i++)
@@ -1552,7 +1552,7 @@ namespace AAMod
                 {
                     Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<Projectiles.AH.FireOrbiter>()) * .1f;
 
-                    if (Main.netMode != 2 && Main.LocalPlayer.miscCounter % 3 == 0)
+                    if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscCounter % 3 == 0)
                     {
                         for (int m = 0; m < Spheres.Length; m++)
                         {
@@ -1582,56 +1582,56 @@ namespace AAMod
             {
                 if (Main.rand.Next(8) == 0)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo1"), new Color(180, 41, 32), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 1)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo2"), new Color(45, 46, 70), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 2)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo3"), new Color(255, 0, 0), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 3)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo4"), new Color(102, 20, 48), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 4)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo5"), new Color(72, 78, 117), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 5)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo6"), new Color(128, 0, 0), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 6)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo7"), new Color(216, 110, 40), false);
                     }
                 }
                 else if (Main.rand.Next(8) == 7)
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.WorldgenReminderInfo8"), new Color(43, 46, 61), false);
                     }
@@ -1724,7 +1724,7 @@ namespace AAMod
                     int i = 0;
                     while (i < 3)
                     {
-                        if(Main.netMode != 1) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, Mod.Find<ModProjectile>("AssassinDagger").Type, (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
+                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, Mod.Find<ModProjectile>("AssassinDagger").Type, (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
                         float round = 16f;
                         int k = 0;
                         while (k < round)
@@ -1946,15 +1946,15 @@ namespace AAMod
 			SoundEngine.PlaySound(item.UseSound, Player.position);
 			if (item.potion)
 			{
-				if (item.type == 227)
+				if (item.type == ItemID.RestorationPotion)
 				{
 					Player.potionDelay = Player.restorationDelayTime;
-					Player.AddBuff(21, Player.potionDelay, true);
+					Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
 				}
 				else
 				{
 					Player.potionDelay = Player.potionDelayTime;
-					Player.AddBuff(21, Player.potionDelay, true);
+					Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
 				}
 			}
 			ItemLoader.UseItem(item, Player);
@@ -1974,7 +1974,7 @@ namespace AAMod
 			}
 			if (item.healMana > 0)
 			{
-				Player.AddBuff(94, Player.manaSickTime, true);
+				Player.AddBuff(BuffID.ManaSickness, Player.manaSickTime, true);
 				if (Main.myPlayer == Player.whoAmI)
 				{
 					Player.ManaEffect(item.healMana);
@@ -2003,20 +2003,20 @@ namespace AAMod
 			}
 			for (int i = 0; i < 58; i++)
 			{
-				if (Player.inventory[i].stack > 0 && Player.inventory[i].type > 0 && Player.inventory[i].healMana > 0 && (Player.potionDelay == 0 || !Player.inventory[i].potion) && ItemLoader.CanUseItem(Player.inventory[i], Player))
+				if (Player.inventory[i].stack > 0 && Player.inventory[i].type > ItemID.None && Player.inventory[i].healMana > 0 && (Player.potionDelay == 0 || !Player.inventory[i].potion) && ItemLoader.CanUseItem(Player.inventory[i], Player))
 				{
 					SoundEngine.PlaySound(Player.inventory[i].UseSound, Player.position);
 					if (Player.inventory[i].potion)
 					{
-						if (Player.inventory[i].type == 227)
+						if (Player.inventory[i].type == ItemID.RestorationPotion)
 						{
 							Player.potionDelay = Player.restorationDelayTime;
-							Player.AddBuff(21, Player.potionDelay, true);
+							Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
 						}
 						else
 						{
 							Player.potionDelay = Player.potionDelayTime;
-							Player.AddBuff(21, Player.potionDelay, true);
+							Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
 						}
 					}
 					ItemLoader.UseItem(Player.inventory[i], Player);
@@ -2036,7 +2036,7 @@ namespace AAMod
 					}
 					if (Player.inventory[i].healMana > 0)
 					{
-						Player.AddBuff(94, 60, true);
+						Player.AddBuff(BuffID.ManaSickness, 60, true);
 						if (Main.myPlayer == Player.whoAmI)
 						{
 							Player.ManaEffect(Player.inventory[i].healMana);
@@ -2376,11 +2376,11 @@ namespace AAMod
                     int num16 = (int)vector.X / 16;
                     int num17 = (int)vector.Y / 16;
 
-                    if (Main.tile[num16, num17] != null && Main.tile[num16, num17].WallType == 0)
+                    if (Main.tile[num16, num17] != null && Main.tile[num16, num17].WallType == WallID.None)
                     {
                         for (int i = 0; i < 1; i++)
                         {
-                            Dust dust = Main.dust[Dust.NewDust(vector, 10, 10, 268, 0f, 0f, 0)];
+                            Dust dust = Main.dust[Dust.NewDust(vector, 10, 10, DustID.Sandstorm, 0f, 0f, 0)];
                             dust.velocity.Y = 2f + Main.rand.NextFloat() * 0.2f;
 
                             Dust expr_460_cp_0 = dust;
@@ -2480,7 +2480,7 @@ namespace AAMod
                                 int num7 = num5 / 16;
                                 int num8 = num6 / 16;
 
-                                if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == 0)
+                                if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
                                 {
                                     int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.AshRain>(), 0f, 0f, 0);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
@@ -2577,7 +2577,7 @@ namespace AAMod
                                 int num7 = num5 / 16;
                                 int num8 = num6 / 16;
 
-                                if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == 0)
+                                if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
                                 {
                                     int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
@@ -3132,7 +3132,7 @@ namespace AAMod
                 if (AAMod.AccessoryAbilityKey.JustPressed && DD2Event.Ongoing && DD2Event.TimeLeftBetweenWaves > 0)
                 {
                     DD2Event.TimeLeftBetweenWaves = 60;
-                    if (Main.netMode != 0)
+                    if (Main.netMode != NetmodeID.SinglePlayer)
                     {
                         AANet.SendNetMessage(AANet.DD2EventTime, (byte)DD2Event.TimeLeftBetweenWaves);
                     }
@@ -3179,7 +3179,7 @@ namespace AAMod
         private static void LeaveDust(Player player)
         {
             for (int index = 0; index < 70; ++index)
-                Main.dust[Dust.NewDust(player.position, player.width, player.height, 15, player.velocity.X * 0.2f, player.velocity.Y * 0.2f, 150, Color.Cyan, 1.2f)].velocity *= 0.5f;
+                Main.dust[Dust.NewDust(player.position, player.width, player.height, DustID.MagicMirror, player.velocity.X * 0.2f, player.velocity.Y * 0.2f, 150, Color.Cyan, 1.2f)].velocity *= 0.5f;
             Main.TeleportEffect(player.getRect(), 1);
             Main.TeleportEffect(player.getRect(), 3);
         }
@@ -3240,7 +3240,7 @@ namespace AAMod
                         Player.statLife += 2;
                         for (int i = 0; i < 10; i++)
                         {
-                            int num6 = Dust.NewDust(Player.position, Player.width, Player.height, 107, 0f, 0f, 175, default, 1.75f);
+                            int num6 = Dust.NewDust(Player.position, Player.width, Player.height, DustID.Terra, 0f, 0f, 175, default, 1.75f);
                             Main.dust[num6].noGravity = true;
                             Main.dust[num6].velocity *= 0.75f;
                             int num7 = Main.rand.Next(-40, 41);
@@ -3451,19 +3451,19 @@ namespace AAMod
                 long num = 0;
                 for (int i = 0; i < 54; i++)
                 {
-                    if (Player.inventory[i].type == 71)
+                    if (Player.inventory[i].type == ItemID.CopperCoin)
                     {
                         num += Player.inventory[i].stack;
                     }
-                    if (Player.inventory[i].type == 72)
+                    if (Player.inventory[i].type == ItemID.SilverCoin)
                     {
                         num += Player.inventory[i].stack * 100;
                     }
-                    if (Player.inventory[i].type == 73)
+                    if (Player.inventory[i].type == ItemID.GoldCoin)
                     {
                         num += Player.inventory[i].stack * 10000;
                     }
-                    if (Player.inventory[i].type == 74)
+                    if (Player.inventory[i].type == ItemID.PlatinumCoin)
                     {
                         num += Player.inventory[i].stack * 1000000;
                     }
@@ -3472,22 +3472,22 @@ namespace AAMod
                 {
                     for (int i = 0; i < 54; i++)
                     {
-                        if (Player.inventory[i].type == 71)
+                        if (Player.inventory[i].type == ItemID.CopperCoin)
                         {
                             Player.inventory[i].stack = 0;
                             Player.inventory[i].TurnToAir();
                         }
-                        if (Player.inventory[i].type == 72)
+                        if (Player.inventory[i].type == ItemID.SilverCoin)
                         {
                             Player.inventory[i].stack = 0;
                             Player.inventory[i].TurnToAir();
                         }
-                        if (Player.inventory[i].type == 73)
+                        if (Player.inventory[i].type == ItemID.GoldCoin)
                         {
                             Player.inventory[i].stack = 0;
                             Player.inventory[i].TurnToAir();
                         }
-                        if (Player.inventory[i].type == 74)
+                        if (Player.inventory[i].type == ItemID.PlatinumCoin)
                         {
                             Player.inventory[i].stack = 0;
                             Player.inventory[i].TurnToAir();
@@ -3656,7 +3656,7 @@ namespace AAMod
             {
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, 107, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, DustID.Terra, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3676,7 +3676,7 @@ namespace AAMod
             {
                 if (Main.rand.Next(4) == 0)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, 75, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, DustID.CursedTorch, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].scale = 3f;
                     Main.dust[dust].noGravity = true;
@@ -3843,7 +3843,7 @@ namespace AAMod
                 {
                     Player.hideWolf = false;
                     Player.forceWerewolf = true;
-                    if ((Player.wet && !Player.lavaWet && (!Player.mount.Active || Player.mount.Type != 3)) || !Player.forceWerewolf)
+                    if ((Player.wet && !Player.lavaWet && (!Player.mount.Active || Player.mount.Type != MountID.Slime)) || !Player.forceWerewolf)
                     {
                         Player.hideMerman = false;
                         Player.forceMerman = true;
@@ -3902,7 +3902,7 @@ namespace AAMod
 
             for (int i = 0; i < 40; i++)
             {
-                if (Main.chest[chestIndex].item[i] == null || Main.chest[chestIndex].item[i].type <= 0)
+                if (Main.chest[chestIndex].item[i] == null || Main.chest[chestIndex].item[i].type <= ItemID.None)
                 {
                     continue;
                 }
@@ -4495,7 +4495,7 @@ namespace AAMod
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != 6) && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateBoots").Type))
+                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateBoots").Type))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("Glowmasks/AngryPirateBoots_Legs_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cLegs, drawPlayer, drawPlayer.legFrame, drawPlayer.legRotation, drawPlayer.legPosition, drawInfo.legVect);

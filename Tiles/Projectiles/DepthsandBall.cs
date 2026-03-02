@@ -100,12 +100,12 @@ namespace AAMod.Tiles.Projectiles
                             WorldGen.SlopeTile(tileX, tileY + 1, 0);
                             if (Main.netMode == NetmodeID.Server)
                             {
-                                NetMessage.SendData(17, -1, -1, null, 14, tileX, tileY + 1, 0f, 0, 0, 0);
+                                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 14, tileX, tileY + 1, 0f, 0, 0, 0);
                             }
                         }
-                        if (Main.netMode != 0)
+                        if (Main.netMode != NetmodeID.SinglePlayer)
                         {
-                            NetMessage.SendData(17, -1, -1, null, 1, tileX, tileY, ModContent.TileType<Depthsand>(), 0, 0, 0);
+                            NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, tileX, tileY, ModContent.TileType<Depthsand>(), 0, 0, 0);
                         }
                     }
                 }

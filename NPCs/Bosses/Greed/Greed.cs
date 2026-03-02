@@ -111,7 +111,7 @@ namespace AAMod.NPCs.Bosses.Greed
             }
 
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[2]++;
                 internalAI[3]++;
@@ -147,7 +147,7 @@ namespace AAMod.NPCs.Bosses.Greed
 
             if (!Main.gamePaused && Main.rand.Next(60) == 0 && Main.LocalPlayer.findTreasure)
             {
-                int num52 = Dust.NewDust(NPC.Center, 16, 16, 204, 0f, 0f, 150, default, 0.3f);
+                int num52 = Dust.NewDust(NPC.Center, 16, 16, DustID.TreasureSparkle, 0f, 0f, 150, default, 0.3f);
                 Main.dust[num52].fadeIn = 1f;
                 Main.dust[num52].velocity *= 0.1f;
                 Main.dust[num52].noLight = true;
@@ -173,7 +173,7 @@ namespace AAMod.NPCs.Bosses.Greed
                 else
                     NPC.ai[3] = 0;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0)
                 {
@@ -343,18 +343,18 @@ namespace AAMod.NPCs.Bosses.Greed
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("GreedFalse1"), Color.Goldenrod);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("GreedFalse1"), Color.Goldenrod);
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
-                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != 1) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
             }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("GreedFalse2"), Color.Goldenrod);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("GreedFalse2"), Color.Goldenrod);
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y - 1f;
@@ -715,14 +715,14 @@ namespace AAMod.NPCs.Bosses.Greed
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Greed").Type)
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
                     NPC.active = false;
-                    NetMessage.SendData(28, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, NPC.whoAmI, -1f, 0.0f, 0.0f, 0, 0, 0);
                 }
             }
 

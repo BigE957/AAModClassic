@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace AAMod.Items.Mushrooms
 {
     public class Brown : BaseAAItem
@@ -12,7 +14,7 @@ namespace AAMod.Items.Mushrooms
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 99;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
         }
     }
 }

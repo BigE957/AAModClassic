@@ -20,8 +20,8 @@ namespace AAMod.Projectiles
             Projectile.penetrate = -1;  
             Projectile.width = 22;
             Projectile.height = 32;
-			Projectile.aiStyle = 3;
-			AIType = 106;
+			Projectile.aiStyle = ProjAIStyleID.Boomerang;
+			AIType = ProjectileID.LightDisc;
         }
 
 		public override void SetStaticDefaults()
@@ -33,7 +33,7 @@ namespace AAMod.Projectiles
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, 211,
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.Wet,
 				Projectile.velocity.X * .5f, Projectile.velocity.Y * .5f, 200, Scale: 1.1f);
 				dust.velocity += Projectile.velocity * 0.4f;
 				dust.velocity *= 0.3f;
@@ -54,7 +54,7 @@ namespace AAMod.Projectiles
 
         public override bool OnTileCollide(Vector2 velocityChange)
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
                 SoundEngine.PlaySound(SoundID.Dig, Projectile.position);

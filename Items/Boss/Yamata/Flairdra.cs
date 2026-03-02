@@ -26,7 +26,7 @@ Inflicts Moonraze"); */
             Item.height = 22;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 12;
             Item.useTime = 12;
             Item.knockBack = 3.5f;
@@ -37,7 +37,7 @@ Inflicts Moonraze"); */
             Item.UseSound = SoundID.Item21;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.autoReuse = true;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

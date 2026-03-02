@@ -37,7 +37,7 @@ namespace AAMod.Tiles
                 {
                     if (tile3 != null && !tile3.HasTile)
                     {
-                        bool flag18 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
+                        bool flag18 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == TileID.PalmTree || TileLoader.IsDresser(tile2.TileType)));
                         if (flag18)
                         {
                             int damage = 10;
@@ -56,7 +56,7 @@ namespace AAMod.Tiles
                 }
                 else if (Main.netMode == NetmodeID.Server && tile3 != null && !tile3.HasTile)
                 {
-                    bool flag19 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == 323 || TileLoader.IsDresser(tile2.TileType)));
+                    bool flag19 = !(tile2.HasTile && (TileID.Sets.BasicChest[tile2.TileType] || TileID.Sets.BasicChestFake[tile2.TileType] || tile2.TileType == TileID.PalmTree || TileLoader.IsDresser(tile2.TileType)));
                     if (flag19)
                     {
                         int damage2 = 10;

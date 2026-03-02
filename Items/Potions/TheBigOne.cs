@@ -15,7 +15,7 @@ namespace AAMod.Items.Potions
 		
 		public override void SetDefaults()
 		{
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
 			Item.width = 20;
 			Item.height = 38;
 			Item.useTurn = true;
@@ -24,7 +24,7 @@ namespace AAMod.Items.Potions
             Item.healMana = 600;
             Item.useAnimation = 17;
 			Item.useTime = 17;
-			Item.useStyle = 2;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.UseSound = SoundID.Item3;
 			Item.consumable = true;
 			Item.potion = true;

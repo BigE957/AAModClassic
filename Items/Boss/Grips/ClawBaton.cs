@@ -17,7 +17,7 @@ namespace AAMod.Items.Boss.Grips
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("ClawBaton").Type;
             Item.damage = 14;
@@ -29,7 +29,7 @@ namespace AAMod.Items.Boss.Grips
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.knockBack = 5f;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
             Item.noUseGraphic = true;

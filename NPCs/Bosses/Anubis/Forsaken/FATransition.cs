@@ -36,45 +36,45 @@ namespace AAMod.NPCs.Bosses.Anubis.Forsaken
             NPC.dontTakeDamage = true;
 
             NPC.ai[3] = 39;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.velocity.Y == 0)
                 {
                     NPC.ai[1]++;
                     if (NPC.ai[1] == 120)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition1"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition1"), Color.Gold);
                         Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AnubisA");
                     }
 
                     if (NPC.ai[1] == 240)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition2"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition2"), Color.Gold);
                     }
 
                     if (NPC.ai[1] == 360)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition3"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition3"), Color.Gold);
                     }
 
                     if (NPC.ai[1] == 480)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition4"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition4"), Color.Gold);
                     }
 
                     if (NPC.ai[1] == 600)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition5"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition5"), Color.Gold);
                     }
 
                     if (NPC.ai[1] == 720)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition6"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition6"), Color.Gold);
                     }
 
                     if (NPC.ai[1] == 840)
                     {
-                        if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AnubisTransition7"), Color.ForestGreen);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisTransition7"), Color.ForestGreen);
                     }
 
                     if (NPC.ai[1] >= 900)

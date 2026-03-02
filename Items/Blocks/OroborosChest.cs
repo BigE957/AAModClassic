@@ -24,8 +24,8 @@ namespace AAMod.Items.Blocks
 			Item.autoReuse = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
-            Item.rare = 5;
-            Item.useStyle = 1;
+            Item.rare = ItemRarityID.Pink;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
 			Item.createTile = Mod.Find<ModTile>("OroborosChest").Type;

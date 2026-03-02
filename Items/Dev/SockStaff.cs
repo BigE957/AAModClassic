@@ -17,7 +17,7 @@ namespace AAMod.Items.Dev
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
             Item.shoot = Mod.Find<ModProjectile>("SockPuppet").Type;
             Item.damage = 130;
@@ -29,7 +29,7 @@ namespace AAMod.Items.Dev
             Item.noMelee = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.knockBack = 5f;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 20;
         }

@@ -16,7 +16,7 @@ namespace AAMod.Projectiles.Anubis.Forsaken
 		{
 			Projectile.width = 14;
 			Projectile.height = 14;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
 			Projectile.penetrate = 1;
@@ -37,7 +37,7 @@ namespace AAMod.Projectiles.Anubis.Forsaken
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             for (int num468 = 0; num468 < 4; num468++)
             {
-                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, 32, -Projectile.velocity.X * 0.2f,
+                num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, DustID.Sand, -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
             }
         }

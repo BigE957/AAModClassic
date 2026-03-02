@@ -94,7 +94,7 @@ namespace AAMod.NPCs.Bosses.Hydra
 
 		public void HandleHeads()
 		{
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				if(!HeadsSpawned)
 				{
@@ -235,7 +235,7 @@ namespace AAMod.NPCs.Bosses.Hydra
 
             if (HeadsSpawned && noHeads)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -251,7 +251,7 @@ namespace AAMod.NPCs.Bosses.Hydra
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write(internalAI[0]);
                 writer.Write(headindex[0]);
@@ -263,7 +263,7 @@ namespace AAMod.NPCs.Bosses.Hydra
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 internalAI[0] = reader.ReadFloat();
                 headindex[0] = reader.ReadInt();
@@ -302,7 +302,7 @@ namespace AAMod.NPCs.Bosses.Hydra
         public void AIMovementRunAway()
         {
             NPC.alpha += 2;
-            if (Main.netMode != 1) internalAI[0] += 2;
+            if (Main.netMode != NetmodeID.MultiplayerClient) internalAI[0] += 2;
             if (internalAI[0] >= 255)
             {
                 NPC.active = false;

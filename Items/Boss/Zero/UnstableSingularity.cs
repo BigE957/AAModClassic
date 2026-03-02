@@ -28,7 +28,7 @@ namespace AAMod.Items.Boss.Zero
             Item.height = 24;
             Item.maxStack = 999;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<Terraria.ModLoader.TooltipLine> list)

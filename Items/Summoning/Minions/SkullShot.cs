@@ -35,7 +35,7 @@ namespace AAMod.Items.Summoning.Minions
                 SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
                 for (int num151 = 0; num151 < 40; num151++)
                 {
-                    int num152 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 181, 0f, 0f, 100);
+                    int num152 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GiantCursedSkullBolt, 0f, 0f, 100);
                     Main.dust[num152].velocity *= 3f;
                     Main.dust[num152].velocity += Projectile.velocity * 0.75f;
                     Main.dust[num152].scale *= 1.2f;
@@ -47,7 +47,7 @@ namespace AAMod.Items.Summoning.Minions
             {
                 for (int num153 = 0; num153 < 3; num153++)
                 {
-                    int num154 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 181, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                    int num154 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GiantCursedSkullBolt, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                     Main.dust[num154].velocity *= 0.6f;
                     Main.dust[num154].scale *= 1.4f;
                     Main.dust[num154].noGravity = true;

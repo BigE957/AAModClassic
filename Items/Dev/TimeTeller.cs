@@ -16,10 +16,10 @@ namespace AAMod.Items.Dev
 
             Item.damage = 200;
             Item.value = 1000000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.knockBack = 1;
             Item.channel = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
             Item.shoot = Mod.Find<ModProjectile>("TimeTeller").Type;

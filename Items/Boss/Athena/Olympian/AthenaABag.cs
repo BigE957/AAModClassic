@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Athena.Olympian
@@ -19,7 +20,7 @@ namespace AAMod.Items.Boss.Athena.Olympian
             Item.width = 32;
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
         }
 
         public override int BossBagNPC => Mod.Find<ModNPC>("AthenaA").Type;

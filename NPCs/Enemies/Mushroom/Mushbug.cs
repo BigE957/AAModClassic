@@ -18,7 +18,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
             NPC.CloneDefaults(NPCID.MushiLadybug);
             NPC.width = 30;
             NPC.height = 24;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.damage = 10;
             NPC.defense = 9;
             NPC.lifeMax = 100;

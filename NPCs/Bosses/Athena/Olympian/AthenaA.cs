@@ -85,7 +85,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             }
             Player player = Main.player[NPC.target];
 
-            if (internalAI[2] == 0 && NPC.life < NPC.lifeMax / 3 && Main.netMode != 1)
+            if (internalAI[2] == 0 && NPC.life < NPC.lifeMax / 3 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDark>());
                 NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaLight>());
@@ -115,7 +115,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
 
                     BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaMagic>(), ref NPC.ai[1], 50, NPC.damage / 3, 10, true);
 
-                    if (internalAI[3]++ >= 250 && Main.netMode != 1)
+                    if (internalAI[3]++ >= 250 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         int Choice = Main.rand.Next(2);
                         if (Choice == 0)
@@ -347,7 +347,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -405,7 +405,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, 240, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
             }
             for (int num87 = 0; num87 < 15; num87++)
@@ -520,7 +520,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
                 NPC.TargetClosest();
                 if (player.dead || !player.active || Math.Abs(Vector2.Distance(NPC.position, player.position)) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AthenaA1"), Color.CornflowerBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA1"), Color.CornflowerBlue);
                     int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                     Main.npc[p].Center = NPC.Center;
                     NPC.active = false;
@@ -620,7 +620,7 @@ namespace AAMod.NPCs.Bosses.Athena.Olympian
             }
             else
             {
-                if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("AthenaA2"), Color.CornflowerBlue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA2"), Color.CornflowerBlue);
                 int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                 Main.npc[p].Center = NPC.Center;
             }

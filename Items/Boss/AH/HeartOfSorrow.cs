@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.AH
@@ -19,7 +20,7 @@ Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze i
             Item.width = 66;
             Item.height = 78;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.expert = true; Item.expertOnly = true;
             Item.defense = 3;

@@ -1,6 +1,7 @@
 ﻿using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ID;
 
 namespace AAMod.Items.Vanity.Tied
 {
@@ -16,7 +17,7 @@ namespace AAMod.Items.Vanity.Tied
 		{
 			Item.width = 34;
 			Item.height = 22;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.vanity = true;
 		}
         public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */

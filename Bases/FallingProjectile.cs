@@ -24,7 +24,7 @@ namespace AAMod
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 5;
             Projectile.tileCollide = true;
-            Projectile.aiStyle = 10;
+            Projectile.aiStyle = ProjAIStyleID.FallingTile;
             AIType = ProjectileID.GoldCoinsFalling;
         }
 

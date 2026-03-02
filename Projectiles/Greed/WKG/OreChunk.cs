@@ -617,10 +617,10 @@ namespace AAMod.Projectiles.Greed.WKG
                 {
                     for (int i = 0; i < 200; i++)
                     {
-                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == 318 || (Main.npc[i].type == 22 && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == 54 && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
+                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
                         {
                             bool flag;
-                            if (Main.npc[i].type == 414)
+                            if (Main.npc[i].type == NPCID.SolarCrawltipedeTail)
                             {
                                 Rectangle rect = Main.npc[i].getRect();
                                 int num = 8;
@@ -664,9 +664,9 @@ namespace AAMod.Projectiles.Greed.WKG
                 {
                     int itemcreat = 0;
                     itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, ItemID.SilverCoin, Main.rand.Next(15, 20), false, 0, false, false);
-                    if (Main.netMode == 1 && itemcreat > 0)
+                    if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                     {
-                        NetMessage.SendData(21, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
                     }
                 }
             }
@@ -912,8 +912,8 @@ namespace AAMod.Projectiles.Greed.WKG
                 }
                 else if(k == ModSupport.GetModItem("CalamityMod", "CryonicOre").Item.type)
                 {
-                    target.AddBuff(24, 240, false);
-                    target.AddBuff(44, 240, false);
+                    target.AddBuff(BuffID.OnFire, 240, false);
+                    target.AddBuff(BuffID.Frostburn, 240, false);
                     int bufftype = ModSupport.GetModBuff("CalamityMod", "GlacialState").Type;
                     target.AddBuff(bufftype, 120, false);
                 }
@@ -954,7 +954,7 @@ namespace AAMod.Projectiles.Greed.WKG
                 }
                 else if(k == ModSupport.GetModItem("CalamityMod", "ChaoticOre").Item.type)
                 {
-                    target.AddBuff(24, 720, false);
+                    target.AddBuff(BuffID.OnFire, 720, false);
                 }
                 else if(k == ModSupport.GetModItem("CalamityMod", "CharredOre").Item.type)
                 {
@@ -1001,17 +1001,17 @@ namespace AAMod.Projectiles.Greed.WKG
                     {
                         int itemcreat = 0;
                         itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, 58, 1, false, 0, false, false);
-                        if (Main.netMode == 1 && itemcreat > 0)
+                        if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                         {
-                            NetMessage.SendData(21, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
+                            NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
                         }
                         if(Main.bloodMoon)
                         {
                             int droptype = ModSupport.GetModItem("CalamityMod", "BloodOrb").Item.type;
                             itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, droptype, 1, false, 0, false, false);
-                            if (Main.netMode == 1 && itemcreat > 0)
+                            if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                             {
-                                NetMessage.SendData(21, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
+                                NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
                             }
                         }
                     }
@@ -1159,7 +1159,7 @@ namespace AAMod.Projectiles.Greed.WKG
                 {
                     for (int num291 = 0; num291 < 5; num291++)
                     {
-                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 235, 0f, -1f, 90, default, 3f);
+                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.LifeDrain, 0f, -1f, 90, default, 3f);
                         Main.dust[num292].velocity *= 2f;
                         Main.dust[num292].noGravity = true;
                     };
@@ -1168,7 +1168,7 @@ namespace AAMod.Projectiles.Greed.WKG
                 {
                     for (int num291 = 0; num291 < 3; num291++)
                     {
-                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 74, Projectile.velocity.X * 0.2f + Projectile.direction * 3, Projectile.velocity.Y * 0.2f, 100, default, 0.75f);
+                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GreenFairy, Projectile.velocity.X * 0.2f + Projectile.direction * 3, Projectile.velocity.Y * 0.2f, 100, default, 0.75f);
                         Main.dust[num292].noGravity = true;
                     };
                 }
@@ -1176,7 +1176,7 @@ namespace AAMod.Projectiles.Greed.WKG
                 {
                     for (int num291 = 0; num291 < 2; num291++)
                     {
-                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 157, 0f, -1f, 90, default, 3f);
+                        int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.ChlorophyteWeapon, 0f, -1f, 90, default, 3f);
                         Main.dust[num292].noGravity = true;
                     };
                 }

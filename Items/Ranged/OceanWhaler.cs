@@ -13,7 +13,7 @@ namespace AAMod.Items.Ranged
         {
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.knockBack = 6f;
@@ -23,7 +23,7 @@ namespace AAMod.Items.Ranged
             Item.shoot = ModContent.ProjectileType<Projectiles.OceanWhaler>();
             Item.shootSpeed = 11f;
             Item.UseSound = SoundID.Item10;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.value = 27000;
             Item.DamageType = DamageClass.Ranged;
         }

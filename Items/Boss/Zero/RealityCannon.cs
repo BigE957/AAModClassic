@@ -20,7 +20,7 @@ namespace AAMod.Items.Boss.Zero
         public override void SetDefaults()
         {
             
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
             Item.shootSpeed = 16f;
@@ -35,7 +35,7 @@ namespace AAMod.Items.Boss.Zero
             Item.DamageType = DamageClass.Ranged;
             Item.autoReuse = true;
             Item.noUseGraphic = false;
-            Item.rare = 9; AARarity = 13;
+            Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
