@@ -45,10 +45,9 @@ Death Sickle EX"); */
             recipe.Register();
         }
  
-        public override bool UseItemFrame(Player player)  
+        public override void UseItemFrame(Player player)  
         {
             player.bodyFrame.Y = 3 * player.bodyFrame.Height;
-            return true;
         }
     }
 }

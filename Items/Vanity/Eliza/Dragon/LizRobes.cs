@@ -15,6 +15,7 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Dark Dragoness' Robes");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -26,11 +27,6 @@ namespace AAMod.Items.Vanity.Eliza.Dragon
                     line2.OverrideColor = new Color(121, 21, 214);
                 }
             }
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
-        {
-            drawHands = true;
         }
 
         public override void SetDefaults()

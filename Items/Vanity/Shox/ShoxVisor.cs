@@ -13,6 +13,7 @@ namespace AAMod.Items.Vanity.Shox
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shock Lord's Visor");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Contributors!'");
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -32,11 +33,6 @@ namespace AAMod.Items.Vanity.Shox
             Item.height = 20;
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
         }
     }
 }

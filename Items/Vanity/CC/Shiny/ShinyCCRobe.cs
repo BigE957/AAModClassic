@@ -28,10 +28,10 @@ namespace AAMod.Items.Vanity.CC.Shiny
 			equipSlot = EquipLoader.GetEquipSlot(Mod, "ShinyCCRobe_Legs", EquipType.Legs);
 		}
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */ 
-		{
-			drawHands = false;
-		}
+		//public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */ 
+		//{
+		//	drawHands = false;
+		//}
 
 		public override void ModifyTooltips(List<TooltipLine> list)
 		{

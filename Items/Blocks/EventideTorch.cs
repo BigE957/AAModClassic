@@ -10,7 +10,8 @@ namespace AAMod.Items.Blocks
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Eventide Torch");
-		}
+			ItemID.Sets.Torches[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{
@@ -58,11 +59,6 @@ namespace AAMod.Items.Blocks
 			{
 				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.YamataA.R / 255, AAColor.YamataA.G / 255, AAColor.YamataA.B / 255);
 			}
-		}
-
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
-		{
-			dryTorch = false;
 		}
 
 		public override void AddRecipes()

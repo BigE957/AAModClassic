@@ -11,10 +11,11 @@ namespace AAMod.Items.Armor.Paints
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Terra Face Paint");
-			/* Tooltip.SetDefault(@"42% increased minion damage
+            // DisplayName.SetDefault("Terra Face Paint");
+            /* Tooltip.SetDefault(@"42% increased minion damage
 +120 mana"); */
-		}
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true
+        }
 
 		public override void SetDefaults()
 		{
@@ -30,12 +31,6 @@ namespace AAMod.Items.Armor.Paints
             player.GetDamage(DamageClass.Summon) += .42f;
             player.statManaMax2 += 120;
 		}
-
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
-        }
 
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

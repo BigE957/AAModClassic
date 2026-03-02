@@ -10,7 +10,7 @@ namespace AAMod.Tiles.Trees
     {
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<Apocalyptite>()];
+            GrowsOnTileId = [ModContent.TileType<Apocalyptite>(), ModContent.TileType<Doomgrass>(), ModContent.TileType<Doomstone>(), ModContent.TileType<DoomstoneB>()];
         }
 
         public override TreePaintingSettings TreeShaderSettings => new();
@@ -22,17 +22,17 @@ namespace AAMod.Tiles.Trees
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTree");
         }
 
         public override Asset<Texture2D> GetBranchTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosBranches");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/OroborosTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/OroborosTreeTop");
         }
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */

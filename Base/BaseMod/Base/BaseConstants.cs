@@ -137,23 +137,17 @@ namespace AAMod
 
         public static void AddRecipeGroup(this Recipe recipe, Mod mod, string groupName, int count) 
         {
-            Mod m = (mod == null ? recipe.mod : mod);
+            Mod m = (mod == null ? recipe.Mod : mod);
             recipe.AddRecipeGroup(m.Name + ":" + groupName, count);
         }
         public static void AddItem(this Recipe recipe, int itemID, int count) { recipe.AddIngredient(itemID, count); }
-        public static void AddItem(this Recipe recipe, Mod mod, string itemName, int count) { recipe.AddIngredient((mod == null ? recipe.mod : mod), itemName, count); }
+        public static void AddItem(this Recipe recipe, Mod mod, string itemName, int count) { recipe.AddIngredient((mod == null ? recipe.Mod : mod), itemName, count); }
 
         public static void ClearBuff(this Player player, Mod mod, string name) { player.ClearBuff(mod.Find<ModBuff>(name).Type); }
         public static void AddBuff(this Player player, Mod mod, string name, int time, bool sync = true) { player.AddBuff(mod.Find<ModBuff>(name).Type, time, sync); }
         public static int FindBuffIndex(this Player player, Mod mod, string name){ return player.FindBuffIndex(mod.Find<ModBuff>(name).Type); }
 
         public static int GoreType(this Mod mod, string name, IDictionary<string, int> gores = null) { return BaseUtility.CheckForGore(mod, name, gores); }
-        public static int MusicType(this Mod mod, string name, string prefix = "Sounds/Music/") { return mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, prefix + name); }    
-        
-        public static LegacySoundStyle SoundCustom(this Mod mod, string name, string prefix = "Sounds/Custom/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, prefix + name); }
-        public static LegacySoundStyle SoundItem(this Mod mod, string name, string prefix = "Sounds/Item/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Item, prefix + name); }
-        public static LegacySoundStyle SoundNPCHit(this Mod mod, string name, string prefix = "Sounds/NPCHit/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.NPCHit, prefix + name); }
-        public static LegacySoundStyle SoundNPCKilled(this Mod mod, string name, string prefix = "Sounds/NPCKilled/") { return mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.NPCKilled, prefix + name); }  
      
         public static int ProjType(this Mod mod, string name) { return mod.Find<ModProjectile>(name).Type; }
 
@@ -196,26 +190,26 @@ namespace AAMod
         public static Player MAINPLAYER { get { return Main.netMode == NetmodeID.Server ? null : Main.player[Main.myPlayer]; } }
 
         //returns the name of the given npc. If the npc isn't in the world, it returns null.
-        public static string NAME_GUIDE { get { return NPC.AnyNPCs(22) ? NPC.firstNPCName(22) : null; } }
-        public static string NAME_MERCHANT{ get{ return NPC.AnyNPCs(17) ? NPC.firstNPCName(17) : null; } }
-        public static string NAME_NURSE { get { return NPC.AnyNPCs(18) ? NPC.firstNPCName(18) : null; } }
-        public static string NAME_ARMSDEALER { get { return NPC.AnyNPCs(19) ? NPC.firstNPCName(19) : null; } }
-        public static string NAME_DRYAD { get { return NPC.AnyNPCs(20) ? NPC.firstNPCName(20) : null; } }
-        public static string NAME_DEMOLITIONIST { get { return NPC.AnyNPCs(38) ? NPC.firstNPCName(38) : null; } }
-        public static string NAME_CLOTHIER { get { return NPC.AnyNPCs(54) ? NPC.firstNPCName(54) : null; } }
-        public static string NAME_TINKERER { get { return NPC.AnyNPCs(107) ? NPC.firstNPCName(107) : null; } }
-        public static string NAME_WIZARD { get { return NPC.AnyNPCs(108) ? NPC.firstNPCName(108) : null; } }
-        public static string NAME_MECHANIC { get { return NPC.AnyNPCs(124) ? NPC.firstNPCName(124) : null; } }
-        public static string NAME_TRUFFLE { get { return NPC.AnyNPCs(160) ? NPC.firstNPCName(160) : null; } }
-        public static string NAME_STEAMPUNKER { get { return NPC.AnyNPCs(178) ? NPC.firstNPCName(178) : null; } }
-        public static string NAME_DYETRADER { get { return NPC.AnyNPCs(207) ? NPC.firstNPCName(207) : null; } }
-        public static string NAME_PARTYGIRL { get { return NPC.AnyNPCs(208) ? NPC.firstNPCName(208) : null; } }
-        public static string NAME_CYBORG { get { return NPC.AnyNPCs(209) ? NPC.firstNPCName(209) : null; } }
-        public static string NAME_PAINTER { get { return NPC.AnyNPCs(227) ? NPC.firstNPCName(227) : null; } }
-        public static string NAME_WITCHDOCTOR { get { return NPC.AnyNPCs(228) ? NPC.firstNPCName(228) : null; } }
-        public static string NAME_PIRATE { get { return NPC.AnyNPCs(229) ? NPC.firstNPCName(229) : null; } }
-		public static string NAME_STYLIST { get { return NPC.AnyNPCs(353) ? NPC.firstNPCName(353) : null; } }
-		public static string NAME_ANGLER { get { return NPC.AnyNPCs(369) ? NPC.firstNPCName(369) : null; } }
+        public static string NAME_GUIDE { get { return NPC.AnyNPCs(22) ? Main.npc[NPC.FindFirstNPC(22)].GivenName : null; } }
+        public static string NAME_MERCHANT{ get{ return NPC.AnyNPCs(17) ? Main.npc[NPC.FindFirstNPC(17)].GivenName : null; } }
+        public static string NAME_NURSE { get { return NPC.AnyNPCs(18) ? Main.npc[NPC.FindFirstNPC(18)].GivenName : null; } }
+        public static string NAME_ARMSDEALER { get { return NPC.AnyNPCs(19) ? Main.npc[NPC.FindFirstNPC(19)].GivenName : null; } }
+        public static string NAME_DRYAD { get { return NPC.AnyNPCs(20) ? Main.npc[NPC.FindFirstNPC(20)].GivenName : null; } }
+        public static string NAME_DEMOLITIONIST { get { return NPC.AnyNPCs(38) ? Main.npc[NPC.FindFirstNPC(38)].GivenName : null; } }
+        public static string NAME_CLOTHIER { get { return NPC.AnyNPCs(54) ? Main.npc[NPC.FindFirstNPC(54)].GivenName : null; } }
+        public static string NAME_TINKERER { get { return NPC.AnyNPCs(107) ? Main.npc[NPC.FindFirstNPC(107)].GivenName : null; } }
+        public static string NAME_WIZARD { get { return NPC.AnyNPCs(108) ? Main.npc[NPC.FindFirstNPC(108)].GivenName : null; } }
+        public static string NAME_MECHANIC { get { return NPC.AnyNPCs(124) ? Main.npc[NPC.FindFirstNPC(124)].GivenName : null; } }
+        public static string NAME_TRUFFLE { get { return NPC.AnyNPCs(160) ? Main.npc[NPC.FindFirstNPC(160)].GivenName : null; } }
+        public static string NAME_STEAMPUNKER { get { return NPC.AnyNPCs(178) ? Main.npc[NPC.FindFirstNPC(178)].GivenName : null; } }
+        public static string NAME_DYETRADER { get { return NPC.AnyNPCs(207) ? Main.npc[NPC.FindFirstNPC(207)].GivenName : null; } }
+        public static string NAME_PARTYGIRL { get { return NPC.AnyNPCs(208) ? Main.npc[NPC.FindFirstNPC(208)].GivenName : null; } }
+        public static string NAME_CYBORG { get { return NPC.AnyNPCs(209) ? Main.npc[NPC.FindFirstNPC(209)].GivenName : null; } }
+        public static string NAME_PAINTER { get { return NPC.AnyNPCs(227) ? Main.npc[NPC.FindFirstNPC(227)].GivenName : null; } }
+        public static string NAME_WITCHDOCTOR { get { return NPC.AnyNPCs(228) ? Main.npc[NPC.FindFirstNPC(228)].GivenName : null; } }
+        public static string NAME_PIRATE { get { return NPC.AnyNPCs(229) ? Main.npc[NPC.FindFirstNPC(229)].GivenName : null; } }
+		public static string NAME_STYLIST { get { return NPC.AnyNPCs(353) ? Main.npc[NPC.FindFirstNPC(353)].GivenName : null; } }
+		public static string NAME_ANGLER { get { return NPC.AnyNPCs(369) ? Main.npc[NPC.FindFirstNPC(369)].GivenName : null; } }
 
         //----Drawing Constants----//
 

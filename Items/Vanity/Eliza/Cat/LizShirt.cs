@@ -14,6 +14,7 @@ namespace AAMod.Items.Vanity.Eliza.Cat
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Midnight Cat Blouse");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
 
@@ -27,11 +28,6 @@ namespace AAMod.Items.Vanity.Eliza.Cat
                     line2.OverrideColor = new Color(121, 21, 214);
                 }
             }
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
-        {
-            drawHands = true;
         }
 
         public override void SetDefaults()

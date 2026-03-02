@@ -13,7 +13,6 @@ namespace AAMod.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            SetModTree(new BogwoodTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             TileID.Sets.Conversion.Grass[Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileMergeDirt[Type] = true;
@@ -21,10 +20,10 @@ namespace AAMod.Tiles
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
             DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Blocks.Depthstone>();
+            RegisterItemDrop(ModContent.ItemType<Items.Blocks.Depthstone>());
         }
 
         public override void RandomUpdate(int i, int j)
@@ -58,12 +57,6 @@ namespace AAMod.Tiles
                 WorldGen.SquareTileFrame(x, y, true);
             }
             return false;
-        }
-
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-        {
-            style = 0;
-            return Mod.Find<ModTile>("BogwoodSapling").Type;
         }
     }
 }

@@ -48,7 +48,7 @@ namespace AAMod.Items.Currency
                 }
             }
 
-            Texture2D itemTex = ModContent.Request<Texture2D>("Items/Currency/ChristmasCheerA").Value;
+            Texture2D itemTex = ModContent.Request<Texture2D>("AAModClassic/Items/Currency/ChristmasCheerA").Value;
 
             Rectangle iframe = BaseDrawing.GetFrame(cframe, itemTex.Width, itemTex.Height / 4, 0, 0);
 

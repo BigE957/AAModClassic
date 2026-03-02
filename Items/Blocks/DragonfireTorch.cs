@@ -10,7 +10,8 @@ namespace AAMod.Items.Blocks
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dragonfire Torch");
-		}
+			ItemID.Sets.Torches[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{
@@ -47,11 +48,6 @@ namespace AAMod.Items.Blocks
 			{
 				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.DragonFire.R / 255, AAColor.DragonFire.G / 255, AAColor.DragonFire.B / 255);
 			}
-		}
-
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
-		{
-			dryTorch = true;
 		}
 
 		public override void AddRecipes()

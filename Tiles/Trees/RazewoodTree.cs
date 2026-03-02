@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 
@@ -6,26 +8,37 @@ namespace AAMod.Tiles.Trees
 {
     class RazewoodTree : ModTree
     {
-        private Mod mod => AAMod.instance;
+        public override TreePaintingSettings TreeShaderSettings => new();
+
+        public override void SetStaticDefaults()
+        {
+            GrowsOnTileId = [ModContent.TileType<InfernoGrass>(), ModContent.TileType<TorchAsh>()];
+        }
 
         public override int DropWood()
         {
-            return mod.Find<ModItem>("Razewood").Type;
+            return AAMod.instance.Find<ModItem>("Razewood").Type;
         }
 
-        public override Texture2D GetTexture()
+        public override Asset<Texture2D> GetTexture()
         {
-            return mod.GetTexture("Tiles/Trees/RazewoodTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodTree");
         }
 
-        public override Texture2D GetBranchTextures(int i, int j, int trunkOffset, ref int frame)
+        public override Asset<Texture2D> GetBranchTextures()
         {
-            return mod.GetTexture("Tiles/Trees/RazewoodBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodBranches");
         }
 
-        public override Texture2D GetTopTextures(int i, int j, ref int frame, ref int frameWidth, ref int frameHeight, ref int xOffsetLeft, ref int yOffset)
+        public override Asset<Texture2D> GetTopTextures()
         {
-            return mod.GetTexture("Tiles/Trees/RazewoodTreetop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazewoodTreetop");
+        }
+
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        {
+            style = 0;
+            return AAMod.instance.Find<ModTile>("RazewoodSapling").Type;
         }
     }
 }

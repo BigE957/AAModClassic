@@ -60,7 +60,7 @@ namespace AAMod.Items.Usable
             return true;
 		}
 
-		public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(p, Item, false, false); }
-        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); return true; }
+		public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, false, false); }
+        public override void UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); }
 	}
 }

@@ -13,14 +13,13 @@ namespace AAMod.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            SetModTree(new RazewoodTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             Main.tileBlendAll[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.Snow[Type] = true;
             DustType = ModContent.DustType<Dusts.AshRain>();
             AddMapEntry(new Color(30, 30, 30));
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Blocks.TorchAsh>();
+            RegisterItemDrop(ModContent.ItemType<Items.Blocks.TorchAsh>());
         }
 
         public override void RandomUpdate(int i, int j)
@@ -44,12 +43,6 @@ namespace AAMod.Tiles
                 WorldGen.SquareTileFrame(x, y, true);
             }
             return false;
-        }
-
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-        {
-            style = 0;
-            return Mod.Find<ModTile>("RazewoodTree").Type;
         }
     }
 }

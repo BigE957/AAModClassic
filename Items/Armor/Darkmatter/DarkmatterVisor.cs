@@ -21,6 +21,7 @@ namespace AAMod.Items.Armor.Darkmatter
             /* Tooltip.SetDefault(@"15% increased Ranged damage
 20% decreased ammo consumption 
 Dark, yet still barely visible"); */
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -53,11 +54,6 @@ Dark, yet still barely visible"); */
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -113,11 +109,11 @@ Dark, yet still barely visible"); */
                 {
                     if(sunPortal)
                     {
-                        Projectile.NewProjectile(Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .5f), 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .5f).Flat, 2f, Player.whoAmI);
                     }
                     else
                     {
-                        Projectile.NewProjectile(Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .3f), 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .3f).Flat, 2f, Player.whoAmI);
                     }
                     
                 }
@@ -128,38 +124,29 @@ Dark, yet still barely visible"); */
                 shot = false;
             }
         }
-        public static readonly PlayerLayer Portal = new PlayerLayer("AAMod", "Portal", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
+        public class PortalDrawLayer : PlayerDrawLayer// = new PlayerLayer("AAMod", "Portal", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawSet drawInfo)
         {
-
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = AAMod.instance;
-            Texture2D texture = mod.GetTexture("Items/Armor/Darkmatter/DarkPortal");
-            if(drawPlayer.GetModPlayer<VisorEffects>().sunPortal)
+            public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.ElectrifiedDebuffFront);
+            protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                texture = mod.GetTexture("Items/Armor/Radium/SunPortal");
-            }
-            if (drawPlayer.GetModPlayer<VisorEffects>().setBonus)
-            {
-                Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, drawPlayer.height / 2) + drawPlayer.GetModPlayer<VisorEffects>().portalOffset - Main.screenPosition;
-
-                DrawData data = new DrawData(texture, Center, texture.Frame(1, drawPlayer.GetModPlayer<VisorEffects>().portalFrameCount, 0, drawPlayer.GetModPlayer<VisorEffects>().portalFrame), Color.White, 0f, new Vector2(texture.Size().X, texture.Size().Y / 4) * .5f, 1f, drawInfo.playerEffect, 0)
+                Player drawPlayer = drawInfo.drawPlayer;
+                Mod mod = AAMod.instance;
+                Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Darkmatter/DarkPortal").Value;
+                if(drawPlayer.GetModPlayer<VisorEffects>().sunPortal)
                 {
-                    shader = drawInfo.cBody
-                };
-                Main.playerDrawData.Add(data);
-            }
-        });
-        public override void ModifyDrawLayers(List<PlayerLayer> layers)
-        {
+                    texture = ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/SunPortal").Value;
+                }
+                if (drawPlayer.GetModPlayer<VisorEffects>().setBonus)
+                {
+                    Vector2 Center = drawInfo.Position + new Vector2(drawPlayer.width / 2, drawPlayer.height / 2) + drawPlayer.GetModPlayer<VisorEffects>().portalOffset - Main.screenPosition;
 
-
-            int frontLayer = layers.FindIndex(PlayerLayer => PlayerLayer.Name.Equals("MiscEffectsFront"));
-            if (frontLayer != -1)
-            {
-                Portal.visible = true;
-                layers.Insert(frontLayer + 1, Portal);
+                    DrawData data = new DrawData(texture, Center, texture.Frame(1, drawPlayer.GetModPlayer<VisorEffects>().portalFrameCount, 0, drawPlayer.GetModPlayer<VisorEffects>().portalFrame), Color.White, 0f, new Vector2(texture.Size().X, texture.Size().Y / 4) * .5f, 1f, drawInfo.playerEffect, 0)
+                    {
+                        shader = drawInfo.cBody
+                    };
+                    drawInfo.DrawDataCache.Add(data);
+                }
             }
         }
-    }
-    
+    }   
 }

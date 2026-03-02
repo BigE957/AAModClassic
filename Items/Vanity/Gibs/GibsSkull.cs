@@ -13,6 +13,7 @@ namespace AAMod.Items.Vanity.Gibs
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Revenant Skull");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -26,16 +27,11 @@ namespace AAMod.Items.Vanity.Gibs
             }
         }
 
-        public override bool DrawHead()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false if you returned false */
-        {
-            return false;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = false;
-            drawAltHair = false;
-        }
+        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
+        //{
+        //    drawHair = false;
+        //    drawAltHair = false;
+        //}
 
         public override void SetDefaults()
         {

@@ -11,11 +11,12 @@ namespace AAMod.Items.Armor.StripeMan
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stripeman's Lucky Pants");
-            /* Tooltip.SetDefault(@"Get all of the fisher skill effects
+			/* Tooltip.SetDefault(@"Get all of the fisher skill effects
 When fish swallowed the hook, you can get an extra fish.
 Your fishing rod has chance to steal drops from the enemies and npcs
 You can use your fishing rod to catch the items on the ground  
 You have more chance to get a crate among the extra booty"); */
+			ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true;
         }
 
 		public override void SetDefaults()
@@ -25,11 +26,6 @@ You have more chance to get a crate among the extra booty"); */
 			Item.rare = ItemRarityID.Gray;
 			Item.defense = 1;
             Item.value = Item.sellPrice(0, 0, 0, 1);
-        }
-
-		public override bool DrawLegs()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true if you returned false for an accessory of EquipType.Legs, and ArmorIDs.Shoe.Sets.OverridesLegs[Item.shoeSlot] = true if you returned false for an accessory of EquipType.Shoes */
-        {
-            return false;
         }
 
 		public override void UpdateEquip(Player player)

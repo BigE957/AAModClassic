@@ -14,7 +14,6 @@ namespace AAMod.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            SetModTree(new RazewoodTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             TileID.Sets.Conversion.Grass[Type] = true;
             Main.tileBlendAll[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
@@ -23,7 +22,7 @@ namespace AAMod.Tiles
             Main.tileLighted[Type] = true;
             DustType = Mod.Find<ModDust>("RazeleafDust").Type;
             AddMapEntry(new Color(255, 153, 51));
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.DirtBlock;
+            RegisterItemDrop(ItemID.DirtBlock);
         }
 
         public override void RandomUpdate(int i, int j)
@@ -54,12 +53,6 @@ namespace AAMod.Tiles
                 WorldGen.SquareTileFrame(x, y, true);
             }
             return false;
-        }
-
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-        {
-            style = 0;
-            return Mod.Find<ModTile>("RazewoodSapling").Type;
         }
     }
 }

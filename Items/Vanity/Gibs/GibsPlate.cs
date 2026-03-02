@@ -14,6 +14,7 @@ namespace AAMod.Items.Vanity.Gibs
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Revenant Plate");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -27,16 +28,11 @@ namespace AAMod.Items.Vanity.Gibs
             }
         }
 
-        public override bool DrawBody()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true if you returned false */
-        {
-            return false;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
-        {
-            drawHands = false;
-            drawArms = false;
-        }
+        //public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
+        //{
+        //    drawHands = false;
+        //    drawArms = false;
+        //}
 
         public override void SetDefaults()
         {

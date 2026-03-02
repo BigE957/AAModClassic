@@ -74,8 +74,8 @@ Have the effect of Arctic Diving Gear"); */
 			player.accDreamCatcher = true;
 		}
 
-		public override void UpdateVanity(Player player, EquipType type)
-		{
+        public override void UpdateVanity(Player player)
+        {
 			player.accWatch = 3;
 			player.accDepthMeter = 1;
 			player.accCompass = 1;

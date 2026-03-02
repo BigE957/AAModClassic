@@ -36,7 +36,7 @@ namespace AAMod
 
         public bool drawCentered = false, drawCenteredX = false, hurtsTiles = true, firstTick = false;
 
-        public LegacySoundStyle spawnSound = null;
+        public SoundStyle? spawnSound = null;
         public short immunityID = -1; //allows for projectiles to _not_ override player attacks
 
         public virtual void SetMaster(params object[] args) { }
@@ -56,7 +56,7 @@ namespace AAMod
                 OnSpawnEffects();
                 if (spawnSound != null)
                 {
-                    SoundEngine.PlaySound(spawnSound, (int)Projectile.Center.X, (int)Projectile.Center.Y);
+                    SoundEngine.PlaySound(spawnSound, Projectile.Center);
                 }
                 firstTick = true;
             }
@@ -77,7 +77,7 @@ namespace AAMod
                 {
                     Projectile.position += Projectile.Center - Projectile.position;
                 }
-                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, GetAlpha(dColor));
+                BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, GetAlpha(lightColor));
                 Projectile.position = oldPos;
                 return false;
             }

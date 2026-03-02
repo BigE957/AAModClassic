@@ -71,7 +71,7 @@ Can only be used in the underground jungle"); */
         }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(p, Item, true, true); }
-        public override bool UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); return true; }
+        public override void UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); }
 
         public override void AddRecipes()
         {

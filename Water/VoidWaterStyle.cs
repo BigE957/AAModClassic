@@ -1,4 +1,6 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,25 +8,32 @@ namespace AAMod.Water
 {
     public class VoidWaterStyle : ModWaterStyle
 	{
-		public override bool ChooseWaterStyle()
-		{
-			return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("VoidSurfaceBgStyle");
-		}
+        public static ModWaterStyle Instance { get; private set; }
+        public static ModWaterfallStyle WaterfallStyle { get; private set; }
+        public static int SplashDust { get; private set; }
+        public static int DropletGore { get; private set; }
+        public static Asset<Texture2D> RainTexture { get; private set; }
 
-		public override int ChooseWaterfallStyle()
-		{
-			return Mod.GetWaterfallStyleSlot("VoidWaterfallStyle");
-		}
+        public override void SetStaticDefaults()
+        {
+            Instance = this;
+            WaterfallStyle = ModContent.Find<ModWaterfallStyle>("AAModClassic/VoidWaterfallStyle");
+            SplashDust = ModContent.DustType<VoidWaterSplash>();
+            DropletGore = ModContent.GoreType<VoidDroplet>();
+        }
 
-		public override int GetSplashDust()
-		{
-			return Mod.Find<ModDust>("VoidWaterSplash").Type;
-		}
+        public override void Unload()
+        {
+            Instance = null;
+            WaterfallStyle = null;
+            SplashDust = 0;
+            DropletGore = 0;
+        }
 
-		public override int GetDropletGore()
-		{
-			return Mod.GetGoreSlot("Water/VoidDroplet");
-		}
+        public override int ChooseWaterfallStyle() => WaterfallStyle.Slot;
+        public override int GetSplashDust() => SplashDust;
+        public override int GetDropletGore() => DropletGore;
+		public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/Water/VoidDroplet");
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
 		{

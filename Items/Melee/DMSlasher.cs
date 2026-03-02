@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 
 namespace AAMod.Items.Melee
 {
@@ -63,10 +64,9 @@ namespace AAMod.Items.Melee
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         { return Saber.IsChargedShot(player); }
 
-        public override bool UseItemFrame(Player player)
+        public override void UseItemFrame(Player player)
         {
-            Saber.UseItemFrame(player, 0.9f, Item.isBeingGrabbed);
-            return true;
+            Saber.UseItemFrame(player, 0.9f, Item.beingGrabbed);
         }
 
         public override void UseItemHitbox(Player player, ref Rectangle hitbox, ref bool noHitbox)
@@ -79,18 +79,18 @@ namespace AAMod.Items.Melee
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             Color colour = new Color(0.1f, 255f, 181f);
-            Saber.OnHitFX(player, target, crit, colour, true);
+            Saber.OnHitFX(player, target, hit.Crit, colour, true);
         }
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (Saber.SabreIsChargedStriking(player, Item))
-            { damage = -500; }
+            { modifiers.FinalDamage.Flat = -500; }
         }
     }
     public class DMSlash : ModProjectile
     {
-        public static Texture2D specialSlash;
+        public static Asset<Texture2D> specialSlash;
         public static int specialProjFrames = 7;
         readonly int chargeSlashDirection = 1;
 
@@ -102,7 +102,7 @@ namespace AAMod.Items.Melee
         Player projOwner = Main.player[Projectile.owner];
           Projectile.position.X = projOwner.Center.X - (Projectile.width / 2);
           Projectile.position.Y = projOwner.Center.Y - (Projectile.height / 2);
-            specialSlash = Mod.GetTexture("Items/Melee/" + GetType().Name + "2");
+            specialSlash = ModContent.Request<Texture2D>("AAModClassic/Items/Melee/" + GetType().Name + "2");
         Projectile.direction = projOwner.direction;
         Projectile.spriteDirection = projOwner.direction;
         projOwner.heldProj = Projectile.whoAmI;
@@ -152,8 +152,8 @@ namespace AAMod.Items.Melee
             Player player = Main.player[Projectile.owner];
             int weaponItemID = ModContent.ItemType<DMSlasher>();
             Color lighting = Lighting.GetColor((int)(player.MountedCenter.X / 16), (int)(player.MountedCenter.Y / 16));
-            return Saber.PreDrawSlashAndWeapon(spriteBatch, Projectile, weaponItemID, lighting,
-                SlashLogic == 0f ? specialSlash : null,
+            return Saber.PreDrawSlashAndWeapon(Main.spriteBatch, Projectile, weaponItemID, lighting,
+                SlashLogic == 0f ? specialSlash.Value : null,
                 SlashLogic == 0f ? new Color(1f, 255f, 181f, 1f) : lighting,
                 specialProjFrames,
                 SlashLogic == 0f ? chargeSlashDirection : SlashLogic);

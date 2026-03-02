@@ -15,6 +15,7 @@ namespace AAMod.Items.Armor.Witch
 +2 Max Minions
 +30 Max Life
 A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -47,10 +48,5 @@ A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
             player.statLifeMax2 += 30;
 
         }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
-		{
-			drawHands = true;
-		}
 	}
 }

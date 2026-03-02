@@ -15,19 +15,12 @@ namespace AAMod.Tiles
 		{
 			Main.tileSolid[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
-            SetModTree(new MushroomTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             DustType = Mod.Find<ModDust>("Mushdust").Type;
 			AddMapEntry(new Color(100, 100, 0));
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.DirtBlock;
-		}
-        
-		public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-		{
-			style = 0;
-			return Mod.Find<ModTile>("MushroomTree").Type;
+            RegisterItemDrop(ItemID.DirtBlock);
 		}
 
         public override void RandomUpdate(int i, int j)

@@ -13,6 +13,7 @@ namespace AAMod.Items.Vanity.Gibs
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Revenant Legs");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
+            ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -24,11 +25,6 @@ namespace AAMod.Items.Vanity.Gibs
                     line2.OverrideColor = new Color(255, 128, 0);
                 }
             }
-        }
-
-        public override bool DrawLegs()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true if you returned false for an accessory of EquipType.Legs, and ArmorIDs.Shoe.Sets.OverridesLegs[Item.shoeSlot] = true if you returned false for an accessory of EquipType.Shoes */
-        {
-            return false;
         }
 
         public override void SetDefaults()

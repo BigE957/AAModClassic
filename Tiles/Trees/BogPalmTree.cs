@@ -11,7 +11,7 @@ namespace AAMod.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-
+            GrowsOnTileId = [ModContent.TileType<DepthMoss>(), ModContent.TileType<Depthsand>()];
         }
 
         public override int DropWood()
@@ -21,17 +21,23 @@ namespace AAMod.Tiles.Trees
 
         public override Asset<Texture2D> GetOasisTopTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTreetops");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTreetops");
         }
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTree");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogPalmTreetops");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogPalmTreetops");
+        }
+
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        {
+            style = 0;
+            return AAMod.instance.Find<ModTile>("BogwoodSapling").Type;
         }
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using AAMod.Tiles.Trees;
+using Terraria.ID;
 
 namespace AAMod.Tiles
 {
@@ -12,10 +13,9 @@ namespace AAMod.Tiles
             Main.tileSolid[Type] = true;
             Main.tileMerge[Type][Mod.Find<ModTile>("Apocalyptite").Type] = true;
             Main.tileMergeDirt[Type] = true;
-            SetModTree(new OroborosTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Doomstone").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("Doomstone").Type);   
             DustType = Mod.Find<ModDust>("DoomDust").Type;
             AddMapEntry(new Color(21, 21, 31));
 			MinPick = 225;
@@ -39,12 +39,6 @@ namespace AAMod.Tiles
                 //   Main.PlaySound(0, x * 16, y * 16, 1, 1f, 0f);
             }
             return false;
-        }
-
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-        {
-            style = 0;
-            return Mod.Find<ModTile>("OroborosSapling").Type;
         }
 
         public override bool CanExplode(int i, int j)

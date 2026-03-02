@@ -13,6 +13,7 @@ namespace AAMod.Items.Armor.Paints
             // DisplayName.SetDefault("Oricalcum Face Paint");
             /* Tooltip.SetDefault(@"22% increased minion damage
 +80 mana"); */
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -28,11 +29,6 @@ namespace AAMod.Items.Armor.Paints
         {
             player.GetDamage(DamageClass.Summon) += 0.22f;
             player.statManaMax2 += 80;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

@@ -326,25 +326,25 @@ namespace AAMod
             BackupVanillaBG(57);
             BackupVanillaBG(58);
 
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/VoidBH").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/Moon").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/Sun").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/AkumaSun").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/YamataMoon").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/YamataBeam").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/AkumaAMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/AkumaMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/SkyTex").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/ShenMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/AthenaBolt").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Backgrounds/AthenaFlash").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("NPCs/Bosses/Zero/ZeroShield").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Projectiles/RadiumStar").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Projectiles/Stars").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("NPCs/Bosses/Toad/ToadBubble").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("Textures/SagittariusShield").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
+            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value);
 
             if (MusicLoader.GetMusicSlot("Sounds/Music/Monarch") != 0) //ensure music was loaded!
             {
@@ -429,7 +429,7 @@ namespace AAMod
             ReplaceItemTexture(3460, "Resprites/Luminite");
             ReplaceItemTexture(512, "Resprites/SoulOfNight");
 
-            BlockBarier = ModContent.Request<Texture2D>("Textures/BlockShield").Value;
+            BlockBarier = ModContent.Request<Texture2D>("AAModClassic/Textures/BlockShield").Value;
             sunTextureBackup = TextureAssets.Sun;
             sun3TextureBackup = TextureAssets.Sun3;
 
@@ -599,8 +599,8 @@ namespace AAMod
             ResetBGTexture(-1);
             ResetBGTexture(-2);
             ResetBGTexture(-3);
-            //Main.logoTexture = ModContent.Request<Texture2D>("Logo");
-            //Main.logo2Texture = ModContent.Request<Texture2D>("Logo2");
+            //Main.logoTexture = ModContent.Request<Texture2D>("AAModClassic/Logo");
+            //Main.logo2Texture = ModContent.Request<Texture2D>("AAModClassic/Logo2");
             ResetBGTexture(0);
             ResetBGTexture(171);
             ResetBGTexture(172);
@@ -698,7 +698,7 @@ namespace AAMod
                             Main.numClouds = 0;
                             if(Main.dayTime)
                             {
-                                TextureAssets.Sun = ModContent.Request<Texture2D>("Backgrounds/Sun");
+                                TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
                             }
                             else
                             {
@@ -706,34 +706,34 @@ namespace AAMod
                             }
                             if(Main.LogoB <= 255)
                             {
-                                TextureAssets.Logo = ModContent.Request<Texture2D>("UI/LogoInferno");
+                                TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
                             }
                             if(Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
                             {
-                                TextureAssets.Logo2 = ModContent.Request<Texture2D>("UI/LogoMire");
+                                TextureAssets.Logo2 = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
                             }
                             if(Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
                             {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Backgrounds/InfernoSky");
-                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Backgrounds/InfernoBG");
-                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Backgrounds/InfernoBG");
-                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Backgrounds/InfernoBG");
-                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Backgrounds/MireBG");
-                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Backgrounds/MireFG2");
-                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Backgrounds/MireFG1");
-                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Backgrounds/MireFG1");
-                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Backgrounds/MireFG1");
+                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoSky");
+                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireBG");
+                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG2");
+                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
+                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
+                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
                             }
                             if(!Main.dayTime && (Main.bgAlphaFarBackLayer[2] < 0.10f || Main.bgAlphaFarBackLayer[2] == 1f))
                             {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Backgrounds/YamataStars");
+                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataStars");
                             }
                             break;
                         case 2:
                             Main.numClouds = 0;
                             if(Main.LogoB <= 255)
                             {
-                                TextureAssets.Logo = ModContent.Request<Texture2D>("UI/LogoVoid");
+                                TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
                             }
                             if(Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
                             {
@@ -742,15 +742,15 @@ namespace AAMod
                             if(SkyManager.Instance["AAMod:VoidSky"] != null) SkyManager.Instance.Activate("AAMod:VoidSky",default, new object[0]);
                             if(Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
                             {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("BlankTex");
-                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("BlankTex");
+                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
                             }
                             break;
                         default:
@@ -818,7 +818,7 @@ namespace AAMod
 
         public static Texture2D GetGlowmask(string Name)
         {
-            return ModContent.Request<Texture2D>("Glowmasks/" + Name + "_Glow").Value;
+            return ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + Name + "_Glow").Value;
         }
 
         public override void UpdateMusic(ref int music, ref SceneEffectPriority priority)/* tModPorter Note: Removed. Use ModSceneEffect.Music and .Priority, aswell as ModSceneEffect.IsSceneEffectActive */

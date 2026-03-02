@@ -15,7 +15,7 @@ namespace AAMod.Items.Vanity.Eliza.Cat
             // DisplayName.SetDefault("Midnight Cat Ears");
             /* Tooltip.SetDefault(@"As opposed to normal cat ears
 'Great for impersonating Ancients Awakened Devs!'"); */
-
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -36,10 +36,6 @@ namespace AAMod.Items.Vanity.Eliza.Cat
             Item.height = 20;
             Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
-        }
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = drawAltHair = true;  //this make so the player hair does not show when the vanity mask is equipped.  add true if you want to show the player hair.
         }
 
         public override void AddRecipes()

@@ -101,7 +101,6 @@ namespace AAMod.Items.Dev.Invoker
 			TagCompound tagCompound = new TagCompound();
 			tagCompound.Add("InvokerSummon", list);
 			tagCompound.Add("CaligulaSoul", CaligulaSoul);
-			return tagCompound;
 		}
 		public override void LoadData(TagCompound tag)
 		{
@@ -119,6 +118,7 @@ namespace AAMod.Items.Dev.Invoker
 			}
 		}
 		
+		/*
 		public override void LoadLegacy(BinaryReader reader)
 		{
 			int num = reader.ReadInt32();
@@ -135,6 +135,7 @@ namespace AAMod.Items.Dev.Invoker
 				return;
 			}
 		}
+		*/
 		
 		public List<int> CaligulaSoul;
 		public bool DarkCaligula;
@@ -218,7 +219,7 @@ namespace AAMod.Items.Dev.Invoker
 							vector20 = Vector2.UnitX * Player.direction;
 						}
 						vector20 *= scaleFactor6;
-						ClawDir = Projectile.NewProjectile(Player.position.X, Player.position.Y, vector20.X, vector20.Y, Mod.Find<ModProjectile>("InvokedCaligulaShoot").Type, (int)((DarkCaligula? 1200 : 600) * (Player.GetDamage(DamageClass.Summon) + Player.GetDamage(DamageClass.Generic) - 1)), 4f, Player.whoAmI, 0f, 0f);
+						ClawDir = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.position.X, Player.position.Y, vector20.X, vector20.Y, Mod.Find<ModProjectile>("InvokedCaligulaShoot").Type, (int)((DarkCaligula? 1200 : 600) * (Player.GetDamage(DamageClass.Summon).Flat + Player.GetDamage(DamageClass.Generic).Flat - 1)), 4f, Player.whoAmI, 0f, 0f);
 					}
 					else if(InvokedCaligulaClaw > 30)
 					{
@@ -403,8 +404,8 @@ namespace AAMod.Items.Dev.Invoker
 		{
 			
 			Player player = Main.player[Main.myPlayer];
-			//damage = (int)((player.GetModPlayer<InvokerPlayer>().DarkCaligula? 1000 : 500) * (player.minionDamage + player.allDamage));
-			crit = true;
+            //damage = (int)((player.GetModPlayer<InvokerPlayer>().DarkCaligula? 1000 : 500) * (player.minionDamage + player.allDamage));
+            modifiers.SetCrit();
 			if(player.GetModPlayer<InvokerPlayer>().DarkCaligula)
 			{
                 string Lifelength = target.lifeMax + "";

@@ -12,6 +12,7 @@ namespace AAMod.Items.Vanity.Tied   //We need this to basically indicate the fol
         {
             // DisplayName.SetDefault("Spooky Skull");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -22,14 +23,10 @@ namespace AAMod.Items.Vanity.Tied   //We need this to basically indicate the fol
             Item.vanity = true; //this defines if this item is vanity or not.
         }
 
-        public override bool DrawHead()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false if you returned false */
-        {
-            return false;     //this make so the player head does not disappear when the vanity mask is equipped.  return false if you want to not show the player head.
-        }
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = drawAltHair = false;  //this make so the player hair does not show when the vanity mask is equipped.  add true if you want to show the player hair.
-        }
+        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
+        //{
+        //    drawHair = drawAltHair = false;  //this make so the player hair does not show when the vanity mask is equipped.  add true if you want to show the player hair.
+        //}
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

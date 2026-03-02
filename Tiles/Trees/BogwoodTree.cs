@@ -11,7 +11,7 @@ namespace AAMod.Tiles
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<AbyssGrass>()];
+            GrowsOnTileId = [ModContent.TileType<AbyssGrass>(), ModContent.TileType<MireGrass>()];
         }
 
         public override int DropWood()
@@ -21,17 +21,17 @@ namespace AAMod.Tiles
 
         public override Asset<Texture2D> GetTexture()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogwoodTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodTree");
         }
 
         public override Asset<Texture2D> GetBranchTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogwoodBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodBranches");
         }
 
         public override Asset<Texture2D> GetTopTextures()
         {
-            return ModContent.Request<Texture2D>("Tiles/Trees/BogwoodTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodTreeTop");
         }
 
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */

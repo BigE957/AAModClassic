@@ -15,6 +15,7 @@ namespace AAMod.Items.Armor.Terra
             /* Tooltip.SetDefault(@"24% Increased ranged damage
 25% Reduced Ammo Consumption
 Grants hunter & night vision"); */
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -37,11 +38,6 @@ Grants hunter & night vision"); */
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
         }
 
         public override void UpdateArmorSet(Player player)

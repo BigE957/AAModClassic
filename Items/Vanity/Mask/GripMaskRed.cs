@@ -13,7 +13,8 @@ namespace AAMod.Items.Vanity.Mask
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Inferno Grip of Chaos Mask");
-		}
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -23,14 +24,9 @@ namespace AAMod.Items.Vanity.Mask
             Item.vanity = true;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
-        }
-
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,

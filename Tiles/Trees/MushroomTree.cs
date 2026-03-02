@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,26 +8,37 @@ namespace AAMod.Tiles.Trees
 {
     class MushroomTree : ModTree
     {
-        private Mod mod => AAMod.instance;
+        public override TreePaintingSettings TreeShaderSettings => new();
+
+        public override void SetStaticDefaults()
+        {
+            GrowsOnTileId = [ModContent.TileType<Mycelium>()];
+        }
 
         public override int DropWood()
         {
             return ItemID.Mushroom;
         }
 
-        public override Texture2D GetTexture()
+        public override Asset<Texture2D> GetTexture()
         {
-            return mod.GetTexture("Tiles/Trees/MushroomTree");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTree");
         }
 
-        public override Texture2D GetBranchTextures(int i, int j, int trunkOffset, ref int frame)
+        public override Asset<Texture2D> GetBranchTextures()
         {
-            return mod.GetTexture("Tiles/Trees/MushroomTreeBranches");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTreeBranches");
         }
 
-        public override Texture2D GetTopTextures(int i, int j, ref int frame, ref int frameWidth, ref int frameHeight, ref int xOffsetLeft, ref int yOffset)
+        public override Asset<Texture2D> GetTopTextures()
         {
-            return mod.GetTexture("Tiles/Trees/MushroomTreeTop");
+            return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/MushroomTreeTop");
+        }
+
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        {
+            style = 0;
+            return AAMod.instance.Find<ModTile>("MushroomTree").Type;
         }
     }
 }

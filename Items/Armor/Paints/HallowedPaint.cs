@@ -14,8 +14,8 @@ namespace AAMod.Items.Armor.Paints
 			// DisplayName.SetDefault("Hallowed Face Paint");
 			/* Tooltip.SetDefault(@"32% increased minion damage
 +100 mana"); */
-
-		}
+			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+        }
 
 		public override void SetDefaults()
 		{
@@ -31,11 +31,6 @@ namespace AAMod.Items.Armor.Paints
             player.GetDamage(DamageClass.Summon) += .32f;
             player.statManaMax2 += 100;
 		}
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
-        {
-            drawHair = true;
-        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{

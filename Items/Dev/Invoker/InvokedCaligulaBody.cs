@@ -1,3 +1,5 @@
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev.Invoker
@@ -5,9 +7,9 @@ namespace AAMod.Items.Dev.Invoker
     [AutoloadEquip(EquipType.Body)]
 	public class InvokedCaligulaBody : EquipTexture
 	{
-		public override bool DrawBody()/* tModPorter Note: Removed. After registering this as EquipType.Body, use ArmorIDs.Body.Sets.HidesTopSkin[slot] = true if you returned false */
-		{
-			return false;
-		}
+        public override void PreUpdateVanitySet(Player player)
+        {
+			ArmorIDs.Body.Sets.HidesTopSkin[Slot] = true;
+        }
 	}
 }
