@@ -10,11 +10,6 @@ namespace AAModClassic.Backgrounds
     {
         readonly ScreenFog mireBGFog = new ScreenFog(true);
 
-        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
-        {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire && !Main.LocalPlayer.ZoneSnow && !Main.LocalPlayer.ZoneDesert;
-        }
-
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {
             for (int i = 0; i < fades.Length; i++)
@@ -58,19 +53,14 @@ namespace AAModClassic.Backgrounds
             
             bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
 
-            mireBGFog.Update(Mod.GetTexture("Backgrounds/FogTex"));
-			mireBGFog.Draw(Mod.GetTexture("Backgrounds/FogTex"), true, YamataA ? YamataFog : DefaultFog);
+            mireBGFog.Update(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value);
+			mireBGFog.Draw(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
             return Main.dayTime ? false : true;
 		}
     }
 
     public class MireUgBgStyle : ModUndergroundBackgroundStyle
     {
-        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override UndergroundBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
-        {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
-        }
-
         public override void FillTextureArray(int[] textureSlots)
         {
             textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/MireUnderground1");
@@ -83,11 +73,6 @@ namespace AAModClassic.Backgrounds
     class MireDesertBgStyle : ModSurfaceBackgroundStyle
     {
         readonly ScreenFog mireBGFog = new ScreenFog(true);
-
-        public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
-        {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire && Main.LocalPlayer.ZoneDesert;
-        }
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {
@@ -124,8 +109,8 @@ namespace AAModClassic.Backgrounds
 
             bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
 
-            mireBGFog.Update(Mod.GetTexture("Backgrounds/FogTex"));
-            mireBGFog.Draw(Mod.GetTexture("Backgrounds/FogTex"), true, YamataA ? YamataFog : DefaultFog);
+            mireBGFog.Update(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value);
+            mireBGFog.Draw(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
             return Main.dayTime ? false : true;
         }
 

@@ -1,10 +1,12 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Backgrounds;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Yamata;
 using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.Water;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -37,6 +39,12 @@ namespace AAModClassic.World
             MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireSurface");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<MireDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<MireSurfaceBgStyle>() : null;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<MireUgBgStyle>();
+
+        public override ModWaterStyle WaterStyle => Main.dayTime && !AAWorld.downedYamata && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0 && !Main.LocalPlayer.buffImmune[ModContent.BuffType<Buffs.Clueless>()] ? ModContent.GetInstance<FogWaterStyle>() : ModContent.GetInstance<MireWaterStyle>();
     }
 
     public class InfernoBiomeZone : ModBiome
@@ -61,6 +69,12 @@ namespace AAModClassic.World
             MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/InfernoSurface");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<InfernoDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<InfernoSurfaceBgStyle>() : null;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<InfernoUgBgStyle>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<InfernoWaterStyle>();
     }
 
     public class VoidBiomeZone : ModBiome
@@ -85,6 +99,11 @@ namespace AAModClassic.World
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<VoidSurfaceBgStyle>();
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<VoidUGBG>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<VoidWaterStyle>();
     }
 
     public class MushroomBiomeZone : ModBiome
@@ -97,6 +116,10 @@ namespace AAModClassic.World
         public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Shroom");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
+
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<MushroomSurfaceBgStyle>();
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<MushroomUgBgStyle>();
     }
 
     public class TerrariumBiomeZone : ModBiome
@@ -109,6 +132,10 @@ namespace AAModClassic.World
         public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Terrarium");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<TerrariumBG>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<TerraWaterStyle>();
     }
 
     public class RisingMoonLakeBiomeZone : ModBiome

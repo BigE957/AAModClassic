@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<InfernoGrass>(), ModContent.TileType<TorchAsh>()];
+            GrowsOnTileId = [ModContent.TileType<InfernoGrass>(), ModContent.TileType<TorchAsh>(), ModContent.TileType<TorchMoss>()];
         }
 
         public override int DropWood()

@@ -12,7 +12,7 @@ namespace AAModClassic.Water
 		public override bool ChooseWaterStyle()
 		{
             Player player = Main.LocalPlayer;
-            return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") && Main.dayTime && !AAWorld.downedYamata && player.position.Y < Main.worldSurface * 16.0 && !player.buffImmune[ModContent.BuffType<Buffs.Clueless>()];
+            return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") && ];
         }
 		*/
 

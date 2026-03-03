@@ -16,13 +16,13 @@ namespace AAModClassic.NPCs.TownNPCs
 	{
         public override string Texture => "AAMod/NPCs/TownNPCs/Samurai";
 
-        public override string[] AltTextures => new string[] { "AAMod/NPCs/TownNPCs/SamuraiParty" };
+        //public override string[] AltTextures => new string[] { "AAMod/NPCs/TownNPCs/SamuraiParty" };
 
-        public override bool IsLoadingEnabled(Mod mod)
-		{
-			name = "Samurai";
-			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		}
+        //public override bool IsLoadingEnabled(Mod mod)
+		//{
+		//	name = "Samurai";
+		//	return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
+		//}
 
 		public override void SetStaticDefaults()
 		{
@@ -77,21 +77,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
-			switch (WorldGen.genRand.Next(4))
-			{
-				case 0:
-					return "Nobunaga";
-				case 1:
-					return "Hattori";
-				case 2:
-					return "Hanzo";
-                case 3:
-                    return "Genji";
-                case 4:
-                    return "Oda";
-                default:
-					return "Hideyoshi";
-			}
+            return ["Nobunaga", "Hattori", "Hanzo", "Genji", "Oda", "Hideyoshi"];
 		}
 
         public override string GetChat()
@@ -133,81 +119,74 @@ namespace AAModClassic.NPCs.TownNPCs
 			button = Language.GetTextValue("LegacyInterface.28");
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-		{
-			if (firstButton)
-			{
-				shop = true;
-			}
-		}
-
 		public override void ModifyActiveShop(string shopName, Item[] items)
         {
-            shop.item[nextSlot].SetDefaults(ItemID.DynastyWood);
+            int nextSlot = 0;
+            items[nextSlot].SetDefaults(ItemID.DynastyWood);
             nextSlot++;
             if (Main.dayTime)
             {
-                shop.item[nextSlot].SetDefaults(ItemID.RedDynastyShingles);
+                items[nextSlot].SetDefaults(ItemID.RedDynastyShingles);
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<InfernoSeeds>());
+                items[nextSlot].SetDefaults(ModContent.ItemType<InfernoSeeds>());
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Sunpowder>());
+                items[nextSlot].SetDefaults(ModContent.ItemType<Sunpowder>());
                 nextSlot++;
                 if (AAWorld.downedBrood == true)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<DragonBell>());
-                    shop.item[nextSlot].value = 100000;
+                    items[nextSlot].SetDefaults(ModContent.ItemType<DragonBell>());
+                    items[nextSlot].value = 100000;
                     nextSlot++;
                 }
             }
             if (!Main.dayTime)
             {
-                shop.item[nextSlot].SetDefaults(ItemID.BlueDynastyShingles);
+                items[nextSlot].SetDefaults(ItemID.BlueDynastyShingles);
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<MireSeeds>());
+                items[nextSlot].SetDefaults(ModContent.ItemType<MireSeeds>());
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Moonpowder>());
+                items[nextSlot].SetDefaults(ModContent.ItemType<Moonpowder>());
                 nextSlot++;
                 if (AAWorld.downedHydra == true)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<HydraChow>());
-                    shop.item[nextSlot].value = 100000;
+                    items[nextSlot].SetDefaults(ModContent.ItemType<HydraChow>());
+                    items[nextSlot].value = 100000;
                     nextSlot++;
                 }
             }
-            shop.item[nextSlot].SetDefaults(ModContent.ItemType<LuckyCracker>());
-            shop.item[nextSlot].value = 2000000;
+            items[nextSlot].SetDefaults(ModContent.ItemType<LuckyCracker>());
+            items[nextSlot].value = 2000000;
 			nextSlot++;
-            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Potions.RoninPotion>());
-            shop.item[nextSlot].value = 50000;
+            items[nextSlot].SetDefaults(ModContent.ItemType<Items.Potions.RoninPotion>());
+            items[nextSlot].value = 50000;
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemID.Sake);
+			items[nextSlot].SetDefaults(ItemID.Sake);
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemID.Pho);
+			items[nextSlot].SetDefaults(ItemID.Pho);
 			nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.PadThai);
+            items[nextSlot].SetDefaults(ItemID.PadThai);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.Gi);
+            items[nextSlot].SetDefaults(ItemID.Gi);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.Kimono);
+            items[nextSlot].SetDefaults(ItemID.Kimono);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.FancyDishes);
+            items[nextSlot].SetDefaults(ItemID.FancyDishes);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.Katana);
+            items[nextSlot].SetDefaults(ItemID.Katana);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.Shuriken);
+            items[nextSlot].SetDefaults(ItemID.Shuriken);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.NinjaHood);
+            items[nextSlot].SetDefaults(ItemID.NinjaHood);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.NinjaShirt);
+            items[nextSlot].SetDefaults(ItemID.NinjaShirt);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.NinjaPants);
+            items[nextSlot].SetDefaults(ItemID.NinjaPants);
             nextSlot++;
             if (Main.dayTime)
             {
                 if (Main.hardMode == true)
                 {
-                    shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("OrangeSolution").Type);
+                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("OrangeSolution").Type);
                     nextSlot++;
                 }
             }
@@ -215,18 +194,18 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 if (Main.hardMode == true)
                 {
-                    shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("IndigoSolution").Type);
+                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("IndigoSolution").Type);
                     nextSlot++;
                 }
             }
 
-            shop.item[nextSlot].SetDefaults(Mod.Find<ModItem>("OrderSolution").Type);
+            items[nextSlot].SetDefaults(Mod.Find<ModItem>("OrderSolution").Type);
             nextSlot++;
         }
 
 		public override void OnKill()
 		{
-			Item.NewItem(NPC.getRect(), ItemID.Katana);
+			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.Katana);
 		}
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)

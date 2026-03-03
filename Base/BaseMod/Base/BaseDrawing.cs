@@ -50,8 +50,8 @@ namespace AAModClassic.Base.BaseMod.Base
 			}
 		}
 
-		public override Rectangle GetFrame(Texture2D texture)
-		{
+        public override Rectangle GetFrame(Texture2D texture, int frameCounterOverride = -1)
+        {
 			return new Rectangle(vertical ? 0 : (this.Width + offsetX) * this.Frame, vertical ? (this.Height + offsetY) * this.Frame : 0, this.Width, this.Height);
 		}
 	}	
@@ -117,7 +117,7 @@ namespace AAModClassic.Base.BaseMod.Base
 			if (progressMax == 0){ displayText2 = progress.ToString(); }else{ displayText2 = ((int)((float)progress * 100f / (float)progressMax)).ToString() + "%"; }
 			if(percentText != null) displayText2 = percentText;
 			//displayText2 = Language.GetTextValue("Game.WaveCleared", displayText2);
-			Texture2D barTex = Main.colorBarTexture;
+			Texture2D barTex = TextureAssets.ColorBar.Value;
 			if (progressMax != 0)
 			{
 				Main.spriteBatch.Draw(barTex, basePosition, null, Color.White * displayAlpha, 0f, new Vector2((float)(barTex.Width / 2), 0f), displayScalar, SpriteEffects.None, 0f);
@@ -133,7 +133,7 @@ namespace AAModClassic.Base.BaseMod.Base
 			}
 
 			Vector2 center = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 80)) + offset;
-			Vector2 stringLength = Main.fontItemStack.MeasureString(displayText);
+			Vector2 stringLength = FontAssets.ItemStack.Value.MeasureString(displayText);
 			Microsoft.Xna.Framework.Rectangle textRect = Utils.CenteredRectangle(center, (stringLength + new Vector2((float)(iconTex.Width + 20), 10f)) * displayScalar);
 			Utils.DrawInvBG(Main.spriteBatch, textRect, backgroundColor);
 			Main.spriteBatch.Draw(iconTex, textRect.Left() + Vector2.UnitX * displayScalar * 8f, null, Microsoft.Xna.Framework.Color.White * displayAlpha, 0f, new Vector2(0f, (float)(iconTex.Height / 2)), displayScalar * 0.8f, SpriteEffects.None, 0f);
@@ -237,17 +237,17 @@ namespace AAModClassic.Base.BaseMod.Base
         public static Texture2D GetPlayerTex(int skinVariant, string name, bool male = true)
         {
             //TODO: FINISH THIS
-            switch (name)
+            return name switch
             {
-                case "Head": return Main.playerTextures[skinVariant, 0];
-                case "EyeWhite": return Main.playerTextures[skinVariant, 1];
-                case "Eye": return Main.playerTextures[skinVariant, 2];
-                case "Body": return (male ? Main.playerTextures[skinVariant, 4] : Main.playerTextures[skinVariant, 6]);
-                case "Hand": return Main.playerTextures[skinVariant, 5];				
-                case "Arms": return Main.playerTextures[skinVariant, 7];
-                case "Legs": return Main.playerTextures[skinVariant, 10];
-            }
-            return null;
+                "Head" => TextureAssets.Players[skinVariant, 0].Value,
+                "EyeWhite" => TextureAssets.Players[skinVariant, 1].Value,
+                "Eye" => TextureAssets.Players[skinVariant, 2].Value,
+                "Body" => (male ? TextureAssets.Players[skinVariant, 4].Value : TextureAssets.Players[skinVariant, 6].Value),
+                "Hand" => TextureAssets.Players[skinVariant, 5].Value,
+                "Arms" => TextureAssets.Players[skinVariant, 7].Value,
+                "Legs" => TextureAssets.Players[skinVariant, 10].Value,
+                _ => null,
+            };
         }
 
         public static void AddPlayerDrawLayer(List<PlayerDrawLayer> list, PlayerDrawLayer layer, PlayerDrawLayer parent, bool first)
@@ -305,7 +305,7 @@ namespace AAModClassic.Base.BaseMod.Base
          */
         public static bool IsNormalDrawPass(Player player, PlayerDrawSet pdi = default(PlayerDrawSet))
         {
-            return player.ghostFade == 0f && player.shadow == 0f && (pdi.Equals(default(PlayerDrawSet)) || pdi.shadow == 0f);
+            return player.ghostFade == 0f && true/*player.shadow == 0f*/ && (pdi.Equals(default(PlayerDrawSet)) || pdi.shadow == 0f);
         }
 
 		public static int GetDye(Player drawPlayer, int accSlot, bool social = false, bool wings = false)
@@ -379,7 +379,7 @@ namespace AAModClassic.Base.BaseMod.Base
          */
 		public static Color GetPlayerColor(Player p, Vector2? position = null, bool effects = false, float shadowOverride = 0f)
         {
-            return p.GetImmuneAlpha(BuffEffects(p, GetLightColor(position != null ? (Vector2)position : p.Center), (shadowOverride != 0f ? shadowOverride : p.shadow), effects, p.poisoned, p.onFire, p.onFire2, false, p.noItems, p.blind, p.bleed, p.venom, false, p.ichor, p.onFrostBurn, p.burned, p.honey, p.dripping, p.drippingSlime, p.loveStruck, p.stinky), p.shadow);
+            return p.GetImmuneAlpha(BuffEffects(p, GetLightColor(position != null ? (Vector2)position : p.Center), (shadowOverride != 0f ? shadowOverride : 0/*p.shadow*/), effects, p.poisoned, p.onFire, p.onFire2, false, p.noItems, p.blind, p.bleed, p.venom, false, p.ichor, p.onFrostBurn, p.burned, p.honey, p.dripping, p.drippingSlime, p.loveStruck, p.stinky), 0f/*p.shadow*/);
         }
 
         /*
@@ -420,7 +420,7 @@ namespace AAModClassic.Base.BaseMod.Base
 				Main.dust[dustID].alpha = 100;
 				Main.dust[dustID].noGravity = true;
 				Main.dust[dustID].velocity += codable.velocity * 0.1f;
-				if (codable is Player) Main.playerDrawDust.Add(dustID);
+				//if (codable is Player) Main.playerDrawDust.Add(dustID);
 			}
             if (poisoned)
             {
@@ -429,7 +429,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Poisoned, 0f, 0f, 120, default(Color), 0.2f);
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].fadeIn = 1.9f;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
                 cr *= 0.65f;
                 cb *= 0.75f;
@@ -441,7 +441,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Venom, 0f, 0f, 100, default(Color), 0.5f);
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].fadeIn = 1.5f;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
 				cg *= 0.45f;
 				cr *= 0.75f;
@@ -463,7 +463,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					Main.dust[dustID].noGravity = true;
 					Main.dust[dustID].velocity *= 1.8f;
 					Main.dust[dustID].velocity.Y -= 0.75f;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
 				if (codable is Player)
 				{
@@ -487,7 +487,7 @@ namespace AAModClassic.Base.BaseMod.Base
 							Main.dust[dustID].noGravity = false;
 							Main.dust[dustID].scale *= 0.5f;
 						}
-						if (codable is Player) Main.playerDrawDust.Add(dustID);
+						//if (codable is Player) Main.playerDrawDust.Add(dustID);
 					}
 					Lighting.AddLight((int)(codable.position.X / 16f), (int)(codable.position.Y / 16f + 1f), 0.1f, 0.6f, 1f);
 				}
@@ -512,7 +512,7 @@ namespace AAModClassic.Base.BaseMod.Base
 							Main.dust[dustID].noGravity = false;
 							Main.dust[dustID].scale *= 0.5f;
 						}
-						if (codable is Player) Main.playerDrawDust.Add(dustID);
+						//if (codable is Player) Main.playerDrawDust.Add(dustID);
 					}
 					Lighting.AddLight((int)(codable.position.X / 16f), (int)(codable.position.Y / 16f + 1f), 1f, 0.3f, 0.1f);
 				}
@@ -535,7 +535,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					Main.dust[dustID].velocity *= 0.2f;
 					Main.dust[dustID].velocity.Y += 0.2f;
 					Main.dust[dustID].velocity += codable.velocity;
-					if(codable is Player) Main.playerDrawDust.Add(dustID);
+					//if(codable is Player) Main.playerDrawDust.Add(dustID);
 				}else
 				{
 					int dustID = Dust.NewDust(position, codable.width + 8, codable.height + 8, DustID.Wet, 0f, 0f, 50, default(Color), 1.1f);
@@ -546,7 +546,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					Main.dust[dustID].velocity *= 0.2f;
 					Main.dust[dustID].velocity.Y += 1f;
 					Main.dust[dustID].velocity += codable.velocity;
-					if(codable is Player) Main.playerDrawDust.Add(dustID);
+					//if(codable is Player) Main.playerDrawDust.Add(dustID);
 				}
 			}
 			if (drippingSlime && shadow == 0f)
@@ -566,7 +566,7 @@ namespace AAModClassic.Base.BaseMod.Base
 						Main.dust[dustID].velocity *= 0.2f;
 						Main.dust[dustID].velocity.Y += 0.2f;
 						Main.dust[dustID].velocity += codable.velocity;
-						if(codable is Player) Main.playerDrawDust.Add(dustID);
+						//if(codable is Player) Main.playerDrawDust.Add(dustID);
 					}
 				}
 				cr *= 0.8f;
@@ -587,7 +587,7 @@ namespace AAModClassic.Base.BaseMod.Base
 							Main.dust[dustID].noGravity = false;
 							Main.dust[dustID].scale *= 0.5f;
 						}
-						if (codable is Player) Main.playerDrawDust.Add(dustID);
+						//if (codable is Player) Main.playerDrawDust.Add(dustID);
 					}
 					Lighting.AddLight((int)(codable.position.X / 16f), (int)(codable.position.Y / 16f + 1f), 1f, 0.3f, 0.1f);
 				}
@@ -615,7 +615,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.Blood, 0f, 0f, 0, default(Color), 1f);
 					Main.dust[dustID].velocity.Y += 0.5f;
 					Main.dust[dustID].velocity *= 0.25f;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
                 cg *= 0.9f;
                 cb *= 0.9f;
@@ -625,11 +625,11 @@ namespace AAModClassic.Base.BaseMod.Base
 				Vector2 value = new Vector2((float)Main.rand.Next(-10, 11), (float)Main.rand.Next(-10, 11));
 				value.Normalize();
 				value.X *= 0.66f;
-				int goreID = Gore.NewGore(codable.position + new Vector2((float)Main.rand.Next(codable.width + 1), (float)Main.rand.Next(codable.height + 1)), value * (float)Main.rand.Next(3, 6) * 0.33f, 331, (float)Main.rand.Next(40, 121) * 0.01f);
+				int goreID = Gore.NewGore(codable.GetSource_FromThis(), codable.position + new Vector2((float)Main.rand.Next(codable.width + 1), (float)Main.rand.Next(codable.height + 1)), value * (float)Main.rand.Next(3, 6) * 0.33f, 331, (float)Main.rand.Next(40, 121) * 0.01f);
 				Main.gore[goreID].sticky = false;
 				Main.gore[goreID].velocity *= 0.4f;
 				Main.gore[goreID].velocity.Y -= 0.6f;
-				if (codable is Player) Main.playerDrawGore.Add(goreID);
+				//if (codable is Player) Main.playerDrawGore.Add(goreID);
 			}
 			if (stinky && shadow == 0f)
 			{
@@ -643,7 +643,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.FartInAJar, vector.X, vector.Y * 0.5f, 100, default(Color), 1.5f);
 					Main.dust[dustID].velocity *= 0.1f;
 					Main.dust[dustID].velocity.Y -= 0.5f;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
 			}
 			lightColor.R = (byte)((float)lightColor.R * cr);
@@ -658,7 +658,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					int dustID = Dust.NewDust(codable.position, codable.width, codable.height, DustID.MagicMirror, 0f, 0f, 150, default(Color), 0.8f);
 					Main.dust[dustID].velocity *= 0.1f;
 					Main.dust[dustID].noLight = true;
-					if (codable is Player) Main.playerDrawDust.Add(dustID);
+					//if (codable is Player) Main.playerDrawDust.Add(dustID);
 				}
 				byte colorR = 50, colorG = 255, colorB = 50;
 				if(codable is NPC && !(((NPC)codable).friendly || ((NPC)codable).catchItem > 0 || (((NPC)codable).damage == 0 && ((NPC)codable).lifeMax == 5)))
@@ -1524,7 +1524,7 @@ namespace AAModClassic.Base.BaseMod.Base
 			int halfBrickOffset = halfBrick ? 8 : 0;
 			Color color = Lighting.GetColor(x, y);
 			Vector2 drawOffset = (Main.drawToScreen ? default(Vector2) : new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange)) + offset;
-			if (tile.IsActuated){ color = tile.actColor(color); }
+			if (tile.IsActuated){ color = color.MultiplyRGB(Color.Gray); } //tile.actColor(color)
 			SpriteEffects effects = (flipTex ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 			Vector2 drawPos = GetTileDrawPosition(x, y, fwidth, fheight, drawOffset);
 			int gfxCheck = (int)(255f * (1f - Main.gfxQuality) + 30f * Main.gfxQuality);
@@ -1714,10 +1714,10 @@ namespace AAModClassic.Base.BaseMod.Base
 				bool outlineRight = Main.tile[x + 1, y].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x + 1, y].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
 				bool outlineUp = Main.tile[x, y - 1].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x, y - 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
 				bool outlineDown = Main.tile[x, y + 1].WallType > WallID.None && Main.wallBlend[(int)Main.tile[x, y + 1].WallType] != Main.wallBlend[(int)Main.tile[x, y].WallType];
-				if (outlineLeft) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-				if (outlineRight) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X + 14), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(14, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-				if (outlineUp) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-				if (outlineDown) sb.Draw(Main.wallOutlineTexture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y + 14)) + drawOffset, new Rectangle(0, 14, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+				if (outlineLeft) sb.Draw(TextureAssets.WallOutline.Value, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+				if (outlineRight) sb.Draw(TextureAssets.WallOutline.Value, new Vector2((float)(x * 16 - (int)Main.screenPosition.X + 14), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(14, 0, 2, 16), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+				if (outlineUp) sb.Draw(TextureAssets.WallOutline.Value, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y)) + drawOffset, new Rectangle(0, 0, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+				if (outlineDown) sb.Draw(TextureAssets.WallOutline.Value, new Vector2((float)(x * 16 - (int)Main.screenPosition.X), (float)(y * 16 - (int)Main.screenPosition.Y + 14)) + drawOffset, new Rectangle(0, 14, 16, 2), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 			}
 		}
 
@@ -1888,7 +1888,7 @@ namespace AAModClassic.Base.BaseMod.Base
             string s = "" + totalItemCount;
             if (totalItemCount > 99999) { s = "A Lot!"; }
             //sb.DrawString(Main.fontItemStack, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), sc *= 0.8f, SpriteEffects.None, 0f);   
-			ChatManager.DrawColorCodedStringWithShadow(sb, Main.fontItemStack, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), new Vector2(sc *= 0.8f), -1f, 0.8f);			
+			ChatManager.DrawColorCodedStringWithShadow(sb, FontAssets.ItemStack.Value, s, pos + new Vector2(10f * sc, 32f * sc), color, 0f, default(Vector2), new Vector2(sc *= 0.8f), -1f, 0.8f);			
         }
     }
 
@@ -1922,8 +1922,8 @@ namespace AAModClassic.Base.BaseMod.Base
 					Color color = BaseDrawing.GetLightColor(ent.Center);
 					if(ent is NPC) color = ((NPC)ent).GetAlpha(color);
 					if(ent is Projectile) color = ((Projectile)ent).GetAlpha(color);				
-					if(ent is Player) color = ((Player)ent).GetImmuneAlpha(color, ((Player)ent).shadow);					
-					base.Shader.Parameters["uLightColor"].SetValue(color.ToVector4());			
+					if(ent is Player) color = ((Player)ent).GetImmuneAlpha(color, 0); //((Player)ent).shadow			
+                    base.Shader.Parameters["uLightColor"].SetValue(color.ToVector4());			
 					if(ent is NPC)
 					{
 						Vector4 v4 = new Vector4(0, 0, TextureAssets.Npc[((NPC)ent).type].Value.Width, TextureAssets.Npc[((NPC)ent).type].Value.Height);
@@ -1947,7 +1947,7 @@ namespace AAModClassic.Base.BaseMod.Base
 					}else
 					if(ent is Player)
 					{
-						Vector4 v4 = new Vector4(0, 0, Main.playerTextures[0, 0].Width, Main.playerTextures[0, 0].Height);								
+						Vector4 v4 = new Vector4(0, 0, TextureAssets.Players[0, 0].Width(), TextureAssets.Players[0, 0].Height());								
 						Vector4 v4_2 = new Vector4(0, 0, BaseConstants.FRAME_PLAYER.Width, BaseConstants.FRAME_PLAYER.Height + 2);					
 						base.Shader.Parameters["uTexSize"].SetValue(v4);
 						base.Shader.Parameters["uFrame"].SetValue(v4_2);						
