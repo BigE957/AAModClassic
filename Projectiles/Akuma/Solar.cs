@@ -1,9 +1,10 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
@@ -15,14 +16,14 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
             // DisplayName.SetDefault("Solar");
@@ -76,7 +77,7 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
                     {
                         num92 *= -1f;
                     }
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value2.X, value2.Y, Mod.Find<ModProjectile>("FireTentacle").Type, Projectile.damage * (int)1.25f, Projectile.knockBack, player.whoAmI, num92, num91);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value2.X, value2.Y, Mod.Find<ModProjectile>("FireTentacle").Type, Projectile.damage * (int)1.25f, Projectile.knockBack, player.whoAmI, num92, num91);
                 }
             }
         }
@@ -85,7 +86,7 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
         {
             target.AddBuff(BuffID.Daybreak, 300);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            Projectile.NewProjectile(Projectile.position, Projectile.velocity, ModContent.ProjectileType<AkumaExp>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, ModContent.ProjectileType<AkumaExp>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
         }
     }
 }

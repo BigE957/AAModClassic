@@ -1,7 +1,8 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -16,14 +17,14 @@ namespace AAModClassic.Projectiles.Zero
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
             // DisplayName.SetDefault("Teslablast");

@@ -59,11 +59,11 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D BeamTexture = mod.GetTexture("Backgrounds/AnubisBeam");
+            Texture2D BeamTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AnubisBeam").Value;
             Texture2D[] RuneTextures = new Texture2D[8];
             for (int i = 0; i < RuneTextures.Length; i++)
             {
-                RuneTextures[i] = mod.GetTexture("Backgrounds/Runes/Rune" + i);
+                RuneTextures[i] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Runes/Rune" + i).Value;
             }
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

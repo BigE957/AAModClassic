@@ -2,6 +2,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -18,14 +19,14 @@ namespace AAModClassic.Projectiles     //We need this to basically indicate the 
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
 
@@ -98,7 +99,7 @@ namespace AAModClassic.Projectiles     //We need this to basically indicate the 
                     }
                     num22 *= num24;
                     num23 *= num24;
-                    int a = Projectile.NewProjectile(vector.X, vector.Y, num22, num23, ModContent.ProjectileType<DecayScytheProj>(), Projectile.damage, Projectile.knockBack, player.whoAmI, 0f, 0f);
+                    int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector.X, vector.Y, num22, num23, ModContent.ProjectileType<DecayScytheProj>(), Projectile.damage, Projectile.knockBack, player.whoAmI, 0f, 0f);
                     Main.projectile[a].netUpdate = true;
                     SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
                 }
@@ -116,7 +117,7 @@ namespace AAModClassic.Projectiles     //We need this to basically indicate the 
         public override bool PreDraw(ref Color lightColor)  //this make the projectile sprite rotate perfectaly around the player
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

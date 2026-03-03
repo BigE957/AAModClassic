@@ -1,11 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
+using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Enums;
 
 namespace AAModClassic.Projectiles.Zero
 {
@@ -16,14 +17,14 @@ namespace AAModClassic.Projectiles.Zero
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
         }
@@ -175,7 +176,7 @@ namespace AAModClassic.Projectiles.Zero
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
             Vector2 unit = Projectile.velocity;
-            Utils.PlotTileLine(Projectile.Center, Projectile.Center + (unit * Projectile.localAI[1]), Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CutTiles));
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + (unit * Projectile.localAI[1]), Projectile.width * Projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CutTiles));
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
@@ -194,7 +195,7 @@ namespace AAModClassic.Projectiles.Zero
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Projectile.NewProjectile(target.Center, Vector2.Zero, ModContent.ProjectileType<Horizon>(), Projectile.damage*2, 0, Projectile.owner, 0, 0);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Horizon>(), Projectile.damage*2, 0, Projectile.owner, 0, 0);
         }
     }
 }

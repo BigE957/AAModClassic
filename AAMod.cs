@@ -57,6 +57,19 @@ namespace AAModClassic
         public static Dictionary<string, Texture2D> precachedTextures = new Dictionary<string, Texture2D>();
         public static string BLANK_TEX = "AAMod/BlankTex";
 
+        // UI
+        internal UserInterface TerratoolInterface;
+        internal TerratoolTUI TerratoolTState;
+        internal TerratoolCUI TerratoolCState;
+        internal TerratoolAUI TerratoolAState;
+        internal TerratoolYUI TerratoolYState;
+        internal TerratoolZUI TerratoolZState;
+        internal TerratoolSUI TerratoolSState;
+        internal TerratoolKipUI TerratoolKipState;
+        internal TerratoolLizUI TerratoolLizState;
+        internal TerratoolGroxUI TerratoolGroxState;
+        internal TerratoolEXUI TerratoolEXState;
+
         public static SpriteFont fontMouseText;
 
 
@@ -75,6 +88,8 @@ namespace AAModClassic
 
             instance = this;
         }
+
+        public Texture2D GetTexture(string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value; 
 
         public static void SetupBannerItemTextures()
         {
@@ -714,44 +729,31 @@ public class AAModSystem : ModSystem
     public bool AAMenuset = false;
     public bool AAMenuReset = true;
 
-    // UI
-    internal UserInterface TerratoolInterface;
-    internal TerratoolTUI TerratoolTState;
-    internal TerratoolCUI TerratoolCState;
-    internal TerratoolAUI TerratoolAState;
-    internal TerratoolYUI TerratoolYState;
-    internal TerratoolZUI TerratoolZState;
-    internal TerratoolSUI TerratoolSState;
-    internal TerratoolKipUI TerratoolKipState;
-    internal TerratoolLizUI TerratoolLizState;
-    internal TerratoolGroxUI TerratoolGroxState;
-    internal TerratoolEXUI TerratoolEXState;
-
     public static bool AAloadedOnly = true;
 
     public override void Load()
     {
-        TerratoolInterface = new UserInterface();
-        TerratoolTState = new TerratoolTUI();
-        TerratoolTState.Activate();
-        TerratoolCState = new TerratoolCUI();
-        TerratoolCState.Activate();
-        TerratoolAState = new TerratoolAUI();
-        TerratoolAState.Activate();
-        TerratoolYState = new TerratoolYUI();
-        TerratoolYState.Activate();
-        TerratoolZState = new TerratoolZUI();
-        TerratoolZState.Activate();
-        TerratoolSState = new TerratoolSUI();
-        TerratoolSState.Activate();
-        TerratoolKipState = new TerratoolKipUI();
-        TerratoolKipState.Activate();
-        TerratoolLizState = new TerratoolLizUI();
-        TerratoolLizState.Activate();
-        TerratoolGroxState = new TerratoolGroxUI();
-        TerratoolGroxState.Activate();
-        TerratoolEXState = new TerratoolEXUI();
-        TerratoolEXState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolInterface = new UserInterface();
+        ModContent.GetInstance<AAMod>().TerratoolTState = new TerratoolTUI();
+        ModContent.GetInstance<AAMod>().TerratoolTState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolCState = new TerratoolCUI();
+        ModContent.GetInstance<AAMod>().TerratoolCState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolAState = new TerratoolAUI();
+        ModContent.GetInstance<AAMod>().TerratoolAState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolYState = new TerratoolYUI();
+        ModContent.GetInstance<AAMod>().TerratoolYState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolZState = new TerratoolZUI();
+        ModContent.GetInstance<AAMod>().TerratoolZState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolSState = new TerratoolSUI();
+        ModContent.GetInstance<AAMod>().TerratoolSState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolKipState = new TerratoolKipUI();
+        ModContent.GetInstance<AAMod>().TerratoolKipState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolLizState = new TerratoolLizUI();
+        ModContent.GetInstance<AAMod>().TerratoolLizState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolGroxState = new TerratoolGroxUI();
+        ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
+        ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
+        ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
     }
 
     public override void Unload()
@@ -823,9 +825,9 @@ public class AAModSystem : ModSystem
             "AAMod: Radial UIs",
             delegate
             {
-                if (TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
+                if (AAMod.instance.TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
                 {
-                    TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
+                    AAMod.instance.TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
                 }
 
                 return true;
@@ -840,9 +842,9 @@ public class AAModSystem : ModSystem
     {
         lastUpdateUIGameTime = gameTime;
 
-        if (TerratoolInterface?.CurrentState != null)
+        if (AAMod.instance.TerratoolInterface?.CurrentState != null)
         {
-            TerratoolInterface.Update(gameTime);
+            AAMod.instance.TerratoolInterface.Update(gameTime);
         }
     }
 

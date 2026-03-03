@@ -1,13 +1,14 @@
-using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using Terraria.Localization;
 using AAModClassic;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 
 namespace AAModClassic.Items.Dev.Invoker
@@ -78,7 +79,7 @@ namespace AAModClassic.Items.Dev.Invoker
 				Item.noMelee = false;
 				Item.staff[Item.type] = false;
 				Item.useStyle = ItemUseStyleID.Swing;
-				Item.damage = (int)(200 * player.GetDamage(DamageClass.Summon));
+				Item.damage = (int)(200 * player.GetDamage(DamageClass.Summon)).Flat;
 				Item.DamageType = DamageClass.Summon;
 				return true;
 			}
@@ -96,7 +97,7 @@ namespace AAModClassic.Items.Dev.Invoker
 		{
 			if (player.altFunctionUse != 2 && player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("InvokerStaffproj").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("InvokerStaffproj").Type, damage, knockback, player.whoAmI, 0f, 0f);
 			}
 			if (player.altFunctionUse == 2 && player.GetModPlayer<InvokerPlayer>().SpringInvoker)
 			{
@@ -130,21 +131,17 @@ namespace AAModClassic.Items.Dev.Invoker
 		public sealed override void SetDefaults()
 		{
 			SafeSetDefaults();
-			Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.summon = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Item.DamageType = DamageClass.Generic;
 		}
 
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
-			mult *= InvokerPlayer.ModPlayer(player).BanishDamageMult;
+            damage.Scale(InvokerPlayer.ModPlayer(player).BanishDamageMult);
 		}
 
 		public override void ModifyWeaponKnockback(Player player, ref StatModifier knockback)
 		{
-			knockback = 0;
+			knockback.Flat = 0;
 		}
 
 		public override void ModifyWeaponCrit(Player player, ref float crit)
@@ -270,20 +267,20 @@ namespace AAModClassic.Items.Dev.Invoker
 		{
 			Rectangle rectangle = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
 
-			double Realdamage = Main.CalculateDamage(Projectile.damage, 0);
+			double Realdamage = modifiers.FinalDamage.Flat;
 
 			if(Main.player[Projectile.owner].GetModPlayer<InvokerPlayer>().SpringInvoker)
 			{
 				if (target.realLife >= 0)
 				{
-					if(Main.npc[target.realLife].StrikeNPC((int)(damage * .1f), knockback, hitDirection, crit, false, false) < .01f * Projectile.damage && Realdamage < Main.npc[target.realLife].lifeMax * .01f)
+					if(Main.npc[target.realLife].StrikeNPC(modifiers.ToHitInfo(Projectile.damage * 0.1f, false, Projectile.knockBack)) < .01f * Projectile.damage && Realdamage < Main.npc[target.realLife].lifeMax * .01f)
 					{
 						Realdamage = Main.npc[target.realLife].lifeMax * .034f;
 					}
 				}
 				else
 				{
-					if(target.StrikeNPC(damage, knockback, hitDirection, crit, false, false) < .01f * Projectile.damage)
+					if(target.StrikeNPC(modifiers.ToHitInfo(Projectile.damage * 0.1f, false, Projectile.knockBack)) < .01f * Projectile.damage)
 					{
 						Realdamage = target.lifeMax * .034f;
 					}
@@ -294,7 +291,7 @@ namespace AAModClassic.Items.Dev.Invoker
 
 			//Main.player[Main.myPlayer].dpsDamage += (int)Realdamage;
 			Main.player[Projectile.owner].addDPS((int)Realdamage);
-
+			bool crit = false;
 			Color damagecolor = crit ? CombatText.DamagedHostileCrit : CombatText.DamagedHostile;
 			CombatText.NewText(new Rectangle((int)target.position.X, (int)target.position.Y, target.width, target.height), damagecolor, (int)Realdamage, false, false);
 			
@@ -336,7 +333,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			{
 				for (int i = 0; i < 200; i++)
 				{
-					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
+					if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHitWithOwnBody(Main.npc[i])))
 					{
 						bool flag;
 						if (Main.npc[i].type == NPCID.SolarCrawltipedeTail)
@@ -355,9 +352,9 @@ namespace AAModClassic.Items.Dev.Invoker
 						}
 						if (flag)
 						{
-							if (Main.npc[i].reflectingProjectiles && Projectile.CanReflect())
+							if (Main.npc[i].reflectsProjectiles && Projectile.CanBeReflected())
 							{
-								Main.npc[i].ReflectProjectile(Projectile.whoAmI);
+								Main.npc[i].ReflectProjectile(Projectile);
 								return;
 							}
 							Projectile.ai[0] = 1f;
@@ -461,7 +458,7 @@ namespace AAModClassic.Items.Dev.Invoker
 
 			if(BanishCount > 70 || npc.alpha >= 250 || npc.scale < 0.05f)
 			{
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.lifeMax * 0.01f);
+				Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.lifeMax * 0.01f);
 				
 				if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 				{
@@ -553,7 +550,7 @@ namespace AAModClassic.Items.Dev.Invoker
 				BanishCount ++;
 				if(BanishCount == 1)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
 					
 					if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 					{
@@ -561,7 +558,7 @@ namespace AAModClassic.Items.Dev.Invoker
 						{
 							if(Main.npc[i].type == NPCID.MoonLordCore || Main.npc[i].type == NPCID.MoonLordHead || Main.npc[i].type == NPCID.MoonLordHand)
 							{
-								Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+								Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedRune").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
 							}
 						}
 					}
@@ -619,14 +616,15 @@ namespace AAModClassic.Items.Dev.Invoker
 				{
 					num6 = array[Main.rand.Next(num3)];
 				}
-				if(npc.lifeMax >= 1000) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
+				if(npc.lifeMax >= 1000) Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("InvokedHeal").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
 				if(npc.damage != 0) 
 				{
-					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
+					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) 
+						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
 				}
 				if(npc.GetGlobalNPC<InvokedGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula && (npc.type == Mod.Find<ModNPC>("ZeroProtocol").Type || npc.type == Mod.Find<ModNPC>("YamataA").Type || npc.type == Mod.Find<ModNPC>("AkumaA").Type || npc.type == Mod.Find<ModNPC>("ShenA").Type || npc.type == Mod.Find<ModNPC>("SupremeRajah").Type))
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
+					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, Mod.Find<ModProjectile>("InvokedDamage").Type, 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
 				}
 			}
 			return true;
@@ -736,10 +734,10 @@ namespace AAModClassic.Items.Dev.Invoker
 
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			double Realdamage = Main.CalculateDamage(Projectile.damage, 0);
+			double Realdamage = modifiers.GetDamage(Projectile.damage, false);
 
 			Main.player[Main.myPlayer].dpsDamage += (int)Realdamage;
-
+			bool crit = true;
 			Color damagecolor = crit ? CombatText.DamagedHostileCrit : CombatText.DamagedHostile;
 			CombatText.NewText(new Rectangle((int)target.position.X, (int)target.position.Y, target.width, target.height), damagecolor, (int)Realdamage, false, false);
 			

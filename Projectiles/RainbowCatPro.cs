@@ -1,7 +1,8 @@
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
@@ -13,14 +14,14 @@ namespace AAModClassic.Projectiles
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
 
@@ -57,20 +58,20 @@ namespace AAModClassic.Projectiles
                 {
                     if (Main.rand.Next(3) == 0)
                     {
-                        int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
+                        int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
 						Main.projectile[proj].usesLocalNPCImmunity = true;
 						Main.projectile[proj].localNPCHitCooldown = 4;
-						Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+						//Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 						Main.projectile[proj].DamageType = DamageClass.Magic;
-                        int proj1 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
+                        int proj1 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
 						Main.projectile[proj1].usesLocalNPCImmunity = true;
 						Main.projectile[proj1].localNPCHitCooldown = 4;
-						Main.projectile[proj1].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+						//Main.projectile[proj1].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 						Main.projectile[proj1].DamageType = DamageClass.Magic;
                     }
                     if (Main.rand.Next(50) == 0)
                     {
-                        Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), ProjectileID.RainbowRodBullet, Projectile.damage, 3, Main.myPlayer);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), ProjectileID.RainbowRodBullet, Projectile.damage, 3, Main.myPlayer);
                     }
                 }
             }

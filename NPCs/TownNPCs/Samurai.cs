@@ -119,7 +119,15 @@ namespace AAModClassic.NPCs.TownNPCs
 			button = Language.GetTextValue("LegacyInterface.28");
 		}
 
-		public override void ModifyActiveShop(string shopName, Item[] items)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
+            {
+                shopName = "shop";
+            }
+        }
+
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
             int nextSlot = 0;
             items[nextSlot].SetDefaults(ItemID.DynastyWood);

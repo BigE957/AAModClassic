@@ -44,8 +44,8 @@ namespace AAModClassic.CrossMod.Overhaul
                     if (ai1 == 1f || ai1 == -1f)
                     {
                         // Use isBeingGrabbed for alternating swings
-                        ai1 = item.isBeingGrabbed ? 1f : -1f;
-                        item.isBeingGrabbed = !item.isBeingGrabbed;
+                        ai1 = item.beingGrabbed ? 1f : -1f;
+                        item.beingGrabbed = !item.beingGrabbed;
                     }
                     else if (ai1 == 0)
                     {
@@ -61,10 +61,11 @@ namespace AAModClassic.CrossMod.Overhaul
                         SetAttackRotation(player);
                         Vector2 velocity = (mouse - player.MountedCenter).SafeNormalize(new Vector2(player.direction, 0));
                         int p = Projectile.NewProjectile(
+                            item.GetSource_FromThis(),
                             player.MountedCenter,
                             velocity,
                             slashProjectileID,
-                            (int)(item.damage * player.GetDamage(DamageClass.Melee)),
+                            (int)(item.damage * player.GetDamage(DamageClass.Melee)).Flat,
                             item.scale,
                             player.whoAmI,
                             (int)(player.itemAnimationMax * slashDelay - player.itemAnimationMax), ai1);
@@ -72,7 +73,7 @@ namespace AAModClassic.CrossMod.Overhaul
 
                     // Set item time anyway, if not shoot, also make next slash upwards
                     if (item.shoot <= ProjectileID.None && player.itemTime == 0)
-                    { player.itemTime = item.useTime; item.isBeingGrabbed = false; }
+                    { player.itemTime = item.useTime; item.beingGrabbed = false; }
                 }
 
                 item.useStyle = ItemUseStyleID.None;
@@ -455,7 +456,7 @@ namespace AAModClassic.CrossMod.Overhaul
         public static void AISetChargeSlashVariables(Player player, int chargeSlashDirection)
         {
             player.HeldItem.noGrabDelay = player.itemAnimation;
-            player.HeldItem.isBeingGrabbed = chargeSlashDirection < 0;
+            player.HeldItem.beingGrabbed = chargeSlashDirection < 0;
         }
 
         const float HALFPI = (float)(Math.PI / 2);

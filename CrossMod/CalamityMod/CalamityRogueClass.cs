@@ -15,18 +15,14 @@ namespace AAModClassic.CrossMod.CalamityMod
 		public override void SetDefaults()
 		{
 			SafeSetDefaults();
-			Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-			Item.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Item.DamageType = DamageClass.Throwing;
-			Item.summon = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 		}
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
 			if (ModSupport.GetMod("CalamityMod") != null)
 			{
 				float throwingDamage = (float) ModSupport.GetModPlayerConditions("CalamityMod", player, "CalamityPlayer", "throwingDamage", false, false);
-				add += throwingDamage - 1f;
+                damage.Flat += throwingDamage - 1f;
 			}
 		}
 		public override void ModifyWeaponCrit(Player player, ref float crit)
@@ -201,10 +197,8 @@ namespace AAModClassic.CrossMod.CalamityMod
 				if (ModSupport.GetMod("CalamityMod") != null)
                 {
 					Mod mod = ModSupport.GetMod("CalamityMod");
-					ModPlayer modplayer = Player.GetModPlayer(mod, "CalamityPlayer");
-					MethodInfo StealthStrike = modplayer.GetType().GetMethod("StealthStrikeAvailable", BindingFlags.Instance | BindingFlags.Public);
-                    bool? stealth = (bool?)StealthStrike.Invoke(modplayer, new object[]{});
-                    if (stealth != null) return (bool)stealth;
+					
+                    return (bool)mod.Call("CanStealthStrike", Player);
                 }
                 return false;
 			}

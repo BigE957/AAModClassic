@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -15,14 +16,14 @@ namespace AAModClassic.Projectiles.Akuma
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
+                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
+                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
                 {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
+                    glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
+                TextureAssets.GlowMask = glowMasks;
             }
             Projectile.glowMask = customGlowMask;
 
@@ -51,8 +52,8 @@ namespace AAModClassic.Projectiles.Akuma
         {
             target.AddBuff(BuffID.Daybreak, 200);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            //Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].DamageType = DamageClass.Ranged;
         }
 

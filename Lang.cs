@@ -6,7 +6,7 @@ namespace AAModClassic
     {
         public static string Worldtext(string WorldInfo)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(WorldInfo)
                     {
@@ -52,9 +52,9 @@ namespace AAModClassic
                         return "真正的冥昧之息在大气中翻涌...";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            if (Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
-                switch(WorldInfo)
+                switch (WorldInfo)
                 {
                     case "YttriumInfo":
                     return "Ваш мир благословлен иттрием!";
@@ -148,9 +148,9 @@ namespace AAModClassic
         }
         public static string AAPlayerChat(string PlayerInfo)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
-                {
-                    switch(PlayerInfo)
+            if (Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
+            {
+                switch (PlayerInfo)
                     {
                         case "UnstableSoulInfo":
                         return "你的灵魂激荡着...";
@@ -174,9 +174,9 @@ namespace AAModClassic
                         return "…凡人。 如果我没有老眼昏花的话, 你的世界就没有远古觉醒的内容。 创造一个新的世界最吼的。 ";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if (Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
-                switch(PlayerInfo)
+                switch (PlayerInfo)
                 {
                     case "UnstableSoulInfo":
                     return "Вашу душу разрывает...";
@@ -228,20 +228,10 @@ namespace AAModClassic
                 }
             return"";
         }
-        public static string Newtext(string Newtext)
-        {
-            if(Language.ActiveCulture == GameCulture.Chinese)
-                {
-                }
-            else
-                {
-                }
-            return"";
-        }
 
         public static string GreedChest(string Greed)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Greed)
                     {
@@ -253,7 +243,7 @@ namespace AAModClassic
                         return "把 老 子 的 东 西 放 下， 你 这 个 野 猴 子 小 偷!!!";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Greed)
                     {
@@ -282,7 +272,7 @@ namespace AAModClassic
 
         public static string BossSummonName(string Boss)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                 }
             else
@@ -293,7 +283,7 @@ namespace AAModClassic
 
         public static string Hotkey(string key)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(key)
                     {
@@ -307,7 +297,7 @@ namespace AAModClassic
                         return "远古觉醒套装能力";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(key)
                     {
@@ -340,7 +330,7 @@ namespace AAModClassic
 
         public static string GlobalNPCSInfo(string NPCsummon)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(NPCsummon)
                     {
@@ -348,7 +338,7 @@ namespace AAModClassic
                         return " 到了!";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(NPCsummon)
                     {
@@ -369,7 +359,7 @@ namespace AAModClassic
 
         public static string TownNPCAlpha(string Alpha)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Alpha)
                     {
@@ -390,7 +380,7 @@ namespace AAModClassic
                         return "有问题去问阿努比斯，我只是个一无所知的开发者.";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Alpha)
                     {
@@ -437,7 +427,7 @@ Fishy";
 
         public static string TownNPCAnubis(string Anubis)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Anubis)
                     {
@@ -705,7 +695,7 @@ Fishy";
                         return "...然后他把它翻了过来，原来他把他自己变成了一根腌咸菜，这是我见过的最搞笑的臭狗*。我在和谁说话？我也不知道";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Anubis)
                     {
@@ -847,7 +837,6 @@ Fishy";
                         return "Эй, мелкая надоедливая ведьма нашла тебя? Извини, что рассказал ей где ты. Она не переставала визжать мне в ухо. В любом случае, похоже, что Афина хочет реванш. Будь осторожен, друг, звучит как ловушка.";
                         case "GreedACalamityMod":
                         return "Знаешь, твое сражение с Пожирателем Богов напомнило мне Жадность немного... Я имею ввиду, подумай над этим. У них обоих есть возможность создавать червоточины, и они оба адаптируются к тому, что они едят. Могут ли они быть... не, это бред...или..?";
-                        return "Знаешь, твое сражение с Пожирателем Богов напомнило мне Жадность немного... Я имею в виду, подумай. У них обоих есть возможность создавать червоточины, и они оба адаптируются к тому, что они едят. Могут ли они быть... не, это бред... или..?";
                         case "downedGreedAY":
                         return "Так все это время он скрывал свое истинную силу. Интересно почему... может ли он от кого то скрываться..?";
                         case "downedGreedAN":
@@ -1245,7 +1234,7 @@ Fishy";
 
         public static string TownNPCGoblinSlayer(string GoblinSlayer)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(GoblinSlayer)
                     {
@@ -1271,7 +1260,7 @@ Fishy";
                         return "嘿, 你在外面能帮我杀些哥布林吗? 把他们的灵魂给我, 我给你我额外的哥布林杀手装备. ";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(GoblinSlayer)
                     {
@@ -1336,7 +1325,7 @@ Fishy";
         }
         public static string TownNPCLovecraftian(string Lovecraftian)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Lovecraftian)
                     {
@@ -1406,7 +1395,7 @@ Fishy";
                         return "嗯……没东西? 我需要一些研究的东西. 我想要一些来自各种环境的重要材料. 怪物碎片、植物等. ";
                     }
                 }
-                else if(Language.ActiveCulture == GameCulture.Russian)
+                else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Lovecraftian)
                     {
@@ -1550,7 +1539,7 @@ Fishy";
         }
         public static string TownNPCMushman(string Mushman)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Mushman)
                     {
@@ -1590,7 +1579,7 @@ Fishy";
                         return "我要这些染料做什么用? 呃…麻烦. 离我远点, 我有事情要做!";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Mushman)
                     {
@@ -1675,7 +1664,7 @@ Fishy";
         }
         public static string TownNPCSamurai(string Samurai)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Samurai)
                     {
@@ -1723,7 +1712,7 @@ Fishy";
                         return "今天你的鞋子让你快乐. ";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Samurai)
                     {
@@ -1823,7 +1812,7 @@ Fishy";
         }
         public static string BossChat(string BossInfo)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(BossInfo)
                     {
@@ -2567,7 +2556,7 @@ Fishy";
                         return "你 将 在 混 律 业 火 中 被 焚 烧 殆 尽!!!";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(BossInfo)
                     {
@@ -4083,7 +4072,7 @@ Fishy";
         }
         public static string BossSummonsInfo(string BossName)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                    switch(BossName)
                     {
@@ -4255,7 +4244,7 @@ Fishy";
                         return "你要为你的罪过付出代价, ";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                    switch(BossName)
                     {
@@ -4603,7 +4592,7 @@ Fishy";
         }
         public static string CensusMod(string npc)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(npc)
                     {
@@ -4619,9 +4608,9 @@ Fishy";
                         return "打败哥布林军团";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
-                {
-                    switch(npc)
+            else if (Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
+            {
+                switch (npc)
                     {
                         case "Anubis":
                         return "Всегда доступен";
@@ -4655,7 +4644,7 @@ Fishy";
         }
         public static string BossCheck(string Boss)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Boss)
                     {
@@ -4789,7 +4778,7 @@ Fishy";
                         return " 或者总计杀死1000只 兔子后, 每杀死100只兔子";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Boss)
                     {
@@ -5061,7 +5050,7 @@ Fishy";
         }
         public static string RajahSPTooltip(string RajahSash)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(RajahSash)
                     {
@@ -5087,7 +5076,7 @@ Fishy";
                         return "伤害";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(RajahSash)
                     {
@@ -5143,7 +5132,7 @@ Fishy";
         }
         public static string GreedTooltip(string Greed)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Greed)
                     {
@@ -5151,7 +5140,7 @@ Fishy";
                         return "当前伤害提升: +";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(Greed)
                     {
@@ -5171,7 +5160,7 @@ Fishy";
         }
         public static string questFish(string questFishtext)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(questFishtext)
                     {
@@ -5189,7 +5178,7 @@ Fishy";
                         return "虚空的任何位置";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
                 {
                     switch(questFishtext)
                     {
@@ -5229,7 +5218,7 @@ Fishy";
         }
         public static string TilesInfo(string Tiles)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
                     switch(Tiles)
                     {
@@ -5271,7 +5260,7 @@ Fishy";
                         return "你听见了嘶嘶声, 但是却消失在浓雾中...";
                     }
                 }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString()   )
                 {
                     switch(Tiles)
                     {
@@ -5362,7 +5351,7 @@ Fishy";
 
         public static string EnemyChat(string Info)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
             {
                 switch(Info)
                 {
@@ -5403,9 +5392,9 @@ Fishy";
                     return "我没时间管这个..!";
                 }
             }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if (Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
-                switch(Info)
+                switch (Info)
                 {
                     case "SeraphChat1":
                     return "Аууу! Ты скучный! Плакса..!";
@@ -5488,7 +5477,7 @@ Fishy";
 
         public static string TheEquinox(string Info)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
             {
                 switch(Info)
                 {
@@ -5530,7 +5519,7 @@ Fishy";
                     return "不要指望我们会对你手下留情, ";
                 }
             }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
                 switch(Info)
                 {
@@ -5618,7 +5607,7 @@ Fishy";
         }
         public static string WorldBuild(string Info)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
             {
                 switch(Info)
                 {
@@ -5634,7 +5623,7 @@ Fishy";
                     return "建筑泰拉心球";
                 }
             }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
                 switch(Info)
                 {
@@ -5671,7 +5660,7 @@ Fishy";
 
         public static string BiomiteArmor(string Info)
         {
-            if(Language.ActiveCulture == GameCulture.Chinese)
+            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
             {
                 switch(Info)
                 {
@@ -5703,7 +5692,7 @@ Fishy";
                     return "\n增加5破甲";
                 }
             }
-            else if(Language.ActiveCulture == GameCulture.Russian)
+            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
             {
                 switch(Info)
                 {
