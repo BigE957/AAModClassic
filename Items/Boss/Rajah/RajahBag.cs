@@ -22,36 +22,36 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => Mod.Find<ModNPC>("Rajah").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("Rajah").Type;
 
         public override bool CanRightClick()
         {
             return true;
         }
 
-        public override void OpenBossBag(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("RajahMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Terraria.ModLoader.ModContent.ItemType<RajahPelt>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(Mod.Find<ModItem>("RajahPelt").Type, Main.rand.Next(20, 25));
-            player.QuickSpawnItem(Mod.Find<ModItem>("RajahSash").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<RajahPelt>(), Main.rand.Next(15, 31));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahPelt").Type, Main.rand.Next(20, 25));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahSash").Type);
             string[] lootTable = { "BaneOfTheBunny", "Bunzooka", "Punisher", "RabbitcopterEars", "RoyalScepter" };
             int loot = Main.rand.Next(lootTable.Length);
             if (Main.rand.Next(6) == 1 && ModSupport.GetMod("ThoriumMod") != null)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("CarrotFarmer").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CarrotFarmer").Type);
             }
             else
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
             }
         }
     }

@@ -199,6 +199,8 @@ namespace AAModClassic.World
         public override int Music => AAWorld.downedZero ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Hoard") : -1;
 
         public override SceneEffectPriority Priority => AAWorld.downedZero ? SceneEffectPriority.Event : SceneEffectPriority.None;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<GreedBG>();
     }
 
     public class AcropolisBiomeZone : ModBiome

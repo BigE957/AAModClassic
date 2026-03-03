@@ -22,36 +22,36 @@ namespace AAModClassic.Items.Boss.Serpent
             Item.expert = true; Item.expertOnly = true;
         }
 
-        public override int BossBagNPC => Mod.Find<ModNPC>("SerpentHead").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("SerpentHead").Type;
 
         public override bool CanRightClick()
         {
             return true;
         }
 
-        public override void OpenBossBag(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("SerpentMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SerpentMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("SnowMana").Type, Main.rand.Next(15, 20));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SnowMana").Type, Main.rand.Next(15, 20));
             string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
             int loot = Main.rand.Next(lootTable.Length);
             if (Main.rand.Next(9) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("SnowflakeShuriken").Type, Main.rand.Next(100, 130));
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SnowflakeShuriken").Type, Main.rand.Next(100, 130));
             }
             else
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
             }
-			player.QuickSpawnItem(Mod.Find<ModItem>("ArcticMedallion").Type);			
+			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ArcticMedallion").Type);			
         }
     }
 }

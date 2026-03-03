@@ -22,11 +22,11 @@ namespace AAModClassic.Items.Boss.Shen
 			Item.expert = true; Item.expertOnly = true;
 		}
 
-        public override int BossBagNPC => Mod.Find<ModNPC>("ShenA").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("ShenA").Type;
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -50,22 +50,22 @@ namespace AAModClassic.Items.Boss.Shen
 			return true;
 		}
 
-		public override void OpenBossBag(Player player)
+		public override void RightClick(Player player)
 		{
             if (Main.rand.NextFloat() < 0.01f)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("ChaosScale").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Mod.Find<ModItem>("ChaosSoul").Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("EXSoul").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ChaosScale").Type, Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ChaosSoul").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("EXSoul").Type);
             string[] lootTable = 
             {
                 "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter"
             };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
         }
 	}
 }

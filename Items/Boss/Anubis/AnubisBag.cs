@@ -25,11 +25,11 @@ namespace AAModClassic.Items.Boss.Anubis
             Item.rare = ItemRarityID.Red;
         }
 
-        public override int BossBagNPC => Mod.Find<ModNPC>("Anubis").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("Anubis").Type;
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -53,22 +53,22 @@ namespace AAModClassic.Items.Boss.Anubis
             return true;
         }
 
-        public override void OpenBossBag(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("AnubisMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("AnubisMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.HMDevArmor();
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("ForsakenFragment").Type, Main.rand.Next(10, 20));
-            player.QuickSpawnItem(Mod.Find<ModItem>("ArtifactOfJudgement").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ForsakenFragment").Type, Main.rand.Next(10, 20));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ArtifactOfJudgement").Type);
             string[] lootTable = { "Judgment", "NeithsString", "DesertStaff", "JackalsWrath", "Sandthrower", "SentryOfTheEye" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
         }
     }
 }

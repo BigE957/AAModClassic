@@ -22,11 +22,11 @@ namespace AAModClassic.Items.Boss.Broodmother
 			Item.height = 32;
 			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => Mod.Find<ModNPC>("Broodmother").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("Broodmother").Type;
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -50,7 +50,7 @@ namespace AAModClassic.Items.Boss.Broodmother
 			return true;
 		}
 
-		public override void OpenBossBag(Player player)
+		public override void RightClick(Player player)
 		{
             if (Main.rand.Next(7) == 0)
             {
@@ -58,7 +58,7 @@ namespace AAModClassic.Items.Boss.Broodmother
             }
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("BroodEgg").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("BroodEgg").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -66,9 +66,9 @@ namespace AAModClassic.Items.Boss.Broodmother
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(75, 125));
-            player.QuickSpawnItem(Mod.Find<ModItem>("BroodScale").Type, Main.rand.Next(50, 100));
-            player.QuickSpawnItem(Mod.Find<ModItem>("DragonCape").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(75, 125));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("BroodScale").Type, Main.rand.Next(50, 100));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DragonCape").Type);
         }
 	}
 }

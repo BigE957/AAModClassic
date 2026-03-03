@@ -24,18 +24,18 @@ namespace AAModClassic.Items.Boss.Toad
 			Item.expert = true; Item.expertOnly = true;
 		}
 
-        public override int BossBagNPC => Mod.Find<ModNPC>("TruffleToad").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("TruffleToad").Type;
 
         public override bool CanRightClick()
 		{
 			return true;
 		}
 
-		public override void OpenBossBag(Player player)
+		public override void RightClick(Player player)
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("ToadMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ToadMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -44,8 +44,8 @@ namespace AAModClassic.Items.Boss.Toad
             }
             string[] lootTable = { "MushrockStaff", "ToadTongue", "Todegun" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("ToadLeg").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ToadLeg").Type);
         }
 	}
 }

@@ -21,20 +21,20 @@ namespace AAModClassic.Items.Boss.Greed.WKG
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => Mod.Find<ModNPC>("GreedA").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("GreedA").Type;
 
         public override bool CanRightClick()
 		{
 			return true;
 		}
 
-		public override void OpenBossBag(Player player)
+		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(25, 30));
-            player.QuickSpawnItem(Mod.Find<ModItem>("CovetiteOre").Type, Main.rand.Next(30, 50));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CovetiteOre").Type, Main.rand.Next(30, 50));
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("WKGreedMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("WKGreedMask").Type);
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -43,9 +43,9 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             }
             string[] lootTable = { "OreCannon", "Unearther", "OreStaff", "Earthbreaker" };
             int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("GravitySphere").Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("DesireTalisman").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GravitySphere").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DesireTalisman").Type);
         }
 	}
 }

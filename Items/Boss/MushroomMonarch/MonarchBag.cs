@@ -22,26 +22,26 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
             Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
         }
-        public override int BossBagNPC => Mod.Find<ModNPC>("MushroomMonarch").Type;
+        //public override int BossBagNPC => Mod.Find<ModNPC>("MushroomMonarch").Type;
 
         public override bool CanRightClick()
         {
             return true;
         }
 
-        public override void OpenBossBag(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Terraria.ModLoader.ModContent.ItemType<Vanity.Mask.MonarchMask>());
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<Vanity.Mask.MonarchMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Mod.Find<ModItem>("HeartyTruffle").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HeartyTruffle").Type);
         }
     }
 }
