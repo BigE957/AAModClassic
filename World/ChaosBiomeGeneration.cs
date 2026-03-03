@@ -10,7 +10,6 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
 using AAModClassic.Items.Ranged;
-using AAMod;
 using AAModClassic.Walls;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles;
@@ -18,7 +17,7 @@ using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Chests;
 using AAModClassic.Tiles.Boss;
 
-namespace AAModClassic.Worldgeneration
+namespace AAModClassic.World
 {
     public class MireBiome : MicroBiome
 	{
@@ -56,13 +55,13 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Lake"), colorToTile, mod.GetTexture("Worldgeneration/LakeWalls"), colorToWall, mod.GetTexture("Worldgeneration/LakeWater"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Lake").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/LakeWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/LakeWater").Value);
 			Point newOrigin = new Point(origin.X, origin.Y - 10); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //gen grass...
 			{
 				new InWorld(),				
-				new Modifiers.OnlyTiles(new ushort[]{ TileID.Grass, TileID.JungleGrass, TileID.CorruptGrass, TileID.FleshGrass }), //ensure we only replace the intended tile (in this case, grass)
+				new Modifiers.OnlyTiles(new ushort[]{ TileID.Grass, TileID.JungleGrass, TileID.CorruptGrass, TileID.CrimsonGrass }), //ensure we only replace the intended tile (in this case, grass)
 				new Modifiers.RadialDither(biomeRadius - 5, biomeRadius), //this provides the 'blending' on the edges (except the top)
 				new SetModTile(tileGrass, true, true) //actually place the tile
 			}));
@@ -125,42 +124,42 @@ namespace AAModClassic.Worldgeneration
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.Stone, WallID.EbonstoneUnsafe, WallID.CrimstoneUnsafe }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.Stone, WallID.EbonstoneUnsafe, WallID.CrimstoneUnsafe }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(StoneWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.Sandstone, WallID.CorruptSandstone, WallID.CrimsonSandstone }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.Sandstone, WallID.CorruptSandstone, WallID.CrimsonSandstone }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(SandstoneWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),
-				new Modifiers.OnlyWalls(new byte[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
+				new Modifiers.OnlyWalls(new ushort[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(HardenedSandWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(HardenedSandWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.GrassUnsafe, WallID.CorruptGrassUnsafe, WallID.CrimsonGrassUnsafe }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.GrassUnsafe, WallID.CorruptGrassUnsafe, WallID.CrimsonGrassUnsafe }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(GrassWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.JungleUnsafe, WallID.JungleUnsafe1, WallID.JungleUnsafe2, WallID.JungleUnsafe3, WallID.JungleUnsafe4 }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.JungleUnsafe, WallID.JungleUnsafe1, WallID.JungleUnsafe2, WallID.JungleUnsafe3, WallID.JungleUnsafe4 }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(JungleWall, true)
             }));
@@ -248,14 +247,14 @@ namespace AAModClassic.Worldgeneration
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[]
 			{
                 new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.LivingWood }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.LivingWood }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(BogwoodWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
                 new InWorld(),
-                new Modifiers.OnlyWalls(new byte[]{ WallID.LivingLeaf }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.LivingLeaf }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(LeafWall, true)
             }));
@@ -291,7 +290,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Lake"), colorToTile);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Lake").Value, colorToTile);
 			int genX = origin.X - (gen.width / 2);
 			int genY = origin.Y - 30;			
             gen.Generate(genX, genY, true, true);
@@ -344,7 +343,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Volcano"), colorToTile, mod.GetTexture("Worldgeneration/VolcanoWalls"), colorToWall, mod.GetTexture("Worldgeneration/VolcanoLava"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Volcano").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/VolcanoWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/VolcanoLava").Value);
             Point newOrigin = new Point(origin.X, origin.Y - 30); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
@@ -361,7 +360,7 @@ namespace AAModClassic.Worldgeneration
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //gen grass...
 			{
 				new InWorld(),				
-                new Modifiers.OnlyTiles(new ushort[]{ TileID.Grass, TileID.CorruptGrass, TileID.FleshGrass }), //ensure we only replace the intended tile (in this case, grass)
+                new Modifiers.OnlyTiles(new ushort[]{ TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass }), //ensure we only replace the intended tile (in this case, grass)
 				new Modifiers.RadialDither(biomeRadius - 5, biomeRadius), //this provides the 'blending' on the edges (except the top)
 				new SetModTile(tileGrass, true, true) //actually place the tile
 			}));
@@ -425,35 +424,35 @@ namespace AAModClassic.Worldgeneration
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.Stone, WallID.EbonstoneUnsafe, WallID.CrimstoneUnsafe }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.Stone, WallID.EbonstoneUnsafe, WallID.CrimstoneUnsafe }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(StoneWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.Sandstone, WallID.CorruptSandstone, WallID.CrimsonSandstone }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.Sandstone, WallID.CorruptSandstone, WallID.CrimsonSandstone }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(SandstoneWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(HardenedSandWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.HardenedSand, WallID.CorruptHardenedSand, WallID.CrimsonHardenedSand }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(HardenedSandWall, true)
             }));
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //Walls
 			{
 				new InWorld(),				
-                new Modifiers.OnlyWalls(new byte[]{ WallID.GrassUnsafe, WallID.CorruptGrassUnsafe, WallID.CrimsonGrassUnsafe }),
+                new Modifiers.OnlyWalls(new ushort[]{ WallID.GrassUnsafe, WallID.CorruptGrassUnsafe, WallID.CrimsonGrassUnsafe }),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new PlaceModWall(GrassWall, true)
             }));
@@ -528,7 +527,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Volcano"), colorToTile);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Volcano").Value, colorToTile);
             int genX = origin.X - (gen.width / 2);
             int genY = origin.Y - 80;		
             gen.Generate(genX, genY, true, true);						
@@ -616,8 +615,8 @@ namespace AAModClassic.Worldgeneration
             colorToTile[Color.Black] = -1; //don't touch when genning	
 
 
-            Texture2D TerraSmall = mod.GetTexture("Worldgeneration/TerrariumDelete");
-            Texture2D TerraMed = mod.GetTexture("Worldgeneration/TerrariumMedDelete");
+            Texture2D TerraSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumDelete").Value;
+            Texture2D TerraMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMedDelete").Value;
 
             if (Terrasphere == null)
             {
@@ -688,11 +687,11 @@ namespace AAModClassic.Worldgeneration
             };
 
 
-            Texture2D TerraSmall = mod.GetTexture("Worldgeneration/Terrarium");
-            Texture2D TerraMed = mod.GetTexture("Worldgeneration/TerrariumMed");
+            Texture2D TerraSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Terrarium").Value;
+            Texture2D TerraMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMed").Value;
 
-            Texture2D WallSmall = mod.GetTexture("Worldgeneration/TerrariumWalls");
-            Texture2D WallMed = mod.GetTexture("Worldgeneration/TerrariumMedWalls");
+            Texture2D WallSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumWalls").Value;
+            Texture2D WallMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMedWalls").Value;
 
             if (Terrasphere == null)
             {
@@ -748,7 +747,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/GreedNestClear"), colorToTile);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNestClear").Value, colorToTile);
             gen.Generate(origin.X, origin.Y, true, true);
 
             return true;
@@ -775,7 +774,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/GreedNest"), colorToTile, mod.GetTexture("Worldgeneration/GreedNestWalls"), colorToWall);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNest").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNestWalls").Value, colorToWall);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -955,7 +954,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1			
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Acropolis"), colorToTile, mod.GetTexture("Worldgeneration/AcropolisWalls"), colorToWall, null, mod.GetTexture("Worldgeneration/AcropolisRoof"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Acropolis").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/AcropolisWalls").Value, colorToWall, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/AcropolisRoof").Value);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -983,7 +982,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/EquinoxAltar"), colorToTile, null, null, null, mod.GetTexture("Worldgeneration/EquinoxAltarSlope"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EquinoxAltar").Value, colorToTile, null, null, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EquinoxAltarSlope").Value);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1028,7 +1027,7 @@ namespace AAModClassic.Worldgeneration
                 new Actions.SetSlope(0)
             }));
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Pit"), colorToTile, mod.GetTexture("Worldgeneration/PitWall"), colorToWall, mod.GetTexture("Worldgeneration/PitLava"), mod.GetTexture("Worldgeneration/PitSlope"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Pit").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitWall").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitLava").Value, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitSlope").Value);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1060,7 +1059,7 @@ namespace AAModClassic.Worldgeneration
                 new Actions.SetSlope(0)
             }));
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/PitConstruction"), colorToTile);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitConstruction").Value, colorToTile);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1097,7 +1096,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Parthenan"), colorToTile, mod.GetTexture("Worldgeneration/ParthenanWalls"), colorToWall);
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Parthenan").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ParthenanWalls").Value, colorToWall);
             
             gen.Generate(origin.X, origin.Y, true, true);
             WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)mod.Find<ModTile>("DataBank").Type);
@@ -1138,7 +1137,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/Ship"), colorToTile, mod.GetTexture("Worldgeneration/ShipWalls"), colorToWall, mod.GetTexture("Worldgeneration/ShipWater"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Ship").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ShipWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ShipWater").Value);
 
 			int newOriginX = origin.X - (gen.width / 2);
 			int newOriginY = origin.Y - (gen.height / 2) + 10;
@@ -1170,7 +1169,7 @@ namespace AAModClassic.Worldgeneration
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(mod.GetTexture("Worldgeneration/EnderCrystal"), colorToTile, mod.GetTexture("Worldgeneration/EnderCrystalWall"), colorToWall, null, mod.GetTexture("Worldgeneration/EnderCrystalSlope"));
+            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystal").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystalWall").Value, colorToWall, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystalSlope").Value);
 
             gen.Generate(origin.X, origin.Y, true, true);
 

@@ -15,11 +15,11 @@ using Terraria.WorldBuilding;
 using AAModClassic.Tiles;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Walls;
-using AAModClassic.Worldgeneration;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Globals;
+using AAModClassic.World;
 
 namespace AAModClassic
 {

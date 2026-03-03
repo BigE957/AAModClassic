@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Shen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -9,6 +11,18 @@ using Terraria.Utilities;
 
 namespace AAModClassic.Backgrounds
 {
+    public class ShenASkyScene : ModSceneEffect
+    {
+        public override SceneEffectPriority Priority => (SceneEffectPriority)11;
+
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ShenA>());
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            player.ManageSpecialBiomeVisuals("AAMod:ShenASky", isActive);
+        }
+    }
+
     public class ShenASky : CustomSky
     {
         public bool Active;

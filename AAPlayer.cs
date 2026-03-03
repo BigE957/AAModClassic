@@ -126,8 +126,6 @@ namespace AAModClassic
         public int CthulhuCountdown = 10800;
         public bool Leave = false;
 
-        public bool ZoneTower;
-
         public bool RadiumStars = false;
         public bool Darkmatter = false;
         #endregion
@@ -624,7 +622,6 @@ namespace AAModClassic
             ZoneRisingMoonLake = false;
             ZoneRisingSunPagoda = false;
             ZoneShip = false;
-            ZoneTower = false;
             ZoneStars = false;
             ZoneHoard = false;
             ZoneAcropolis = false;
@@ -637,56 +634,7 @@ namespace AAModClassic
 
         #region Biomes
 
-        public override void UpdateBiomes()
-        {
-            ZoneTower = Player.ZoneTowerSolar || Player.ZoneTowerNebula || Player.ZoneTowerStardust || Player.ZoneTowerVortex;
-            ZoneMire = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(Player.Center, ModContent.NPCType<Yamata>(), 5000) != -1 || BaseAI.GetNPC(Player.Center, ModContent.NPCType<YamataA>(), 5000) != -1;
-            ZoneInferno = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(Player.Center, ModContent.NPCType<Akuma>(), 5000) != -1 || BaseAI.GetNPC(Player.Center, ModContent.NPCType<AkumaA>(), 5000) != -1;
-            ZoneMush = AAWorld.mushTiles > 100;
-            Terrarium = AAWorld.terraTiles >= 1;
-            ZoneVoid = (AAWorld.voidTiles > 20 && Player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !Player.ZoneSkyHeight) || BaseAI.GetNPC(Player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(Player.Center, ModContent.NPCType<ZeroProtocol>(), 5000) != -1;
-            ZoneRisingMoonLake = AAWorld.lakeTiles >= 1;
-            ZoneRisingSunPagoda = AAWorld.pagodaTiles >= 1;
-            ZoneStars = AAWorld.Radium >= 20;
-            ZoneHoard = AAWorld.HoardTiles > 1 && !ZoneStars;
-            ZoneAcropolis = AAWorld.CloudTiles > 1;
-        }
-
-        public override void UpdateBiomeVisuals()
-        {
-            bool Underground = Player.Center.Y > Main.worldSurface * 16;
-            bool useAthena = NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
-            bool useShenA = NPC.AnyNPCs(ModContent.NPCType<ShenA>());
-            bool useShen = NPC.AnyNPCs(ModContent.NPCType<Shen>()) && !useShenA;
-            bool useAkuma = NPC.AnyNPCs(ModContent.NPCType<AkumaA>()) || AkumaAltar;
-            bool useYamata = NPC.AnyNPCs(ModContent.NPCType<YamataA>()) || YamataAltar;
-            bool useAnu = NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>());
-            bool useMire = (ZoneMire || MoonAltar) && !useYamata && !useShen && !useShenA && !useAnu;
-            bool useInferno = (ZoneInferno || SunAltar) && !useAkuma && !useShen && !useShenA && !useAnu;
-            bool useVoid = (ZoneVoid || VoidUnit) && !useShen && !useShenA && !useAnu;
-
-            Player.ManageSpecialBiomeVisuals("AAMod:AnubisSky", useAnu);
-            Player.ManageSpecialBiomeVisuals("AAMod:AthenaSky", useAthena);
-            Player.ManageSpecialBiomeVisuals("AAMod:ShenSky", useShen);
-            Player.ManageSpecialBiomeVisuals("AAMod:ShenASky", useShenA);
-            Player.ManageSpecialBiomeVisuals("AAMod:AkumaSky", useAkuma);
-            Player.ManageSpecialBiomeVisuals("AAMod:YamataSky", useYamata);
-
-            if (!Underground)
-            {
-                Player.ManageSpecialBiomeVisuals("AAMod:InfernoSky", useInferno);
-                Player.ManageSpecialBiomeVisuals("AAMod:MireSky", useMire);
-            }
-
-            if (Main.UseHeatDistortion)
-            {
-                Player.ManageSpecialBiomeVisuals("HeatDistortion", useAkuma || useInferno);
-            }
-
-            Player.ManageSpecialBiomeVisuals("AAMod:VoidSky", useVoid);
-        }
-
-        public override bool CustomBiomesMatch(Player other)
+        public bool CustomBiomesMatch(Player other)
         {
             AAPlayer modOther = other.GetModPlayer<AAPlayer>();
             return ZoneMire == modOther.ZoneMire &&
@@ -701,7 +649,7 @@ namespace AAModClassic
                 ZoneAcropolis == modOther.ZoneAcropolis;
         }
 
-        public override void CopyCustomBiomesTo(Player other)
+        public void CopyCustomBiomesTo(Player other)
         {
             AAPlayer modOther = other.GetModPlayer<AAPlayer>();
             modOther.ZoneInferno = ZoneInferno;
@@ -718,7 +666,7 @@ namespace AAModClassic
             modOther.ZoneAcropolis = ZoneAcropolis;
         }
 
-        public override void SendCustomBiomes(BinaryWriter bb)
+        public void SendCustomBiomes(BinaryWriter bb)
         {
             BitsByte zoneByte = 0;
             zoneByte[0] = ZoneInferno;
@@ -739,7 +687,7 @@ namespace AAModClassic
             bb.Write(zoneByte2);
         }
 
-        public override void ReceiveCustomBiomes(BinaryReader bb)
+        public void ReceiveCustomBiomes(BinaryReader bb)
         {
             BitsByte zoneByte = bb.ReadByte();
             ZoneInferno = zoneByte[0];
@@ -3748,24 +3696,6 @@ namespace AAModClassic
             }
 
             return base.CanConsumeAmmo(weapon, ammo);
-        }
-
-        public override Texture2D GetMapBackgroundImage()
-        {
-            if (ZoneMire || ZoneRisingMoonLake)
-            {
-                return ModContent.Request<Texture2D>("AAModClassic/Map/MireMap");
-            }
-            else if (ZoneInferno || ZoneRisingSunPagoda)
-            {
-                return ModContent.Request<Texture2D>("AAModClassic/Map/InfernoMap");
-            }
-            else if (ZoneVoid)
-            {
-                return ModContent.Request<Texture2D>("AAModClassic/Map/VoidMap");
-            }
-
-            return null;
         }
 
         #region Highest Damage check

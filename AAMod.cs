@@ -1,7 +1,18 @@
+using AAModClassic;
+using AAModClassic.Backgrounds;
+using AAModClassic.Base.BaseMod;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base.NPCs;
+using AAModClassic.Base.Projectiles;
+using AAModClassic.CrossMod;
+using AAModClassic.Globals;
 using AAModClassic.Items.Dev.Invoker;
+using AAModClassic.UI;
+using AAModClassic.UI.Core;
 using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,16 +28,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
-using ReLogic.Content;
-using AAModClassic.Backgrounds;
-using AAModClassic.UI;
-using AAModClassic.Globals;
-using AAModClassic.Base.NPCs;
-using AAModClassic.Base.Projectiles;
-using AAModClassic.UI.Core;
-using AAModClassic.CrossMod;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Base.BaseMod;
 
 namespace AAModClassic
 {
@@ -55,19 +56,6 @@ namespace AAModClassic
         public static IDictionary<string, Texture2D> Textures = null;
         public static Dictionary<string, Texture2D> precachedTextures = new Dictionary<string, Texture2D>();
         public static string BLANK_TEX = "AAMod/BlankTex";
-
-        // UI
-        internal UserInterface TerratoolInterface;
-        internal TerratoolTUI TerratoolTState;
-        internal TerratoolCUI TerratoolCState;
-        internal TerratoolAUI TerratoolAState;
-        internal TerratoolYUI TerratoolYState;
-        internal TerratoolZUI TerratoolZState;
-        internal TerratoolSUI TerratoolSState;
-        internal TerratoolKipUI TerratoolKipState;
-        internal TerratoolLizUI TerratoolLizState;
-        internal TerratoolGroxUI TerratoolGroxState;
-        internal TerratoolEXUI TerratoolEXState;
 
         public static SpriteFont fontMouseText;
 
@@ -265,13 +253,13 @@ namespace AAModClassic
             if (Main.rand == null)
                 Main.rand = new UnifiedRandom();
 
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorLivingFlame")).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorLivingFlame").UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorVortex")).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorLivingFlame").UseColor(0.66f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorHades").UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
+            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.VortexDye)).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(0.66f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f));
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
 
             Rift = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("Rifthotkey"), "C");
             RiftReturn = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("RiftReturnhotkey"), "X");
@@ -291,29 +279,7 @@ namespace AAModClassic
 
         public void LoadClient()
         {
-            TerratoolInterface = new UserInterface();
-            TerratoolTState = new TerratoolTUI();
-            TerratoolTState.Activate();
-            TerratoolCState = new TerratoolCUI();
-            TerratoolCState.Activate();
-            TerratoolAState = new TerratoolAUI();
-            TerratoolAState.Activate();
-            TerratoolYState = new TerratoolYUI();
-            TerratoolYState.Activate();
-            TerratoolZState = new TerratoolZUI();
-            TerratoolZState.Activate();
-            TerratoolSState = new TerratoolSUI();
-            TerratoolSState.Activate();
-            TerratoolKipState = new TerratoolKipUI();
-            TerratoolKipState.Activate();
-            TerratoolLizState = new TerratoolLizUI();
-            TerratoolLizState.Activate();
-            TerratoolGroxState = new TerratoolGroxUI();
-            TerratoolGroxState.Activate();
-            TerratoolEXState = new TerratoolEXUI();
-            TerratoolEXState.Activate();
-
-            Ref<Effect> screenRef = new Ref<Effect>(ModContent.Request<Effect>("Effects/Shockwave").Value);
+            Asset<Effect> screenRef = ModContent.Request<Effect>("Effects/Shockwave");
             Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
             Filters.Scene["Shockwave"].Load();
 
@@ -462,53 +428,6 @@ namespace AAModClassic
         public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = new Dictionary<int, Asset<Texture2D>>();
         public Dictionary<int, Asset<Texture2D>> vanillaBGBackups = new Dictionary<int, Asset<Texture2D>>();
 
-        public static bool AAloadedOnly = true;
-
-        public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
-		{
-            LuckyCheckProgress();
-            foreach(Mod mo in ModLoader.Mods)
-            {
-                if(mo.Name != "ModLoader" && mo.Name != "AAMod" && mo.Name != "AAMod")
-                {
-                    AAloadedOnly = false;
-                }
-            }
-			Config.SaveConfig();
-		}
-
-        private void LuckyCheckProgress()
-        {
-            Config.LuckyOre.Clear();
-            Config.LuckyPotion.Clear();
-            Config.ListRareNpc.Clear();
-            Item item = new Item();
-            for (int i = -48; i < ItemLoader.ItemCount; i++)
-			{
-				item.netDefaults(i);
-                if(item.createTile > TileID.Dirt && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != TileID.FakeContainers && item.createTile != TileID.FakeContainers2)
-                {
-                    Config.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
-                }
-                if(item.buffType > 0 && item.buffType != BuffID.WellFed && item.buffTime > 0 && item.type > ItemID.Celeb2)
-                {
-                    Config.LuckyPotion.Add(item.type, item.value);
-                }
-            }
-            NPC npc = new NPC();
-            for (int i = -65; i < NPCLoader.NPCCount; i++)
-			{
-				if (i != 0)
-				{
-					npc.SetDefaults(i);
-                }
-                if (npc.rarity >= 1)
-                {
-                    Config.ListRareNpc.Add(i);
-                }
-            }
-        }
-
         public void ReplaceItemTexture(int id, string texturePath)
         {
             vanillaTextureBackups.Add(id, TextureAssets.Item[id]);
@@ -569,8 +488,6 @@ namespace AAModClassic
 
         public override void Unload()
         {
-            AAMenuset = false;
-
             if (!Main.dedServ)
             {
                 CleanAAmenu();
@@ -627,363 +544,11 @@ namespace AAModClassic
             }
         }
 
-        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
-        {
-            AARecipes.AddRecipeGroups();
-        }
-
-        public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
-        {
-            AARecipes.AddRecipes();
-        }
-
-        private static GameTime lastUpdateUIGameTime;
-
-        public override void UpdateUI(GameTime gameTime)/* tModPorter Note: Removed. Use ModSystem.UpdateUI */
-        {
-            lastUpdateUIGameTime = gameTime;
-
-            if (TerratoolInterface?.CurrentState != null)
-            {
-                TerratoolInterface.Update(gameTime);
-            }
-        }
-
-        public override void PostUpdateInput()/* tModPorter Note: Removed. Use ModSystem.PostUpdateInput */
-		{
-            if (!isFullyReady)
-            {
-                return;
-            }
-            if (Main.gameMenu && Main.menuMode >= 0)
-            {
-                if(Main.menuMode == 0)
-                {
-                    AAMenuset = true;
-                }
-                if(Main.menuMode >= 10002 && Main.menuMode <= 10006)
-                {
-                    AAMenuset = false;
-                }
-                if(AAConfigClient.Instance != null && AAConfigClient.Instance.AAStyleMainPage && (Main.bgStyle == 1 || Main.bgStyle == 0) && AAMenuset)
-                {
-                    AAMenuReset = true;
-                    WorldGen.setBG(0, 6);
-                    switch(Main.moonPhase % 3)
-                    {
-                        case 0:
-                            Main.numClouds = 10;
-                            if(Main.LogoB <= 255)
-                            {
-                                TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
-                            }
-                            if(Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
-                            {
-                                TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
-                            }
-                            TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-                            if(SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-                            if(SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
-
-                            if(Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
-                            {
-                                Main.treeBGSet1[0] = 173;
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
-                            }
-                            break;
-                        case 1:
-                            Main.numClouds = 0;
-                            if(Main.dayTime)
-                            {
-                                TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
-                            }
-                            else
-                            {
-                                if(SkyManager.Instance["AAMod:MireSky"] != null) SkyManager.Instance.Activate("AAMod:MireSky",default, new object[0]);
-                            }
-                            if(Main.LogoB <= 255)
-                            {
-                                TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
-                            }
-                            if(Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
-                            {
-                                TextureAssets.Logo2 = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
-                            }
-                            if(Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
-                            {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoSky");
-                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
-                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
-                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
-                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireBG");
-                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG2");
-                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
-                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
-                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
-                            }
-                            if(!Main.dayTime && (Main.bgAlphaFarBackLayer[2] < 0.10f || Main.bgAlphaFarBackLayer[2] == 1f))
-                            {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataStars");
-                            }
-                            break;
-                        case 2:
-                            Main.numClouds = 0;
-                            if(Main.LogoB <= 255)
-                            {
-                                TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
-                            }
-                            if(Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
-                            {
-                                TextureAssets.Logo2 = ModContent.Request<Texture2D>("UI/LogoVoid");
-                            }
-                            if(SkyManager.Instance["AAMod:VoidSky"] != null) SkyManager.Instance.Activate("AAMod:VoidSky",default, new object[0]);
-                            if(Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
-                            {
-                                TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                                TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
-                            }
-                            break;
-                        default:
-                            goto case 0;
-                    }
-                }
-                else if(AAMenuReset)
-                {
-                    if(SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-                    if(SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
-                    TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-                    TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
-                    TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
-                    AAMenuReset = false;
-                    TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-                    TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-                    TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-                    TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-                    TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-                    TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-                    TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-                    TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-                    TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
-                }
-            }
-            else if(AAMenuReset)
-            {
-                AAMenuReset = false;
-                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-                if(SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-                if(SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
-                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
-            }
-		}
-        public bool AAMenuset = false;
-        public bool AAMenuReset = true;
-
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)/* tModPorter Note: Removed. Use ModSystem.ModifyInterfaceLayers */
-        {
-            int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
-            if (wireSelectionLayerIndex != -1)
-            {
-                layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
-                "AAMod: Radial UIs",
-                delegate
-                {
-                    if (TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
-                    {
-                        TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
-                    }
-
-                    return true;
-                },
-                InterfaceScaleType.UI));
-            }
-        }
+        
 
         public static Texture2D GetGlowmask(string Name)
         {
             return ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + Name + "_Glow").Value;
-        }
-
-        public override void UpdateMusic(ref int music, ref SceneEffectPriority priority)/* tModPorter Note: Removed. Use ModSceneEffect.Music and .Priority, aswell as ModSceneEffect.IsSceneEffectActive */
-        {
-            if (Main.gameMenu)
-                return;
-
-            if (priority > SceneEffectPriority.Environment)
-                return;
-
-            Player player = Main.LocalPlayer;
-
-            if (!player.active)
-                return;
-
-            AAPlayer Ancients = player.GetModPlayer<AAPlayer>();
-
-            bool zoneShen = (Ancients.ZoneRisingSunPagoda || Ancients.ZoneRisingMoonLake) && !AAWorld.downedShen;
-
-            if (zoneShen && AAWorld.downedAllAncients)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/SleepingDragon");
-
-                return;
-            }
-
-            if (Ancients.ZoneVoid && AAWorld.downedZero && !player.ZoneRockLayerHeight)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/SleepingGiant");
-
-                return;
-            }
-
-            if (Ancients.ZoneHoard)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Hoard");
-                return;
-            }
-
-            if (Ancients.ZoneAcropolis)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Acropolis");
-                return;
-            }
-
-            if (Ancients.ZoneVoid)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Void");
-
-
-                if (NPC.downedMoonlord && !AAWorld.downedZero)
-                {
-                    music = MusicLoader.GetMusicSlot("Sounds/Music/VoidButNowItsSpooky");
-
-                    return;
-                }
-
-                return;
-            }
-
-            if (Ancients.ZoneStars)
-            {
-                priority = SceneEffectPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Stars");
-
-                return;
-            }
-
-            /*if (Ancients.ZoneShip)
-            {
-                priority = MusicPriority.Event;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Ship");
-
-                return;
-            }*/
-
-            if (Ancients.ZoneInferno)
-            {
-                if (player.ZoneRockLayerHeight)
-                {
-                    priority = SceneEffectPriority.BiomeHigh;
-                    music = MusicLoader.GetMusicSlot("Sounds/Music/InfernoUnderground");
-                    return;
-                }
-                else
-                {
-                    if (!Main.dayTime)
-                    {
-                        priority = SceneEffectPriority.BiomeHigh;
-                        music = MusicLoader.GetMusicSlot("Sounds/Music/IN");
-                        return;
-                    }
-                    if (Ancients.ZoneRisingSunPagoda && NPC.downedMoonlord && !AAWorld.downedAkuma)
-                    {
-                        priority = SceneEffectPriority.BiomeHigh;
-                        music = MusicLoader.GetMusicSlot("Sounds/Music/AkumaShrine");
-
-                        return;
-                    }
-                    priority = SceneEffectPriority.BiomeHigh;
-                    music = MusicLoader.GetMusicSlot("Sounds/Music/InfernoSurface");
-
-                    return;
-                }
-            }
-
-            if (Ancients.ZoneMire)
-            {
-                if (player.ZoneRockLayerHeight)
-                {
-                    priority = SceneEffectPriority.BiomeHigh;
-                    music = MusicLoader.GetMusicSlot("Sounds/Music/MireUnderground");
-
-                    return;
-                }
-                else
-                {
-                    if (Main.dayTime)
-                    {
-                        priority = SceneEffectPriority.BiomeHigh;
-                        music = MusicLoader.GetMusicSlot("Sounds/Music/DM");
-                        return;
-                    }
-
-                    if (Ancients.ZoneRisingMoonLake && NPC.downedMoonlord && !AAWorld.downedYamata)
-                    {
-                        priority = SceneEffectPriority.BiomeHigh;
-                        music = MusicLoader.GetMusicSlot("Sounds/Music/Shrines");
-                        return;
-                    }
-
-                    priority = SceneEffectPriority.BiomeHigh;
-                    music = MusicLoader.GetMusicSlot("Sounds/Music/MireSurface");
-
-                    return;
-                }
-            }
-
-            if (Ancients.Terrarium)
-            {
-
-                priority = SceneEffectPriority.BiomeHigh;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Terrarium");
-
-                return;
-            }
-
-            if (Ancients.ZoneMush)
-            {
-
-                priority = SceneEffectPriority.BiomeMedium;
-                music = MusicLoader.GetMusicSlot("Sounds/Music/Shroom");
-
-                return;
-            }
         }
 
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)
@@ -1141,4 +706,294 @@ namespace AAModClassic
         ProjectileHostility,
         SyncAI
     }
+}
+
+public class AAModSystem : ModSystem
+{
+    //AA Menu
+    public bool AAMenuset = false;
+    public bool AAMenuReset = true;
+
+    // UI
+    internal UserInterface TerratoolInterface;
+    internal TerratoolTUI TerratoolTState;
+    internal TerratoolCUI TerratoolCState;
+    internal TerratoolAUI TerratoolAState;
+    internal TerratoolYUI TerratoolYState;
+    internal TerratoolZUI TerratoolZState;
+    internal TerratoolSUI TerratoolSState;
+    internal TerratoolKipUI TerratoolKipState;
+    internal TerratoolLizUI TerratoolLizState;
+    internal TerratoolGroxUI TerratoolGroxState;
+    internal TerratoolEXUI TerratoolEXState;
+
+    public static bool AAloadedOnly = true;
+
+    public override void Load()
+    {
+        TerratoolInterface = new UserInterface();
+        TerratoolTState = new TerratoolTUI();
+        TerratoolTState.Activate();
+        TerratoolCState = new TerratoolCUI();
+        TerratoolCState.Activate();
+        TerratoolAState = new TerratoolAUI();
+        TerratoolAState.Activate();
+        TerratoolYState = new TerratoolYUI();
+        TerratoolYState.Activate();
+        TerratoolZState = new TerratoolZUI();
+        TerratoolZState.Activate();
+        TerratoolSState = new TerratoolSUI();
+        TerratoolSState.Activate();
+        TerratoolKipState = new TerratoolKipUI();
+        TerratoolKipState.Activate();
+        TerratoolLizState = new TerratoolLizUI();
+        TerratoolLizState.Activate();
+        TerratoolGroxState = new TerratoolGroxUI();
+        TerratoolGroxState.Activate();
+        TerratoolEXState = new TerratoolEXUI();
+        TerratoolEXState.Activate();
+    }
+
+    public override void Unload()
+    {
+        AAMenuset = false;
+    }
+
+    public override void AddRecipeGroups()
+    {
+        AARecipes.AddRecipeGroups();
+    }
+
+    public override void AddRecipes()
+    {
+        AARecipes.AddRecipes();
+    }
+
+    public override void PostAddRecipes()
+    {
+        LuckyCheckProgress();
+        foreach (Mod mo in ModLoader.Mods)
+        {
+            if (mo.Name != "ModLoader" && mo.Name != "AAMod" && mo.Name != "AAMod")
+            {
+                AAloadedOnly = false;
+            }
+        }
+        Config.SaveConfig();
+    }
+
+    private void LuckyCheckProgress()
+    {
+        Config.LuckyOre.Clear();
+        Config.LuckyPotion.Clear();
+        Config.ListRareNpc.Clear();
+        Item item = new Item();
+        for (int i = -48; i < ItemLoader.ItemCount; i++)
+        {
+            item.netDefaults(i);
+            if (item.createTile > TileID.Dirt && Main.tileOreFinderPriority[item.createTile] > 0 && !Main.tileContainer[item.createTile] && item.createTile != TileID.FakeContainers && item.createTile != TileID.FakeContainers2)
+            {
+                Config.LuckyOre.Add(item.type, Main.tileOreFinderPriority[item.createTile]);
+            }
+            if (item.buffType > 0 && item.buffType != BuffID.WellFed && item.buffTime > 0 && item.type > ItemID.Celeb2)
+            {
+                Config.LuckyPotion.Add(item.type, item.value);
+            }
+        }
+        NPC npc = new NPC();
+        for (int i = -65; i < NPCLoader.NPCCount; i++)
+        {
+            if (i != 0)
+            {
+                npc.SetDefaults(i);
+            }
+            if (npc.rarity >= 1)
+            {
+                Config.ListRareNpc.Add(i);
+            }
+        }
+    }
+
+    public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)/* tModPorter Note: Removed. Use ModSystem.ModifyInterfaceLayers */
+    {
+        int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
+        if (wireSelectionLayerIndex != -1)
+        {
+            layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
+            "AAMod: Radial UIs",
+            delegate
+            {
+                if (TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
+                {
+                    TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
+                }
+
+                return true;
+            },
+            InterfaceScaleType.UI));
+        }
+    }
+
+    private static GameTime lastUpdateUIGameTime;
+
+    public override void UpdateUI(GameTime gameTime)/* tModPorter Note: Removed. Use ModSystem.UpdateUI */
+    {
+        lastUpdateUIGameTime = gameTime;
+
+        if (TerratoolInterface?.CurrentState != null)
+        {
+            TerratoolInterface.Update(gameTime);
+        }
+    }
+
+    public override void PostUpdateInput()/* tModPorter Note: Removed. Use ModSystem.PostUpdateInput */
+    {
+        if (!AAMod.isFullyReady)
+        {
+            return;
+        }
+        if (Main.gameMenu && Main.menuMode >= 0)
+        {
+            if (Main.menuMode == 0)
+            {
+                AAMenuset = true;
+            }
+            if (Main.menuMode >= 10002 && Main.menuMode <= 10006)
+            {
+                AAMenuset = false;
+            }
+            if (AAConfigClient.Instance != null && AAConfigClient.Instance.AAStyleMainPage && (Main.bgStyle == 1 || Main.bgStyle == 0) && AAMenuset)
+            {
+                AAMenuReset = true;
+                WorldGen.setBG(0, 6);
+                switch (Main.moonPhase % 3)
+                {
+                    case 0:
+                        Main.numClouds = 10;
+                        if (Main.LogoB <= 255)
+                        {
+                            TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
+                        }
+                        if (Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
+                        {
+                            TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
+                        }
+                        TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
+                        if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
+                        if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
+
+                        if (Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
+                        {
+                            Main.treeBGSet1[0] = 173;
+                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
+                            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
+                            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
+                            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
+                            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
+                            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
+                            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
+                            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
+                            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+                        }
+                        break;
+                    case 1:
+                        Main.numClouds = 0;
+                        if (Main.dayTime)
+                        {
+                            TextureAssets.Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
+                        }
+                        else
+                        {
+                            if (SkyManager.Instance["AAMod:MireSky"] != null) SkyManager.Instance.Activate("AAMod:MireSky", default, new object[0]);
+                        }
+                        if (Main.LogoB <= 255)
+                        {
+                            TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
+                        }
+                        if (Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
+                        {
+                            TextureAssets.Logo2 = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
+                        }
+                        if (Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
+                        {
+                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoSky");
+                            TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                            TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                            TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/InfernoBG");
+                            TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireBG");
+                            TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG2");
+                            TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
+                            TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
+                            TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/MireFG1");
+                        }
+                        if (!Main.dayTime && (Main.bgAlphaFarBackLayer[2] < 0.10f || Main.bgAlphaFarBackLayer[2] == 1f))
+                        {
+                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataStars");
+                        }
+                        break;
+                    case 2:
+                        Main.numClouds = 0;
+                        if (Main.LogoB <= 255)
+                        {
+                            TextureAssets.Logo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
+                        }
+                        if (Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
+                        {
+                            TextureAssets.Logo2 = ModContent.Request<Texture2D>("UI/LogoVoid");
+                        }
+                        if (SkyManager.Instance["AAMod:VoidSky"] != null) SkyManager.Instance.Activate("AAMod:VoidSky", default, new object[0]);
+                        if (Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
+                        {
+                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[171] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[172] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[173] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[24] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[25] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[56] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[57] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                            TextureAssets.Background[58] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+                        }
+                        break;
+                    default:
+                        goto case 0;
+                }
+            }
+            else if (AAMenuReset)
+            {
+                if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
+                if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
+                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
+                TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
+                TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
+                AAMenuReset = false;
+                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
+                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
+                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
+                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
+                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
+                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
+                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
+                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
+                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+            }
+        }
+        else if (AAMenuReset)
+        {
+            AAMenuReset = false;
+            TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
+            if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
+            if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
+            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
+            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
+            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
+            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
+            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
+            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
+            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
+            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
+            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+        }
+    }
+
 }

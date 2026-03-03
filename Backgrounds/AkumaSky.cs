@@ -1,6 +1,7 @@
-﻿using System;
+﻿using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
@@ -10,6 +11,17 @@ using Terraria.Utilities;
 
 namespace AAModClassic.Backgrounds
 {
+    public class AkumaSkyScene : ModSceneEffect
+    {
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AkumaA>()) || player.GetModPlayer<AAPlayer>().AkumaAltar;
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            player.ManageSpecialBiomeVisuals("AAMod:AkumaSky", isActive);
+            player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
+        }
+    }
+
     public class AkumaSky : CustomSky
     {
         private struct Meteor
@@ -69,9 +81,9 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = mod.GetTexture("Backgrounds/AkumaSun");
-            Texture2D MeteorTexture = mod.GetTexture("Backgrounds/AkumaAMeteor");
-            Texture2D SkyTex = mod.GetTexture("Backgrounds/SkyTex");
+            Texture2D PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value;
+            Texture2D MeteorTexture = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value;
+            Texture2D SkyTex = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value;
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

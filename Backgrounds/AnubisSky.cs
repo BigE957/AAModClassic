@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
@@ -10,6 +12,16 @@ using Terraria.Utilities;
 
 namespace AAModClassic.Backgrounds
 {
+    public class AnubisSkyScene : ModSceneEffect
+    {
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>());
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            player.ManageSpecialBiomeVisuals("AAMod:AnubisSky", isActive);
+        }
+    }
+
     public class AnubisSky : CustomSky
     {
         public bool Active;

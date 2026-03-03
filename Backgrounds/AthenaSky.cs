@@ -1,18 +1,29 @@
-﻿using System;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
-using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria.Utilities;
 
 namespace AAModClassic.Backgrounds
 {
+    public class AthenaSkyScene : ModSceneEffect
+    {
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            player.ManageSpecialBiomeVisuals("AAMod:AthenaSky", isActive);
+        }
+    }
+
     public class AthenaSky : CustomSky
     {
         private readonly UnifiedRandom random = new UnifiedRandom();

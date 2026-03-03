@@ -10,10 +10,10 @@ namespace AAModClassic.Items.Armor.Paints
 	{
 		public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Terra Face Paint");
-            /* Tooltip.SetDefault(@"42% increased minion damage
+			// DisplayName.SetDefault("Terra Face Paint");
+			/* Tooltip.SetDefault(@"42% increased minion damage
 +120 mana"); */
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true
+			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
 		public override void SetDefaults()
