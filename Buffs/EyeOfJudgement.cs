@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -11,7 +12,7 @@ namespace AAModClassic.Buffs
 			/* Description.SetDefault(@"Eye of Judgement is protecting you
 Damage and speed are increased"); */
 			Main.debuff[Type] = false;
-			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = true;
+			BuffID.Sets.NurseCannotRemoveDebuff[Type] = false;
         }
 		
 		public override void Update(Player player, ref int buffIndex)
@@ -24,7 +25,7 @@ Damage and speed are increased"); */
 			player.moveSpeed += 0.25f;
 			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EyeOfJudgement").Type] <= 0)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y-90, 0f, 0f, Mod.Find<ModProjectile>("EyeOfJudgement").Type, 100, 0, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y-90, 0f, 0f, Mod.Find<ModProjectile>("EyeOfJudgement").Type, 100, 0, player.whoAmI);
 			}
 		}
 	}

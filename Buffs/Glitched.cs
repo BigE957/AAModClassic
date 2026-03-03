@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -11,9 +12,9 @@ namespace AAModClassic.Buffs
 			// Description.SetDefault("Your head is like 10 feet in front of you");
 			Main.persistentBuff[Type] = true;
 			Main.meleeBuff[Type] = true;
-			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = false;
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
 
-		}
+        }
 
 
         public override void Update(Player player, ref int index)

@@ -1,25 +1,26 @@
-using System.IO;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.Tiles;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Tiles.Ore;
+using AAModClassic.Walls;
+using AAModClassic.World;
+using Microsoft.Xna.Framework;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.Chat;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.GameContent.Generation;
+using Terraria.ID;
+using Terraria.IO;
+using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
-using Terraria.Localization;
 using Terraria.WorldBuilding;
-using AAModClassic.Tiles;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.Walls;
-using AAModClassic.Tiles.Ore;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.Globals;
-using AAModClassic.World;
 
 namespace AAModClassic
 {
@@ -292,31 +293,6 @@ namespace AAModClassic
             if (WormActive) downed.Add("WormA");
             if (StarActive) downed.Add("StarA");
             if (GravActive) downed.Add("GravA");
-
-            return new TagCompound {
-                {"downed", downed},
-				{"MCenter", MireCenter },
-				{"ICenter", InfernoCenter },
-                {"squid1", squid1},
-                {"squid2", squid2},
-                {"squid3", squid3},
-                {"squid4", squid4},
-                {"squid5", squid5},
-                {"squid6", squid6},
-                {"squid7", squid7},
-                {"squid8", squid8},
-                {"squid9", squid9},
-                {"squid10", squid10},
-                {"squid11", squid11},
-                {"squid12", squid12},
-                {"squid13", squid13},
-                {"squid14", squid14},
-                {"squid15", squid15},
-                {"squid16", squid16},
-                {"Bunny", RabbitKills},
-                {"Egg", SmashDragonEgg},
-                {"Pod", SmashHydraPod}
-            };
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -588,23 +564,23 @@ namespace AAModClassic
             int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
             if(shiniesIndex > -1)
             {
-                tasks.Insert(shiniesIndex + 1, new PassLegacy("Prisms", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 1, new PassLegacy("Prisms", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     GenPrisms(progress);
                 }));
-                tasks.Insert(shiniesIndex + 2, new PassLegacy("Abyssium", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 2, new PassLegacy("Abyssium", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     GenAbyssium();
                 }));
-                tasks.Insert(shiniesIndex + 3, new PassLegacy("Incinerite", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 3, new PassLegacy("Incinerite", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     GenIncinerite();
                 }));
-                tasks.Insert(shiniesIndex + 4, new PassLegacy("Everleaf", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 4, new PassLegacy("Everleaf", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     GenEverleaf();
                 }));
-                tasks.Insert(shiniesIndex + 5, new PassLegacy("Relic", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 5, new PassLegacy("Relic", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     GenRelicOre();
                 }));
@@ -613,7 +589,7 @@ namespace AAModClassic
             int ChaosIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if(ChaosIndex > -1)
             {
-                tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress)
+                tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     MireAndInferno(progress);
                 }));
@@ -624,7 +600,7 @@ namespace AAModClassic
 
             if (shiniesIndex1 > -1)
             {
-                tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress)
+                tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ThePitTeaser(progress);
                 }));
@@ -634,42 +610,42 @@ namespace AAModClassic
             if(shiniesIndex2 > -1)
             {
 
-                tasks.Insert(shiniesIndex2, new PassLegacy("Ender", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2, new PassLegacy("Ender", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EnderShrine();
                 }));
 
-                tasks.Insert(shiniesIndex2 + 1, new PassLegacy("LivingBogwoodConvert", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 1, new PassLegacy("LivingBogwoodConvert", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     BogwoodConvert(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Hoard", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Hoard", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Hoard(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Terrarium", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Terrarium(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Acropolis", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Acropolis(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Void Islands", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     VoidIslands(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Altars", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Altars(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Equinox", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
                 }));
@@ -678,7 +654,7 @@ namespace AAModClassic
             int DungeonChests = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Dungeon"));
             if (DungeonChests >= 0)
             {
-                tasks.Insert(DungeonChests + 1, new PassLegacy("InfernoChest", delegate (GenerationProgress progress)
+                tasks.Insert(DungeonChests + 1, new PassLegacy("InfernoChest", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     bool placed = false;
                     int Minimum = 50;
@@ -734,7 +710,7 @@ namespace AAModClassic
                     }
                 }));
 
-                tasks.Insert(DungeonChests + 2, new PassLegacy("MireChest", delegate (GenerationProgress progress)
+                tasks.Insert(DungeonChests + 2, new PassLegacy("MireChest", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     bool placed = false;
                     int Minimum = 50;
@@ -791,7 +767,7 @@ namespace AAModClassic
                 }));
 
 
-                tasks.Insert(DungeonChests + 3, new PassLegacy("VoidChest", delegate (GenerationProgress progress)
+                tasks.Insert(DungeonChests + 3, new PassLegacy("VoidChest", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     bool placed = false;
                     int Minimum = 50;
@@ -1209,7 +1185,7 @@ namespace AAModClassic
                 {
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(Main.maxTilesX / 2, Main.maxTilesY / 2), -1)];
                     Vector2 spawnpoint = player.Center - new Vector2(250, 200);
-                    int Seraph = NPC.NewNPC((int)spawnpoint.X, (int)spawnpoint.Y, ModContent.NPCType<SeraphHerald>());
+                    int Seraph = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnpoint.X, (int)spawnpoint.Y, ModContent.NPCType<SeraphHerald>());
                     NPC Seraph1 = Main.npc[Seraph];
                     for (int i = 0; i < 5; i++)
                     {
@@ -1221,7 +1197,7 @@ namespace AAModClassic
 
             if (!Main.dayTime)
             {
-                if (!Main.fastForwardTime/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
+                if (!Main.IsFastForwardingTime()/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
                 {
                     if (Main.time == 1 && !WorldGen.spawnEye)
                     {
@@ -1251,7 +1227,7 @@ namespace AAModClassic
                                     spawnGrips = true;
                                     if (Main.netMode == NetmodeID.SinglePlayer)
                                     {
-                                        Main.NewText(Lang.BossSummonsInfo("GripsAwoken"), 50, 255, 130, false);
+                                        Main.NewText(Lang.BossSummonsInfo("GripsAwoken"), 50, 255, 130);
                                     }
                                     else if (Main.netMode == NetmodeID.Server)
                                     {
@@ -1851,19 +1827,19 @@ namespace AAModClassic
                         {
                             if (wall == WallID.Mushroom)
                             {
-                                Main.tile[k, l].TileType = WallID.Jungle;
+                                Main.tile[k, l].WallType = WallID.Jungle;
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
                             else if (wall == WallID.MushroomUnsafe)
                             {
-                                Main.tile[k, l].TileType = WallID.JungleUnsafe;
+                                Main.tile[k, l].WallType = WallID.JungleUnsafe;
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
                             else if (wall == ModContent.WallType<Mushwall>())
                             {
-                                Main.tile[k, l].TileType = WallID.Grass;
+                                Main.tile[k, l].WallType = WallID.Grass;
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }

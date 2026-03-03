@@ -17,7 +17,6 @@ namespace AAModClassic.Items.Armor.Assassin
             Projectile.hostile = false;
 			Projectile.timeLeft = 1200;
 			Projectile.penetrate = 1;
-            Projectile.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Projectile.DamageType = DamageClass.Ranged;
 			AIType = ProjectileID.ShadowFlameKnife;
 		}

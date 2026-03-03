@@ -1,5 +1,6 @@
 using AAModClassic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -13,7 +14,7 @@ namespace AAModClassic.Buffs
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = false;
-			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

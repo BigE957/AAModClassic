@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
+using Terraria.DataStructures;
 
 namespace AAModClassic.Globals
 {
@@ -64,13 +65,13 @@ namespace AAModClassic.Globals
 			{
 				if (setDefMinionDamage)
 				{
-					DefMinionDamageMultiply = Main.player[projectile.owner].GetDamage(DamageClass.Summon);
+					DefMinionDamageMultiply = Main.player[projectile.owner].GetDamage(DamageClass.Summon).Flat;
 					DefMinionDamage = (int)(projectile.damage / DefMinionDamageMultiply);
 					setDefMinionDamage = false;
 				}
-				if (Main.player[projectile.owner].GetDamage(DamageClass.Summon) != DefMinionDamageMultiply)
+				if (Main.player[projectile.owner].GetDamage(DamageClass.Summon).Flat != DefMinionDamageMultiply)
 				{
-					int damage = (int)(DefMinionDamage * (Main.player[projectile.owner].GetDamage(DamageClass.Summon)));
+					int damage = (int)(DefMinionDamage * (Main.player[projectile.owner].GetDamage(DamageClass.Summon)).Flat);
                     if(damage <= 0) damage = 1;
 					projectile.damage = damage;
 				}
@@ -230,14 +231,16 @@ namespace AAModClassic.Globals
                                 tileY = 0;
                             }
                         }
-                        while(itemtype == 0) {PlayerLoader.CatchFish(Main.player[projectile.owner], Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem], int.MaxValue, liquidtype, int.MaxValue, WorldHeightType, 0, ref itemtype, ref junk);}
+                        while(itemtype == 0) {
+                            PlayerLoader.CatchFish(Main.player[projectile.owner], Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem], int.MaxValue, liquidtype, int.MaxValue, WorldHeightType, 0, ref itemtype, ref junk);
+                        }
                         item.SetDefaults(itemtype, false);
                         ItemLoader.CaughtFishStack(item);
 						item.newAndShiny = true;
-                        Item CreatItem = Main.player[projectile.owner].GetItem(projectile.owner, item, false, false);
+                        Item CreatItem = Main.player[projectile.owner].GetItem(projectile.owner, item, new());
                         if (CreatItem.stack > 0)
                         {
-                            int number = Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, item.type, 1, false, 0, true, false);
+                            int number = Item.NewItem(projectile.GetSource_FromThis(), (int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, item.type, 1, false, 0, true, false);
                             if (Main.netMode == NetmodeID.MultiplayerClient)
                             {
                                 NetMessage.SendData(MessageID.SyncItem, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
@@ -248,7 +251,7 @@ namespace AAModClassic.Globals
                             item.position.X = projectile.Center.X - item.width / 2;
                             item.position.Y = projectile.Center.Y - item.height / 2;
                             item.active = true;
-                            ItemText.NewText(item, 0, false, false);
+                            PopupText.NewText(PopupTextContext.RegularItemPickup, item, 0, false, false);
                         }
                     }
                 }
@@ -375,8 +378,7 @@ namespace AAModClassic.Globals
 			num10 = num7 / num10;
 			num8 *= num10;
 			num9 *= num10;
-			int soul = Projectile.NewProjectile(Position.X, Position.Y, num8, num9, 356, num, 0f, projectile.owner, num6, 0f);
-            Main.projectile[soul].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			int soul = Projectile.NewProjectile(projectile.GetSource_FromThis(), Position.X, Position.Y, num8, num9, 356, num, 0f, projectile.owner, num6, 0f);
             Main.projectile[soul].minion = true;
 		}
         public Vector2 reflectvelocity = Vector2.Zero;

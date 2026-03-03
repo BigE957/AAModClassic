@@ -31,8 +31,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Anubis");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AnubisBag").Type;
+            Music = MusicLoader.GetMusicSlot("AAModMusic/Sounds/Music/Anubis");
+            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AnubisBag").Type;
             NPC.value = Item.sellPrice(0, 1, 0, 0);
         }
 
@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
             NPC.damage = (int)(NPC.damage * 0.85f);
         }
 
@@ -126,7 +126,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 {
                     for (int m = 0; m < LocustCount; m++)
                     {
-                        int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Locust").Type, 0);
+                        int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Locust").Type, 0);
                         Main.npc[npcID].Center = NPC.Center;
                         Main.npc[npcID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                         Main.npc[npcID].velocity *= 8f;
@@ -221,35 +221,35 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         {
                             if (NPC.life < NPC.lifeMax / 3)
                             {
-                                int a = Projectile.NewProjectile(NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
                                 Main.npc[a].Center = NPC.Center;
-                                int b = Projectile.NewProjectile(NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
                                 Main.npc[b].Center = NPC.Center;
-                                int c = Projectile.NewProjectile(NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X, NPC.Center.Y - 200);
+                                int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X, NPC.Center.Y - 200);
                                 Main.npc[c].Center = NPC.Center;
                             }
                             else
                             {
-                                int a = Projectile.NewProjectile(NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
                                 Main.npc[a].Center = NPC.Center;
-                                int b = Projectile.NewProjectile(NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, Vector2.Zero, ModContent.ProjectileType<EyeSummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
                                 Main.npc[b].Center = NPC.Center;
                             }
                         }
                         else
                         {
-                            int m = NPC.NewNPC((int)NPC.position.X + 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
+                            int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
                             Main.npc[m].Center = new Vector2(NPC.Center.X + 100, NPC.Center.Y);
 
-                            int n = NPC.NewNPC((int)NPC.position.X - 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
+                            int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, ModContent.NPCType<MinionCircle>());
                             Main.npc[n].Center = new Vector2(NPC.Center.X - 100, NPC.Center.Y);
 
                             if (NPC.life < NPC.lifeMax / 2)
                             {
-                                int o = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y + 100, ModContent.NPCType<MinionCircle>());
+                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, ModContent.NPCType<MinionCircle>());
                                 Main.npc[o].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100);
 
-                                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y - 100, ModContent.NPCType<MinionCircle>());
+                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 100, ModContent.NPCType<MinionCircle>());
                                 Main.npc[p].Center = new Vector2(NPC.Center.X, NPC.Center.Y - 100);
                             }
                         }
@@ -307,8 +307,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                int l = Projectile.NewProjectile(player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int r = Projectile.NewProjectile(player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                                 Main.projectile[l].ai[1] = r;
                                 Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                                 Main.projectile[r].ai[1] = l;
@@ -316,8 +316,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             }
                             else
                             {
-                                int u = Projectile.NewProjectile(player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int d = Projectile.NewProjectile(player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                                 Main.projectile[u].ai[1] = d;
                                 Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                                 Main.projectile[d].ai[1] = u;
@@ -338,8 +338,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     {
                         if (NPC.ai[1] == 50)
                         {
-                            int l = Projectile.NewProjectile(player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                            int r = Projectile.NewProjectile(player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                            int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                             Main.projectile[l].ai[1] = r;
                             Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                             Main.projectile[r].ai[1] = l;
@@ -347,8 +347,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         }
                         if (NPC.ai[1] == 100)
                         {
-                            int u = Projectile.NewProjectile(player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                            int d = Projectile.NewProjectile(player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                            int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                             Main.projectile[u].ai[1] = d;
                             Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                             Main.projectile[d].ai[1] = u;
@@ -369,8 +369,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                int l = Projectile.NewProjectile(player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int r = Projectile.NewProjectile(player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Block>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                                 Main.projectile[l].ai[1] = r;
                                 Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                                 Main.projectile[r].ai[1] = l;
@@ -378,8 +378,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             }
                             else
                             {
-                                int u = Projectile.NewProjectile(player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int d = Projectile.NewProjectile(player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Block1>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
                                 Main.projectile[u].ai[1] = d;
                                 Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                                 Main.projectile[d].ai[1] = u;
@@ -416,7 +416,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisFalse"), Color.Gold);
-                        int a = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
                     }
@@ -443,17 +443,17 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 if (!AAWorld.AnubisAwakened)
                 {
                     AAWorld.AnubisAwakened = true;
-                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
                 }
                 else
                 {
-                    NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FATransition>());
                 }
                 return;
             }
             else
             {
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Anubis>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Anubis>());
             }
 
             if (Main.rand.Next(10) == 0)
@@ -463,7 +463,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("AnubisBag").Type);
             }
             else
             {
@@ -674,7 +674,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.ai[3] = 39;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/silence");
                 if (NPC.velocity.Y == 0)
                 {
                     if (internalAI[1]++ < 420)
@@ -683,7 +683,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         {
                             if (internalAI[1] == 60)
                             {
-                                string s = Main.ActivePlayersCount > 1 ? Lang.BossChat("AnubisGuys") : Lang.BossChat("Anubisbud");
+                                int activePlayers = 0;
+                                foreach (Player p in Main.ActivePlayers)
+                                    activePlayers++;
+                                string s = activePlayers > 1 ? Lang.BossChat("AnubisGuys") : Lang.BossChat("Anubisbud");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis1") + s + Lang.BossChat("Anubis2"), Color.Gold);
                             }
 
@@ -704,7 +707,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
                             if (internalAI[1] >= 410)
                             {
-                                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Anubis");
+                                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis6"), Color.Gold);
                                 internalAI[0] = 1;
                                 Teleport();
@@ -713,7 +716,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         }
                         else
                         {
-                            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Anubis");
+                            Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis7"), Color.Gold);
                             internalAI[0] = 1;
                             Teleport();

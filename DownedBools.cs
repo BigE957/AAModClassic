@@ -30,11 +30,6 @@ namespace AAModClassic
             if (downedOgre) downed.Add("O");
             if (downedBetsy) downed.Add("B");
             if (downedMoth) downed.Add("M");
-
-            return new TagCompound
-            {
-                {"downed", downed}
-            };
         }
 
         public override void LoadWorldData(TagCompound tag)

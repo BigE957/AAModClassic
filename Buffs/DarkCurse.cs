@@ -1,6 +1,7 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 
 namespace AAModClassic.Buffs
@@ -12,7 +13,7 @@ namespace AAModClassic.Buffs
             // DisplayName.SetDefault("Dark Curse");
             // Description.SetDefault("You deal significanlty less damage!");
             Main.debuff[Type] = true;
-            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
     }
     public class DarkCurseEffect : GlobalNPC
@@ -31,7 +32,7 @@ namespace AAModClassic.Buffs
         {
             if (npc.HasBuff(Mod.Find<ModBuff>("DarkCurse").Type))
             {
-                damage = (int)(damage * .5f);
+                modifiers.IncomingDamageMultiplier *= 0.5f;
             }
         }
     }

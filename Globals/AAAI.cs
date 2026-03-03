@@ -174,51 +174,7 @@ namespace AAModClassic.Globals
                 PlayerPosX = npc.velocity.X;
                 PlayerPosY = npc.velocity.Y;
             }
-            Projectile.NewProjectile(Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, Main.myPlayer);
-        }
-
-        /*
-		 * A method that handles boss loot & downed bools
-		 *
-		 * Loot: The items you want the boss to have a random chance of dropping. Example: { "Item1", "Item2" }. NoTE: THIS ONLY WORKS WITH MODDED ITEMS.
-         * DownedBoss: The Boss's downed bool
-         * HasItemDrop: Whether or not the boss drops an item along with it's random chance drop (Such as a material)
-         * ItemType: What the Extra Item drop is
-         * ItemMin: The minimum ammount of the extra item can drop
-         * ItemMax: The maximum ammount of the extra item can drop
-		 * DamageReduction: How much to divide damage by to prevent one-shotting projectiles
-         * HasMask: Whether or not the boss has a mask.
-		 */
-
-        public static void DownedBoss(NPC npc, Mod mod, string[] Loot, bool DownedBoss, bool HasItemDrop = false, int ItemType = 0, int ItemMin = 0, int ItemMax = 1, bool HasMask = false, bool ExpertMaskDrop = false, bool HasTrophy = false, int MaskType = 0, int TrophyType = 0, bool HasExpertBag = false)
-        {
-            DownedBoss = true;
-            if (HasMask && !Main.expertMode)
-            {
-                npc.DropLoot(MaskType, 1 / 10);
-            }
-            if (Main.expertMode && ExpertMaskDrop)
-            {
-                npc.DropLoot(MaskType, 1 / 10);
-            }
-            if (HasTrophy)
-            {
-                npc.DropLoot(TrophyType, 1 / 10);
-            }
-            if (HasExpertBag && Main.expertMode)
-            {
-                npc.DropBossBags();
-            }
-            else
-            {
-                if (HasItemDrop)
-                {
-                    npc.DropLoot(ItemType, ItemMin, ItemMax);
-                }
-                string[] lootTable = Loot;
-                int loot = Main.rand.Next(lootTable.Length);
-                npc.DropLoot(mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, Main.myPlayer);
         }
 
         public static void AIShadowflameGhost(NPC npc, ref float[] ai, bool speedupOverTime = false, float distanceBeforeTakeoff = 660f, float velIntervalX = 0.3f, float velMaxX = 7f, float velIntervalY = 0.2f, float velMaxY = 4f, float velScalarY = 4f, float velScalarYMax = 15f, float velIntervalXTurn = 0.4f, float velIntervalYTurn = 0.4f, float velIntervalScalar = 0.95f, float velIntervalMaxTurn = 5f)
@@ -671,7 +627,7 @@ namespace AAModClassic.Globals
 							float ai2 = 0;
 							float ai3 = npc.ai[3];
 
-							int newnpcID = NPC.NewNPC((int)(npc.Center.X), (int)(npc.Center.Y), npcType, npc.whoAmI, ai0, ai1, ai2, ai3);
+							int newnpcID = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), npcType, npc.whoAmI, ai0, ai1, ai2, ai3);
 							Main.npc[npcID].ai[0] = newnpcID;
 							Main.npc[npcID].netUpdate = true;
 							//Main.npc[newnpcID].ai[3] = (float)npc.whoAmI;
@@ -703,14 +659,14 @@ namespace AAModClassic.Globals
 
 						if (isHead)
 						{
-							npc.ai[0] = NPC.NewNPC((int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[1], npc.whoAmI, ai0, ai1, ai2, ai3);
+							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[1], npc.whoAmI, ai0, ai1, ai2, ai3);
 						}else
 						if (isBody && npc.ai[2] > 0f)
 						{
-							npc.ai[0] = NPC.NewNPC((int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormLength - (int)npc.ai[2]], npc.whoAmI, ai0, ai1, ai2, ai3);
+							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormLength - (int)npc.ai[2]], npc.whoAmI, ai0, ai1, ai2, ai3);
 						}else
 						{
-							npc.ai[0] = NPC.NewNPC((int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormTypes.Length - 1], npc.whoAmI, ai0, ai1, ai2, ai3);
+							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormTypes.Length - 1], npc.whoAmI, ai0, ai1, ai2, ai3);
 						}
 						/*if (!split)
 						{
@@ -749,7 +705,7 @@ namespace AAModClassic.Globals
                         int npcID = npc.whoAmI;
                         float lifePercent = npc.life / (float)npc.lifeMax;
                         float lastPiece = npc.ai[0];
-                        npc.SetDefaults(npc.type, -1f);
+                        npc.SetDefaults(npc.type);
                         npc.life = (int)(npc.lifeMax * lifePercent);
                         npc.ai[0] = lastPiece;
                         npc.TargetClosest(true);
@@ -765,7 +721,7 @@ namespace AAModClassic.Globals
 						int npcID = npc.whoAmI;
 						float lifePercent = npc.life / (float)npc.lifeMax;
 						float lastPiece = npc.ai[1];
-						npc.SetDefaults(npc.type, -1f);
+						npc.SetDefaults(npc.type);
 						npc.life = (int)(npc.lifeMax * lifePercent);
 						npc.ai[1] = lastPiece;
 						npc.TargetClosest(true);

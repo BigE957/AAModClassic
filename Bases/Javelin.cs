@@ -52,7 +52,7 @@ namespace AAModClassic.Bases
             {
                 int item =
                 Main.rand.Next(18) == 0
-                    ? Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, dropItem)
+                    ? Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, dropItem)
                     : 0;
 
                 // Sync the drop for multiplayer

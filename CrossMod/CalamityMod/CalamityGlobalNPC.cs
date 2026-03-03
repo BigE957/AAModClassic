@@ -104,11 +104,11 @@ namespace AAModClassic.CrossMod.CalamityMod
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
                     if(!NPC.downedMoonlord)
                     {
-                        damage = (int)(damage * (1.1f + (revenge? 0.2f:0f) + (Death? 0.3f:0f)));
+                        modifiers.IncomingDamageMultiplier *= (1.1f + (revenge? 0.2f:0f) + (Death? 0.3f:0f));
                     }
                     else
                     {
-                        damage = (int)(damage * (1.2f + (revenge? 0.4f:0f) + (Death? 0.6f:0f)));
+                        modifiers.IncomingDamageMultiplier *= (1.2f + (revenge? 0.4f:0f) + (Death? 0.6f:0f));
                     }
                 }
             }
@@ -122,14 +122,14 @@ namespace AAModClassic.CrossMod.CalamityMod
                 {
                     if (item.type > ItemID.Celeb2 && item.ModItem.Mod == ModLoader.GetMod("CalamityMod"))
                     {
-                        damage = (int)(damage * CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f));
+                        modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
                 if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
                 {
                     if (item.type > ItemID.Celeb2 && item.ModItem.Mod == AAMod.instance)
                     {
-                        damage = (int)(damage * (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f));
+                        modifiers.TargetDamageMultiplier *= (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f);
                     }
                 }
             }
@@ -143,14 +143,14 @@ namespace AAModClassic.CrossMod.CalamityMod
                 {
                     if (projectile.type > ProjectileID.Celeb2Weapon && projectile.ModProjectile.Mod == ModLoader.GetMod("CalamityMod"))
                     {
-                        damage = (int)(damage * CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f));
+                        modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
                 if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
                 {
                     if (projectile.type > ProjectileID.Celeb2Weapon && projectile.ModProjectile.Mod == AAMod.instance)
                     {
-                        damage = (int)(damage * (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f));
+                        modifiers.TargetDamageMultiplier *= (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f);
                     }
                 }
             }
@@ -169,11 +169,11 @@ namespace AAModClassic.CrossMod.CalamityMod
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
                     if(!NPC.downedMoonlord)
                     {
-                        damage = (int)(damage * (1.1f + (revenge? 0.2f:0f) + (Death? 0.3f:0f)));
+                        modifiers.IncomingDamageMultiplier *= (1.1f + (revenge ? 0.2f : 0f) + (Death ? 0.3f : 0f));
                     }
                     else
                     {
-                        damage = (int)(damage * (1.2f + (revenge? 0.4f:0f) + (Death? 0.6f:0f)));
+                        modifiers.IncomingDamageMultiplier *= (1.2f + (revenge ? 0.4f : 0f) + (Death ? 0.6f : 0f));
                     }
                 }
             }

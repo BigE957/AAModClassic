@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -11,7 +12,7 @@ namespace AAModClassic.Buffs
 			// Description.SetDefault("Melee attacks inflict Dragonfire");
 			Main.persistentBuff[Type] = true;
 			Main.meleeBuff[Type] = true;
-			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = true;
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = false;
 		}
 
         public override void Update(Player player, ref int buffIndex)

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -13,7 +14,7 @@ namespace AAModClassic.Buffs
             // DisplayName.SetDefault("Dark Lock");
             // Description.SetDefault("You're locked in place by darkness!");
             Main.debuff[Type] = true;
-            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
     }
     public class DarkLockEffect : GlobalNPC

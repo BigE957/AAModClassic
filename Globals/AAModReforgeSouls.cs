@@ -40,22 +40,22 @@ namespace AAModClassic.Globals
             if (Main.mouseItem.type == Mod.Find<ModItem>("Godly").Type && reforgable)
 			{
 				Main.mouseItem.stack--;
-				Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 59);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 59);
 			}
 			if (Main.mouseItem.type == Mod.Find<ModItem>("Legendary").Type && reforgable && item.CountsAsClass(DamageClass.Melee))
 			{
 				Main.mouseItem.stack--;
-				Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 81);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 81);
 			}
 			if (Main.mouseItem.type == Mod.Find<ModItem>("Unreal").Type && reforgable && (item.CountsAsClass(DamageClass.Ranged) || item.CountsAsClass(DamageClass.Throwing)) && item.ammo == AmmoID.None)
 			{
 				Main.mouseItem.stack--;
-				Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 82);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 82);
 			}
 			if (Main.mouseItem.type == Mod.Find<ModItem>("Mythical").Type && reforgable && (item.CountsAsClass(DamageClass.Summon) || item.CountsAsClass(DamageClass.Magic)))
 			{
 				Main.mouseItem.stack--;
-				Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 83);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item.type, 1, false, 83);
 			}
             return base.ConsumeItem(item, player);
 		}

@@ -11,9 +11,16 @@ namespace AAModClassic
 {
     internal class AARecipes
     {
-        private static Recipe GetNewRecipe()
+        private static Recipe GetNewRecipe(int type, int amt = 1)
         {
-            return Recipe.Create();
+            return Recipe.Create(type, amt);
+        }
+
+        private static Recipe GetNewRecipe(Mod mod, string name, int amt = 1)
+        {
+            if (mod == null)
+                mod = AAMod.instance;
+            return Recipe.Create(mod.Find<ModItem>(name).Type, amt);
         }
 
         public static void AddRecipes()
@@ -175,20 +182,11 @@ namespace AAModClassic
 
         private static void RemoveNightsEdgeRecipe()
         {
-            RecipeFinder finder = new RecipeFinder();
+            foreach(var v in Main.recipe)
             {
-                finder.AddIngredient(ItemID.BloodButcherer, 1);
-                finder.AddIngredient(ItemID.FieryGreatsword, 1);
-                finder.AddIngredient(ItemID.BladeofGrass, 1);
-                finder.AddIngredient(ItemID.Muramasa, 1);
-                finder.AddTile(TileID.DemonAltar);
-                finder.SetResult(ItemID.NightsEdge, 1);
-                Recipe recipe2 = finder.FindExactRecipe();
-                if (recipe2 != null)
-                {
-                    RecipeEditor editor = new RecipeEditor(recipe2);
-                    editor.DeleteRecipe();
-                }
+                if (v.HasIngredient(ItemID.BloodButcherer) && v.HasIngredient(ItemID.BladeofGrass) && v.HasIngredient(ItemID.Muramasa) && v.HasIngredient(ItemID.FieryGreatsword) && v.HasTile(TileID.DemonAltar) && v.HasResult(ItemID.NightsEdge))
+                    v.DisableRecipe();
+
             }
         }
 

@@ -84,13 +84,13 @@ namespace AAModClassic.CrossMod
 
         public static ModItem GetModItem(string modname, string itemname)
 		{
-			ModItem item = new ModItem();
+			ModItem item = null;
 			if(ModLoader.GetMod(modname) != null)
 			{
 				Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					item = mod.GetItem(itemname);
+					mod.TryFind<ModItem>(itemname, out item);
 				}
 				catch(Exception)
 				{
@@ -104,13 +104,13 @@ namespace AAModClassic.CrossMod
 
         public static ModNPC GetModNPC(string modname, string npcname)
 		{
-			ModNPC npc = new ModNPC();
+			ModNPC npc = null;
 			if(ModLoader.GetMod(modname) != null)
 			{
 				Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					npc = mod.GetNPC(npcname);
+					mod.TryFind<ModNPC>(npcname, out npc);
 				}
 				catch(Exception)
 				{
@@ -124,13 +124,14 @@ namespace AAModClassic.CrossMod
 
         public static ModProjectile GetModProjectile(string modname, string projname)
 		{
-			ModProjectile projectile = new ModProjectile();
+			ModProjectile projectile = null;
+
 			if(ModLoader.GetMod(modname) != null)
 			{
 				Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					projectile = mod.GetProjectile(projname);
+					mod.TryFind<ModProjectile>(projname, out projectile);
 				}
 				catch(Exception)
 				{
@@ -144,13 +145,13 @@ namespace AAModClassic.CrossMod
 
         public static ModDust GetModDust(string modname, string dustname)
 		{
-            ModDust dust = new ModDust();
+            ModDust dust = null;
 			if(ModLoader.GetMod(modname) != null)
 			{
 				Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					dust = mod.GetDust(dustname);
+					mod.TryFind<ModDust>(dustname, out dust);
 				}
 				catch(Exception)
 				{
@@ -164,13 +165,13 @@ namespace AAModClassic.CrossMod
 
         public static ModBuff GetModBuff(string modname, string buffname)
 		{
-            ModBuff buff = new ModBuff();
+            ModBuff buff = null;
 			if(ModLoader.GetMod(modname) != null)
 			{
 				Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					buff = mod.GetBuff(buffname);
+					mod.TryFind<ModBuff>(buffname, out buff);
 				}
 				catch(Exception)
 				{
@@ -190,8 +191,7 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModSystem world = mod.GetModWorld(worldname);
-					if(world != null)
+					if(mod.TryFind<ModSystem>(worldname, out ModSystem world))
 					{
 						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
 						return world.GetType().GetField(ConditionName, binding).GetValue(world);
@@ -213,8 +213,7 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModSystem world = mod.GetModWorld(worldname);
-					if(world != null)
+					if(mod.TryFind<ModSystem>(worldname, out ModSystem world))
 					{
 						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
 						FieldInfo field = world.GetType().GetField(ConditionName, binding);
@@ -239,12 +238,21 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModPlayer modplayer = player.GetModPlayer(mod, playername);
-					if(player != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						return modplayer.GetType().GetField(ConditionName, binding).GetValue(modplayer);
-					}
+                    if (mod.TryFind<ModPlayer>(playername, out ModPlayer mpInst))
+                    {
+                        ModPlayer modplayer = null;
+                        foreach(ModPlayer mp in player.ModPlayers)
+                            if(mp.GetType() == mpInst.GetType())
+                            {
+                                modplayer = mp;
+                            }
+
+                        if (modplayer != null)
+                        {
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            return modplayer.GetType().GetField(ConditionName, binding).GetValue(modplayer);
+                        }
+                    }
 				}
 				catch
 				{
@@ -262,16 +270,25 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					ModPlayer modplayer = player.GetModPlayer(mod, playername);
-					if(player != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						FieldInfo field = modplayer.GetType().GetField(ConditionName, binding);
-                        if(field.FieldType == Set_value.GetType())
+                    if (mod.TryFind<ModPlayer>(playername, out ModPlayer mpInst))
+                    {
+                        ModPlayer modplayer = null;
+                        foreach (ModPlayer mp in player.ModPlayers)
+                            if (mp.GetType() == mpInst.GetType())
+                            {
+                                modplayer = mp;
+                            }
+
+                        if (modplayer != null)
                         {
-                            field.SetValue(modplayer, Set_value);
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            FieldInfo field = modplayer.GetType().GetField(ConditionName, binding);
+                            if (field.FieldType == Set_value.GetType())
+                            {
+                                field.SetValue(modplayer, Set_value);
+                            }
                         }
-					}
+                    }
 				}
 				catch
 				{
@@ -288,12 +305,21 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					GlobalItem global = item.GetGlobalItem(mod, globalitemname);
-					if(global != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						return global.GetType().GetField(ConditionName, binding).GetValue(global);
-					}
+                    if (mod.TryFind<GlobalItem>(globalitemname, out GlobalItem giInst))
+                    {
+                        GlobalItem global = null;
+                        foreach (GlobalItem mp in item.Globals)
+                            if (mp.GetType() == giInst.GetType())
+                            {
+                                global = mp;
+                            }
+
+                        if (global != null)
+                        {
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            return global.GetType().GetField(ConditionName, binding).GetValue(global);
+                        }
+                    }
 				}
 				catch
 				{
@@ -311,16 +337,25 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					GlobalItem global = item.GetGlobalItem(mod, globalitemname);
-					if(global != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						FieldInfo field = global.GetType().GetField(ConditionName, binding);
-                        if(field.FieldType == Set_value.GetType())
+                    if (mod.TryFind<GlobalItem>(globalitemname, out GlobalItem giInst))
+                    {
+                        GlobalItem global = null;
+                        foreach (GlobalItem mp in item.Globals)
+                            if (mp.GetType() == giInst.GetType())
+                            {
+                                global = mp;
+                            }
+
+                        if (global != null)
                         {
-                            field.SetValue(global, Set_value);
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            FieldInfo field = global.GetType().GetField(ConditionName, binding);
+                            if (field.FieldType == Set_value.GetType())
+                            {
+                                field.SetValue(global, Set_value);
+                            }
                         }
-					}
+                    }
 				}
 				catch
 				{
@@ -337,12 +372,21 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					GlobalProjectile global = proj.GetGlobalProjectile(mod, globalprojname);
-					if(global != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						return global.GetType().GetField(ConditionName, binding).GetValue(global);
-					}
+                    if (mod.TryFind<GlobalProjectile>(globalprojname, out GlobalProjectile giInst))
+                    {
+                        GlobalProjectile global = null;
+                        foreach (GlobalProjectile mp in proj.Globals)
+                            if (mp.GetType() == giInst.GetType())
+                            {
+                                global = mp;
+                            }
+
+                        if (global != null)
+                        {
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            return global.GetType().GetField(ConditionName, binding).GetValue(global);
+                        }
+                    }
 				}
 				catch
 				{
@@ -360,14 +404,23 @@ namespace AAModClassic.CrossMod
                 Mod mod = ModLoader.GetMod(modname);
 				try
 				{
-					GlobalProjectile global = proj.GetGlobalProjectile(mod, globalprojname);
-					if(global != null)
-					{
-						BindingFlags binding = (sta? BindingFlags.Static : BindingFlags.Instance) | (nopub? BindingFlags.NonPublic : BindingFlags.Public);
-						FieldInfo field = global.GetType().GetField(ConditionName, binding);
-                        if(field.FieldType == Set_value.GetType())
+                    if (mod.TryFind<GlobalProjectile>(globalprojname, out GlobalProjectile giInst))
+                    {
+                        GlobalProjectile global = null;
+                        foreach (GlobalProjectile mp in proj.Globals)
+                            if (mp.GetType() == giInst.GetType())
+                            {
+                                global = mp;
+                            }
+
+                        if (global != null)
                         {
-                            field.SetValue(global, Set_value);
+                            BindingFlags binding = (sta ? BindingFlags.Static : BindingFlags.Instance) | (nopub ? BindingFlags.NonPublic : BindingFlags.Public);
+                            FieldInfo field = global.GetType().GetField(ConditionName, binding);
+                            if (field.FieldType == Set_value.GetType())
+                            {
+                                field.SetValue(global, Set_value);
+                            }
                         }
 					}
 				}

@@ -52,7 +52,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 		{
 			get
 			{
-				return DisplayName.GetDefault();
+				return DisplayName.ToString();
 			}
 			set
 			{
@@ -94,7 +94,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 			bool? result;
 			if (!showHealthBar)
 			{
-				NPC.position -= NPC.visualOffset;
+				NPC.position -= NPC.netOffset;
 				result = new bool?(false);
 			}
 			else if (realLifeHealthBar)
@@ -107,7 +107,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 				{
 					float alpha = Lighting.Brightness((int)(NPC.Center.X / 16f), (int)(NPC.Center.Y / 16f));
 					Main.instance.DrawHealthBar(position.X, position.Y, Main.npc[NPC.realLife].life, Main.npc[NPC.realLife].lifeMax, alpha, scale);
-					NPC.position -= NPC.visualOffset;
+					NPC.position -= NPC.netOffset;
 					result = new bool?(false);
 				}
 			}
@@ -132,7 +132,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-			G_HitEffect(hitDir, damage, NPC.life <= 0 || !NPC.active);
+			G_HitEffect(hit.HitDirection, hit.Damage, NPC.life <= 0 || !NPC.active);
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

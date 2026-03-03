@@ -60,7 +60,7 @@ Non-Consumable"); */
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
             SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Yamata.Yamata>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAMod.Common.Yamata"));
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), player.position);
+            SoundEngine.PlaySound(new SoundStyle("Sounds/Sounds/YamataRoar"), player.position);
             if (!AAWorld.downedYamata)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DreadSigilTrue1"), new Color(45, 46, 70));
@@ -119,14 +119,14 @@ Non-Consumable"); */
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.AnyNPCs(bossType)) { return; }
-                int npcID = NPC.NewNPC((int)npcCenter.X, (int)npcCenter.Y, bossType, 0);
+                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType, 0);
                 Main.npc[npcID].Center = npcCenter;
                 Main.npc[npcID].netUpdate2 = true;
                 if (spawnMessage)
                 {
                     string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : overrideDisplayName;
                     if ((npcName == null || npcName.Equals("")) && Main.npc[npcID].ModNPC != null)
-                        npcName = Main.npc[npcID].ModNPC.DisplayName.GetDefault();
+                        npcName = Main.npc[npcID].ModNPC.DisplayName.ToString();
                     if (namePlural)
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken"), 175, 75, 255, false); }

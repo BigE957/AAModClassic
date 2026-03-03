@@ -1,14 +1,14 @@
-using System;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Boss.Athena;
+using AAModClassic.NPCs.Enemies.Sky;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Enemies.Sky;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {
@@ -39,15 +39,15 @@ namespace AAModClassic.NPCs.Bosses.Athena
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Athena");
+            Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
             NPC.alpha = 255;
             NPC.noTileCollide = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaBag").Type;
+            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaBag").Type;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -112,7 +112,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             if (internalAI[2] != 1)
             {
                 NPC.dontTakeDamage = true;
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/silence");
                 if (Vector2.Distance(NPC.Center, Acropolis) < 10)
                 {
                     NPC.velocity *= 0;
@@ -154,7 +154,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             {
                                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Lang.EnemyChat("AthenaChat2"));
                                 NPC.active = false;
-                                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                                 Main.npc[p].Center = NPC.Center;
                             }
                             return;
@@ -173,7 +173,10 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 if (internalAI[3] == 180)
                                 {
                                     string s = "";
-                                    if (Main.ActivePlayersCount > 1)
+                                    int activePlayers = 0;
+                                    foreach (Player p in Main.ActivePlayers)
+                                        activePlayers++;
+                                    if (activePlayers > 1)
                                     {
                                         s = Lang.BossChat("Athena2");
                                     }
@@ -258,21 +261,21 @@ namespace AAModClassic.NPCs.Bosses.Athena
                     if (player.dead || !player.active || Math.Abs(Vector2.Distance(NPC.position, player.position)) > 5000 || !modPlayer.ZoneAcropolis)
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Lang.BossChat("Athena9"));
-                        int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                        int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                         Main.npc[p].Center = NPC.Center;
                         NPC.active = false;
                         NPC.netUpdate = true;
                     }
                 }
 
-                Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Athena");
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
 
                 if (internalAI[0]++ > 300 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int pChoice = Main.rand.Next(2);
                     if (pChoice == 0)
                     {
-                        NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<OwlRune>());
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<OwlRune>());
                     }
                     internalAI[0] = 0;
                 }
@@ -359,22 +362,22 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             int Choice = Main.rand.Next(2);
                             if (Choice == 0)
                             {
-                                NPC.NewNPC((int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
-                                NPC.NewNPC((int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
                             }
                             else
                             {
-                                NPC Seraph1 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
+                                NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
                                    Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
-                                NPC Seraph2 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
+                                NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
                                     Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
-                                NPC Seraph3 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
+                                NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
                                     Dust d = Main.dust[Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
@@ -485,7 +488,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             for (int i = 0; i < 3; i++)
             {
                 double offsetAngle = startAngle + (deltaAngle * i);
-                int p = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 2, Main.myPlayer);
+                int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 2, Main.myPlayer);
                 Main.projectile[p].tileCollide = false;
             }
         }
@@ -548,14 +551,14 @@ namespace AAModClassic.NPCs.Bosses.Athena
             {
                 if (!AAWorld.downedAthenaA)
                 {
-                    int a = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>());
+                    int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>());
                     Main.npc[a].Center = NPC.Center;
                 }
                 else
                 {
-                    int a = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Olympian.AthenaA>());
+                    int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Olympian.AthenaA>());
                     Main.npc[a].Center = NPC.Center;
-                    int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Lang.BossChat("Athena10"));
 
@@ -566,7 +569,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("AthenaBag").Type);       
             }
             else
             {
@@ -582,20 +585,20 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
 
             CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Lang.BossChat("Athena11"));
-            int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+            int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
             Main.npc[p].Center = NPC.Center;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex = internalAI[2] != 1 ? Mod.GetTexture("NPCs/Bosses/Athena/SassyBitch") : TextureAssets.Npc[NPC.type].Value;
+            Texture2D tex = internalAI[2] != 1 ? AAMod.instance.GetTexture("NPCs/Bosses/Athena/SassyBitch") : TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
 
             if (NPC.ai[2] == 1)
             {
-                BaseDrawing.DrawAfterimage(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f);
+                BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f);
             }
-            BaseDrawing.DrawTexture(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
             return false;
         }
     }
@@ -664,7 +667,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(lightColor), false);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(drawColor), false);
             return false;
         }
     }

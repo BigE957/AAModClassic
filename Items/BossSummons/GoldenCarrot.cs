@@ -9,6 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.Items.Potions;
 using AAModClassic.NPCs.Bosses.Rajah;
+using Terraria.Audio;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.BossSummons
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noUseGraphic = true;
             Item.consumable = true;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah");
+            Item.UseSound = new SoundStyle("Sounds/Sounds/Rajah");
         }
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
@@ -67,7 +68,7 @@ namespace AAModClassic.Items.BossSummons
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.AnyNPCs(bossType)) { return; }
-                int npcID = NPC.NewNPC((int)npcCenter.X, (int)npcCenter.Y, bossType, 0);
+                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType, 0);
                 Main.npc[npcID].ai[3] = -1;
                 Main.npc[npcID].Center = npcCenter;
                 Main.npc[npcID].netUpdate2 = true;
@@ -75,7 +76,7 @@ namespace AAModClassic.Items.BossSummons
                 {
                     string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : overrideDisplayName;
                     if ((npcName == null || npcName.Equals("")) && Main.npc[npcID].ModNPC != null)
-                        npcName = Main.npc[npcID].ModNPC.DisplayName.GetDefault();
+                        npcName = Main.npc[npcID].ModNPC.DisplayName.ToString();
                     if (namePlural)
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken"), 175, 75, 255, false); }

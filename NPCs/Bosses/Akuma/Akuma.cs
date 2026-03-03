@@ -1,16 +1,16 @@
-﻿using Terraria;
+﻿using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
+using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Globals;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic.NPCs.Bosses.Akuma
 {
@@ -497,6 +497,33 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 }
                 string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
                 AAAI.DownedBoss(NPC, Mod, lootTable, AAWorld.downedAkuma, true, Mod.Find<ModItem>("CrucibleScale").Type, 20, 30, false, false, true, 0, Mod.Find<ModItem>("AkumaTrophy").Type, false);
+                DownedBoss = true;
+                if (HasMask && !Main.expertMode)
+                {
+                    npc.DropLoot(MaskType, 1 / 10);
+                }
+                if (Main.expertMode && ExpertMaskDrop)
+                {
+                    npc.DropLoot(MaskType, 1 / 10);
+                }
+                if (HasTrophy)
+                {
+                    npc.DropLoot(TrophyType, 1 / 10);
+                }
+                if (HasExpertBag && Main.expertMode)
+                {
+                    npc.DropBossBags();
+                }
+                else
+                {
+                    if (HasItemDrop)
+                    {
+                        npc.DropLoot(ItemType, ItemMin, ItemMax);
+                    }
+                    string[] lootTable = Loot;
+                    int loot = Main.rand.Next(lootTable.Length);
+                    npc.DropLoot(mod.Find<ModItem>(lootTable[loot]).Type);
+                }
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma12"), new Color(180, 41, 32));
 
             }

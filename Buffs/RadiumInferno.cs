@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -10,7 +11,7 @@ namespace AAModClassic.Buffs
             // DisplayName.SetDefault("Radium Inferno");
             // Description.SetDefault("Rapidly depleting life");
             Main.debuff[Type] = true;
-            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

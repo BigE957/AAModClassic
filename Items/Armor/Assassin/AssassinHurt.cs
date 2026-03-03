@@ -1,5 +1,6 @@
 using AAModClassic.Globals;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Assassin
@@ -12,10 +13,10 @@ namespace AAModClassic.Items.Armor.Assassin
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = true;
-			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
-		}
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
+        }
 
-		public override void Update(NPC npc, ref int buffIndex)
+        public override void Update(NPC npc, ref int buffIndex)
 		{
 			npc.GetGlobalNPC<AAModGlobalNPC>().AssassinHurt = true;
 		}

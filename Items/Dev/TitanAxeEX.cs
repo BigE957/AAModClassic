@@ -49,7 +49,6 @@ Titan Axe EX"); */
                 Item.damage = 300;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.DamageType = DamageClass.Throwing;
-                Item.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Item.shoot = Mod.Find<ModProjectile>("TitanAxeEX").Type;
             }
             else
@@ -57,7 +56,6 @@ Titan Axe EX"); */
                 Item.damage = 450;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-                Item.thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                 Item.shoot = Mod.Find<ModProjectile>("TitanEX").Type;
             }
             return base.CanUseItem(player);

@@ -11,7 +11,7 @@ namespace AAModClassic.Base.BaseMod
 		public override bool PreDrawExtras(Projectile projectile)
 		{
 			BaseArmorData.lastShaderDrawObject = projectile;
-			return base.PreDrawExtras(projectile, spriteBatch);
+			return base.PreDrawExtras(projectile);
 		}		
 	}
 }

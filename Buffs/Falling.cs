@@ -19,8 +19,13 @@ namespace AAModClassic.Buffs
         {
             if (npc.collideY)
             {
-                npc.StrikeNPC(npc.GetGlobalNPC<FallDamage>().damage, 0, 0, true);
-                Projectile.NewProjectile(npc.position, Vector2.Zero, ModContent.ProjectileType<Earthquake>(), npc.GetGlobalNPC<FallDamage>().damage, 10, Main.myPlayer);
+                NPC.HitInfo hit = new();
+                hit.Damage = npc.GetGlobalNPC<FallDamage>().damage;
+                hit.HitDirection = 0;
+                hit.Knockback = 0f;
+                hit.Crit = true;
+                npc.StrikeNPC(hit);
+                Projectile.NewProjectile(npc.GetSource_OnHurt(null), npc.position, Vector2.Zero, ModContent.ProjectileType<Earthquake>(), npc.GetGlobalNPC<FallDamage>().damage, 10, Main.myPlayer);
                 npc.DelBuff(buffIndex);
                 buffIndex--;
             }

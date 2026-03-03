@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -10,7 +11,7 @@ namespace AAModClassic.Buffs
 			// DisplayName.SetDefault("Reaper Scythe immunity");
 			// Description.SetDefault("You are immune to damage and deal 15x damage");
 			Main.debuff[Type] = false;
-			canBeCleared/* tModPorter Note: Removed. Use BuffID.Sets.NurseCannotRemoveDebuff instead, and invert the logic */ = true;
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = false;
         }
 		
 		public override void Update(Player player, ref int buffIndex)

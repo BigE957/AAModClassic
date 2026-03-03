@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -52,12 +53,12 @@ namespace AAModClassic.Backgrounds
                 {
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
                     double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
-                    Main.bgColor = Color.White;
+                    Main.ColorOfTheSkies = Color.White;
                     if (Main.gameMenu || Main.netMode == NetmodeID.Server)
                     {
                         bgTop = -200;
                     }
-                    int num23 = (int)(Main.time / 32400.0 * (Main.screenWidth + Main.moonTexture[Main.moonType].Width * 2)) - Main.moonTexture[Main.moonType].Width;
+                    int num23 = (int)(Main.time / 32400.0 * (Main.screenWidth + TextureAssets.Moon[Main.moonType].Width() * 2)) - TextureAssets.Moon[Main.moonType].Width();
                     int num24 = 0;
                     Color white2 = Color.White;
                     float num25 = 1f;

@@ -89,7 +89,7 @@ namespace AAModClassic
             instance = this;
         }
 
-        public Texture2D GetTexture(string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value; 
+        public Texture2D GetTexture(string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
 
         public static void SetupBannerItemTextures()
         {
@@ -997,5 +997,9 @@ public class AAModSystem : ModSystem
             TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
         }
     }
-
 }
+public static class ModUtils
+{
+    public static Texture2D GetTexture(this Mod mod, string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
+}
+

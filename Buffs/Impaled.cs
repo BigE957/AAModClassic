@@ -13,7 +13,7 @@ namespace AAModClassic.Buffs
             Main.debuff[Type] = true;
 
 
-            longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

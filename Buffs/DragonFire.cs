@@ -2,6 +2,7 @@ using AAModClassic;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
@@ -15,10 +16,10 @@ namespace AAModClassic.Buffs
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
-			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
-		}
+            BuffID.Sets.LongerExpertDebuff[Type] = true;
+        }
 
-		public override void Update(Player player, ref int buffIndex)
+        public override void Update(Player player, ref int buffIndex)
 		{
             player.GetModPlayer<AAPlayer>().dragonFire = true;
         }
@@ -49,24 +50,24 @@ namespace AAModClassic.Buffs
         {
             if (Main.player[projectile.owner].HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
             {
-                damage = (int)(damage * .8f); //this is a better way to reduce the player's damage from debuff since this will effect already summoned minions
+                modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
             if (player.HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
             {
-                damage = (int)(damage * .8f);
+                modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
             if (npc.HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
             {
-                damage -= 10;
-                if(damage < 0)
+                modifiers.FinalDamage.Flat -= 10;
+                if(modifiers.FinalDamage.Flat < 0)
                 {
-                    damage = 0;
+                    modifiers.FinalDamage.Flat = 0;
                 }
             }
         }

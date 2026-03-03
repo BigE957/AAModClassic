@@ -5,6 +5,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.Graphics;
 using Terraria.ModLoader;
+using ReLogic.Content;
 
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
@@ -14,9 +15,8 @@ namespace AAModClassic.Backgrounds
 {
     public class FogOverlay : Overlay
     {
-        private readonly Ref<Texture2D> texture;
+        private readonly Asset<Texture2D> texture;
         private readonly ScreenShaderData shader;
-        readonly Mod mod = AAMod.instance;
 
         public int fogOffsetX = 0;
         public float fadeOpacity = 0f;
@@ -24,7 +24,7 @@ namespace AAModClassic.Backgrounds
 
         public FogOverlay(string textureName, string shaderName = "Default", EffectPriority priority = EffectPriority.VeryLow, RenderLayers layer = RenderLayers.All) : base(priority, layer)
         {
-            texture = TextureManager.AsyncLoad(textureName ?? "");
+            texture = ModContent.Request<Texture2D>(textureName ?? "");
             shader = new ScreenShaderData(Main.ScreenShaderRef, shaderName);
         }
 
@@ -33,7 +33,7 @@ namespace AAModClassic.Backgrounds
             if (fadeOpacity == 0f) return; //don't draw if no fog
             Main.spriteBatch.Begin();
             Player player = Main.LocalPlayer;
-            Texture2D fog = mod.GetTexture("Backgrounds/FogTex");
+            Texture2D fog = AAMod.instance.GetTexture("Backgrounds/FogTex");
 
             Color DefaultFog = new Color(62, 68, 100);
             Color YamataFog = new Color(100, 38, 62);
@@ -72,7 +72,7 @@ namespace AAModClassic.Backgrounds
 
             Player player = Main.LocalPlayer;
 
-            Texture2D fog = mod.GetTexture("Backgrounds/fog");
+            Texture2D fog = AAMod.instance.GetTexture("Backgrounds/fog");
 
             bool inMire = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
             if (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AAWorld.downedYamata) inMire = false;

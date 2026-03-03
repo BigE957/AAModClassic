@@ -146,8 +146,6 @@ namespace AAModClassic.Base.BaseMod.Base
         public static void ClearBuff(this Player player, Mod mod, string name) { player.ClearBuff(mod.Find<ModBuff>(name).Type); }
         public static void AddBuff(this Player player, Mod mod, string name, int time, bool sync = true) { player.AddBuff(mod.Find<ModBuff>(name).Type, time, sync); }
         public static int FindBuffIndex(this Player player, Mod mod, string name){ return player.FindBuffIndex(mod.Find<ModBuff>(name).Type); }
-
-        public static int GoreType(this Mod mod, string name, IDictionary<string, int> gores = null) { return BaseUtility.CheckForGore(mod, name, gores); }
      
         public static int ProjType(this Mod mod, string name) { return mod.Find<ModProjectile>(name).Type; }
 
