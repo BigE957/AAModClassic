@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 6;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override void AI()
@@ -172,7 +172,7 @@ namespace AAModClassic.Items.Summoning.Minions
                 }
             }
 
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon);
+            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
             Projectile.damage = (int)(DamageBoost > 0f? ((50 + (Projectile.localAI[0] > 6? 6 : (Projectile.localAI[0] - 1)) * 20) * DamageBoost) : 1);
         }
     }

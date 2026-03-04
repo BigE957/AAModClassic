@@ -42,9 +42,9 @@ Contains a set of Midnight Assassin clothes"); */
         }
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Mod.Find<ModItem>("AssassinHood").Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("AssassinShirt").Type);
-            player.QuickSpawnItem(Mod.Find<ModItem>("AssassinBoots").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("AssassinHood").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("AssassinShirt").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("AssassinBoots").Type);
         }
     }
 }

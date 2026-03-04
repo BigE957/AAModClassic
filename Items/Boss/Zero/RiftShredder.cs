@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Zero
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item15;
 			Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

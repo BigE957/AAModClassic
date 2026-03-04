@@ -47,7 +47,7 @@ Provides light & spelunker effect when worn"); */
 			modPlayer.StoneSoldier = true;
 
 			player.discountAvailable = true;
-			player.coins = true;
+			player.hasLuckyCoin = true;
 			player.goldRing = true;
 		}
 		

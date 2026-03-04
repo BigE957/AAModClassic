@@ -76,7 +76,7 @@ Scythe of the Grim Reaper EX"); */
 				Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
 				float num82 = Main.mouseX + Main.screenPosition.X - vector2.X;
 				float num83 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
-				Vector2 vector14 = new Vector2(speedX, speedY);
+				Vector2 vector14 = velocity;
 				vector14.Normalize();
 				vector14 *= 40f;
 				bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector14, 0, 0);
@@ -90,11 +90,11 @@ Scythe of the Grim Reaper EX"); */
 					}
 					if (type == Mod.Find<ModProjectile>("GrimReaperScytheEX").Type && player.HasBuff(Mod.Find<ModBuff>("ReaperImmune2").Type))
 					{
-						Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage/15, knockBack, player.whoAmI);
+						Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage/15, knockback, player.whoAmI);
 					}
 					else
 					{
-						Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage, knockBack, player.whoAmI);
+						Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage, knockback, player.whoAmI);
 					}
 				}
 			}

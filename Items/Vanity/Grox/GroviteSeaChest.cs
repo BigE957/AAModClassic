@@ -28,12 +28,12 @@ namespace AAModClassic.Items.Vanity.Grox
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<AngryPirateHood>());
-            player.QuickSpawnItem(ModContent.ItemType<AngryPirateCofferplate>());
-            player.QuickSpawnItem(ModContent.ItemType<AngryPirateBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AngryPirateHood>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AngryPirateCofferplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AngryPirateBoots>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<AngryPirateSails>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AngryPirateSails>());
             }
         }
     }

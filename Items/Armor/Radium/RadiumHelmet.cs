@@ -112,14 +112,14 @@ Shines with the light of a starry night sky"); */
         {
             if(BrokenShield > 0)
             {
-                damage = (int)(damage * 1.4f);
+                modifiers.TargetDamageMultiplier *= 1.4f;
             }
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
             if (BrokenShield > 0)
             {
-                damage = (int)(damage * 1.4f);
+                modifiers.TargetDamageMultiplier *= 1.4f;
             }
         }
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

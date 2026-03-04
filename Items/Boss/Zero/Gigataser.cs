@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.useTime = 45;
             Item.useAnimation = 45; 
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Shock");
+            Item.UseSound = new Terraria.Audio.SoundStyle("AAModClassic/Sounds/Sounds/Shock");
             Item.shoot = Mod.Find<ModProjectile>("ZeroTaze").Type;
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);
@@ -55,10 +55,10 @@ namespace AAModClassic.Items.Boss.Zero
         {
             for (int num842 = 0; num842 < 3; num842++)
             {
-                Vector2 vector82 = new Vector2(speedX, speedY);
+                Vector2 vector82 = velocity;
                 float ai = Main.rand.Next(100);
                 Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.6)) * 14f;
-                Projectile.NewProjectile(position.X, position.Y, vector83.X * 2, vector83.Y * 2, ModContent.ProjectileType<ZeroTaze>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, vector83.X * 2, vector83.Y * 2, ModContent.ProjectileType<ZeroTaze>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
             }
             return false;
         }

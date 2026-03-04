@@ -202,7 +202,7 @@ namespace AAModClassic.Items.Summoning.Minions
                         num523 *= num525;
                         num524 *= num525;
                         int num526 = Projectile.damage;
-                        Projectile.NewProjectile(vector37.X, vector37.Y, num523*1.5f, num524*1.5f, num522, num526, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector37.X, vector37.Y, num523*1.5f, num524*1.5f, num522, num526, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                     }
                 }
             }

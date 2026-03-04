@@ -39,9 +39,9 @@ namespace AAModClassic.Items.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
+            Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
         
             return false;
         }

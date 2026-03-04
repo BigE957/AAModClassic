@@ -143,7 +143,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
-                    SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/YamataRoar"), NPC.position);
+                    SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar"), NPC.position);
                     Vector2 position = NPC.Center + (Vector2.One * -20f);
                     int num84 = 40;
                     int height3 = num84;

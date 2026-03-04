@@ -15,7 +15,6 @@ namespace AAModClassic.Items.Summoning.Minions
             Projectile.CloneDefaults(ProjectileID.DemonScythe);
             Projectile.hostile = false;
             Projectile.friendly = true;
-            Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Projectile.minion = true;
         }
 

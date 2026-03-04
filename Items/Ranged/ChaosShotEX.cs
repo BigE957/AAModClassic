@@ -47,21 +47,21 @@ Chaos Bustershot EX"); */
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 		    float spread = 20f * 0.0174f;
-		    float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
-		    double deltaAngle = spread / 6f;
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
+            double deltaAngle = spread / 6f;
 		    double offsetAngle;
 		    for (int i = 0; i < 10; i++)
 		    {
 		    	offsetAngle = startAngle + (deltaAngle * i);
-		    	Projectile.NewProjectile(position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
+		    	Projectile.NewProjectile(source, position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
             }
             for (int m = 0; m < 2; m++)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockBack, player.whoAmI, 0, 1);
+                Projectile.NewProjectile(source, position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockback, player.whoAmI, 0, 1);
             }
 
-            Projectile.NewProjectile(position.X, position.Y, speedX * 1f, speedY * 1f, Mod.Find<ModProjectile>("ChaosShot1").Type, damage, knockBack, player.whoAmI, 0, 1);
+            Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("ChaosShot1").Type, damage, knockback, player.whoAmI, 0, 1);
             return false;
 		}
 

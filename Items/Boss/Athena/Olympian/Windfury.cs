@@ -52,7 +52,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<GaleArrow>(), damage, knockBack * 5, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<GaleArrow>(), damage, knockback * 5, player.whoAmI, 0f, 0f);
                 return false;
             }
             return true;

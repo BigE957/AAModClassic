@@ -39,7 +39,7 @@ Inflicts Discordian Inferno"); */
             Item.knockBack = .5f;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.mana = 10;
-            Item.UseSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item124;
             Item.autoReuse = true;   
             Item.useTurn = true;
             Item.shootSpeed = 16f;
@@ -96,7 +96,7 @@ Inflicts Discordian Inferno"); */
             }
 
 
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 0f, 0f);
             return false;
         }
 

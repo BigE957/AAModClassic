@@ -53,9 +53,9 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 		{
 	        for (int index = 0; index < 2; ++index)
 	        {
-	            float SpeedX = speedX + Main.rand.Next(-25, 26) * 0.05f;
-	            float SpeedY = speedY + Main.rand.Next(-25, 26) * 0.05f;
-                Projectile.NewProjectile(position.X, position.Y, SpeedX, SpeedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+	            float SpeedX = velocity.X + Main.rand.Next(-25, 26) * 0.05f;
+	            float SpeedY = velocity.Y + Main.rand.Next(-25, 26) * 0.05f;
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
             }
 	    	return false;
 		}

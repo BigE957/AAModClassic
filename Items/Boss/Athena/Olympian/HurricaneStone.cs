@@ -83,7 +83,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             {
                 num155 = (int)(Main.screenPosition.Y + Main.screenHeight - Main.mouseY) / 16;
             }
-            Projectile.NewProjectile(Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
             player.UpdateMaxTurrets();
 
             return false;

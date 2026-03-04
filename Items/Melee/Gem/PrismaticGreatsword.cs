@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
             Item.knockBack = 5;
             Item.value = 20000;        
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = new LegacySoundStyle(2, 8, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;   
             Item.useTurn = true; 
 			Item.shoot = Mod.Find<ModProjectile>("PrismBolt").Type;

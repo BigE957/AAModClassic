@@ -60,10 +60,9 @@ namespace AAModClassic.Items.Ranged
 			{
 				type = ProjectileID.CursedBullet;
 			}
-			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(02));
-			speedX = perturbedSpeed.X;
-			speedY = perturbedSpeed.Y;
-			return true;
+			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(02));
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            return false;
 		}
 
 		public override Vector2? HoldoutOffset()

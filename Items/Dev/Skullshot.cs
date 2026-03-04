@@ -110,21 +110,20 @@ Uses Bullets and Bones as ammo
             if (player.altFunctionUse != 2)
             {
                 float spread = Main.rand.Next(20, 30) * 0.0174f;
-                float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-                double startAngle = Math.Atan2(speedX, speedY) - .1d;
+                float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+                double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
                 double deltaAngle = spread / 6f;
                 double offsetAngle;
                 for (int i = 0; i < Main.rand.Next(5, 11); i++)
                 {
                     float randomSpeed = baseSpeed + Main.rand.NextFloat() * 1.5f;
                     offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(position.X, position.Y, randomSpeed * (float)Math.Sin(offsetAngle), randomSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, randomSpeed * (float)Math.Sin(offsetAngle), randomSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
                 }
             }
             else
             {
-                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.BoneGloveProj, damage, knockBack, Main.myPlayer, 0f, 0f);
-                Main.projectile[proj].thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int proj = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ProjectileID.BoneGloveProj, damage, knockback, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;

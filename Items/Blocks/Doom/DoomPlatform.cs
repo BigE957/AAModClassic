@@ -30,9 +30,6 @@ namespace AAModClassic.Items.Blocks.Doom
             Recipe recipe;
             recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "ApocalyptitePlate");
-            recipe.Register(); 
-            recipe = Recipe.Create(null, "ApocalyptitePlate");
-            recipe.AddIngredient(this, 2);
             recipe.Register();
         }
 	}

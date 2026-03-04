@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Boss.Athena
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<WindArrow>(), damage, knockBack * 3, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<WindArrow>(), damage, knockback * 3, player.whoAmI, 0f, 0f);
                 return false;
             }
             return true;

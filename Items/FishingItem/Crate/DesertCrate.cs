@@ -52,10 +52,10 @@ namespace AAModClassic.Items.FishingItem.Crate
                         break;
                 }
 
-                int index = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
+                int index = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
                 if (item == ItemID.PharaohsMask)
                 {
-                    Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, ItemID.PharaohsRobe, 1, false, -1, false, false);
+                    Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ItemID.PharaohsRobe, 1, false, -1, false, false);
                 }
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -65,7 +65,7 @@ namespace AAModClassic.Items.FishingItem.Crate
             }
             
             //bypass all checks and spawn defaults
-            player.openCrate(4000);
+            player.OpenFishingCrate(4000);
         }
     }
 }

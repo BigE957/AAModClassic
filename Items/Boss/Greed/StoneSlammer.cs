@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Greed
         {
             if (target.velocity.Y != 0)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 
@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Boss.Greed
         {
             if (target.velocity.Y != 0 && target.knockBackResist > 0)
             {
-                target.velocity.Y += knockBack * 1.5f * target.knockBackResist;
+                target.velocity.Y += hit.Knockback * 1.5f * target.knockBackResist;
                 target.velocity.X = 0;
                 int num = 4;
                 for (int k = 0; k < 10; k++)

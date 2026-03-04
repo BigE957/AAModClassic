@@ -31,9 +31,6 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "Razewood");
             recipe.Register(); 
-            recipe = Recipe.Create(null, "Razewood");
-            recipe.AddIngredient(this, 2);
-            recipe.Register();
         }
 	}
 }

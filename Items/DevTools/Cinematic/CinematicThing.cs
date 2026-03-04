@@ -56,8 +56,8 @@ namespace AAModClassic.Items.DevTools.Cinematic
 			MountData.swimFrameStart = 0;
 			if (Main.netMode != NetmodeID.Server)
 			{
-				MountData.textureWidth = MountData.backTexture.Width;
-				MountData.textureHeight = MountData.backTexture.Height;
+				MountData.textureWidth = MountData.backTexture.Width();
+				MountData.textureHeight = MountData.backTexture.Height();
 			}
 		}
 	}

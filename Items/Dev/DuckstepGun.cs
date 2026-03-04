@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev
 			Item.value = 1000000;
 			Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
-			Item.UseSound = new LegacySoundStyle(29, 10, Terraria.Audio.SoundType.Sound);
+			Item.UseSound = SoundID.Zombie10;
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
 			Item.shootSpeed = 12f;
@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Dev
 
         // What if I wanted it to work like Uzi, replacing regular bullets with High Velocity Bullets?
         // Uzi/Molten Fury style: Replace normal Bullets with Highvelocity
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
 			if (type == ProjectileID.Bullet) // or ProjectileID.WoodenArrowFriendly
 			{
@@ -79,25 +79,25 @@ namespace AAModClassic.Items.Dev
 
         // What if I wanted it to shoot like a shotgun?
         // Shotgun style: Multiple Projectiles, Random spread 
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
 			int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 			for (int i = 0; i < numberProjectiles; i++)
 			{
-				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
+				Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
 				// If you want to randomize the speed to stagger the projectiles
 				// float scale = 1f - (Main.rand.NextFloat() * .3f);
 				// perturbedSpeed = perturbedSpeed * scale; 
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
 			}
 			return false; // return false because we don't want tmodloader to shoot projectile
 		}*/
 
         // What if I wanted an inaccurate gun? (Chain Gun)
         // Inaccurate Gun style: Single Projectile, Random spread 
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
-			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(30));
+			Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(30));
 			speedX = perturbedSpeed.X;
 			speedY = perturbedSpeed.Y;
 			return true;
@@ -105,15 +105,15 @@ namespace AAModClassic.Items.Dev
 
         // What if I wanted multiple projectiles in a even spread? (Vampire Knives) 
         // Even Arc style: Multiple Projectile, Even Spread 
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
 			float numberProjectiles = 3 + Main.rand.Next(3); // 3, 4, or 5 shots
 			float rotation = MathHelper.ToRadians(45);
-			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+			position += Vector2.Normalize(velocity) * 45f;
 			for (int i = 0; i < numberProjectiles; i++)
 			{
-				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
+				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}*/
@@ -126,9 +126,9 @@ namespace AAModClassic.Items.Dev
 
         // How can I make the shots appear out of the muzzle exactly?
         // Also, when I do this, how do I prevent shooting through tiles?
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
-			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+			Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
 			{
 				position += muzzleOffset;
@@ -150,10 +150,10 @@ namespace AAModClassic.Items.Dev
 		}*/
 
         // How can I shoot 2 different projectiles at the same time?
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
 			// Here we manually spawn the 2nd projectile, manually specifying the projectile type that we wish to shoot.
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.GrenadeI, damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(position, velocity, ProjectileID.GrenadeI, damage, knockback, player.whoAmI);
 			// By returning true, the vanilla behavior will take place, which will shoot the 1st projectile, the one determined by the ammo.
 			return true;
 		}*/

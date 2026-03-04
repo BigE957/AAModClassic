@@ -84,7 +84,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 SoundEngine.PlaySound(SoundID.NPCDeath3, Projectile.Center);
             }
 
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
             Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GlitchBoom>(), Projectile.damage, 1, Projectile.owner);
         }
         public override bool PreDraw(ref Color lightColor)

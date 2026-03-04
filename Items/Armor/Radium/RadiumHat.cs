@@ -51,7 +51,7 @@ Shines with the light of a starry night sky"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(DarkMinions.baseBlastDamage * player.GetDamage(DamageClass.Summon)) + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
+            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(DarkMinions.baseBlastDamage * player.GetDamage(DamageClass.Summon)).Flat + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
             player.GetModPlayer<HatEffects>().setBonus = true;
         }
 
@@ -120,7 +120,7 @@ Shines with the light of a starry night sky"); */
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);
-            Projectile.NewProjectile(projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("RadiumSetbonusBlast").Type, (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)), 0f, projectile.owner, radius);
+            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("RadiumSetbonusBlast").Type, (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)).Flat, 0f, projectile.owner, radius);
             
         }
         public static Vector2 PolarVector(float radius, float theta)

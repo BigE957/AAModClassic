@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Ranged
 				num213 += Main.rand.Next(-40, 41) * 0.05f;
 				num214 += Main.rand.Next(-40, 41) * 0.05f;
 				Vector2 vector29 = vector2 + Vector2.Normalize(new Vector2(num213, num214).RotatedBy(-1.57079637f * player.direction)) * 6f;
-				Projectile.NewProjectile(vector29.X, vector29.Y, num213*1.5f, num214*1.5f, 167 + Main.rand.Next(4), damage, knockBack, player.whoAmI, 0f, 1f);
+				Projectile.NewProjectile(source, vector29.X, vector29.Y, num213*1.5f, num214*1.5f, 167 + Main.rand.Next(4), damage, knockback, player.whoAmI, 0f, 1f);
 			}
             return false;
         }

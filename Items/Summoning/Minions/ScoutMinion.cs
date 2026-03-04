@@ -225,8 +225,7 @@ namespace AAModClassic.Items.Summoning.Minions
 						Vector2 value19 = vector46 - Projectile.Center;
 						value19.Normalize();
 						value19 *= scaleFactor3;
-						int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, 0f);
-                        Main.projectile[num659].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[num659].minion = true;
                         Main.projectile[num659].timeLeft = 300;
 						Projectile.netUpdate = true;

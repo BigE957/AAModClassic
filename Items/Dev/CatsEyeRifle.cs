@@ -21,7 +21,7 @@ Doesn't require ammo
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
             {
                 position += muzzleOffset;
@@ -43,7 +43,7 @@ Doesn't require ammo
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan; 
-            Item.UseSound = new LegacySoundStyle(2, 40, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item40;
             Item.autoReuse = false; 
             Item.shootSpeed = 20f;
             Item.crit = 0;

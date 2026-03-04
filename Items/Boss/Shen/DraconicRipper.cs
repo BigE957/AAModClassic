@@ -73,17 +73,17 @@ Ignores enemy defense
                 else if(i == 1)
                 {
                     tooth = "AkumaTooth";
-                    knockBack += 2;
+                    knockback += 2;
                     damage -= 10;
                 }
                 else
                 {
                     tooth = "YamataTooth";
-                    knockBack -= 2;
+                    knockback -= 2;
                     damage += 10;
                 }
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>(tooth).Type, damage, knockBack, player.whoAmI);
+                Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>(tooth).Type, damage, knockback, player.whoAmI);
             }
             return false;
         }

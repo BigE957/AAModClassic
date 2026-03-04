@@ -83,11 +83,11 @@ namespace AAModClassic.Items.Armor.GoblinSlayer
                 DelegateMethods.v3_1 = Main.hslToRgb(Main.rgbToHsl(player.eyeColor).X, 1f, 0.5f).ToVector3() * 0.5f * num4;
                 if (player.velocity != Vector2.Zero)
                 {
-                    Utils.PlotTileLine(player.Center, player.Center + player.velocity * 2f, 4f, new Utils.PerLinePoint(DelegateMethods.CastLightOpen));
+                    Utils.PlotTileLine(player.Center, player.Center + player.velocity * 2f, 4f, new Utils.TileActionAttempt(DelegateMethods.CastLightOpen));
                 }
                 else
                 {
-                    Utils.PlotTileLine(player.Left, player.Right, 4f, new Utils.PerLinePoint(DelegateMethods.CastLightOpen));
+                    Utils.PlotTileLine(player.Left, player.Right, 4f, new Utils.TileActionAttempt(DelegateMethods.CastLightOpen));
                 }
             }
             int num5 = (int)Vector2.Distance(vector4, vector5) / 3 + 1;

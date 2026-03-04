@@ -158,15 +158,15 @@ namespace AAModClassic.Projectiles
                 {
                     case 0:
 						SoundEngine.PlaySound(SoundID.Item8, Projectile.position);
-						Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ProjectileID.Spark, Projectile.damage, 1f, player.whoAmI);
+						Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, ProjectileID.Spark, Projectile.damage, 1f, player.whoAmI);
 						break;
 					case 1:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("Spark2").Type, (int)(Projectile.damage * 1.5), 3f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("Spark2").Type, (int)(Projectile.damage * 1.5), 3f, player.whoAmI);
 						break;
 					case 2:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("Spark3").Type, Projectile.damage * 2, 6f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("Spark3").Type, Projectile.damage * 2, 6f, player.whoAmI);
 						break;
                 }
             }

@@ -1,6 +1,7 @@
 using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Boss.Akuma
 			Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 7, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Dayshot");
+			Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Dayshot");
 			Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 30;
@@ -46,26 +47,26 @@ namespace AAModClassic.Items.Boss.Akuma
         {
             //for (int i = 0; i < 3; i++)
             //{
-            //    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(10));
-            //    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("Dayser"), damage, knockBack, player.whoAmI);
+            //    Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
+            //    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("Dayser"), damage, knockback, player.whoAmI);
             //}
             if (shoot++ > 6) shoot = 0;
 
             for (int i = 0; i < 4; i++)
             {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15)) * .5f;
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("Daystormbullet").Type, damage, knockBack, player.whoAmI);
+                Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15)) * .5f;
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("Daystormbullet").Type, damage, knockback, player.whoAmI);
             }
 
             if (Main.rand.Next(3) == 0)
             {
-                //Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5));
-                //Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Dayser"), damage * 2, knockBack, player.whoAmI);
+                //Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(5));
+                //Projectile.NewProjectile(position, velocity, mod.ProjectileType("Dayser"), damage * 2, knockback, player.whoAmI);
                 //shoot = 0;
                 for (int i = 0; i < Main.rand.Next(2); i++)
                 {
-                    Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, Mod.Find<ModProjectile>("DaystormbulletA").Type, (int)(damage * 1.5f), knockBack, player.whoAmI);
+                    Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(15));
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, Mod.Find<ModProjectile>("DaystormbulletA").Type, (int)(damage * 1.5f), knockback, player.whoAmI);
                 }
             }
             return false;

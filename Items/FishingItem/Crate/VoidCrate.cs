@@ -55,8 +55,8 @@ namespace AAModClassic.Items.FishingItem.Crate
                         break;
                 }
 
-                int index = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
-                int index1 = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DeactivatedDoomite").Type, Main.rand.Next(0, 5));
+                int index = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
+                int index1 = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DeactivatedDoomite").Type, Main.rand.Next(0, 5));
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
@@ -64,7 +64,7 @@ namespace AAModClassic.Items.FishingItem.Crate
                     NetMessage.SendData(MessageID.SyncItem, -1, -1, null, index1, 1f, 0f, 0f, 0, 0, 0);
                 }
             }
-            player.openCrate(4000);
+            player.OpenFishingCrate(4000);
         }
     }
 }

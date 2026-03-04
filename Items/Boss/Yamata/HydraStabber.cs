@@ -88,7 +88,7 @@ IInflicts Moonraze"); */
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
         }
         
         public override void AddRecipes()  //How to craft this sword

@@ -40,7 +40,7 @@ Right click and hold to release and aim manually"); */
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.noMelee = true;
-            Item.UseSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item124;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -97,7 +97,7 @@ Right click and hold to release and aim manually"); */
             bool AnyOrbiters = AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<SunstormFireball>());
             for (int Loops = 0; Loops < 4; Loops++)
             {
-                Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockBack, Main.myPlayer, 0, 0);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, Main.myPlayer, 0, 0);
             }
 
             return false;

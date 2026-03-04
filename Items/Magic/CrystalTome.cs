@@ -41,8 +41,8 @@ namespace AAModClassic.Items.Magic
               int numberProjectiles = 1 + Main.rand.Next(3); 
               for (int i = 0; i < numberProjectiles; i++)
               {
-                  Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20)); 
-                  int p = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                  Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(20)); 
+                  int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
                   Main.projectile[p].DamageType = DamageClass.Magic;
               }
               return false;

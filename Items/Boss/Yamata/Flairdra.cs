@@ -76,15 +76,14 @@ Inflicts Moonraze"); */
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread =100f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 25f;
             double offsetAngle;
             for (int i = 0; i < 7; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                int proj = Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
-                Main.projectile[proj].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int proj = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
                 Main.projectile[proj].DamageType = DamageClass.Melee;
             }
             return false;

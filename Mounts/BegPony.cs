@@ -1,6 +1,7 @@
 using System;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -63,18 +64,18 @@ namespace AAModClassic.Mounts
             MountData.swimFrameStart = MountData.inAirFrameStart;
             if (Main.netMode != NetmodeID.Server)
             {
-                MountData.backTexture = Mod.GetTexture("Mounts/BegPony");
+                MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/BegPony");
                 MountData.backTextureExtra = null;
                 MountData.frontTexture = null;
                 MountData.frontTextureExtra = null;
-                MountData.textureWidth = MountData.backTexture.Width;
-                MountData.textureHeight = MountData.backTexture.Height;
+                MountData.textureWidth = MountData.backTexture.Width();
+                MountData.textureHeight = MountData.backTexture.Height();
             }
         }
 
 		public override void UpdateEffects(Player player)
 		{
-            player.GetJumpState(ExtraJump.UnicornMount).Enabled = true/* tModPorter Suggestion: Call Enable() if setting this to true, otherwise call Disable(). */;
+            player.GetJumpState(ExtraJump.UnicornMount).Enable();// = true/* tModPorter Suggestion: Call Enable() if setting this to true, otherwise call Disable(). */;
             if (Math.Abs(player.velocity.X) > player.mount.DashSpeed - player.mount.RunSpeed / 2f)
             {
                 player.noKnockback = true;

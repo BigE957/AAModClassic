@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.DragonArrow>(), damage, knockBack, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.DragonArrow>(), damage, knockback, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false;
         }
         public override void AddRecipes()

@@ -18,7 +18,6 @@ namespace AAModClassic.Items.Dev.DevTile
             if (CCBoxSetOK) list.Add("CCBoxSetOK");
             TagCompound tagCompound = new TagCompound();
 			tagCompound.Add("DevTileSet", list);
-			return tagCompound;
         }
 
         public override void LoadWorldData(TagCompound tag)

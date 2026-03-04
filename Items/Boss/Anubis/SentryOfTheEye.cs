@@ -49,7 +49,7 @@ namespace AAModClassic.Items.Boss.Anubis
             }
 			if (player.ownedProjectileCounts[num74] < player.maxTurrets)
 			{
-				Projectile.NewProjectile(Main.mouseX + Main.screenPosition.X, Main.mouseY + Main.screenPosition.Y, 0f, 0f, num74, num76, num77, i, 0f, 0f);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, Main.mouseY + Main.screenPosition.Y, 0f, 0f, num74, num76, num77, i, 0f, 0f);
 			}
 			if (player.ownedProjectileCounts[num74] == player.maxTurrets)
 			{
@@ -61,7 +61,7 @@ namespace AAModClassic.Items.Boss.Anubis
 						break;
 					}
 				}
-				 Projectile.NewProjectile(Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 0f, num74, num76, num77, i, 0f, 0f);
+				 Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 0f, num74, num76, num77, i, 0f, 0f);
 			}
 
             return false;

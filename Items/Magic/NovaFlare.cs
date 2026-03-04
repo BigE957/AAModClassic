@@ -71,12 +71,11 @@ namespace AAModClassic.Items.Magic
 				num82 *= num84;
 				num83 *= num84;
 				Vector2 vector11 = new Vector2(num82, num83) / 2f;
-				int p = Projectile.NewProjectile(vector2.X, vector2.Y, vector11.X*1.5f, vector11.Y*1.5f, 616, damage, knockBack, player.whoAmI);
+				int p = Projectile.NewProjectile(source, vector2.X, vector2.Y, vector11.X*1.5f, vector11.Y*1.5f, 616, damage, knockback, player.whoAmI);
 				Main.projectile[p].usesLocalNPCImmunity = true;
 				Main.projectile[p].localNPCHitCooldown = 1;
 				Main.projectile[p].tileCollide = false;
 				Main.projectile[p].timeLeft -= 60;
-				Main.projectile[p].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 				Main.projectile[p].DamageType = DamageClass.Magic;
 			}
             return false;

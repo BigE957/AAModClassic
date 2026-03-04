@@ -57,7 +57,7 @@ Can only be used in the desert on the surface
 
 
 
-            int a = NPC.NewNPC((int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, ModContent.NPCType<Anubis>());
+            int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, ModContent.NPCType<Anubis>());
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
             NPC npc = Main.npc[a];

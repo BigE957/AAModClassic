@@ -86,7 +86,7 @@ namespace AAModClassic.Items.Dev.RuneBook
         {
             shooter = Main.projectile[(int)Projectile.ai[0]];
             Texture2D projectiletex = Mod.GetTexture("NPCs/Bosses/Zero/NovaRay");
-            DrawLaser(spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
+            DrawLaser(Main.spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
             
             return false;
         }

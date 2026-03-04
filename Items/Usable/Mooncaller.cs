@@ -28,11 +28,11 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            if (!Main.dayTime || Main.fastForwardTime/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
+            if (!Main.dayTime || Main.IsFastForwardingTime()) /* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */
             {
                 return false;
             }
-            return true;
+            return base.CanUseItem(player);
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */

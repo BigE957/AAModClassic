@@ -2,6 +2,7 @@ using AAModClassic;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +29,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.knockBack = 2.5f;
             Item.value = 4000000;
             Item.rare = ItemRarityID.Green;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/BHB");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/BHB");
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("RedBullet").Type; //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 18f;
@@ -59,17 +60,17 @@ namespace AAModClassic.Items.Boss.Zero
             double rotationA = -0.15;
             for (int i = 0; i < Main.rand.Next(2, 4); i++)
             {
-                Vector2 vector = new Vector2(speedX, speedY).RotatedBy(rotationA, default);
-                Projectile.NewProjectile(position.X + (vector.X * 4.8f) - 0.2f * vector.Y, position.Y + (vector.Y * 4.8f) + 0.2f * vector.X, vector.X, vector.Y, Mod.Find<ModProjectile>("RedBullet").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+                Vector2 vector = velocity.RotatedBy(rotationA, default);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + (vector.X * 4.8f) - 0.2f * vector.Y, position.Y + (vector.Y * 4.8f) + 0.2f * vector.X, vector.X, vector.Y, Mod.Find<ModProjectile>("RedBullet").Type, damage, knockback, player.whoAmI, 0f, 0f);
                 rotationA += Main.rand.NextFloat(0.02f, 0.1f);
             }
             if (cooldown == 10)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX * 0.5f, speedY / 2, Mod.Find<ModProjectile>("Rocket").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, Mod.Find<ModProjectile>("Rocket").Type, damage, knockback, player.whoAmI, 0f, 0f);
                 cooldown = 0;
             }
             if (Main.rand.Next(1, 25) == 1)
-                Projectile.NewProjectile(position.X, position.Y, speedX * 0.5f, speedY / 2, Mod.Find<ModProjectile>("Black").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, Mod.Find<ModProjectile>("Black").Type, damage, knockback, player.whoAmI, 0f, 0f);
 
             return false;
         }

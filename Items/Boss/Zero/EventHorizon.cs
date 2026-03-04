@@ -84,12 +84,12 @@ namespace AAModClassic.Items.Boss.Zero
 		{
             float ai3 = (Main.rand.NextFloat() - 0.75f) * 0.7853982f;
             float spread = 45f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             offsetAngle = startAngle + (deltaAngle * 1);
-            Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("EventHorizon").Type, damage, knockBack, player.whoAmI, 0.0f, ai3);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("EventHorizon").Type, damage, knockback, player.whoAmI, 0.0f, ai3);
             return false;
         }
 	}

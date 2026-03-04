@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Boss.EFish
 				float num181 = num83;
 				num180 += Main.rand.Next(-20, 20) * 0.1f;
 				num181 += Main.rand.Next(-20, 20) * 0.1f;
-				Projectile.NewProjectile(vector2.X, vector2.Y, num180*2, num181*2, type, damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num180*2, num181*2, type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

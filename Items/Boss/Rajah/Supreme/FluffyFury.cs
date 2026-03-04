@@ -54,7 +54,7 @@ Potential lag warning"); */
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f;
             int num118 = Main.rand.Next(2,5);
-            Vector2 vector7 = new Vector2(speedX, speedY);
+            Vector2 vector7 = velocity;
             vector7.Normalize();
             vector7 *= 40f;
             bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector7, 0, 0);
@@ -66,7 +66,7 @@ Potential lag warning"); */
                 {
                     value9 -= vector7;
                 }
-                int num121 = Projectile.NewProjectile(vector2.X + value9.X, vector2.Y + value9.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+                int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + value9.X, vector2.Y + value9.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
                 Main.projectile[num121].noDropItem = true;
             }
             return false;

@@ -61,10 +61,9 @@ namespace AAModClassic.Items.Ranged
 			{
 				type = ProjectileID.ChlorophyteBullet; // or ProjectileID.FireArrow;
 			}
-			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(02));
-			speedX = perturbedSpeed.X;
-			speedY = perturbedSpeed.Y;
-			return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
+			Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(02));
+			Projectile.NewProjectile(source, position, perturbedSpeed, type, damage, knockback, player.whoAmI);
+			return false;
 		}
 
 		public override Vector2? HoldoutOffset()

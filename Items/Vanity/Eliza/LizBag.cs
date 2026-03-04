@@ -31,29 +31,29 @@ namespace AAModClassic.Items.Vanity.Eliza
         {
             if (Main.rand.Next(2) == 0)
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizEars").Type);
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizShirt").Type);
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizBoots").Type);
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizScarf").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizEars").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizShirt").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizBoots").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizScarf").Type);
                 if (Main.hardMode)
                 {
-                    player.QuickSpawnItem(Mod.Find<ModItem>("NightingaleWings").Type);
-                    player.QuickSpawnItem(ItemID.TwilightDye);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("NightingaleWings").Type);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TwilightDye);
                 }
             }
             else
             {
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizHood").Type);
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizRobes").Type);
-                player.QuickSpawnItem(Mod.Find<ModItem>("LizSkirt").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizHood").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizRobes").Type);
+                player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("LizSkirt").Type);
                 if (Main.hardMode)
                 {
-                    player.QuickSpawnItem(Mod.Find<ModItem>("DragonWings").Type);
-                    player.QuickSpawnItem(ItemID.TwilightDye);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("DragonWings").Type);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TwilightDye);
                 }
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("RoyalStar").Type);
-            player.QuickSpawnItem(ItemID.TwilightHairDye);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("RoyalStar").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TwilightHairDye);
         }
     }
 }

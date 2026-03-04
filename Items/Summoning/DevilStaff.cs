@@ -47,13 +47,13 @@ namespace AAModClassic.Items.Summoning
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int num73 = damage;
-            float num74 = knockBack;
+            float num74 = knockback;
             num74 = player.GetWeaponKnockback(Item, num74);
             player.itemTime = Item.useTime;
             Vector2 vector2;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("DevilMinion").Type, num73, num74, Main.myPlayer, 0f, 0f);
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("DevilMinion").Type, num73, num74, Main.myPlayer, 0f, 0f);
             return false;
         }
 

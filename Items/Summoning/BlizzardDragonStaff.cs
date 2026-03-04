@@ -49,7 +49,7 @@ Hydra Staff EX"); */
             }
 			if (player.ownedProjectileCounts[num74] < player.maxTurrets)
 			{
-				Projectile.NewProjectile(Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+				Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
 			}
 			if (player.ownedProjectileCounts[num74] == player.maxTurrets)
 			{
@@ -61,7 +61,7 @@ Hydra Staff EX"); */
 						break;
 					}
 				}
-				 Projectile.NewProjectile(Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+				 Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
 			}
 
             return false;

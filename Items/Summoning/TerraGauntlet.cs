@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Summoning
         {
             if (player.altFunctionUse == 2)
             {
-                player.MinionNPCTargetAim();
+                player.MinionNPCTargetAim(true);
             }
             return base.UseItem(player);
         }
@@ -78,12 +78,12 @@ namespace AAModClassic.Items.Summoning
 
             int i = Main.myPlayer;
             int num73 = damage;
-            float num74 = knockBack;
+            float num74 = knockback;
             num74 = player.GetWeaponKnockback(Item, num74);
             player.itemTime = Item.useTime;
             int num78 = 0;
             int num79 = 0;
-            Projectile.NewProjectile(point.X + Main.rand.Next(-50, 50), point.Y + Main.rand.Next(-50, 50), num78, num79, shootMe, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(source, point.X + Main.rand.Next(-50, 50), point.Y + Main.rand.Next(-50, 50), num78, num79, shootMe, num73, num74, i, 0f, 0f);
 
             return false;
         }

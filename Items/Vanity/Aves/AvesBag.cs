@@ -27,12 +27,12 @@ namespace AAModClassic.Items.Vanity.Aves
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<DJDuckHead>());
-            player.QuickSpawnItem(ModContent.ItemType<DJDuckShirt>());
-            player.QuickSpawnItem(ModContent.ItemType<DJDuckPants>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DJDuckHead>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DJDuckShirt>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DJDuckPants>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<DuckstepWings>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DuckstepWings>());
             }
         }
     }

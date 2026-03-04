@@ -33,22 +33,22 @@ namespace AAModClassic.Items.Vanity.Tied
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    player.QuickSpawnItem(ItemID.GoldBunny);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.GoldBunny);
                 }
             }
             else
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    player.QuickSpawnItem(ItemID.Bunny);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Bunny);
                 }
             }
-			player.QuickSpawnItem(ModContent.ItemType<TiedsMask>());
-            player.QuickSpawnItem(ModContent.ItemType<TiedsSuit>());
-            player.QuickSpawnItem(ModContent.ItemType<TiedsLeggings>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TiedsMask>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TiedsSuit>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TiedsLeggings>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ItemID.BoneWings);
+                player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.BoneWings);
             }
 
         }

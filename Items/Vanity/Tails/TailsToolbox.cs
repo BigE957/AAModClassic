@@ -29,12 +29,12 @@ namespace AAModClassic.Items.Vanity.Tails
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<TailsHead>());
-            player.QuickSpawnItem(ModContent.ItemType<TailsBody>());
-            player.QuickSpawnItem(ModContent.ItemType<TailsLegs>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TailsHead>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TailsBody>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<TailsLegs>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ItemID.Jetpack);
+                player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Jetpack);
             }
         }
     }

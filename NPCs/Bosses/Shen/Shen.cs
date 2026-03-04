@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ShenRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/ShenRoar");
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Shen");
             SceneEffectPriority = (SceneEffectPriority)11;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -127,7 +127,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
             else
             {
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ShenRoar"), NPC.Center);
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/ShenRoar"), NPC.Center);
             }
         }
 

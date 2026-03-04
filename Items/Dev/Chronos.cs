@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Dev
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= CalcDamageMultiplierFromTimeOfDay(Item.damage);
+            damage.Flat *= CalcDamageMultiplierFromTimeOfDay(Item.damage);
         }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

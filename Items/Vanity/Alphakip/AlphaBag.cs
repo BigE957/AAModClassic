@@ -32,23 +32,23 @@ namespace AAModClassic.Items.Vanity.Alphakip
 		{
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverMask>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverJacket>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyFishDiverBoots>());
-                player.QuickSpawnItem(ModContent.ItemType<MudkipBallS>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverMask>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverJacket>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyFishDiverBoots>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MudkipBallS>());
                 if (Main.hardMode)
                 {
-                    player.QuickSpawnItem(ModContent.ItemType<ShinyKipronWings>());
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyKipronWings>());
                 }
                 return;
             }
-			player.QuickSpawnItem(ModContent.ItemType<FishDiverMask>());
-            player.QuickSpawnItem(ModContent.ItemType<FishDiverJacket>());
-            player.QuickSpawnItem(ModContent.ItemType<FishDiverBoots>());
-            player.QuickSpawnItem(ModContent.ItemType<MudkipBall>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverMask>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverJacket>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FishDiverBoots>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MudkipBall>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<KipronWings>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<KipronWings>());
             }
         }
     }

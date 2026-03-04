@@ -1534,9 +1534,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
 
         }
 
-        private int NewProjectile(float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float KnockBack, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
+        private int NewProjectile(float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float Knockback, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
         {
-            int proj = Projectile.NewProjectile(X, Y, SpeedX, SpeedY, Type, Damage, KnockBack, Owner, ai0, ai1);
+            int proj = Projectile.NewProjectile(X, Y, Velocity.X, velocity.Y, Type, Damage, Knockback, Owner, ai0, ai1);
             Main.projectile[proj].hostile = false;
             Main.projectile[proj].friendly = true;
             Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
@@ -1548,9 +1548,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
             return proj;
         }
 
-        private int NewProjectile(Vector2 position, Vector2 velocity, int Type, int Damage, float KnockBack, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
+        private int NewProjectile(Vector2 position, Vector2 velocity, int Type, int Damage, float Knockback, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
 		{
-            int proj = Projectile.NewProjectile(position, velocity, Type, Damage, KnockBack, Owner, ai0, ai1);
+            int proj = Projectile.NewProjectile(position, velocity, Type, Damage, Knockback, Owner, ai0, ai1);
             Main.projectile[proj].hostile = false;
             Main.projectile[proj].friendly = true;
             Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;

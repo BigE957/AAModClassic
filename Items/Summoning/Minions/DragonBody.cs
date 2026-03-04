@@ -40,12 +40,12 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 6;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
-            drawCacheProjsBehindProjectiles.Add(index);
+            behindProjectiles.Add(index);
         }
 
         public override bool PreDraw(ref Color lightColor)

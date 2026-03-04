@@ -33,10 +33,6 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             recipe.AddIngredient(null, "Razewood");
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-            recipe = Recipe.Create(null, "Razewood");
-            recipe.AddIngredient(this, 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
         }
     }
 }

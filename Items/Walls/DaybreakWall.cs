@@ -32,10 +32,6 @@ namespace AAModClassic.Items.Walls
             recipe.AddIngredient(null, "DaybreakBrick");
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-            recipe = Recipe.Create(null, "DaybreakBrick");
-            recipe.AddIngredient(this, 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
         }
     }
 }

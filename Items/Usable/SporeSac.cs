@@ -57,10 +57,10 @@ namespace AAModClassic.Items.Usable
         {
             if (type == Mod.Find<ModProjectile>("Flask").Type)
             {
-                Projectile.NewProjectile(position, new Microsoft.Xna.Framework.Vector2(speedX, speedY), type, 0, 0, Main.myPlayer, 9);
+                Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 9);
                 return false;
             }
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
 
     }

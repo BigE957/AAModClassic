@@ -51,10 +51,10 @@ Chaos Slayer EX"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX, speedY, projType, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI);
 			for (int m = 0; m < 2; m++)
 			{
-				Projectile.NewProjectile(shootPos.X, shootPos.Y, speedX * 1f, speedY * 1f, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRedEX").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlueEX").Type, damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRedEX").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlueEX").Type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

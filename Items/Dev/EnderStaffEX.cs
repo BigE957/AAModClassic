@@ -78,7 +78,7 @@ Conflagrate Staff EX"); */
         {
             if (player.altFunctionUse == 2)
             {
-                player.MinionNPCTargetAim();
+                player.MinionNPCTargetAim(true);
             }
             return base.UseItem(player);
         }

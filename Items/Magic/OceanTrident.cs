@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Magic
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+			int proj = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
 			Main.projectile[proj].penetrate = 1;
 			return false;
 		}

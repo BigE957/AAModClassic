@@ -27,9 +27,9 @@ namespace AAModClassic.Items.Vanity.Delly
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<DellyWig>());
-            player.QuickSpawnItem(ModContent.ItemType<DellyShirt>());
-            player.QuickSpawnItem(ModContent.ItemType<DellyBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DellyWig>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DellyShirt>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<DellyBoots>());
         }
     }
 }

@@ -91,7 +91,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
             else
             {
-                NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
+                NPC.knockBackResist = 0.4f * Main.GameModeInfo.knockBackToEnemiesMultiplier;
                 NPC.noGravity = false;
                 Vector2 center2 = NPC.Center;
                 NPC.width = 18;

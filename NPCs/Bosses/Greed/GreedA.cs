@@ -168,7 +168,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         internalAI[1] = 0;
                         if (!Main.dedServ)
                         {
-                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Custom/Quake1").WithVolume(.7f).WithPitchVariance(.1f));
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Sound, "Sounds/Custom/Quake1").WithVolume(.7f).WithPitchVariance(.1f));
                         }
                         int proj = Projectile.NewProjectile(player.Center.X, player.Center.Y - 100, 0f, 0f, Mod.Find<ModProjectile>("WarningPro").Type, 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
                         Main.projectile[proj].netUpdate = true;

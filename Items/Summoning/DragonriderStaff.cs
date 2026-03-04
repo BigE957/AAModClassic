@@ -53,7 +53,7 @@ namespace AAModClassic.Items.Summoning
         {
             if (player.altFunctionUse == 2 && player.controlUseItem && player.releaseUseItem)
             {
-                player.MinionNPCTargetAim();
+                player.MinionNPCTargetAim(true);
                 player.UpdateMinionTarget();
             }
             return true;
@@ -89,17 +89,17 @@ namespace AAModClassic.Items.Summoning
             //initial spawn
             if (headCheck == -1 && tailCheck == -1)
             {
-                int current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonHead").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+                int current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonHead").Type, damage, knockback, player.whoAmI, 0f, 0f);
 
                 int previous = 0;
 
                 for (int i = 0; i < 1; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockBack, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockback, player.whoAmI, current, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonTail").Type, damage, knockBack, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonTail").Type, damage, knockback, player.whoAmI, current, 0f);
 
                 Main.projectile[previous].localAI[1] = current;
                 Main.projectile[previous].netUpdate = true;
@@ -112,7 +112,7 @@ namespace AAModClassic.Items.Summoning
 
                 for (int i = 0; i < 4; i++)
                 {
-                    current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockBack, player.whoAmI,
+                    current = Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockback, player.whoAmI,
                         Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                     previous = current;

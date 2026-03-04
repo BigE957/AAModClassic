@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(position, new Vector2(speedX, speedY), ModContent.ProjectileType<HoloArrow>(), Item.damage, knockBack, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<HoloArrow>(), Item.damage, knockback, player.whoAmI);
             return false;
         }
     }

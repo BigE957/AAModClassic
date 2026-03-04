@@ -242,10 +242,9 @@ namespace AAModClassic.Items.Dev.Minions
                         Vector2 value19 = vector46 - Projectile.Center;
                         value19.Normalize();
                         value19 *= scaleFactor3;
-                        int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, 449, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, 449, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].friendly = true;
-                        Main.projectile[proj].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                         Main.projectile[proj].minion = true;
                         Main.projectile[proj].netUpdate = true;
                         Projectile.netUpdate = true;

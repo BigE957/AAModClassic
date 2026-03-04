@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         public override void AI()
         {
             NPC.noTileCollide = false;
-            NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
+            NPC.knockBackResist = 0.4f * Main.GameModeInfo.knockBackToEnemiesMultiplier;
             NPC.noGravity = true;
             NPC.rotation = ((NPC.rotation * 9f) + (NPC.velocity.X * 0.1f)) / 10f;
             if (Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno == false)

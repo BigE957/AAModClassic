@@ -61,7 +61,7 @@ The armor of a champion feared across the land"); */
                 }
                 if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BaronBunny").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("BaronBunny").Type, 100, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("BaronBunny").Type, 100, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

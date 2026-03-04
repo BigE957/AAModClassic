@@ -1,12 +1,13 @@
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Rajah;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -32,7 +33,7 @@ Non-consumable"); */
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noUseGraphic = true;
             Item.consumable = false;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Rajah");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

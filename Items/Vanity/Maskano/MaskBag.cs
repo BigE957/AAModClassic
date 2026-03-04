@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Vanity.Maskano
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<Mask>());
-            player.QuickSpawnItem(ModContent.ItemType<MaskPlate>());
-            player.QuickSpawnItem(ModContent.ItemType<MaskBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<Mask>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MaskPlate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MaskBoots>());
         }
     }
 }

@@ -46,7 +46,7 @@ Athena is boosted by minion damage"); */
                     }
                     if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Athena").Type] < 1)
                     {
-                        Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Athena").Type, (int)(100f * player.GetDamage(DamageClass.Summon)), 2f, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Athena").Type, (int)(100f * player.GetDamage(DamageClass.Summon)).Flat, 2f, Main.myPlayer, 0f, 0f);
                     }
                 }
 			}

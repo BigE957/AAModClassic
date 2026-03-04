@@ -60,7 +60,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
         public override void OnKill(int timeleft)
         {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<TerraBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<TerraBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             for (int num468 = 0; num468 < 10; num468++)
             {

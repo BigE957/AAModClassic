@@ -29,7 +29,7 @@ Right click the item to turn it on"); */
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(ModContent.ItemType<CodeMagnet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnet>());
         }
 
         public override void AddRecipes()

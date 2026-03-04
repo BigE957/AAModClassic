@@ -64,7 +64,7 @@ namespace AAModClassic.Items.Boss.Akuma
         {
             if (player.altFunctionUse == 2)
             {
-                player.MinionNPCTargetAim();
+                player.MinionNPCTargetAim(true);
             }
             return base.UseItem(player);
         }
@@ -114,16 +114,16 @@ namespace AAModClassic.Items.Boss.Akuma
                 num82 = 0f;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                int num187 = Projectile.NewProjectile(vector2.X, vector2.Y, num81, num82, num74, num76, num77, Main.myPlayer, 0f, 0f);
-                num187 = Projectile.NewProjectile(vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
+                int num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, num74, num76, num77, Main.myPlayer, 0f, 0f);
+                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
                 int num188 = num187;
 				for (int z = 0; z < (int)((player.maxMinions - player.slotsMinions) * 2); z++)
 				{
-					num187 = Projectile.NewProjectile(vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
+					num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungBody>(), num76, num77, Main.myPlayer, num187, 0f);
 					Main.projectile[num188].localAI[1] = num187;
 					num188 = num187;
 				}
-                num187 = Projectile.NewProjectile(vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungTail>(), num76, num77, Main.myPlayer, num187, 0f);
+                num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<LungTail>(), num76, num77, Main.myPlayer, num187, 0f);
                 Main.projectile[num188].localAI[1] = num187;
             }
             else
@@ -131,7 +131,7 @@ namespace AAModClassic.Items.Boss.Akuma
                 int previous = (int) Main.projectile[num185].ai[0];
                 int current = 0;
 
-                current = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("LungBody").Type, damage, knockBack, player.whoAmI,
+                current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("LungBody").Type, damage, knockback, player.whoAmI,
                 Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                 previous = current;

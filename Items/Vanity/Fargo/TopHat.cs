@@ -28,9 +28,9 @@ namespace AAModClassic.Items.Vanity.Fargo
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(ModContent.ItemType<FargoHat>());
-            player.QuickSpawnItem(ModContent.ItemType<FargoSuit>());
-            player.QuickSpawnItem(ModContent.ItemType<FargoPants>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FargoHat>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FargoSuit>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<FargoPants>());
         }
     }
 }

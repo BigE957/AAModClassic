@@ -52,7 +52,7 @@ namespace AAModClassic.Items.Boss.AH
         {
             if (player.altFunctionUse == 2)
             {
-                player.MinionNPCTargetAim();
+                player.MinionNPCTargetAim(true);
                 player.UpdateMinionTarget();
             }
             else
@@ -73,7 +73,7 @@ namespace AAModClassic.Items.Boss.AH
                 Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(vector2.X, vector2.Y, 0, 0, shootMe, damage, 5, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, shootMe, damage, 5, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
                 return true;
             }
             return false;

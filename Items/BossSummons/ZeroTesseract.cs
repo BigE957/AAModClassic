@@ -114,10 +114,10 @@ N0N-C0NSUMABLE"); */
             {
                 AAWorld.zeroUS = true;
                 if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type))
-                    NPC.NewNPC((int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("Zero").Type);
+                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("Zero").Type);
             }
 
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Glitch"));
             return true;
         }
 

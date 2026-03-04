@@ -31,9 +31,6 @@ namespace AAModClassic.Items.Blocks.Oroboros
             recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "OroborosWood");
             recipe.Register(); 
-            recipe = Recipe.Create(null, "OroborosWood");
-            recipe.AddIngredient(this, 2);
-            recipe.Register();
         }
 	}
 }

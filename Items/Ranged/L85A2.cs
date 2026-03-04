@@ -47,15 +47,14 @@ namespace AAModClassic.Items.Ranged
         
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(01));
-			speedX = perturbedSpeed.X;
-			speedY = perturbedSpeed.Y;
+			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(01));
 			
 			if (type == ProjectileID.Bullet) // or ProjectileID.WoodenArrowFriendly
 			{
 				type = ProjectileID.BulletHighVelocity; // or ProjectileID.FireArrow;
 			}
-			return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            return false; // return true to allow tmodloader to call Projectile.NewProjectile as normal
 		}
 
 		public override Vector2? HoldoutOffset()

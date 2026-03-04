@@ -51,11 +51,11 @@ If the enemy hits the ground after being hit, they will take damage"); */
             }
             if (target.velocity.Y != 0)
             {
-                crit = true;
+                modifiers.SetCrit();
                 if (target.knockBackResist > 0 || !target.boss)
                 {
                     target.AddBuff(ModContent.BuffType<Falling>(), 120);
-                    target.GetGlobalNPC<FallDamage>().damage = damage;
+                    target.GetGlobalNPC<FallDamage>().damage = (int)modifiers.FinalDamage.Flat;
                 }
             }
         }
@@ -66,7 +66,7 @@ If the enemy hits the ground after being hit, they will take damage"); */
             {
                 if (target.knockBackResist > 0 || !target.boss)
                 {
-                    target.velocity.Y += knockBack * 1.5f * target.knockBackResist;
+                    target.velocity.Y += hit.Knockback * 1.5f * target.knockBackResist;
                     target.velocity.X = 0;
                 }
                 int num = 4;

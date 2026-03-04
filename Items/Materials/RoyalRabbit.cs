@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Materials
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            int num = NPC.NewNPC((int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), Mod.Find<ModNPC>("RoyalRabbit").Type);
+            int num = NPC.NewNPC(Item.GetSource_ReleaseEntity(), (int)(player.position.X + Main.rand.Next(-20, 20)), (int)(player.position.Y - 0f), Mod.Find<ModNPC>("RoyalRabbit").Type);
             if (Main.netMode == NetmodeID.Server && num < 200)
             {
                 NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, num, 0f, 0f, 0f, 0, 0, 0);
@@ -54,14 +54,14 @@ namespace AAModClassic.Items.Materials
                         if (bunnyKills % 100 == 0 && bunnyKills < 1000)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned1"), 107, 137, 179);
-                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
 
                         }
                         if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RoyalRabbitSummoned2") + player.name.ToUpper() + "!", 107, 137, 179);
-                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), player.Center);
+                            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
                         };
                     }

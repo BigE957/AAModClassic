@@ -593,7 +593,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             }
             else
             {
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/AkumaRoar"), NPC.Center);
+                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar"), NPC.Center);
             }
         }
 

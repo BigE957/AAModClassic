@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
+using Terraria.Audio;
 
 namespace AAModClassic.Items.Dev
 {
@@ -30,7 +31,7 @@ Storm Rifle EX"); */
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Thunderlord");
+            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Thunderlord");
             Item.autoReuse = true; 
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;
@@ -43,13 +44,13 @@ Storm Rifle EX"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+            Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
             {
                 position += muzzleOffset;
             }
             type = Main.rand.Next(20) == 0 ? Mod.Find<ModProjectile>("SThunderBullet").Type : Mod.Find<ModProjectile>("ThunderBullet").Type;
-            Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 2f, 2f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 2f, 2f);
             return false;
         }
 

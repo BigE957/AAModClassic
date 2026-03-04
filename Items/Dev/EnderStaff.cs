@@ -74,7 +74,7 @@ I thought the sky was purple
 		{
 			if(player.altFunctionUse == 2)
 			{
-				player.MinionNPCTargetAim();
+				player.MinionNPCTargetAim(true);
 			}
 			return base.UseItem(player);
 		}

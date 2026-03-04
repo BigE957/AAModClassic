@@ -37,19 +37,19 @@ namespace AAModClassic.Items.Vanity.CC
         {
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(ModContent.ItemType<Shiny.ShinyCCHood>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyCCRobe>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<Shiny.ShinyCCHood>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyCCRobe>());
                 if (Main.hardMode)
                 {
-                    player.QuickSpawnItem(ModContent.ItemType<MagmancerWings>());
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MagmancerWings>());
                 }
                 return;
             }
-            player.QuickSpawnItem(ModContent.ItemType<CCHood>());
-            player.QuickSpawnItem(ModContent.ItemType<CCRobe>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CCHood>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CCRobe>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<AquamancerWings>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AquamancerWings>());
             }
         }
     }

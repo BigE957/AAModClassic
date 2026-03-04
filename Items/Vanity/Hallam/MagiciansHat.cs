@@ -31,22 +31,22 @@ namespace AAModClassic.Items.Vanity.Hallam
         {
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(ModContent.ItemType<ShinyHalHat>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyHalTux>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyHalTux>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalHat>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalTux>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyHalTux>());
                 if (Main.rand.Next(10) == 0)
                 {
-                    player.QuickSpawnItem(ItemID.GoldBunny);
+                    player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.GoldBunny);
                 }
                 return;
             }
-			player.QuickSpawnItem(ModContent.ItemType<HalHat>());
-            player.QuickSpawnItem(ModContent.ItemType<HalTux>());
-            player.QuickSpawnItem(ModContent.ItemType<HalTrousers>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HalHat>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HalTux>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HalTrousers>());
 
             if (Main.rand.Next(10) == 0)
             {
-                player.QuickSpawnItem(ItemID.Bunny);
+                player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Bunny);
             }
         }
     }

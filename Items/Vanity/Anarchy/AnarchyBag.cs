@@ -30,9 +30,9 @@ For the record, Anarchy sprited this himself."); */
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<PristineHelmet>());
-            player.QuickSpawnItem(ModContent.ItemType<PristineChestplate>());
-            player.QuickSpawnItem(ModContent.ItemType<PristineLeggings>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PristineHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PristineChestplate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PristineLeggings>());
         }
     }
 }

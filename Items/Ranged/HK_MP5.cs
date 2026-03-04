@@ -36,10 +36,9 @@ namespace AAModClassic.Items.Ranged
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
             type = ProjectileID.ExplosiveBullet;
-			Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(04));
-			speedX = perturbedSpeed.X;
-			speedY = perturbedSpeed.Y;
-			return true;
+			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(04));
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            return false;
 		}
 
 		public override Vector2? HoldoutOffset()

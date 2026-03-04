@@ -76,8 +76,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
                 float num83 = vector13.Y;
                 float speedX5 = num82;
                 float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("CarrotEX").Type, damage * 3 / 2, knockBack, Main.myPlayer);
-                Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("CarrotEX").Type, damage * 3 / 2, knockback, Main.myPlayer);
                 Main.projectile[p].DamageType = DamageClass.Magic;
                 Main.projectile[p].extraUpdates = 1;
                 Main.projectile[p].usesLocalNPCImmunity = true;

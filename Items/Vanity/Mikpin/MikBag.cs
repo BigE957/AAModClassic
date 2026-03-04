@@ -27,9 +27,9 @@ namespace AAModClassic.Items.Vanity.Mikpin
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<MikpinWig>());
-            player.QuickSpawnItem(ModContent.ItemType<MikpinCloak>());
-            player.QuickSpawnItem(ModContent.ItemType<MikpinPants>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MikpinWig>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MikpinCloak>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MikpinPants>());
         }
     }
 }

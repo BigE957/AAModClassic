@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Blocks
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DynastyWood, 1);
-            recipe.needWater = true;
+            recipe.AddCondition(Condition.NearWater);
             recipe.Register();
         }
     }

@@ -30,19 +30,19 @@ namespace AAModClassic.Items.Vanity.Moon
         {
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<MoonWings>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonWings>());
             }
-            player.QuickSpawnItem(ModContent.ItemType<Pets.LunaminiJar>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<Pets.LunaminiJar>());
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(ModContent.ItemType<ShinyMoonHood>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyMoonRobe>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyMoonBoots>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonHood>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonRobe>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyMoonBoots>());
                 return;
             }
-			player.QuickSpawnItem(ModContent.ItemType<MoonHood>());
-            player.QuickSpawnItem(ModContent.ItemType<MoonRobe>());
-            player.QuickSpawnItem(ModContent.ItemType<MoonBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHood>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonRobe>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonBoots>());
         }
     }
 }

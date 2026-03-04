@@ -1,5 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -56,12 +57,12 @@ namespace AAModClassic.Mounts
 			MountData.swimFrameStart = 15;
 			if (Main.netMode != NetmodeID.Server)
 			{
-				MountData.backTexture = Mod.GetTexture("Mounts/PrinceFishron");
-				MountData.backTextureGlow = Mod.GetTexture("Mounts/PrinceFishron_Glow");
+				MountData.backTexture = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron");
+				MountData.backTextureGlow = ModContent.Request<Texture2D>("AAModClassic/Mounts/PrinceFishron_Glow");
 				MountData.frontTexture = null;
 				MountData.frontTextureExtra = null;
-				MountData.textureWidth = MountData.backTexture.Width;
-				MountData.textureHeight = MountData.backTexture.Height;
+				MountData.textureWidth = MountData.backTexture.Width();
+				MountData.textureHeight = MountData.backTexture.Height();
 			}
 		}
 		

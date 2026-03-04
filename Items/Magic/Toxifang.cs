@@ -37,10 +37,10 @@ namespace AAModClassic.Items.Magic
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 perturbedSpeed = new Vector2(speedX*2, speedY*2).RotatedByRandom(MathHelper.ToRadians(8));
-			speedX = perturbedSpeed.X;
-			speedY = perturbedSpeed.Y;
-			return true;
+			Vector2 perturbedSpeed = (velocity * 2).RotatedByRandom(MathHelper.ToRadians(8));
+			velocity = perturbedSpeed;
+			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+			return false;
 		}
 		
 		public override void AddRecipes()  

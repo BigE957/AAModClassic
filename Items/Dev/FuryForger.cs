@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Dev
         
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Forge"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Forge"));
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(player.velocity.X, player.velocity.Y) - spread / 2;
             double deltaAngle = spread / 8f;
@@ -53,8 +53,8 @@ namespace AAModClassic.Items.Dev
                 for (int i = 0; i < 4; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
                 }
             }
             target.AddBuff(BuffID.OnFire, 200);

@@ -129,8 +129,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
 							num406 = num403 / num406;
 							num404 *= num406;
 							num405 *= num406;
-							int p = Projectile.NewProjectile(Projectile.Center.X - 4f, Projectile.Center.Y, num404, num405, ModContent.ProjectileType<TerraSphere>(), Player.crystalLeafDamage, Player.crystalLeafKB, Projectile.owner, 0f, 0f);
-							Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+							int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 4f, Projectile.Center.Y, num404, num405, ModContent.ProjectileType<TerraSphere>(), Player.crystalLeafDamage, Player.crystalLeafKB, Projectile.owner, 0f, 0f);
 							Main.projectile[p].minion = true;
 							Main.projectile[p].minionSlots = 0;
                             intAI = 50f;
@@ -340,8 +339,7 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
                             Vector2 value19 = vector46 - Projectile.Center;
                             value19.Normalize();
                             value19 *= scaleFactor3;
-                            int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, (int)(80 * player.GetDamage(DamageClass.Summon)), 0f, Main.myPlayer, 0f, 0f);
-                            Main.projectile[num659].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */; 
+                            int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, (int)(80 * player.GetDamage(DamageClass.Summon)).Flat, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num659].minion = true;
                             Main.projectile[num659].minionSlots = 0;
                             Main.projectile[num659].timeLeft = 300;
@@ -362,8 +360,8 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 3, 0, 0);
 
-            BaseDrawing.DrawAura(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, auraPercent, 1.4f, Projectile.scale, Projectile.rotation, Projectile.direction, 3, frame, 0, 0, Color.White);
-            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 3, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawAura(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, auraPercent, 1.4f, Projectile.scale, Projectile.rotation, Projectile.direction, 3, frame, 0, 0, Color.White);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 3, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;
         }

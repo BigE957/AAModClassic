@@ -32,7 +32,7 @@ Meowmere EX"); */
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Purple;
-            Item.UseSound = new LegacySoundStyle(2, 57, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item57;
             Item.autoReuse = true;
             Item.useTurn = true;
             Item.expert = true; Item.expertOnly = true;
@@ -47,14 +47,14 @@ Meowmere EX"); */
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 30f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 2; i++)
             {
                 offsetAngle = startAngle + (deltaAngle * i);
-                Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, Main.myPlayer);
             }
             return false;
         }

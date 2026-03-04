@@ -89,15 +89,15 @@ Demise EX"); */
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("DemiseBladeEX").Type, damage * 3 / 2, knockBack, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("DemiseBladeEX").Type, damage * 3 / 2, knockback, Main.myPlayer);
                 }
             }
             else
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15));
-                    int p = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DemiseSphereEX").Type, damage, knockBack, player.whoAmI);
+                    Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
+                    int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DemiseSphereEX").Type, damage, knockback, player.whoAmI);
                     Main.projectile[p].Center = player.Center;
                 }
             }

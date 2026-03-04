@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.RedDynastyShingles, 1);
-            recipe.needLava = true;
+            recipe.AddCondition(Condition.NearLava);
             recipe.Register();
         }
     }

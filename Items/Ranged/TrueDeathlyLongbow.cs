@@ -43,8 +43,8 @@ Fires an explosive ghast skull every other shot"); */
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            player.statLife += damage / 8;
-            player.HealEffect(damage / 8);
+            player.statLife += damageDone / 8;
+            player.HealEffect(damageDone / 8);
         }
 
         int shoot = 0;
@@ -52,8 +52,8 @@ Fires an explosive ghast skull every other shot"); */
         {
             for (int i = 0; i < 3; i++)
             {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20));
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("ReaperArrow").Type, damage, knockBack, player.whoAmI);
+                Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(20));
+                Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("ReaperArrow").Type, damage, knockback, player.whoAmI);
             }
             shoot++;
 
@@ -61,7 +61,7 @@ Fires an explosive ghast skull every other shot"); */
 
             if (shoot >= 2)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("GhastSkull").Type, (int)(damage * 1.0), knockBack, player.whoAmI);
+                Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("GhastSkull").Type, (int)(damage * 1.0), knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;

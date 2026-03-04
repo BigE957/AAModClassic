@@ -95,13 +95,13 @@ Super Skullshot EX"); */
             {
                 for (int i = 0; i < Main.rand.Next(6, 13); i++)
                 {
-                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                    Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
                 }
             }
             else
             {
-                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Hellshot>(), damage, knockBack, Main.myPlayer, 0f, 0f);
+                int proj = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Hellshot>(), damage, knockback, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
             return false;

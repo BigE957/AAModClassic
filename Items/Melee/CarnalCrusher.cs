@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Melee
             {
                 return;
             }
-            float num = damage * 0.075f;
+            float num = damageDone * 0.075f;
             if ((int)num == 0)
             {
                 return;
@@ -62,9 +62,9 @@ namespace AAModClassic.Items.Melee
             }
             Main.LocalPlayer.lifeSteal -= num;
             int num2 = Item.playerIndexTheItemIsReservedFor;
-            if (crit)
+            if (hit.Crit)
             {
-                Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, Item.playerIndexTheItemIsReservedFor, num2, num);
+                Projectile.NewProjectile(target.GetSource_OnHurt(player), target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, Item.playerIndexTheItemIsReservedFor, num2, num);
             }
         }
 		

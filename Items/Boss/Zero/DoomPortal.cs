@@ -70,7 +70,7 @@ namespace AAModClassic.Items.Boss.Zero
             int i = Main.myPlayer;
             float num72 = Item.shootSpeed;
             int num73 = damage;
-            float num74 = knockBack;
+            float num74 = knockback;
             num74 = player.GetWeaponKnockback(Item, num74);
             player.itemTime = Item.useTime;
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -96,7 +96,7 @@ namespace AAModClassic.Items.Boss.Zero
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("Protocol").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("Protocol").Type, num73, num74, i, 0f, 0f);
             return false;
         }
 

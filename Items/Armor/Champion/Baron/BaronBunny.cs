@@ -54,27 +54,27 @@ namespace AAModClassic.Items.Armor.Champion.Baron
             if (player.statLife < player.statLifeMax2 * (4 / 5))
             {
                 MeterF = 1; shootInterval = 70f;
-                Projectile.damage = (int)(170 * player.GetDamage(DamageClass.Summon));
+                Projectile.damage = (int)(170 * player.GetDamage(DamageClass.Summon)).Flat;
             }
             else if (player.statLife < player.statLifeMax2 * (3 / 5))
             {
                 MeterF = 2; shootInterval = 60f;
-                Projectile.damage = (int)(190 * player.GetDamage(DamageClass.Summon));
+                Projectile.damage = (int)(190 * player.GetDamage(DamageClass.Summon)).Flat;
             }
             else if (player.statLife < player.statLifeMax2 * (2 / 5))
             {
                 MeterF = 3; shootInterval = 40f;
-                Projectile.damage = (int)(210 * player.GetDamage(DamageClass.Summon));
+                Projectile.damage = (int)(210 * player.GetDamage(DamageClass.Summon)).Flat;
             }
             else if (player.statLife < player.statLifeMax2 * (1 / 5))
             {
                 MeterF = 4; shootInterval = 20f;
-                Projectile.damage = (int)(250 * player.GetDamage(DamageClass.Summon));
+                Projectile.damage = (int)(250 * player.GetDamage(DamageClass.Summon)).Flat;
             }
             else
             {
                 MeterF = 5;
-                Projectile.damage = (int)(150 * player.GetDamage(DamageClass.Summon));
+                Projectile.damage = (int)(150 * player.GetDamage(DamageClass.Summon)).Flat;
             }
 
             float num633 = 700f;
@@ -258,7 +258,7 @@ namespace AAModClassic.Items.Armor.Champion.Baron
                             for (int i = 0; i < 3; i++)
                             {
                                 double offsetAngle = startAngle + (deltaAngle * i);
-                                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), num658, Projectile.damage, 5, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), num658, Projectile.damage, 5, Main.myPlayer);
                             }
                         }
                         else
@@ -266,7 +266,7 @@ namespace AAModClassic.Items.Armor.Champion.Baron
                             Vector2 value19 = vector46 - Projectile.Center;
                             value19.Normalize();
                             value19 *= scaleFactor3;
-                            int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                            int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num659].timeLeft = 300;
                             Main.projectile[num659].hostile = false;
                             Main.projectile[num659].friendly = true;
@@ -296,24 +296,24 @@ namespace AAModClassic.Items.Armor.Champion.Baron
             if (player.statLife < player.statLifeMax2 * (1 / 5))
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingRainbowDye);
-                BaseDrawing.DrawTexture(spriteBatch, MeterGlow, shader, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
-                BaseDrawing.DrawTexture(spriteBatch, Eyes, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, Main.DiscoColor, true);
+                BaseDrawing.DrawTexture(Main.spriteBatch, MeterGlow, shader, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
+                BaseDrawing.DrawTexture(Main.spriteBatch, Eyes, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, Main.DiscoColor, true);
             }
 
-            BaseDrawing.DrawTexture(spriteBatch, Meter, 0, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Meter, 0, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, lightColor, true);
 
             if (player.statLife < player.statLifeMax2 * (3 / 5))
             {
-                BaseDrawing.DrawTexture(spriteBatch, Mad, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, lightColor, true);
+                BaseDrawing.DrawTexture(Main.spriteBatch, Mad, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, lightColor, true);
             }
 
             if (player.statLife < player.statLifeMax2 * (1 / 5))
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingRainbowDye);
-                BaseDrawing.DrawTexture(spriteBatch, MeterGlow, shader, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
-                BaseDrawing.DrawTexture(spriteBatch, Eyes, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, Main.DiscoColor, true);
+                BaseDrawing.DrawTexture(Main.spriteBatch, MeterGlow, shader, Projectile.position - new Vector2(44, 0), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 5, MeterFrame, Color.White, true);
+                BaseDrawing.DrawTexture(Main.spriteBatch, Eyes, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, Main.DiscoColor, true);
             }
             return false;
         }

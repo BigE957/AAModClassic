@@ -28,9 +28,9 @@ namespace AAModClassic.Items.Vanity.VoidEye
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<VoidEyeHelm>());
-            player.QuickSpawnItem(ModContent.ItemType<VoidEyePlate>());
-            player.QuickSpawnItem(ModContent.ItemType<VoidEyeBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<VoidEyeHelm>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<VoidEyePlate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<VoidEyeBoots>());
         }
     }
 }

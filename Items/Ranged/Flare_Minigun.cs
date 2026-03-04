@@ -71,9 +71,9 @@ namespace AAModClassic.Items.Ranged
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5));
-			Vector2 perturbedSpeed3 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5));
-			Vector2 perturbedSpeed4 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(8));
+			Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(5));
+			Vector2 perturbedSpeed3 = velocity.RotatedByRandom(MathHelper.ToRadians(5));
+			Vector2 perturbedSpeed4 = velocity.RotatedByRandom(MathHelper.ToRadians(8));
 			float speedX2 = perturbedSpeed2.X;
 			float speedY2 = perturbedSpeed2.Y;
 			float speedX3 = perturbedSpeed3.X;
@@ -108,10 +108,10 @@ namespace AAModClassic.Items.Ranged
             {
                 num45 = 310;
             }
-            Projectile.NewProjectile(vector.X, vector.Y, speedX2, speedY2, num45, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(vector.X, vector.Y, speedX, speedY, num45, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(vector.X, vector.Y, speedX3, speedY3, num45, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(vector.X, vector.Y, speedX4, speedY4, num45, damage, knockBack, player.whoAmI);
+            Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, num45, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.Y, num45, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, num45, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, speedX4, speedY4, num45, damage, knockback, player.whoAmI);
 			return false;
 		}
 		

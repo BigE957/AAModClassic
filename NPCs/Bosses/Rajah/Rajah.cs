@@ -103,7 +103,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         public void Roar(int timer)
         {
             roarTimer = timer;
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Rajah"), NPC.Center);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah"), NPC.Center);
         }
 
         public Vector2 WeaponPos;

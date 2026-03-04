@@ -42,7 +42,7 @@ namespace AAModClassic.Items.Armor.Terra
             {
                 if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("TerraCrystal").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("TerraCrystal").Type, (int)(60 * player.GetDamage(DamageClass.Summon)), 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("TerraCrystal").Type, (int)(60 * player.GetDamage(DamageClass.Summon)).Flat, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

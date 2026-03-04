@@ -36,8 +36,7 @@ namespace AAModClassic.Items.Melee
                 recipe.Register();
             }
             {
-                Recipe recipe = Recipe.Create();
-                recipe = CreateRecipe();
+                Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.Excalibur);
                 recipe.AddIngredient(ItemID.TitaniumBar, 15);
                 recipe.AddIngredient(ItemID.SoulofSight, 5);
@@ -60,7 +59,7 @@ namespace AAModClassic.Items.Melee
 		/*	The following changes to SetDefaults 
 		 	item.shoot = 503;
 			item.shootSpeed = 8f;
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockback)
 		{
 			Vector2 target = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);
 			float ceilingLimit = target.Y;
@@ -82,10 +81,10 @@ namespace AAModClassic.Items.Melee
 					heading.Y = 20f;
 				}
 				heading.Normalize();
-				heading *= new Vector2(speedX, speedY).Length();
+				heading *= velocity.Length();
 				speedX = heading.X;
 				speedY = heading.Y + Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage * 2, knockBack, player.whoAmI, 0f, ceilingLimit);
+				Projectile.NewProjectile(position, velocity, type, damage * 2, knockback, player.whoAmI, 0f, ceilingLimit);
 			}
 			return false;
 		}*/

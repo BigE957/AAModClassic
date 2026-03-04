@@ -45,11 +45,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 
 	public class luckywrath : ModBuff
 	{
-		public override bool IsLoadingEnabled(Mod mod)
-		{
-			texture = "Terraria/Buff_117";
-			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		}
+        public override string Texture => "Terraria/Buff_117";
 
 		public override void SetStaticDefaults()
 		{
@@ -58,10 +54,10 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = false;
-			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
-		}
+            BuffID.Sets.LongerExpertDebuff[Type] = false;
+        }
 
-		public override void Update(Player player, ref int buffIndex)
+        public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffImmune[117] = true;
 			player.GetDamage(DamageClass.Generic) += .11f;

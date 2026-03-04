@@ -182,7 +182,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
                 SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-                Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, type, (int)damage, 1f, player.whoAmI);
+                Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, type, (int)damage, 1f, player.whoAmI);
             }
         }
 

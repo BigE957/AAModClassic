@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Boss.Rajah
         public override bool WingUpdate(Player player, bool inUse)
         {
             bool isFlying = false;
-            if (player.controlJump && player.wingTime > 0f && !player.jumpAgainCloud && player.jump == 0 && player.velocity.Y != 0f)
+            if (player.controlJump && player.wingTime > 0f && player.ExtraJumps.IsEmpty && player.jump == 0 && player.velocity.Y != 0f)
             {
                 isFlying = true;
             }

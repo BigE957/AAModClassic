@@ -76,10 +76,10 @@ N0N-C0NSUMABLE"); */
             {
                 AAWorld.zeroUS = true;
                 if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type))
-                    NPC.NewNPC((int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("ZeroProtocol").Type);
+                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("ZeroProtocol").Type);
             }
 
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/ZeroDeath"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/ZeroDeath"));
             return true;
         }
     }

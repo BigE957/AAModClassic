@@ -28,12 +28,12 @@ namespace AAModClassic.Items.Vanity.Charlie
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<CharlieCowl>());
-            player.QuickSpawnItem(ModContent.ItemType<CharlieCloak>());
-            player.QuickSpawnItem(ModContent.ItemType<CharlieBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CharlieCowl>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CharlieCloak>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CharlieBoots>());
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CharlieWings>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CharlieWings>());
             }
         }
     }

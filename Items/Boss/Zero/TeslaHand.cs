@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
+using Terraria.Audio;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.width = 36;
             Item.height = 42;
             Item.damage = 240;
-            Item.UseSound = Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/Glitch");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Glitch");
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shoot = Mod.Find<ModProjectile>("Teslashock").Type;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
@@ -74,7 +75,7 @@ namespace AAModClassic.Items.Boss.Zero
         // Also, when I do this, how do I prevent shooting through tiles?
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+			Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
 			{
 				position += muzzleOffset;

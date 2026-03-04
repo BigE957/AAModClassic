@@ -58,15 +58,15 @@ namespace AAModClassic.Items.Ranged
 			}
 			
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			Vector2 perturbedSpeed2 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(2));
-			Vector2 perturbedSpeed3 = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(2));
+			Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(2));
+			Vector2 perturbedSpeed3 = velocity.RotatedByRandom(MathHelper.ToRadians(2));
 			float speedX2 = perturbedSpeed2.X;
 			float speedY2 = perturbedSpeed2.Y;
 			float speedX3 = perturbedSpeed3.X;
 			float speedY3 = perturbedSpeed3.Y;
-			int p1 = Projectile.NewProjectile(vector.X, vector.Y, speedX2, speedY2, type, damage, knockBack, player.whoAmI);
-			int p2 = Projectile.NewProjectile(vector.X, vector.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-			int p3 = Projectile.NewProjectile(vector.X, vector.Y, speedX3, speedY3, type, damage, knockBack, player.whoAmI);
+			int p1 = Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, type, damage, knockback, player.whoAmI);
+			int p2 = Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
+			int p3 = Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, type, damage, knockback, player.whoAmI);
 			if (type == 408)
 			{
 				Main.projectile[p1].minion = false;

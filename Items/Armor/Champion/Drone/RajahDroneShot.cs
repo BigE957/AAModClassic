@@ -81,7 +81,7 @@ namespace AAModClassic.Items.Armor.Champion.Drone
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<DroneBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<DroneBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
 

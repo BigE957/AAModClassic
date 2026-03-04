@@ -180,7 +180,7 @@ Dark, yet still barely visible"); */
         }
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
         {
-            damage -= (int)(reduceDamage * (Main.expertMode ? .25f : .5f));
+            modifiers.FinalDamage.Flat -= (int)(reduceDamage * (Main.expertMode ? .25f : .5f));
         }
         public static Vector2 PolarVector(float radius, float theta)
         {

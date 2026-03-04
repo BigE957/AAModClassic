@@ -226,7 +226,7 @@ namespace AAModClassic.Items.Summoning.Minions
                         Vector2 value19 = TargetCenter - Projectile.Center;
                         value19.Normalize();
                         value19 *= ShootSpeed;
-                        int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, proj, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, proj, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 						Main.projectile[num659].penetrate = 2;
                         Main.projectile[num659].timeLeft = 300;
 						Main.projectile[num659].usesLocalNPCImmunity = true;
@@ -272,17 +272,17 @@ namespace AAModClassic.Items.Summoning.Minions
             if (hasTarget)
             {
                 tex = Mod.GetTexture("Items/Summoning/Minions/XiaoDoragonA");
-                BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true);
+                BaseDrawing.DrawAfterimage(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true);
             }
 
 
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, lightColor, true);
 
             if (hasTarget)
             {
                 Texture2D g = Mod.GetTexture("Glowmasks/XiaoDoragon_Glow");
-                BaseDrawing.DrawTexture(spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, AAColor.Shen2, true);
-                BaseDrawing.DrawAfterimage(spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true, 0, 0, AAColor.Shen2);
+                BaseDrawing.DrawTexture(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 5, frame, AAColor.Shen2, true);
+                BaseDrawing.DrawAfterimage(Main.spriteBatch, g, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1f, Projectile.rotation, Projectile.spriteDirection, 5, frame, 1, 1, 5, true, 0, 0, AAColor.Shen2);
             }
             return false;
         }

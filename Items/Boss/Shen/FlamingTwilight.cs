@@ -95,7 +95,7 @@ Consumes gel as ammo
                     num79 *= num80;
                     float num114 = num78;
                     float num115 = num79 + (Main.rand.Next(-40, 41) * 0.02f);
-                    Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, type, damage, knockBack, player.whoAmI, 0f, 0.5f + (float)(Main.rand.NextDouble() * 0.3f));
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, type, damage, knockback, player.whoAmI, 0f, 0.5f + (float)(Main.rand.NextDouble() * 0.3f));
                 }
                 return false;
             }
@@ -103,14 +103,14 @@ Consumes gel as ammo
             {
                 float Angle = Main.rand.Next(15, 46);
                 float spread = Angle * 0.0174f;
-                float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-                double startAngle = Math.Atan2(speedX, speedY) - .1d;
+                float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+                double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
                 double deltaAngle = spread / 6f;
                 double offsetAngle;
                 for (int i = 0; i < 3; i++)
                 {
                     offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockBack, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, Main.myPlayer);
                 }
             }
             return false;

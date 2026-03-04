@@ -187,7 +187,7 @@ namespace AAModClassic.Projectiles.Akuma
 				float SpeedY = f2 * num5;
 				
 				
-				Vector2 vector14 = new Vector2(SpeedX, SpeedY);
+				Vector2 vector14 = velocity;
 				vector14.Normalize();
 				vector14 *= 40f;
 				bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector14, 0, 0);

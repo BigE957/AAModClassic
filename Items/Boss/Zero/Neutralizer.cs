@@ -32,7 +32,7 @@ Right click to fire normal arrows"); */
 			Item.noMelee = true;
 			Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.useAmmo = AmmoID.Arrow;
             Item.shoot = ProjectileID.PurificationPowder;
@@ -64,7 +64,7 @@ Right click to fire normal arrows"); */
                 Item.useTime = 10;
                 Item.useAnimation = 10;
                 Item.shootSpeed = 8f;
-                Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+                Item.UseSound = SoundID.Item75;
             }
             else
             {
@@ -80,14 +80,14 @@ Right click to fire normal arrows"); */
         {
             if (player.altFunctionUse != 2)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.Zero.Neutralizer>(), damage, knockBack, Main.myPlayer);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Projectiles.Zero.Neutralizer>(), damage, knockback, Main.myPlayer);
                 
                 return false;
             }
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f;
             int num118 = Main.rand.Next(2, 5);
-            Vector2 vector7 = new Vector2(speedX, speedY);
+            Vector2 vector7 = velocity;
             vector7.Normalize();
             vector7 *= 40f;
             bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector7, 0, 0);
@@ -99,7 +99,7 @@ Right click to fire normal arrows"); */
                 {
                     value9 -= vector7;
                 }
-                int num121 = Projectile.NewProjectile(vector2.X + value9.X, vector2.Y + value9.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+                int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + value9.X, vector2.Y + value9.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
                 Main.projectile[num121].noDropItem = true;
             }
             return false;

@@ -219,7 +219,7 @@ namespace AAModClassic.Items.Summoning.Minions
 						Vector2 value19 = vector46 - Projectile.Center;
 						value19.Normalize();
 						value19 *= scaleFactor3;
-						Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, ModContent.ProjectileType<ChaosConstructShot>(), (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, Main.rand.Next(2));
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, ModContent.ProjectileType<ChaosConstructShot>(), (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, Main.rand.Next(2));
 						Projectile.netUpdate = true;
 					}
 				}
@@ -235,8 +235,8 @@ namespace AAModClassic.Items.Summoning.Minions
 
 			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
 
-			BaseDrawing.DrawTexture(spritebatch, Glow, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, Color.White, true);
-			BaseDrawing.DrawTexture(spritebatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, lightColor, true);
+			BaseDrawing.DrawTexture(Main.spriteBatch, Glow, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, Color.White, true);
+			BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, lightColor, true);
 			return false;
 		}
 	}

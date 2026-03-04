@@ -85,7 +85,7 @@ Left click to swing the scythe"); */
             }
             for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CursedSickleEffect").Type, damage, knockBack, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CursedSickleEffect").Type, damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}

@@ -32,10 +32,6 @@ namespace AAModClassic.Items.Walls
             recipe.AddIngredient(null, "EventideBrick");
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-            recipe = Recipe.Create(null, "EventideBrick");
-            recipe.AddIngredient(this, 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
         }
     }
 }

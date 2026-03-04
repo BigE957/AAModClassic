@@ -31,18 +31,18 @@ namespace AAModClassic.Items.Vanity.Pluto
 		{
             if (player.GetModPlayer<AAPlayer>().ShinyCheck())
             {
-                player.QuickSpawnItem(ModContent.ItemType<ShinyPlutoMask>());
-                player.QuickSpawnItem(ModContent.ItemType<ShinyPlutoPlate>());
-                player.QuickSpawnItem(ModContent.ItemType<PlutoBoots>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyPlutoMask>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ShinyPlutoPlate>());
+                player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoBoots>());
                 if (Main.hardMode)
                 {
                     //player.QuickSpawnItem(ModContent.ItemType<>());
                 }
                 return;
             }
-			player.QuickSpawnItem(ModContent.ItemType<PlutoMask>());
-            player.QuickSpawnItem(ModContent.ItemType<PlutoPlate>());
-            player.QuickSpawnItem(ModContent.ItemType<PlutoBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoMask>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoPlate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<PlutoBoots>());
             if (Main.hardMode)
             {
                 //player.QuickSpawnItem(ModContent.ItemType<>());

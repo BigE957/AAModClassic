@@ -92,7 +92,7 @@ Inflicts Daybroken"); */
 				float num83 = vector13.Y;
 				float speedX5 = num82;
 				float speedY6 = num83 + Main.rand.Next(-30, 30) * 0.02f;
-				int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("FireProj").Type, Item.damage/2, Item.knockBack, Main.myPlayer);
+				int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("FireProj").Type, Item.damage/2, Item.knockBack, Main.myPlayer);
 				switch (Main.rand.Next(5))
 				{
 					case 0: Main.projectile[p].ai[0] = 1f;

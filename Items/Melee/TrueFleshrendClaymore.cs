@@ -52,7 +52,7 @@ Despite the name, it's not actually made of flesh"); */
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-	       player.HealEffect(damage / 20);
+	       player.HealEffect(damageDone / 20);
         }
     }
 }

@@ -234,7 +234,7 @@ namespace AAModClassic.Items.Dev.RuneBook
 						Vector2 value19 = vector46 - Projectile.Center;
 						value19.Normalize();
 						value19 *= scaleFactor3;
-						int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
 						Projectile.netUpdate = true;
 					}
 				}

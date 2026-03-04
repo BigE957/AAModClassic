@@ -31,10 +31,6 @@ namespace AAModClassic.Items.Walls
             recipe.AddIngredient(null, "DarkmatterBrick");
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-            recipe = Recipe.Create(null, "DarkmatterBrick");
-            recipe.AddIngredient(this, 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
         }
     }
 }

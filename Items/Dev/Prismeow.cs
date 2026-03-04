@@ -43,16 +43,15 @@ namespace AAModClassic.Items.Dev
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = Main.rand.Next(20, 30) * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((speedX * speedX) + (speedY * speedY));
-            double startAngle = Math.Atan2(speedX, speedY) - .1d;
+            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 3; i++)
             {
                 float randomSpeed = baseSpeed + Main.rand.NextFloat() * 1.5f;
                 offsetAngle = startAngle + (deltaAngle * i);
-                int shoot = Projectile.NewProjectile(position.X, position.Y, randomSpeed * (float)Math.Sin(offsetAngle), randomSpeed * (float)Math.Cos(offsetAngle), type, damage, knockBack, Main.myPlayer);
-                Main.projectile[shoot].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int shoot = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, randomSpeed * (float)Math.Sin(offsetAngle), randomSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
                 Main.projectile[shoot].DamageType = DamageClass.Magic;
             }
             return false;

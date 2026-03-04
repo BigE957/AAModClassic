@@ -57,7 +57,7 @@ Every ten shots, it can shoot two extra bullets.
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f * 1.3f;
             int num118 = 3;
-            Vector2 vector7 = new Vector2(speedX, speedY);
+            Vector2 vector7 = velocity;
             vector7.Normalize();
             vector7 *= 20f;
             bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector7, 0, 0);
@@ -69,7 +69,7 @@ Every ten shots, it can shoot two extra bullets.
                 {
                     value9 -= vector7;
                 }
-                int num121 = Projectile.NewProjectile(vector2.X + 0.5f * value9.X, vector2.Y + 0.5f * value9.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+                int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + 0.5f * value9.X, vector2.Y + 0.5f * value9.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
                 Main.projectile[num121].noDropItem = true;
             }
 
@@ -87,8 +87,7 @@ Every ten shots, it can shoot two extra bullets.
 					{
 						value9 -= vector7;
 					}
-					float keepspeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
-					int num121 = Projectile.NewProjectile(vector2.X + value9.X, vector2.Y + value9.Y, speedX, speedY, Mod.Find<ModProjectile>("OmegaVolleyExtraAmmo").Type, damage, knockBack, player.whoAmI, 0.0f, 0.0f);
+					int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + value9.X, vector2.Y + value9.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("OmegaVolleyExtraAmmo").Type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
 					Main.projectile[num121].noDropItem = true;
 				}
 				extraammocount = 0;

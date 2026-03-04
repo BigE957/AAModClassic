@@ -15,8 +15,8 @@ namespace AAModClassic.Items.Dev.DevTile.Tiles
 			Main.tileLavaDeath[Type] = false;
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
 			TileObjectData.addTile(Type);
-			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("InvokerBook").Type;
-			LocalizedText modTranslation = CreateMapEntryName(null);
+			RegisterItemDrop(Mod.Find<ModItem>("InvokerBook").Type);
+			LocalizedText modTranslation = CreateMapEntryName();
 			// modTranslation.SetDefault("Aleister Book");
 			AddMapEntry(Color.Gold, modTranslation);
 			AnimationFrameHeight = 16;
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev.DevTile.Tiles
 
         public override bool RightClick(int i, int j)
 		{
-            Item.NewItem(i * 16, j * 16, 16, 16, Mod.Find<ModItem>("InvokerBook").Type, 1, false, 0, false, false);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, Mod.Find<ModItem>("InvokerBook").Type, 1, false, 0, false, false);
             WorldGen.KillTile(i, j, false, false, true);
             return true;
 		}

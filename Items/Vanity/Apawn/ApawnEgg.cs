@@ -28,9 +28,9 @@ namespace AAModClassic.Items.Vanity.Apawn
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<ApawnHelm>());
-            player.QuickSpawnItem(ModContent.ItemType<ApawnPlate>());
-            player.QuickSpawnItem(ModContent.ItemType<ApawnBoots>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnHelm>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnPlate>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnBoots>());
         }
     }
 }

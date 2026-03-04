@@ -74,7 +74,7 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
                 }
                 if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("FlameSoul").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("FlameSoul").Type, 60, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("FlameSoul").Type, 60, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

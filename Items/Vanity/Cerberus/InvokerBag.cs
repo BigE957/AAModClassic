@@ -34,10 +34,10 @@ namespace AAModClassic.Items.Vanity.Cerberus
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ModContent.ItemType<InvokerHood>());
-            player.QuickSpawnItem(ModContent.ItemType<InvokerRobe>());
-            player.QuickSpawnItem(ModContent.ItemType<InvokerPants>());
-            player.QuickSpawnItem(ModContent.ItemType<CerberusWhistle>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<InvokerHood>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<InvokerRobe>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<InvokerPants>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CerberusWhistle>());
         }
     }
 }

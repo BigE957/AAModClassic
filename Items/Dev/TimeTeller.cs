@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Dev
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantBoost;
+            damage.Flat *= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantBoost;
         }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

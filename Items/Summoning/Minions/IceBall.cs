@@ -81,11 +81,10 @@ namespace AAModClassic.Items.Summoning.Minions
 				num82 *= num84;
 				num83 *= num84;
 				Vector2 vector11 = new Vector2(num82, num83) / 2f;
-				int p = Projectile.NewProjectile(vector2.X, vector2.Y, vector11.X*3f, vector11.Y*3f, 337, Projectile.damage, 8f, player.whoAmI);
+				int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2.X, vector2.Y, vector11.X*3f, vector11.Y*3f, 337, Projectile.damage, 8f, player.whoAmI);
 				Main.projectile[p].usesLocalNPCImmunity = true;
 				Main.projectile[p].localNPCHitCooldown = 1;
 				Main.projectile[p].tileCollide = false;
-				Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 				Main.projectile[p].minion = true;
 			}
         }

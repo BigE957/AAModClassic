@@ -142,8 +142,8 @@ Blue pulls in/retracts quicker"); */
 				distance = distToProj.Length();
 				Color drawColor = lightColor;
 
-				//Draw chain
-				spriteBatch.Draw(Mod.GetTexture("Items/Hooks/GripRed_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
+                //Draw chain
+                Main.spriteBatch.Draw(Mod.GetTexture("Items/Hooks/GripRed_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
 					new Rectangle(0, 0, TextureAssets.Chain30.Value.Width, TextureAssets.Chain30.Value.Height), drawColor, projRotation,
 					new Vector2(TextureAssets.Chain30.Value.Width * 0.5f, TextureAssets.Chain30.Value.Height * 0.5f), 1f, SpriteEffects.None, 0f);
 			}
@@ -241,8 +241,8 @@ Blue pulls in/retracts quicker"); */
 				distance = distToProj.Length();
 				Color drawColor = lightColor;
 
-				//Draw chain
-				spriteBatch.Draw(Mod.GetTexture("Items/Hooks/GripRed_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
+                //Draw chain
+                Main.spriteBatch.Draw(Mod.GetTexture("Items/Hooks/GripRed_Chain"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y),
 					new Rectangle(0, 0, TextureAssets.Chain30.Value.Width, TextureAssets.Chain30.Value.Height), drawColor, projRotation,
 					new Vector2(TextureAssets.Chain30.Value.Width * 0.5f, TextureAssets.Chain30.Value.Height * 0.5f), 1f, SpriteEffects.None, 0f);
 			}

@@ -821,10 +821,10 @@ namespace AAModClassic
 				
 				float numberProjectiles = 3;
 				float rotation = MathHelper.ToRadians(3);
-				vector2 += Vector2.Normalize(new Vector2(SpeedX, SpeedY)) * 45f;
+				vector2 += Vector2.Normalize(velocity) * 45f;
 				for (int i = 0; i < numberProjectiles; i++)
 				{
-					Vector2 perturbedSpeed = new Vector2(SpeedX, SpeedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
+					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, Mod.Find<ModProjectile>("ForsakenArrow").Type, damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
 				target.buffImmune[Mod.Find<ModBuff>("Forsaken").Type] = true;
@@ -3123,7 +3123,7 @@ namespace AAModClassic
                     vector2.X = Main.mouseX + Main.screenPosition.X;
                     vector2.Y = Main.mouseY + Main.screenPosition.Y;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, speedX, speedY, Mod.Find<ModProjectile>("DragonShot").Type, damage, knockback, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DragonShot").Type, damage, knockback, Main.myPlayer, 0f, 0f);
                 }
             }
 

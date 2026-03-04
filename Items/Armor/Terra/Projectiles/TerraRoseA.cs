@@ -67,13 +67,13 @@ namespace AAModClassic.Items.Armor.Terra.Projectiles
 
 			Color newLightColor = new Color(Math.Max(0, lightColor.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.B + Math.Min(0, -Projectile.alpha + 20)));
 			BaseDrawing.AddLight(Projectile.Center, newLightColor);
-			BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
+			BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
 			return false;
 		}
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			Item.NewItem(target.Hitbox, ItemID.Star, Main.rand.Next(1, 3));
+			Item.NewItem(target.GetSource_OnHurt(Projectile), target.Hitbox, ItemID.Star, Main.rand.Next(1, 3));
 		}
 	}
 }

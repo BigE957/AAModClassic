@@ -175,19 +175,19 @@ namespace AAModClassic.Projectiles
                 {
                     case 0:
 						SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-						Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage, 1f, player.whoAmI);
+						Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage, 1f, player.whoAmI);
 						break;
 					case 1:
 						SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage*2, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage*2, 1f, player.whoAmI);
 						break;
 					case 2:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage*2, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("FreedomShot").Type, Projectile.damage*2, 1f, player.whoAmI);
 						break;
 					case 3:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("FreedomShotCharged").Type, Projectile.damage*10, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("FreedomShotCharged").Type, Projectile.damage*10, 1f, player.whoAmI);
 						break;
                 }
             }

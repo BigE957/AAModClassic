@@ -28,7 +28,7 @@ Right click the item to turn it off"); */
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(ModContent.ItemType<CodeMagnetOff>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CodeMagnetOff>());
         }
     }
 }

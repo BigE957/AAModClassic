@@ -58,7 +58,7 @@ namespace AAModClassic.Items.Melee
                 || target.type == NPCID.BlackRecluse
                 || target.type == NPCID.BlackRecluseWall)
             {
-                Item.damage = damage * 3;
+                Item.damage = damageDone * 3;
             }
             else
             {

@@ -135,7 +135,7 @@ Certain ores have special effects when shot"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
  		{
-            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("OreChunkHM").Type, damage, knockBack, player.whoAmI, 0, projType);
+            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("OreChunkHM").Type, damage, knockback, player.whoAmI, 0, projType);
             if (Main.projectile[p].ai[1] == 10)
             {
                  Main.projectile[p].knockBack *= 1.5f;
@@ -144,11 +144,10 @@ Certain ores have special effects when shot"); */
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20));
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI, 0, Main.projectile[p].ai[1]);
+                    Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(20));
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI, 0, Main.projectile[p].ai[1]);
                 }
             }
-            Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[p].DamageType = DamageClass.Ranged;
             return false;
         }

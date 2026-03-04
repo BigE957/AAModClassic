@@ -67,7 +67,7 @@ namespace AAModClassic.Items.Boss.AH
             }
             for (int Loops = 0; Loops < SummonCount; Loops++)
             {
-                Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockBack, Main.myPlayer, 0, 0);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, Main.myPlayer, 0, 0);
             }
 
             return false;

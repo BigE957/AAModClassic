@@ -31,10 +31,6 @@ namespace AAModClassic.Items.Walls
             recipe.AddIngredient(null, "RadiumBrick");
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-            recipe = Recipe.Create(null, "RadiumBrick");
-            recipe.AddIngredient(this, 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
         }
     }
 }

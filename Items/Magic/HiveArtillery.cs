@@ -74,7 +74,7 @@ namespace AAModClassic.Items.Magic
 				float num166 = num83;
 				num165 += Main.rand.Next(-35, 36) * 0.02f;
 				num166 += Main.rand.Next(-35, 36) * 0.02f;
-				int num167 = Projectile.NewProjectile(vector2.X, vector2.Y, num165, num166, BeeType(player), BeeDamage(damage), BeeKB(knockBack), player.whoAmI, 0f, 0f);
+				int num167 = Projectile.NewProjectile(source, vector2.X, vector2.Y, num165, num166, BeeType(player), BeeDamage(damage), BeeKB(knockback), player.whoAmI, 0f, 0f);
 				Main.projectile[num167].DamageType = DamageClass.Magic;
 				Main.projectile[num167].usesLocalNPCImmunity = true;
 				Main.projectile[num167].localNPCHitCooldown = 1;

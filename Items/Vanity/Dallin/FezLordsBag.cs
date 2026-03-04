@@ -29,15 +29,15 @@ namespace AAModClassic.Items.Vanity.Dallin
 
  		public override void RightClick(Player player)
 		{
-			player.QuickSpawnItem(ItemID.Fez);	
-			player.QuickSpawnItem(ItemID.TheDoctorsShirt);		
-			player.QuickSpawnItem(ItemID.TheDoctorsPants);
-			player.QuickSpawnItem(ItemID.ReflectiveDye, 3);
+			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Fez);	
+			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsShirt);		
+			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsPants);
+			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.ReflectiveDye, 3);
             if (Main.hardMode)
             {
-                player.QuickSpawnItem(ItemID.Hoverboard);
+                player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Hoverboard);
             }
-            player.QuickSpawnItem(Mod.Find<ModItem>("K9Collar").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("K9Collar").Type);
         }
     }
 }

@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria;
+using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
@@ -1001,5 +1002,12 @@ public class AAModSystem : ModSystem
 public static class ModUtils
 {
     public static Texture2D GetTexture(this Mod mod, string path) => ModContent.Request<Texture2D>("AAModClassic/" + path).Value;
+
+    public static SoundStyle GetLegacySoundSlot(this Mod mod, SoundType type, string path)
+    {
+        if (type == SoundType.Sound)
+            return new SoundStyle("AAModClassic/" + path);
+        return new();
+    }
 }
 

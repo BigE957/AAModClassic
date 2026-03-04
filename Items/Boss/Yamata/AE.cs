@@ -58,8 +58,8 @@ namespace AAModClassic.Items.Boss.Yamata
         {
             for (int i = 0; i < 3; i++)
             {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("AcidFlame").Type, damage, knockBack, player.whoAmI);
+                Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("AcidFlame").Type, damage, knockback, player.whoAmI);
             }
             shoot++;
 
@@ -67,7 +67,7 @@ namespace AAModClassic.Items.Boss.Yamata
 
             if (shoot >= 6)
             {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("AcidFlame").Type, damage * 2, knockBack, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("AcidFlame").Type, damage * 2, knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;

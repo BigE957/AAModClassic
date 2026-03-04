@@ -31,9 +31,6 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             recipe = CreateRecipe(2);
             recipe.AddIngredient(null, "Bogwood");
             recipe.Register(); 
-            recipe = Recipe.Create(null, "Bogwood");
-            recipe.AddIngredient(this, 2);
-            recipe.Register();
         }
 	}
 }

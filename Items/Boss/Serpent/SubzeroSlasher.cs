@@ -41,8 +41,7 @@ namespace AAModClassic.Items.Boss.Serpent
             if (shoot % 2 != 0) return false;
             shoot = 0;
             Main.projectile[type].DamageType = DamageClass.Melee;
-            Main.projectile[type].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-            Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockback);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback);
             return true;
         }
 

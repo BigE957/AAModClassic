@@ -48,7 +48,7 @@ Hitting enemies will sometimes drop extra coins"); */
 
             modPlayer.GreedTalisman = true;
             player.goldRing = true;
-            player.coins = true;
+            player.hasLuckyCoin = true;
             player.discountAvailable = true;
         }
     }

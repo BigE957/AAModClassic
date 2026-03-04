@@ -103,7 +103,7 @@ Non-Consumable"); */
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
             }
             AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Akuma").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Akuma"), false);
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Sounds/AkumaRoar"), player.position);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/AkumaRoar"), player.position);
             return true;
         }
 
@@ -113,7 +113,7 @@ Non-Consumable"); */
             {
                 int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, bossType, 0);
+                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-2000, 2000, (float)Main.rand.NextDouble()), 1200f);
                 Main.npc[npcID].netUpdate2 = true;
             }

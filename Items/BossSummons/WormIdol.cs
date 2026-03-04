@@ -32,7 +32,7 @@ It looks like it hasn't been touched in years"); */
             {
                 if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("WormPointer").Type] < 1)
                 {
-                    Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("WormPointer").Type, 0, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("WormPointer").Type, 0, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
@@ -117,8 +117,8 @@ It looks like it hasn't been touched in years"); */
 
             Rectangle frame = BaseDrawing.GetFrame(0, 30, 30, 0, 0);
 
-            BaseDrawing.DrawAura(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, auraPercent, 1.2f, Projectile.scale, Projectile.rotation, -1, 1, frame, 0, 0, Color.White);
-            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, -1, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE));
+            BaseDrawing.DrawAura(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, auraPercent, 1.2f, Projectile.scale, Projectile.rotation, -1, 1, frame, 0, 0, Color.White);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, -1, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE));
 
             return false;
         }

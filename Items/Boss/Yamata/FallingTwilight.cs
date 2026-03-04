@@ -50,14 +50,14 @@ namespace AAModClassic.Items.Boss.Yamata
         {
             float numberProjectiles = 4;
             float rotation = MathHelper.ToRadians(4);
-            position += Vector2.Normalize(new Vector2(speedX, speedY)) * -45f;
+            position += Vector2.Normalize(velocity) * -45f;
             for (int i = 0; i < numberProjectiles; i++)
             {
-                Vector2 projectileOffset = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) *5f;
+                Vector2 projectileOffset = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) *5f;
                 projectileOffset.X *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
                 projectileOffset.Y *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
-                Vector2 newSpeed = new Vector2(speedX, speedY) * MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
-                Projectile.NewProjectile(position.X + projectileOffset.X, position.Y + projectileOffset.Y, newSpeed.X, newSpeed.Y, ModContent.ProjectileType<Projectiles.Yamata.NightSoul>(), damage, knockBack, player.whoAmI);
+                Vector2 newSpeed = velocity * MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + projectileOffset.X, position.Y + projectileOffset.Y, newSpeed.X, newSpeed.Y, ModContent.ProjectileType<Projectiles.Yamata.NightSoul>(), damage, knockback, player.whoAmI);
             }
             return false;
         }

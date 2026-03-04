@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Summoning.Minions
         public override bool PreAI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = (AAPlayer)player.GetModPlayer(Mod, "AAPlayer");
+            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             if (player.dead)
             {
                 modPlayer.enderMinion = false;

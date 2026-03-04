@@ -64,7 +64,7 @@ namespace AAModClassic.Items.Armor.Champion.Drone
                     {
                         Projectile.localAI[0] = 90f;
                         Vector2 velocity = BaseUtility.RotateVector(default, new Vector2(10f, 0f), BaseUtility.RotationTo(Projectile.Center, target.Center));
-                        int projID = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 4f, 0f, 0f, ModContent.ProjectileType<RajahDroneShot>(), Projectile.damage, 0f, Projectile.owner);
+                        int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 4f, 0f, 0f, ModContent.ProjectileType<RajahDroneShot>(), Projectile.damage, 0f, Projectile.owner);
                         Main.projectile[projID].velocity = velocity;
                         Main.projectile[projID].netUpdate = true;
                     }

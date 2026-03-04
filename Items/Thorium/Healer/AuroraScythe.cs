@@ -47,21 +47,21 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AuroraScytheEffect").Type, damage, knockBack, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AuroraScytheEffect").Type, damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            mult *= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantBoost;
+            damage.Flat *= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantBoost;
         }
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
 		{
-			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantCrit)
 			{
-				crit = true;
+                modifiers.SetCrit();
 			}
 		}
 

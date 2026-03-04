@@ -253,8 +253,7 @@ namespace AAModClassic.Items.Dev.RuneBook
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                int id = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
-                Main.projectile[id].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 Main.projectile[id].minion = true;
             }
         }
@@ -264,8 +263,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             target.AddBuff(buff, 1200);
             if(Main.dayTime)
             {
-                int id = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Main.projectile[id].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[id].minion = true;
             }
         }

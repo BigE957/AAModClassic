@@ -58,10 +58,10 @@ namespace AAModClassic.Items.Flasks
         {
             if (type == Mod.Find<ModProjectile>("Flask").Type)
             {
-                Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, 0, 0, Main.myPlayer, 5);
+                Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 5);
                 return false;
             }
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
 }

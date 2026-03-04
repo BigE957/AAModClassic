@@ -21,14 +21,14 @@ namespace AAModClassic.Items.Dev.DevTile.Tiles
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.addTile(Type);
-			LocalizedText modTranslation = CreateMapEntryName(null);
+			LocalizedText modTranslation = CreateMapEntryName();
 			// modTranslation.SetDefault("Cerberus Kennel");
 			AddMapEntry(Color.Gold, modTranslation);
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("InvokerBag").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("InvokerBag").Type);
 		}
     }
 }
