@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.UI.ModBrowser;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -103,7 +104,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         public override void AI()
         {
             NPC.noTileCollide = false;
-            NPC.knockBackResist = 0.4f * Main.GameModeInfo.knockBackToEnemiesMultiplier;
+            NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
             NPC.noGravity = true;
             NPC.rotation = ((NPC.rotation * 9f) + (NPC.velocity.X * 0.1f)) / 10f;
             if (!(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
@@ -355,8 +356,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         }
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage /= 2;
-            return true;
+            modifiers.TargetDamageMultiplier /= 2;
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {

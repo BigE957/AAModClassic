@@ -59,8 +59,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 for (int i = 0; i < 8; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 4);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
                 }
             }
         }

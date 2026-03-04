@@ -28,8 +28,8 @@ namespace AAModClassic.NPCs.Bosses.Zero
             NPC.lifeMax = 800;
             NPC.defense = 100;
             NPC.damage = 55;
-            NPC.HitSound = new LegacySoundStyle(3, 4, Terraria.Audio.SoundType.Sound);
-            NPC.DeathSound = new LegacySoundStyle(4, 14, Terraria.Audio.SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.5f;
 			NPC.noGravity = true;
         }
@@ -73,7 +73,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
-            BaseDrawing.DrawAura(spritebatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Red);
+            BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Red);
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, Color.Red);
             return false;
         }

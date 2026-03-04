@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
@@ -42,9 +43,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AthenaA");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Athena.AthenaBag>();
             NPC.noTileCollide = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaABag").Type;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -89,8 +88,8 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 
             if (internalAI[2] == 0 && NPC.life < NPC.lifeMax / 3 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDark>());
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaLight>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDark>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaLight>());
                 internalAI[2] = 1;
                 NPC.netUpdate = true;
             }
@@ -122,22 +121,22 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                         int Choice = Main.rand.Next(2);
                         if (Choice == 0)
                         {
-                            NPC.NewNPC((int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
-                            NPC.NewNPC((int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>());
                         }
                         else
                         {
-                            NPC Seraph1 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y + 150, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 150, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
-                            NPC Seraph2 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
-                            NPC Seraph3 = Main.npc[NPC.NewNPC((int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
+                            NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
                                 Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
@@ -207,7 +206,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
                         }
                     }
                     if (NPC.ai[2] == 180 && NPC.life < NPC.lifeMax / 2)
@@ -222,7 +221,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
                         }
                     }
                     if (NPC.ai[2] > 220)
@@ -252,13 +251,13 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 
                     if (NPC.ai[1] == 120)
                     {
-                        int a = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
                         Main.projectile[a].Center = NPC.Center;
-                        int b = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
                         Main.projectile[b].Center = NPC.Center;
-                        int c = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
                         Main.projectile[c].Center = NPC.Center;
-                        int d = Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
                         Main.projectile[d].Center = NPC.Center;
                     }
                     if (NPC.ai[1] > 180)
@@ -523,7 +522,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 if (player.dead || !player.active || Math.Abs(Vector2.Distance(NPC.position, player.position)) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA1"), Color.CornflowerBlue);
-                    int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                    int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                     Main.npc[p].Center = NPC.Center;
                     NPC.active = false;
                     NPC.netUpdate = true;
@@ -617,18 +616,18 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
         {
             if (!AAWorld.downedAthenaA)
             {
-                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
+                int p = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
                 Main.npc[p].Center = NPC.Center;
             }
             else
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA2"), Color.CornflowerBlue);
-                int p = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                 Main.npc[p].Center = NPC.Center;
             }
             if(Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("AthenaABag").Type);
             }
             else
             {
@@ -636,8 +635,8 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 {
                     NPC.DropLoot(Mod.Find<ModItem>("AthenaAMask").Type);
                 }
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(20, 25));
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SkyCrystal").Type, Main.rand.Next(25, 40));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(20, 25));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SkyCrystal").Type, Main.rand.Next(25, 40));
                 string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
@@ -652,7 +651,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             Texture2D tex2 = Mod.GetTexture("Glowmasks/AthenaA_Glow");
             Texture2D tex3 = Mod.GetTexture("Glowmasks/AthenaA_Glow1");
             Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
-            BaseDrawing.DrawAfterimage(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
+            BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, 1f, 1f, 5, false, 0f, 0f, Color.CornflowerBlue);
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, lightColor);
             BaseDrawing.DrawTexture(spriteBatch, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, AAColor.Flash);
             BaseDrawing.DrawTexture(spriteBatch, tex3, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, Color.White);

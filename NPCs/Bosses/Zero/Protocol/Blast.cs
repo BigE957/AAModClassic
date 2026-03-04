@@ -44,16 +44,16 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 switch (Projectile.ai[0])
                 {
                     case 0f:
-                        Projectile.NewProjectile(Projectile.Center, new Vector2(10, 0), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(10, 0), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
                         break;
                     case 1f:
-                        Projectile.NewProjectile(Projectile.Center, new Vector2(-10, 0), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-10, 0), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
                         break;
                     case 2f:
-                        Projectile.NewProjectile(Projectile.Center, new Vector2(0, 10), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 10), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
                         break;
                     default:
-                        Projectile.NewProjectile(Projectile.Center, new Vector2(0, -10), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10), ModContent.ProjectileType<EchoRay>(), 70, 3f, Main.myPlayer, 0, Projectile.whoAmI);
                         break;
                 }
             }

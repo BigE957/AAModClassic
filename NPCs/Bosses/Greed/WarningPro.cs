@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         int A = Main.rand.Next(-50, 50);
                         int B = Main.rand.Next(-200, 200) - 1000;
 
-                        int p = Projectile.NewProjectile(Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 12f, Mod.Find<ModProjectile>("CovStalactitePro").Type, 43, 1);
+                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 12f, Mod.Find<ModProjectile>("CovStalactitePro").Type, 43, 1);
                         Main.projectile[p].netUpdate = true;
                     }
                 }
@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         int A = Main.rand.Next(-80, 80);
                         int B = Main.rand.Next(-200, 200) - 1000;
 
-                        int p = Projectile.NewProjectile(Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 10f, Mod.Find<ModProjectile>("DesireBeam").Type, 43, 1);
+                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 10f, Mod.Find<ModProjectile>("DesireBeam").Type, 43, 1);
                         Main.projectile[p].netUpdate = true;
                     }
                 }

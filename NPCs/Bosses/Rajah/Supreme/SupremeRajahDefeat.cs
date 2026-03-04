@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 
 namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
@@ -125,7 +126,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat15"), 107, 137, 179, true);
                 AAWorld.downedRajahsRevenge = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("SupremeRajahDefeat16"), Color.Green, true);
-                int p = Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 0, 0, Main.myPlayer);
+                int p = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 0, 0, Main.myPlayer);
                 Main.projectile[p].position = NPC.position;
                 NPC.active = false;
                 NPC.netUpdate = true;

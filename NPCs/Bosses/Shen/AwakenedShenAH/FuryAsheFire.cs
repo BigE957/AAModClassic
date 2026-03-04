@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
@@ -105,8 +106,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            Projectile.NewProjectile(Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<FuryAsheStrike>(), Projectile.damage, 5);
+            SoundEngine.PlaySound(SoundID.Item124);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<FuryAsheStrike>(), Projectile.damage, 5);
             Projectile.active = false;
         }
     }

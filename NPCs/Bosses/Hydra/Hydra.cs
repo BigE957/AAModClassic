@@ -44,14 +44,13 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             NPC.lifeMax = 4000;
             NPC.value = Item.sellPrice(0, 5, 0, 0);
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(2, 88, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Item80;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             NPC.noGravity = false;
             NPC.netAlways = true;
-            Music = Mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/HydraTheme");
+            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/HydraTheme");
             NPC.buffImmune[BuffID.Poisoned] = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("HydraBag").Type;
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -63,12 +62,12 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         {
             if (!AAWorld.downedHydra)
             {
-                NPC.NewNPC((int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShade>());
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShade>());
             }
             AAWorld.downedHydra = true;
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraTrophy").Type);
             }
 
             if (!Main.expertMode)
@@ -78,7 +77,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             }
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("HydraBag").Type);
             }
             NPC.value = 0f;
             NPC.boss = false;
@@ -100,15 +99,15 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 			{
 				if(!HeadsSpawned)
 				{
-                    headindex[0] = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead1").Type, 0);
+                    headindex[0] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead1").Type, 0);
 					Head1 = Main.npc[headindex[0]];
 					Head1.ai[0] = NPC.whoAmI;
 
-                    headindex[1] = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead2").Type, 0);
+                    headindex[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead2").Type, 0);
 					Head2 = Main.npc[headindex[1]];
 					Head2.ai[0] = NPC.whoAmI;
 
-                    headindex[2] = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead3").Type, 0);
+                    headindex[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead3").Type, 0);
 					Head3 = Main.npc[headindex[2]];
 					Head3.ai[0] = NPC.whoAmI;					
 
@@ -360,12 +359,12 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreBody"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreLeg"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreLeg"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreLeg"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreLeg"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreTail"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreBody").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreTail").Type, 1f);
             }
         }
         private static float X(float t,
@@ -423,7 +422,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             int frameWidth = 152;
             frameBottom = BaseDrawing.GetFrame(0, frameWidth, 44, 0, 2);
 
-            HeadDraw(sb, drawColor);
+            HeadDraw(spriteBatch, drawColor);
 
             string tailTex = "NPCs/Bosses/Hydra/HydraTail";
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(tailTex), 0, NPC.position + new Vector2(0f, NPC.gfxOffY - 30), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, frameBottom, drawColor, false);
@@ -431,7 +430,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 
             if (Head1 != null)
             {
-                DrawHead(sb, "NPCs/Bosses/Hydra/HydraHead1", "Glowmasks/HydraHead1_Glow", Head1, drawColor); //draw main head last!
+                DrawHead(spriteBatch, "NPCs/Bosses/Hydra/HydraHead1", "Glowmasks/HydraHead1_Glow", Head1, drawColor); //draw main head last!
             }
             return false;
         }

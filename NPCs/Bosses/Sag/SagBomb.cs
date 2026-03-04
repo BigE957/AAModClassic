@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, 0, 0, Mod.Find<ModProjectile>("SagRing").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, 0, 0, Mod.Find<ModProjectile>("SagRing").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -62,8 +62,8 @@ namespace AAModClassic.NPCs.Bosses.Sag
             }
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 11, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/SagBomb_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/SagBomb_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 11, frame, AAColor.ZeroShield, true);
             return false;
         }
 
@@ -84,13 +84,13 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 if (useOldPos)
                 {
                     position = Vector2.Lerp(originalpos, m - 1 >= oldPoints.Length ? oldPoints[oldPoints.Length - 1] : oldPoints[m - 1], distanceScalar);
-                    BaseDrawing.DrawTexture(spriteBatch, texture, shader, position + offset, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, texture, shader, position + offset, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
                 }
                 else
                 {
                     Vector2 velocity = m - 1 >= oldPoints.Length ? oldPoints[oldPoints.Length - 1] : oldPoints[m - 1];
                     velAddon += velocity * distanceScalar;
-                    BaseDrawing.DrawTexture(spriteBatch, texture, shader, position + offset - velAddon, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, texture, shader, position + offset - velAddon, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
                 }
             }
         }

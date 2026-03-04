@@ -74,17 +74,17 @@ namespace AAModClassic.NPCs.Bosses.Athena
                 NPC.TargetClosest();
                 if (NPC.ai[2]++ == 15)
                 {
-                    Projectile.NewProjectile(NPC.position, new Vector2(8f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(-8f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(-8f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(8f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
                 }
                 else if (NPC.ai[2] >= 30)
                 {
-                    Projectile.NewProjectile(NPC.position, new Vector2(0f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(-8f, 0f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(0f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
-                    Projectile.NewProjectile(NPC.position, new Vector2(8f, 0f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, 8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 0f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, -8f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 0f), ModContent.ProjectileType<SeraphFeather>(), 0, 0);
                     NPC.ai[2] = 0;
                 }
             }

@@ -29,8 +29,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
             NPC.width = 60;
             NPC.height = 60;
             NPC.aiStyle = -1;
-            NPC.HitSound = new LegacySoundStyle(21, 1);
-            NPC.DeathSound = new LegacySoundStyle(2, 14);
+            NPC.HitSound = SoundID.Tink;
+            NPC.DeathSound = SoundID.Item14;
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
         }
@@ -172,7 +172,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                             num6 = num5 / num6;
                             num3 *= num6;
                             num4 *= num6;
-                            int l = Projectile.NewProjectile(num, num2, num3, num4, 221, 36, 0f, Main.myPlayer, 0f, 0f);
+                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), num, num2, num3, num4, 221, 36, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[l].friendly = false;
                             Main.projectile[l].hostile = true;
                             NPC.netUpdate = true;
@@ -241,7 +241,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     NPC.ai[3] = 0;
                     int Xint = Main.rand.Next(-400, 400);
                     int Yint = Main.rand.Next(-400, 400);
-                    NPC.NewNPC((int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, Main.rand.Next(29));
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Xint, (int)NPC.Center.Y + Yint, ModContent.NPCType<GreedMinion>(), 0, Main.rand.Next(29));
                     for (int i = 0; i < 3; i++)
                     {
                         Dust.NewDust(new Vector2(Xint, Yint), 60, 60, DustID.Vortex, 0f, 0f, 0, Color.White, 1);
@@ -309,9 +309,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
         {
             if (MinionType == 10)
             {
-                damage *= .9f;
+                modifiers.TargetDamageMultiplier *= .9f;
             }
-            return true;
         }
 
         Color bodyColor = Color.White;

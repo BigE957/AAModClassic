@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 {
                     Vector2 shoot = new Vector2((float)Math.Sin((i * 0.125f + rotate * 0.067f) * 3.1415926f), (float)Math.Cos((i * 0.125f + rotate * 0.067f) * 3.1415926f));
                     shoot *= 16f;
-                    Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, Mod.Find<ModProjectile>("AbyssGripOrbiter2").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, Mod.Find<ModProjectile>("AbyssGripOrbiter2").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                 }
                 rotate ++;
             }
@@ -112,7 +112,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AbyssBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AbyssBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         private int HomeOnTarget()

@@ -268,7 +268,7 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
-			BaseDrawing.DrawAfterimage(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2.5f, 0.9F, 3, true, 0f, 0f, drawColor);
+			BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2.5f, 0.9F, 3, true, 0f, 0f, drawColor);
 			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/Dynasaur_Glow"), 0, NPC, Color.White);
             return false;

@@ -58,7 +58,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             if (!NPC.AnyNPCs(ModContent.NPCType<Anubis>()))
             {
-                NPC.StrikeInstantKill(NPC.CalculateHitInfo(), false, true);
+                NPC.StrikeInstantKill();
             }
 
             if (NPC.ai[0] == 160 || Vector2.Distance(NPC.Center, player.Center) > 3000)

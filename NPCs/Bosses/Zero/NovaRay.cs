@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         public int colorCounter;
         public override bool PreDraw(ref Color lightColor)
         {
-                DrawLaser(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, new Vector2(shooter.Center.X, shooter.Center.Y),
+                DrawLaser(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, new Vector2(shooter.Center.X, shooter.Center.Y),
                     Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
             
             return false;

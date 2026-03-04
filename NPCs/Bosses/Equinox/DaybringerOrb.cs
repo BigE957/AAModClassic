@@ -88,10 +88,10 @@ namespace AAModClassic.NPCs.Bosses.Equinox
                     Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                     Color color = Projectile.GetAlpha(lightColor) * ((3 - k) / 3f);
                     Rectangle frame = BaseDrawing.GetFrame(1, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 0);
-                    BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, drawPos, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, color, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, drawPos, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, color, true);
                 }
             }
-            return base.PreDraw(spriteBatch, lightColor);
+            return base.PreDraw(ref lightColor);
         }
 
         public void SpawnDust()

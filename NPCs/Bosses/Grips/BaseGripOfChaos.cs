@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 
@@ -33,7 +34,6 @@ namespace AAModClassic.NPCs.Bosses.Grips
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.netAlways = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("GripBag").Type;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/GripsTheme");
         }
 
@@ -286,11 +286,11 @@ namespace AAModClassic.NPCs.Bosses.Grips
                 {
                     if (NPC.type == ModContent.NPCType<GripOfChaosRed>() && NPC.CountNPCS(ModContent.NPCType<DragonClawM>()) < 4)
                     {
-                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DragonClawM>());
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DragonClawM>());
                     }
                     if (NPC.type == ModContent.NPCType<GripOfChaosBlue>() && NPC.CountNPCS(ModContent.NPCType<HydraClawM>()) < 4)
                     {
-                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraClawM>());
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraClawM>());
                     }
                     MinionTimer = 0;
                 }

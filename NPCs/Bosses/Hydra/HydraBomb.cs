@@ -46,8 +46,8 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Gore.NewGore(Projectile.Center, -Projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(Projectile.Center, -Projectile.oldVelocity * 0.2f, 705, 1f);
+            Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 704, 1f);
+            Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 705, 1f);
             if (Projectile.owner == Main.myPlayer)
             {
                 int num319 = Main.rand.Next(20, 31);
@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                     Vector2 value21 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                     value21.Normalize();
                     value21 *= Main.rand.Next(10, 201) * 0.01f;
-                    int a = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraMist>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
+                    int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, value21.X, value21.Y, ModContent.ProjectileType<HydraMist>(), Projectile.damage, 1f, Projectile.owner, 0f, Main.rand.Next(-45, 1));
                     Main.projectile[a].localAI[0] = Main.rand.Next(3);
                 }
             }

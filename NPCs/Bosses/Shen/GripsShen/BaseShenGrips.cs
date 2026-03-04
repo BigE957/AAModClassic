@@ -274,17 +274,17 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 {
                     if(BlazeGrip)
                     {
-                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 0);
-                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 1f);
-                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f);
-                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -1f);
-                        Projectile.NewProjectile(NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -2f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) + 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 200f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 50f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center)) - 400f * Vector2.Normalize(NPC.DirectionTo(targetPlayer.Center).RotatedBy(Math.PI / 2)), new Vector2(0, 0), Mod.Find<ModProjectile>("BlazeCloneClaw").Type, damage / 2, 0f, Main.myPlayer, NPC.whoAmI, -2f);
                     }
                     else
                     {
                         for (int m = 0; m < 16; m++)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0, 0), Mod.Find<ModProjectile>("AbyssGripOrbiter").Type, NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0), Mod.Find<ModProjectile>("AbyssGripOrbiter").Type, NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
                         }
                     }
                 }
@@ -335,7 +335,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
                             Vector2 shootdir = new Vector2(baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle));
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGripRay>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGripRay>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
                         }
                     }
                     if(internalAI[2] > 200)

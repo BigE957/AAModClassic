@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             bool flag = NPC.life <= 0 || (!NPC.active && NPC.AnyNPCs(ModContent.NPCType<Zero>()));
             if (flag && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int ind = NPC.NewNPC((int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
+                int ind = NPC.NewNPC(NPC.GetSource_Death(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
                 Main.npc[ind].Center = NPC.Center;
                 Main.npc[ind].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                 Main.npc[ind].velocity *= 8f;
@@ -141,7 +141,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         for (int i = 0; i < 3; i++)
                         {
                             Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 20f;
-                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, vector83.X , vector83.Y, ModContent.ProjectileType<ZeroShock>(), NPC.damage / 2, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X , vector83.Y, ModContent.ProjectileType<ZeroShock>(), NPC.damage / 2, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                         }
                     }
                 }

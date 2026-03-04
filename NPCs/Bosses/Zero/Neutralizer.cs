@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             bool flag = NPC.life <= 0 || (!NPC.active && NPC.AnyNPCs(ModContent.NPCType<Zero>()));
             if (flag && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int ind = NPC.NewNPC((int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
+                int ind = NPC.NewNPC(NPC.GetSource_Death(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
                 Main.npc[ind].Center = NPC.Center;
                 Main.npc[ind].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                 Main.npc[ind].velocity *= 8f;
@@ -121,7 +121,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 for (int i = 0; i < Arrows; i++)
                 {
                     double offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("ZArrow").Type, NPC.damage / 2, 5, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("ZArrow").Type, NPC.damage / 2, 5, Main.myPlayer);
                 }
                 NPC.netUpdate = true;
                 NPC.ai[2] = 0;

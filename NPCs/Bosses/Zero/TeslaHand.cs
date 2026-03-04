@@ -111,7 +111,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                     for (int i = 0; i < Main.rand.Next(4); i++)
                     {
                         double offsetAngle = startAngle + (deltaAngle * i);
-                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.ProjType("Static"), (int)(NPC.damage / 1.5f), 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.ProjType("Static"), (int)(NPC.damage / 1.5f), 5, Main.myPlayer);
                     }
                 }
             }

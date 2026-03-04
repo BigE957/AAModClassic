@@ -96,15 +96,15 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
             if (NPC.life <= 0 && NPC.type == ModContent.NPCType<Zero>())
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ZeroGore3"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
                 if (!Main.expertMode)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss2"), Color.Red.R, Color.Red.G, Color.Red.B);
@@ -130,7 +130,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
                 for (int m = 0; m < WeaponCount; m++)
                 {
-                    int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>(ArmChoice()).Type, 0, m);
+                    int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>(ArmChoice()).Type, 0, m);
                     Main.npc[npcID].Center = NPC.Center;
                     Main.npc[npcID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                     Main.npc[npcID].velocity *= 8f;
@@ -152,15 +152,15 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (AAWorld.downedZero)
                 {
-                    int z = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroProtocol").Type, 0, 0, 0, 0, 0, NPC.target);
+                    int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroProtocol").Type, 0, 0, 0, 0, 0, NPC.target);
                     Main.npc[z].Center = NPC.Center;
 
-                    int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
                 }
                 else
                 {
-                    int z = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroTransition").Type, 0, 0, 0, 0, 0, NPC.target);
+                    int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroTransition").Type, 0, 0, 0, 0, 0, NPC.target);
                     Main.npc[z].Center = NPC.Center;
                 }
 
@@ -200,7 +200,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 NPC.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
                 if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RealityStone").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RealityStone").Type);
                 }
             }
         }
@@ -465,7 +465,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         int type = Mod.Find<ModProjectile>("ZeroBeam1").Type;
                         SoundEngine.PlaySound(SoundID.Item33, NPC.position);
                         float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
-                        Projectile.NewProjectile(vector8.X, vector8.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), vector8.X, vector8.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     }
                     if (NPC.ai[2] >= 141 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -478,7 +478,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                     if (NPC.ai[2] % 30 == 0)
                     {
                         SoundEngine.PlaySound(SoundID.Item74, NPC.position);
-                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0 + Main.rand.Next(-14, 14), 0 + Main.rand.Next(-14, 14), Mod.Find<ModProjectile>("ZeroRocket").Type, damage, 3); //Originally 85 damage
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0 + Main.rand.Next(-14, 14), 0 + Main.rand.Next(-14, 14), Mod.Find<ModProjectile>("ZeroRocket").Type, damage, 3); //Originally 85 damage
                     }
                     if (NPC.ai[2] >= 151 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -518,7 +518,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                                 Vector2 vector82 = array5[num842] - NPC.Center;
                                 float ai = Main.rand.Next(100);
                                 Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 14f;
-                                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ZeroShock>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ZeroShock>(), damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                             }
                         }
                     }
@@ -561,18 +561,18 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         if (NPC.ai[2] == 80 || NPC.ai[2] == 240) // + lasers
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                         if (NPC.ai[2] == 160 || NPC.ai[2] == 320) // x lasers
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                     }
                     else if (NPC.life > NPC.lifeMax / 3)
@@ -580,41 +580,41 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         if (NPC.ai[2] == 80) // + lasers
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                         else if (NPC.ai[2] == 160)
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                         else if (NPC.ai[2] == 240)
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                         else if (NPC.ai[2] == 320)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroBlast").Type, damage, 3);
                         }
                     }
                     else
@@ -622,30 +622,30 @@ namespace AAModClassic.NPCs.Bosses.Zero
                         if (NPC.ai[2] == 80) // + lasers
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
                         else if (NPC.ai[2] == 160)
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
                         else if (NPC.ai[2] == 240)
                         {
                             SoundEngine.PlaySound(SoundID.Item73, NPC.position);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12f, 0f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ZeroLaser").Type, damage, 3);
                         }
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {

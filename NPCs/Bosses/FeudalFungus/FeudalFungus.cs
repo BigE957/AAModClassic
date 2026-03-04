@@ -8,6 +8,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
@@ -69,7 +70,6 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("FungusBag").Type;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fungus");
             NPC.alpha = 255;
         }
@@ -152,7 +152,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             }
             else if (internalAI[1] == AISTATE_FLIER) 
             {
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
+                BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.1f,0.04f, 5f, 3f, false, 1);
             }
             else if (internalAI[1] == AISTATE_SHOOT)
             {
@@ -178,7 +178,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 internalAI[4] = 0;
                 Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));
                 Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
-                int proj = Projectile.NewProjectile(pos.X, pos.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 0f);
+                int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos.X, pos.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].timeLeft = 720;
                 Main.projectile[proj].alpha = 255;
             }
@@ -196,24 +196,29 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         public override void BossLoot(ref string name, ref int potionType)
         {   //boss drops
             potionType = ItemID.ManaPotion;
+            
+        }
+
+        public override void OnKill()
+        {
             AAWorld.downedFungus = true;
-            Projectile.NewProjectile(NPC.Center, NPC.velocity, Mod.Find<ModProjectile>("FungusIGoNow").Type, 0, 0, 255, NPC.scale);
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingSporeSac").Type, Main.rand.Next(30, 35));
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModProjectile>("FungusIGoNow").Type, 0, 0, 255, NPC.scale);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingSporeSac").Type, Main.rand.Next(30, 35));
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusTrophy").Type);
             }
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("FungusBag").Type);
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusMask").Type);
                 }
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingMushium").Type, Main.rand.Next(25, 35));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingMushium").Type, Main.rand.Next(25, 35));
             }
         }
 
@@ -231,7 +236,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 {
                     for (int i = 0; i < (Main.expertMode ? 3 : 2); i++)
                     {
-                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Mushling>());
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Mushling>());
                     }
                 }
                 else
@@ -243,7 +248,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                     for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
                     }
                 }
             }
@@ -251,7 +256,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusFlier>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusFlier>());
                 }
             }
             else if (Attack == 2)
@@ -263,14 +268,14 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
                 }
             }
             else
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusSpore>(), 0, i);
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusSpore>(), 0, i);
                 }
             }
         }

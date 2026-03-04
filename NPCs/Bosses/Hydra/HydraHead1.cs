@@ -54,7 +54,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             NPC.noTileCollide = true;
             NPC.boss = false;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(2, 88, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Item88;
             NPC.noGravity = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -76,14 +76,14 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.Hitbox, ModContent.ItemType<Items.Blocks.Abyssium>(), Main.rand.Next(16, 26));
+            Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Blocks.Abyssium>(), Main.rand.Next(16, 26));
             if (!Main.expertMode)
             {
-                Item.NewItem(NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(3, 7));
+                Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(3, 7));
             }
             else
             {
-                Item.NewItem(NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(7, 17));
+                Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(7, 17));
             }
         }
 
@@ -361,25 +361,25 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             {
                 if (NPC.type == Mod.Find<ModNPC>("HydraHead1").Type)
                 {
-                    int a = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead4>(), 0, bodyNPC.whoAmI);
+                    int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead4>(), 0, bodyNPC.whoAmI);
                     Body.Head4 = Main.npc[a];
-                    int b = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead5>(), 0, bodyNPC.whoAmI);
+                    int b = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead5>(), 0, bodyNPC.whoAmI);
                     Body.Head5 = Main.npc[b];
                     return false;
                 }
                 if (NPC.type == Mod.Find<ModNPC>("HydraHead2").Type)
                 {
-                    int a = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead6>(), 0, bodyNPC.whoAmI);
+                    int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead6>(), 0, bodyNPC.whoAmI);
                     Body.Head6 = Main.npc[a];
-                    int b = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead7>(), 0, bodyNPC.whoAmI);
+                    int b = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead7>(), 0, bodyNPC.whoAmI);
                     Body.Head7 = Main.npc[b];
                     return false;
                 }
                 if (NPC.type == Mod.Find<ModNPC>("HydraHead3").Type)
                 {
-                    int a = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead8>(), 0, bodyNPC.whoAmI);
+                    int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead8>(), 0, bodyNPC.whoAmI);
                     Body.Head8 = Main.npc[a];
-                    int b = NPC.NewNPC((int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead9>(), 0, bodyNPC.whoAmI);
+                    int b = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead9>(), 0, bodyNPC.whoAmI);
                     Body.Head9 = Main.npc[b];
                     return false;
                 }
@@ -396,7 +396,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/HydraGoreHead"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreHead").Type, 1f);
             }
         }
     }

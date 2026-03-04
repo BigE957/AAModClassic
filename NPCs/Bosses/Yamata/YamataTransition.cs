@@ -44,7 +44,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(lightColor), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(drawColor), true);
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/YamataTransition"), 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(new Color(RVal, 0, BVal)), true);
             return false;
         }
@@ -140,7 +140,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition6"), new Color(146, 30, 68));
 
-                    int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
                     SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar"), NPC.position);
@@ -258,7 +258,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                         AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
-                        int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;
 
                         NPC.netUpdate = true;

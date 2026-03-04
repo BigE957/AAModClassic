@@ -40,7 +40,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Item124;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -106,7 +106,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         int Body1 = ModContent.NPCType<ShenlingBody1>();
                         int Body2 = ModContent.NPCType<ShenlingBody2>();
 
-                        int SpawnBody1 = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), Body1, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        int SpawnBody1 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), Body1, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         Main.npc[SpawnBody1].ai[3] = NPC.whoAmI;
                         Main.npc[SpawnBody1].realLife = NPC.whoAmI;
                         Main.npc[SpawnBody1].ai[1] = num9;
@@ -114,7 +114,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         num9 = SpawnBody1;
                         NPC.netUpdate = true;
 
-                        int SpawnBody2 = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), Body2, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        int SpawnBody2 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), Body2, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         Main.npc[SpawnBody2].ai[3] = NPC.whoAmI;
                         Main.npc[SpawnBody2].realLife = NPC.whoAmI;
                         Main.npc[SpawnBody2].ai[1] = num9;
@@ -125,7 +125,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     int num10 = ModContent.NPCType<ShenlingTail>();
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        int num11 = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         if (Main.netMode == NetmodeID.Server && num11 < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, num11);
                         Main.npc[num11].ai[3] = NPC.whoAmI;
                         Main.npc[num11].realLife = NPC.whoAmI;
@@ -507,16 +507,16 @@ namespace AAModClassic.NPCs.Bosses.Shen
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
-                projectile.damage *= (int).2;
+               modifiers.TargetDamageMultiplier *= 0.2f;
             }
         }
     }
@@ -638,16 +638,16 @@ namespace AAModClassic.NPCs.Bosses.Shen
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
-                projectile.damage *= (int).2;
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
         }
     }
@@ -769,16 +769,16 @@ namespace AAModClassic.NPCs.Bosses.Shen
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
-                projectile.damage *= (int).2;
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
         }
     }

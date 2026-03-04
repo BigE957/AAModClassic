@@ -168,7 +168,7 @@ namespace AAModClassic.Projectiles
 				{
 					((WaterShaderData)Filters.Scene["WaterDistortion"].GetShader()).QueueRipple(Projectile.position + new Vector2(size.X * 0.5f, 0f).RotatedBy(num848, default), new Color(0.5f, 0.1f * Math.Sign(value43) + 0.5f, 0f, 1f) * Math.Abs(value43), size, RippleShape.Square, num848);
 				}
-				Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
+				Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * Projectile.localAI[1], Projectile.width * Projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CastLight));
 				return;
 			}
         }
@@ -201,7 +201,7 @@ namespace AAModClassic.Projectiles
 		{
 			DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
 			Vector2 unit = Projectile.velocity;
-			Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * Projectile.localAI[1], Projectile.width * Projectile.scale, new Utils.PerLinePoint(DelegateMethods.CutTiles));
+			Utils.PlotTileLine(Projectile.Center, Projectile.Center + unit * Projectile.localAI[1], Projectile.width * Projectile.scale, new Utils.TileActionAttempt(DelegateMethods.CutTiles));
 		}
         
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

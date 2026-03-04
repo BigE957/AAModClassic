@@ -105,8 +105,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage = 0;
-            return false;
+            modifiers.TargetDamageMultiplier *= 0;
         }
     }
 
@@ -124,13 +123,11 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
         {
-            var tag = new TagCompound();
             if (ZX != -1)
             {
                 tag.Add("ZX", ZX);
                 tag.Add("ZY", ZY);
             }
-            return tag;
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -141,7 +138,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
 				if(!AAWorld.downedZero)			
-					NPC.NewNPC(ZX, ZY, Mod.Find<ModNPC>("ZeroDeactivated").Type);
+					NPC.NewNPC(NPC.GetSource_NaturalSpawn(), ZX, ZY, Mod.Find<ModNPC>("ZeroDeactivated").Type);
             }
         }
 
@@ -168,7 +165,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 			bool anyZerosExist = NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("Zero").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type);			
 			if (!anyZerosExist)
 			{
-                int whoAmI = NPC.NewNPC((int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<ZeroDeactivated>());
+                int whoAmI = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<ZeroDeactivated>());
                 ZX = (int)spawnPos.X;
 				ZY = (int)spawnPos.Y;				
 				if (Main.netMode == NetmodeID.Server && whoAmI != -1 && whoAmI < 200)

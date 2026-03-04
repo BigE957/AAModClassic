@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -31,8 +32,8 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.lavaImmune = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Zerohit");
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/ZeroDeath");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Zerohit");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/ZeroDeath");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -79,20 +80,20 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 {
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
                     }
                 }
                 if(NPC.ai[1] % 180 == 120)
                 {
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
                     }
                 }
             }
@@ -101,10 +102,10 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 NPC.velocity *= 0;
                 if(Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(NPC.Center + new Vector2(30, 30), new Vector2(10, 10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
-                    Projectile.NewProjectile(NPC.Center + new Vector2(-30, 30), new Vector2(-10, 10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
-                    Projectile.NewProjectile(NPC.Center + new Vector2(30, -30), new Vector2(10, -10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
-                    Projectile.NewProjectile(NPC.Center + new Vector2(-30, -30), new Vector2(-10, -10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(30, 30), new Vector2(10, 10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-30, 30), new Vector2(-10, 10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(30, -30), new Vector2(10, -10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-30, -30), new Vector2(-10, -10), ModContent.ProjectileType<EchoRay>(), NPC.damage / 3, 0f, Main.myPlayer, 6.2831855f / 750f, NPC.whoAmI);
                 }
                 NPC.ai[0] = 3;
                 NPC.ai[1] = 0;

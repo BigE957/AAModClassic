@@ -25,8 +25,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
             NPC.width = 60;
             NPC.height = 60;
             NPC.aiStyle = -1;
-            NPC.HitSound = new LegacySoundStyle(21, 1);
-            NPC.DeathSound = new LegacySoundStyle(2, 14);
+            NPC.HitSound = SoundID.Tink;
+            NPC.DeathSound = SoundID.Item14;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
         }
@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 if (++NPC.ai[1] >= 80)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, NPC.position);
-                    int proj = Projectile.NewProjectile(npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
+                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     Main.projectile[proj].netUpdate = true;
                     NPC.ai[1] = 0;
                 }
@@ -80,9 +80,9 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 if (++NPC.ai[1] >= 120)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, NPC.position);
-                    int proj = Projectile.NewProjectile(npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
-                    int proj2 = Projectile.NewProjectile(npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) + 2, (float)(Math.Sin(rotation) * Speed * -1) + 2, type, damage, 0f, 0);
-                    int proj3 = Projectile.NewProjectile(npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) - 2, (float)(Math.Sin(rotation) * Speed * -1) - 2, type, damage, 0f, 0);
+                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
+                    int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) + 2, (float)(Math.Sin(rotation) * Speed * -1) + 2, type, damage, 0f, 0);
+                    int proj3 = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) - 2, (float)(Math.Sin(rotation) * Speed * -1) - 2, type, damage, 0f, 0);
                     Main.projectile[proj].netUpdate = true;
                     NPC.ai[1] = 0;
                 }
@@ -96,7 +96,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 if (++NPC.ai[1] >= 200)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsysWrathShot, NPC.position);
-                    int proj = Projectile.NewProjectile(npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
+                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     Main.projectile[proj].netUpdate = true;
                     NPC.ai[1] = 0;
                 }

@@ -78,13 +78,13 @@ namespace AAModClassic.NPCs.Enemies.Snow
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0);
             }
             if (NPC.life == 0)
             {
                 for (int k = 0; k < 5; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0);
                 }
             }
         }

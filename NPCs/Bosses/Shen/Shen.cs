@@ -214,7 +214,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
             if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ShenHitbox").Type))
             {
-                int hitbox = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ShenHitbox").Type, 0, NPC.whoAmI, 0f, 0f, 0f, 255);
+                int hitbox = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ShenHitbox").Type, 0, NPC.whoAmI, 0f, 0f, 0f, 255);
                 Main.npc[hitbox].netUpdate = true;
             }
 
@@ -310,7 +310,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.netUpdate = true;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -2; i <= 2; i++)
-                                Projectile.NewProjectile(NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), Spread, NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), Spread, NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
                     }
                     break;
 
@@ -427,7 +427,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                             Vector2 vel = (player.Center - spawnPos) / 30;
                             if (vel.Length() < 25)
                                 vel = Vector2.Normalize(vel) * 25;
-                            Projectile.NewProjectile(spawnPos, vel, Frag, NPC.damage / 4, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, vel, Frag, NPC.damage / 4, 0f, Main.myPlayer);
                         }
                     }
                     if (++NPC.ai[1] > 210)
@@ -465,8 +465,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -504,7 +504,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.velocity.X = -30 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y = 5f;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, Vector2.Zero, Homing, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, Homing, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
                     }
                     NPC.rotation = 0;
                     break;
@@ -558,7 +558,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                                 InfernoType = 2;
                             }
 
-                            int projectile = Projectile.NewProjectile((int)infernoPos.X, (int)infernoPos.Y, vel.X, vel.Y, Inferno, damage, 0f, Main.myPlayer, InfernoType, 0f);
+                            int projectile = Projectile.NewProjectile(NPC.GetSource_FromThis(), (int)infernoPos.X, (int)infernoPos.Y, vel.X, vel.Y, Inferno, damage, 0f, Main.myPlayer, InfernoType, 0f);
                             Main.projectile[projectile].velocity = vel;
                             Main.projectile[projectile].netUpdate = true;
                         }
@@ -582,8 +582,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.004f;
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Accel, NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (NPC.ai[1] <= 1)
@@ -729,8 +729,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage *= .8f;
-            return true;
+            modifiers.TargetDamageMultiplier *= .8f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -826,12 +825,12 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     string[] lootTable = { "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                    BaseAI.DropItem(NPC, Mod.Find<ModItem>("ShenTrophy").Type, 1, 1, 15, true);
+                    //BaseAI.DropItem(NPC, Mod.Find<ModItem>("ShenTrophy").Type, 1, 1, 15, true);
 
                 }
                 else
                 {
-                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
+                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
                 }
                 BaseAI.DropItem(NPC, Mod.Find<ModItem>("ShenTrophy").Type, 1, 1, 15, true);
                 NPC.value = 0f;
@@ -850,7 +849,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             //draw body/charge afterimage
             if (Dashing)
             {
-                BaseDrawing.DrawAfterimage(sb, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
+                BaseDrawing.DrawAfterimage(spriteBatch, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
             }
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, NPC.GetAlpha(drawColor), false);
             //draw wings

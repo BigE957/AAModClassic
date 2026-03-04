@@ -131,7 +131,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             if (NPC.ai[1] == aiTimerFire && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Vector2 speed = new Vector2(1f, 0f).RotatedBy((float)(Main.rand.NextDouble() * 3.1415f)) * 6f;
-                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, Mod.Find<ModProjectile>("NightcrawlerNothing").Type, NPC.damage / 4, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, Mod.Find<ModProjectile>("NightcrawlerNothing").Type, NPC.damage / 4, 0, Main.myPlayer);
             }
 
             if (Main.dayTime)

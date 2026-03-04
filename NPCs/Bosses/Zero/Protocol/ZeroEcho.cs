@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -32,8 +33,8 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.lavaImmune = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Zerohit");
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/ZeroDeath");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Zerohit");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/ZeroDeath");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -67,10 +68,10 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
             if (zero.ai[1] == 1f && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Projectile.NewProjectile(NPC.Center + new Vector2(30, 30), new Vector2(10, 10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center + new Vector2(-30, 30), new Vector2(-10, 10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center + new Vector2(30, -30), new Vector2(10, -10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center + new Vector2(-30, -30), new Vector2(-10, -10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(30, 30), new Vector2(10, 10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-30, 30), new Vector2(-10, 10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(30, -30), new Vector2(10, -10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-30, -30), new Vector2(-10, -10), ModContent.ProjectileType<EchoRay>(), 70, 0f, Main.myPlayer, 0, NPC.whoAmI);
             }
 
             if (zero.ai[0] != 4)

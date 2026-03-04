@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             bool flag = NPC.life <= 0 || (!NPC.active && NPC.AnyNPCs(ModContent.NPCType<Zero>()));
             if (flag && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int ind = NPC.NewNPC((int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
+                int ind = NPC.NewNPC(NPC.GetSource_Death(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
                 Main.npc[ind].Center = NPC.Center;
                 Main.npc[ind].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                 Main.npc[ind].netUpdate2 = true; Main.npc[ind].netUpdate = true;
@@ -124,7 +124,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 }
                 else if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<NovaRay>()) && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    laser = Main.projectile[Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(NPC.damage * 0.75f), 3f, Main.myPlayer, NPC.whoAmI, 420)];
+                    laser = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(NPC.damage * 0.75f), 3f, Main.myPlayer, NPC.whoAmI, 420)];
                     laser.velocity = BaseUtility.RotateVector(default, new Vector2(14f, 0f), laser.rotation);
                 }
             }

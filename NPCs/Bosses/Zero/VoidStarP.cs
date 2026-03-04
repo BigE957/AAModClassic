@@ -81,7 +81,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void OnKill(int timeLeft)
         {
-            Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Cyclone>(), Projectile.damage / 4, 0, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Cyclone>(), Projectile.damage / 4, 0, Main.myPlayer);
         }
     }
 }

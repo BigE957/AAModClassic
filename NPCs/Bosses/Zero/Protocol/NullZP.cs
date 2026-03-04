@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             NPC.damage = 50;
             NPC.defense = 9999999;
             NPC.lifeMax = 10;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Glitch");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch");
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.alpha = 70;
             NPC.value = 7000f;

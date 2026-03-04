@@ -237,7 +237,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
         }
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
-            drawCacheProjsBehindProjectiles.Add(index);
+            behindProjectiles.Add(index);
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -391,7 +391,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
         }
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
-            drawCacheProjsBehindProjectiles.Add(index);
+            behindProjectiles.Add(index);
         }
 
         public override bool PreDraw(ref Color lightColor)

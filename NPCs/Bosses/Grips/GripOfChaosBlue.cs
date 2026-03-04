@@ -24,10 +24,10 @@ namespace AAModClassic.NPCs.Bosses.Grips
         {
             if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/MireGripGore4"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MireGripGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MireGripGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MireGripGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MireGripGore4").Type, 1f);
             }
         }
 
@@ -36,31 +36,31 @@ namespace AAModClassic.NPCs.Bosses.Grips
             int redGripExists = NPC.CountNPCS(Mod.Find<ModNPC>("GripOfChaosRed").Type);
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripTrophyBlue").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripTrophyBlue").Type);
             }
             if (redGripExists == 0)
             {
                 if (Main.rand.Next(4) == 0 && !Main.expertMode)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ClawBaton").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ClawBaton").Type);
                 }
 
                 AAWorld.downedGrips = true;
                 if (Main.expertMode)
                 {
-                    NPC.DropBossBags();
+                    NPC.DropLoot(Mod.Find<ModItem>("GripBag").Type);
                 }
             }
             else
             {
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripMaskBlue").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripMaskBlue").Type);
                 }
             }
             if (!Main.expertMode)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(30, 44));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(30, 44));
             }
         }
 

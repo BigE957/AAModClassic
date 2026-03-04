@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0] != 0)
                 {
                     Projectile.ai[0] -= Projectile.ai[0] > 0 ? 1 : -1; //approach 0
-                    Projectile.NewProjectile(Projectile.Center + Vector2.UnitX * Math.Sign(Projectile.ai[0]) * Projectile.width, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + Vector2.UnitX * Math.Sign(Projectile.ai[0]) * Projectile.width, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
                 }
         }
 

@@ -164,9 +164,9 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
             Vector2 centre = new Vector2(texture.Width / 2f, texture.Height / 2f);
 
-            DrawLaser(spriteBatch, centre);
+            DrawLaser(Main.spriteBatch, centre);
 
-            spriteBatch.Draw(texture,
+            Main.spriteBatch.Draw(texture,
                 Projectile.position - Main.screenPosition + centre,
                 new Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)),
                 new Color(250, 244, 171),

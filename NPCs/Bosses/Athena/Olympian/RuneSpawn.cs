@@ -49,15 +49,15 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 3, 0, 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 3, frame, Color.White, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 3, frame, Color.White, false);
             return false;
         }
 
         public override void OnKill(int timeleft)
         {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int p = NPC.NewNPC((int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<OwlRuneCharged>());
+            int p = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<OwlRuneCharged>());
             Main.npc[p].Center = Projectile.Center;
             for (int num468 = 0; num468 < 10; num468++)
             {

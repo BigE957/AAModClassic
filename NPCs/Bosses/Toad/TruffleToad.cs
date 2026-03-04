@@ -80,12 +80,11 @@ namespace AAModClassic.NPCs.Bosses.Toad
             NPC.boss = true;
             NPC.lavaImmune = true;
             NPC.noGravity = false;
-            Music = Mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/TODE");
+            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/TODE");
             NPC.netAlways = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("ToadBag").Type;
             NPC.alpha = 255;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(29, 13, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Zombie29;
             if (Main.expertMode)
             {
                 NPC.defense = 20;
@@ -301,11 +300,11 @@ namespace AAModClassic.NPCs.Bosses.Toad
                         internalAI[2] = 0;
                         if (NPC.direction == -1)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBomb").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBomb").Type, damage, 3);
                         }
                         else
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBomb").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBomb").Type, damage, 3);
                         }
                         NPC.netUpdate = true;
                     }
@@ -356,11 +355,11 @@ namespace AAModClassic.NPCs.Bosses.Toad
                         internalAI[2] = 0;
                         if (NPC.direction == -1)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("FungusBubble").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("FungusBubble").Type, damage, 3);
                         }
                         else
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("FungusBubble").Type, damage, 3); //Originally 35 damage
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("FungusBubble").Type, damage, 3); //Originally 35 damage
                         }
                         NPC.netUpdate = true;
                     }
@@ -392,11 +391,11 @@ namespace AAModClassic.NPCs.Bosses.Toad
                         internalAI[2] = 0;
                         if (NPC.direction == -1)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("Seed").Type, 0, 0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("Seed").Type, 0, 0);
                         }
                         else
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("Seed").Type, 0, 0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("Seed").Type, 0, 0);
                         }
                         NPC.netUpdate = true;
                     }
@@ -436,12 +435,12 @@ namespace AAModClassic.NPCs.Bosses.Toad
                                 int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
                                 Main.dust[num624].velocity *= 0.2f;
                             }
-                            int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                            int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
                             Main.gore[num625].velocity *= 0.4f;
                         }
                         for (int a = 0; a < 4; a++)
                         {
-                            NPC.NewNPC((int)(NPC.position.X + Main.rand.Next(40)), (int)(NPC.position.Y + NPC.height), ModContent.NPCType<GlowshroomGrow>());
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + Main.rand.Next(40)), (int)(NPC.position.Y + NPC.height), ModContent.NPCType<GlowshroomGrow>());
                         }
                         internalAI[0] = AISTATE_JUMP;
                         internalAI[1] = 0;
@@ -510,11 +509,11 @@ namespace AAModClassic.NPCs.Bosses.Toad
                         internalAI[2] = 0;
                         if (NPC.direction == -1)
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBubble").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBubble").Type, damage, 3);
                         }
                         else
                         {
-                            Projectile.NewProjectile(NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBubble").Type, damage, 3);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-2, 0)), Mod.Find<ModProjectile>("ToadBubble").Type, damage, 3);
                         }
                         NPC.netUpdate = true;
                     }
@@ -536,9 +535,9 @@ namespace AAModClassic.NPCs.Bosses.Toad
                 NPC.velocity.X *= .98f;
                 if (internalAI[1] == 35)
                 {
-                    NPC.NewNPC((int)(NPC.Center.X - 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
-                    NPC.NewNPC((int)NPC.Center.X, (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
-                    NPC.NewNPC((int)(NPC.Center.X + 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X - 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X + 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
                 }
                 if (internalAI[1] >= 100)
                 {
@@ -592,20 +591,25 @@ namespace AAModClassic.NPCs.Bosses.Toad
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
+            
+        }
+
+        public override void OnKill()
+        {
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadTrophy").Type);
             }
             AAWorld.downedToad = true;
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("ToadBag").Type);
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadMask").Type);
                 }
                 string[] lootTable = { "MushrockStaff", "ToadTongue", "Todegun" };
                 int loot = Main.rand.Next(lootTable.Length);
@@ -819,7 +823,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
                                 }
                                 for (int num539 = 0; num539 < 4; num539 = num + 1)
                                 {
-                                    int num540 = Gore.NewGore(vector68 + new Vector2(50 * Main.rand.Next(100) / 100f, 50 * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default(Vector2), Main.rand.Next(61, 64), 1f);
+                                    int num540 = Gore.NewGore(NPC.GetSource_FromThis(), vector68 + new Vector2(50 * Main.rand.Next(100) / 100f, 50 * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default(Vector2), Main.rand.Next(61, 64), 1f);
                                     Gore gore = Main.gore[num540];
                                     gore.velocity *= 0.3f;
                                     Gore gore2 = Main.gore[num540];

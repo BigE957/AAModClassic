@@ -93,9 +93,9 @@ namespace AAModClassic.NPCs.Bosses.Zero
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, Tex.Width, Tex.Height, 0, 0);
             Rectangle frame1 = BaseDrawing.GetFrame(Projectile.frame, Tex2.Width, Tex2.Height, 0, 0);
             Rectangle frame2 = BaseDrawing.GetFrame(Projectile.frame, Tex3.Width, Tex3.Height, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spriteBatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, 0, 1, frame1, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spriteBatch, Tex3, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame2, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, 0, 1, frame1, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex3, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame2, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 
@@ -108,8 +108,8 @@ namespace AAModClassic.NPCs.Bosses.Zero
             for (int i = 0; i < 3; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("RiftSlashZ").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
             }
             for (int k = 0; k < 10; k++)
             {

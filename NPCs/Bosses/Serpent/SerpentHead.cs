@@ -42,7 +42,6 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.boss = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
             NPC.alpha = 50;
             NPC.buffImmune[BuffID.Frostburn] = true;
@@ -145,7 +144,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         {
                             type = Mod.Find<ModNPC>("SerpentTail").Type;
                         }
-                        int segment = NPC.NewNPC((int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         Main.npc[segment].ai[3] = NPC.whoAmI;
                         Main.npc[segment].realLife = NPC.whoAmI;
                         Main.npc[segment].ai[1] = whoamI;
@@ -625,7 +624,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 if (NPC.CountNPCS(ModContent.NPCType<IceCrystal>()) < 3)
                 {
-                    NPC.NewNPC((int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, 0, 0, 0, 0, NPC.target);
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, 0, 0, 0, 0, NPC.target);
                 }
                 internalAI[2] = 2;
                 NPC.netUpdate = true;
@@ -686,7 +685,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer);
                         }
                     }
                     if (attackTimer >= 80)
@@ -713,18 +712,17 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 		{
 			if (Main.expertMode)
 			{
-				player.AddBuff(BuffID.Chilled, 200, true);
+				target.AddBuff(BuffID.Chilled, 200, true);
 			}
 			else
 			{
-				player.AddBuff(BuffID.Chilled, 100, true);
+				target.AddBuff(BuffID.Chilled, 100, true);
 			}
 		}
 
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.HealingPotion;   //boss drops
-            AAWorld.downedSerpent = true;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -743,26 +741,27 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreHead"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreHead").Type, 1f);
             }
         }
 
         public override void OnKill()
         {
+            AAWorld.downedSerpent = true;
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentMask").Type);
                 }
                 AAWorld.downedSerpent = true;
                 NPC.DropLoot(Mod.Find<ModItem>("SnowMana").Type, 10, 15);
@@ -780,11 +779,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(ModContent.ItemType<Items.Boss.Serpent.SerpentBag>());
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentTrophy").Type);
             }
             NPC.value = 0f;
             NPC.boss = false;
@@ -1188,16 +1187,16 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreBody"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreBody").Type, 1f);
             }
         }
     }
@@ -1229,7 +1228,6 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
             NPC.boss = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.Boss.Serpent.SerpentBag>();
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Boss6");
             NPC.alpha = 50;
             NPC.dontCountMe = true;
@@ -1570,16 +1568,16 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hitDirection, -1f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SZSGoreTail"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreTail").Type, 1f);
             }
         }
     }

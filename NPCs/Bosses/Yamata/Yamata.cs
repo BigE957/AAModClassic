@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 
 namespace AAModClassic.NPCs.Bosses.Yamata
@@ -82,7 +83,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             NPC.frame = BaseDrawing.GetFrame(frameCount, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -109,7 +110,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage = 0;
+            modifiers.TargetDamageMultiplier *= 0;
 
             if (!AAWorld.downedYamata)
             {
@@ -147,8 +148,6 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     quarterHealth = true;
                 }
             }
-            
-            return true;
         }
 
         public bool Dead = false;
@@ -176,7 +175,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 }
                 if (Main.expertMode)
                 {
-                    int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataTransition").Type, 0, 0, 0, 0, 0, NPC.target);
+                    int npcID = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataTransition").Type, 0, 0, 0, 0, 0, NPC.target);
                     Main.npc[npcID].Center = NPC.Center;
                     Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
                 }
@@ -218,19 +217,19 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             {
                 if (!HeadsSpawned)
                 {
-                    TrueHead = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHead").Type, 0)];
+                    TrueHead = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHead").Type, 0)];
                     TrueHead.ai[0] = NPC.whoAmI;
-                    Head2 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
+                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
                     Head2.ai[0] = NPC.whoAmI;
-                    Head3 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
+                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
                     Head3.ai[0] = NPC.whoAmI;
-                    Head4 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
+                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF1").Type, 0)];
                     Head4.ai[0] = NPC.whoAmI;
-                    Head5 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
+                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
                     Head5.ai[0] = NPC.whoAmI;
-                    Head6 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
+                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
                     Head6.ai[0] = NPC.whoAmI;
-                    Head7 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
+                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataHeadF2").Type, 0)];
                     Head7.ai[0] = NPC.whoAmI;
 
                     TrueHead.netUpdate = true;
@@ -509,9 +508,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             for (int tY = tileY; tY < tileY + hoverHeight; tY++)
             {
                 if (Main.tile[tileX, tY] == null)
-                {
-                    Main.tile[tileX, tY] = new Tile();
-                }
+                    continue;
                 if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     tileBelowEmpty = false;
@@ -704,7 +701,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
+            Color lightColor = NPC.GetAlpha(drawColor);
+            SpriteBatch sb = spriteBatch;
             string tailTex = "NPCs/Bosses/Yamata/YamataTail";
             string headTex = "NPCs/Bosses/Yamata/YamataHead";
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(tailTex), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
@@ -917,7 +915,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1], null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
                 BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0], textures[1], textures[0] }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
             }
-            BaseDrawing.DrawTexture(spriteBatch, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
+            BaseDrawing.DrawTexture(sb, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
         }
     }
 }

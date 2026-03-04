@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         {
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
 
-            BaseAI.AIFloater(NPC, ref NPC.ai, false, 0.2f, 2f, 1.5f, 0.04f, 1.5f, 3);
+            BaseAI.AIFloater(NPC, player, ref NPC.ai, false, 0.2f, 2f, 1.5f, 0.04f, 1.5f, 3);
 
             if (NPC.wet)
             {

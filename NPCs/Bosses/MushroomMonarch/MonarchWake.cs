@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 {
@@ -58,7 +59,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
             if (NPC.ai[0] == 160 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<MushroomMonarch>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<MushroomMonarch>());
                 NPC.active = false;
                 NPC.netUpdate = true;
             }

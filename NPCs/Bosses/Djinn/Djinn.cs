@@ -45,7 +45,6 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Djinn");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<DjinnBag>();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -150,12 +149,12 @@ namespace AAModClassic.NPCs.Bosses.Djinn
                 NPC.damage = 200 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1);
                 NPC.defense = 1000;
                 NPC.ai[3]++;
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.3f, 0.3f, 16f, 16f, false, 300);
+                BaseAI.AIFlier(NPC, ref NPC.ai[2], true, 0.3f, 0.3f, 16f, 16f, false, 300);
 
                 if (NPC.localAI[0]++ > 50)
                 {
                     NPC.localAI[0] = 0;
-                    Projectile.NewProjectile(NPC.Center.X + Main.rand.Next(-200, 200), NPC.Center.Y + Main.rand.Next(-100, 100), 0, 0, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-200, 200), NPC.Center.Y + Main.rand.Next(-100, 100), 0, 0, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
                 }
                 return;
             }
@@ -218,12 +217,12 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             {
                 NPC.damage = 60 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1); ;
                 NPC.ai[3]++;
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.1f, 6f, 6f, false, 300);
+                BaseAI.AIFlier(NPC, Main.player[NPC.target], ref NPC.ai[2], true, 0.1f, 0.1f, 6f, 6f, false, 300);
                 NPC.damage = 40;
 
                 if (NPC.ai[3] % 30 == 0)
                 {
-                    Projectile.NewProjectile(NPC.position + new Vector2(Main.rand.Next(70), Main.rand.Next(80)), Vector2.Zero, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position + new Vector2(Main.rand.Next(70), Main.rand.Next(80)), Vector2.Zero, ModContent.ProjectileType<Menacing>(), 0, 0, Main.myPlayer);
                 }
                 if (NPC.ai[3] > 200 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -289,7 +288,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             else
             {
                 NPC.damage = 30;
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.04f, 4f, 2f, false, 300);
+                BaseAI.AIFlier(NPC, Main.player[NPC.target], ref NPC.ai[3], true, 0.1f, 0.04f, 4f, 2f, false, 300);
             }
         }
 
@@ -461,7 +460,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             }
             foreach (Point current2 in list4)
             {
-                Projectile.NewProjectile(current2.X * 16, current2.Y * 16, 0f, 0f, 658, damage, 0f, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), current2.X * 16, current2.Y * 16, 0f, 0f, 658, damage, 0f, Main.myPlayer, 0f, 0f);
             }
         }
 
@@ -475,16 +474,16 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             for (int Loop = 0; Loop < 5; Loop++)
             {
                 int d = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust, 0f, 0f, 0);
-                Main.dust[d].velocity.Y = hitDirection * 0.1F;
+                Main.dust[d].velocity.Y = hit.HitDirection * 0.1F;
                 Main.dust[d].noGravity = false;
             }
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/DjinnGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/DjinnGore2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/DjinnGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/DjinnGore4"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/DjinnGore5"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DjinnGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DjinnGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DjinnGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DjinnGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DjinnGore5").Type, 1f);
                 for (int Loop = 0; Loop < 60; Loop++)
                 {
                     int d = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust, 0f, 0f, 0);
@@ -539,13 +538,13 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             Sandstorm.TimeLeft = 0;
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnTrophy").Type);
             }
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnMask").Type);
                 }
                 NPC.DropLoot(Mod.Find<ModItem>("DesertMana").Type, 10, 15);
                 string[] lootTable = { "Djinnerang", "SandLamp", "SandScepter", "SandstormCrossbow", "SultanScimitar" };
@@ -562,7 +561,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             }
             else
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(ModContent.ItemType<DjinnBag>());
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

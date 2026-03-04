@@ -269,7 +269,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/WyrmlingGore1"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore1"), 1f);
             }
         }
     }
@@ -301,7 +301,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/WyrmlingGore2"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore2"), 1f);
             }
         }
 
@@ -403,7 +403,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/WyrmlingGore3"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore3"), 1f);
             }
         }
 
@@ -510,7 +510,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/WyrmlingGore4"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore4"), 1f);
             }
         }
 

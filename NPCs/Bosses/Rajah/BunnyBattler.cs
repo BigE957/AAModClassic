@@ -155,8 +155,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         }
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage /= 2;
-            return true;
+            modifiers.TargetDamageMultiplier /= 2;
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {

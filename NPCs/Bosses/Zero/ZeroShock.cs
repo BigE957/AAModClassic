@@ -4,6 +4,7 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -181,7 +182,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             Color color25 = Lighting.GetColor((int)(Projectile.position.X + Projectile.width * 0.5) / 16, (int)((Projectile.position.Y + Projectile.height * 0.5) / 16.0));
             Vector2 end = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
-            Texture2D tex3 = Main.extraTexture[33];
+            Texture2D tex3 = TextureAssets.Extra[ExtrasID.CultistLightingArc].Value;
             Projectile.GetAlpha(color25);
             Vector2 scale16 = new Vector2(Projectile.scale) / 2f;
             for (int num291 = 0; num291 < 3; num291++)

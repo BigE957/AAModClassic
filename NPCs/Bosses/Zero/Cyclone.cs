@@ -94,7 +94,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, Tex.Width, Tex.Height, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

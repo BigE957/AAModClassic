@@ -4,6 +4,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
@@ -166,7 +167,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("WrathHaruka2"), new Color(72, 78, 117));
             }
-            NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WrathHarukaVanish>());
+            NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WrathHarukaVanish>());
             NPC.value = 0f;
             NPC.boss = false;
         }
@@ -456,7 +457,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage*1, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage*1, 5, Main.myPlayer);
                         }
                     }
                     if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient) 
@@ -680,7 +681,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                             for (int i = 0; i < 3; i++)
                             {
                                 double offsetAngle = startAngle + (deltaAngle * i);
-                                Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
                             }
                             if(strikebackproj != 0)
                             {
@@ -689,7 +690,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                                 for (int i = 0; i < strikebackproj; i++)
                                 {
                                     double offsetAngle = startAngle + (deltaAngle * i);
-                                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("HarukaArrow").Type, damage, 0, Main.myPlayer);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("HarukaArrow").Type, damage, 0, Main.myPlayer);
                                 }
                             }
                         }
@@ -925,9 +926,9 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                 }
                 if(Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    ShadowNPC[1] = NPC.NewNPC((int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<WrathHarukaClone>(), 0, NPC.whoAmI);
+                    ShadowNPC[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<WrathHarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ShadowNPC[1], 0f, 0f, 0f, 0, 0, 0);
-                    ShadowNPC[2] = NPC.NewNPC((int)spawnpoint[k2].X, (int)spawnpoint[k2].Y, ModContent.NPCType<WrathHarukaClone>(), 0, NPC.whoAmI);
+                    ShadowNPC[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnpoint[k2].X, (int)spawnpoint[k2].Y, ModContent.NPCType<WrathHarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ShadowNPC[2], 0f, 0f, 0f, 0, 0, 0);
                     NPC.alpha = 250;
                 }
@@ -1003,7 +1004,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             {
                 if(Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, Mod.Find<ModProjectile>("HarukaStrike").Type, damage*1, 5, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, Mod.Find<ModProjectile>("HarukaStrike").Type, damage*1, 5, Main.myPlayer);
 
                     Vector2 shoot = Vector2.Zero;
                     int projType = ModContent.ProjectileType<WrathHarukaProj>();
@@ -1011,7 +1012,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     {
                         shoot = new Vector2((float)Math.Sin(i * 0.125f * Pi), (float)Math.Cos(i * 0.125f * Pi));
                         shoot *= 14f;
-                        Projectile.NewProjectile(ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, damage*1, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, damage*1, 5, Main.myPlayer);
                     }
                 }
 
@@ -1139,9 +1140,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         {
             if(strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
             {
-                damage = 0.0;
+                modifiers.TargetDamageMultiplier *= 0f;
             }
-            return false;
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -1178,9 +1178,9 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                         Alpha.G = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.B = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.A = (byte)((float)(255 - internalAI[4] * 3));
-                        spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
                     }
-                    spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
                 }
             }
             else if(SHADOWDOG && !Invisible)

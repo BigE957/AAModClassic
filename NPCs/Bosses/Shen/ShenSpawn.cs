@@ -236,7 +236,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             if (NPC.alpha <= 0)
             {
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
-                BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
+                BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
                 return false;
             }
@@ -275,7 +275,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             if (NPC.ai[1] > 240)
             {
                 int i = AAWorld.downedShen ? 1 : 0;
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ShenDeath>(), 0, i);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ShenDeath>(), 0, i);
                 NPC.active = false;
                 NPC.netUpdate = true;
             }
@@ -286,11 +286,11 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 if (NPC.ai[0] > 4)
                 {
                     NPC.ai[0] = 0;
-                    SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+                    SoundEngine.PlaySound(SoundID.Item124);
                     for (int i = 0; i < 3; i++)
                     {
                         Vector2 Pos = new Vector2(NPC.position.X + Main.rand.Next(0, 444), NPC.position.Y - Main.rand.Next(0, 100));
-                        Projectile.NewProjectile(Pos, Vector2.Zero, ModContent.ProjectileType<ShenDeathBoom>(), 0, 0, Main.myPlayer, Main.rand.Next(3));
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Pos, Vector2.Zero, ModContent.ProjectileType<ShenDeathBoom>(), 0, 0, Main.myPlayer, Main.rand.Next(3));
                     }
                 }
             }
@@ -553,7 +553,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ShenTransition7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ShenTransition8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
-            int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
             Main.projectile[b].Center = NPC.Center;
 
 
@@ -576,7 +576,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             if (NPC.alpha <= 0)
             {
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
-                BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
+                BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
                 return false;
             }

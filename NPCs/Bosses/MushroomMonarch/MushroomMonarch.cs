@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
@@ -62,7 +63,6 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             NPC.netAlways = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("MonarchBag").Type;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Monarch");
 
         }
@@ -93,7 +93,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
                 if (player.dead || !player.active || Vector2.Distance(player.Center, NPC.Center) > 5000)
                 {
-                    Projectile.NewProjectile(NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
                     NPC.active = false;
                     return;
                 }
@@ -230,7 +230,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        int Minion = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RedMushling>(), 0);
+                        int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RedMushling>(), 0);
                         Main.npc[Minion].netUpdate = true;
                     }
                     internalAI[2] = 0;
@@ -255,7 +255,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                     {
                         for (int i = 0; i < 2; i++)
                         {
-                            int Minion = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RedMushling>(), 0);
+                            int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RedMushling>(), 0);
                             Main.npc[Minion].netUpdate = true;
                         }
                     }
@@ -292,7 +292,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    int i = Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
+                    int i = Item.NewItem(NPC.GetSource_OnHurt(projectile), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)
                     {
                         NetMessage.SendData(MessageID.SyncItem, -1, -1, null, i, 1f, 0f, 0f, 0, 0, 0);
@@ -300,7 +300,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 }
                 else
                 {
-                    Projectile.NewProjectile(NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_OnHurt(projectile), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
                 }
             }
         }
@@ -311,7 +311,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    int i = Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
+                    int i = Item.NewItem(NPC.GetSource_OnHurt(player), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)
                     {
                         NetMessage.SendData(MessageID.SyncItem, -1, -1, null, i, 1f, 0f, 0f, 0, 0, 0);
@@ -319,7 +319,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 }
                 else
                 {
-                    Projectile.NewProjectile(NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_OnHurt(player), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
                 }
             }
         }
@@ -357,28 +357,31 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.LesserHealingPotion;
+        }
+
+        public override void OnKill()
+        {
             AAWorld.downedMonarch = true;
-            Projectile.NewProjectile(NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SporeSac").Type, Main.rand.Next(30, 35));
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SporeSac").Type, Main.rand.Next(30, 35));
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchTrophy").Type);
             }
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("MonarchBag").Type);
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchMask").Type);
                 }
 
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(25, 35));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(25, 35));
             }
         }
-
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  //boss life scale in expertmode

@@ -39,11 +39,11 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 			bool isDead = NPC.life <= 0;		
             if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/BroodminiGore3"), 1f);
+                Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore3").Type, 1f);
             }
 			for (int m = 0; m < (isDead ? 35 : 6); m++)
 			{
@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         public override void AI()
         {
             NPC.noTileCollide = false;
-            NPC.knockBackResist = 0.4f * Main.GameModeInfo.knockBackToEnemiesMultiplier;
+            NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
             NPC.noGravity = true;
             NPC.rotation = ((NPC.rotation * 9f) + (NPC.velocity.X * 0.1f)) / 10f;
             if (Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno == false)

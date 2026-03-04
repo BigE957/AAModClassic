@@ -129,7 +129,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Color Alpha = drawColor;
+            Color Alpha = lightColor;
             if(timecount < 10)
             {
                 Alpha.R = (byte)(0f);
@@ -153,7 +153,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             }
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, blue, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, blue, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
             return false;
         }
     }

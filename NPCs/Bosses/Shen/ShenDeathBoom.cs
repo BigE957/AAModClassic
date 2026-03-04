@@ -81,7 +81,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 Tex = Mod.GetTexture("NPCs/Bosses/Shen/ShenDeathBoomB");
             }
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
             return false;
         }
     }

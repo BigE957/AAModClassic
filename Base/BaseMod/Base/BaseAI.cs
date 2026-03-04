@@ -3790,6 +3790,12 @@ namespace AAModClassic.Base.BaseMod.Base
 		 * maxSpeedX/maxSpeedY : the max speed of the npc on the X and Y axis, respectively.
 		 * slowdownIncrementX/slowdownIncrementY : the slowdown increment on the X and Y axis, respectively.
 		 */
+
+        public static void AIFlier(NPC npc, ref float ai, bool sporadic = true, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float maxSpeedX = 4f, float maxSpeedY = 1.5f, bool canBeBored = true, int timeUntilBoredom = 300)
+        {
+            AIFlier(npc, Main.player[npc.target], ref ai, sporadic, moveIntervalX, moveIntervalY, maxSpeedX, maxSpeedY, canBeBored, timeUntilBoredom);
+        }
+
         public static void AIFlier(NPC npc, Entity target, ref float ai, bool sporadic = true, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float maxSpeedX = 4f, float maxSpeedY = 1.5f, bool canBeBored = true, int timeUntilBoredom = 300)
         {
             if (npc.collideX)
@@ -6339,6 +6345,53 @@ namespace AAModClassic.Base.BaseMod.Base
                 return projectileID;
             }
             return -1;
+        }
+        public static int DropItem(Entity codable, int type, int amt, int maxStack, int chance, bool clusterItem = false)
+        {
+            return DropItem(codable, type, amt, maxStack, (float)chance / 100f, clusterItem);
+        }
+
+        /*
+         * Drops an item from a codable, and returns the item's whoAmI. Mostly convenience for mp support.
+         * If it drops more then one item it will return the last item dropped's whoAmI.
+         * 
+         * amt : the amount of the item to drop.
+         * maxStack : The max stack count per item. (only applies if clusterItem == true)
+         * chance : 0-1. The percent chance of the item drop. If projectile is not 100 and the item does not drop, projectile method returns -1.
+         * clusterItem : If true, it will stick the drops into stacks that fit to the item's maxStack value. If false it drops them as individual items.
+         */
+        public static int DropItem(Entity codable, int type, int amt, int maxStack, float chance, bool clusterItem = false, bool sync = false)
+        {
+            int itemID = -1;
+            if ((sync || Main.netMode != 1) && (float)Main.rand.NextDouble() <= chance)
+            {
+                if (clusterItem)
+                {
+                    int stackCount = 0;
+                    int stackCount2 = 0;
+                    while (stackCount != amt)
+                    {
+                        stackCount++; stackCount2++;
+                        if (stackCount == amt || stackCount2 == maxStack)
+                        {
+                            itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, stackCount2, false, 0);
+                            if (sync) NetMessage.SendData(21, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
+                            stackCount2 = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    int count = 0;
+                    while (count < amt)
+                    {
+                        count++;
+                        itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, 1, false, 0);
+                        if (sync) NetMessage.SendData(21, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
+                    }
+                }
+            }
+            return itemID;
         }
     }
 }

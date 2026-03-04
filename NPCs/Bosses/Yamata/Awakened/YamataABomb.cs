@@ -2,6 +2,7 @@
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
@@ -113,8 +114,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), mod.ProjectileType("YamataAVenom"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
                 }
             }*/
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 89, Terraria.Audio.SoundType.Sound));
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("YamataABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            SoundEngine.PlaySound(SoundID.Item89);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("YamataABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Projectile.active = false;
         }
 

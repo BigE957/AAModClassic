@@ -153,7 +153,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
 
             SoundEngine.PlaySound(SoundID.Item14);
-            Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GenocideBoom>(), Projectile.damage, 1, Projectile.owner);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<GenocideBoom>(), Projectile.damage, 1, Projectile.owner);
         }
 
 

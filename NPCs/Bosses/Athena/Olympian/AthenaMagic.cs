@@ -59,15 +59,15 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 3, 0, 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 3, frame, Color.White, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Color.White, frame, 3);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 3, frame, Color.White, false);
             return false;
         }
 
         public override void OnKill(int timeleft)
         {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ProjectileID.Electrosphere, 20, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ProjectileID.Electrosphere, 20, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].friendly = false;
             Main.projectile[p].hostile = true;

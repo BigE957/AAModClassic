@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             {
                 NPC.alpha = 0;
             }
-            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 6f, 5f, false, 300);
+            BaseAI.AIFlier(NPC, Main.player[NPC.target], ref NPC.ai[0], true, 0.15f, 0.08f, 6f, 5f, false, 300);
             Player player = Main.player[NPC.target];
             if (player.Center.X > NPC.Center.X)
             {

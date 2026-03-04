@@ -100,7 +100,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     for (int i = 0; i < 12; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 6);
-                        Projectile.NewProjectile(Projectile.Center, vel * 2, Mod.Find<ModProjectile>("DesireSparkPro").Type, Projectile.damage / 2, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel * 2, Mod.Find<ModProjectile>("DesireSparkPro").Type, Projectile.damage / 2, 0f, Main.myPlayer);
                     }
                     Projectile.Kill();
                 }

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using AAModClassic.Base.BaseMod;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Bosses.Broodmother
 {
@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             NPC.noTileCollide = true;
             NPC.chaseable = true;
             NPC.damage = 35;
-            Music = Mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/BroodTheme");
+            Music = Mod.GetSoundSlot(Terraria.Audio.SoundType.Music, "Sounds/Music/BroodTheme");
             NPC.defense = 10;
             NPC.boss = true;
             NPC.lavaImmune = true;
@@ -40,9 +40,8 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             NPC.value = Item.sellPrice(0, 5, 0, 0);
             NPC.behindTiles = true;
             NPC.knockBackResist = 0f;
-            NPC.HitSound = new LegacySoundStyle(3, 6, Terraria.Audio.SoundType.Sound);
-            NPC.DeathSound = new LegacySoundStyle(4, 8, Terraria.Audio.SoundType.Sound);
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("BroodBag").Type;
+            NPC.HitSound = SoundID.NPCHit6;
+            NPC.DeathSound = SoundID.NPCDeath8;
             NPC.npcSlots = 200;
         }
 
@@ -113,21 +112,21 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         {
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodmotherTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodmotherTrophy").Type);
             }
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("BroodBag").Type);
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodMask").Type);
                 }
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodEgg").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodEgg").Type);
                 }
                 NPC.DropLoot(Mod.Find<ModItem>("Incinerite").Type, 75, 100);
                 NPC.DropLoot(Mod.Find<ModItem>("BroodScale").Type, 50, 75);
@@ -167,25 +166,25 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 			bool isDead = NPC.life <= 0;
             if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreBack"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreHand"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreHand"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreHead"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGorePlate1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGorePlate2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGorePlate3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk4"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk1"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk3"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGoreWingchunk4"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreBack").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreHand").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreHand").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreHead").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk4").Type, 1f);
                 for (int m = 0; m < 12; m++)
 				{
 					Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
-					Gore.NewGore(NPC.position + offset, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/BroodGore3"), 1f + (float)Main.rand.NextDouble() * 0.5f);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGore3").Type, 1f + (float)Main.rand.NextDouble() * 0.5f);
 				}
             }
 			for (int m = 0; m < (isDead ? 45 : 6); m++)
@@ -330,7 +329,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                                     {
                                         if(Main.tile[(int) player.position.X / 16 + index * 20, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].TileType]))
                                         {
-                                            int id = Projectile.NewProjectile(player.position.X + index * 320, loop * 16, 0, 12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
+                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320, loop * 16, 0, 12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
                                             Main.projectile[id].friendly = false;
                                             break;
@@ -340,7 +339,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                                     {
                                         if(Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10 - 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].TileType]))
                                         {
-                                            int id = Projectile.NewProjectile(player.position.X + index * 320 - 160, loop * 16, 0, -12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
+                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320 - 160, loop * 16, 0, -12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
                                             Main.projectile[id].friendly = false;
                                             break;
@@ -374,7 +373,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                         firePos = BaseUtility.RotateVector(NPC.Center, firePos, NPC.rotation); //+ (npc.direction == -1 ? (float)Math.PI : 0f)));
                         if (Minions < MaxMinions)
                         {
-                            int NPCID = NPC.NewNPC((int)firePos.X, (int)firePos.Y, ModContent.NPCType<BroodEgg>(), NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                            int NPCID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)firePos.X, (int)firePos.Y, ModContent.NPCType<BroodEgg>(), NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                             Main.npc[NPCID].velocity.Y = 4f;
                             Main.npc[NPCID].netUpdate = true;
                         }
@@ -393,7 +392,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                         Vector2 dir = new Vector2(NPC.velocity.X * 2f + (4f * NPC.direction), NPC.velocity.Y * 0.5f + 1f);
                         Vector2 firePos = new Vector2(NPC.Center.X + (64 * NPC.direction), NPC.Center.Y + 10f);
                         firePos = BaseUtility.RotateVector(NPC.Center, firePos, NPC.rotation); //+ (npc.direction == -1 ? (float)Math.PI : 0f)));
-                        int projID = Projectile.NewProjectile(firePos, dir, Mod.Find<ModProjectile>("BroodBall").Type, damage, 1, 255);
+                        int projID = Projectile.NewProjectile(NPC.GetSource_FromThis(), firePos, dir, Mod.Find<ModProjectile>("BroodBall").Type, damage, 1, 255);
                         Main.projectile[projID].netUpdate = true;
                     }
                 }

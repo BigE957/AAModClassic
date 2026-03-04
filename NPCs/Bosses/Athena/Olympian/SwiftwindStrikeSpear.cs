@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             if (Projectile.ai[0]++ > 10)
             {
                 Projectile.ai[0] = 0;
-                Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<SwiftwindStrikeOrb>(), Projectile.damage / 2, 5, Main.myPlayer, 0, 0);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<SwiftwindStrikeOrb>(), Projectile.damage / 2, 5, Main.myPlayer, 0, 0);
             }
         }
     }

@@ -12,6 +12,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {
@@ -31,7 +32,6 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.defense = 80;
             NPC.lifeMax = 1000000;
             NPC.value = Item.sellPrice(1, 0, 0, 0);
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("ShenCache").Type;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ShenA");
             SceneEffectPriority = (SceneEffectPriority)11;
             isAwakened = true;
@@ -98,7 +98,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
             if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ShenAHitbox").Type))
             {
-                int hitbox = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ShenAHitbox").Type, 0, NPC.whoAmI, 0f, 0f, 0f, 255);
+                int hitbox = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ShenAHitbox").Type, 0, NPC.whoAmI, 0f, 0f, 0f, 255);
                 Main.npc[hitbox].netUpdate = true;
             }
 
@@ -186,7 +186,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.velocity.X = 2 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y *= 0.2f;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), Mod.Find<ModProjectile>("ShenDeathray").Type, NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), Mod.Find<ModProjectile>("ShenDeathray").Type, NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
                     }
                     if (++NPC.ai[1] > 60)
                     {
@@ -195,7 +195,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.netUpdate = true;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -2; i <= 2; i++)
-                                Projectile.NewProjectile(NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), Mod.Find<ModProjectile>("ShenFireballSpread").Type, NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 30 * Vector2.UnitX.RotatedBy(Math.PI / 4 * i) * (NPC.Center.X < player.Center.X ? -1 : 1), Mod.Find<ModProjectile>("ShenFireballSpread").Type, NPC.damage / 4, 0f, Main.myPlayer, 20, 20 + 60);
                     }
                     break;
 
@@ -276,8 +276,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.ai[2] = 4;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            Projectile.NewProjectile(NPC.Center, Vector2.UnitY, Mod.Find<ModProjectile>("ShenDeathrayVertical").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
-                            Projectile.NewProjectile(NPC.Center, -Vector2.UnitY, Mod.Find<ModProjectile>("ShenDeathrayVertical").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY, Mod.Find<ModProjectile>("ShenDeathrayVertical").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, -Vector2.UnitY, Mod.Find<ModProjectile>("ShenDeathrayVertical").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                         }
                     }
                     if (++NPC.ai[1] > 240 || (Math.Sign(NPC.velocity.X) > 0 ? NPC.Center.X > player.Center.X + 900 : NPC.Center.X < player.Center.X - 900))
@@ -315,7 +315,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                             Vector2 vel = (player.Center - spawnPos) / 30;
                             if (vel.Length() < 25)
                                 vel = Vector2.Normalize(vel) * 25;
-                            Projectile.NewProjectile(spawnPos, vel, Mod.Find<ModProjectile>("ShenFireballFrag").Type, NPC.damage / 4, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, vel, Mod.Find<ModProjectile>("ShenFireballFrag").Type, NPC.damage / 4, 0f, Main.myPlayer);
                         }
                     }
                     if (++NPC.ai[1] > 210)
@@ -353,8 +353,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -392,7 +392,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         NPC.velocity.X = -40 * (NPC.Center.X < player.Center.X ? -1 : 1);
                         NPC.velocity.Y = 5f;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, Vector2.Zero, Mod.Find<ModProjectile>("ShenFireballHoming").Type, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, Mod.Find<ModProjectile>("ShenFireballHoming").Type, NPC.damage / 3, 0f, Main.myPlayer, NPC.target, 8f);
                     }
                     NPC.rotation = 0;
                     break;
@@ -433,7 +433,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                                 vel.Y += NPC.velocity.Y;
                                 infernoPos += NPC.Center;
                             }
-                            Projectile.NewProjectile((int)infernoPos.X, (int)infernoPos.Y + 16, vel.X * 2, vel.Y * 2, Mod.Find<ModProjectile>("ChaosLightning").Type, NPC.damage / 4, 0f, Main.myPlayer, vel.ToRotation(), 0f);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), (int)infernoPos.X, (int)infernoPos.Y + 16, vel.X * 2, vel.Y * 2, Mod.Find<ModProjectile>("ChaosLightning").Type, NPC.damage / 4, 0f, Main.myPlayer, vel.ToRotation(), 0f);
                         }
                     }
                     if (++NPC.ai[1] > 360)
@@ -455,8 +455,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.004f;
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (NPC.ai[1] <= 1)
@@ -562,10 +562,10 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
                     if (!NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
                     {
-                        NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
+                        NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDefeat>());
                     }
 
-                    NPC.DropBossBags();
+                    NPC.DropLoot(Mod.Find<ModItem>("ShenCache").Type);
                 }
             }
                 
@@ -611,7 +611,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            base.HitEffect(hitDirection, damage);
+            base.HitEffect(hit);
             if (NPC.life <= NPC.lifeMax * 0.9f && !Health9)
             {
                 if (AAWorld.downedShen)
@@ -789,13 +789,13 @@ namespace AAModClassic.NPCs.Bosses.Shen
             BaseDrawing.DrawTexture(spriteBatch, currentWingTex1, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);
             if (Dashing)
             {
-                BaseDrawing.DrawAfterimage(sb, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
+                BaseDrawing.DrawAfterimage(spriteBatch, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
             }
             BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
 
             //draw glow/glow afterimage
             BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.Shen3);
-            BaseDrawing.DrawAfterimage(sb, glowTex, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, AAColor.Shen3);
+            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, AAColor.Shen3);
 
             //draw wings
             BaseDrawing.DrawTexture(spriteBatch, currentWingTex2, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);

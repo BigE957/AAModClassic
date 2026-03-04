@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
         {
             Setstuff();
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, t.Width, t.Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, t, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, ColorUtils.COLOR_GLOWPULSE, false);
+            BaseDrawing.DrawTexture(Main.spriteBatch, t, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, ColorUtils.COLOR_GLOWPULSE, false);
             return false;
         }
 

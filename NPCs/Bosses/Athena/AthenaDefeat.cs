@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {
@@ -121,7 +122,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaDefeat9"), Color.CornflowerBlue);
                                 AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
 
-                                int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer);
                                 Main.projectile[b].Center = NPC.Center;
 
                                 NPC.active = false;
@@ -153,7 +154,10 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             else if (NPC.ai[0] == 600)
                             {
                                 string s = "";
-                                if (Main.ActivePlayersCount > 1)
+                                int pCount = 0;
+                                foreach (var p in Main.ActivePlayers)
+                                    pCount++;
+                                if (pCount > 1)
                                 {
                                     s = Lang.BossChat("Athena2Defeat4");
                                 }

@@ -62,8 +62,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                     for (int i = 0; i < 16; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 8);
-                        Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                        Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                     }
                 }
             }
@@ -87,8 +87,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 16; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 8);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
             return false;
         }
     }
@@ -160,8 +160,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                     for (int i = 0; i < 16; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 8);
-                        Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                        Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                     }
                 }
             }
@@ -185,8 +185,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 16; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 8);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                 }
             }
         }
@@ -199,7 +199,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);
             return false;
         }
     }

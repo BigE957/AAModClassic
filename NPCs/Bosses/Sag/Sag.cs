@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 using System.IO;
 using Terraria.Graphics.Shaders;
@@ -38,7 +39,6 @@ namespace AAModClassic.NPCs.Bosses.Sag
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SagBag").Type;
         }
 
         public float[] internalAI = new float[3];
@@ -200,7 +200,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             {
                 Vector2 SparkPos = NPC.Center + new Vector2(Main.rand.Next(-48, 48), 0);
                 Vector2 SparkSpeed = new Vector2(Main.rand.Next(-4, 4), Main.rand.Next(0, 4));
-                Projectile.NewProjectile(SparkPos, SparkSpeed, Mod.Find<ModProjectile>("SagSpark").Type, NPC.damage / 4, 1);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), SparkPos, SparkSpeed, Mod.Find<ModProjectile>("SagSpark").Type, NPC.damage / 4, 1);
 
                 for (int num242 = 0; num242 < 5; num242++)
                 {
@@ -257,7 +257,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                     }
                     if (internalAI[0] > 80 && internalAI[0] % 30 == 0)
                     {
-                        Projectile.NewProjectile(NPC.Center, new Vector2(Main.rand.Next(3, 7) * NPC.direction, -6f), Mod.Find<ModProjectile>("SagBomb").Type, NPC.damage / 4, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(3, 7) * NPC.direction, -6f), Mod.Find<ModProjectile>("SagBomb").Type, NPC.damage / 4, 3);
                     }
                     break;
                 case 3:
@@ -390,11 +390,11 @@ namespace AAModClassic.NPCs.Bosses.Sag
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SagBodyGore"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SagHeadGore"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SagLegGore"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SagLegGore"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity * 0.2f, Mod.GetGoreSlot("Gores/SagNeckGore"), 1f); 
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagBodyGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagHeadGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagNeckGore").Type, 1f); 
                 Vector2 position = NPC.Center + (Vector2.One * -20f);
                 int num84 = 40;
                 int height3 = num84;
@@ -447,7 +447,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             {
                 for (int num242 = 0; num242 < 3; num242++)
                 {
-                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, -2.5f * hitDirection, -2.5f, 0, default, 1f);
+                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, -2.5f * hit.HitDirection, -2.5f, 0, default, 1f);
                     Main.dust[num243].scale = 0.5f;
                     Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
@@ -458,7 +458,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
         {
             if (NPC.ai[0] == 2)
             {
-                BaseDrawing.DrawAfterimage(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, 1f, 1f, 7, true, 0, 0, Color.White);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.oldPos, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, 1f, 1f, 7, true, 0, 0, Color.White);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(drawColor), false); ;
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/Sag_Glow"), 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 9, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), false);
@@ -470,7 +470,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             AAWorld.downedSag = true;
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SagTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SagTrophy").Type);
             }
             if (!Main.expertMode)
             {
@@ -481,11 +481,11 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.Center, ModContent.ItemType<Doomite>(), Main.rand.Next(20, 30));
+                Item.NewItem(NPC.GetSource_Loot(), NPC.Center, ModContent.ItemType<Doomite>(), Main.rand.Next(20, 30));
             }
             else
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("SagBag").Type);
             }
         }
 

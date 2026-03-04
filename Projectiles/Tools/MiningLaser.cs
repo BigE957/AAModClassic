@@ -50,7 +50,7 @@ namespace AAModClassic.Projectiles.Tools
                     vector4.Normalize();
                     vector4 *= Vector2.Distance(vector, Projectile.Center) - 30f;
                     DelegateMethods.v3_1 = value6 * 0.8f;
-                    Utils.PlotTileLine(Projectile.Center - vector4, Projectile.Center, 8f, new Utils.PerLinePoint(DelegateMethods.CastLightOpen));
+                    Utils.PlotTileLine(Projectile.Center - vector4, Projectile.Center, 8f, new Utils.TileActionAttempt(DelegateMethods.CastLightOpen));
                 }
                 Lighting.AddLight((int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16, value6.X, value6.Y, value6.Z);
             }

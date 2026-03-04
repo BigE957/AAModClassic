@@ -68,8 +68,8 @@ namespace AAModClassic.NPCs.Bosses.Sag
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
-            DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, .8f, 1f, 9, true, 0, 0, true, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150));
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150), true);
+            DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, .8f, 1f, 9, true, 0, 0, true, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150));
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, new Color(AAColor.ZeroShield.R, AAColor.ZeroShield.G, AAColor.ZeroShield.B, 150), true);
             return false;
         }
 
@@ -90,13 +90,13 @@ namespace AAModClassic.NPCs.Bosses.Sag
                 if (useOldPos)
                 {
                     position = Vector2.Lerp(originalpos, m - 1 >= oldPoints.Length ? oldPoints[oldPoints.Length - 1] : oldPoints[m - 1], distanceScalar);
-                    BaseDrawing.DrawTexture(spriteBatch, texture, shader, position + offset, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
+                    BaseDrawing.DrawTexture(sb, texture, shader, position + offset, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
                 }
                 else
                 {
                     Vector2 velocity = m - 1 >= oldPoints.Length ? oldPoints[oldPoints.Length - 1] : oldPoints[m - 1];
                     velAddon += velocity * distanceScalar;
-                    BaseDrawing.DrawTexture(spriteBatch, texture, shader, position + offset - velAddon, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
+                    BaseDrawing.DrawTexture(sb, texture, shader, position + offset - velAddon, width, height, scale, rotation, direction, framecount, frame, newLightColor, drawCentered ? true : false);
                 }
             }
         }

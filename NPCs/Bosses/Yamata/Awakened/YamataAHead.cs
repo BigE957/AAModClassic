@@ -4,6 +4,7 @@ using System;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria.ID;
+using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
@@ -34,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             NPC.npcSlots = 0;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Yamata2");
             NPC.knockBackResist *= 0.05f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -118,7 +119,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
             Laugh();
 
-            int roarSound = Mod.GetSoundSlot(SoundType.Item, "Sounds/Sounds/YamataRoar");
+            int roarSound = Mod.GetSoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
 
             if (!player.active || player.dead || !Body.NPC.active)
             {
@@ -157,7 +158,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[3] = 1;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, Vector2.Zero, ModContent.ProjectileType<YamataHarukaProj>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<YamataHarukaProj>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target);
 
 
                         if (NPC.life <= NPC.lifeMax / 2 && !spawnHaruka)
@@ -199,7 +200,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 240)
                     {
@@ -215,7 +216,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 180)
                     {
@@ -234,7 +235,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     if (internalAI[1] == NPC.ai[3] * 60 - 30)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), Mod.Find<ModProjectile>("YamataDeathraySmall").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), Mod.Find<ModProjectile>("YamataDeathraySmall").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
                     if (++internalAI[1] > 360)
                     {
@@ -253,7 +254,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -1; i <= 1; i++)
-                            Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 420)
                     {
@@ -285,7 +286,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 120;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 360)
                     {

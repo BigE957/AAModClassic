@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             NPC.npcSlots = 0;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Yamata");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -153,7 +153,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
             Laugh();
 
-            int roarSound = Mod.GetSoundSlot(SoundType.Item, "Sounds/Sounds/YamataRoar");
+            var roarSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
 
             Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
             float num433 = 6f;
@@ -235,7 +235,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     if (attackTimer == 40)
                     {
                         SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-                        int proj2 = Projectile.NewProjectile(NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("YamataBomb").Type, projDamage, 0, Main.myPlayer);
+                        int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("YamataBomb").Type, projDamage, 0, Main.myPlayer);
                         Main.projectile[proj2].damage = projDamage;
                         attackTimer = 0;
                         attackFrame = 0;
@@ -255,7 +255,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                Projectile.NewProjectile(PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2f, PlayerPosY * 2f, Mod.Find<ModProjectile>("YamataBreath").Type, projDamage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2f, PlayerPosY * 2f, Mod.Find<ModProjectile>("YamataBreath").Type, projDamage, 0f, Main.myPlayer);
                             }
                         }
                         
@@ -392,20 +392,20 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2;
+                modifiers.DisableCrit();
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= .2f;
             }
             else if (projectile.penetrate >= 1)
             {
-                projectile.damage *= (int).2;
+                modifiers.TargetDamageMultiplier *= (int).2;
             }
             else if (projectile.type == ProjectileID.LastPrismLaser)
             {
-                damage = (int)(damage * .05f);
+                modifiers.TargetDamageMultiplier *= .05f;
             }
         }
 

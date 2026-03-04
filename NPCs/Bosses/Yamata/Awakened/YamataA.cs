@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Audio;
 
 using Terraria.ModLoader;
 using System.IO;
@@ -85,11 +86,10 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             NPC.frame = BaseDrawing.GetFrame(0, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/YamataRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar");
             NPC.chaseable = false;
             NPC.value = Item.sellPrice(0, 40, 0, 0);
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Yamata2");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("YamataBag").Type;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -105,7 +105,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
         
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage = 0;
+            modifiers.TargetDamageMultiplier *= 0;
             
             int dust1 = ModContent.DustType<YamataADust>();
             int dust2 = ModContent.DustType<YamataADust>();
@@ -159,8 +159,6 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     tenthHealth = true;
                 }
             }
-
-            return true;
         }
 
         public override void BossLoot(ref string name, ref int potionType)
@@ -169,7 +167,11 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             {
                 potionType = ItemID.SuperHealingPotion;
             }
-            else
+        }
+
+        public override void OnKill()
+        {
+            if (!Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataA5"), new Color(146, 30, 68));
             }
@@ -182,32 +184,29 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataA4"), new Color(146, 30, 68));
             }
-        }
 
-        public override void OnKill()
-        {
             if (Main.expertMode)
             {
                 if (!AAWorld.downedYamata)
                 {
-                    Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadRune").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadRune").Type);
                 }
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataATrophy").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataATrophy").Type);
                 }
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataAMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataAMask").Type);
                 }
 
                 BaseAI.DropItem(NPC, Mod.Find<ModItem>("YamataATrophy").Type, 1, 1, 15, true);
                 
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("YamataBag").Type);
                 AAWorld.downedYamata = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
                 }
             }
         }
@@ -248,36 +247,36 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     const int headX = 300;
                     const int headY = -500;
 
-                    TrueHead = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHead").Type, 0)];
+                    TrueHead = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHead").Type, 0)];
                     TrueHead.ai[0] = NPC.whoAmI;
                     TrueHead.ai[1] = 0;
                     TrueHead.ai[2] = headY;
-                    Head2 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head2.ai[0] = NPC.whoAmI;
                     Head2.ai[1] = headX * -3f;
                     Head2.ai[2] = headY * 0.7f;
                     Head2.ai[3] = 3f;
-                    Head3 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head3.ai[0] = NPC.whoAmI;
                     Head3.ai[1] = headX * -2f;
                     Head3.ai[2] = headY * 0.8f;
                     Head3.ai[3] = 2f;
-                    Head4 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head4.ai[0] = NPC.whoAmI;
                     Head4.ai[1] = headX * -1f;
                     Head4.ai[2] = headY * 0.9f;
                     Head4.ai[3] = 1f;
-                    Head5 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head5.ai[0] = NPC.whoAmI;
                     Head5.ai[1] = headX * 1f;
                     Head5.ai[2] = headY * 0.9f;
                     Head5.ai[3] = 1f;
-                    Head6 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head6.ai[0] = NPC.whoAmI;
                     Head6.ai[1] = headX * 2f;
                     Head6.ai[2] = headY * 0.8f;
                     Head6.ai[3] = 2f;
-                    Head7 = Main.npc[NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
                     Head7.ai[0] = NPC.whoAmI;
                     Head7.ai[1] = headX * 3f;
                     Head7.ai[2] = headY * 0.7f;
@@ -553,9 +552,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             for (int tY = tileY; tY < tileY + hoverHeight; tY++)
             {
                 if (Main.tile[tileX, tY] == null)
-                {
-                    Main.tile[tileX, tY] = new Tile();
-                }
+                    continue;
                 if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     tileBelowEmpty = false;
@@ -746,7 +743,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
+            Color lightColor = NPC.GetAlpha(drawColor);
+            SpriteBatch sb = spriteBatch;
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataATail"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
             if (legs != null && legs.Length == 4)
             {
@@ -766,7 +764,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
 
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
-            BaseDrawing.DrawAfterimage(sb, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            BaseDrawing.DrawAfterimage(spriteBatch, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
 
             DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHead", "Glowmasks/YamataAHead_Glow", TrueHead, drawColor, false);
         }
@@ -998,7 +996,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                 BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1], null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
                 BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0], textures[1], textures[0] }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
             }
-            BaseDrawing.DrawTexture(spriteBatch, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
+            BaseDrawing.DrawTexture(sb, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
         }
     }
 }

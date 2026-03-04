@@ -46,9 +46,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		{
 			if (NPC.life <= 0)
 			{
-				Gore.NewGore(NPC.position, Vector2.Zero, 13);
-				Gore.NewGore(NPC.position, Vector2.Zero, 12);
-				Gore.NewGore(NPC.position, Vector2.Zero, 11);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 11);
 			}
 		}
 

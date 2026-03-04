@@ -82,7 +82,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
         public override bool PreDraw(ref Color lightColor)
         {
             Player targetPlayer = Main.player[Main.npc[(int)Projectile.ai[0]].target];
-            Color Alpha = drawColor;
+            Color Alpha = lightColor;
             if(timecount < 10)
             {
                 Alpha.R = (byte)(0f);
@@ -112,7 +112,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             }
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, red, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, Alpha, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, red, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, Alpha, true);
             return false;
         }
 

@@ -254,7 +254,7 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
             }
             for (int num593 = 0; num593 < 4; num593++)
             {
-                int num594 = Gore.NewGore(new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hitDirection, 0f), 99, NPC.scale);
+                int num594 = Gore.NewGore(new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);
                 Main.gore[num594].velocity *= 0.3f;
             }
         }

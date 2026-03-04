@@ -38,7 +38,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
         }
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
-            drawCacheProjsBehindProjectiles.Add(index);
+            behindProjectiles.Add(index);
         }
         float attackCounter = 0;
         public override void SendExtraAI(BinaryWriter writer)
@@ -95,7 +95,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
         public override bool? CanCutTiles()
         {
             DelegateMethods.tilecut_0 = Terraria.Enums.TileCuttingContext.AttackProjectile;
-            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, Projectile.width * Projectile.scale * 2, new Utils.PerLinePoint(CutTilesAndBreakWalls));
+            Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, Projectile.width * Projectile.scale * 2, new Utils.TileActionAttempt(CutTilesAndBreakWalls));
             return true;
         }
 
@@ -117,7 +117,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             Texture2D arg_AF99_1 = texture2D19;
             Vector2 arg_AF99_2 = Projectile.Center + new Vector2(0, Projectile.gfxOffY) - Main.screenPosition;
             Rectangle? sourceRectangle2 = null;
-            spriteBatch.Draw(arg_AF99_1, arg_AF99_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], charge) / charge, 1f), SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(arg_AF99_1, arg_AF99_2, sourceRectangle2, color44, Projectile.rotation, texture2D19.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], charge) / charge, 1f), SpriteEffects.None, 0f);
             num228 -= (texture2D19.Height / 2 + texture2D21.Height) * Projectile.scale;
             Vector2 value20 = Projectile.Center + new Vector2(0, Projectile.gfxOffY);
             value20 += Projectile.velocity * Projectile.scale * texture2D19.Height / 2f;

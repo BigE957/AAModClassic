@@ -61,8 +61,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 8; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 4);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
                 }
             }
         }
@@ -127,8 +127,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 8; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 4);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
-                    Projectile.NewProjectile(Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), -ai);
                 }
             }
         }

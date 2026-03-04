@@ -42,12 +42,11 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 1000f;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/Rajah");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Rajah");
             NPC.value = Item.sellPrice(0, 1, 10, 0);
             NPC.boss = true;
             NPC.netAlways = true;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RajahBag").Type;
         }
 
         public bool isSupreme = false;
@@ -113,9 +112,8 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             if (isSupreme)
             {
-                damage *= .7f;
+                modifiers.TargetDamageMultiplier *= .7f;
             }
-            return true;
         }
 
         public float ProjSpeed()
@@ -220,7 +218,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah7"), 107, 137, 179);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
                     else
@@ -228,7 +226,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah2"), 107, 137, 179);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
                     NPC.active = false;
@@ -248,11 +246,11 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     {
                         if (isSupreme)
                         {
-                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer); //Originally 100 damage
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahBookIt>(), damage, 0, Main.myPlayer); //Originally 100 damage
                         }
                         else
                         {
-                            Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), damage, 0, Main.myPlayer);
                         }
                     }
                     NPC.active = false;
@@ -307,8 +305,8 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                                 int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100);
                                 Main.dust[num624].velocity *= 0.2f;
                             }
-                            Projectile.NewProjectile(num622 - 20, NPC.position.Y + NPC.height - 8f, 0, 0, ModContent.ProjectileType<RajahStomp>(), damage, 6, Main.myPlayer, 0, 0);
-                            int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), num622 - 20, NPC.position.Y + NPC.height - 8f, 0, 0, ModContent.ProjectileType<RajahStomp>(), damage, 6, Main.myPlayer, 0, 0);
+                            int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
                             Main.gore[num625].velocity *= 0.4f;
                         }
                     }
@@ -426,9 +424,9 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         {
                             if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
                             {
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 200, (int)NPC.Center.X + 200), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                             }
                             NPC.netUpdate = true;
                         }
@@ -442,30 +440,30 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<RabbitcopterSoldier>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon1>()) < 5)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon1>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 1)
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<BunnyBrawler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon2>()) < 5)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon2>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             else if (NPC.ai[1] == 2)
                             {
                                 if (NPC.CountNPCS(ModContent.NPCType<BunnyBattler>()) + AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<BunnySummon3>()) < 8)
                                 {
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
 
-                                    Projectile.NewProjectile(StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), StaffPos, Vector2.Zero, ModContent.ProjectileType<BunnySummon3>(), 0, 0, Main.myPlayer, Main.rand.Next((int)NPC.Center.X - 500, (int)NPC.Center.X + 500), Main.rand.Next((int)NPC.Center.Y - 200, (int)NPC.Center.Y - 50));
                                 }
                             }
                             NPC.ai[1] += 1;
@@ -481,7 +479,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         int Rocket = isSupreme ? ModContent.ProjectileType<RajahRocketEXR>() : ModContent.ProjectileType<RajahRocket>();
                         Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                         dir *= ProjSpeed();
-                        Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Rocket, damage, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Rocket, damage, 5, Main.myPlayer);
                         NPC.netUpdate = true;
                     }
                 }
@@ -501,7 +499,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         for (int i = 0; i < carrots; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * (i - (int)(carrots * .5f));
-                            Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), carrotType, damage, 5, Main.myPlayer, 0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), carrotType, damage, 5, Main.myPlayer, 0);
                         }
                         NPC.netUpdate = true;
                     }
@@ -514,7 +512,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         float time = (player.Center - WeaponPos).Length() / ProjSpeed();
                         Vector2 dir = Vector2.Normalize(player.Center + (isSupreme? player.velocity * time : Vector2.Zero) - WeaponPos);
                         dir *= ProjSpeed();
-                        Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Javelin, damage, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Javelin, damage, 5, Main.myPlayer);
                     }
                     if (internalAI[3] > (isSupreme ? 60 : 90))
                     {
@@ -529,7 +527,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         internalAI[3] = 0;
                         Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                         dir *= ProjSpeed() + 3f;
-                        Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<ExcalihareR>(), damage, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, ModContent.ProjectileType<ExcalihareR>(), damage, 5, Main.myPlayer);
                         NPC.netUpdate = true;
                     }
                 }
@@ -550,7 +548,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         for (int i = 0; i < Arrows; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("CarrowR").Type, damage, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("CarrowR").Type, damage, 5, Main.myPlayer);
                         }
                         NPC.netUpdate = true;
                     }
@@ -581,7 +579,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                             float num83 = vector13.Y;
                             float speedX5 = num82;
                             float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                            int p = Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<CarrotEXR>(), damage, 6, Main.myPlayer, 0, 0);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<CarrotEXR>(), damage, 6, Main.myPlayer, 0, 0);
                             Main.projectile[p].tileCollide = false;
                         }
                         NPC.netUpdate = true;
@@ -591,7 +589,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 {
                     if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<CarrotFarmerR>()))
                     {
-                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerR>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerR>(), damage, 3f, Main.myPlayer, NPC.whoAmI);
                         NPC.netUpdate = true;
                     }
                 }
@@ -643,9 +641,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             for (int tY = tileY; tY < tileY + 17; tY++)
             {
                 if (Main.tile[tileX, tY] == null)
-                {
-                    Main.tile[tileX, tY] = new Tile();
-                }
+                    continue;
                 if ((Main.tile[tileX, tY].HasUnactuatedTile && Main.tileSolid[Main.tile[tileX, tY].TileType] && !TileID.Sets.Platforms[Main.tile[tileX, tY].TileType]) || Main.tile[tileX, tY].LiquidAmount > 0)
                 {
                     return false;
@@ -756,7 +752,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                             int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100);
                             Main.dust[num624].velocity *= 0.2f;
                         }
-                        int num625 = Gore.NewGore(new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                        int num625 = Gore.NewGore(NPC.GetSource_Death(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
                         Main.gore[num625].velocity *= 0.4f;
                     }
                 }
@@ -1049,16 +1045,16 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahTrophy").Type);
             }
             if (isSupreme)
             {
-                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet1"), 1f);
-                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet2"), 1f);
-                Gore.NewGore(NPC.Center, NPC.velocity, Mod.GetGoreSlot("Gores/SupremeRajahHelmet3"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet3").Type, 1f);
                 if (!AAWorld.downedRajahsRevenge)
                 {
-                    int n = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SupremeRajahDefeat>());
+                    int n = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SupremeRajahDefeat>());
                     Main.npc[n].Center = NPC.Center;
                 }
                 else
@@ -1073,12 +1069,12 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         Name = Main.LocalPlayer.name;
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah8") + Name + Lang.BossChat("Rajah9"), 107, 137, 179, true);
-                    int p = Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 100, 0, Main.myPlayer);
+                    int p = Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<SupremeRajahLeave>(), 100, 0, Main.myPlayer);
                     Main.projectile[p].Center = NPC.Center;
                 }
                 if (Main.expertMode)
                 {
-                    NPC.DropBossBags();
+                    NPC.DropLoot(Mod.Find<ModItem>("RajahCache").Type);
                 }
                 else
                 {
@@ -1095,12 +1091,12 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah4"), 107, 137, 179, true);
                 }
-                Projectile.NewProjectile(NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), 100, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_Death(), NPC.position, NPC.velocity, ModContent.ProjectileType<RajahBookIt>(), 100, 0, Main.myPlayer);
                 if (!Main.expertMode)
                 {
                     if (Main.rand.Next(7) == 0)
                     {
-                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahMask").Type);
+                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahMask").Type);
                     }
                     NPC.DropLoot(ModContent.ItemType<RajahPelt>(), Main.rand.Next(10, 26));
                     string[] lootTableA = { "BaneOfTheBunny", "Bunnyzooka", "RoyalScepter", "Punisher", "RabbitcopterEars" };
@@ -1109,7 +1105,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 }
                 else
                 {
-                    NPC.DropBossBags();
+                    NPC.DropLoot(Mod.Find<ModItem>("RajahBag").Type);
                 }
             }
             AAWorld.downedRajah = true;
@@ -1251,7 +1247,6 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.lifeMax = 1200000;
             NPC.life = 1200000;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Rajah");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("RajahCache").Type;
             isSupreme = true;
             NPC.value = Item.sellPrice(3, 0, 0, 0);
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");

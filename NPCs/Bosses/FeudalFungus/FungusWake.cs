@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
@@ -64,7 +65,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
 
             if (NPC.ai[0] == 160 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FeudalFungus>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<FeudalFungus>());
                 NPC.active = false;
                 NPC.netUpdate = true;
             }
