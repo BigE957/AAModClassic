@@ -88,8 +88,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-		    BaseDrawing.DrawAfterimage(sb, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, Color.MediumPurple);
-            BaseDrawing.DrawTexture(sb, bodyTex, 0, NPC, lightColor);
+		    BaseDrawing.DrawAfterimage(Main.spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, Color.MediumPurple);
+            BaseDrawing.DrawTexture(Main.spriteBatch, bodyTex, 0, NPC, lightColor);
 			return false;
 		}
 	}

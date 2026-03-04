@@ -3,6 +3,7 @@ using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
@@ -58,11 +59,11 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void OnKill(int timeLeft)
         {
-            if(Projectile.ai[0] == 0 && Projectile.ai[1] == 0) SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            if(Projectile.ai[0] == 0 && Projectile.ai[1] == 0) SoundEngine.PlaySound(SoundID.Item124);
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - (spread / 2);
             double deltaAngle = spread / 8f;
-            Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<AsheBoom>(), Projectile.damage, 2);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<AsheBoom>(), Projectile.damage, 2);
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

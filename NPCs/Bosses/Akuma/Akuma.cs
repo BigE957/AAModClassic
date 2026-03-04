@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             NPC.behindTiles = true;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma");
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/AkumaRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar");
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -219,7 +219,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     int[] Frame = { 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 3, 4 };
                     for (int i = 0; i < Frame.Length; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaBody").Type, NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         Main.npc[latestNPC].netUpdate = true;
@@ -439,7 +439,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 }
                 if (internalAI[0] == 350)
                 {
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, npc.velocity.X * 2, npc.velocity.Y, ModContent.ProjectileType<AkumaFireProj>(), damage, 3, Main.myPlayer);
+                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, npc.velocity.X * 2, npc.velocity.Y, ModContent.ProjectileType<AkumaFireProj>(), damage, 3, Main.myPlayer);
                 }
             }
             else
@@ -462,7 +462,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     for (int i = 0; i < Fireballs; i++)
                     {
                         offsetAngle = startAngle + (deltaAngle * i);
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle) * 2, baseSpeed * (float)Math.Cos(offsetAngle) * 2, ModContent.ProjectileType<AkumaBomb>(), damage, 3, Main.myPlayer);
+                        Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle) * 2, baseSpeed * (float)Math.Cos(offsetAngle) * 2, ModContent.ProjectileType<AkumaBomb>(), damage, 3, Main.myPlayer);
                     }
                 }
             }
@@ -496,40 +496,27 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Akuma11"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 }
                 string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
-                AAAI.DownedBoss(NPC, Mod, lootTable, AAWorld.downedAkuma, true, Mod.Find<ModItem>("CrucibleScale").Type, 20, 30, false, false, true, 0, Mod.Find<ModItem>("AkumaTrophy").Type, false);
-                DownedBoss = true;
-                if (HasMask && !Main.expertMode)
+                AAWorld.downedAkuma = true;
+
+                NPC.DropLoot(Mod.Find<ModItem>("AkumaTrophy").Type, 1 / 10f);
+
+                if (Main.expertMode)
                 {
-                    npc.DropLoot(MaskType, 1 / 10);
-                }
-                if (Main.expertMode && ExpertMaskDrop)
-                {
-                    npc.DropLoot(MaskType, 1 / 10);
-                }
-                if (HasTrophy)
-                {
-                    npc.DropLoot(TrophyType, 1 / 10);
-                }
-                if (HasExpertBag && Main.expertMode)
-                {
-                    npc.DropBossBags();
+                    NPC.DropLoot(Mod.Find<ModItem>("AkumaBag").Type);
                 }
                 else
                 {
-                    if (HasItemDrop)
-                    {
-                        npc.DropLoot(ItemType, ItemMin, ItemMax);
-                    }
-                    string[] lootTable = Loot;
+                    NPC.DropLoot(Mod.Find<ModItem>("CrucibleScale").Type, 20, 30);
+                    NPC.DropLoot(Mod.Find<ModItem>("AkumaMask").Type, 1 / 10f);
                     int loot = Main.rand.Next(lootTable.Length);
-                    npc.DropLoot(mod.Find<ModItem>(lootTable[loot]).Type);
+                    NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma12"), new Color(180, 41, 32));
 
             }
             if (Main.expertMode)
             {
-                int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaTransition").Type, 0, 0, 0, 0, 0, NPC.target);
+                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaTransition").Type, 0, 0, 0, 0, 0, NPC.target);
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
             }
@@ -703,8 +690,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage *= .1f;
-            return true;
+            modifiers.TargetDamageMultiplier *= .1f;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

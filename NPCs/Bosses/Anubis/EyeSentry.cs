@@ -58,7 +58,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             if (!NPC.AnyNPCs(ModContent.NPCType<Anubis>()))
             {
-                NPC.StrikeNPCNoInteraction(9999, 0, 0, false);
+                NPC.StrikeInstantKill(NPC.CalculateHitInfo(), false, true);
             }
 
             if (NPC.ai[0] == 160 || Vector2.Distance(NPC.Center, player.Center) > 3000)
@@ -102,7 +102,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 

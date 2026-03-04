@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
@@ -139,8 +140,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
-            int id = Projectile.NewProjectile(Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<AsheStrike>(), Projectile.damage, 5);
+            SoundEngine.PlaySound(SoundID.Item124);
+            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<AsheStrike>(), Projectile.damage, 5);
             if(Projectile.ai[1] == 1)
             {
                 Main.projectile[id].hostile = false;

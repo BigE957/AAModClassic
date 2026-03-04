@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 			}
         }
 
-        public override Color? GetAlpha(Color dColor)
+        public override Color? GetAlpha(Color drawColor)
 		{
 			Color c = Color.White * (Main.mouseTextColor / 255f);
 			c.A = 255;

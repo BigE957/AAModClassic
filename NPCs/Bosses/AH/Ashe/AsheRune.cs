@@ -90,7 +90,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     }
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        int SootProj = Projectile.NewProjectile(NPC.Center.X + Runeshootspeed.X, NPC.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<AsheShot>(), (int)NPC.ai[2]/2, 0, Main.myPlayer, NPC.whoAmI, 0);
+                        int SootProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Runeshootspeed.X, NPC.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<AsheShot>(), (int)NPC.ai[2]/2, 0, Main.myPlayer, NPC.whoAmI, 0);
                         Main.projectile[SootProj].alpha = 0;
                     }
                     NPC.netUpdate = true;
@@ -146,9 +146,9 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1.4f, NPC.scale, NPC.rotation, NPC.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
+            BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1.4f, NPC.scale, NPC.rotation, NPC.direction, 1, default, 0, 0, ColorUtils.COLOR_GLOWPULSE);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

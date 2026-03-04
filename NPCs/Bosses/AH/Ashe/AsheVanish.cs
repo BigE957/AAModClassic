@@ -62,10 +62,10 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, dColor, true);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
-            BaseDrawing.DrawTexture(spritebatch, eyeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
-            BaseDrawing.DrawAfterimage(spritebatch, eyeTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, red, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, eyeTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 17, NPC.frame, Color.White, true);
+            BaseDrawing.DrawAfterimage(spriteBatch, eyeTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White);
             return false;
         }
     }

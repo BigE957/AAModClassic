@@ -1,9 +1,34 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using AAModClassic.Items.Armor.Champion;
+using AAModClassic.Items.Armor.Terra.Projectiles;
+using AAModClassic.Items.Dev.RuneBook;
+using AAModClassic.Items.FishingItem;
+using AAModClassic.Items.Usable;
+using AAModClassic.Items.Vanity.Aves;
+using AAModClassic.Items.Vanity.Delly;
+using AAModClassic.Items.Vanity.Hallam;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Toad;
+using AAModClassic.NPCs.Bosses.Yamata;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.Projectiles.AH;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
@@ -11,34 +36,10 @@ using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
-using Terraria.Localization;
-using Terraria.Audio;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.Items.Dev.RuneBook;
-using AAModClassic.Buffs;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.Items.FishingItem;
-using AAModClassic.Globals;
-using AAModClassic.Items.Vanity.Delly;
-using AAModClassic.Items.Armor.Champion;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Armor.Terra.Projectiles;
-using AAModClassic.Items.Vanity.Aves;
-using AAModClassic.Items.Vanity.Hallam;
-using AAModClassic.Items.Usable;
-using AAModClassic.Projectiles.AH;
-using AAModClassic.Dusts;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Yamata;
-using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 
 namespace AAModClassic
 {
@@ -818,8 +819,9 @@ namespace AAModClassic
 					num5 = num1 / num4;
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
-				
-				float numberProjectiles = 3;
+                Vector2 velocity = new Vector2(SpeedX, SpeedY);
+
+                float numberProjectiles = 3;
 				float rotation = MathHelper.ToRadians(3);
 				vector2 += Vector2.Normalize(velocity) * 45f;
 				for (int i = 0; i < numberProjectiles; i++)
@@ -3119,6 +3121,8 @@ namespace AAModClassic
                         speedX = Player.direction;
                         speedY = 0f;
                     }
+
+                    Vector2 velocity = new Vector2(speedX, speedY);
 
                     vector2.X = Main.mouseX + Main.screenPosition.X;
                     vector2.Y = Main.mouseY + Main.screenPosition.Y;

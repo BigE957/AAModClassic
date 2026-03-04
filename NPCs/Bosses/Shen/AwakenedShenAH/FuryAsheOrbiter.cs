@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.GetAlpha(Color.White), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.GetAlpha(Color.White), true);
             return false;
         }
     }

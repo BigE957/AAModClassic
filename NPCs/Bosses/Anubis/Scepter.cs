@@ -51,7 +51,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             for (int i = 0; i < 1000; i++)
             {
-                if (Main.projectile[i].active && Main.projectile[i].CanReflect())
+                if (Main.projectile[i].active && Main.projectile[i].CanBeReflected())
                 {
                     Rectangle hitbox = Main.projectile[i].Hitbox;
                     if (myRect.Intersects(hitbox))

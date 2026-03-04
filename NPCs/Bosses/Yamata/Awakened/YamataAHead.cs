@@ -20,7 +20,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * .8f);
         }
 

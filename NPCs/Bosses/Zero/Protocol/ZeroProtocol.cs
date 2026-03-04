@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.damage = (int)(NPC.damage * .7f);
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
         }
 
         public float[] Move = new float[4];
@@ -204,14 +204,14 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             
             if(!(NPC.ai[0] == 4 && NPC.CountNPCS(Mod.Find<ModNPC>("ZeroEcho").Type) > 0 && !Counterattack))
             {
-                BaseDrawing.DrawAfterimage(spritebatch, afterimage, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
-                BaseDrawing.DrawTexture(spritebatch, tex, 0, NPC, dColor);
+                BaseDrawing.DrawAfterimage(spriteBatch, afterimage, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
+                BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor);
                 NPC.height = 120;
                 if(!isCharging)
                 {
                     NPC.height = 170;
                     BaseDrawing.DrawAura(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, auraPercent, 1f, 1f, NPC.rotation, NPC.direction, 7, NPC.frame, 0f, 0f, AAColor.Oblivion);
-                    BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, AAColor.Oblivion);
+                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.Oblivion);
                 }
             }
             

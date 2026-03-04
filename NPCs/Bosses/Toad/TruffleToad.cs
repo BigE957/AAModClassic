@@ -615,7 +615,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);  //boss life scale in expertmode
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  //boss life scale in expertmode
             NPC.damage = (int)(NPC.damage * .8f);
         }
 
@@ -623,8 +623,8 @@ namespace AAModClassic.NPCs.Bosses.Toad
         {
             Texture2D GlowTex = Mod.GetTexture("Glowmasks/TruffleToad_Glow");
 
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor, true);
-            BaseDrawing.DrawTexture(sb, GlowTex, 0, NPC, ColorUtils.COLOR_GLOWPULSE, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, ColorUtils.COLOR_GLOWPULSE, true);
             return false;
         }
 

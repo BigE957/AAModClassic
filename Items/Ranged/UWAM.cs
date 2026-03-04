@@ -49,8 +49,8 @@ namespace AAModClassic.Items.Ranged
 			if (Main.rand.NextBool(10))
 			{
 				type = 408;
-				speedX *= 4;
-				speedY *= 4;
+				velocity.X *= 4;
+				velocity.Y *= 4;
 				damage *= 2;
 			}
 			else

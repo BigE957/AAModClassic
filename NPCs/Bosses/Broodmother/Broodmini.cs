@@ -315,7 +315,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/Broodmini_Glow"), 0, NPC, GetGlowAlpha());
+			BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/Broodmini_Glow"), 0, NPC, GetGlowAlpha());
         }		
 		
     }

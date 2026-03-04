@@ -48,10 +48,9 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.NPCKilled, "Sounds/Sounds/AkumaRoar");
+            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/AkumaRoar");
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Akuma2");
             SceneEffectPriority = SceneEffectPriority.BossHigh;
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AkumaBag").Type;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -63,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -159,7 +158,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                     int[] Frame = { 1, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 3, 4};
                     for (int i = 0; i < Frame.Length; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaABody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaABody").Type, NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         Main.npc[latestNPC].netUpdate = true;
@@ -221,7 +220,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                     {
                         NPC.ai[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, 20f * Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAFireballFrag>(), NPC.damage / 4, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 20f * Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAFireballFrag>(), NPC.damage / 4, 0f, Main.myPlayer);
                     }
                     if (++NPC.ai[1] > 300)
                     {
@@ -266,7 +265,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                                         Vector2 vel = 4f * Vector2.UnitY;
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-1f, 1f);
-                                        Projectile.NewProjectile(Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaRock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaRock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
                                     }
                                 }
                         }
@@ -285,7 +284,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                                         Vector2 vel = 4f * Vector2.UnitY;
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-1f, 1f);
-                                        Projectile.NewProjectile(Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaRock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaRock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
                                     }
                                 }
                         }
@@ -309,7 +308,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                         NPC.ai[1] = 0;
                         NPC.netUpdate = true;
                         if (Main.netMode != NetmodeID.MultiplayerClient) //fire deathray
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaADeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaADeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0, NPC.whoAmI);
                     }
                     break;
 
@@ -336,8 +335,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                                 fire = !fire;
                                 if (fire)
                                 {
-                                    Projectile.NewProjectile(Main.npc[i].Center, Main.npc[i].rotation.ToRotationVector2(), ModContent.ProjectileType<AkumaADeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)Math.PI / 2, Main.npc[i].whoAmI);
-                                    Projectile.NewProjectile(Main.npc[i].Center, (Main.npc[i].rotation + (float)Math.PI).ToRotationVector2(), ModContent.ProjectileType<AkumaADeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)-Math.PI / 2, Main.npc[i].whoAmI);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, Main.npc[i].rotation.ToRotationVector2(), ModContent.ProjectileType<AkumaADeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)Math.PI / 2, Main.npc[i].whoAmI);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, (Main.npc[i].rotation + (float)Math.PI).ToRotationVector2(), ModContent.ProjectileType<AkumaADeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)-Math.PI / 2, Main.npc[i].whoAmI);
                                 }
                             }
                     }
@@ -397,7 +396,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-.5f, .5f);
                                         vel *= 1.5f;
-                                        Projectile.NewProjectile(Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAMeteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAMeteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
                                     }
                                 }
                         }
@@ -421,7 +420,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-.5f, .5f);
                                         vel *= 1.5f;
-                                        Projectile.NewProjectile(Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAMeteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAMeteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
                                     }
                                 }
                         }
@@ -435,7 +434,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                     {
                         NPC.ai[2] = 1;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target); 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target); 
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
@@ -602,23 +601,23 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             {
                 if (!AAWorld.downedAkuma)
                 {
-                    Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DraconianRune").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DraconianRune").Type);
                 }
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(AAWorld.downedAkuma ? Lang.BossChat("AkumaA10") : Lang.BossChat("AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
                 AAWorld.downedAkuma = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
-                    Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
                 }
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AkumaATrophy").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AkumaATrophy").Type);
                 }
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AkumaAMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AkumaAMask").Type);
                 }
-                NPC.DropBossBags();
+                NPC.DropLoot(Mod.Find<ModItem>("AkumaBag").Type);
                 return;
             }
             if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
@@ -836,8 +835,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage *= .1f;
-            return true;
+            modifiers.TargetDamageMultiplier *= .1f;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

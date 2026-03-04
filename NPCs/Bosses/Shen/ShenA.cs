@@ -40,7 +40,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.defense = (int)(NPC.defense * 1.2f);
             NPC.damage = (int)(NPC.damage * .8f);
         }
@@ -786,19 +786,19 @@ namespace AAModClassic.NPCs.Bosses.Shen
             NPC.position.Y += 130f;
 
             //draw body/charge afterimage
-            BaseDrawing.DrawTexture(sb, currentWingTex1, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, currentWingTex1, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);
             if (Dashing)
             {
                 BaseDrawing.DrawAfterimage(sb, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
             }
-            BaseDrawing.DrawTexture(sb, currentTex, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, drawColor);
 
             //draw glow/glow afterimage
-            BaseDrawing.DrawTexture(sb, glowTex, 0, NPC, AAColor.Shen3);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.Shen3);
             BaseDrawing.DrawAfterimage(sb, glowTex, 0, NPC, 0.3f, 1f, 8, false, 0f, 0f, AAColor.Shen3);
 
             //draw wings
-            BaseDrawing.DrawTexture(sb, currentWingTex2, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, currentWingTex2, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, drawColor);
 
             //deoffset
             NPC.position.Y -= 130f; // offsetVec;			

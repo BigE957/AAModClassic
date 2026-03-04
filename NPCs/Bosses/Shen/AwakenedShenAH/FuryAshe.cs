@@ -555,7 +555,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);  
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -676,18 +676,18 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
             if (scale > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), dColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), drawColor, true);
             }
             if (scale2 > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), dColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), drawColor, true);
             }
 
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, dColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, true);
 
-            BaseDrawing.DrawTexture(spritebatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, true);
 
             return false;
         }

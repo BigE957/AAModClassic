@@ -53,8 +53,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         {
             Texture2D glowTex = Mod.GetTexture("Glowmasks/AsheSpawn_Glow");
             
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 16, NPC.frame, dColor, true);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 16, NPC.frame, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 16, NPC.frame, drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 16, NPC.frame, Color.White, true);
             return false;
         }
     }

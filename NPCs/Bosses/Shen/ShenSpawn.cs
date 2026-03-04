@@ -235,9 +235,9 @@ namespace AAModClassic.NPCs.Bosses.Shen
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             if (NPC.alpha <= 0)
             {
-                BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
                 BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
-                BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
                 return false;
             }
             return true;
@@ -575,9 +575,9 @@ namespace AAModClassic.NPCs.Bosses.Shen
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             if (NPC.alpha <= 0)
             {
-                BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
                 BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
-                BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
                 return false;
             }
 

@@ -673,7 +673,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.65f * bossLifeScale);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.65f * balance);
 			NPC.damage = (int)(NPC.damage * 0.85f);
 		}
 
@@ -890,7 +890,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
                 float auraPercent = BaseUtility.MultiLerp(diffFloat, 0f, 1f, 0f); //did it this way so it's syncronized between all the segments
                 BaseDrawing.DrawAura(spritebatch, tex, 0, NPC, auraPercent, 2f, 0f, 0f, GetAuraAlpha());
             }
-            BaseDrawing.DrawTexture(spritebatch, tex, 0, NPC, Color.White); //GetAuraAlpha());				
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, Color.White); //GetAuraAlpha());				
             return false;
         }
     }

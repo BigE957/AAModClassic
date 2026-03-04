@@ -105,8 +105,8 @@ namespace AAModClassic.Projectiles.Greed
             Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
             Texture2D glowTex = Mod.GetTexture("Glowmasks/GreedMinion_Glow");
             Color lightColor = BaseDrawing.GetLightColor(Projectile.Center);
-            BaseDrawing.DrawTexture(sb, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, lightColor);
-            BaseDrawing.DrawTexture(sb, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, Color.Goldenrod);
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, lightColor);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, Color.Goldenrod);
 			return false;
 		}
 

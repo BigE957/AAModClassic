@@ -1009,7 +1009,7 @@ namespace AAModClassic.Globals
                     case 3: offY -= percentHalf; break;
                 }
                 position2 = new Vector2(position.X + offX, position.Y + offY);
-                BaseDrawing.DrawTexture(sb, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, texture, shader, position2, width, height, scale, rotation, direction, framecount, frame, lightColor, true);
             }
         }
     }

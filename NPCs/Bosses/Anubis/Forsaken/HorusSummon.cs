@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             Move(new Vector2(Projectile.ai[0], Projectile.ai[1]));
             if (Vector2.Distance(Projectile.Center, new Vector2(Projectile.ai[0], Projectile.ai[1])) < 10)
             {
-                Kill(Projectile.timeLeft);
+                OnKill(Projectile.timeLeft);
             }
         }
 
@@ -45,7 +45,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         {
             int MinionType = ModContent.NPCType<HorusSentry>();
 
-            int Minion = NPC.NewNPC((int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
+            int Minion = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
             Main.npc[Minion].netUpdate2 = true;
             Projectile.active = false;
             Projectile.netUpdate2 = true;

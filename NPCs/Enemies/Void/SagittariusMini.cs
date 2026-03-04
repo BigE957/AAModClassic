@@ -85,8 +85,8 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
-            BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/SagittariusMini_Glow"), 0, NPC, AAColor.ZeroShield);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/SagittariusMini_Glow"), 0, NPC, AAColor.ZeroShield);
             return false;
         }
 

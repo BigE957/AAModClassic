@@ -1009,5 +1009,12 @@ public static class ModUtils
             return new SoundStyle("AAModClassic/" + path);
         return new();
     }
+
+    public static int GetSoundSlot(this Mod mod, SoundType type, string path)
+    {
+        if (type == SoundType.Music)
+            return MusicLoader.GetMusicSlot("AAModClassic/" + path);
+        return -1;
+    }
 }
 

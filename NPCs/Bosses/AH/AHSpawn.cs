@@ -1,6 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -97,7 +98,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC((int)NPC.position.X - 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("AsheSpawn").Type, 0, NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("AsheSpawn").Type, 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] == 700)
@@ -107,7 +108,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC((int)NPC.position.X + 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("HarukaSpawn").Type, 0, NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("HarukaSpawn").Type, 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] == 820)
@@ -133,7 +134,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, bossType, 0);
+                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-100f, 100f, (float)Main.rand.NextDouble()), 800f);
                 Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
             }
@@ -145,7 +146,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, bossType, 0);
+                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(800f, 0);
                 Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
             }

@@ -96,31 +96,31 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (NPC.ai[1] == 120)
             {
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 240)
             {
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 360)
             {
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 480)
             {
-                Projectile.NewProjectile(NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] > 600)

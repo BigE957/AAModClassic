@@ -116,7 +116,7 @@ namespace AAModClassic.Projectiles
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, Projectile.direction, 1, frame, lightColor, true);
             return false;
         }
     }

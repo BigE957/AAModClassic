@@ -102,7 +102,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
         public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenExplosion>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenExplosion>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             int pieCut = 20;
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int m = 0; m < pieCut; m++)

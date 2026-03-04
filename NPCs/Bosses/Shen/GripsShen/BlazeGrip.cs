@@ -78,10 +78,10 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             }
             if (NPC.ai[0] != 0 || NPC.ai[0] != 1 || NPC.ai[0] != 5)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2, NPC.scale, 7, true, 0, 0, Color.Orange, NPC.frame);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 2, NPC.scale, 7, true, 0, 0, Color.Orange, NPC.frame);
             }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, shader, NPC, dColor);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, shader, NPC, Color.White);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, shader, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, shader, NPC, Color.White);
             return false;
         }
 

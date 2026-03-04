@@ -96,7 +96,7 @@ namespace AAModClassic.Base.BaseMod.Base
         //  Author(s): Grox the Great, Yoraiz0r                 //
         //------------------------------------------------------//
 
-        public static void DrawInvasionProgressBar(SpriteBatch sb, int progress, int progressMax, bool forceDisplay, ref int displayCount, ref float displayAlpha, Texture2D iconTex, string displayText, string percentText = null, Color backgroundColor = default(Color), Vector2 offset = default(Vector2))
+        public static void DrawInvasionProgressBar(SpriteBatch sb, int progress, int progressMax, bool forceDisplay, ref int displayCount, ref float displayAlpha, Texture2D iconTex, string displayText, string percentText = null, Color backgroundrawColor = default(Color), Vector2 offset = default(Vector2))
         {
             if (Main.invasionProgressMode == 2 && forceDisplay && displayCount < 160)
             {
@@ -135,7 +135,7 @@ namespace AAModClassic.Base.BaseMod.Base
             Vector2 center = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 80)) + offset;
             Vector2 stringLength = FontAssets.ItemStack.Value.MeasureString(displayText);
             Microsoft.Xna.Framework.Rectangle textRect = Utils.CenteredRectangle(center, (stringLength + new Vector2((float)(iconTex.Width + 20), 10f)) * displayScalar);
-            Utils.DrawInvBG(Main.spriteBatch, textRect, backgroundColor);
+            Utils.DrawInvBG(Main.spriteBatch, textRect, backgroundrawColor);
             Main.spriteBatch.Draw(iconTex, textRect.Left() + Vector2.UnitX * displayScalar * 8f, null, Microsoft.Xna.Framework.Color.White * displayAlpha, 0f, new Vector2(0f, (float)(iconTex.Height / 2)), displayScalar * 0.8f, SpriteEffects.None, 0f);
             Utils.DrawBorderString(Main.spriteBatch, displayText, textRect.Right() + Vector2.UnitX * displayScalar * -8f, Microsoft.Xna.Framework.Color.White * displayAlpha, displayScalar * 0.9f, 1f, 0.4f, -1);
         }
@@ -1614,7 +1614,7 @@ namespace AAModClassic.Base.BaseMod.Base
                         int offsetY = 0;
                         int width = 4;
                         int height = 4;
-                        Color mixedColor = color;
+                        Color mixedrawColor = color;
                         Color lightColor = lightArray[m];
                         if (m == 1) { width = 8; offsetX = 4; }
                         else
@@ -1631,10 +1631,10 @@ namespace AAModClassic.Base.BaseMod.Base
                         if (m == 7) { width = 8; height = 4; offsetX = 4; offsetY = 12; }
                         else
                         if (m == 8) { offsetX = 12; offsetY = 12; }
-                        mixedColor.R = (byte)((color.R + lightColor.R) / 2);
-                        mixedColor.G = (byte)((color.G + lightColor.G) / 2);
-                        mixedColor.B = (byte)((color.B + lightColor.B) / 2);
-                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, width, height), (overrideColor != null ? overrideColor(mixedColor) : mixedColor), 0f, default(Vector2), 1f, effects, 0f);
+                        mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
+                        mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
+                        mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
+                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, width, height), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
                     }
                 }
                 else
@@ -1646,15 +1646,15 @@ namespace AAModClassic.Base.BaseMod.Base
                     {
                         int offsetX = 0;
                         int offsetY = 0;
-                        Color mixedColor = color;
+                        Color mixedrawColor = color;
                         Color lightColor = lightArray[m];
                         if (m == 1) { offsetX = 8; }
                         if (m == 2) { offsetY = 8; }
                         if (m == 3) { offsetX = 8; offsetY = 8; }
-                        mixedColor.R = (byte)((color.R + lightColor.R) / 2);
-                        mixedColor.G = (byte)((color.G + lightColor.G) / 2);
-                        mixedColor.B = (byte)((color.B + lightColor.B) / 2);
-                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, 8, 8), (overrideColor != null ? overrideColor(mixedColor) : mixedColor), 0f, default(Vector2), 1f, effects, 0f);
+                        mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
+                        mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
+                        mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
+                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, 8, 8), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
                     }
                 }
                 else

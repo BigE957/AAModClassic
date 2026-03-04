@@ -112,8 +112,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-            BaseDrawing.DrawTexture(sb, bodyTex, 0, NPC, lightColor);
-            BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/Naddaha_Glow"), 0, NPC, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, bodyTex, 0, NPC, lightColor);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/Naddaha_Glow"), 0, NPC, Color.White, true);
             return false;
 		}
 	}

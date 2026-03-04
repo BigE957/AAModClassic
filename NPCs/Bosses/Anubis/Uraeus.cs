@@ -42,13 +42,13 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             for (int k = 0; k < 5; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, hitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, hit.HitDirection, -1f, 0);
             }
             if (NPC.life == 0)
             {
                 for (int k = 0; k < 5; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, hitDirection, -1f, 0);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, hit.HitDirection, -1f, 0);
                 }
             }
         }

@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
                     BaseDrawing.DrawChain(spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, dColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, drawColor, true);
             return true;
         }
     }

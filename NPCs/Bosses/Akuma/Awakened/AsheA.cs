@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (++Projectile.localAI[0] == 52)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(Projectile.Center, Vector2.UnitY * 4, ModContent.ProjectileType<AkumaRock>(), Projectile.damage, 0, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.UnitY * 4, ModContent.ProjectileType<AkumaRock>(), Projectile.damage, 0, Main.myPlayer);
             }
 
             if (Projectile.localAI[1] == 0)
@@ -144,7 +144,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 12, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 12, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 12, frame, lightColor, true);
             return false;
         }
 

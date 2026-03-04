@@ -37,8 +37,8 @@ namespace AAModClassic.Projectiles
             Texture2D t = TextureAssets.Projectile[Projectile.type].Value;
             Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
 
-            BaseDrawing.DrawTexture(sb, t, 0, Projectile, lightColor, true);
-            BaseDrawing.DrawTexture(sb, Glow, 0, Projectile, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, t, 0, Projectile, lightColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, Projectile, Color.White, true);
             return false;
         }
 

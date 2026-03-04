@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 for (int i = 0; i < 6; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 3);
-                    Projectile.NewProjectile(Projectile.Center, vel, ModContent.ProjectileType<AkumaABomb>(), Projectile.damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<AkumaABomb>(), Projectile.damage, 0f, Main.myPlayer);
                 }
             }
         }

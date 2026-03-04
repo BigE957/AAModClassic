@@ -11,6 +11,7 @@ using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.AH;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -49,7 +50,6 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AHBag").Type;
         }
 
         public bool RuneCrash = false;
@@ -162,8 +162,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -227,7 +227,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                                 {
                                     Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                                     shoot *= 8f;
-                                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AsheFire>(), NPC.damage / 4, 5, Main.myPlayer, 0f, 0f);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AsheFire>(), NPC.damage / 4, 5, Main.myPlayer, 0f, 0f);
                                 }
                             }
                             if(Main.rand.Next(3) == 0)
@@ -260,7 +260,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     MoveToPoint(wantedVelocity);
                     if (NPC.ai[1]++ > 200)
                     {
-                        int id = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AsheDragon>());
+                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AsheDragon>());
                         if (Main.netMode == NetmodeID.Server && id < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, id);
                         NPC.netUpdate = true;
                         AIChange();
@@ -301,7 +301,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     float RunepositionY = Runeposition.Y;
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        int id = NPC.NewNPC((int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, NPC.damage / 4, NPC.whoAmI, player.whoAmI);
+                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, NPC.damage / 4, NPC.whoAmI, player.whoAmI);
                         if (Main.netMode == NetmodeID.Server && id < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, id);
                     }
                     NPC.ai[2] = 0;
@@ -457,7 +457,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 NPC.TargetClosest(true);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    int DeathAnim = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
+                    int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
                     Main.npc[DeathAnim].velocity = NPC.velocity;
                     Main.npc[DeathAnim].netUpdate = true;
                 }
@@ -505,7 +505,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     rotation = 2f * (float)Math.PI / 4;
                     for (int m = 0; m < 4; m++)
                     {
-                        int n = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -515,7 +515,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -526,7 +526,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -540,10 +540,10 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             int Haruka = NPC.CountNPCS(Mod.Find<ModNPC>("Haruka").Type);
             if (Haruka == 0)
             {
-                NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
                 if (Main.expertMode)
                 {
-                    NPC.DropBossBags();
+                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, Mod.Find<ModItem>("AHBag").Type);
                 }
             }
             if (!Main.expertMode)
@@ -554,9 +554,9 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem((int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AsheTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AsheTrophy").Type);
             }
-            int DeathAnim = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
+            int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AsheDowned"), new Color(102, 20, 48));
             NPC.value = 0f;
@@ -577,7 +577,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);  
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -721,17 +721,17 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
             if (scale > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), dColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), drawColor, true);
             }
             if (scale2 > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), dColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), drawColor, true);
             }
 
-            BaseDrawing.DrawTexture(spritebatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, dColor, true);
-            BaseDrawing.DrawTexture(spritebatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, Color.White, true);
 
             return false;
         }

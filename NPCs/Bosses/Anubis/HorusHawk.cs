@@ -151,7 +151,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-            BaseDrawing.DrawTexture(sb, bodyTex, 0, NPC, lightColor);
+            BaseDrawing.DrawTexture(spriteBatch, bodyTex, 0, NPC, lightColor);
 			return false;
 		}
 	}

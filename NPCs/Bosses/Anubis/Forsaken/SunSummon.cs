@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (!HitTile)
             {
-                int Minion = NPC.NewNPC((int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
+                int Minion = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, MinionType, 0);
                 Main.npc[Minion].netUpdate = true;
             }
         }

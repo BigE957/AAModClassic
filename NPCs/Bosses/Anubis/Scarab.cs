@@ -65,7 +65,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 				NPC.oldPos[m] = NPC.oldPos[m - 1];
 			}
 			NPC.oldPos[0] = NPC.position;
-            BaseAI.AIFlier(NPC, ref NPC.ai, false, 0.3f, 0.2f, 6f, 4.5f, false, 250);
+            BaseAI.AIFlier(NPC, player, ref NPC.ai[0], false, 0.3f, 0.2f, 6f, 4.5f, false, 250);
             if (player.Center.X < NPC.Center.X)
             {
                 NPC.direction = NPC.spriteDirection = -1;
@@ -80,8 +80,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead) BaseDrawing.DrawAfterimage(sb, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(sb, bodyTex, 0, NPC, lightColor);
+			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead) BaseDrawing.DrawAfterimage(Main.spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, lightColor);
+            BaseDrawing.DrawTexture(spriteBatch, bodyTex, 0, NPC, lightColor);
 			return false;
 		}
 	}

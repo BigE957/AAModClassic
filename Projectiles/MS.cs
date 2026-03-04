@@ -66,7 +66,7 @@ namespace AAModClassic.Projectiles
           }
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, true);
             Projectile.frameCounter++;
             if (Projectile.frameCounter >= 10)
             {

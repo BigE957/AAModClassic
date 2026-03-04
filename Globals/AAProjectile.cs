@@ -86,22 +86,22 @@ namespace AAModClassic.Globals
             return true;
         }
 
-        public override Color? GetAlpha(Color dColor)
+        public override Color? GetAlpha(Color drawColor)
         {
             if (drawColor != null && drawColorType != -1)
             {
                 if (drawColorType == 1)
                 {
                     Color drawColor2 = (Color)drawColor;
-                    if (dColor.R > drawColor2.R) { drawColor2.R = dColor.R; }
-                    if (dColor.G > drawColor2.G) { drawColor2.G = dColor.G; }
-                    if (dColor.B > drawColor2.B) { drawColor2.B = dColor.B; }
+                    if (drawColor.R > drawColor2.R) { drawColor2.R = drawColor.R; }
+                    if (drawColor.G > drawColor2.G) { drawColor2.G = drawColor.G; }
+                    if (drawColor.B > drawColor2.B) { drawColor2.B = drawColor.B; }
                     //drawColor2.A = (Color)drawColor.A;
                     return drawColor2;
                 }
                 return (Color)drawColor;
             }
-            return base.GetAlpha(dColor);
+            return base.GetAlpha(drawColor);
         }
     }
 }

@@ -138,9 +138,9 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
         {
             Texture2D glowTex = Mod.GetTexture("Glowmasks/HarukaVanish_Glow");
 
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, NPC.GetAlpha(dColor), true);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, Color.White, true);
-            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White, NPC.frame, 17);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, NPC.GetAlpha(drawColor), true);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, Color.White, true);
+            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White, NPC.frame, 17);
             return false;
         }
     }

@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * .8f);
         }
 
@@ -852,9 +852,9 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 BaseDrawing.DrawAfterimage(sb, currentTex, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, new Color(drawColor.R, drawColor.G, drawColor.B, 150));
             }
-            BaseDrawing.DrawTexture(sb, currentTex, 0, NPC, NPC.GetAlpha(drawColor), false);
+            BaseDrawing.DrawTexture(spriteBatch, currentTex, 0, NPC, NPC.GetAlpha(drawColor), false);
             //draw wings
-            BaseDrawing.DrawTexture(sb, currentWingTex, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, NPC.GetAlpha(drawColor), false);
+            BaseDrawing.DrawTexture(spriteBatch, currentWingTex, 0, NPC.position + new Vector2(0, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 5, wingFrame, NPC.GetAlpha(drawColor), false);
 
             //deoffset
             NPC.position.Y -= 130f;

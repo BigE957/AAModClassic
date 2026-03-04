@@ -89,11 +89,11 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Texture2D tex2 = Mod.GetTexture("NPCs/Bosses/Hydra/HarukaShade_Glow");
-            BaseDrawing.DrawTexture(sb, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, NPC.GetAlpha(dColor));
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, NPC.GetAlpha(drawColor));
             if (NPC.ai[1] >= 60 && NPC.ai[1] < 240)
             {
                 Lighting.AddLight(NPC.Center, Color.MediumVioletRed.R / 180, Color.MediumVioletRed.G / 180, Color.MediumVioletRed.B / 180);
-                BaseDrawing.DrawTexture(sb, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, Color.White);
+                BaseDrawing.DrawTexture(spriteBatch, tex2, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 3, NPC.frame, Color.White);
             }
             return false;
         }

@@ -99,7 +99,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         public override void OnKill(int timeleft)
         {
 
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, 0f, 0f, 658, 40, 0f, Main.myPlayer, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, 658, 40, 0f, Main.myPlayer, 0f, 0f);
         }
     }
 }

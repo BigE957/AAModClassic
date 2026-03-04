@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
                         if(Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            int newNPC = NPC.NewNPC((int)NPC.Center.X, (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                            int newNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                             if (Main.netMode == NetmodeID.Server && newNPC < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNPC);
                             Main.npc[newNPC].ai[3] = NPC.whoAmI;
                             Main.npc[newNPC].realLife = NPC.whoAmI;
@@ -364,7 +364,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
         //    int frameCount = /*npc.type == Terraria.ModLoader.ModContent.NPCType<AsheDragon>() ? 3 :*/ 1;
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, Main.npcFrameCount[NPC.type], NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), true);
 
             return false;
         }
@@ -496,13 +496,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
@@ -512,7 +512,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
             NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
@@ -636,15 +636,14 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
-
             else if (projectile.penetrate >= 1)
             {
                 projectile.damage *= (int).2;
@@ -653,7 +652,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
             NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
@@ -777,13 +776,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
@@ -793,7 +792,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
             NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
@@ -917,13 +916,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
@@ -933,7 +932,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
             NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }
@@ -1064,13 +1063,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                damage /= 2;
-                crit = false;
+                modifiers.TargetDamageMultiplier /= 2f;
+                modifiers.DisableCrit();
             }
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                damage = (int)(damage * .2f);
+                modifiers.TargetDamageMultiplier *= 0.2f;
             }
             else if (projectile.penetrate >= 1)
             {
@@ -1080,7 +1079,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
             NPC.damage = (int)(NPC.damage * 0.8f);
         }
     }

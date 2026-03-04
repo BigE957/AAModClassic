@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,7 +29,6 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.damage = 0;
             NPC.value = 0;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/silence");
-            bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AHBag").Type;
         }
 
         public override void AI()
@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.expertMode)
                     {
-                        NPC.DropBossBags();
+                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, Mod.Find<ModItem>("AHBag").Type);
                     }
 
                     if (!Main.expertMode)
@@ -90,10 +90,10 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.rand.Next(10) == 0)
                     {
-                        Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
+                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
                     }
 
-                    NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>(), 0, 0, 4);
+                    NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>(), 0, 0, 4);
                     NPC.active = false;
                     NPC.netUpdate = true;
                 }

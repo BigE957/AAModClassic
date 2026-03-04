@@ -173,7 +173,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);
             NPC.damage = (int)(NPC.damage * .9f);
         }
 
@@ -1157,13 +1157,13 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             if (internalAI[0] == AISTATE_SPIN)
             {
                 if(strikebackproj > 0)
-                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
                 else
-                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
             else if(internalAI[0] == AISTATE_Shadowkilling)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             
                 if(internalAI[4] < 90)
                 {
@@ -1173,39 +1173,39 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
                     if(scaleFactor < 2.2f)
                     {
-                        Color Alpha = dColor;
+                        Color Alpha = drawColor;
                         Alpha.R = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.G = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.B = (byte)((float)(255 - internalAI[4] * 3));
                         Alpha.A = (byte)((float)(255 - internalAI[4] * 3));
                         spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
                     }
-                    spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(dColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
+                    spritebatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
                 }
             }
             else if(SHADOWDOG && !Invisible)
             {
                 Vector2 Position = NPC.position;
                 Position.X = NPC.position.X + (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
-                Color Alpha = dColor;
+                Color Alpha = drawColor;
                 Alpha.R = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.G = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.B = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
                 Alpha.A = (byte)((float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3));
-                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
                 Position.X = NPC.position.X - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
-                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
             }
             if(internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
             {
-                BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(dColor), false);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(drawColor), false);
             if (Invisible) return false;
             
-            BaseDrawing.DrawTexture(spritebatch, Slash, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, dColor, false);
+            BaseDrawing.DrawTexture(spriteBatch, Slash, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, drawColor, false);
 
-            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, NPC, 1f, 1f, 7, true, 0f, 0f, AAColor.YamataA);
+            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 1f, 1f, 7, true, 0f, 0f, AAColor.YamataA);
             return false;
         }
     }

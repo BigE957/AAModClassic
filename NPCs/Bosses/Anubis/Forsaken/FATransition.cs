@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
@@ -80,10 +81,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
                     if (NPC.ai[1] >= 900)
                     {
-                        int b = Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 0, Main.myPlayer, 0, 10);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 0, Main.myPlayer, 0, 10);
                         Main.projectile[b].Center = NPC.Center;
 
-                        NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ForsakenAnubis>());
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ForsakenAnubis>());
                         NPC.active = false;
                         NPC.netUpdate = true;
                     }

@@ -41,9 +41,9 @@ namespace AAModClassic.Tiles.Altar
             Texture2D DBPortalBack = Mod.GetTexture("Tiles/Altar/DBPortalBack");
             Texture2D DBEyes = Mod.GetTexture("Tiles/Altar/DBPortalEyes");
 
-            BaseDrawing.DrawTexture(spritebatch, DBPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, DBPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, DBEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, DBPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, DBPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, DBEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;
         }
@@ -163,9 +163,9 @@ namespace AAModClassic.Tiles.Altar
             Texture2D NCPortalBack = Mod.GetTexture("Tiles/Altar/NCPortalBack");
             Texture2D NCEyes = Mod.GetTexture("Tiles/Altar/NCPortalEyes");
 
-            BaseDrawing.DrawTexture(spritebatch, NCPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, NCPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
-            BaseDrawing.DrawTexture(spritebatch, NCEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, NCPortalBack, 0, NPC.position, NPC.width, NPC.height, NPC.scale * 1.2f, -NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, NCPortal, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, NCEyes, 0, NPC.position, NPC.width, NPC.height, NPC.scale, 0, 0, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
 
             return false;
         }

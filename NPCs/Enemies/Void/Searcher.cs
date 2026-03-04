@@ -81,8 +81,8 @@ namespace AAModClassic.NPCs.Enemies.Void
             Texture2D glowTex = Mod.GetTexture("Glowmasks/Searcher_Glow");
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, Color.Red);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, Color.Red);
             return false;
         }
 

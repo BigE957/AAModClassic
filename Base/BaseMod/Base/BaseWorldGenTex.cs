@@ -41,10 +41,10 @@ namespace AAModClassic.Base.BaseMod.Base
 			TexGen gen = new TexGen(tileTex.Width, tileTex.Height);
 			for(int m = 0; m < tileData.Length; m++)
 			{
-				Color tileColor = tileData[m], wallColor = (wallTex == null ? Color.Black : wallData[m]), liquidColor = (liquidTex == null ? Color.Black : liquidData[m]), slopeColor = (slopeTex == null ? Color.Black : slopeData[m]);
+				Color tileColor = tileData[m], wallColor = (wallTex == null ? Color.Black : wallData[m]), liquidrawColor = (liquidTex == null ? Color.Black : liquidData[m]), slopeColor = (slopeTex == null ? Color.Black : slopeData[m]);
 				int tileID = (colorToTile.ContainsKey(tileColor) ? colorToTile[tileColor] : -1); //if no key assume no action
 				int wallID = (colorToWall != null && colorToWall.ContainsKey(wallColor) ? colorToWall[wallColor] : -1);
-				int liquidID = (colorToLiquid != null && colorToLiquid.ContainsKey(liquidColor) ? colorToLiquid[liquidColor] : -1);
+				int liquidID = (colorToLiquid != null && colorToLiquid.ContainsKey(liquidrawColor) ? colorToLiquid[liquidrawColor] : -1);
 				int slopeID = (colorToSlope != null && colorToSlope.ContainsKey(slopeColor) ? colorToSlope[slopeColor] : -1);
 				gen.tileGen[x, y] = new TileInfo(tileID, 0, wallID, liquidID, liquidID == -1 ? 0 : 255, slopeID);
 				x++;

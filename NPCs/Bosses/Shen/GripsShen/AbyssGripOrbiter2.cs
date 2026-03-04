@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Color Alpha = dColor;
+            Color Alpha = drawColor;
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, blue, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Color.White, true);

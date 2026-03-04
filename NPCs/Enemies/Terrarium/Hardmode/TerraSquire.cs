@@ -54,7 +54,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position));
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.dontTakeDamage ? color : dColor);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.dontTakeDamage ? color : drawColor);
             return false;
         }
     }

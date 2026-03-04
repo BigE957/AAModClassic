@@ -91,14 +91,14 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             if (NPC.downedMoonlord)
             {
-                BaseDrawing.DrawTexture(spritebatch, Mod.GetTexture("Glowmasks/ZeroDeactivated_Glow"), 0, NPC, GetGlowAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/ZeroDeactivated_Glow"), 0, NPC, GetGlowAlpha());
             }
-            BaseDrawing.DrawTexture(spritebatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
-            BaseDrawing.DrawTexture(spritebatch, Ring, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), drawColor, true);
-            BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(spriteBatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
+            BaseDrawing.DrawTexture(spriteBatch, Ring, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), drawColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), AAColor.COLOR_WHITEFADE1, true);
             
             return false;
         }

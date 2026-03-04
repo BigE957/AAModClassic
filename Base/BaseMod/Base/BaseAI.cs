@@ -6246,5 +6246,99 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             return vList.ToArray();
         }
+
+        /*
+         * Shoots a projectile from an NPC aiming at fireTarget.
+         * 
+         * position/width/height : the target's position, width, and height, respectively.
+         * projName : name of the projectile to fire.
+         * delayTimer : a float value used to tick down before firing.
+         * delayTimerMax : the amount of ticks until firing.
+         * damage : how much damage to do.
+         * speed : how fast the projectile flies.
+         * checkCanHit : If true, check if the codable can see the target point before firing.
+         * offset : offset from the center of the codable that the projectile should spawn at.
+         */
+        public static int ShootPeriodic(Entity codable, Vector2 position, int width, int height, int projType, ref float delayTimer, float delayTimerMax = 100f, int damage = -1, float speed = 10f, bool checkCanHit = true, Vector2 offset = default(Vector2))
+        {
+            int pID = -1;
+            if (damage == -1) { Projectile proj = new Projectile(); proj.SetDefaults(projType); damage = proj.damage; }
+            bool properSide = (codable is NPC ? Main.netMode != 1 : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true);
+            if (properSide)
+            {
+                Vector2 targetCenter = position + new Vector2(width * 0.5f, height * 0.5f);
+                delayTimer--;
+                if (delayTimer <= 0)
+                {
+                    if (!checkCanHit || Collision.CanHit(codable.position, codable.width, codable.height, position, width, height))
+                    {
+                        Vector2 fireTarget = codable.Center + offset;
+                        float rot = BaseUtility.RotationTo(codable.Center, targetCenter);
+                        fireTarget = BaseUtility.RotateVector(codable.Center, fireTarget, rot);
+                        pID = BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage, 0f, speed);
+                    }
+                    delayTimer = delayTimerMax;
+                    if (codable is NPC) { ((NPC)codable).netUpdate = true; }
+                }
+            }
+            return pID;
+        }
+
+        /*
+         * Shoots a projectile from a start position aiming at fireTarget. 
+         * 
+         * fireTarget : The position the projectile is shooting at.
+         * position : The position the projectile is shooting from.
+         * projectileTypeObj : Either an int of the projectile's type, or the projectile's name, to be fired.
+         * damage : How much damage the projectile should inflict.
+         * knockback : How much knockback the projectile should influct.
+         * speedScalar : A scalar for how fast the projectile is shot.
+         * hostility : The hostility of the projectile.
+         *             0 -> use default projectile hostility
+         *             1 -> hurt NPCS but not Players/Townies
+         *            -1 -> hurt Players/Townies but not NPCs
+         *             2 -> hurt BOTH Players/Townies and NPCs
+         *             3 -> hurt NEITHER Players/Townies and NPCs (inert projectile)
+         */
+        public static int FireProjectile(Vector2 fireTarget, Vector2 position, int projectileType, int damage, float knockback, float speedScalar = 1f, int hostility = 0, int owner = -1, Vector2 targetOffset = default(Vector2))
+        {
+            Vector2 rotVec = BaseUtility.RotateVector(position, position + new Vector2(speedScalar, 0f), BaseUtility.RotationTo(position, fireTarget));
+            rotVec -= position;
+            int projectileID = Projectile.NewProjectile(Projectile.GetSource_None(), position.X, position.Y, rotVec.X, rotVec.Y, projectileType, damage, knockback, (owner != -1 ? owner : Main.myPlayer));
+            Projectile proj = Main.projectile[projectileID];
+            proj.velocity = rotVec;
+            if (hostility != 0)
+            {
+                proj.friendly = (hostility == 1 || hostility == 2);
+                proj.hostile = (hostility == -1 || hostility == 2);
+                if (Main.netMode != 0) { MNet.SendBaseNetMessage(0, proj.owner, proj.identity, proj.friendly, proj.hostile); }
+            }
+            proj.netUpdate2 = true;
+            Main.projectile[projectileID] = proj;
+            return projectileID;
+        }
+
+        /*
+         * Shoots a projectile from an NPC aiming at fireTarget.
+         * 
+         * projectileType : The type of projectile to be fired.
+         * soundGroup / sound : The sound group and sound ID of a sound to play when shot. if either is -1, it does not produce sound.
+         */
+        public static int FireProjectile(Vector2 fireTarget, NPC npc, int projectileType, int damage, float knockback, float speedScalar = 1.0F, int soundGroup = 0, int sound = -1, int hostility = 0, int owner = -1)
+        {
+            /*
+            if (Main.netMode != 2 && soundGroup != -1 && sound != -1)
+            {
+                Main.PlaySound(soundGroup, (int)npc.Center.X, (int)npc.Center.Y, sound);
+            }
+            */
+            if (Main.netMode != 1)
+            {
+                int projectileID = FireProjectile(fireTarget, npc.Center, projectileType, damage, knockback, speedScalar, hostility, owner);
+                npc.netUpdate = true;
+                return projectileID;
+            }
+            return -1;
+        }
     }
 }

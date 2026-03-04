@@ -58,7 +58,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (!NPC.AnyNPCs(ModContent.NPCType<ForsakenAnubis>()))
             {
-                NPC.StrikeNPCNoInteraction(99999, 0, 0, false);
+                NPC.StrikeInstantKill(NPC.CalculateHitInfo(), false, true);
             }
 
             if (NPC.ai[0] == 160 || Vector2.Distance(NPC.Center, player.Center) > 3000)
@@ -103,7 +103,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 7, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
 

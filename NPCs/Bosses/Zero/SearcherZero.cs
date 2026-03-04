@@ -72,9 +72,9 @@ namespace AAModClassic.NPCs.Bosses.Zero
             Texture2D glowTex = Mod.GetTexture("Glowmasks/SearcherZero_Glow");
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
             BaseDrawing.DrawAura(spritebatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Red);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, Color.Red);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, Color.Red);
             return false;
         }
 	}

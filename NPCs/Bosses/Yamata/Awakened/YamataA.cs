@@ -99,7 +99,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * .7f);
         }
         
@@ -747,7 +747,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
-            BaseDrawing.DrawTexture(sb, Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataATail"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataATail"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
             if (legs != null && legs.Length == 4)
             {
                 legs[2].DrawLeg(sb, NPC); //back legs
@@ -756,19 +756,19 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                 legs[1].DrawLeg(sb, NPC);
             }
 
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head2, dColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head3, dColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head4, dColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head5, dColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head6, dColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head7, dColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head2, drawColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head3, drawColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head4, drawColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head5, drawColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head6, drawColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head7, drawColor, false);
 
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
 
-            BaseDrawing.DrawTexture(sb, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
+            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
             BaseDrawing.DrawAfterimage(sb, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
 
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHead", "Glowmasks/YamataAHead_Glow", TrueHead, dColor, false);
+            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHead", "Glowmasks/YamataAHead_Glow", TrueHead, drawColor, false);
         }
 
         public bool spawnHaruka = false;
@@ -998,7 +998,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                 BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1], null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
                 BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0], textures[1], textures[0] }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
             }
-            BaseDrawing.DrawTexture(sb, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
+            BaseDrawing.DrawTexture(spriteBatch, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
         }
     }
 }

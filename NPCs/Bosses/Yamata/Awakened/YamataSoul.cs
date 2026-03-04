@@ -69,9 +69,9 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             Texture2D glowTex = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataSoul");
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, GetGlowAlpha());
-            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetGlowAlpha());
+            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, Color.White);
             return false;
         }
 

@@ -112,7 +112,7 @@ namespace AAModClassic.NPCs.Enemies.Hallow
                 else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
                 BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
             }
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
 			return false;
 		}
     }

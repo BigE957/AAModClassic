@@ -82,7 +82,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
         public override bool PreDraw(ref Color lightColor)
         {
             Player targetPlayer = Main.player[Main.npc[(int)Projectile.ai[0]].target];
-            Color Alpha = dColor;
+            Color Alpha = drawColor;
             if(timecount < 10)
             {
                 Alpha.R = (byte)(0f);

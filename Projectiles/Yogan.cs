@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles
                 for (int m = 0; m < 2; m++)
                     BaseDrawing.DrawChain(spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, dColor, true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, drawColor, true);
             return false;
         }
     }

@@ -118,9 +118,9 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         {
             Texture2D glowTex = Mod.GetTexture("Glowmasks/WrathHarukaVanish_Glow");
 
-            BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, NPC.GetAlpha(dColor), false);
-            BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, Color.White, false);
-            BaseDrawing.DrawAfterimage(spritebatch, glowTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White, NPC.frame, 17);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, NPC.GetAlpha(drawColor), false);
+            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 17, NPC.frame, Color.White, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 0.8f, 1f, 4, true, 0f, 0f, Color.White, NPC.frame, 17);
             return false;
         }
     }

@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1.5f, 1f, 5, false, 0f, 0f, Projectile.GetAlpha(AAColor.ZeroShield));
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1.5f, 1f, 5, false, 0f, 0f, Projectile.GetAlpha(AAColor.ZeroShield));
             return true;
         }
     }

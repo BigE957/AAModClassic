@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles.Zero
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawAfterimage(spritebatch, TextureAssets.Projectile[Projectile.type].Value, 0, 
+            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, 
                 Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 
                 Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 
                 1, frame, 1.5f, 1, 5, false, 0, 0, Projectile.GetAlpha(AAColor.ZeroShield));

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
@@ -39,7 +40,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
         public override void OnKill(int timeLeft)
         {
             Projectile.velocity.Y *= 1.01f;
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(SoundID.Item124);
             Projectile.position.X = Projectile.position.X + Projectile.width / 2;
 			Projectile.position.Y = Projectile.position.Y + Projectile.height / 2;
 			Projectile.width = (int)(128f * Projectile.scale);
@@ -61,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 			}
 			for (int num339 = 0; num339 < 2; num339++)
 			{
-				int num340 = Gore.NewGore(Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+				int num340 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
 				Main.gore[num340].velocity *= 0.3f;
 				Gore expr_B4D2_cp_0 = Main.gore[num340];
 				expr_B4D2_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
@@ -87,7 +88,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 				Main.dust[num343].scale += Main.rand.NextFloat();
 			}
 
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AkumaABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AkumaABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         /*public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

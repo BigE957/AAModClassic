@@ -541,7 +541,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
             NPC.damage = (int)(NPC.damage * 0.85f);
         }
 
@@ -600,10 +600,10 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spritebatch, texture, 0, NPC, dColor);
+            BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor);
             if (Main.LocalPlayer.findTreasure)
             {
-                Color color = dColor;
+                Color color = drawColor;
                 byte b2 = 200;
                 byte b3 = 170;
                 if (color.R < b2)
@@ -615,7 +615,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     color.G = b3;
                 }
                 color.A = Main.mouseTextColor;
-                BaseDrawing.DrawTexture(spritebatch, glow, 0, NPC, color);
+                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, color);
             }
 
             NPC.position.Y -= NPC.height * 0.5f;
@@ -1005,10 +1005,10 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             NPC.position.Y += NPC.height * 0.5f;
 
-            BaseDrawing.DrawTexture(spritebatch, texture, 0, NPC, dColor);
+            BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor);
             if (Main.LocalPlayer.findTreasure)
             {
-                Color color = dColor;
+                Color color = drawColor;
                 byte b2 = 200;
                 byte b3 = 170;
                 if (color.R < b2)
@@ -1020,7 +1020,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     color.G = b3;
                 }
                 color.A = Main.mouseTextColor;
-                BaseDrawing.DrawTexture(spritebatch, glow, 0, NPC, color);
+                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, color);
             }
 
             NPC.position.Y -= NPC.height * 0.5f;

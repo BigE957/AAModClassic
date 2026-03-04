@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.damage = (int)(NPC.damage * .7f);
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * bossLifeScale);
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -245,44 +245,44 @@ namespace AAModClassic.NPCs.Bosses.Zero
             Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
             if (NPC.ai[1] == 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, dColor);
-                BaseDrawing.DrawTexture(spritebatch, glowTex, 0, NPC, AAColor.COLOR_WHITEFADE1);
+                BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
+                BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, AAColor.COLOR_WHITEFADE1);
             }
             else if (NPC.ai[1] == 1)
             {
                 int num214 = normalAni.Height / 5;
                 int y6 = num214 * normalFrame;
-                Main.spriteBatch.Draw(normalAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(normalAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(normalGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, normalAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(normalAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             else if (NPC.ai[1] == 2)
             {
                 int num214 = switchOneAni.Height / 5;
                 int y6 = num214 * switchOneFrame;
-                Main.spriteBatch.Draw(switchOneAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(switchOneAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(switchOneGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchOneAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(switchOneAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             else if (NPC.ai[1] == 3)
             {
                 int num214 = openAni.Height / 5;
                 int y6 = num214 * openFrame;
-                Main.spriteBatch.Draw(openAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(openAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(openGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, openAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(openAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             else if (NPC.ai[1] == 4)
             {
                 int num214 = switchTwoAni.Height / 5;
                 int y6 = num214 * switchTwoFrame;
-                Main.spriteBatch.Draw(switchTwoAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), dColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(switchTwoAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), drawColor * ((255 - NPC.alpha) / 255f), NPC.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), NPC.scale, SpriteEffects.None, 0f);
                 Main.spriteBatch.Draw(switchTwoGlow, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, switchTwoAni.Width, num214)), AAColor.COLOR_WHITEFADE1, NPC.rotation, new Vector2(switchTwoAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
 
 
             if (ShieldScale > 0)
             {
-                BaseDrawing.DrawTexture(spritebatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
-                BaseDrawing.DrawTexture(spritebatch, Ring, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), dColor, true);
-                BaseDrawing.DrawTexture(spritebatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), AAColor.COLOR_WHITEFADE1, true);
+                BaseDrawing.DrawTexture(spriteBatch, Shield, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), GetGlowAlpha(), true);
+                BaseDrawing.DrawTexture(spriteBatch, Ring, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), drawColor, true);
+                BaseDrawing.DrawTexture(spriteBatch, RingGlow, 0, NPC.position, NPC.width, NPC.height, ShieldScale * 2, RingRoatation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), AAColor.COLOR_WHITEFADE1, true);
             }
             return false;
         }

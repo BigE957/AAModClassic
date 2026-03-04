@@ -72,7 +72,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                                 break;
                         }
 
-                        int m = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, Type);
+                        int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, Type);
                         Main.npc[m].Center = NPC.Center;
 
                         NPC.netUpdate = true;
@@ -99,7 +99,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

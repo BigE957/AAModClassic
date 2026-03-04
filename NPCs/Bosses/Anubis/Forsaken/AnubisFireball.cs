@@ -59,8 +59,8 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             for (int i = 0; i < 6; i++)
             {
                 double offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("CurseFlame").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 7f), (float)(-Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("CurseFlame").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("CurseFlame").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 7f), (float)(-Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("CurseFlame").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
             }
             for (int dust = 0; dust < 5; dust++)
 			{

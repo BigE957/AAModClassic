@@ -27,82 +27,82 @@ namespace AAModClassic.Globals
 
         #region Tile Colors
 
-        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAPlayer.IncineriteColor, color, min, max, clamp);
+        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAPlayer.IncineriteColor, color, min, max, clamp);
         public static Color GetIncineriteColorDim(Color color) => GetIncineriteColor(color, 0.4f, 1f, false);
         public static Color GetIncineriteColorBright(Color color) => GetIncineriteColor(color, 0.6f, 1f, false);
         public static Color GetIncineriteColorBrightInvert(Color color) => GetIncineriteColor(color, 1f, 0.6f, true);
 
-        public static Color GetZeroColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.ZeroShield, color, min, max, clamp);
+        public static Color GetZeroColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.ZeroShield, color, min, max, clamp);
         public static Color GetZeroColorDim(Color color) => GetZeroColor(color, 0.4f, .6f, false);
         public static Color GetZeroColorBright(Color color) => GetZeroColor(color, 0.6f, 1f, false);
         public static Color GetZeroColorBrightInvert(Color color) => GetZeroColor(color, 1f, 0.6f, true);
 
-        public static Color GetTerraColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.LimeGreen, color, min, max, clamp);
+        public static Color GetTerraColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.LimeGreen, color, min, max, clamp);
         public static Color GetTerraColorDim(Color color) => GetTerraColor(color, 0.4f, 1f, false);
         public static Color GetTerraColorBright(Color color) => GetTerraColor(color, 0.6f, 1f, false);
         public static Color GetTerraColorBrightInvert(Color color) => GetTerraColor(color, 1f, 0.6f, true);
 
-        public static Color GetTerra2Color(Color color, float min, float max, bool clamp) => GetTimedColor(Color.YellowGreen, color, min, max, clamp);
+        public static Color GetTerra2Color(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.YellowGreen, color, min, max, clamp);
         public static Color GetTerra2ColorDim(Color color) => GetTerra2Color(color, 0.4f, 1f, false);
         public static Color GetTerra2ColorBright(Color color) => GetTerra2Color(color, 0.6f, 1f, false);
         public static Color GetTerra2ColorBrightInvert(Color color) => GetTerra2Color(color, 1f, 0.6f, true);
 
-        public static Color GetUraniumColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.DarkSeaGreen, color, min, max, clamp);
+        public static Color GetUraniumColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.DarkSeaGreen, color, min, max, clamp);
         public static Color GetUraniumColorDim(Color color) => GetUraniumColor(color, 0.4f, 1f, false);
         public static Color GetUraniumColorBright(Color color) => GetUraniumColor(color, 0.6f, 1f, false);
         public static Color GetUraniumColorBrightInvert(Color color) => GetUraniumColor(color, 1f, 0.6f, true);
 
-        public static Color GetStormColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.Violet, color, min, max, clamp);
+        public static Color GetStormColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.Violet, color, min, max, clamp);
         public static Color GetStormColorDim(Color color) => GetStormColor(color, 0.4f, 1f, false);
         public static Color GetStormColorBright(Color color) => GetStormColor(color, 0.6f, 1f, false);
         public static Color GetStormColorBrightInvert(Color color) => GetStormColor(color, 1f, 0.6f, true);
 
-        public static Color GetAkumaColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.DeepSkyBlue, color, min, max, clamp);
+        public static Color GetAkumaColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.DeepSkyBlue, color, min, max, clamp);
         public static Color GetAkumaColorDim(Color color) => GetAkumaColor(color, 0.4f, 1f, false);
         public static Color GetAkumaColorBright(Color color) => GetAkumaColor(color, 0.6f, 1f, false);
         public static Color GetAkumaColorBrightInvert(Color color) => GetAkumaColor(color, 1f, 0.6f, true);
 
-        public static Color GetDarkmatterColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.Nightcrawler, color, min, max, clamp);
+        public static Color GetDarkmatterColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.Nightcrawler, color, min, max, clamp);
         public static Color GetDarkmatterColorDim(Color color) => GetDarkmatterColor(color, 0.4f, 1f, false);
         public static Color GetDarkmatterColorBright(Color color) => GetDarkmatterColor(color, 0.6f, 1f, false);
         public static Color GetDarkmatterColorBrightInvert(Color color) => GetDarkmatterColor(color, 1f, 0.6f, true);
 
-        public static Color GetRadiumColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.Daybringer, color, min, max, clamp);
+        public static Color GetRadiumColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.Daybringer, color, min, max, clamp);
         public static Color GetRadiumColorDim(Color color) => GetRadiumColor(color, 0.4f, 1f, false);
         public static Color GetRadiumColorBright(Color color) => GetRadiumColor(color, 0.6f, 1f, false);
         public static Color GetRadiumColorBrightInvert(Color color) => GetRadiumColor(color, 1f, 0.6f, true);
 
-        public static Color GetYamataColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.Maroon, color, min, max, clamp);
+        public static Color GetYamataColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.Maroon, color, min, max, clamp);
         public static Color GetYamataColorDim(Color color) => GetYamataColor(color, 0.4f, 1f, false);
         public static Color GetYamataColorBright(Color color) => GetYamataColor(color, 0.6f, 1f, false);
         public static Color GetYamataColorBrightInvert(Color color) => GetYamataColor(color, 1f, 0.6f, true);
 
-        public static Color GetYamataColor2(Color color, float min, float max, bool clamp) => GetTimedColor(Color.Violet, color, min, max, clamp);
+        public static Color GetYamataColor2(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.Violet, color, min, max, clamp);
         public static Color GetYamataColorDim2(Color color) => GetYamataColor2(color, 0.4f, 1f, false);
         public static Color GetYamataColorBright2(Color color) => GetYamataColor2(color, 0.6f, 1f, false);
         public static Color GetYamataColorBrightInvert2(Color color) => GetYamataColor2(color, 1f, 0.6f, true);
 
-        public static Color GetCthulhuColor(Color color, float min, float max, bool clamp) => GetTimedColor(Color.DarkCyan, color, min, max, clamp);
+        public static Color GetCthulhuColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Color.DarkCyan, color, min, max, clamp);
         public static Color GetCthulhuColorDim(Color color) => GetCthulhuColor(color, 0.4f, 1f, false);
         public static Color GetCthulhuColorBright(Color color) => GetCthulhuColor(color, 0.6f, 1f, false);
         public static Color GetCthulhuColorBrightInvert(Color color) => GetCthulhuColor(color, 1f, 0.6f, true);
 
-        public static Color GetShenColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.Shen2, color, min, max, clamp);
+        public static Color GetShenColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.Shen2, color, min, max, clamp);
         public static Color GetShenColorDim(Color color) => GetShenColor(color, 0.4f, 1f, false);
         public static Color GetShenColorBright(Color color) => GetShenColor(color, 0.6f, 1f, false);
         public static Color GetShenColorBrightInvert(Color color) => GetShenColor(color, 1f, 0.6f, true);
 
-        public static Color GetSkyColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.Sky, color, min, max, clamp);
+        public static Color GetSkyColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.Sky, color, min, max, clamp);
         public static Color GetSkyColorDim(Color color) => GetSkyColor(color, 0.4f, 1f, false);
         public static Color GetSkyColorBright(Color color) => GetSkyColor(color, 0.6f, 1f, false);
         public static Color GetSkyColorBrightInvert(Color color) => GetSkyColor(color, 1f, 0.6f, true);
 
-        public static Color GetBlankColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.COLOR_WHITEFADE1, color, min, max, clamp);
+        public static Color GetBlankColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(AAColor.COLOR_WHITEFADE1, color, min, max, clamp);
         public static Color GetBlankColorDim(Color color) => GetBlankColor(color, 0.4f, 1f, false);
         public static Color GetBlankColorBright(Color color) => GetBlankColor(color, 0.6f, 1f, false);
         public static Color GetBlankColorBrightInvert(Color color) => GetBlankColor(color, 1f, 0.6f, true);
 
-        public static Color GetRainbowColor(Color color, float min, float max, bool clamp) => GetTimedColor(Main.DiscoColor, color, min, max, clamp);
+        public static Color GetRainbowColor(Color color, float min, float max, bool clamp) => GetTimedrawColor(Main.DiscoColor, color, min, max, clamp);
         public static Color GetRainbowColorDim(Color color) => GetRainbowColor(color, 0.4f, 1f, false);
         public static Color GetRainbowColorBright(Color color) => GetRainbowColor(color, 0.6f, 1f, false);
         public static Color GetRainbowColorBrightInvert(Color color) => GetRainbowColor(color, 1f, 0.6f, true);
@@ -147,7 +147,7 @@ namespace AAModClassic.Globals
             }
         }
 
-        public static Color GetTimedColor(Color tColor, Color color, float min, float max, bool clamp)
+        public static Color GetTimedrawColor(Color tColor, Color color, float min, float max, bool clamp)
         {
             Color glowColor = BaseUtility.ColorMult(tColor, BaseUtility.MultiLerp(glowTick / (float)glowMax, min, max, min));
 
