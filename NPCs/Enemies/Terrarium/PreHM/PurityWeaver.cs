@@ -44,7 +44,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
         {
             if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.TerraShard>());
             }
         }
 
@@ -77,12 +77,12 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
                     int WormLength = 9;
                     for (int i = 0; i < WormLength; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<PurityWeaverBody>(), NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<PurityWeaverBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                     }
 
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<PurityWeaverTail>(), NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<PurityWeaverTail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 

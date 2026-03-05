@@ -46,8 +46,8 @@ namespace AAModClassic.NPCs.Enemies.Void
 
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore1"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore2"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore2").Type, 1f);
             }
         }
 
@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(3));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(3));
         }
     }
 }

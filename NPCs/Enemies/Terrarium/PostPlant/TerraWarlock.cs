@@ -107,7 +107,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                                     SummonThis = Mod.Find<ModNPC>("Minion4").Type;
                                     break;
                             }
-                            NPC.NewNPC((int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);
+                            NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);
                         }
                         internalAI[1] = AISTATE_WALK;
                     }
@@ -157,11 +157,11 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore1"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore2"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore3"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore4"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore5"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraWarlockGore5").Type, 1f);
                 NPC.position.X = NPC.position.X + NPC.width / 2;
                 NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
@@ -188,11 +188,11 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
             }
             if (Main.rand.Next(20) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Summoning.TerraGauntlet>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Summoning.TerraGauntlet>());
             }
         }
 

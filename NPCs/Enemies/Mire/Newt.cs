@@ -119,11 +119,11 @@ namespace AAModClassic.NPCs.Enemies.Mire
                 {
                     if (NPC.direction == -1)
                     {
-                        Projectile.NewProjectile(new Vector2(NPC.position.X + 56f, NPC.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 56f, NPC.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                     else
                     {
-                        Projectile.NewProjectile(new Vector2(NPC.Center.X - 56f, NPC.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 56f, NPC.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                 }
                 if (tongueTimer >= 100)
@@ -144,13 +144,13 @@ namespace AAModClassic.NPCs.Enemies.Mire
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreTail"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreBody"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreHead"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreTail").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreBody").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("NewtGoreHead").Type, 1f);
             }
         }
 
@@ -175,7 +175,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
         }
     }
 }

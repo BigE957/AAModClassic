@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Item124;
             NPC.buffImmune[BuffID.OnFire] = true;
             NPC.alpha = 255;
             NPC.lavaImmune = true;
@@ -77,20 +77,20 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                     int WyrmLength = Main.expertMode ? 5 : 3;
                     for (int i = 0; i < WyrmLength; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody1").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody1").Type, NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         segment += 1;
                     }
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody2").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody2").Type, NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody3").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody3").Type, NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody4").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody4").Type, NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -262,7 +262,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         public override void OnKill()
         {
             NPC.DropLoot(Mod.Find<ModItem>("DragonFire").Type, 1, 3);
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SoulofFlight, Main.rand.Next(15, 30));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SoulofFlight, Main.rand.Next(15, 30));
         }
 
         public override void HitEffect(NPC.HitInfo hit)

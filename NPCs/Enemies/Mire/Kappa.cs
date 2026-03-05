@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraToxin").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraToxin").Type);
         }
 
         public override void AI()
@@ -91,7 +91,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
             else
             {
-                NPC.knockBackResist = 0.4f * Main.GameModeInfo.knockBackToEnemiesMultiplier;
+                NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
                 NPC.noGravity = false;
                 Vector2 center2 = NPC.Center;
                 NPC.width = 18;
@@ -280,56 +280,40 @@ namespace AAModClassic.NPCs.Enemies.Mire
                 position2.X += NPC.velocity.X;
                 int num172 = (int)((position2.X + NPC.width / 2 + (NPC.width / 2 + 1) * num171) / 16f);
                 int num173 = (int)((position2.Y + NPC.height - 1f) / 16f);
-                if (Main.tile[num172, num173] == null)
+                if (!(Main.tile[num172, num173] == null &&
+                    Main.tile[num172, num173 - 1] == null &&
+                    Main.tile[num172, num173 - 2] == null &&
+                    Main.tile[num172, num173 - 3] == null &&
+                    Main.tile[num172, num173 + 1] == null &&
+                    Main.tile[num172 - num171, num173 - 3] == null))
                 {
-                    Main.tile[num172, num173] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 1] == null)
-                {
-                    Main.tile[num172, num173 - 1] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 2] == null)
-                {
-                    Main.tile[num172, num173 - 2] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 3] == null)
-                {
-                    Main.tile[num172, num173 - 3] = new Tile();
-                }
-                if (Main.tile[num172, num173 + 1] == null)
-                {
-                    Main.tile[num172, num173 + 1] = new Tile();
-                }
-                if (Main.tile[num172 - num171, num173 - 3] == null)
-                {
-                    Main.tile[num172 - num171, num173 - 3] = new Tile();
-                }
-                if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
-                {
-                    float num174 = num173 * 16;
-                    if (Main.tile[num172, num173].IsHalfBlock)
+                    if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
                     {
-                        num174 += 8f;
-                    }
-                    if (Main.tile[num172, num173 - 1].IsHalfBlock)
-                    {
-                        num174 -= 8f;
-                    }
-                    if (num174 < position2.Y + NPC.height)
-                    {
-                        float num175 = position2.Y + NPC.height - num174;
-                        float num176 = 16.1f;
-                        if (num175 <= num176)
+                        float num174 = num173 * 16;
+                        if (Main.tile[num172, num173].IsHalfBlock)
                         {
-                            NPC.gfxOffY += NPC.position.Y + NPC.height - num174;
-                            NPC.position.Y = num174 - NPC.height;
-                            if (num175 < 9f)
+                            num174 += 8f;
+                        }
+                        if (Main.tile[num172, num173 - 1].IsHalfBlock)
+                        {
+                            num174 -= 8f;
+                        }
+                        if (num174 < position2.Y + NPC.height)
+                        {
+                            float num175 = position2.Y + NPC.height - num174;
+                            float num176 = 16.1f;
+                            if (num175 <= num176)
                             {
-                                NPC.stepSpeed = 1f;
-                            }
-                            else
-                            {
-                                NPC.stepSpeed = 2f;
+                                NPC.gfxOffY += NPC.position.Y + NPC.height - num174;
+                                NPC.position.Y = num174 - NPC.height;
+                                if (num175 < 9f)
+                                {
+                                    NPC.stepSpeed = 1f;
+                                }
+                                else
+                                {
+                                    NPC.stepSpeed = 2f;
+                                }
                             }
                         }
                     }
@@ -339,41 +323,17 @@ namespace AAModClassic.NPCs.Enemies.Mire
             {
                 int num177 = (int)((NPC.position.X + NPC.width / 2 + 15 * NPC.direction) / 16f);
                 int num178 = (int)((NPC.position.Y + NPC.height - 15f) / 16f);
-                
-                if (Main.tile[num177, num178] == null)
-                {
-                    Main.tile[num177, num178] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 1] == null)
-                {
-                    Main.tile[num177, num178 - 1] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 2] == null)
-                {
-                    Main.tile[num177, num178 - 2] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 3] == null)
-                {
-                    Main.tile[num177, num178 - 3] = new Tile();
-                }
-                if (Main.tile[num177, num178 + 1] == null)
-                {
-                    Main.tile[num177, num178 + 1] = new Tile();
-                }
-                if (Main.tile[num177 + NPC.direction, num178 - 1] == null)
-                {
-                    Main.tile[num177 + NPC.direction, num178 - 1] = new Tile();
-                }
-                if (Main.tile[num177 + NPC.direction, num178 + 1] == null)
-                {
-                    Main.tile[num177 + NPC.direction, num178 + 1] = new Tile();
-                }
-                if (Main.tile[num177 - NPC.direction, num178 + 1] == null)
-                {
-                    Main.tile[num177 - NPC.direction, num178 + 1] = new Tile();
-                }
-                Main.tile[num177, num178 + 1].IsHalfBlock;
-                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6)
+
+                bool nullcheck = !(Main.tile[num177, num178] == null &&
+                    Main.tile[num177, num178 - 1] == null &&
+                    Main.tile[num177, num178 - 2] == null &&
+                    Main.tile[num177, num178 - 3] == null &&
+                    Main.tile[num177, num178 + 1] == null &&
+                    Main.tile[num177 + NPC.direction, num178 - 1] == null &&
+                    Main.tile[num177 + NPC.direction, num178 + 1] == null &&
+                    Main.tile[num177 - NPC.direction, num178 + 1] == null);
+
+                if (nullcheck && (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6))
                 {
                     NPC.ai[2] += 1f;
                     NPC.ai[3] = 0f;

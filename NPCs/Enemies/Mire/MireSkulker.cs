@@ -96,7 +96,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             Player player = Main.player[NPC.target];
 
             NPC.defense = 14;
-            NPC.reflectingProjectiles = false;
+            NPC.reflectsProjectiles = false;
 
             if (NPC.velocity.X > 0) // so it faces the player
             {
@@ -124,13 +124,13 @@ namespace AAModClassic.NPCs.Enemies.Mire
             {
                 NPC.defense = 999;
                 NPC.knockBackResist = 0;
-                NPC.reflectingProjectiles = true;
+                NPC.reflectsProjectiles = true;
                 NPC.velocity *= 0;
                 ShellTimer++;
                 if (ShellTimer >= 180)
                 {
                     NPC.defense = 14;
-                    NPC.reflectingProjectiles = false;
+                    NPC.reflectsProjectiles = false;
 
                     if (NPC.frameCounter++ > 9)
                     {
@@ -147,7 +147,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MirePod").Type);
         }
     }
 }

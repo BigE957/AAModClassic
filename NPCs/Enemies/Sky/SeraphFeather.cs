@@ -29,8 +29,8 @@ namespace AAModClassic.NPCs.Enemies.Sky
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return false;
         }
     }

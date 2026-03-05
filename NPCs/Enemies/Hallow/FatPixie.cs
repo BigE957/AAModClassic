@@ -97,7 +97,7 @@ namespace AAModClassic.NPCs.Enemies.Hallow
         public override void OnKill()
         {
 			if(Main.netMode != NetmodeID.MultiplayerClient)
-				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.PixieDust, Main.rand.Next(5, 7));
+				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.PixieDust, Main.rand.Next(5, 7));
         }
 
         public float auraPercent = 0f;
@@ -110,7 +110,7 @@ namespace AAModClassic.NPCs.Enemies.Hallow
             {
                 if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
                 else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-                BaseDrawing.DrawAura(sb, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
+                BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
             }
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
 			return false;

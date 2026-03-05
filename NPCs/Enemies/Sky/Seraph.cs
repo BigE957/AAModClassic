@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
 
             Player player = Main.player[NPC.target];
 
-            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 8f, 7f, false, 300);
+            BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.15f, 0.08f, 8f, 7f, false, 300);
 
             if (NPC.alpha > 0)
             {
@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + (deltaAngle * i);
-                    Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 4, 2, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 4, 2, Main.myPlayer);
                 }
                 NPC.ai[3] = 0;
                 NPC.netUpdate = true;
@@ -144,11 +144,11 @@ namespace AAModClassic.NPCs.Enemies.Sky
             if (Main.rand.Next(30) <= SeraphChance.SeraphKills && !NPC.AnyNPCs(ModContent.NPCType<SeraphHurt>()))
             {
                 SeraphChance.SeraphKills = 0;
-                int a = NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SeraphHurt>());
+                int a = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<SeraphHurt>());
                 Main.npc[a].velocity = NPC.velocity;
             }
             SeraphChance.SeraphKills++;
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SeraphFeather").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SeraphFeather").Type);
         }
 
         public string SeraphBitching()

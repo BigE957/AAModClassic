@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AAModClassic.NPCs.Enemies.Void
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.damage = 50;
             NPC.defense = 9999999;
             NPC.lifeMax = 100;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.NPCHit, "Sounds/Sounds/Glitch");
+            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch");
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.alpha = 70;
             NPC.value = 7000f;
@@ -59,11 +60,11 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("UnstableSingularity").Type, 1);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("UnstableSingularity").Type, 1);
 
             if (Main.rand.Next(100) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ono").Type, 1);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ono").Type, 1);
             }
         }
 

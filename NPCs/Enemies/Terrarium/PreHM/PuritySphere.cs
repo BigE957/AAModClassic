@@ -63,7 +63,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
         {
             if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
             }
         }
 

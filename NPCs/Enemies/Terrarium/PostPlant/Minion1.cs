@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             {
                 NPC.alpha = 0;
             }
-            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.4f, 0.04f, 6f, 1.5f, false, 300);
+            BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.4f, 0.04f, 6f, 1.5f, false, 300);
             
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)

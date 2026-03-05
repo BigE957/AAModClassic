@@ -77,21 +77,21 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                     {
                         if (segment == 0 || segment == 1)
                         {
-                            latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingBody").Type, NPC.whoAmI, 0, latestNPC);
+                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingBody").Type, NPC.whoAmI, 0, latestNPC);
                             Main.npc[latestNPC].realLife = NPC.whoAmI;
                             Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                             segment += 1;
                         }
                         if (segment == 2)
                         {
-                            latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail1").Type, NPC.whoAmI, 0, latestNPC);
+                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail1").Type, NPC.whoAmI, 0, latestNPC);
                             Main.npc[latestNPC].realLife = NPC.whoAmI;
                             Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                             segment += 1;
                         }
                     }
 
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail2").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail2").Type, NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -262,14 +262,14 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
         }
 
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore1"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore1").Type, 1f);
             }
         }
     }
@@ -301,7 +301,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore2"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore2").Type, 1f);
             }
         }
 
@@ -403,7 +403,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore3"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore3").Type, 1f);
             }
         }
 
@@ -510,7 +510,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore4"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore4").Type, 1f);
             }
         }
 

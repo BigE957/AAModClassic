@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -27,8 +28,8 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.defense = 40;
             NPC.lifeMax = 1000;
             NPC.value = Item.sellPrice(0, 0, 50, 0);
-            NPC.HitSound = new LegacySoundStyle(3, 4, Terraria.Audio.SoundType.Sound);
-            NPC.DeathSound = new LegacySoundStyle(4, 14, Terraria.Audio.SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.netAlways = true;
@@ -40,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
         }
 
         public override void AI()

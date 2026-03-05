@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
 
 		public override void OnKill()
 		{
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Mushroom);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Mushroom);
         }
 	}
 }

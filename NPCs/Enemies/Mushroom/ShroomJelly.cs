@@ -49,12 +49,12 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && spawnInfo.water ? .7f : 0f;
+            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && spawnInfo.Water ? .7f : 0f;
         }
 
         public override void OnKill()
 		{
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Mushroom);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.Mushroom);
         }
 	}
 }

@@ -40,7 +40,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.noTileCollide = true;
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound);
+            NPC.DeathSound = SoundID.Item124;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -92,13 +92,13 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
                     for (int i = 0; i < 9; ++i)
                     {
-                        latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(),(int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungBody").Type, NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         
                     }
                     
-                    latestNPC = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungTail").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungTail").Type, NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 

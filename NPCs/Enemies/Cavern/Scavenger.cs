@@ -37,8 +37,8 @@ namespace AAModClassic.NPCs.Enemies.Cavern
             NPC.behindTiles = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            NPC.HitSound = new LegacySoundStyle(21, 1);
-            NPC.DeathSound = new LegacySoundStyle(2, 14);
+            NPC.HitSound = SoundID.Tink;
+            NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = NPC.type;
 			BannerItem = Mod.Find<ModItem>("ScavengerBanner").Type;
@@ -64,11 +64,11 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                     int a;
                     if (num36 >= 0 && num36 < 5)
                     {
-                        a = NPC.NewNPC((int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerBody").Type, NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerBody").Type, NPC.whoAmI);
                     }
                     else
                     {
-                        a = NPC.NewNPC((int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerTail").Type, NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerTail").Type, NPC.whoAmI);
                     }
                     Main.npc[a].realLife = NPC.whoAmI;
                     Main.npc[a].ai[2] = NPC.whoAmI;

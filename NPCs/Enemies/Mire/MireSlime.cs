@@ -46,7 +46,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 		
 		public override void OnKill()
 		{
-			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MurkyGel").Type, Main.rand.Next(5, 15));
+			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MurkyGel").Type, Main.rand.Next(5, 15));
         }
 	}
 }

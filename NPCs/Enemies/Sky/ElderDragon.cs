@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
 
         public override void AI()
         {
-            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
+            BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.8f, 0.04f, 8f, 7f, false, 300);
             Player player = Main.player[NPC.target];
             if (player.Center.X > NPC.Center.X)
             {
@@ -71,7 +71,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
         }
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonSpirit").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonSpirit").Type);
         }
     }
 }

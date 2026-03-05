@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Enemies.Desert
             }
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
-            BaseAI.AIFloater(NPC, ref NPC.ai, true, 0.2f, 3, 1.5f, .05f, 1.3f, 4);
+            BaseAI.AIFloater(NPC, player, ref NPC.ai, true, 0.2f, 3, 1.5f, .05f, 1.3f, 4);
             NPC.ai[3]++;
 
             if (NPC.ai[3] >= 120)

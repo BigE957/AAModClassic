@@ -66,7 +66,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		
 		public override void OnKill()
 		{
-			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BurningGel").Type, Main.rand.Next(5,15));
+			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BurningGel").Type, Main.rand.Next(5,15));
         }
 	}
 }

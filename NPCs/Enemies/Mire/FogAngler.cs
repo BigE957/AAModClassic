@@ -96,11 +96,11 @@ namespace AAModClassic.NPCs.Enemies.Mire
 		{
             if (Main.rand.Next(Main.expertMode ? 49 : 99) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.AdhesiveBandage);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.AdhesiveBandage);
             }
             if (Main.rand.Next(100) < 4)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.RobotHat);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.RobotHat);
             }
         }
 	}

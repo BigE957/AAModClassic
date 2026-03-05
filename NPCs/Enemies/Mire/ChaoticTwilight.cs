@@ -146,7 +146,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AbyssalTwilight").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AbyssalTwilight").Type);
                 }
         }
 	}

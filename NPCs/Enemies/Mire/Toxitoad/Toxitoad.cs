@@ -60,28 +60,28 @@ namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
             {
                 if (Main.rand.Next(7) == 0 || Main.rand.Next(7) == 1 || Main.rand.Next(7) == 2 || Main.rand.Next(7) == 3)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.CopperCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.CopperCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
                 if (Main.rand.Next(7) == 4 || Main.rand.Next(7) == 5)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SilverCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SilverCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
                 if (Main.rand.Next(7) == 6)
                 {
-                    Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.GoldCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.GoldCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
             }
             if (NPC.life <= 0)
             {
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreHead"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreFrontLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreFrontLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreEye"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreCoinChain"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBody"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBackLeg"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBackLeg"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreHead").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreFrontLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreFrontLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreEye").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreCoinChain").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBody").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBackLeg").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreBackLeg").Type, 1f);
             }
         }
 
@@ -186,12 +186,12 @@ namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
                     if (NPC.direction == -1)
                     {
                         //Main.PlaySound(SoundID.Item3, (int)npc.position.X, (int)npc.position.Y);
-                        Projectile.NewProjectile(new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                     else
                     {
                         //Main.PlaySound(SoundID.Item3, (int)npc.position.X, (int)npc.position.Y);
-                        Projectile.NewProjectile(new Vector2(NPC.position.X + 57f, NPC.position.Y + 18f), new Vector2(6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 57f, NPC.position.Y + 18f), new Vector2(6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
                     }
                 }
                 if (tongueTimer >= 100)

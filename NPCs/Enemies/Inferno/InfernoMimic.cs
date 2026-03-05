@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		{
 			string[] lootTable = { "OrnateBand", "SunLance" };
 			int loot = Main.rand.Next(lootTable.Length);
-			Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(lootTable[loot]).Type);
+			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(lootTable[loot]).Type);
 		}
 	}
 }

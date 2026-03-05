@@ -216,7 +216,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                     for (int num86 = 0; num86 < 4; num86++)
                     {
                         Vector2 vector15 = vector14 + Utils.RandomVector2(Main.rand, -0.8f, 0.8f);
-                        Projectile.NewProjectile(vector13.X, vector13.Y, vector15.X - 5, vector15.Y - 5, ModContent.ProjectileType<TerrariumArrow>(), num85, 1f, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), vector13.X, vector13.Y, vector15.X - 5, vector15.Y - 5, ModContent.ProjectileType<TerrariumArrow>(), num85, 1f, Main.myPlayer, 0f, 0f);
                     }
                 }
             }
@@ -256,56 +256,40 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                 position2.X += NPC.velocity.X;
                 int num172 = (int)((position2.X + NPC.width / 2 + (NPC.width / 2 + 1) * num171) / 16f);
                 int num173 = (int)((position2.Y + NPC.height - 1f) / 16f);
-                if (Main.tile[num172, num173] == null)
+                if (!(Main.tile[num172, num173] == null &&
+                    Main.tile[num172, num173 - 1] == null &&
+                    Main.tile[num172, num173 - 2] == null &&
+                    Main.tile[num172, num173 - 3] == null &&
+                    Main.tile[num172, num173 + 1] == null &&
+                    Main.tile[num172 - num171, num173 - 3] == null))
                 {
-                    Main.tile[num172, num173] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 1] == null)
-                {
-                    Main.tile[num172, num173 - 1] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 2] == null)
-                {
-                    Main.tile[num172, num173 - 2] = new Tile();
-                }
-                if (Main.tile[num172, num173 - 3] == null)
-                {
-                    Main.tile[num172, num173 - 3] = new Tile();
-                }
-                if (Main.tile[num172, num173 + 1] == null)
-                {
-                    Main.tile[num172, num173 + 1] = new Tile();
-                }
-                if (Main.tile[num172 - num171, num173 - 3] == null)
-                {
-                    Main.tile[num172 - num171, num173 - 3] = new Tile();
-                }
-                if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
-                {
-                    float num174 = num173 * 16;
-                    if (Main.tile[num172, num173].IsHalfBlock)
+                    if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
                     {
-                        num174 += 8f;
-                    }
-                    if (Main.tile[num172, num173 - 1].IsHalfBlock)
-                    {
-                        num174 -= 8f;
-                    }
-                    if (num174 < position2.Y + NPC.height)
-                    {
-                        float num175 = position2.Y + NPC.height - num174;
-                        float num176 = 16.1f;
-                        if (num175 <= num176)
+                        float num174 = num173 * 16;
+                        if (Main.tile[num172, num173].IsHalfBlock)
                         {
-                            NPC.gfxOffY += NPC.position.Y + NPC.height - num174;
-                            NPC.position.Y = num174 - NPC.height;
-                            if (num175 < 9f)
+                            num174 += 8f;
+                        }
+                        if (Main.tile[num172, num173 - 1].IsHalfBlock)
+                        {
+                            num174 -= 8f;
+                        }
+                        if (num174 < position2.Y + NPC.height)
+                        {
+                            float num175 = position2.Y + NPC.height - num174;
+                            float num176 = 16.1f;
+                            if (num175 <= num176)
                             {
-                                NPC.stepSpeed = 1f;
-                            }
-                            else
-                            {
-                                NPC.stepSpeed = 2f;
+                                NPC.gfxOffY += NPC.position.Y + NPC.height - num174;
+                                NPC.position.Y = num174 - NPC.height;
+                                if (num175 < 9f)
+                                {
+                                    NPC.stepSpeed = 1f;
+                                }
+                                else
+                                {
+                                    NPC.stepSpeed = 2f;
+                                }
                             }
                         }
                     }
@@ -317,40 +301,16 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                 int num178 = (int)((NPC.position.Y + NPC.height - 15f) / 16f);
 
 
-                if (Main.tile[num177, num178] == null)
-                {
-                    Main.tile[num177, num178] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 1] == null)
-                {
-                    Main.tile[num177, num178 - 1] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 2] == null)
-                {
-                    Main.tile[num177, num178 - 2] = new Tile();
-                }
-                if (Main.tile[num177, num178 - 3] == null)
-                {
-                    Main.tile[num177, num178 - 3] = new Tile();
-                }
-                if (Main.tile[num177, num178 + 1] == null)
-                {
-                    Main.tile[num177, num178 + 1] = new Tile();
-                }
-                if (Main.tile[num177 + NPC.direction, num178 - 1] == null)
-                {
-                    Main.tile[num177 + NPC.direction, num178 - 1] = new Tile();
-                }
-                if (Main.tile[num177 + NPC.direction, num178 + 1] == null)
-                {
-                    Main.tile[num177 + NPC.direction, num178 + 1] = new Tile();
-                }
-                if (Main.tile[num177 - NPC.direction, num178 + 1] == null)
-                {
-                    Main.tile[num177 - NPC.direction, num178 + 1] = new Tile();
-                }
-                Main.tile[num177, num178 + 1].IsHalfBlock;
-                if (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6)
+                bool nullcheck = Main.tile[num177, num178] == null &&
+                    Main.tile[num177, num178 - 1] == null &&
+                    Main.tile[num177, num178 - 2] == null &&
+                    Main.tile[num177, num178 - 3] == null &&
+                    Main.tile[num177, num178 + 1] == null &&
+                    Main.tile[num177 + NPC.direction, num178 - 1] == null &&
+                    Main.tile[num177 + NPC.direction, num178 + 1] == null &&
+                    Main.tile[num177 - NPC.direction, num178 + 1] == null;
+
+                if (nullcheck && (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6))
                 {
                     NPC.ai[2] += 1f;
                     NPC.ai[3] = 0f;
@@ -435,11 +395,11 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore1"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore2"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore3"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore4"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore5"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("TerraDeadshotGore5").Type, 1f);
                 NPC.position.X = NPC.position.X + NPC.width / 2;
                 NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
@@ -465,7 +425,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
         {
             if (Main.rand.Next(40) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraCrystal>());
             }
         }
     }

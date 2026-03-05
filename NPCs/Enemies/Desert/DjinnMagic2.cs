@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Enemies.Desert
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DjinnBurst2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DjinnBurst2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override Color? GetAlpha(Color lightColor)

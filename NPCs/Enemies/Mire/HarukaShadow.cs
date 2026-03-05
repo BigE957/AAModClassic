@@ -64,15 +64,14 @@ namespace AAModClassic.NPCs.Enemies.Mire
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            knockback = 0;
-            damage = 0;
-            crit = false;
+            modifiers.DisableKnockback();
+            modifiers.TargetDamageMultiplier *= 0;
+            modifiers.DisableCrit();
             if (NPC.ai[0] != 1)
             {
                 NPC.ai[0] = 1;
                 CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "pathetic.");
             }
-            return false;
         }
 
         public override void FindFrame(int frameHeight)

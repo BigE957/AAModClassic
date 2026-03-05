@@ -29,8 +29,8 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.lifeMax = 250;
             NPC.defense = 30;
             NPC.damage = 65;
-            NPC.HitSound = new LegacySoundStyle(3, 4, Terraria.Audio.SoundType.Sound);
-            NPC.DeathSound = new LegacySoundStyle(4, 14, Terraria.Audio.SoundType.Sound);
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
@@ -49,8 +49,8 @@ namespace AAModClassic.NPCs.Enemies.Void
 
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore1"), 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore2"), 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore2").Type, 1f);
             }
         }
 
@@ -88,7 +88,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Apocalyptite").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Apocalyptite").Type);
         }
     }
 }

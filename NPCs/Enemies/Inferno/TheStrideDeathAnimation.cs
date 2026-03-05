@@ -64,9 +64,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             Main.dust[num].velocity *= 2.5f;
             Main.dust[num].noLight = true;
           }
-            Projectile.NewProjectile(NPC.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore5").Type, NPC.damage/2, 4f);
-            Projectile.NewProjectile(NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore4").Type, NPC.damage / 2, 4f);
-            Projectile.NewProjectile(NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore3").Type, NPC.damage / 2, 4f);            
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore5").Type, NPC.damage/2, 4f);
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore4").Type, NPC.damage / 2, 4f);
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), Mod.Find<ModProjectile>("FlamebruteProjectileGore3").Type, NPC.damage / 2, 4f);            
         }
 
 

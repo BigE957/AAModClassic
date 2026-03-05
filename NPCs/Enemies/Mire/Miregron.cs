@@ -171,7 +171,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             if (NPC.life > 0)
             {
                 int num589 = 0;
-                while (num589 < damage / NPC.lifeMax * 50.0)
+                while (num589 < hit.Damage / NPC.lifeMax * 50.0)
                 {
                     int num590 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1.5f);
                     Main.dust[num590].velocity *= 1.5f;
@@ -188,7 +188,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
             for (int num593 = 0; num593 < 4; num593++)
             {
-                int num594 = Gore.NewGore(new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);
+                int num594 = Gore.NewGore(NPC.GetSource_OnHurt(null), new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);
                 Main.gore[num594].velocity *= 0.3f;
             }
         }
@@ -197,7 +197,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 		{
             if (Main.rand.Next(3) == 0)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 3532, 1, false, 0, false, false);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 3532, 1, false, 0, false, false);
             }
         }
 	}

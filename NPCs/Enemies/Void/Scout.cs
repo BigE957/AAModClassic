@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {
-                        Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0f, 0f, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
 
                     }
                 }
@@ -89,7 +89,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
 		public override void OnKill()
         {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

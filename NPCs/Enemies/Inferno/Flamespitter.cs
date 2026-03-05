@@ -133,7 +133,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.ai[1] -= 1f;
                 if (NPC.ai[1] == 25f)
                 {
-                    Projectile.NewProjectile(new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("Magma").Type, 15, 3); ;
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("Magma").Type, 15, 3); ;
                 }
             }
 
@@ -211,7 +211,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		{
             if (Main.rand.NextFloat() < 0.1f)
             {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
             }
         }
 	}

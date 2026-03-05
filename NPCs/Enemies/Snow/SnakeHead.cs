@@ -66,11 +66,11 @@ namespace AAModClassic.NPCs.Enemies.Snow
 		{
 			if (Main.expertMode)
 			{
-				player.AddBuff(BuffID.Chilled, 200, true);
+				target.AddBuff(BuffID.Chilled, 200, true);
 			}
 			else
 			{
-				player.AddBuff(BuffID.Chilled, 100, true);
+				target.AddBuff(BuffID.Chilled, 100, true);
 			}
 		}
 

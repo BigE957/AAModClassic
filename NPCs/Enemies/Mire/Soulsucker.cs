@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 
         public override void AI()
         {
-            BaseAI.AIFlier(NPC, ref NPC.ai, false, 0.2f, 0.1f, 3, 2.5f, true, 250);
+            BaseAI.AIFlier(NPC, ref NPC.ai[0], false, 0.2f, 0.1f, 3, 2.5f, true, 250);
             NPC.rotation = NPC.velocity.X * 0.05f;
             if (NPC.velocity.X > 0)
             {

@@ -72,7 +72,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		{
             if(NPC.life <= 0)
             {
-                NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y + 45, Mod.Find<ModNPC>("TheStrideDeathAnimation").Type);
+                NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y + 45, Mod.Find<ModNPC>("TheStrideDeathAnimation").Type);
             }
 		}
 	}
