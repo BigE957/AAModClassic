@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Plants
 {
@@ -15,9 +16,9 @@ namespace AAModClassic.Tiles.Plants
             TileObjectData.newTile.RandomStyleRange = 5;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Mushrooms.MadnessShroom>();
+            RegisterItemDrop(ModContent.ItemType<Items.Mushrooms.MadnessShroom>());
             DustType = ModContent.DustType<Dusts.InfinityOverloadP>();
-            HitSound = 6;
+            HitSound = SoundID.Grass;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

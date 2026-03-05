@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Hotshroom").Type;
+            RegisterItemDrop(Mod.Find<ModItem>("Hotshroom").Type);
         }
 
         public override bool IsTileDangerous(int i, int j, Player player)

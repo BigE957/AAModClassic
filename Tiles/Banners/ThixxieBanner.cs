@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -26,7 +27,7 @@ namespace AAModClassic.Tiles.Banners
 			TileObjectData.newTile.CoordinatePadding = 0;
 			TileObjectData.addTile(Type);
 			DustType = -1;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true; 
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);
@@ -34,7 +35,7 @@ namespace AAModClassic.Tiles.Banners
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) 
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("ThixxieBanner").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("ThixxieBanner").Type);
 		}
 
 		public override void NearbyEffects(int i, int j, bool closer) 
@@ -42,8 +43,7 @@ namespace AAModClassic.Tiles.Banners
 			if (closer) 
 			{
 				Player player = Main.LocalPlayer;
-				player.NPCBannerBuff[Mod.Find<ModNPC>("FatPixie").Type] = true;
-				player.hasBanner = true;
+				player.HasNPCBannerBuff(Mod.Find<ModNPC>("FatPixie").Type);
 			}
 		}
 	}

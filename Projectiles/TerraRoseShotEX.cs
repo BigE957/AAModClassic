@@ -84,14 +84,14 @@ namespace AAModClassic.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
 
         public override void OnKill(int timeLeft)
 		{
 			SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-			Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
+			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
 			for (int index1 = 0; index1 < 20; ++index1)
 			{
 				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GreenFairy, 0.0f, 0.0f, 100, new Color(), 1f);

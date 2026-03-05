@@ -30,8 +30,8 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomPlatform").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			RegisterItemDrop(Mod.Find<ModItem>("DoomPlatform").Type);
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
         }
 

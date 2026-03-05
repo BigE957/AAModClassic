@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Boss
             drop4 = ModContent.ItemType<DragonsSoul>();
             drop5 = ModContent.ItemType<DragonsGuard>();
             AddMapEntry(new Color(102, 45, 42), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -63,24 +63,24 @@ namespace AAModClassic.Tiles.Boss
 
             if (thinger == 0)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop1);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop1);
             }
             else if (thinger == 1)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop2);
-                Item.NewItem(i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop2);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
             }
             else if (thinger == 2)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop3);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop3);
             }
             else if (thinger == 3)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop4);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop4);
             }
             else
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop5);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop5);
             }
 
             if (AAWorld.SmashDragonEgg == 2)

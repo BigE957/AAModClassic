@@ -30,7 +30,7 @@ namespace AAModClassic.Projectiles
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            DropMeteor();
+            DropMeteor(target);
         }
 
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
@@ -48,7 +48,7 @@ namespace AAModClassic.Projectiles
             return false;
         }
 
-        public void DropMeteor()
+        public void DropMeteor(NPC target)
         {
             Player player = Main.player[Projectile.owner];
             float num72 = 12f;
@@ -95,7 +95,7 @@ namespace AAModClassic.Projectiles
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.02f);
-                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, ModContent.ProjectileType<TLThunder>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 2f));
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, ModContent.ProjectileType<TLThunder>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 2f));
             }
         }
     }

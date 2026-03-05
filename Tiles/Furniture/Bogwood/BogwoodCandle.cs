@@ -26,9 +26,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			// name.SetDefault("Bogwood Candle");
             AddMapEntry(new Color(205, 62, 12), name);
             DustType = Mod.Find<ModDust>("BogwoodDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Candelabras };
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("BogwoodCandle").Type;
+            RegisterItemDrop(Mod.Find<ModItem>("BogwoodCandle").Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)

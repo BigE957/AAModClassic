@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using AAModClassic.Base.BaseMod.Base;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Boxes
 {
@@ -21,7 +22,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
             DustType = Mod.Find<ModDust>("RadiumDust").Type;
@@ -30,7 +31,7 @@ namespace AAModClassic.Tiles.Boxes
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("StarBox").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("StarBox").Type);
 		}
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

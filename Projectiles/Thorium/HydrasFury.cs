@@ -49,13 +49,13 @@ namespace AAModClassic.Projectiles.Thorium
 			Projectile.position.X = player.Center.X - (Projectile.width / 2f);
 			Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
 			
-			Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-			Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			
 			if (Projectile.timeLeft == 13)
 			{
-				Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("HydrasFuryDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 			
 			if (Projectile.timeLeft < 8)
@@ -105,9 +105,9 @@ namespace AAModClassic.Projectiles.Thorium
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 
@@ -139,9 +139,9 @@ namespace AAModClassic.Projectiles.Thorium
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 

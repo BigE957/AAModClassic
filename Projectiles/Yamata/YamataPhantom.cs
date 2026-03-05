@@ -173,9 +173,8 @@ namespace AAModClassic.Projectiles.Yamata
                     float num629 = Main.rand.Next(-35, 36) * 0.02f;
                     num628 *= 10f;
                     num629 *= 10f;
-                    int p = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<YWSplit>(), Projectile.damage * 3, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
+                    int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, num628, num629, ModContent.ProjectileType<YWSplit>(), Projectile.damage * 3, (int)(Projectile.knockBack * 0.35), Main.myPlayer, 0f, 0f);
                     num3 = num627;
-                    Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                     Main.projectile[p].DamageType = DamageClass.Magic;
                     Main.projectile[p].timeLeft = 240;
                 }

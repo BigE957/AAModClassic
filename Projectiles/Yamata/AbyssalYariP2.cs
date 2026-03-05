@@ -132,7 +132,7 @@ namespace AAModClassic.Projectiles.Yamata
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, new Color(Color.White.R, Color.White.G, Color.White.B, 20 * k), Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, new Color(Color.White.R, Color.White.G, Color.White.B, 20 * k), Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             return true;
         }

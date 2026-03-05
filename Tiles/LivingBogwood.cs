@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = Mod.Find<ModDust>("BogwoodDust").Type;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Bogwood").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("Bogwood").Type);   
             AddMapEntry(new Color(20, 0, 127));
             MinPick = 0;
         }

@@ -27,7 +27,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("True Paladin's Smeltery");
             DustType = ModContent.DustType<DaybreakIncineriteDust>();
             AddMapEntry(new Color(40, 40, 40), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]
             {
                 TileID.WorkBenches,
@@ -84,7 +84,7 @@ namespace AAModClassic.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TruePaladinsSmeltery").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TruePaladinsSmeltery").Type);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
         {
             if(Main.tile[i, j].TileFrameX == 0 && Main.tile[i, j].TileFrameY == 0)
             {
-                Item.NewItem(i * 16, j * 16, 48, 48, Mod.Find<ModItem>("OroborosCandle").Type);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("OroborosCandle").Type);
             }
         }
 

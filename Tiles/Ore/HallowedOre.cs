@@ -17,13 +17,13 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("HallowedOre").Type; 
+            RegisterItemDrop(Mod.Find<ModItem>("HallowedOre").Type); 
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Hallowed Ore");
             DustType = DustID.Gold;
             AddMapEntry(new Color(160, 160, 50), name);
 			MinPick = 180;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
         }
       
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

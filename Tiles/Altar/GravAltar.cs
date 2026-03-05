@@ -4,6 +4,7 @@ using AAModClassic.Items.Boss.Greed.WKG;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -28,7 +29,7 @@ namespace AAModClassic.Tiles.Altar
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Altar of The Force");
             AddMapEntry(new Color(10, 10, 80), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
         }
 

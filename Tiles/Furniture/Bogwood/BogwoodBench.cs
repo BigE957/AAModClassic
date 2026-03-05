@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.Origin = new Point16(1, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
@@ -39,7 +39,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodBench").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodBench").Type);
 			Chest.DestroyChest(i, j);
 		}
 	}

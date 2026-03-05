@@ -30,9 +30,9 @@ namespace AAModClassic.Projectiles.Thorium
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 

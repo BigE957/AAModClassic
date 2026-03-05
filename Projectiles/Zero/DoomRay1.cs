@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles.Zero
         {
             if (IsAtMaxCharge)
             {
-                DrawLaser(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, Main.player[Projectile.owner].Center,
+                DrawLaser(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, Main.player[Projectile.owner].Center,
                     Projectile.velocity, 10, Projectile.damage, -1.57f, 1f, 1000f, AAColor.ZeroShield, (int)MOVE_DISTANCE);
             }
             return false;

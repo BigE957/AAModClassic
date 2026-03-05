@@ -13,7 +13,7 @@ namespace AAModClassic.Walls.Bricks
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DaybreakWall").Type;
+            RegisterItemDrop(Mod.Find<ModItem>("DaybreakWall").Type);
             AddMapEntry(new Color(40, 12, 10));
             DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
         }

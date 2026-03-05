@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Crafters
 {
@@ -21,7 +22,7 @@ namespace AAModClassic.Tiles.Crafters
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Any Ancient Crafting Station");
             AddMapEntry(new Color(40, 0, 0), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
         }
         
 
@@ -33,7 +34,7 @@ namespace AAModClassic.Tiles.Crafters
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("BinaryReassembler").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("BinaryReassembler").Type);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             // name.SetDefault("Razewood Chair");
             AddMapEntry(new Color(205, 62, 12), name);
             DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Chairs };
         }
 
@@ -42,7 +42,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, Mod.Find<ModItem>("RazewoodChair").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 32, Mod.Find<ModItem>("RazewoodChair").Type);
         }
     }
 }

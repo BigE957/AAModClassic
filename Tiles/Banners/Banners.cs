@@ -8,6 +8,7 @@ using Terraria.Localization;
 using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Banners
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.Tiles.Banners
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
 			DustType = -1;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);			
@@ -256,7 +257,7 @@ namespace AAModClassic.Tiles.Banners
             string dropName = GetBannerName(frameX);
             if (!string.IsNullOrEmpty(dropName))
             {
-                Item.NewItem(x * 16, y * 16, 16, 16, Mod.Find<ModItem>(dropName + "Banner").Type, 1, false, -1, false);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), x * 16, y * 16, 16, 16, Mod.Find<ModItem>(dropName + "Banner").Type, 1, false, -1, false);
             }
         }
 
@@ -268,9 +269,8 @@ namespace AAModClassic.Tiles.Banners
 				if(name == null) return;
 
                 Player player = Main.LocalPlayer;	
-				player.NPCBannerBuff[Mod.Find<ModNPC>(name).Type] = true;
-				if(name == "MushroomZombie") player.NPCBannerBuff[Mod.Find<ModNPC>("MushroomZombie2").Type] = true;
-                player.hasBanner = true;
+				player.HasNPCBannerBuff(Mod.Find<ModNPC>(name).Type);
+				if(name == "MushroomZombie") player.HasNPCBannerBuff(Mod.Find<ModNPC>("MushroomZombie2").Type);
             }
         }
 

@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(200, 200, 200));
 			DustType = Mod.Find<ModDust>("AshDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
 		}
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

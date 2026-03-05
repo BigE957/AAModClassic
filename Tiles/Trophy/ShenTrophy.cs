@@ -22,13 +22,13 @@ namespace AAModClassic.Tiles.Trophy
 			TileObjectData.addAlternate(1);
             TileObjectData.addTile(Type);
             DustType = DustID.WoodFurniture;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
 		}
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(i * 16, j * 16, 48, 48, Mod.Find<ModItem>("ShenTrophy").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("ShenTrophy").Type);
         }
 	}
 }

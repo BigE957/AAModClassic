@@ -99,7 +99,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 8f;
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("ForsakenFrag").Type, Projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("ForsakenFrag").Type, Projectile.damage, 0, Main.myPlayer);
 			}
         }
     }

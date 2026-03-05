@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("RadiantArcanum");
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(200, 160, 0), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation,
@@ -49,7 +49,7 @@ namespace AAModClassic.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RadiantArcanum").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RadiantArcanum").Type);
         }
     }
 }

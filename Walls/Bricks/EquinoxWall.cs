@@ -2,6 +2,8 @@ using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
@@ -13,8 +15,8 @@ namespace AAModClassic.Walls.Bricks
             Main.wallLight[Type] = true;
             DustType = Mod.Find<ModDust>("RadiumDust").Type;
             AddMapEntry(new Color(60, 60, 30));
-            HitSound = 21;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("EquinoxWall").Type;
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(Mod.Find<ModItem>("EquinoxWall").Type);
             Main.wallHouse[Type] = true;
         }
 
@@ -27,7 +29,7 @@ namespace AAModClassic.Walls.Bricks
         {
             if (Main.dayTime)
             {
-                BaseDrawing.DrawWallTexture(spriteBatch, Main.wallTexture[Type], x, y, true);
+                BaseDrawing.DrawWallTexture(spriteBatch, TextureAssets.Wall[Type].Value, x, y, true);
             }
             else
             {

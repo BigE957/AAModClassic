@@ -46,9 +46,9 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             // name.SetDefault("Oroboros Door");
             AddMapEntry(new Color(162, 184, 185), name);
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = Mod.Find<ModTile>("OroborosDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("OroborosDoorOpen").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -63,7 +63,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("OroborosDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("OroborosDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

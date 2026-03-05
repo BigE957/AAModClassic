@@ -21,16 +21,16 @@ namespace AAModClassic.Tiles.Decoration
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Stone Lantern");
             AddMapEntry(new Color(51, 51, 51), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
             DustType = DustID.Chlorophyte;
-            soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
+            HitSound = SoundID.Tink;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, Mod.Find<ModItem>("GreedLantern").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 32, Mod.Find<ModItem>("GreedLantern").Type);
         }
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {

@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Boss
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Desire Altar");
             AddMapEntry(new Color(80, 50, 0), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
         }
 

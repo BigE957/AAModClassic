@@ -41,10 +41,10 @@ namespace AAModClassic.Tiles.Torches
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(150, 70, 0), name);
 			DustType = ModContent.DustType<Dusts.AkumaADust>();
-			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DaybreakTorch").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			RegisterItemDrop(Mod.Find<ModItem>("DaybreakTorch").Type);
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
-			torch/* tModPorter Note: Removed. Use TileID.Sets.Torch instead */ = true;
+			TileID.Sets.Torch[Type] = true;
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -78,7 +78,7 @@ namespace AAModClassic.Tiles.Torches
 
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
-			ulong randSeed = Main.TileFrameSeed ^ Convert.ToUInt64(j << 32 | i);
+			ulong randSeed = Main.TileFrameSeed ^ (UInt64)(j << 32 | i);
             Color color = AAColor.AkumaA;
 			int frameX = Main.tile[i, j].TileFrameX;
 			int frameY = Main.tile[i, j].TileFrameY;

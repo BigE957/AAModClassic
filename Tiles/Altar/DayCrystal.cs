@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Altar
             Main.tileBlockLight[Type] = false;
             Main.tileSolid[Type] = false;
             Main.tileBlendAll[Type] = false;
-            HitSound = 21;
+            HitSound = SoundID.Tink;//21;
             Main.tileLighted[Type] = true;
             DustType = DustID.BlueCrystalShard;
             AddMapEntry(Color.SkyBlue);

@@ -19,9 +19,9 @@ namespace AAModClassic.Tiles.Plants
             TileObjectData.newTile.RandomStyleRange = 5;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.Mushroom;
+            RegisterItemDrop(ItemID.Mushroom);
             DustType = ModContent.DustType<MushDust>();
-            HitSound = 6;
+            HitSound = SoundID.Grass;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

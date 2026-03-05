@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Decoration
 {
@@ -14,7 +15,7 @@ namespace AAModClassic.Tiles.Decoration
 			Main.tileLavaDeath[Type] = false;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style6x3);
 			TileObjectData.addTile(Type);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
 
 			AnimationFrameHeight = 54;
 
@@ -25,7 +26,7 @@ namespace AAModClassic.Tiles.Decoration
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RoyalBunnyCage").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RoyalBunnyCage").Type);
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

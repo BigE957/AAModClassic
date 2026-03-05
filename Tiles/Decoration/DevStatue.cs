@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Decoration
 			TileObjectData.newTile.StyleWrapLimit = 36;
 			TileObjectData.addTile(Type);
 			DustType = DustID.Grass;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Statue");
 			AddMapEntry(new Color(120, 120, 120), name);
@@ -87,7 +87,7 @@ namespace AAModClassic.Tiles.Decoration
             }
 			if (item > 0)
 			{
-				Item.NewItem(i * 16, j * 16, 36, 36, item);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 36, 36, item);
 			}
 		}
 	}

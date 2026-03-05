@@ -27,7 +27,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Core of Terraria");
             DustType = DustID.Terra;
             AddMapEntry(new Color(40, 200, 0), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation,
@@ -74,15 +74,7 @@ namespace AAModClassic.Tiles.Crafters
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
-            Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
-            {
-                texture = Main.tileAltTexture[Type, tile.TileColor];
-            }
-            else
-            {
-                texture = TextureAssets.Tile[Type].Value;
-            }
+            Texture2D texture = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(Type, (int)tile.Slope, tile.TileColor);
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
@@ -101,7 +93,7 @@ namespace AAModClassic.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TerraCore").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TerraCore").Type);
         }
     }
 }

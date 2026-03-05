@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Boss
             drop4 = ModContent.ItemType<GlowmossBall>();
             drop5 = ModContent.ItemType<ShadowBand>();
             AddMapEntry(new Color(17, 26, 41), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -62,24 +62,24 @@ namespace AAModClassic.Tiles.Boss
             int thinger = Main.rand.Next(5);
             if (thinger == 0)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop1);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop1);
             }
             else if (thinger == 1)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop2);
-                Item.NewItem(i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop2);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.MusketBall, 100);
             }
             else if (thinger == 2)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop3);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop3);
             }
             else if (thinger == 3)
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop4);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop4);
             }
             else
             {
-                Item.NewItem(i * 16, j * 16, 32, 32, drop5);
+                Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, drop5);
             }
 
             if (AAWorld.SmashHydraPod == 2)

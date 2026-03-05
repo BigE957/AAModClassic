@@ -46,11 +46,11 @@ namespace AAModClassic.Projectiles.Thorium
             Player player = Main.player[Projectile.owner];
             if (target.Center.X < player.Center.X)
             {
-                hitDirection = -1;
+                modifiers.HitDirectionOverride = -1;
             }
             else
             {
-                hitDirection = 1;
+                modifiers.HitDirectionOverride = 1;
             }
         }
 
@@ -78,13 +78,13 @@ namespace AAModClassic.Projectiles.Thorium
             Projectile.position.X = player.Center.X - 80;
             Projectile.position.Y = player.Center.Y - 73;
 
-            Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 
             if (Projectile.timeLeft == 13)
             {
-                Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CarrotFarmerDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
             if (Projectile.timeLeft < 8)
@@ -112,11 +112,11 @@ namespace AAModClassic.Projectiles.Thorium
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
                         if (Main.rand.Next(15) == 0)
                         {
-                            int ProjID = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Carrot").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Carrot").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }
                         if (Main.rand.Next(15) == 0)
                         {
-                            int ProjID = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Carrot").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("Carrot").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                         }
                     }
                 }
@@ -145,9 +145,9 @@ namespace AAModClassic.Projectiles.Thorium
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 
@@ -180,9 +180,9 @@ namespace AAModClassic.Projectiles.Thorium
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer(Mod, "ModSupportPlayer")).Thorium_radiantCrit)
+            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
         }
 

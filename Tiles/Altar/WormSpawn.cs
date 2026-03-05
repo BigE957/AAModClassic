@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AAModClassic.Tiles.Altar
 {
@@ -23,7 +24,7 @@ namespace AAModClassic.Tiles.Altar
             NPC.alpha = 255;
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Prequinox");
             NPC.lifeMax = 1;
-            NPC.dontTakeDamage = true;
+            NPC.dontTakeDamage = true; 
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10000000;

@@ -70,7 +70,7 @@ namespace AAModClassic.Tiles.Crafters
                 Mod.Find<ModTile>("QuantumFusionAccelerator").Type,
                 Mod.Find<ModTile>("ACS").Type,
             };
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
         }
 
@@ -92,7 +92,7 @@ namespace AAModClassic.Tiles.Crafters
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 54, 54, Mod.Find<ModItem>("TerraPrismStation").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 54, 54, Mod.Find<ModItem>("TerraPrismStation").Type);
         }
     }
 }

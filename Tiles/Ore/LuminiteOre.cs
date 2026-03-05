@@ -16,11 +16,11 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileOreFinderPriority[Type] = 820; 
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ItemID.LunarOre;
+            RegisterItemDrop(ItemID.LunarOre);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Luminite Ore");
             DustType = ModContent.DustType<Dusts.LuminiteDust>();
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             AddMapEntry(new Color(0, 90, 60), name);
 			MinPick = 225;
         }

@@ -21,13 +21,13 @@ namespace AAModClassic.Tiles.Decoration
             AddMapEntry(new Color(75, 139, 166));
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AnimationFrameHeight = 56;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("VoidUnit").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("VoidUnit").Type);
         }
 
         public override void NearbyEffects(int i, int j, bool closer)

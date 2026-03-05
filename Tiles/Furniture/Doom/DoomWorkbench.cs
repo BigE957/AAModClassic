@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			// name.SetDefault("Doom Workbench");
             AddMapEntry(new Color(200, 0, 0), name);
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.WorkBenches };
 		}
 
@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("DoomWorkbench").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("DoomWorkbench").Type);
 		}
 
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

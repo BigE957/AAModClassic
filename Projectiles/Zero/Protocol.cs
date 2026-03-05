@@ -272,7 +272,7 @@ namespace AAModClassic.Projectiles.Zero
                         value20.Normalize();
                         Projectile.velocity = value20 * 8f;
                         Projectile.netUpdate = true;
-						int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value20.X*8, value20.Y*8, 389, Projectile.damage/2, 0f, Main.myPlayer, 0f, 0f);
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value20.X*8, value20.Y*8, 389, Projectile.damage/2, 0f, Main.myPlayer, 0f, 0f);
 						Main.projectile[num659].minion = true;
 						Main.projectile[num659].usesLocalNPCImmunity = true;
 						Main.projectile[num659].localNPCHitCooldown = 0;
@@ -297,8 +297,8 @@ namespace AAModClassic.Projectiles.Zero
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 7, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 7, frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 7, frame, color1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 7, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 7, frame, color1, true);
             return false;
         }
     }

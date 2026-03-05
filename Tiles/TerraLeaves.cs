@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = false;
             Main.tileMerge[Type][Mod.Find<ModTile>("TerraWood").Type] = true;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             DustType = DustID.Terra;
             AddMapEntry(new Color(100, 100, 100));

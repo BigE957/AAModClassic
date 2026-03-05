@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Boss
             DustType = DustID.WoodFurniture;
             MinPick = 500;
             MineResist = 10f;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Throne of Evil");
             AddMapEntry(new Color(130, 110, 100));
@@ -46,7 +46,7 @@ namespace AAModClassic.Tiles.Boss
                     i *= 16;
                     j += 5;
                     j *= 16;
-                    int n = NPC.NewNPC(i + 1, j + 1, Mod.Find<ModNPC>("LuciferSitting").Type);
+                    int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), i + 1, j + 1, Mod.Find<ModNPC>("LuciferSitting").Type);
                     if (Main.netMode == NetmodeID.Server)
                     {
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);

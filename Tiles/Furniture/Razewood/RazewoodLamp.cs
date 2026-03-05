@@ -92,7 +92,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("RazewoodLamp").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("RazewoodLamp").Type);
 			Chest.DestroyChest(i, j);
 		}
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

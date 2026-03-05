@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAModClassic.Tiles.Bars
     {
         public override void SetStaticDefaults()
         {
-            HitSound = 21;
+            HitSound = SoundID.Tink;// 21;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;
@@ -21,7 +22,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("AbyssiumBar").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("AbyssiumBar").Type);   
             DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
             AddMapEntry(new Color(0, 0, 255));
 			MinPick = 0;

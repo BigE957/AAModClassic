@@ -26,9 +26,9 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			// name.SetDefault("Oroboros Bed");
 			AddMapEntry(new Color(70, 0, 10), name);
 			DustType = Mod.Find<ModDust>("DoomDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
-			bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
+			TileID.Sets.CanBeSleptIn[Type] = true;
 		}
 
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -43,7 +43,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, Mod.Find<ModItem>("OroborosBed").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 64, 32, Mod.Find<ModItem>("OroborosBed").Type);
 		}
 
 		public override bool RightClick(int i, int j)

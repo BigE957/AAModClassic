@@ -1,5 +1,6 @@
 using AAModClassic.Dusts;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -15,9 +16,9 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.Potions.Carrot>();
+            RegisterItemDrop(ModContent.ItemType<Items.Potions.Carrot>());
             DustType = ModContent.DustType<CarrotDust>();
-            HitSound = 6;
+            HitSound = SoundID.Grass;
         }
 
         public override bool IsTileDangerous(int i, int j, Player player)

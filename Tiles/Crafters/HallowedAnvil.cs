@@ -26,12 +26,12 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Hallowed Anvil");
             DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
             AddMapEntry(new Color(50, 50, 50), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer};
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("HallowedAnvil").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("HallowedAnvil").Type);
         }
     }
 }

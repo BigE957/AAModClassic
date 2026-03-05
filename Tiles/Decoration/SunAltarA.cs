@@ -23,14 +23,14 @@ namespace AAModClassic.Tiles.Decoration
             AddMapEntry(new Color(75, 139, 166));
             DustType = DustID.Stone;
             AnimationFrameHeight = 56;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = ModContent.DustType<Dusts.AkumaADust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("SunAltarA").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("SunAltarA").Type);
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -51,15 +51,8 @@ namespace AAModClassic.Tiles.Decoration
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
-            Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
-            {
-                texture = Main.tileAltTexture[Type, tile.TileColor];
-            }
-            else
-            {
-                texture = TextureAssets.Tile[Type].Value;
-            }
+            Texture2D texture = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(Type, (int)tile.Slope, tile.TileColor);
+
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
@@ -100,9 +93,7 @@ namespace AAModClassic.Tiles.Decoration
                 for (int m = y; m < y + 3; m++)
                 {
                     if (Main.tile[l, m] == null)
-                    {
-                        Main.tile[l, m] = new Tile();
-                    }
+                        continue;
                     if (Main.tile[l, m].HasTile && Main.tile[l, m].TileType == Type)
                     {
                         if (Main.tile[l, m].TileFrameY < 56)

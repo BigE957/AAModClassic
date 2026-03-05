@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Tiles
@@ -15,7 +16,7 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = false;
             Main.tileMerge[Type][Mod.Find<ModTile>("AbyssLeaves").Type] = true;
             Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWoodSolid").Type] = true;
-            HitSound = 21;
+            HitSound = SoundID.Dig;//21;
             DustType = ModContent.DustType<Dusts.AbyssDust>();
             AddMapEntry(new Color(52, 0, 200));
         }

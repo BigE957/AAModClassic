@@ -16,7 +16,6 @@ namespace AAModClassic.Projectiles.Yamata
 			Projectile.height = 20;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Projectile.penetrate = 6;
 			Projectile.timeLeft = 550;
 			Projectile.light = 0.9f;
@@ -33,17 +32,12 @@ namespace AAModClassic.Projectiles.Yamata
                 if (ProjTimer >= 20)
                 {
                     ProjTimer = 0;
-                    Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                 }
             }
         }
 
          public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            YWSplit();
-        }
-
- public void YWSplit()
         {
             Player player = Main.player[Projectile.owner];
             float num72 = 45f;
@@ -90,7 +84,7 @@ namespace AAModClassic.Projectiles.Yamata
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.05f);
-                Projectile.NewProjectile(vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YWSplit>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YWSplit>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
             }
         }
 

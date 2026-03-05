@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -27,7 +28,7 @@ namespace AAModClassic.Tiles.Altar
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Altar of the Stars");
             AddMapEntry(new Color(100, 80, 20), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
         }
 

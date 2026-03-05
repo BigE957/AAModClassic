@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-			BaseDrawing.DrawProjectileSpear(sb, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, null, 0f, 0f);
+			BaseDrawing.DrawProjectileSpear(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, null, 0f, 0f);
 			return false;
 		}
 

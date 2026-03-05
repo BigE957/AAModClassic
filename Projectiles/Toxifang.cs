@@ -14,7 +14,6 @@ namespace AAModClassic.Projectiles
 			Projectile.penetrate = 1;
 			Projectile.width = 10;
 			Projectile.height = 12;
-			Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 300;

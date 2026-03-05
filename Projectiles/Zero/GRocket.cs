@@ -90,7 +90,7 @@ namespace AAModClassic.Projectiles.Zero
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            Projectile.NewProjectile((int)Projectile.position.X, (int)Projectile.position.Y, 0, 0, ModContent.ProjectileType<GBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.position.X, (int)Projectile.position.Y, 0, 0, ModContent.ProjectileType<GBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             for (int i = 0; i < 20; i++)
             {
                 int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.LifeDrain, 0f, 0f, 100);

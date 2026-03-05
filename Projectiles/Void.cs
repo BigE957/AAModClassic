@@ -28,9 +28,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            int p = Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), ProjectileID.Electrosphere, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, 0);
-            Main.projectile[p].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-            Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, new Vector2(0, 0), ProjectileID.Electrosphere, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, 0);
         }
 
         public override void PostAI()

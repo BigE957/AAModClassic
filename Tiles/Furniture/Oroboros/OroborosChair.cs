@@ -31,7 +31,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			// name.SetDefault("Oroboros Chair");
 			AddMapEntry(new Color(70, 0, 10), name);
 			DustType = Mod.Find<ModDust>("DoomDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Chairs };
 		}
 
@@ -42,7 +42,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 32, Mod.Find<ModItem>("OroborosChair").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 32, Mod.Find<ModItem>("OroborosChair").Type);
 		}
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

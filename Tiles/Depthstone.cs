@@ -17,11 +17,11 @@ namespace AAModClassic.Tiles
 			Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            HitSound = 21;
+            HitSound = SoundID.Dig;
             MinPick = 65;
             TileID.Sets.JungleSpecial[Type] = true;
             DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Depthstone").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("Depthstone").Type);   
             AddMapEntry(new Color(27, 19, 50));
         }
     }

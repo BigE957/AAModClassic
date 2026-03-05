@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -20,8 +21,8 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlockLight[Type] = true;  
             Main.tileLighted[Type] = true;
             Main.tileOreFinderPriority[Type] = 830; 
-            HitSound = 21;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RadiumOre").Type;
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(Mod.Find<ModItem>("RadiumOre").Type);
             DustType = Mod.Find<ModDust>("RadiumDust").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Celestial Ore");
@@ -34,11 +35,11 @@ namespace AAModClassic.Tiles.Ore
         {
             if (Main.dayTime)
             {
-                ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RadiumOre").Type;
+                RegisterItemDrop(Mod.Find<ModItem>("RadiumOre").Type);
             }
             else
             {
-                ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkmatterOre").Type;
+                RegisterItemDrop(Mod.Find<ModItem>("DarkmatterOre").Type);
             }
         }
 

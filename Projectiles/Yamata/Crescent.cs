@@ -41,7 +41,7 @@ namespace AAModClassic.Projectiles.Yamata   //The directory for your .cs and .pn
                 if (ProjTimer >= 50)
                 {
                     ProjTimer = 0;
-                    Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
                 }
             }
         }

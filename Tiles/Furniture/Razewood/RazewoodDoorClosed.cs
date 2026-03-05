@@ -44,9 +44,9 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
             DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = Mod.Find<ModTile>("RazewoodDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("RazewoodDoorOpen").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -61,7 +61,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
         }
 
         public override void MouseOver(int i, int j)
@@ -126,9 +126,9 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
             DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            closeDoorID = Mod.Find<ModTile>("RazewoodDoorClosed").Type;
+            TileID.Sets.CloseDoorID[Type] = Mod.Find<ModTile>("RazewoodDoorClosed").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -143,7 +143,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

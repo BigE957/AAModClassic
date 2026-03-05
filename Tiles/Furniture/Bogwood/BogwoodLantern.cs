@@ -73,7 +73,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodLantern").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodLantern").Type);
 			Chest.DestroyChest(i, j);
         }
 

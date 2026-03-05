@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Decoration
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Lunar Hornet Jar");
             AddMapEntry(new Color(0, 0, 40), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = DustID.BlueCrystalShard;
             AnimationFrameHeight = 36;
         }
@@ -43,7 +43,7 @@ namespace AAModClassic.Tiles.Decoration
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, Mod.Find<ModItem>("MoonBeeJar").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("MoonBeeJar").Type);
         }
     }
 }

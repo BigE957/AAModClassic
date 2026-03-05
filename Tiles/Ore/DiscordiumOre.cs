@@ -2,6 +2,7 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -16,8 +17,8 @@ namespace AAModClassic.Tiles.Ore
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileOreFinderPriority[Type] = 870; 
-            HitSound = 21;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DiscordiumOre").Type;   
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(Mod.Find<ModItem>("DiscordiumOre").Type);   
             DustType = Mod.Find<ModDust>("DoomDust").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Discordium Ore");

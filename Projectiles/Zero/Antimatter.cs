@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Zero
@@ -65,7 +66,7 @@ namespace AAModClassic.Projectiles.Zero
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 
-            SoundEngine.PlaySound(soundID.Item124);
+            SoundEngine.PlaySound(SoundID.Item124);
             Projectile.localNPCImmunity[target.whoAmI] = -1;
             target.immune[Projectile.owner] = 0;
 

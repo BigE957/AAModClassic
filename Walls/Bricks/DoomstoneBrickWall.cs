@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAModClassic.Walls.Bricks
 {
@@ -14,8 +15,8 @@ namespace AAModClassic.Walls.Bricks
             Main.wallLight[Type] = true;
             DustType = Mod.Find<ModDust>("DoomDust").Type;
 			AddMapEntry(new Color(10, 10, 10));
-            HitSound = 21;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomstoneBrickWall").Type;
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(Mod.Find<ModItem>("DoomstoneBrickWall").Type);
             Main.wallHouse[Type] = true;
             Main.wallLargeFrames[Type] = 2;
         }

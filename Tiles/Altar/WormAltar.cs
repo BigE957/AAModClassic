@@ -33,7 +33,7 @@ namespace AAModClassic.Tiles.Altar
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Worm Altar");
             AddMapEntry(new Color(150, 100, 0), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 72;
         }
 
@@ -64,7 +64,7 @@ namespace AAModClassic.Tiles.Altar
                         if (item != null && item.type == type && item.stack >= 1)
                         {
                             item.stack--;
-                            player.QuickSpawnItem(Mod.Find<ModItem>("EquinoxWorm").Type);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Mod.Find<ModItem>("EquinoxWorm").Type);
                             if (!AAWorld.WormActive)
                             {
                                 BaseUtility.Chat(Lang.TheEquinox("WormAltarOK"), new Color(75, 175, 255));

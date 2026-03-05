@@ -26,8 +26,8 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.Origin = new Point16(1, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
@@ -38,10 +38,10 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			// name.SetDefault("Bogwood Dresser");
             AddMapEntry(new Color(12, 62, 205), name);
             DustType = Mod.Find<ModDust>("BogwoodDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
-			dresser/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Bogwood Dresser";
-			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("BogwoodDresser").Type;
+			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Bogwood Dresser";
+			RegisterItemDrop(Mod.Find<ModItem>("BogwoodDresser").Type);
 		}
 
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -94,7 +94,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					player.flyingPigChest = -1;
+					//player.flyingPigChest = -1;
 					int num213 = Chest.FindChest(left, top);
 					if (num213 != -1)
 					{
@@ -164,9 +164,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					player.cursorItemIconText = chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+					player.cursorItemIconText = DefaultContainerName(i, j).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.cursorItemIconText == chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+				if (player.cursorItemIconText == DefaultContainerName(i, j).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
 					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
 					player.cursorItemIconText = "";
@@ -206,9 +206,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					player.cursorItemIconText = chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+					player.cursorItemIconText = DefaultContainerName(i, j).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.cursorItemIconText == chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+				if (player.cursorItemIconText == DefaultContainerName(i, j).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
 					player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDresser").Type;
 					player.cursorItemIconText = "";
@@ -229,7 +229,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 32, ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("BogwoodDresser").Type);
 			Chest.DestroyChest(i, j);
 		}
 	}

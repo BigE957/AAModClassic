@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -16,9 +17,9 @@ namespace AAModClassic.Tiles.Ore
             Main.tileSpelunker[Type] = true;
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DynaskullOre").Type;
+            RegisterItemDrop(Mod.Find<ModItem>("DynaskullOre").Type);
             DustType = Mod.Find<ModDust>("InfinityOverloadY").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Dynaskull Ore");

@@ -41,9 +41,9 @@ namespace AAModClassic.Projectiles.Zero
                 Projectile.velocity.Y = -oldVelocity.Y;
                 Projectile.damage = (int)(Projectile.damage * 1.2);
             }
-            if (Projectile.damage > 3000 * player.GetDamage(DamageClass.Ranged))
+            if (Projectile.damage > player.GetDamage(DamageClass.Ranged).ApplyTo(3000))
             {
-                Projectile.damage = (int)(3000 * player.GetDamage(DamageClass.Ranged));
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Ranged).ApplyTo(3000));
             }
             return false; // return false because we are handling collision
         }

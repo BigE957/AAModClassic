@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, Mod.Find<ModItem>("BogwoodBathtub").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 64, 32, Mod.Find<ModItem>("BogwoodBathtub").Type);
 		}
 
 		

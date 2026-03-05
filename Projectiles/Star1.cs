@@ -55,7 +55,7 @@ namespace AAModClassic.Projectiles
                 num16 = num15 / num16;
                 num13 *= num16;
                 num14 *= num16;
-                int num17 = Projectile.NewProjectile(x, y, num13, num14, ModContent.ProjectileType<Stars>(), 70, 5f, Main.myPlayer, 0f, 0f);
+                int num17 = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), x, y, num13, num14, ModContent.ProjectileType<Stars>(), 70, 5f, Main.myPlayer, 0f, 0f);
                 Main.projectile[num17].ai[1] = Projectile.position.Y;
             }
         }

@@ -4,6 +4,7 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Dusts;
+using Terraria.ID;
 
 namespace AAModClassic.Projectiles.Yamata
 {
@@ -94,8 +95,8 @@ namespace AAModClassic.Projectiles.Yamata
         {
             if(target.life<=0)
            {
-              Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AEBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
-            SoundEngine.PlaySound(soundID.Item124);
+              Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AEBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
+            SoundEngine.PlaySound(SoundID.Item124);
             float spread = 12f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 15;
@@ -104,8 +105,8 @@ namespace AAModClassic.Projectiles.Yamata
             for (i = 0; i < 7; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("AcidBall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 7f), (float)(-Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("AcidBall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 7f), (float)(Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("AcidBall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 7f), (float)(-Math.Cos(offsetAngle) * 7f), Mod.Find<ModProjectile>("AcidBall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
            }
         }

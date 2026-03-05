@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type]/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
             DustType = DustID.BlueCrystalShard;
@@ -28,7 +28,7 @@ namespace AAModClassic.Tiles.Boxes
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("AcropolisBox").Type);
+			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("AcropolisBox").Type);
 		}
 
 		public override void MouseOver(int i, int j)

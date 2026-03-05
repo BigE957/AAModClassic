@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Crafters
 			TileObjectData.newTile.StyleWrapLimit = 36;
 			TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Evil Altar");
             DustType = ModContent.DustType<InfinityOverloadP>();
@@ -41,7 +41,7 @@ namespace AAModClassic.Tiles.Crafters
             }
 			if (item > 0)
 			{
-				Item.NewItem(i * 16, j * 16, 48, 48, item);
+				Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, item);
 			}
 		}
 	}

@@ -21,10 +21,10 @@ namespace AAModClassic.Tiles.Ore
             Main.tileOreFinderPriority[Type] = 840; 
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             TileID.Sets.JungleSpecial[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("EventideAbyssiumOre").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("EventideAbyssiumOre").Type);   
             DustType = Mod.Find<ModDust>("YamataDust").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Eventide Abyssium Ore");

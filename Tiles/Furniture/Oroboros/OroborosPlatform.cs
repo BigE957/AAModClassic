@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-            HitSound = 21;
+            HitSound = SoundID.Dig;
 			TileID.Sets.Platforms[Type] = true;
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 16 };
 			TileObjectData.newTile.CoordinateWidth = 16;
@@ -31,8 +31,8 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("OroborosPlatform").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			RegisterItemDrop(Mod.Find<ModItem>("OroborosPlatform").Type);
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
         }
 

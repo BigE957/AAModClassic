@@ -62,7 +62,7 @@ namespace AAModClassic.Projectiles
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
 				int type = Main.rand.Next(326,328);
-				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, type, Projectile.damage/2, 0, Main.myPlayer);
+				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, type, Projectile.damage/2, 0, Main.myPlayer);
 				Main.projectile[proj].hostile = false;
 				Main.projectile[proj].friendly = true;
 			}

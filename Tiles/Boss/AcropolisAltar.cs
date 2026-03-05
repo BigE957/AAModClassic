@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Boss
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Owl Altar");
             AddMapEntry(new Color(0, 50, 150), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
         }
 
@@ -100,7 +100,7 @@ namespace AAModClassic.Tiles.Boss
                     return;
                 }
 
-                int npcID = NPC.NewNPC((int)npcCenter.X, (int)npcCenter.Y, bossType);
+                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
                 Main.npc[npcID].Center = npcCenter;
                 Main.npc[npcID].netUpdate = true;
 

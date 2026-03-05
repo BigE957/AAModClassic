@@ -17,9 +17,9 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<Items.BossSummons.GoldenCarrot>();
+            RegisterItemDrop(ModContent.ItemType<Items.BossSummons.GoldenCarrot>());
             DustType = DustID.GoldCoin;
-            HitSound = 6;
+            HitSound = SoundID.Grass;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

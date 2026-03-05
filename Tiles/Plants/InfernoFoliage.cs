@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
 
             DustType = ModContent.DustType<Dusts.RazeleafDust>();
-            HitSound = 6;
+            HitSound = SoundID.Grass;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.LavaDeath = true;

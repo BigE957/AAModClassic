@@ -63,7 +63,7 @@ The number at the moment is so high you don't even know what the number is calle
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomClock").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomClock").Type);
         }
 
 

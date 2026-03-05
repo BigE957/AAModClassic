@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles   //The directory for your .cs and .png; Exam
                     }
                 }
                 vector *= 0.8f;
-                Projectile.NewProjectile(Projectile.Center.X - vector.X, Projectile.Center.Y - vector.Y, vector.X, vector.Y, ModContent.ProjectileType<Time>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - vector.X, Projectile.Center.Y - vector.Y, vector.X, vector.Y, ModContent.ProjectileType<Time>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.localAI[1] = 0f;
             }
         }

@@ -23,14 +23,14 @@ namespace AAModClassic.Tiles.Decoration
             AddMapEntry(new Color(75, 139, 166));
             DustType = DustID.Stone;
             AnimationFrameHeight = 56;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = ModContent.DustType<YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("MoonAltar").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("MoonAltar").Type);
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -72,9 +72,7 @@ namespace AAModClassic.Tiles.Decoration
                 for (int m = y; m < y + 3; m++)
                 {
                     if (Main.tile[l, m] == null)
-                    {
-                        Main.tile[l, m] = new Tile();
-                    }
+                        continue;
                     if (Main.tile[l, m].HasTile && Main.tile[l, m].TileType == Type)
                     {
                         if (Main.tile[l, m].TileFrameY < 56)

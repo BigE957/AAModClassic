@@ -43,8 +43,8 @@ namespace AAModClassic.Projectiles.Zero
 
         public override void OnKill(int timeLeft)
         {
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
-            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<GBoom2>(), Projectile.damage, 2, Projectile.owner);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), Projectile.Center);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<GBoom2>(), Projectile.damage, 2, Projectile.owner);
         }
 
         public virtual void Effects()

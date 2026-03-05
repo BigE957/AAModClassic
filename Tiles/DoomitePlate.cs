@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles
             Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DoomiteScrap").Type;
+            RegisterItemDrop(Mod.Find<ModItem>("DoomiteScrap").Type);
             AddMapEntry(new Color(51, 48, 61));
             MinPick = 0;
         }

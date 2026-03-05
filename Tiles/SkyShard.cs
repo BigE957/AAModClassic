@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = false;
             Main.tileSolid[Type] = false;
             Main.tileBlendAll[Type] = false;
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             DustType = DustID.BlueCrystalShard;
             AddMapEntry(Color.SkyBlue);

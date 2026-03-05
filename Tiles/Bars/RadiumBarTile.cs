@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace AAModClassic.Tiles.Bars
     {
         public override void SetStaticDefaults()
         {
-            HitSound = 21;
+            HitSound = SoundID.Tink;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;

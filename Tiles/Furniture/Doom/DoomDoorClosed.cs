@@ -45,9 +45,9 @@ namespace AAModClassic.Tiles.Furniture.Doom
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = Mod.Find<ModTile>("DoomDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("DoomDoorOpen").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -62,7 +62,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("DoomDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("DoomDoor").Type);
         }
 
         public override void MouseOver(int i, int j)
@@ -140,9 +140,9 @@ namespace AAModClassic.Tiles.Furniture.Doom
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
             DustType = Mod.Find<ModDust>("DoomDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            closeDoorID = Mod.Find<ModTile>("DoomDoorClosed").Type;
+            TileID.Sets.CloseDoorID[Type] = Mod.Find<ModTile>("DoomDoorClosed").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -157,7 +157,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, Mod.Find<ModItem>("DoomDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("DoomDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

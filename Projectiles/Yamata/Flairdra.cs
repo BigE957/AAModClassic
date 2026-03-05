@@ -89,7 +89,7 @@ namespace AAModClassic.Projectiles.Yamata
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }
@@ -99,15 +99,15 @@ namespace AAModClassic.Projectiles.Yamata
             if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.Next(2) == 0)
             {
             target.immune[Projectile.owner] = 1;
-                SoundEngine.PlaySound(soundID.Item124);
+                SoundEngine.PlaySound(SoundID.Item124);
                 float spread = 12f * 0.0174f;
                 double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
                 double deltaAngle = spread / 3;
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 3, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 }
                 Projectile.netUpdate = true;
             }

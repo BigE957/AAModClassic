@@ -44,9 +44,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
             // name.SetDefault("Bogwood Door");
             AddMapEntry(new Color(162, 184, 185), name);
             DustType = Mod.Find<ModDust>("BogwoodDust").Type;
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            openDoorID = Mod.Find<ModTile>("BogwoodDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("BogwoodDoorOpen").Type;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -61,7 +61,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 48, Mod.Find<ModItem>("BogwoodDoor").Type);
+            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("BogwoodDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

@@ -55,8 +55,8 @@ namespace AAModClassic.Projectiles.Zero
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.Yamata, true);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.ZeroShield, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.Yamata, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, new Rectangle(0, 0, tex.Width, tex.Height), AAColor.ZeroShield, true);
             return false;
         }
     }

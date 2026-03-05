@@ -23,9 +23,9 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             //true for block to emit light
-            HitSound = 21;
+            HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DaybreakIncineriteOre").Type;   
+            RegisterItemDrop(Mod.Find<ModItem>("DaybreakIncineriteOre").Type);   
             DustType = Mod.Find<ModDust>("AkumaADust").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Daybreak Incinerite Ore");

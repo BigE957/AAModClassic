@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.addTile(Type);
             Main.tileHammer[Type] = true;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Abyss Altar");
             DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
