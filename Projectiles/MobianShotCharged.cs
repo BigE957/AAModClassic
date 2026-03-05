@@ -46,8 +46,7 @@ namespace AAModClassic.Projectiles
 		public override void OnKill(int timeLeft)
 		{
 			SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-			int p = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
-			Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
 			Main.projectile[p].DamageType = DamageClass.Ranged;
 			for (int index1 = 0; index1 < 30; ++index1)
 			{

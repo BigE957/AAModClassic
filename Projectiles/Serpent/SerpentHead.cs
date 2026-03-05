@@ -167,7 +167,7 @@ namespace AAModClassic.Projectiles.Serpent
                 }
             }
 
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon);
+            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
             Projectile.damage = (int)(DamageBoost > 0f? ((10 + (Projectile.localAI[0] > 10? 10 : (Projectile.localAI[0] - 1))) * DamageBoost) : 1);
         }
     }

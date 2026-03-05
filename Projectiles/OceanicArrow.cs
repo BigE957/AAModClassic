@@ -26,7 +26,7 @@ namespace AAModClassic.Projectiles
 
 		public override void ModifyHitNPC (NPC target, ref NPC.HitModifiers modifiers)
 		{
-			damage *= 2;
+			modifiers.TargetDamageMultiplier *= 2;
 		}
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -44,8 +44,7 @@ namespace AAModClassic.Projectiles
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage/4, 0, Main.myPlayer);
-				Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage/4, 0, Main.myPlayer);
 				Main.projectile[proj].DamageType = DamageClass.Ranged;
 			}
 		}

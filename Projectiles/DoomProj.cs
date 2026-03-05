@@ -37,8 +37,8 @@ namespace AAModClassic.Projectiles
             Texture2D t = TextureAssets.Projectile[Projectile.type].Value;
             Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
 
-            BaseDrawing.DrawTexture(spriteBatch, t, 0, Projectile, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, Projectile, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, t, 0, Projectile, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Glow, 0, Projectile, Color.White, true);
             return false;
         }
 
@@ -54,8 +54,8 @@ namespace AAModClassic.Projectiles
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), (int)Projectile.Center.X, (int)Projectile.Center.Y);
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DoomBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Glitch"), Projectile.Center);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DoomBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

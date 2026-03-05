@@ -43,8 +43,7 @@ namespace AAModClassic.Projectiles
 
             if (Projectile.ai[0] % 5 == 0)
             {
-                int p = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AxisSnow").Type, Projectile.damage, Projectile.knockBack * 0.55f, Projectile.owner, 0f, Main.rand.Next(3));
-                Main.projectile[p].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AxisSnow").Type, Projectile.damage, Projectile.knockBack * 0.55f, Projectile.owner, 0f, Main.rand.Next(3));
                 Main.projectile[p].DamageType = DamageClass.Ranged;
                 Projectile.netUpdate = true;
             }
@@ -87,8 +86,8 @@ namespace AAModClassic.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, new Color(35, 23, 87));
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, new Color(35, 23, 87));
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, false);
             return false;
         }
     }

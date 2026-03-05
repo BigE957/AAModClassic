@@ -95,7 +95,7 @@ namespace AAModClassic.Projectiles.Yamata
             if(target.life<=0)
            {
               Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AEBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(soundID.Item124);
             float spread = 12f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 15;

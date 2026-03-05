@@ -38,7 +38,7 @@ namespace AAModClassic.Projectiles
             else if (Projectile.ai[0] > 90f)
                 num26 = 15f;
 
-            Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic));
+            Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic)).Flat;
             Projectile.ai[0]++;
             Projectile.ai[1]++;
             bool flag9 = false;
@@ -99,7 +99,7 @@ namespace AAModClassic.Projectiles
                             vector12 = -Vector2.UnitY;
 
                         int num29 = Projectile.damage;
-                        Projectile.NewProjectile(center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralBeam").Type,
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralBeam").Type,
                                num29, Projectile.knockBack, Projectile.owner, 0, Projectile.whoAmI);
                         Projectile.netUpdate = true;
                     }

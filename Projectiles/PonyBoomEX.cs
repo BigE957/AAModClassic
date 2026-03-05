@@ -67,7 +67,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ModContent.ProjectileType<PonyBoomEX2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ModContent.ProjectileType<PonyBoomEX2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
     }

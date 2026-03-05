@@ -51,7 +51,7 @@ namespace AAModClassic.Projectiles.Ammo
                 num567 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AkumaADust>(), 0f, 0f, 100);
                 Main.dust[num567].velocity *= 2f;
             }
-            int num568 = Gore.NewGore(new Vector2(Projectile.position.X - 10f, Projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
+            int num568 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X - 10f, Projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
             Main.gore[num568].velocity *= 0.3f;
             Gore expr_12836_cp_0 = Main.gore[num568];
             expr_12836_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
@@ -79,8 +79,7 @@ namespace AAModClassic.Projectiles.Ammo
             target.immune[Projectile.owner] = 5;
             { }
             target.AddBuff(BuffID.Daybreak, 200);
-            int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            int proj = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Main.projectile[proj].DamageType = DamageClass.Ranged;
 
         }

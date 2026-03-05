@@ -251,7 +251,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
                             Vector2 value4 = vector - Projectile.Center;
                             value4.Normalize();
                             value4 *= scaleFactor4;
-                            int num33 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value4.X*2, value4.Y*2, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X*2, value4.Y*2, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num33].timeLeft = 300;
                             Main.projectile[num33].netUpdate = true;
                             Projectile.netUpdate = true;
@@ -273,8 +273,8 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, lightColor, false);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/RoyalRabbit_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, Main.DiscoColor, false);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, lightColor, false);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/RoyalRabbit_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, Main.DiscoColor, false);
             return false;
         }
     }

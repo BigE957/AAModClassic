@@ -89,7 +89,7 @@ namespace AAModClassic.Projectiles.AH
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int Boom = Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<MagicBoom>(), damage, knockback, Main.myPlayer, 0, 0);
+            int Boom = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<MagicBoom>(), hit.Damage, hit.Knockback, Main.myPlayer, 0, 0);
             Main.projectile[Boom].Center = Projectile.Center;
         }
     }

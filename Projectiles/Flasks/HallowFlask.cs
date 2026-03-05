@@ -33,7 +33,7 @@ namespace AAModClassic.Projectiles.Flasks
         {
             Texture2D tex = Mod.GetTexture("Projectiles/Flasks/HallowFlask");
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, tex.Width, tex.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
             return false;
         }
 

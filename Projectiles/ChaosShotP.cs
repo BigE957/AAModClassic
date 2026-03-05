@@ -135,7 +135,7 @@ namespace AAModClassic.Projectiles
                     -Projectile.velocity.Y * 0.2f, 100, new Color(Main.DiscoR, 0, Main.DiscoB));
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("PerfectChaosE").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("PerfectChaosE").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
         
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

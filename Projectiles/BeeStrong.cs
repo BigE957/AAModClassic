@@ -16,7 +16,7 @@ namespace AAModClassic.Projectiles
         {
             if (target.defense < 300 && !target.boss)
             {
-                damage += target.defense * 2;
+                modifiers.FlatBonusDamage += target.defense * 2;
             }
         }
     }

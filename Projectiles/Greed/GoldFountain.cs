@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles.Greed
             if (FountainCount < 1) FountainCount = 1;
             if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0]++ >= 5 * FountainCount)
             {
-                Projectile.NewProjectile(Projectile.position.X + 30f, Projectile.position.Y + 30f, Main.rand.Next(-3, 4), Main.rand.Next(-3, 10), ModContent.ProjectileType<Gold>(), Projectile.damage, 1, Projectile.owner, 0, 0);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + 30f, Projectile.position.Y + 30f, Main.rand.Next(-3, 4), Main.rand.Next(-3, 10), ModContent.ProjectileType<Gold>(), Projectile.damage, 1, Projectile.owner, 0, 0);
                 Projectile.ai[0] = 0;
                 Projectile.netUpdate = true;
             }

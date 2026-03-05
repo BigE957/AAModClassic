@@ -20,7 +20,6 @@ namespace AAModClassic.Projectiles
 			AIType = ProjectileID.BoulderStaffOfEarth;
             Projectile.width = 32;
             Projectile.height = 32;
-            Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 1;
             Projectile.hostile = false;

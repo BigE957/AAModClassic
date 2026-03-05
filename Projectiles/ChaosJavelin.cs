@@ -26,7 +26,7 @@ namespace AAModClassic.Projectiles
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<ChaosBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Main.rand.Next(2), 0);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<ChaosBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Main.rand.Next(2), 0);
         }
 
         public override void AI()

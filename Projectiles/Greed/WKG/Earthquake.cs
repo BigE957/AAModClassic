@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.velocity.Y = knockback * target.knockBackResist;
+            target.velocity.Y = modifiers.Knockback.Flat * target.knockBackResist;
         }
     }
 }

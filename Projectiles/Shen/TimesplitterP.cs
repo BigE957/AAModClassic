@@ -105,7 +105,7 @@ namespace AAModClassic.Projectiles.Shen
             num6 = num5 / num6;
             velocityX *= num6;
             velocityY *= num6;
-            Projectile p = Projectile.NewProjectileDirect(new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<CosmicBlow>(), damage*4, 0f, player.whoAmI);
+            Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<CosmicBlow>(), damageDone*4, 0f, player.whoAmI);
             p.tileCollide = false;
         }
     }

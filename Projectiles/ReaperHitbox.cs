@@ -36,11 +36,11 @@ namespace AAModClassic.Projectiles
 			Player player = Main.player[Projectile.owner]; 
 			if (player.HasBuff(Mod.Find<ModBuff>("ReaperImmune2").Type))
 			{
-				damage *= 15;
+				modifiers.TargetDamageMultiplier *= 15;
 			}
 			else if (player.HasBuff(Mod.Find<ModBuff>("ReaperImmune").Type))
 			{
-				damage *= 10;
+				modifiers.TargetDamageMultiplier *= 10;
 			}
 		}
 	}

@@ -97,8 +97,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
-                int p = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<CarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
-                Main.projectile[p].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<CarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 Main.projectile[p].DamageType = DamageClass.Melee;
                 return;
             }

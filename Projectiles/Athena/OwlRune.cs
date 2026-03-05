@@ -194,7 +194,7 @@ namespace AAModClassic.Projectiles.Athena
                         value19.Normalize();
                         value19 *= 8;
                         Vector2 perturbedSpeed = value19.RotatedByRandom(MathHelper.ToRadians(10));
-                        int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[num659].timeLeft = 300;
                         Projectile.netUpdate = true;
                     }
@@ -208,7 +208,7 @@ namespace AAModClassic.Projectiles.Athena
         {
             Texture2D tex = Mod.GetTexture("Projectiles/Athena/OwlRune");
             Rectangle SunFrame = new Rectangle(0, 0, tex.Width, tex.Height);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 1, SunFrame, Projectile.GetAlpha(Color.White), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 1, SunFrame, Projectile.GetAlpha(Color.White), true);
             return false;
         }
     }

@@ -15,7 +15,6 @@ namespace AAModClassic.Projectiles
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(106);
-			Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = -1;  
             Projectile.width = 22;
@@ -66,7 +65,7 @@ namespace AAModClassic.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 1, frame, Color.White, true);
             return false;
         }
     }

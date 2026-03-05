@@ -397,12 +397,12 @@ namespace AAModClassic.Projectiles.Greed.WKG
 			{
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
 				Color color = Projectile.GetAlpha(lightColor) * ((3 - k) / (float)3);
-				spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 
             if (Projectile.ai[1] == ItemID.DemoniteOre || Projectile.ai[1] == Mod.Find<ModItem>("Abyssium").Type || Projectile.ai[1] == ItemID.LunarOre || Projectile.ai[1] == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
             {
-                spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, Projectile.position, null, lightColor, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, Projectile.position, null, lightColor, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
             else if(Projectile.ai[1] > 3930 && ItemLoader.GetItem((int) Projectile.ai[1]).Mod != null)
 			{
@@ -572,7 +572,6 @@ namespace AAModClassic.Projectiles.Greed.WKG
 						vector3.Normalize();
 						vector3 *= Main.rand.Next(70, 101) * 0.1f;
 						int num22 = NewProjectile(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2, vector3.X, vector3.Y, 206, Projectile.damage / 2, 0f, Projectile.owner, 0f, 0f);
-						Main.projectile[num22].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                         Main.projectile[num22].DamageType = DamageClass.Ranged;
 						Main.projectile[num22].netUpdate = true;
 					}
@@ -604,7 +603,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             int k = (int)Projectile.ai[1];
             if(k == ItemID.CopperOre)
             {
-                damage = (int)(damage * 1.1f);
+                modifiers.TargetDamageMultiplier *= 1.1f;
             }
             else if(k == ItemID.IronOre)
             {
@@ -622,7 +621,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 {
                     for (int i = 0; i < 200; i++)
                     {
-                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHit(Main.npc[i])))
+                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && ((Projectile.friendly && (!Main.npc[i].friendly || Projectile.type == ProjectileID.RottenEgg || (Main.npc[i].type == NPCID.Guide && Projectile.owner < 255 && Main.player[Projectile.owner].killGuide) || (Main.npc[i].type == NPCID.Clothier && Projectile.owner < 255 && Main.player[Projectile.owner].killClothier))) || (Projectile.hostile && Main.npc[i].friendly && !Main.npc[i].dontTakeDamageFromHostiles)) && (Projectile.owner < 0 || Main.npc[i].immune[Projectile.owner] == 0 || Projectile.maxPenetrate == 1) && (Main.npc[i].noTileCollide || !Projectile.ownerHitCheck || Projectile.CanHitWithOwnBody(Main.npc[i])))
                         {
                             bool flag;
                             if (Main.npc[i].type == NPCID.SolarCrawltipedeTail)
@@ -641,9 +640,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
                             }
                             if (flag)
                             {
-                                if (Main.npc[i].reflectingProjectiles && Projectile.CanReflect())
+                                if (Main.npc[i].reflectsProjectiles && Projectile.CanBeReflected())
                                 {
-                                    Main.npc[i].ReflectProjectile(Projectile.whoAmI);
+                                    Main.npc[i].ReflectProjectile(Projectile);
                                     return;
                                 }
                                 Projectile.ai[0] = 1f;
@@ -663,12 +662,12 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 target.AddBuff(BuffID.Midas, 180);
                 if(k == ItemID.GoldOre)
                 {
-                    damage += (int)(target.defense * (Main.expertMode? 0.75f : 0.5f));
+                    modifiers.FlatBonusDamage += (int)(target.defense * (Main.expertMode? 0.75f : 0.5f));
                 }
                 if(k == ItemID.PlatinumOre && Main.rand.Next(5) == 0)
                 {
                     int itemcreat = 0;
-                    itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, ItemID.SilverCoin, Main.rand.Next(15, 20), false, 0, false, false);
+                    itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, ItemID.SilverCoin, Main.rand.Next(15, 20), false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                     {
                         NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
@@ -677,7 +676,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if(k == ItemID.DemoniteOre)
             {
-                damage += 50;
+                modifiers.FlatBonusDamage += 50;
                 if (Main.rand.Next(5) == 0)
                 {
                     target.AddBuff(BuffID.ShadowFlame, 180);
@@ -689,8 +688,8 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 {
                     return;
                 }
-                Main.player[Main.myPlayer].lifeSteal -= (float)(damage * 0.02);
-                NewProjectile(target.position.X, target.position.Y, 0f, 0f, 305, 0, 0f, Projectile.owner, Projectile.owner, (float)(damage * 0.02));
+                Main.player[Main.myPlayer].lifeSteal -= (float)(modifiers.FinalDamage.Flat * 0.02);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f, 305, 0, 0f, Projectile.owner, Projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
                 if (Main.rand.Next(5) == 0)
                 {
                     target.AddBuff(BuffID.Confused, 180);
@@ -714,7 +713,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                         num825 *= num826;
                         num824 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
                         num825 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
-                        int p = NewProjectile(vector109.X, vector109.Y, num824, num825, Main.rand.Next(326, 329), damage, 0f, Main.myPlayer, 0f, 0f);
+                        int p = NewProjectile(vector109.X, vector109.Y, num824, num825, Main.rand.Next(326, 329), (int)modifiers.FinalDamage.Flat, 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[p].DamageType = DamageClass.Ranged;
                         Main.projectile[p].hostile = false;
                         Main.projectile[p].friendly = true;
@@ -735,7 +734,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     {
                         shoot = new Vector2((float)Math.Sin(shootid * 0.125f * Math.PI), (float)Math.Cos(shootid * 0.125f * Math.PI));
                         shoot *= 10f;
-                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, damage/2, 5, Main.myPlayer, 0, Mod.Find<ModItem>("DynaskullOre").Type);
+                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, (int)(modifiers.FinalDamage.Flat /2), 5, Main.myPlayer, 0, Mod.Find<ModItem>("DynaskullOre").Type);
                         Main.projectile[p].ai[0] = 1f;
                         Main.projectile[p].scale /= 2;
                         Main.projectile[p].width /= 2;
@@ -759,7 +758,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     num825 *= num826;
                     num824 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
                     num825 *= 1f + Main.rand.Next(-30, 31) * 0.01f;
-                    int p = NewProjectile(vector109.X, vector109.Y, num824, num825, Main.rand.Next(326, 329), damage, 0f, Main.myPlayer, 0f, 0f);
+                    int p = NewProjectile(vector109.X, vector109.Y, num824, num825, Main.rand.Next(326, 329), (int)modifiers.FinalDamage.Flat, 0f, Main.myPlayer, 0f, 0f);
                     Main.projectile[p].DamageType = DamageClass.Ranged;
                     Main.projectile[p].hostile = false;
                     Main.projectile[p].friendly = true;
@@ -1005,7 +1004,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     if(!target.SpawnedFromStatue && (target.damage > 5 || target.boss) && target.lifeMax > 100 && Main.rand.Next(5) == 0)
                     {
                         int itemcreat = 0;
-                        itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, 58, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, 58, 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                         {
                             NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
@@ -1013,7 +1012,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                         if(Main.bloodMoon)
                         {
                             int droptype = ModSupport.GetModItem("CalamityMod", "BloodOrb").Item.type;
-                            itemcreat = Item.NewItem((int)target.position.X, (int)target.position.Y, 16, 16, droptype, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Projectile.GetSource_DropAsItem(), (int)target.position.X, (int)target.position.Y, 16, 16, droptype, 1, false, 0, false, false);
                             if (Main.netMode == NetmodeID.MultiplayerClient && itemcreat > 0)
                             {
                                 NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
@@ -1116,7 +1115,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 Projectile.tileCollide = false;
                 for (int num291 = 0; num291 < 5; num291++)
                 {
-                    int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Moonraze>(), 0f, 0f, 100);
+                    int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<AAModClassic.Dusts.Moonraze>(), 0f, 0f, 100);
                     Main.dust[num292].velocity *= 2f;
                     Main.dust[num292].noGravity = true;
                 };
@@ -1536,28 +1535,22 @@ namespace AAModClassic.Projectiles.Greed.WKG
 
         private int NewProjectile(float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float Knockback, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
         {
-            int proj = Projectile.NewProjectile(X, Y, Velocity.X, velocity.Y, Type, Damage, Knockback, Owner, ai0, ai1);
+            int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), X, Y, SpeedX, SpeedY, Type, Damage, Knockback, Owner, ai0, ai1);
             Main.projectile[proj].hostile = false;
             Main.projectile[proj].friendly = true;
-            Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].DamageType = DamageClass.Ranged;
-            Main.projectile[proj].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].minion = false;
-            Main.projectile[proj].thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].sentry = false;
             return proj;
         }
 
         private int NewProjectile(Vector2 position, Vector2 velocity, int Type, int Damage, float Knockback, int Owner = 255, float ai0 = 0f, float ai1 = 0f)
 		{
-            int proj = Projectile.NewProjectile(position, velocity, Type, Damage, Knockback, Owner, ai0, ai1);
+            int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), position, velocity, Type, Damage, Knockback, Owner, ai0, ai1);
             Main.projectile[proj].hostile = false;
             Main.projectile[proj].friendly = true;
-            Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].DamageType = DamageClass.Ranged;
-            Main.projectile[proj].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].minion = false;
-            Main.projectile[proj].thrown = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].sentry = false;
             return proj;
         }

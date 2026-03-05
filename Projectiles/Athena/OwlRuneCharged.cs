@@ -204,7 +204,7 @@ namespace AAModClassic.Projectiles.Athena
                     Vector2 vector82 = array5[num842] - Projectile.Center;
                     float ai = Main.rand.Next(100);
                     Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 10f;
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<AthenaShockF>(), Projectile.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<AthenaShockF>(), Projectile.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                 }
             }
             Lighting.AddLight(Projectile.Center, 0f, 0.85f, 0.9f);
@@ -263,7 +263,7 @@ namespace AAModClassic.Projectiles.Athena
             }
             Texture2D tex = Mod.GetTexture("Projectiles/Athena/OwlRuneCharged");
             Rectangle SunFrame = new Rectangle(Projectile.frame, 0, tex.Width, tex.Height / 4);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 4, SunFrame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 4, SunFrame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;
         }
     }

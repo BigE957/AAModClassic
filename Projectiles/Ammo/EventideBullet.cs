@@ -57,7 +57,7 @@ namespace AAModClassic.Projectiles.Ammo
             {
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
 				Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-				spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
 
             dontDrawDelay = Math.Max(0, dontDrawDelay - 1);
@@ -71,7 +71,7 @@ namespace AAModClassic.Projectiles.Ammo
 
             if (target.defense < 300 && !target.boss)
             {
-                damage += target.defense * 2;
+                hit.Damage += target.defense * 2;
             }
             {
                 int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
@@ -86,7 +86,7 @@ namespace AAModClassic.Projectiles.Ammo
         {
             if (initialPos != null && initialVel != null)
             {
-                Projectile.NewProjectile((Vector2)initialPos, (Vector2)initialVel, Mod.Find<ModProjectile>("EventideBullet1").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), (Vector2)initialPos, (Vector2)initialVel, Mod.Find<ModProjectile>("EventideBullet1").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
             }
             int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[num580].noGravity = true;

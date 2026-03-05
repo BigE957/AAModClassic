@@ -67,7 +67,7 @@ namespace AAModClassic.Projectiles
             {
                 return;
             }
-            float Heal = damage * 0.075f;
+            float Heal = damageDone * 0.075f;
             if ((int)Heal == 0)
             {
                 return;
@@ -78,7 +78,7 @@ namespace AAModClassic.Projectiles
             }
             Main.LocalPlayer.lifeSteal -= Heal;
             int num2 = Projectile.owner;
-            Projectile.NewProjectile(target.position.X, target.position.Y, 0f, 0f, Mod.Find<ModProjectile>("SoulSiphonHeal").Type, 0, 0f, Projectile.owner, num2, Heal);
+            Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, Mod.Find<ModProjectile>("SoulSiphonHeal").Type, 0, 0f, Projectile.owner, num2, Heal);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

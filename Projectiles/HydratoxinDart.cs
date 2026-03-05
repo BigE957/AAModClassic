@@ -62,7 +62,7 @@ namespace AAModClassic.Projectiles
 					Projectile.timeLeft -= 20;
 				}
 				Projectile.ai[1] = 0f;
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 8f, Mod.Find<ModProjectile>("HydratoxinDrop").Type, Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 8f, Mod.Find<ModProjectile>("HydratoxinDrop").Type, Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
 			}
 		}
 
@@ -74,7 +74,7 @@ namespace AAModClassic.Projectiles
 			{
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
 				Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-				spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 			return true;
 		}

@@ -42,15 +42,15 @@ namespace AAModClassic.Projectiles
             {
                 int x = Main.rand.Next(-6, 6);
                 int y = -Main.rand.Next(3, 5);
-                int p = Projectile.NewProjectile(Projectile.position, new Vector2(x, y), ProjectileID.PineNeedleFriendly, Projectile.damage, Projectile.knockBack, Main.myPlayer);
+                int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(x, y), ProjectileID.PineNeedleFriendly, Projectile.damage, Projectile.knockBack, Main.myPlayer);
                 Main.projectile[p].Center = Projectile.Center - new Vector2(0, 14);
             }
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 1f, 1f, 5, false, 0f, 0f, lightColor);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return false;
         }
     }

@@ -80,7 +80,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
                 Projectile.height = height;
                 Projectile.Center = Projectile.position;
             }
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(null), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
             return false;
@@ -109,22 +109,22 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
 
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, Main.DiscoColor);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, false);
             return false;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<InfinityOverload>(), 120);
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }
 
         public override void OnKill(int i)
         {
-            int p = Projectile.NewProjectile((int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;
         }

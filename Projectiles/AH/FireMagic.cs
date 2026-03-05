@@ -66,21 +66,21 @@ namespace AAModClassic.Projectiles.AH
 		
 		public override void OnKill (int timeLeft)
 		{
-			SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+			SoundEngine.PlaySound(SoundID.Item124);
 			float spread = 12f * 0.0174f;
 			double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
 			double deltaAngle = spread / 4;
 			for (int i = 0; i < 4; i++)
 			{
 				double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 		}
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MagicBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
+            Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MagicBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
             Projectile.active = false;

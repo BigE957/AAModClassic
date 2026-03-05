@@ -65,7 +65,7 @@ namespace AAModClassic.Projectiles.Shen
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             EnemyHit = true;
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
         }
 
         public override void OnKill(int timeLeft)
@@ -82,12 +82,12 @@ namespace AAModClassic.Projectiles.Shen
             }
             if (TileHit)
             {
-                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorStrikeRed").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorStrikeRed").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             if (EnemyHit)
             {
-                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorBoomRed").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorBoomRed").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
         }

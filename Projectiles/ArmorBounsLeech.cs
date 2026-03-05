@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles
         {
             target.immune[Projectile.owner] = 0;
             Projectile.localNPCImmunity[target.whoAmI] = -1;
-            effectPotency = (int)(damage * potencyFactor);
+            effectPotency = (int)(hit.Damage * potencyFactor);
             if (effectPotency > 0)
             {
                 Projectile.timeLeft = 120;

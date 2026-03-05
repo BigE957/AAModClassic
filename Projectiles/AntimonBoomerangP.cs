@@ -17,7 +17,6 @@ namespace AAModClassic.Projectiles
 			Projectile.aiStyle = ProjAIStyleID.Boomerang;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Projectile.penetrate = 5;
 			Projectile.timeLeft = 600;
 			Projectile.light = 0.9f;

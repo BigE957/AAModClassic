@@ -73,7 +73,7 @@ namespace AAModClassic.Projectiles
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, width, height / 3, 0, 0);
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, 1f, Projectile.rotation, 0, 3, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, 1f, Projectile.rotation, 0, 3, frame, lightColor, true);
             return false;
         }
     }

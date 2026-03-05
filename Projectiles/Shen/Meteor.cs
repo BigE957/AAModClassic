@@ -81,12 +81,12 @@ namespace AAModClassic.Projectiles.Shen
             }
             if (TileHit)
             {
-                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorStrike").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorStrike").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             if (EnemyHit)
             {
-                int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("MeteorBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
         }

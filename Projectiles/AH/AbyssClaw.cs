@@ -224,7 +224,7 @@ namespace AAModClassic.Projectiles.AH
 						Vector2 speed = position - Projectile.Center;
 						speed.Normalize();
 						speed *= speedScale;
-						int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, speed.X, speed.Y, shoot, (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, 0f);
+						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, speed.X, speed.Y, shoot, (int)(Projectile.damage * 0.8f), 0f, Main.myPlayer, 0f, 0f);
 						Main.projectile[num659].timeLeft = 300;
 						Projectile.netUpdate = true;
 					}

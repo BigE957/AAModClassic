@@ -42,7 +42,7 @@ namespace AAModClassic.Projectiles
 			
 			if (Main.rand.NextBool(2))
 			{
-				Item.NewItem((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("HydraFang").Type);
+				Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("HydraFang").Type);
 			};
 		}
 		private const int alphaReduction = 25;

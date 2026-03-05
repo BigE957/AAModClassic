@@ -93,7 +93,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<ChaosBoomEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<ChaosBoomEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
             int pieCut = 20;
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int m = 0; m < pieCut; m++)
@@ -116,7 +116,7 @@ namespace AAModClassic.Projectiles
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, RingRotation, Projectile.direction, 1, frame, lightColor, true);
             return false;
         }
     }

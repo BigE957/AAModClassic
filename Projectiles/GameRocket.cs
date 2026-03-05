@@ -99,7 +99,7 @@ namespace AAModClassic.Projectiles
         {
             int pieCut = 20;
             SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/Moo"), Projectile.Center);
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, 0, 0, Mod.Find<ModProjectile>("GameBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, 0, 0, Mod.Find<ModProjectile>("GameBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
             for (int m = 0; m < pieCut; m++)
             {
                 int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<InfinityOverloadR>(), 0f, 0f, 100, Color.White, 1.6f);

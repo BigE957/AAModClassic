@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles
             {
                 for (int k = 0; k < Main.rand.Next(3) + 5; k++)
                 {
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, Mod.Find<ModProjectile>("Drop").Type, Projectile.damage, 2f, Projectile.owner,0f,0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, Mod.Find<ModProjectile>("Drop").Type, Projectile.damage, 2f, Projectile.owner,0f,0f);
                 }
             }
         }

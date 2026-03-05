@@ -91,7 +91,7 @@ namespace AAModClassic.Projectiles
             }
             if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer)
             {
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 7, ModContent.ProjectileType<AsgardianIce>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 7, ModContent.ProjectileType<AsgardianIce>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }

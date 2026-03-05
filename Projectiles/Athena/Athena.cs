@@ -263,7 +263,7 @@ namespace AAModClassic.Projectiles.Athena
                             for (int i = 0; i < 3; i++)
                             {
                                 double offsetAngle = startAngle + (deltaAngle * i);
-                                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), num658, Projectile.damage, 5, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), num658, Projectile.damage, 5, Main.myPlayer);
                             }
                             return;
                         case 2:
@@ -289,13 +289,11 @@ namespace AAModClassic.Projectiles.Athena
                         Vector2 value19 = vector46 - Projectile.Center;
                         value19.Normalize();
                         value19 *= scaleFactor3;
-                        int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 
                         Main.projectile[num659].hostile = false;
                         Main.projectile[num659].friendly = true;
-                        Main.projectile[num659].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-                        Main.projectile[num659].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-                        Main.projectile[num659].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                        Main.projectile[num659].DamageType = DamageClass.Summon;
                         Main.projectile[num659].minion = true;
 
                         Main.projectile[num659].timeLeft = 300;

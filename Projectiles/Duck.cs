@@ -111,15 +111,15 @@ namespace AAModClassic.Projectiles
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int p = Projectile.NewProjectile(Projectile.Center, new Vector2(0, 0), Projectile.ai[1] == 1 ? ModContent.ProjectileType<Ducksplosion1>() : ModContent.ProjectileType<Ducksplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0, 0), Projectile.ai[1] == 1 ? ModContent.ProjectileType<Ducksplosion1>() : ModContent.ProjectileType<Ducksplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             Main.projectile[p].Center = Projectile.Center;
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 14, 0, 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, new Color(100, 200, 0, 0), frame, 14);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 14, frame, Color.White, true);
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, .5f, 1f, 10, false, 0f, 0f, new Color(100, 200, 0, 0), frame, 14);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 14, frame, Color.White, true);
             return false;
         }
     }

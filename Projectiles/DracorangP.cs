@@ -9,7 +9,6 @@ namespace AAModClassic.Projectiles
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(106);
-			Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = -1;  
             Projectile.width = 22;
@@ -26,7 +25,7 @@ namespace AAModClassic.Projectiles
 		public override void AI()
 		{
 			int type = Main.rand.Next(326,328);
-			int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, type, Projectile.damage/3, 0, Main.myPlayer);
+			int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, type, Projectile.damage/3, 0, Main.myPlayer);
 			Main.projectile[proj].hostile = false;
 			Main.projectile[proj].friendly = true;
 			Main.projectile[proj].penetrate = 1;

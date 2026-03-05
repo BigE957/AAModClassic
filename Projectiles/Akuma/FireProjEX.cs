@@ -54,7 +54,7 @@ namespace AAModClassic.Projectiles.Akuma
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjEXBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjEXBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles.Akuma
 			if (Projectile.ai[0] == 3f) texture = Mod.GetTexture("Projectiles/Akuma/FireProjEX3");
 			if (Projectile.ai[0] == 4f) texture = Mod.GetTexture("Projectiles/Akuma/FireProjEX4");
 			if (Projectile.ai[0] == 5f) texture = Mod.GetTexture("Projectiles/Akuma/FireProjEX5");
-            spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
+            Main.spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
                         new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
                         new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
             return false;

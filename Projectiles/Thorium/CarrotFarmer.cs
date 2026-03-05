@@ -38,7 +38,7 @@ namespace AAModClassic.Projectiles.Thorium
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 8;
+            target.immune[Projectile.owner] = 8;
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)

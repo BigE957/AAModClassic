@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile((int)Projectile.position.X, (int)Projectile.position.Y, 0, 0, ModContent.ProjectileType<MSRT>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.position.X, (int)Projectile.position.Y, 0, 0, ModContent.ProjectileType<MSRT>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             for (int num468 = 0; num468 < 5; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DarkmatterDust>(), -Projectile.velocity.X * 0.6f, -Projectile.velocity.Y * 0.6f, 100, default, 2f);
@@ -66,7 +66,7 @@ namespace AAModClassic.Projectiles
           }
         public override bool PreDraw(ref Color lightColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, Color.White, true);
             Projectile.frameCounter++;
             if (Projectile.frameCounter >= 10)
             {

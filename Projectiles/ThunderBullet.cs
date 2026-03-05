@@ -53,14 +53,14 @@ namespace AAModClassic.Projectiles
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(soundID.Item124);
             Projectile.localNPCImmunity[target.whoAmI] = -1;
             target.immune[Projectile.owner] = 0;
             target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
             if(target.life<=0)
            {
               Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("ThunderBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(soundID.Item124);
            }
             for (int k = 0; k < 200; k++)
             {

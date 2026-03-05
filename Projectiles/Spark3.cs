@@ -82,7 +82,7 @@ namespace AAModClassic.Projectiles
         {
             SoundEngine.PlaySound(SoundID.Item89);
 
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("SparkBoom3").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("SparkBoom3").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
         }
     }
 }

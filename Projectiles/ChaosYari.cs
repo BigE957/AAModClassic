@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles
 				if (Projectile.localAI[0] == 0f && Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(Mod.Find<ModProjectile>("ChaosYariShot").Type))
 				{
 					Projectile.localAI[0] = 1f;
-					Projectile.NewProjectile(Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, Projectile.velocity.X * 1.4f, Projectile.velocity.Y * 1.4f, Mod.Find<ModProjectile>("ChaosYariShot").Type, (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Main.player[Projectile.owner].position.X, Main.player[Projectile.owner].position.Y, Projectile.velocity.X * 1.4f, Projectile.velocity.Y * 1.4f, Mod.Find<ModProjectile>("ChaosYariShot").Type, (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
 				}
         	}
         	else

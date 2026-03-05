@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 8;
+            target.immune[Projectile.owner] = 8;
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
@@ -45,11 +45,11 @@ namespace AAModClassic.Projectiles
             Player player = Main.player[Projectile.owner];
             if (target.Center.X < player.Center.X)
             {
-                hitDirection = -1;
+                modifiers.HitDirectionOverride = -1;
             }
             else
             {
-                hitDirection = 1;
+                modifiers.HitDirectionOverride = 1;
             }
         }
 
@@ -77,13 +77,13 @@ namespace AAModClassic.Projectiles
             Projectile.position.X = player.Center.X - (Projectile.width / 2f);
             Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
 
-            Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 
             if (Projectile.timeLeft == 13)
             {
-                Projectile.NewProjectile(Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, Mod.Find<ModProjectile>("CursedSickleDamage2").Type, (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
             if (Projectile.timeLeft < 8)

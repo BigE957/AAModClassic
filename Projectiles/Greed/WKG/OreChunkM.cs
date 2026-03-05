@@ -79,9 +79,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 28, 0, 0);
             if (Projectile.ai[1] == 9 || Projectile.ai[1] == 11 || Projectile.ai[1] == 22 || Projectile.ai[1] == 26)
             {
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1, Projectile.rotation, Projectile.direction, 28, frame, .8f, 1, 4, true, 0, 0, lightColor);
+                BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 1, Projectile.rotation, Projectile.direction, 28, frame, .8f, 1, 4, true, 0, 0, lightColor);
             }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 28, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 28, frame, lightColor, true);
             return false;
         }
 
@@ -101,21 +101,18 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 for (int s = 0; s < 3; s++)
                 {
-                    int a = Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<OreSpores>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, s);
-                    Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                    int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<OreSpores>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, s);
                     Main.projectile[a].DamageType = DamageClass.Magic;
                 }
             }
             if (Projectile.ai[1] == 22)
             {
-                int a = Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, 0);
-                Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, 0);
                 Main.projectile[a].DamageType = DamageClass.Magic;
             }
             if (Projectile.ai[1] == 25)
             {
-                int a = Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
-                Main.projectile[a].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                int a = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
                 Main.projectile[a].DamageType = DamageClass.Magic;
             }
             if (Projectile.ai[1] == 27)
@@ -124,9 +121,8 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 {
                     int x = Main.rand.Next(-6, 6);
                     int y = -Main.rand.Next(3, 5);
-                    int p = Projectile.NewProjectile(Projectile.position, new Vector2(x, y), ModContent.ProjectileType<AFrag>(), Projectile.damage, 0, Main.myPlayer, 0, Main.rand.Next(23));
+                    int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(x, y), ModContent.ProjectileType<AFrag>(), Projectile.damage, 0, Main.myPlayer, 0, Main.rand.Next(23));
                     Main.projectile[p].Center = Projectile.Center;
-                    Main.projectile[p].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
                     Main.projectile[p].DamageType = DamageClass.Magic;
                 }
             }

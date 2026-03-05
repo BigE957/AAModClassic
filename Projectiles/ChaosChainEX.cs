@@ -102,12 +102,12 @@ namespace AAModClassic.Projectiles
             {
                 if (num168 > 1000)
                 {
-                    Projectile.NewProjectile(Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
                     Projectile.ai[0] = 1f;
                 }
                 else if (num168 > 500f)
                 {
-                    Projectile.NewProjectile(Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
                     Projectile.ai[0] = 1f;
                 }
                 Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
@@ -165,7 +165,7 @@ namespace AAModClassic.Projectiles
 		{
             if (Projectile.ai[0] == 0f)
             {
-                Projectile.NewProjectile(Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
             }
             target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 240);
         }
@@ -174,7 +174,7 @@ namespace AAModClassic.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = Mod.GetTexture("Chains/ChaosChainEX_Chain");
-            BaseDrawing.DrawChain(spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
             Texture2D Tex = Mod.GetTexture("Projectiles/ChaosChainEXSaw");
             Texture2D Tex2 = Mod.GetTexture("Projectiles/ChaosChainEXSphere");
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
@@ -182,11 +182,11 @@ namespace AAModClassic.Projectiles
             {
                 if (Projectile.ai[0] == 1f)
                 {
-                    BaseDrawing.DrawTexture(spriteBatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Tex2, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
                 }
                 else
                 {
-                    BaseDrawing.DrawTexture(spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Rot, Dir, 1, frame, lightColor, true);
                 }
             }
             return true;

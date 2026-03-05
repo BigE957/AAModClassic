@@ -72,7 +72,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
             {
 				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Sandnado, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
 			}
-            Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenBoom>(), Projectile.damage, Projectile.knockBack * 2, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<ForsakenBoom>(), Projectile.damage, Projectile.knockBack * 2, Main.myPlayer);
 			SoundEngine.PlaySound(SoundID.Item25, Projectile.position);
 		}
 

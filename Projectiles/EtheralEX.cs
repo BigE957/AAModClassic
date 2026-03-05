@@ -42,7 +42,7 @@ namespace AAModClassic.Projectiles
 			{
 				num26 = 5f;
 			}
-			Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic));
+			Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic)).Flat;
 			Projectile.ai[0] += 1f;
 			Projectile.ai[1] += 1f;
 			bool flag9 = false;
@@ -109,7 +109,7 @@ namespace AAModClassic.Projectiles
 						int num29 = Projectile.damage;
 						for (int l = 0; l < 7; l++)
 						{
-							Projectile.NewProjectile(center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralLaserEX").Type, num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralLaserEX").Type, num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
 						}
 						Projectile.netUpdate = true;
 					}

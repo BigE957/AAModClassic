@@ -155,8 +155,7 @@ namespace AAModClassic.Projectiles.Akuma
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            int id = Projectile.NewProjectile(Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
-            Main.projectile[id].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
             Main.projectile[id].DamageType = DamageClass.Magic;
         }
 

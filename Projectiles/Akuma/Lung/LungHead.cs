@@ -64,7 +64,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 6;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override void AI()
@@ -144,8 +144,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                     flaming = true;
                     Vector2 shootspeed = Vector2.Normalize(Projectile.velocity) * 20f;
                     Vector2 shootpos = Vector2.Normalize(Projectile.velocity).RotatedBy((float)Math.PI / 2 * Projectile.direction) * Projectile.height / 2;
-                    int fire = Projectile.NewProjectile(Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, Mod.Find<ModProjectile>("DragonfireProj").Type, (int)(Projectile.damage / 1.5), 0, Projectile.owner);
-                    Main.projectile[fire].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                    int fire = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, Mod.Find<ModProjectile>("DragonfireProj").Type, (int)(Projectile.damage / 1.5), 0, Projectile.owner);
                     Main.projectile[fire].minion = true;
                     Main.projectile[fire].minionSlots = 0f;
                 }
@@ -202,7 +201,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                 }
             }
 
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon);
+            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
             Projectile.damage = (int)(DamageBoost > 0f? ((100 + (Projectile.localAI[0] > 10? 10 : (Projectile.localAI[0] - 1)) * 30) * DamageBoost) : 1);
         }
     }
@@ -253,7 +252,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 6;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override void AI()
@@ -407,7 +406,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            npc.immune[Projectile.owner] = 6;
+            target.immune[Projectile.owner] = 6;
         }
 
         public override void AI()

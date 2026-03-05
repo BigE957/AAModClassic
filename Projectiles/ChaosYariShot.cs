@@ -57,7 +57,7 @@ namespace AAModClassic.Projectiles
             Color newLightColor2 = new Color(Math.Max(0, Color.Indigo.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.B + Math.Min(0, -Projectile.alpha + 20)));
             BaseDrawing.AddLight(Projectile.Center, newLightColor);
             BaseDrawing.AddLight(Projectile.Center, newLightColor2);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile);
             return false;
         }
     }

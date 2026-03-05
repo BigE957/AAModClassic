@@ -65,7 +65,7 @@ namespace AAModClassic.Projectiles.Greed
 					{
 						Projectile.localAI[0] = 30;
 						Vector2 velocity = BaseUtility.RotateVector(default, new Vector2(5f, 0f), BaseUtility.RotationTo(Projectile.Center, target.Center));
-						int projID = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.ProjType("Gold"), Projectile.damage, 0f, Projectile.owner, 0, 1);
+						int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.ProjType("Gold"), Projectile.damage, 0f, Projectile.owner, 0, 1);
 						((AAProjectile)Main.projectile[projID].ModProjectile).SetMaster(2, Projectile.identity, 1, 0f, 450f, false);	
 						Main.projectile[projID].velocity = velocity;
 						Main.projectile[projID].netUpdate = true;
@@ -104,9 +104,8 @@ namespace AAModClassic.Projectiles.Greed
             Rectangle frame = BaseDrawing.GetFrame(frameCount, 60, 60, 0, 0);
             Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
             Texture2D glowTex = Mod.GetTexture("Glowmasks/GreedMinion_Glow");
-            Color lightColor = BaseDrawing.GetLightColor(Projectile.Center);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, lightColor);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, Color.Goldenrod);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, lightColor);
+            BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 15, frame, Color.Goldenrod);
 			return false;
 		}
 

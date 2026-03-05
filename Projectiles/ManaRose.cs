@@ -48,7 +48,7 @@ namespace AAModClassic.Projectiles
 		public override bool PreDraw(ref Color lightColor)
 		{
 			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
-			BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
+			BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
 			return false;
 		}
 	}

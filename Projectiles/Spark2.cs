@@ -86,7 +86,7 @@ namespace AAModClassic.Projectiles
 				Main.dust[dustID].noGravity = true;
 			}
             SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
-            Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("SparkBoom2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("SparkBoom2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0f);
         }
 
 

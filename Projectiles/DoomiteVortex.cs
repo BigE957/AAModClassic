@@ -14,7 +14,6 @@ namespace AAModClassic.Projectiles
 			Projectile.friendly = true;
 			Projectile.hostile = false;
             Projectile.timeLeft = 900;
-            Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Projectile.DamageType = DamageClass.Ranged;
         }
 		

@@ -92,10 +92,10 @@ namespace AAModClassic.Projectiles
             if (!NoScythes)
             {
                 SoundEngine.PlaySound(SoundID.Item71, Projectile.position);
-                Projectile.NewProjectile(Projectile.Center.X + 250, Projectile.Center.Y, -7, 0, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X - 250, Projectile.Center.Y, 7, 0, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 250, 0, -7, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y - 250, 0, 7, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X + 250, Projectile.Center.Y, -7, 0, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X - 250, Projectile.Center.Y, 7, 0, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y + 250, 0, -7, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 250, 0, 7, Mod.Find<ModProjectile>("ChaosScytheP").Type, 250, 1, Projectile.owner, 0f, 0f);
             }
         }
 

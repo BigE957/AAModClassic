@@ -149,7 +149,7 @@ namespace AAModClassic.Projectiles
         {
             Texture2D texture = Mod.GetTexture("Chains/ChaosChain_Chain");
 
-            BaseDrawing.DrawChain(spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
+            BaseDrawing.DrawChain(Main.spriteBatch, texture, 0, Projectile.Center, Main.player[Projectile.owner].Center, 0f, lightColor, 1f, true);
             return true;
         }
     }

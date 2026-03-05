@@ -61,7 +61,7 @@ namespace AAModClassic.Projectiles.Sag
 				player.AddBuff(Mod.Find<ModBuff>("SagOrbiter").Type, 2, true);
             }
 
-            Projectile.ai[0] = 30 * player.GetDamage(DamageClass.Summon);
+            Projectile.ai[0] = player.GetDamage(DamageClass.Summon).ApplyTo(30);
 
             Vector2 vector46 = Projectile.position;
             bool flag25 = false;
@@ -107,7 +107,7 @@ namespace AAModClassic.Projectiles.Sag
             if (flag25)
             {
                 int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, Terraria.ModLoader.ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
-                Main.projectile[id].ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                Main.projectile[id].DamageType = DamageClass.Summon;
                 Main.projectile[id].minion = true;
             }
 			
@@ -118,7 +118,7 @@ namespace AAModClassic.Projectiles.Sag
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, drawColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, drawColor, true);
             return false;
         }
 

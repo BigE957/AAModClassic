@@ -33,7 +33,7 @@ namespace AAModClassic.Projectiles.Monarch
             {
                 num468 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.MushDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default);
             }
-            Projectile.NewProjectile(Projectile.position, Vector2.Zero, Mod.Find<ModProjectile>("SporeCloud").Type, Projectile.damage, 0, Main.myPlayer);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, Mod.Find<ModProjectile>("SporeCloud").Type, Projectile.damage, 0, Main.myPlayer);
         }
     }
 }

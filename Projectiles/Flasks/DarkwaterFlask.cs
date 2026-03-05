@@ -35,7 +35,7 @@ namespace AAModClassic.Projectiles.Flasks
         {
             Texture2D tex = Mod.GetTexture("Projectiles/Flasks/DarkwaterFlask");
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, tex.Width, tex.Height, 0, 2);
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
             return false;
         }
 
@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles.Flasks
             SoundEngine.PlaySound(SoundID.Shatter, position);
 
             int radius = 6;
-            int FlaskDust = ModContent.DustType<IndigoSolution>();
+            int FlaskDust = ModContent.DustType<AAModClassic.Dusts.IndigoSolution>();
 
             for (int m = 0; m < 20; m++)
             {

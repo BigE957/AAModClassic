@@ -116,7 +116,7 @@ namespace AAModClassic.Projectiles.AH
 
         public override void OnKill(int timeLeft)
 		{
-			SoundEngine.PlaySound(SoundID.NPCDeath52.WithVolume(.4f), Projectile.position);
+			SoundEngine.PlaySound(SoundID.NPCDeath52 with { Volume = 0.4f }, Projectile.position);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 160;
             Projectile.Center = Projectile.position;

@@ -41,7 +41,7 @@ namespace AAModClassic.Projectiles
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
 				int type = Main.rand.Next(326,328);
-				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, type, Projectile.damage, 0, Main.myPlayer);
+				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, type, Projectile.damage, 0, Main.myPlayer);
 				Main.projectile[proj].localNPCHitCooldown = -1;
 				Main.projectile[proj].timeLeft = 30;
 				Main.projectile[proj].hostile = false;
@@ -57,7 +57,7 @@ namespace AAModClassic.Projectiles
 			{
 				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
 				Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-				spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 			return true;
 		}

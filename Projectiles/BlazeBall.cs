@@ -139,7 +139,7 @@ namespace AAModClassic.Projectiles
             }
             for (int num37 = 0; num37 < num25; num37++)
             {
-                int num38 = Gore.NewGore(Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+                int num38 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
                 Main.gore[num38].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * Projectile.width / 2f;
                 Main.gore[num38].position -= Vector2.One * 16f;
                 if (Main.rand.Next(2) == 0)
@@ -153,7 +153,7 @@ namespace AAModClassic.Projectiles
                 Gore expr_140D_cp_0 = Main.gore[num38];
                 expr_140D_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
             }
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y - 51, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("BlazeBlast").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y - 51, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("BlazeBlast").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

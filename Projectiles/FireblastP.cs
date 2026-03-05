@@ -114,19 +114,19 @@ namespace AAModClassic.Projectiles
 				float num2 = 0.4f;
 				if (index1 == 1)
 				num2 = 0.8f;
-				int index2 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index2 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index2].velocity *= num2;
 				++Main.gore[index2].velocity.X;
 				++Main.gore[index2].velocity.Y;
-				int index3 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index3 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index3].velocity *= num2;
 				--Main.gore[index3].velocity.X;
 				++Main.gore[index3].velocity.Y;
-				int index4 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index4 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index4].velocity *= num2;
 				++Main.gore[index4].velocity.X;
 				--Main.gore[index4].velocity.Y;
-				int index5 = Gore.NewGore(new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
+				int index5 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), new Vector2(), Main.rand.Next(61, 64), 1f);
 				Main.gore[index5].velocity *= num2;
 				--Main.gore[index5].velocity.X;
 				--Main.gore[index5].velocity.Y;

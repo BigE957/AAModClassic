@@ -147,7 +147,7 @@ namespace AAModClassic.Projectiles.Djinn
             {
                 if (Main.rand.Next(5) == 0)
                 {
-                    Gore gore = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -163,7 +163,7 @@ namespace AAModClassic.Projectiles.Djinn
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore2 = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -177,7 +177,7 @@ namespace AAModClassic.Projectiles.Djinn
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore3 = Gore.NewGoreDirect(Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,

@@ -65,7 +65,7 @@ namespace AAModClassic.Projectiles.Zero
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 
-            SoundEngine.PlaySound(new Terraria.Audio.LegacySoundStyle(2, 124, Terraria.Audio.SoundType.Sound));
+            SoundEngine.PlaySound(soundID.Item124);
             Projectile.localNPCImmunity[target.whoAmI] = -1;
             target.immune[Projectile.owner] = 0;
 

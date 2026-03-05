@@ -79,7 +79,7 @@ namespace AAModClassic.Projectiles.Akuma
 			}
 			for (int num339 = 0; num339 < 2; num339++)
 			{
-				int gore0 = Gore.NewGore(Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+				int gore0 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
 				Main.gore[gore0].velocity *= 0.3f;
 				Gore gore1 = Main.gore[gore0];
 				gore1.velocity.X += Main.rand.Next(-10, 11) * 0.05f;

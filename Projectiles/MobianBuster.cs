@@ -171,23 +171,24 @@ namespace AAModClassic.Projectiles
 					num5 = num1 / num4;
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
+				Vector2 velocity = new(SpeedX, SpeedY);
                 switch (chargeLevel)
                 {
                     case 0:
 						SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-						Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage, 1f, player.whoAmI);
+						Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage, 1f, player.whoAmI);
 						break;
 					case 1:
 						SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage*2, 1f, player.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage*2, 1f, player.whoAmI);
 						break;
 					case 2:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage*2, 1f, player.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShot").Type, Projectile.damage*2, 1f, player.whoAmI);
 						break;
 					case 3:
 						SoundEngine.PlaySound(SoundID.Item88, Projectile.position);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShotCharged").Type, Projectile.damage*8, 1f, player.whoAmI);
+                        Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MobianShotCharged").Type, Projectile.damage*8, 1f, player.whoAmI);
 						break;
                 }
             }

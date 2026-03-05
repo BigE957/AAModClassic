@@ -182,7 +182,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
                 SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-                Projectile.NewProjectile(vector2.X, vector2.Y, Velocity.X, velocity.Y, type, (int)damage, 1f, player.whoAmI);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, SpeedX, SpeedY, type, (int)damage, 1f, player.whoAmI);
             }
         }
 
@@ -192,8 +192,8 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
         {
             Texture2D glowTex = Mod.GetTexture("Glowmasks/Dawnstrike_Glow");
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);
             return false;
         }
     }

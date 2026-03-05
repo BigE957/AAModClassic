@@ -31,8 +31,8 @@ namespace AAModClassic.Projectiles.Akuma
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle SunFrame = new Rectangle(0, 0, 64, 64);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb1"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb1"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, -Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Projectiles/Akuma/SunOrb"), 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 1, SunFrame, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }
 
@@ -234,7 +234,7 @@ namespace AAModClassic.Projectiles.Akuma
                         value19.Normalize();
                         value19 *= 8;
 						Vector2 perturbedSpeed = value19.RotatedByRandom(MathHelper.ToRadians(10));
-                        int num659 = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[num659].timeLeft = 300;
                         Projectile.netUpdate = true;
                     }

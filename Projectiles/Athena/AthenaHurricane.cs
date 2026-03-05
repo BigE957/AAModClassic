@@ -246,10 +246,10 @@ namespace AAModClassic.Projectiles.Athena
         {
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 
-            int h = Projectile.NewProjectile(Projectile.position, Vector2.Zero, ModContent.ProjectileType<AthenaHurricane>(), Projectile.damage, 0, Main.myPlayer);
+            int h = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, Vector2.Zero, ModContent.ProjectileType<AthenaHurricane>(), Projectile.damage, 0, Main.myPlayer);
             if (Projectile.minion)
             {
-                Main.projectile[h].magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+				Main.projectile[h].DamageType = DamageClass.Summon;
                 Main.projectile[h].minion = true;
             }
             for (int num579 = 0; num579 < 20; num579++)

@@ -57,7 +57,7 @@ namespace AAModClassic.Projectiles
             Texture2D chainTex = Mod.GetTexture("Chains/Pyrosphere_Chain");
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
-                    BaseDrawing.DrawChain(spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
+                    BaseDrawing.DrawChain(Main.spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
             return true;
         }
     }

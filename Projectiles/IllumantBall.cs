@@ -51,8 +51,8 @@ namespace AAModClassic.Projectiles
             Texture2D chainTex = Mod.GetTexture("Chains/IllumantBall_Chain");
             if (Main.instance.IsActive)
                 for (int m = 0; m < 2; m++)
-                    BaseDrawing.DrawChain(spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, drawColor, true);
+                    BaseDrawing.DrawChain(Main.spriteBatch, chainTex, 0, Projectile.Center, Main.player[Projectile.owner].Center);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, lightColor, true);
             return true;
         }
     }

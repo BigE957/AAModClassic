@@ -187,7 +187,7 @@ namespace AAModClassic.Projectiles.Akuma
 				float SpeedY = f2 * num5;
 				
 				
-				Vector2 vector14 = velocity;
+				Vector2 vector14 = new Vector2(SpeedX, SpeedY);
 				vector14.Normalize();
 				vector14 *= 40f;
 				bool flag11 = Collision.CanHit(vector2, 0, 0, vector2 + vector14, 0, 0);
@@ -203,7 +203,7 @@ namespace AAModClassic.Projectiles.Akuma
                     {
                         vector15 -= vector14;
                     }
-                    int num125 = Projectile.NewProjectile(vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, Projectile.damage, 1f, player.whoAmI, 0.0f, 0.0f);
+                    int num125 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, Projectile.damage, 1f, player.whoAmI, 0.0f, 0.0f);
                     Main.projectile[num125].noDropItem = true;
                 }
             }
@@ -213,8 +213,8 @@ namespace AAModClassic.Projectiles.Akuma
         {
             Texture2D glowTex = Mod.GetTexture("Glowmasks/RadiantDawnP_Glow");
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, lightColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, glowTex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, GlowColor, true);
             return false;
         }
     }

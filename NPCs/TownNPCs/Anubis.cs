@@ -21,12 +21,10 @@ namespace AAModClassic.NPCs.TownNPCs
 	public class Anubis : ModNPC
 	{
         public override string Texture => "AAMod/NPCs/TownNPCs/Anubis";
-
-        public override bool IsLoadingEnabled(Mod mod)
+        public override void ModifyTypeName(ref string typeName)
         {
-            name = "Legendscribe";
-            return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		}
+            typeName = "Legendscribe";
+        }
 
 		public override void SetStaticDefaults()
 		{
@@ -104,7 +102,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
-            return "Anubis";
+            return ["Anubis"];
         }
 
         public override void PostAI()
@@ -382,7 +380,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
 
                     Main.npcChatText = Lang.TownNPCAnubis("GetBookChat");
-                    player.QuickSpawnItem(ModContent.ItemType<Items.Magic.AnubisBlockBook>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.Magic.AnubisBlockBook>(), 1);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -508,7 +506,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public static bool DoG => (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "downedDoG", false, true);
 
-        public static string BossChat()
+        public string BossChat()
         {
             Player player = Main.LocalPlayer;
             if (Mushroom)
@@ -550,7 +548,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.BossSummons.Scepter>()))
                 {
-                    player.QuickSpawnItem(ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
                     return Lang.TownNPCAnubis("AnubisScapterLost"); 
                 }
 
@@ -765,7 +763,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 if (!mPlayer.GivenAnuSummon)
                 {
                     mPlayer.GivenAnuSummon = true;
-                    player.QuickSpawnItem(ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Items.BossSummons.Scepter>(), 1);
                     return Lang.TownNPCAnubis("GetSummonItemChat");
                 }
             }
@@ -775,7 +773,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 if (!mPlayer.GivenWormIdol)
                 {
                     mPlayer.GivenWormIdol = true;
-                    player.QuickSpawnItem(ModContent.ItemType<WormIdol>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<WormIdol>(), 1);
                     return Lang.TownNPCAnubis("GetSummonItemChat2");
                 }
             }

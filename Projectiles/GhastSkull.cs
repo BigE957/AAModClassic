@@ -136,7 +136,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-			Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("GhastBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("GhastBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 160;
             Projectile.Center = Projectile.position;
