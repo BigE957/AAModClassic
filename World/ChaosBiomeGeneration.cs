@@ -88,7 +88,7 @@ namespace AAModClassic.World
             AcropolisWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/AcropolisWalls", AssetRequestMode.ImmediateLoad).Value);
             AcropolisRoofData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/AcropolisRoof", AssetRequestMode.ImmediateLoad).Value);
 
-            EquinoxTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
+            EquinoxTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltar", AssetRequestMode.ImmediateLoad).Value);
             EquinoxSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
 
             PitTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Pit", AssetRequestMode.ImmediateLoad).Value);
