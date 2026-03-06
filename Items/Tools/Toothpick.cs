@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Bone, 12);
-            recipe.AddRecipeGroup("AAMod:Gold", 8);
+            recipe.AddRecipeGroup("AAModClassic:Gold", 8);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

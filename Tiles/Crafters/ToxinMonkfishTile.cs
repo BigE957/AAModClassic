@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Toxin Monkfish");
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(93, 163, 79), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = false;
+            TileID.Sets.DisableSmartCursor[Type] = false;
             AdjTiles = new int[]
             {
                 TileID.AlchemyTable,

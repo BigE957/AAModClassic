@@ -75,9 +75,9 @@ namespace AAModClassic.CrossMod
 
         public static Mod GetMod(string modname)
 		{
-            if(ModLoader.GetMod(modname) != null)
+            if(ModLoader.TryGetMod(modname, out var mod))
 			{
-                return ModLoader.GetMod(modname);
+                return mod;
             }
             return null;
         }

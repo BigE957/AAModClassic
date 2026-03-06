@@ -8,7 +8,7 @@ namespace AAModClassic.Projectiles.Djinn
 {
     public class Sandnado : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radium Arrow");

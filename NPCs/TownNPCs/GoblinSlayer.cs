@@ -21,7 +21,7 @@ namespace AAModClassic.NPCs.TownNPCs
         public static bool Frost = false;
         public static bool Martian = false;
 
-        public override string Texture => "AAMod/NPCs/TownNPCs/GoblinSlayer";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/GoblinSlayer";
 
         //public override bool IsLoadingEnabled(Mod mod)
 		//{

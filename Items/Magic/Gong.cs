@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Magic
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAMod:Gold", 15);
+            recipe.AddRecipeGroup("AAModClassic:Gold", 15);
             recipe.AddIngredient(ItemID.WhiteString);
             recipe.AddIngredient(ItemID.ManaCrystal);
             recipe.AddTile(TileID.Anvils);   

@@ -53,8 +53,8 @@ namespace AAModClassic.Backgrounds
             
             bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
 
-            mireBGFog.Update(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value);
-			mireBGFog.Draw(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
+            mireBGFog.Update(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value);
+			mireBGFog.Draw(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
             return Main.dayTime ? false : true;
 		}
     }
@@ -109,8 +109,8 @@ namespace AAModClassic.Backgrounds
 
             bool YamataA = NPC.AnyNPCs(ModContent.NPCType<YamataA>());
 
-            mireBGFog.Update(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value);
-            mireBGFog.Draw(ModContent.Request<Texture2D>("Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
+            mireBGFog.Update(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value);
+            mireBGFog.Draw(ModContent.Request<Texture2D>("AAModCLassic/Backgrounds/FogTex").Value, true, YamataA ? YamataFog : DefaultFog);
             return Main.dayTime ? false : true;
         }
 

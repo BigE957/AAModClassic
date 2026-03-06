@@ -231,9 +231,65 @@ namespace AAModClassic.Globals
                                 tileY = 0;
                             }
                         }
-                        while(itemtype == 0) {
-                            PlayerLoader.CatchFish(Main.player[projectile.owner], Main.player[projectile.owner].inventory[Main.player[projectile.owner].selectedItem], int.MaxValue, liquidtype, int.MaxValue, WorldHeightType, 0, ref itemtype, ref junk);
+
+                        if (itemtype == 0)
+                        {
+                            Player player = Main.player[projectile.owner];
+
+                            // Manually create PlayerFishingConditions to match original int.MaxValue bait power
+                            PlayerFishingConditions conditions = player.GetFishingConditions();
+
+                            // Create FishingAttempt
+                            FishingAttempt attempt = new FishingAttempt
+                            {
+                                playerFishingConditions = conditions,
+                                X = projectileX,
+                                Y = projectileY,
+                                bobberType = projectile.type,
+                                common = true,
+                                uncommon = true,
+                                rare = true,
+                                veryrare = true,
+                                legendary = true,
+                                crate = true,
+                                inLava = (liquidtype == 1),
+                                inHoney = (liquidtype == 2),
+                                waterTilesCount = 1000,
+                                waterNeededToFish = 0,
+                                waterQuality = 0,
+                                chumsInWater = 0,
+                                fishingLevel = 0,
+                                CanFishInLava = (liquidtype == 1),
+                                atmo = (WorldHeightType == 0) ? 0.25f : 1f,
+                                questFish = 0,
+                                heightLevel = WorldHeightType
+                            };
+
+                            int itemDrop = 0;
+                            int enemySpawn = 0;
+                            AdvancedPopupRequest sonar = default;
+                            Vector2 sonarPosition = default;
+
+                            int maxAttempts = 100;
+                            int attempts = 0;
+                            while (itemDrop == 0 && attempts < maxAttempts)
+                            {
+                                PlayerLoader.CatchFish(player, attempt, ref itemDrop, ref enemySpawn,
+                                                       ref sonar, ref sonarPosition);
+                                enemySpawn = 0;
+                                attempts++;
+                            }
+
+                            if (itemDrop > 0)
+                            {
+                                itemtype = itemDrop;
+                            }
+                            else
+                            {
+                                itemtype = ItemID.TinCan;
+                            }
                         }
+
                         item.SetDefaults(itemtype, false);
                         ItemLoader.CaughtFishStack(item);
 						item.newAndShiny = true;
@@ -269,7 +325,7 @@ namespace AAModClassic.Globals
                 {
                     if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < 6)
                     {
-                        if (Main.tile[k, l].TileType == ModContent.TileType<InfernoGrass>() || Main.tile[k, l].TileType == ModContent.TileType<MireGrass>() || Main.tile[k, l].TileType == ModContent.TileType<Mycelium>() || Main.tile[k, l].TileType == ModContent.TileType<Doomgrass>())
+                        if (Main.tile[k, l].TileType == ModContent.TileType<InfernoGrass>() || Main.tile[k, l].TileType == ModContent.TileType<MireGrass>() || Main.tile[k, l].TileType == ModContent.TileType<Mycelium>() || Main.tile[k, l].TileType == ModContent.TileType<DoomGrass>())
                         {
                             Main.tile[k, l].TileType = TileID.Grass;
                             WorldGen.SquareTileFrame(k, l, true);

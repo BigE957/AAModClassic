@@ -9,7 +9,7 @@ namespace AAModClassic.Items.Dev.RuneBook
 {
     public class CCRuneNovaRay : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Zero/NovaRay";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Zero/NovaRay";
         private const float MoveDistance = 70f;
         public Projectile shooter;
         public float Distance;

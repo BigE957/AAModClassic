@@ -1412,8 +1412,8 @@ namespace AAModClassic
             }
             else
             {
-                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");;
-                TextureAssets.Sun3 = ModContent.Request<Texture2D>("Terraria/Sun3");
+                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun");;
+                TextureAssets.Sun3 = ModContent.Request<Texture2D>("Terraria/Images/Sun3");
             }
 
             if (Player.ZoneSandstorm && (ZoneInferno || ZoneMire))
@@ -3933,11 +3933,11 @@ namespace AAModClassic
 
                     if (baseAAItem.glowmaskDrawType == BaseAAItem.GLOWMASKTYPE_SWORD)
                     {
-                        BaseDrawing.DrawHeldSword(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, null, 1, ModContent.Request<Texture2D>(baseAAItem.glowmaskTexture).Value);
+                        BaseDrawing.DrawHeldSword(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
                     else if (baseAAItem.glowmaskDrawType == BaseAAItem.GLOWMASKTYPE_GUN)
                     {
-                        BaseDrawing.DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>(baseAAItem.glowmaskTexture).Value);
+                        BaseDrawing.DrawHeldGun(drawInfo, 0, drawPlayer, baseAAItem.glowmaskDrawColor, 0f, (int)offset.X, (int)offset.Y, false, false, 0f, 0f, null, 1, ModContent.Request<Texture2D>("AAModClassic/" + baseAAItem.glowmaskTexture).Value);
                     }
                 }
             }
@@ -4015,18 +4015,18 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NightcrawlerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RetrieverMask").Type))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RetrieverMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
+                //else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RetrieverMask").Type))
+                //{
+                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RetrieverMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                //}
                 else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ZeroMask").Type))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TiedMask").Type))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TiedMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.FlashGlow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
+                //else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TiedMask").Type))
+                //{
+                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TiedMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.FlashGlow, drawInfo.shadow), drawPlayer.bodyFrame);
+                //}
                 else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("LizEars").Type))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/LizEars_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4110,7 +4110,7 @@ namespace AAModClassic
                 if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TaiyangBaolei").Type))
                 {
                     string texturePath = Main.dayTime ? "Glowmasks/TaiyangBaoleiA_Shield_Glow" : "Glowmasks/TaiyangBaolei_Shield_Glow";
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
             }
         }
@@ -4121,6 +4121,8 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
+                //This is fucked up
+                /*
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
@@ -4148,6 +4150,7 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/MindStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
+                */
             }
         }
 
@@ -4163,7 +4166,7 @@ namespace AAModClassic
                 if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("Naitokurosu").Type))
                 {
                     string texturePath = Main.dayTime ? "Glowmasks/Naitokurosu_Neck_Glow" : "Glowmasks/NaitokurosuA_Neck_Glow";
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 } 
             }
         }

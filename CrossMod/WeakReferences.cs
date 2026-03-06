@@ -46,9 +46,7 @@ namespace AAModClassic.CrossMod
 
         private static void PerformHealthBarSupport()
         {
-            Mod yabhb = ModLoader.GetMod("FKBossHealthBar");
-
-            if (yabhb != null)
+            if (ModLoader.TryGetMod("FKBossHealthBar", out var yabhb))
             {
                 // Mushroom Monarch
                 yabhb.Call("hbStart");
@@ -520,11 +518,9 @@ namespace AAModClassic.CrossMod
 
         private static void PerformBossChecklistSupport()
         {
-            Mod bossChecklist = ModLoader.GetMod("BossChecklist");
-
             AAMod mod = AAMod.instance;
 
-            if (bossChecklist != null)
+            if (ModLoader.TryGetMod("BossChecklist", out var bossChecklist))
             {
                 #region Mushroom Monarch
                 bossChecklist.Call("AddBoss", 0f, mod.Find<ModNPC>("MushroomMonarch").Type, mod,
@@ -546,8 +542,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usean") + "[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]",
                     Lang.BossCheck("MushroomMonarchInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Monarch",
-                    "AAMod/NPCs/Bosses/MushroomMonarch/MushroomMonarch_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Monarch",
+                    "AAModClassic/NPCs/Bosses/MushroomMonarch/MushroomMonarch_Head_Boss");
                 #endregion
 
                 #region Feudal Fungus
@@ -570,8 +566,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usean") + "[i: " + ModContent.ItemType<ConfusingMushroom>() + "]" + Lang.BossCheck("FeudalFungusInfo"),
                     Lang.BossCheck("FeudalFungusInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Fungus",
-                    "AAMod/NPCs/Bosses/MushroomMonarch/FeudalFungus_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Fungus",
+                    "AAModClassic/NPCs/Bosses/MushroomMonarch/FeudalFungus_Head_Boss");
                 #endregion
 
                 #region Grips
@@ -595,8 +591,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]" + Lang.BossCheck("or") + "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]" + Lang.BossCheck("atnight"),
                     Lang.BossCheck("GripsofChaosInfo"),
-                    "AAMod/CrossMod/BossChecklist/Grips",
-                    "AAMod/CrossMod/BossChecklist/GripsHead");
+                    "AAModClassic/CrossMod/BossChecklist/Grips",
+                    "AAModClassic/CrossMod/BossChecklist/GripsHead");
                 #endregion
 
                 #region Truffle Toad
@@ -621,8 +617,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Toadstool").Type + "]" + Lang.BossCheck("TruffleToadInfo"),
                     Lang.BossCheck("TruffleToadInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Toad",
-                    "AAMod/NPCs/Bosses/Toad/TruffleToad_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Toad",
+                    "AAModClassic/NPCs/Bosses/Toad/TruffleToad_Head_Boss");
                 #endregion
 
                 #region Broodmother
@@ -645,8 +641,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DragonBell").Type + "]" + Lang.BossCheck("BroodmotherInfo"),
                     Lang.BossCheck("BroodmotherInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Brood",
-                    "AAMod/NPCs/Bosses/Broodmother/Broodmother_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Brood",
+                    "AAModClassic/NPCs/Bosses/Broodmother/Broodmother_Head_Boss");
                 #endregion
 
                 #region Hydra
@@ -669,8 +665,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("HydraChow").Type + "]" + Lang.BossCheck("HydraInfo"),
                     Lang.BossCheck("HydraInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Hydra",
-                    "AAMod/NPCs/Bosses/Hydra/HydraHead1_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/Hydra",
+                    "AAModClassic/NPCs/Bosses/Hydra/HydraHead1_Head_Boss",
                     null);
                 #endregion
 
@@ -702,8 +698,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("SubzeroCrystal").Type + "]" + Lang.BossCheck("SubzeroSerpentInfo"),
                     Lang.BossCheck("SubzeroSerpentInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Serpent1",
-                    "AAMod/NPCs/Bosses/Serpent/SerpentHead_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Serpent1",
+                    "AAModClassic/NPCs/Bosses/Serpent/SerpentHead_Head_Boss");
                 #endregion
 
                 #region Djinn
@@ -732,8 +728,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DjinnLamp").Type + "]" + Lang.BossCheck("DesertDjinnInfo"),
                     Lang.BossCheck("DesertDjinnInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Djinn",
-                    "AAMod/NPCs/Bosses/Djinn/Djinn_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Djinn",
+                    "AAModClassic/NPCs/Bosses/Djinn/Djinn_Head_Boss");
                 #endregion
 
                 #region Sagittarius
@@ -758,8 +754,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Lifescanner").Type + "]" + Lang.BossCheck("SagittariusInfo"),
                     Lang.BossCheck("SagittariusInfo2"),
-                    "AAMod/CrossMod/BossChecklist/Sag",
-                    "AAMod/NPCs/Bosses/Sagittarius/Sagittarius_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Sag",
+                    "AAModClassic/NPCs/Bosses/Sagittarius/Sagittarius_Head_Boss");
                 #endregion
 
                 #region Anubis
@@ -787,8 +783,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Scepter").Type + "]" + Lang.BossCheck("AnubisInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Anubis",
-                    "AAMod/NPCs/Bosses/Anubis/Anubis_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Anubis",
+                    "AAModClassic/NPCs/Bosses/Anubis/Anubis_Head_Boss");
                 #endregion
 
                 #region Athena
@@ -814,8 +810,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usean") + "[i:" + AAMod.instance.Find<ModItem>("Owl").Type + "]" + Lang.BossCheck("AthenaInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Athena",
-                    "AAMod/NPCs/Bosses/Athena/Athena_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Athena",
+                    "AAModClassic/NPCs/Bosses/Athena/Athena_Head_Boss");
                 #endregion
 
                 #region Greed
@@ -841,8 +837,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenGrub").Type + "]" + Lang.BossCheck("GreedInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Greed",
-                    "AAMod/NPCs/Bosses/Greed/Greed_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Greed",
+                    "AAModClassic/NPCs/Bosses/Greed/Greed_Head_Boss");
                 #endregion
 
                 #region Rajah Rabbit
@@ -870,8 +866,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenCarrot").Type + "]" + Lang.BossCheck("RajahRabbitInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Rajah",
-                    "AAMod/NPCs/Bosses/Rajah/Rajah_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Rajah",
+                    "AAModClassic/NPCs/Bosses/Rajah/Rajah_Head_Boss");
                 #endregion
 
                 #region Forsaken Anubis
@@ -899,8 +895,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("AnubisAInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/FAnubis",
-                    "AAMod/NPCs/Bosses/Anubis/Forsaken/ForsakenAnubis_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/FAnubis",
+                    "AAModClassic/NPCs/Bosses/Anubis/Forsaken/ForsakenAnubis_Head_Boss");
                 #endregion
 
                 #region Olympian Athena
@@ -924,8 +920,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("AthenaAInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/AthenaA",
-                    "AAMod/NPCs/Bosses/Athena/Olympian/AthenaA_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/AthenaA",
+                    "AAModClassic/NPCs/Bosses/Athena/Olympian/AthenaA_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedAnubisA));
                 #endregion
 
@@ -950,8 +946,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("GreedAInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/GreedA",
-                    "AAMod/NPCs/Bosses/Greed/GreedA_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/GreedA",
+                    "AAModClassic/NPCs/Bosses/Greed/GreedA_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedAnubisA));
                 #endregion
 
@@ -980,8 +976,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("EquinoxWorm").Type + "]",
                     null,
-                    "AAMod/CrossMod/BossChecklist/Equinox",
-                    "AAMod/CrossMod/BossChecklist/EquinoxHead");
+                    "AAModClassic/CrossMod/BossChecklist/Equinox",
+                    "AAModClassic/CrossMod/BossChecklist/EquinoxHead");
                 #endregion
 
                 #region Ashe & Haruka
@@ -1011,8 +1007,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usethe") + "[i:" + AAMod.instance.Find<ModItem>("FlamesOfAnarchy").Type + "]",
                     null,
-                    "AAMod/CrossMod/BossChecklist/AH",
-                    "AAMod/CrossMod/BossChecklist/AHHead");
+                    "AAModClassic/CrossMod/BossChecklist/AH",
+                    "AAModClassic/CrossMod/BossChecklist/AHHead");
                 #endregion
 
                 #region Akuma
@@ -1046,8 +1042,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianSigil").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Akuma",
-                    "AAMod/NPCs/Bosses/Akuma/Akuma_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Akuma",
+                    "AAModClassic/NPCs/Bosses/Akuma/Akuma_Head_Boss");
 
                 bossChecklist.Call("AddBoss", 18.05f, mod.Find<ModNPC>("AkumaA").Type, mod,
                     Lang.BossCheck("AkumaA"),
@@ -1066,8 +1062,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianRune").Type + "]" + Lang.BossCheck("AkumaInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/AkumaA",
-                    "AAMod/NPCs/Bosses/Akuma/Awakened/AkumaA_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/AkumaA",
+                    "AAModClassic/NPCs/Bosses/Akuma/Awakened/AkumaA_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode));
                 #endregion
 
@@ -1101,8 +1097,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadSigil").Type + "]" + Lang.BossCheck("YamataInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Yamata",
-                    "AAMod/NPCs/Bosses/Yamata/YamataHead_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Yamata",
+                    "AAModClassic/NPCs/Bosses/Yamata/YamataHead_Head_Boss");
 
                 bossChecklist.Call("AddBoss", 18.15f, mod.Find<ModNPC>("YamataA").Type, mod,
                     Lang.BossCheck("YamataA"),
@@ -1121,8 +1117,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadRune").Type + "]" + Lang.BossCheck("YamataInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/YamataA",
-                    "AAMod/NPCs/Bosses/Yamata/Awakened/YamataAHead_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/YamataA",
+                    "AAModClassic/NPCs/Bosses/Yamata/Awakened/YamataAHead_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode));
                 #endregion
                 
@@ -1159,8 +1155,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroTesseract").Type + "]" + Lang.BossCheck("ZeroInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/Zero",
-                    "AAMod/NPCs/Bosses/Zero/Zero_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Zero",
+                    "AAModClassic/NPCs/Bosses/Zero/Zero_Head_Boss");
 
                 bossChecklist.Call("AddBoss", 18.25f, mod.Find<ModNPC>("ZeroProtocol").Type, mod,
                     Lang.BossCheck("ZeroP"),
@@ -1177,8 +1173,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroRune").Type + "]" + Lang.BossCheck("ZeroInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/ZeroProtocol",
-                    "AAMod/NPCs/Bosses/Zero/Protocol/ZeroProtocol_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/ZeroProtocol",
+                    "AAModClassic/NPCs/Bosses/Zero/Protocol/ZeroProtocol_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedZero && Main.expertMode));
                 #endregion
 
@@ -1207,8 +1203,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DiamondCarrot").Type + "]" + Lang.BossCheck("RajahRabbitRevengeInfo"),
                     null,
-                    "AAMod/CrossMod/BossChecklist/CRajah",
-                    "AAMod/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/CRajah",
+                    "AAModClassic/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss");
                 #endregion
 
                 #region Shen
@@ -1236,8 +1232,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosSigil").Type + "]",
                     null,
-                    "AAMod/CrossMod/BossChecklist/Shen",
-                    "AAMod/NPCs/Bosses/Shen/Shen_Head_Boss");
+                    "AAModClassic/CrossMod/BossChecklist/Shen",
+                    "AAModClassic/NPCs/Bosses/Shen/Shen_Head_Boss");
 
                 bossChecklist.Call("AddBoss", 20.1f, mod.Find<ModNPC>("ShenA").Type, mod,
                     Lang.BossCheck("ShenDoragonA"),
@@ -1256,8 +1252,8 @@ namespace AAModClassic.CrossMod
                     },
                     Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosRune").Type + "]",
                     null,
-                    "AAMod/CrossMod/BossChecklist/ShenA",
-                    "AAMod/NPCs/Bosses/Shen/Protocol/ShenA_Head_Boss",
+                    "AAModClassic/CrossMod/BossChecklist/ShenA",
+                    "AAModClassic/NPCs/Bosses/Shen/Protocol/ShenA_Head_Boss",
                     (Func<bool>)(() => AAWorld.downedShen && Main.expertMode));
                 #endregion
 
@@ -1280,29 +1276,27 @@ namespace AAModClassic.CrossMod
 
         private static void PerformCencusSupport()
         {
-            Mod censusMod = ModLoader.GetMod("Census");
-            if (censusMod != null)
+            if (ModLoader.TryGetMod("Census", out var censusMod))
             {
                 Mod mod = AAMod.instance;
                 // Here I am using Chat Tags to make my condition even more interesting.
                 // If you localize your mod, pass in a localized string instead of just English.
                 //censusMod.Call("TownNPCCondition", mod.NPCType("Anubis"), $"Have [i:{ItemType<Items.ExampleItem>()}] or [i:{ItemType<Items.Placeable.ExampleBlock>()}] in inventory and build a house out of [i:{ItemType<Items.Placeable.ExampleBlock>()}] and [i:{ItemType<Items.Placeable.ExampleWall>()}]");
 
-                censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Anubis").Type, Lang.CensusMod("Anubis"));
+                censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Legendscribe").Type, Lang.CensusMod("Legendscribe"));
                 if (!AAConfigClient.Instance.NoAATownNPC)
                 {
                     censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Mushman").Type, Lang.CensusMod("Mushman"));
                     censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Lovecraftian").Type, Lang.CensusMod("Lovecraftian"));
                     censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Samurai").Type, Lang.CensusMod("Samurai"));
-                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("Goblin Slayer").Type, Lang.CensusMod("GoblinSlayer"));
+                    censusMod.Call("TownNPCCondition", mod.Find<ModNPC>("GoblinSlayer").Type, Lang.CensusMod("GoblinSlayer"));
                 }
             }
         }
 
         private static void PerformFargosSetup()
         {
-            Mod fargos = ModLoader.GetMod("Fargowiltas");
-            if (fargos != null)
+            if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
             {
                 // AddSummon, order or value in terms of vanilla bosses, your mod internal name, summon   
                 //item internal name, inline method for retrieving downed value, price to sell for in copper

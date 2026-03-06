@@ -51,7 +51,7 @@ Shines with the light of a starry night sky"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(DarkMinions.baseBlastDamage * player.GetDamage(DamageClass.Summon)).Flat + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
+            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus1") + (int)(RadMinions.baseBlastDamage * player.GetDamage(DamageClass.Summon)).Flat + " " + Language.GetTextValue("Mods.AAMod.Common.RadiumHatBonus2");
             player.GetModPlayer<HatEffects>().setBonus = true;
         }
 
@@ -73,7 +73,7 @@ Shines with the light of a starry night sky"); */
 
         }
     }
-    public class DarkMinions : GlobalProjectile
+    public class RadMinions : GlobalProjectile
     {
         //power settings
         const int cooldownRate = 120;

@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenDeathray : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenDeathray";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenDeathray";
         private const float maxTime = 120;
 
         public override void SetStaticDefaults()
@@ -189,7 +189,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenDeathrayVertical : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenDeathray";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenDeathray";
 
         private const float maxTime = 600;
 

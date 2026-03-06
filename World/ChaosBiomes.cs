@@ -30,7 +30,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
         public override int Music =>
@@ -59,7 +59,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+            player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
             player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
         }
 
@@ -89,7 +89,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:VoidSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:VoidSky", isActive);
         }
 
         public override int Music => 
@@ -147,7 +147,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
 
         public override int Music => 
@@ -166,7 +166,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+            player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
             player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
         }
 

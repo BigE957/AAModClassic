@@ -16,9 +16,92 @@ using AAModClassic.Tiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Chests;
 using AAModClassic.Tiles.Boss;
+using ReLogic.Content;
 
 namespace AAModClassic.World
 {
+    public class TexGenAssets : ModSystem
+    {
+        public static TexGenData LakeTileData;
+        public static TexGenData LakeWallData;
+        public static TexGenData LakeLiquidData;
+
+        public static TexGenData VolcanoTileData;
+        public static TexGenData VolcanoWallData;
+        public static TexGenData VolcanoLiquidData;
+
+        public static TexGenData TerrariumSmallDeletionData;
+        public static TexGenData TerrariumMediumDeletionData;
+
+        public static TexGenData TerrariumSmallTileData;
+        public static TexGenData TerrariumMediumTileData;
+
+        public static TexGenData TerrariumSmallWallData;
+        public static TexGenData TerrariumMediumWallData;
+
+        public static TexGenData HoardDeletionData;
+
+        public static TexGenData HoardTileData;
+        public static TexGenData HoardWallData;
+
+        public static TexGenData AcropolisTileData;
+        public static TexGenData AcropolisWallData;
+        public static TexGenData AcropolisRoofData;
+
+        public static TexGenData EquinoxTileData;
+        public static TexGenData EquinoxSlopeData;
+
+        public static TexGenData PitTileData;
+        public static TexGenData PitWallData;
+        public static TexGenData PitLiquidData;
+        public static TexGenData PitSlopeData;
+
+        public static TexGenData EnderCrystalTileData;
+        public static TexGenData EnderCrystalWallData;
+        public static TexGenData EnderCrystalSlopeData;
+
+        public override void OnModLoad()
+        {
+            LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Lake", AssetRequestMode.ImmediateLoad).Value);
+            LakeWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LakeWalls", AssetRequestMode.ImmediateLoad).Value);
+            LakeLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LakeWater", AssetRequestMode.ImmediateLoad).Value);
+
+            VolcanoTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Volcano", AssetRequestMode.ImmediateLoad).Value);
+            VolcanoWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/VolcanoWalls", AssetRequestMode.ImmediateLoad).Value);
+            VolcanoLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/VolcanoLava", AssetRequestMode.ImmediateLoad).Value);
+
+            TerrariumSmallDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/TerrariumDelete", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumMediumDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/TerrariumMedDelete", AssetRequestMode.ImmediateLoad).Value);
+
+            TerrariumSmallTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Terrarium", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumMediumTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/TerrariumMed", AssetRequestMode.ImmediateLoad).Value);
+
+            TerrariumSmallWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/TerrariumWalls", AssetRequestMode.ImmediateLoad).Value);
+            TerrariumMediumWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/TerrariumMedWalls", AssetRequestMode.ImmediateLoad).Value);
+
+            HoardDeletionData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/GreedNestClear", AssetRequestMode.ImmediateLoad).Value);
+
+            HoardTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/GreedNest", AssetRequestMode.ImmediateLoad).Value);
+            HoardWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/GreedNestWalls", AssetRequestMode.ImmediateLoad).Value);
+
+            AcropolisTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Acropolis", AssetRequestMode.ImmediateLoad).Value);
+            AcropolisWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/AcropolisWalls", AssetRequestMode.ImmediateLoad).Value);
+            AcropolisRoofData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/AcropolisRoof", AssetRequestMode.ImmediateLoad).Value);
+
+            EquinoxTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
+            EquinoxSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
+
+            PitTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Pit", AssetRequestMode.ImmediateLoad).Value);
+            PitWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitWall", AssetRequestMode.ImmediateLoad).Value);
+            PitLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitLava", AssetRequestMode.ImmediateLoad).Value);
+            PitSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitSlope", AssetRequestMode.ImmediateLoad).Value);
+
+            EnderCrystalTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystal", AssetRequestMode.ImmediateLoad).Value);
+            EnderCrystalWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalWall", AssetRequestMode.ImmediateLoad).Value);
+            EnderCrystalSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalSlope", AssetRequestMode.ImmediateLoad).Value);
+        }
+    }
+
     public class MireBiome : MicroBiome
 	{
 		public override bool Place(Point origin, StructureMap structures)
@@ -55,7 +138,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Lake").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/LakeWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/LakeWater").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.LakeTileData, colorToTile, TexGenAssets.LakeWallData, colorToWall, TexGenAssets.LakeLiquidData);
 			Point newOrigin = new Point(origin.X, origin.Y - 10); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //gen grass...
@@ -290,7 +373,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Lake").Value, colorToTile);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.LakeTileData, colorToTile);
 			int genX = origin.X - (gen.width / 2);
 			int genY = origin.Y - 30;			
             gen.Generate(genX, genY, true, true);
@@ -343,7 +426,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Volcano").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/VolcanoWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/VolcanoLava").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.VolcanoTileData, colorToTile, TexGenAssets.VolcanoWallData, colorToWall, TexGenAssets.VolcanoLiquidData);
             Point newOrigin = new Point(origin.X, origin.Y - 30); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
@@ -527,7 +610,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Volcano").Value, colorToTile);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.VolcanoTileData, colorToTile);
             int genX = origin.X - (gen.width / 2);
             int genY = origin.Y - 80;		
             gen.Generate(genX, genY, true, true);						
@@ -594,7 +677,6 @@ namespace AAModClassic.World
 
     public class TerrariumDelete : MicroBiome
     {
-        Texture2D Terrasphere = null;
         public override bool Place(Point origin, StructureMap structures)
         {
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
@@ -614,23 +696,21 @@ namespace AAModClassic.World
             colorToTile[new Color(0, 255, 0)] = -2;
             colorToTile[Color.Black] = -1; //don't touch when genning	
 
-
-            Texture2D TerraSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumDelete").Value;
-            Texture2D TerraMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMedDelete").Value;
+            TexGenData Terrasphere = null;
 
             if (Terrasphere == null)
             {
                 if (worldSize == 1)
                 {
-                    Terrasphere = TerraSmall;
+                    Terrasphere = TexGenAssets.TerrariumSmallDeletionData;
                 }
                 else
                 {
-                    Terrasphere = TerraMed;
+                    Terrasphere = TexGenAssets.TerrariumMediumDeletionData;
                 }
             }
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(Terrasphere, colorToTile, Terrasphere, colorToWall);
+            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, Terrasphere, colorToWall);
             Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
@@ -659,10 +739,6 @@ namespace AAModClassic.World
     
     public class TerrariumSphere : MicroBiome
     {
-        Texture2D Terrasphere = null;
-
-        Texture2D TerraWalls = null;
-
         public override bool Place(Point origin, StructureMap structures)
         {
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
@@ -686,30 +762,27 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning				
             };
 
+            TexGenData Terrasphere = null;
 
-            Texture2D TerraSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Terrarium").Value;
-            Texture2D TerraMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMed").Value;
-
-            Texture2D WallSmall = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumWalls").Value;
-            Texture2D WallMed = ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/TerrariumMedWalls").Value;
+            TexGenData TerraWalls = null;
 
             if (Terrasphere == null)
             {
                 if (worldSize == 1)
                 {
-                    Terrasphere = TerraSmall;
+                    Terrasphere = TexGenAssets.TerrariumSmallTileData;
 
-                    TerraWalls = WallSmall;
+                    TerraWalls = TexGenAssets.TerrariumSmallWallData;
                 }
                 else
                 {
-                    Terrasphere = TerraMed;
+                    Terrasphere = TexGenAssets.TerrariumMediumTileData;
 
-                    TerraWalls = WallMed;
+                    TerraWalls = TexGenAssets.TerrariumMediumWallData;
                 }
             }
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(Terrasphere, colorToTile, TerraWalls, colorToWall);
+            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, TerraWalls, colorToWall);
             Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);
 
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
@@ -747,7 +820,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNestClear").Value, colorToTile);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.HoardDeletionData, colorToTile);
             gen.Generate(origin.X, origin.Y, true, true);
 
             return true;
@@ -774,7 +847,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNest").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/GreedNestWalls").Value, colorToWall);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.HoardTileData, colorToTile, TexGenAssets.HoardWallData, colorToWall);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -954,7 +1027,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1			
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Acropolis").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/AcropolisWalls").Value, colorToWall, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/AcropolisRoof").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.AcropolisTileData, colorToTile, TexGenAssets.AcropolisWallData, colorToWall, null, TexGenAssets.AcropolisRoofData);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -982,7 +1055,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EquinoxAltar").Value, colorToTile, null, null, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EquinoxAltarSlope").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.EquinoxTileData, colorToTile, null, null, null, TexGenAssets.EquinoxSlopeData);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1027,7 +1100,7 @@ namespace AAModClassic.World
                 new Actions.SetSlope(0)
             }));
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Pit").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitWall").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitLava").Value, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitSlope").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.PitTileData, colorToTile, TexGenAssets.PitWallData, colorToWall, TexGenAssets.PitLiquidData, TexGenAssets.PitSlopeData);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1037,7 +1110,7 @@ namespace AAModClassic.World
             return true;
         }
     }
-    
+    /*
     public class PitTeaser : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
@@ -1059,7 +1132,7 @@ namespace AAModClassic.World
                 new Actions.SetSlope(0)
             }));
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/PitConstruction").Value, colorToTile);
+            TexGen gen = TexGen.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/World/PitConstruction").Value, colorToTile);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1069,7 +1142,10 @@ namespace AAModClassic.World
             return true;
         }
     }
+    */
 
+    //Unused... For now...
+    /*
     public class Parthenan : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
@@ -1096,7 +1172,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Parthenan").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ParthenanWalls").Value, colorToWall);
+            //TexGen gen = TexGen.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/World/Parthenan").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/World/ParthenanWalls").Value, colorToWall);
             
             gen.Generate(origin.X, origin.Y, true, true);
             WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)mod.Find<ModTile>("DataBank").Type);
@@ -1137,7 +1213,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1 //don't touch when genning				
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/Ship").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ShipWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/ShipWater").Value);
+            TexGen gen = TexGen.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/World/Ship").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/World/ShipWalls").Value, colorToWall, ModContent.Request<Texture2D>("AAModClassic/World/ShipWater").Value);
 
 			int newOriginX = origin.X - (gen.width / 2);
 			int newOriginY = origin.Y - (gen.height / 2) + 10;
@@ -1147,6 +1223,7 @@ namespace AAModClassic.World
             return true;
         }
     }
+    */
 
     public class Crystal : MicroBiome
     {
@@ -1169,7 +1246,7 @@ namespace AAModClassic.World
                 [Color.Black] = -1
             };
 
-            TexGen gen = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystal").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystalWall").Value, colorToWall, null, ModContent.Request<Texture2D>("AAModClassic/Worldgeneration/EnderCrystalSlope").Value);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.EnderCrystalTileData, colorToTile, TexGenAssets.EnderCrystalWallData, colorToWall, null, TexGenAssets.EnderCrystalSlopeData);
 
             gen.Generate(origin.X, origin.Y, true, true);
 

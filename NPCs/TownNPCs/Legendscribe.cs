@@ -18,9 +18,9 @@ using AAModClassic.CrossMod;
 namespace AAModClassic.NPCs.TownNPCs
 {
     [AutoloadHead]
-	public class Anubis : ModNPC
+	public class Legendscribe : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/TownNPCs/Anubis";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/Legendscribe";
         public override void ModifyTypeName(ref string typeName)
         {
             typeName = "Legendscribe";
@@ -451,8 +451,8 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D t = Mod.GetTexture(AAWorld.downedAnubisA ? "NPCs/TownNPCs/AnubisF" : "NPCs/TownNPCs/Anubis");
-            Texture2D g = Mod.GetTexture(AAWorld.downedAnubisA ? "Glowmasks/AnubisF_Glow" : "Glowmasks/Anubis_Glow");
+            Texture2D t = Mod.GetTexture(AAWorld.downedAnubisA ? "NPCs/TownNPCs/LegendscribeF" : "NPCs/TownNPCs/Legendscribe");
+            Texture2D g = Mod.GetTexture(AAWorld.downedAnubisA ? "Glowmasks/LegendscribeF_Glow" : "Glowmasks/Legendscribe_Glow");
             BaseDrawing.DrawTexture(spriteBatch, t, 0, NPC, drawColor);
             BaseDrawing.DrawTexture(spriteBatch, g, 0, NPC, Color.White);
             return false;

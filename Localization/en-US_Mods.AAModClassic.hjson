@@ -1,0 +1,9438 @@
+Biomes: {
+	VoidBiomeZone: {
+		DisplayName: Void Biome Zone
+		TownNPCDialogueName: the Void Biome Zone
+	}
+
+	TerrariumBiomeZone: {
+		TownNPCDialogueName: the Terrarium Biome Zone
+		DisplayName: Terrarium Biome Zone
+	}
+
+	RisingSunPagodaBiomeZone: {
+		TownNPCDialogueName: the Rising Sun Pagoda Biome Zone
+		DisplayName: Rising Sun Pagoda Biome Zone
+	}
+
+	RisingMoonLakeBiomeZone: {
+		TownNPCDialogueName: the Rising Moon Lake Biome Zone
+		DisplayName: Rising Moon Lake Biome Zone
+	}
+
+	RadiumBiomeZone: {
+		TownNPCDialogueName: the Radium Biome Zone
+		DisplayName: Radium Biome Zone
+	}
+
+	MushroomBiomeZone: {
+		TownNPCDialogueName: the Mushroom Biome Zone
+		DisplayName: Mushroom Biome Zone
+	}
+
+	MireBiomeZone: {
+		TownNPCDialogueName: the Mire Biome Zone
+		DisplayName: Mire Biome Zone
+	}
+
+	InfernoBiomeZone: {
+		TownNPCDialogueName: the Inferno Biome Zone
+		DisplayName: Inferno Biome Zone
+	}
+
+	HoardBiomeZone: {
+		TownNPCDialogueName: the Hoard Biome Zone
+		DisplayName: Hoard Biome Zone
+	}
+
+	AcropolisBiomeZone: {
+		TownNPCDialogueName: the Acropolis Biome Zone
+		DisplayName: Acropolis Biome Zone
+	}
+}
+
+Tiles: {
+	RazewoodSapling.MapEntry: Razewood Sapling
+	RazePalmSapling.MapEntry: Raze Palm Sapling
+	OroborosSapling.MapEntry: Oroboros Sapling
+	BogwoodSapling.MapEntry: Bogwood Sapling
+	BogPalmSapling.MapEntry: Bog Palm Sapling
+	HydratoxinTorch.MapEntry: Hydratoxin Torch
+	EventideTorch.MapEntry: Eventide Torch
+	DragonfireTorch.MapEntry: Dragonfire Torch
+	DiscordianTorch.MapEntry: Discordian Torch
+	DaybreakTorch.MapEntry: Daybreak Torch
+	SkyCrystal.MapEntry: Sky Crystal
+	RelicOre.MapEntry: Relic Ore
+	RadiumOre.MapEntry: Radium Ore
+	PrismOre.MapEntry: Prism Ore
+	LuminiteOre.MapEntry: Luminite Ore
+	IncineriteOre.MapEntry: Incinerite Ore
+	HallowedOre.MapEntry: Hallowed Ore
+	EventideAbyssiumOre.MapEntry: Eventide Abyssium Ore
+	DynaskullOre.MapEntry: Dynaskull Ore
+	DiscordiumOre.MapEntry: Discordium Ore
+	DaybreakIncineriteOre.MapEntry: Daybreak Incinerite Ore
+	CovetiteOre.MapEntry: Covetite Ore
+	Apocalyptite.MapEntry: Apocalyptite
+	AbyssiumOre.MapEntry: Abyssium Ore
+	RazewoodWorkbench.MapEntry: Razewood Workbench
+	RazewoodTub.MapEntry: Razewood Tub
+	RazewoodTable.MapEntry: Razewood Table
+	RazewoodSink.MapEntry: Razewood Sink
+	RazewoodPiano.MapEntry: Razewood Piano
+	RazewoodLantern.MapEntry: Razewood Lantern
+	RazewoodLamp.MapEntry: Razewood Lamp
+	RazewoodDresser.MapEntry: Razewood Dresser
+	RazewoodDoorOpen.MapEntry: Razewood Door Open
+	RazewoodDoorClosed.MapEntry: Razewood Door Closed
+	RazewoodCouch.MapEntry: Razewood Couch
+	RazewoodClock.MapEntry: Razewood Clock
+	RazewoodChest.MapEntry: Razewood Chest
+	RazewoodChandelier.MapEntry: Razewood Chandelier
+	RazewoodChair.MapEntry: Razewood Chair
+	RazewoodCandle.MapEntry: Razewood Candle
+	RazewoodCandelabra.MapEntry: Razewood Candelabra
+	RazewoodBookshelf.MapEntry: Razewood Bookshelf
+	RazewoodBed.MapEntry: Razewood Bed
+	SpiralStairs.MapEntry: Spiral Stairs
+	OroborosWorkbench.MapEntry: Oroboros Workbench
+	OroborosLantern.MapEntry: Oroboros Lantern
+	OroborosDoorOpen.MapEntry: Oroboros Door Open
+	OroborosDoorClosed.MapEntry: Oroboros Door Closed
+	OroborosClock.MapEntry: Oroboros Clock
+	OroborosChest.MapEntry: Oroboros Chest
+	OroborosChair.MapEntry: Oroboros Chair
+	OroborosBookcase.MapEntry: Oroboros Bookcase
+	OroborosBed.MapEntry: Oroboros Bed
+	OroborosBathtub.MapEntry: Oroboros Bathtub
+	DoomWorkbench.MapEntry: Doom Workbench
+	DoomTable.MapEntry: Doom Table
+	DoomSink.MapEntry: Doom Sink
+	DoomPiano.MapEntry: Doom Piano
+	DoomLantern.MapEntry: Doom Lantern
+	DoomLamp.MapEntry: Doom Lamp
+	DoomDresser.MapEntry: Doom Dresser
+	DoomDoorOpen.MapEntry: Doom Door Open
+	DoomDoorClosed.MapEntry: Doom Door Closed
+	DoomCouch.MapEntry: Doom Couch
+	DoomClock.MapEntry: Doom Clock
+	DoomChest.MapEntry: Doom Chest
+	DoomChandelier.MapEntry: Doom Chandelier
+	DoomChair.MapEntry: Doom Chair
+	DoomCandle.MapEntry: Doom Candle
+	DoomCandelabra.MapEntry: Doom Candelabra
+	DoomBookshelf.MapEntry: Doom Bookshelf
+	DoomBed.MapEntry: Doom Bed
+	DoomBathtub.MapEntry: Doom Bathtub
+	CrystalChandelier.MapEntry: Crystal Chandelier
+	BogwoodWorkbench.MapEntry: Bogwood Workbench
+	BogwoodTable.MapEntry: Bogwood Table
+	BogwoodSink.MapEntry: Bogwood Sink
+	BogwoodPiano.MapEntry: Bogwood Piano
+	BogwoodLantern.MapEntry: Bogwood Lantern
+	BogwoodLamp.MapEntry: Bogwood Lamp
+	BogwoodDresser.MapEntry: Bogwood Dresser
+	BogwoodDoorOpen.MapEntry: Bogwood Door Open
+	BogwoodDoorClosed.MapEntry: Bogwood Door Closed
+	BogwoodCouch.MapEntry: Bogwood Couch
+	BogwoodClock.MapEntry: Bogwood Clock
+	BogwoodChest.MapEntry: Bogwood Chest
+	BogwoodChandelier.MapEntry: Bogwood Chandelier
+	BogwoodChair.MapEntry: Bogwood Chair
+	BogwoodCandle.MapEntry: Bogwood Candle
+	BogwoodCandelabra.MapEntry: Bogwood Candelabra
+	BogwoodBookshelf.MapEntry: Bogwood Bookshelf
+	BogwoodBench.MapEntry: Bogwood Bench
+	BogwoodBed.MapEntry: Bogwood Bed
+	BogwoodBathtub.MapEntry: Bogwood Bathtub
+	RoyalBunnyCage.MapEntry: Royal Bunny Cage
+	MoonBeeJar.MapEntry: Moon Bee Jar
+	GreedLantern.MapEntry: Greed Lantern
+	EnderMemory.MapEntry: Ender Memory
+	DevStatue.MapEntry: Dev Statue
+	AvesInABox.MapEntry: Aves In A Box
+	VoidCrate.MapEntry: Void Crate
+	MireCrate.MapEntry: Mire Crate
+	InfernoCrate.MapEntry: Inferno Crate
+	IceCrate.MapEntry: Ice Crate
+	HellCrate.MapEntry: Hell Crate
+	DesertCrate.MapEntry: Desert Crate
+	TruePaladinsSmeltery.MapEntry: True Paladins Smeltery
+	Transmuter.MapEntry: Transmuter
+	ToxinMonkfishTile.MapEntry: Toxin Monkfish Tile
+	TerraPrism.MapEntry: Terra Prism
+	TerraCore.MapEntry: Terra Core
+	SharpeningLavaFishTile.MapEntry: Sharpening Lava Fish Tile
+	RadiantArcanum.MapEntry: Radiant Arcanum
+	QuantumFusionAccelerator.MapEntry: Quantum Fusion Accelerator
+	PaladinsSmeltery.MapEntry: Paladins Smeltery
+	HellstoneAnvil.MapEntry: Hellstone Anvil
+	HaphestusForge.MapEntry: Haphestus Forge
+	HallowedForge.MapEntry: Hallowed Forge
+	HallowedAnvil.MapEntry: Hallowed Anvil
+	FurnitureDynamo.MapEntry: Furniture Dynamo
+	EvilAltar.MapEntry: Evil Altar
+	ChaosCrucible.MapEntry: Chaos Crucible
+	ChaosAltar2.MapEntry: Chaos Altar2
+	ChaosAltar1.MapEntry: Chaos Altar1
+	ChaosAltar.MapEntry: Chaos Altar
+	BinaryReassembler.MapEntry: Binary Reassembler
+	ACS.MapEntry: A C S
+	MireChest.MapEntry: Mire Chest
+	InfernoChest.MapEntry: Inferno Chest
+	GreedChest.MapEntry: Greed Chest
+	DoomsdayChest.MapEntry: Doomsday Chest
+	ZeroBox.MapEntry: Zero Box
+	Zero2Box.MapEntry: Zero2 Box
+	YamataBox.MapEntry: Yamata Box
+	YamataABox.MapEntry: Yamata A Box
+	VoidBox.MapEntry: Void Box
+	ToadBox.MapEntry: Toad Box
+	TerrariumBox.MapEntry: Terrarium Box
+	StarBox.MapEntry: Star Box
+	SRajahBox.MapEntry: S Rajah Box
+	SistersBox.MapEntry: Sisters Box
+	ShenBox.MapEntry: Shen Box
+	ShenABox.MapEntry: Shen A Box
+	SGBox.MapEntry: S G Box
+	SerpentBox.MapEntry: Serpent Box
+	SDBox.MapEntry: S D Box
+	SagBox.MapEntry: Sag Box
+	RajahBox.MapEntry: Rajah Box
+	PagodaBox.MapEntry: Pagoda Box
+	MushBox.MapEntry: Mush Box
+	MonarchBox.MapEntry: Monarch Box
+	MireUBox.MapEntry: Mire U Box
+	MireDayBox.MapEntry: Mire Day Box
+	MireBox.MapEntry: Mire Box
+	LakeBox.MapEntry: Lake Box
+	InfernoUBox.MapEntry: Inferno U Box
+	InfernoNightBox.MapEntry: Inferno Night Box
+	InfernoBox.MapEntry: Inferno Box
+	HydraBox.MapEntry: Hydra Box
+	HoardBox.MapEntry: Hoard Box
+	GripsBox.MapEntry: Grips Box
+	GreedBox.MapEntry: Greed Box
+	GreedABox.MapEntry: Greed A Box
+	FungusBox.MapEntry: Fungus Box
+	FateBox.MapEntry: Fate Box
+	Equibox.MapEntry: Equibox
+	DjinnBox.MapEntry: Djinn Box
+	BroodBox.MapEntry: Brood Box
+	AthenaBox.MapEntry: Athena Box
+	AthenaABox.MapEntry: Athena A Box
+	AnubisFBox.MapEntry: Anubis F Box
+	AnubisBox.MapEntry: Anubis Box
+	AkumaBox.MapEntry: Akuma Box
+	AkumaABox.MapEntry: Akuma A Box
+	AcropolisBox.MapEntry: Acropolis Box
+	Throne.MapEntry: Throne
+	HydraPod.MapEntry: Hydra Pod
+	GreedAltar.MapEntry: Greed Altar
+	DragonEgg.MapEntry: Dragon Egg
+	AcropolisAltar.MapEntry: Acropolis Altar
+	ThixxieBanner.MapEntry: Thixxie Banner
+	FatPixieBanner.MapEntry: Fat Pixie Banner
+	Banners.MapEntry: Banners
+	WormAltar.MapEntry: Worm Altar
+	StarAltar.MapEntry: Star Altar
+	GravAltar.MapEntry: Grav Altar
+	InvokerBookTile.MapEntry: Invoker Book Tile
+	CerberusKennel.MapEntry: Cerberus Kennel
+	CCMireBox.MapEntry: C C Mire Box
+}
+
+Keybinds: {
+	"AA Armor Ability.DisplayName": A A  Armor  Ability
+	"AA Accessory Ability.DisplayName": A A  Accessory  Ability
+	"Rift Back.DisplayName": Rift  Back
+	"Rift Home.DisplayName": Rift  Home
+}
+
+Buffs: {
+	AsheFlame: {
+		DisplayName: Ashe Flame
+		Description: Mods.AAModClassic.Buffs.AsheFlame.Description
+	}
+
+	Athena: {
+		DisplayName: Athena
+		Description: Mods.AAModClassic.Buffs.Athena.Description
+	}
+
+	AtlanteanBuff: {
+		DisplayName: Atlantean Buff
+		Description: Mods.AAModClassic.Buffs.AtlanteanBuff.Description
+	}
+
+	BabyPhoenix: {
+		DisplayName: Baby Phoenix
+		Description: Mods.AAModClassic.Buffs.BabyPhoenix.Description
+	}
+
+	BlazingPain: {
+		DisplayName: Blazing Pain
+		Description: Mods.AAModClassic.Buffs.BlazingPain.Description
+	}
+
+	BoomBoi: {
+		DisplayName: Boom Boi
+		Description: Mods.AAModClassic.Buffs.BoomBoi.Description
+	}
+
+	BrokenArmor: {
+		DisplayName: Broken Armor
+		Description: Mods.AAModClassic.Buffs.BrokenArmor.Description
+	}
+
+	Broodmini: {
+		DisplayName: Broodmini
+		Description: Mods.AAModClassic.Buffs.Broodmini.Description
+	}
+
+	BurningAsh: {
+		DisplayName: Burning Ash
+		Description: Mods.AAModClassic.Buffs.BurningAsh.Description
+	}
+
+	CCRune: {
+		DisplayName: C C Rune
+		Description: Mods.AAModClassic.Buffs.CCRune.Description
+	}
+
+	Cerberus: {
+		DisplayName: Cerberus
+		Description: Mods.AAModClassic.Buffs.Cerberus.Description
+	}
+
+	ChaosBuff: {
+		DisplayName: Chaos Buff
+		Description: Mods.AAModClassic.Buffs.ChaosBuff.Description
+	}
+
+	ChaosClaw: {
+		DisplayName: Chaos Claw
+		Description: Mods.AAModClassic.Buffs.ChaosClaw.Description
+	}
+
+	ChaosConstruct: {
+		DisplayName: Chaos Construct
+		Description: Mods.AAModClassic.Buffs.ChaosConstruct.Description
+	}
+
+	ChaosWrath: {
+		DisplayName: Chaos Wrath
+		Description: Mods.AAModClassic.Buffs.ChaosWrath.Description
+	}
+
+	Clueless: {
+		DisplayName: Clueless
+		Description: Mods.AAModClassic.Buffs.Clueless.Description
+	}
+
+	CrasyLucky: {
+		DisplayName: Crasy Lucky
+		Description: Mods.AAModClassic.Buffs.CrasyLucky.Description
+	}
+
+	CrimeraMinion: {
+		DisplayName: Crimera Minion
+		Description: Mods.AAModClassic.Buffs.CrimeraMinion.Description
+	}
+
+	CrowMinion: {
+		DisplayName: Crow Minion
+		Description: Mods.AAModClassic.Buffs.CrowMinion.Description
+	}
+
+	CursedHellfire: {
+		DisplayName: Cursed Hellfire
+		Description: Mods.AAModClassic.Buffs.CursedHellfire.Description
+	}
+
+	DapperSquirrel: {
+		DisplayName: Dapper Squirrel
+		Description: Mods.AAModClassic.Buffs.DapperSquirrel.Description
+	}
+
+	DarkCurse: {
+		DisplayName: Dark Curse
+		Description: Mods.AAModClassic.Buffs.DarkCurse.Description
+	}
+
+	DarkLock: {
+		DisplayName: Dark Lock
+		Description: Mods.AAModClassic.Buffs.DarkLock.Description
+	}
+
+	DemonBuff: {
+		DisplayName: Demon Buff
+		Description: Mods.AAModClassic.Buffs.DemonBuff.Description
+	}
+
+	DemonMinion: {
+		DisplayName: Demon Minion
+		Description: Mods.AAModClassic.Buffs.DemonMinion.Description
+	}
+
+	DestinedToDie: {
+		DisplayName: Destined To Die
+		Description: Mods.AAModClassic.Buffs.DestinedToDie.Description
+	}
+
+	DevilMinion: {
+		DisplayName: Devil Minion
+		Description: Mods.AAModClassic.Buffs.DevilMinion.Description
+	}
+
+	DiscordInferno: {
+		DisplayName: Discord Inferno
+		Description: Mods.AAModClassic.Buffs.DiscordInferno.Description
+	}
+
+	DoomiteProbe: {
+		DisplayName: Doomite Probe
+		Description: Mods.AAModClassic.Buffs.DoomiteProbe.Description
+	}
+
+	DoomiteProbeC: {
+		DisplayName: Doomite Probe C
+		Description: Mods.AAModClassic.Buffs.DoomiteProbeC.Description
+	}
+
+	DragonFire: {
+		DisplayName: Dragon Fire
+		Description: Mods.AAModClassic.Buffs.DragonFire.Description
+	}
+
+	DragonfireFlaskBuff: {
+		DisplayName: Dragonfire Flask Buff
+		Description: Mods.AAModClassic.Buffs.DragonfireFlaskBuff.Description
+	}
+
+	DragonMinion: {
+		DisplayName: Dragon Minion
+		Description: Mods.AAModClassic.Buffs.DragonMinion.Description
+	}
+
+	DragonSoul: {
+		DisplayName: Dragon Soul
+		Description: Mods.AAModClassic.Buffs.DragonSoul.Description
+	}
+
+	DragonSpirit: {
+		DisplayName: Dragon Spirit
+		Description: Mods.AAModClassic.Buffs.DragonSpirit.Description
+	}
+
+	DustDevil: {
+		DisplayName: Dust Devil
+		Description: Mods.AAModClassic.Buffs.DustDevil.Description
+	}
+
+	DynaEnergy1: {
+		DisplayName: Dyna Energy1
+		Description: Mods.AAModClassic.Buffs.DynaEnergy1.Description
+	}
+
+	DynaEnergy2: {
+		DisplayName: Dyna Energy2
+		Description: Mods.AAModClassic.Buffs.DynaEnergy2.Description
+	}
+
+	EaterMinion: {
+		DisplayName: Eater Minion
+		Description: Mods.AAModClassic.Buffs.EaterMinion.Description
+	}
+
+	Electrified: {
+		DisplayName: Electrified
+		Description: Mods.AAModClassic.Buffs.Electrified.Description
+	}
+
+	EnderMinionBuff: {
+		DisplayName: Ender Minion Buff
+		Description: Mods.AAModClassic.Buffs.EnderMinionBuff.Description
+	}
+
+	EnderMinionBuffEX: {
+		DisplayName: Ender Minion Buff E X
+		Description: Mods.AAModClassic.Buffs.EnderMinionBuffEX.Description
+	}
+
+	EyeOfForsaken: {
+		DisplayName: Eye Of Forsaken
+		Description: Mods.AAModClassic.Buffs.EyeOfForsaken.Description
+	}
+
+	EyeOfJudgement: {
+		DisplayName: Eye Of Judgement
+		Description: Mods.AAModClassic.Buffs.EyeOfJudgement.Description
+	}
+
+	Falling: {
+		DisplayName: Falling
+		Description: Mods.AAModClassic.Buffs.Falling.Description
+	}
+
+	FireSpirit: {
+		DisplayName: Fire Spirit
+		Description: Mods.AAModClassic.Buffs.FireSpirit.Description
+	}
+
+	Fishnado: {
+		DisplayName: Fishnado
+		Description: Mods.AAModClassic.Buffs.Fishnado.Description
+	}
+
+	FlameSoul: {
+		DisplayName: Flame Soul
+		Description: Mods.AAModClassic.Buffs.FlameSoul.Description
+	}
+
+	Forsaken: {
+		DisplayName: Forsaken
+		Description: Mods.AAModClassic.Buffs.Forsaken.Description
+	}
+
+	ForsakenFlames: {
+		DisplayName: Forsaken Flames
+		Description: Mods.AAModClassic.Buffs.ForsakenFlames.Description
+	}
+
+	ForsakenWeak: {
+		DisplayName: Forsaken Weak
+		Description: Mods.AAModClassic.Buffs.ForsakenWeak.Description
+	}
+
+	Glitched: {
+		DisplayName: Glitched
+		Description: Mods.AAModClassic.Buffs.Glitched.Description
+	}
+
+	Glowmoss: {
+		DisplayName: Glowmoss
+		Description: Mods.AAModClassic.Buffs.Glowmoss.Description
+	}
+
+	GripMinion: {
+		DisplayName: Grip Minion
+		Description: Mods.AAModClassic.Buffs.GripMinion.Description
+	}
+
+	HallowedPrism: {
+		DisplayName: Hallowed Prism
+		Description: Mods.AAModClassic.Buffs.HallowedPrism.Description
+	}
+
+	Hunted: {
+		DisplayName: Hunted
+		Description: Mods.AAModClassic.Buffs.Hunted.Description
+	}
+
+	HydraToxin: {
+		DisplayName: Hydra Toxin
+		Description: Mods.AAModClassic.Buffs.HydraToxin.Description
+	}
+
+	HydratoxinFlaskBuff: {
+		DisplayName: Hydratoxin Flask Buff
+		Description: Mods.AAModClassic.Buffs.HydratoxinFlaskBuff.Description
+	}
+
+	Impaled: {
+		DisplayName: Impaled
+		Description: Mods.AAModClassic.Buffs.Impaled.Description
+	}
+
+	InfinityOverload: {
+		DisplayName: Infinity Overload
+		Description: Mods.AAModClassic.Buffs.InfinityOverload.Description
+	}
+
+	InvokedCaligulaSafe: {
+		DisplayName: Invoked Caligula Safe
+		Description: Mods.AAModClassic.Buffs.InvokedCaligulaSafe.Description
+	}
+
+	InvokerofMadness: {
+		DisplayName: Invokerof Madness
+		Description: Mods.AAModClassic.Buffs.InvokerofMadness.Description
+	}
+
+	Irradiated: {
+		DisplayName: Irradiated
+		Description: Mods.AAModClassic.Buffs.Irradiated.Description
+	}
+
+	K9: {
+		DisplayName: K9
+		Description: Mods.AAModClassic.Buffs.K9.Description
+	}
+
+	Lunamini: {
+		DisplayName: Lunamini
+		Description: Mods.AAModClassic.Buffs.Lunamini.Description
+	}
+
+	LungMinion: {
+		DisplayName: Lung Minion
+		Description: Mods.AAModClassic.Buffs.LungMinion.Description
+	}
+
+	ManaOverload: {
+		DisplayName: Mana Overload
+		Description: Mods.AAModClassic.Buffs.ManaOverload.Description
+	}
+
+	MB: {
+		DisplayName: M B
+		Description: Mods.AAModClassic.Buffs.MB.Description
+	}
+
+	MiniProbe: {
+		DisplayName: Mini Probe
+		Description: Mods.AAModClassic.Buffs.MiniProbe.Description
+	}
+
+	Moonraze: {
+		DisplayName: Moonraze
+		Description: Mods.AAModClassic.Buffs.Moonraze.Description
+	}
+
+	Mudkip: {
+		DisplayName: Mudkip
+		Description: Mods.AAModClassic.Buffs.Mudkip.Description
+	}
+
+	MudkipS: {
+		DisplayName: Mudkip S
+		Description: Mods.AAModClassic.Buffs.MudkipS.Description
+	}
+
+	Orbiters: {
+		DisplayName: Orbiters
+		Description: Mods.AAModClassic.Buffs.Orbiters.Description
+	}
+
+	PrettyPony: {
+		DisplayName: Pretty Pony
+		Description: Mods.AAModClassic.Buffs.PrettyPony.Description
+	}
+
+	PrinceFishron: {
+		DisplayName: Prince Fishron
+		Description: Mods.AAModClassic.Buffs.PrinceFishron.Description
+	}
+
+	ProbeMinion: {
+		DisplayName: Probe Minion
+		Description: Mods.AAModClassic.Buffs.ProbeMinion.Description
+	}
+
+	Protocol: {
+		DisplayName: Protocol
+		Description: Mods.AAModClassic.Buffs.Protocol.Description
+	}
+
+	RabbitcopterSoldier: {
+		DisplayName: Rabbitcopter Soldier
+		Description: Mods.AAModClassic.Buffs.RabbitcopterSoldier.Description
+	}
+
+	RadiumInferno: {
+		DisplayName: Radium Inferno
+		Description: Mods.AAModClassic.Buffs.RadiumInferno.Description
+	}
+
+	RealityBent: {
+		DisplayName: Reality Bent
+		Description: Mods.AAModClassic.Buffs.RealityBent.Description
+	}
+
+	ReaperCD: {
+		DisplayName: Reaper C D
+		Description: Mods.AAModClassic.Buffs.ReaperCD.Description
+	}
+
+	ReaperImmune: {
+		DisplayName: Reaper Immune
+		Description: Mods.AAModClassic.Buffs.ReaperImmune.Description
+	}
+
+	ReaperImmune2: {
+		DisplayName: Reaper Immune2
+		Description: Mods.AAModClassic.Buffs.ReaperImmune2.Description
+	}
+
+	Ronin: {
+		DisplayName: Ronin
+		Description: Mods.AAModClassic.Buffs.Ronin.Description
+	}
+
+	RoyalKitten: {
+		DisplayName: Royal Kitten
+		Description: Mods.AAModClassic.Buffs.RoyalKitten.Description
+	}
+
+	RoyalRabbit: {
+		DisplayName: Royal Rabbit
+		Description: Mods.AAModClassic.Buffs.RoyalRabbit.Description
+	}
+
+	SagOrbiter: {
+		DisplayName: Sag Orbiter
+		Description: Mods.AAModClassic.Buffs.SagOrbiter.Description
+	}
+
+	SagShield: {
+		DisplayName: Sag Shield
+		Description: Mods.AAModClassic.Buffs.SagShield.Description
+	}
+
+	ScoutMinion: {
+		DisplayName: Scout Minion
+		Description: Mods.AAModClassic.Buffs.ScoutMinion.Description
+	}
+
+	Searcher: {
+		DisplayName: Searcher
+		Description: Mods.AAModClassic.Buffs.Searcher.Description
+	}
+
+	Seraph: {
+		DisplayName: Seraph
+		Description: Mods.AAModClassic.Buffs.Seraph.Description
+	}
+
+	Sharkron: {
+		DisplayName: Sharkron
+		Description: Mods.AAModClassic.Buffs.Sharkron.Description
+	}
+
+	Shroomed: {
+		DisplayName: Shroomed
+		Description: Mods.AAModClassic.Buffs.Shroomed.Description
+	}
+
+	SkullMinion: {
+		DisplayName: Skull Minion
+		Description: Mods.AAModClassic.Buffs.SkullMinion.Description
+	}
+
+	SnakeMinion: {
+		DisplayName: Snake Minion
+		Description: Mods.AAModClassic.Buffs.SnakeMinion.Description
+	}
+
+	Socc: {
+		DisplayName: Socc
+		Description: Mods.AAModClassic.Buffs.Socc.Description
+	}
+
+	SockPuppet: {
+		DisplayName: Sock Puppet
+		Description: Mods.AAModClassic.Buffs.SockPuppet.Description
+	}
+
+	SpearStuck: {
+		DisplayName: Spear Stuck
+		Description: Mods.AAModClassic.Buffs.SpearStuck.Description
+	}
+
+	Squirrel: {
+		DisplayName: Squirrel
+		Description: Mods.AAModClassic.Buffs.Squirrel.Description
+	}
+
+	Stunned: {
+		DisplayName: Stunned
+		Description: Mods.AAModClassic.Buffs.Stunned.Description
+	}
+
+	Terrablaze: {
+		DisplayName: Terrablaze
+		Description: Mods.AAModClassic.Buffs.Terrablaze.Description
+	}
+
+	Terrarium: {
+		DisplayName: Terrarium
+		Description: Mods.AAModClassic.Buffs.Terrarium.Description
+	}
+
+	TerraSummon: {
+		DisplayName: Terra Summon
+		Description: Mods.AAModClassic.Buffs.TerraSummon.Description
+	}
+
+	TerraWizard: {
+		DisplayName: Terra Wizard
+		Description: Mods.AAModClassic.Buffs.TerraWizard.Description
+	}
+
+	TimeFrozen: {
+		DisplayName: Time Frozen
+		Description: Mods.AAModClassic.Buffs.TimeFrozen.Description
+	}
+
+	TrueHallowedPrism: {
+		DisplayName: True Hallowed Prism
+		Description: Mods.AAModClassic.Buffs.TrueHallowedPrism.Description
+	}
+
+	UnstableSoul: {
+		DisplayName: Unstable Soul
+		Description: Mods.AAModClassic.Buffs.UnstableSoul.Description
+	}
+
+	XiaoDoragon: {
+		DisplayName: Xiao Doragon
+		Description: Mods.AAModClassic.Buffs.XiaoDoragon.Description
+	}
+
+	YamataAGravity: {
+		DisplayName: Yamata A Gravity
+		Description: Mods.AAModClassic.Buffs.YamataAGravity.Description
+	}
+
+	YamataGravity: {
+		DisplayName: Yamata Gravity
+		Description: Mods.AAModClassic.Buffs.YamataGravity.Description
+	}
+
+	Yanked: {
+		DisplayName: Yanked
+		Description: Mods.AAModClassic.Buffs.Yanked.Description
+	}
+
+	ZeroBab: {
+		DisplayName: Zero Bab
+		Description: Mods.AAModClassic.Buffs.ZeroBab.Description
+	}
+
+	AssassinHurt: {
+		DisplayName: Assassin Hurt
+		Description: Mods.AAModClassic.Buffs.AssassinHurt.Description
+	}
+
+	BaronBuff: {
+		DisplayName: Baron Buff
+		Description: Mods.AAModClassic.Buffs.BaronBuff.Description
+	}
+
+	CBoost1: {
+		DisplayName: C Boost1
+		Description: Mods.AAModClassic.Buffs.CBoost1.Description
+	}
+
+	CBoost2: {
+		DisplayName: C Boost2
+		Description: Mods.AAModClassic.Buffs.CBoost2.Description
+	}
+
+	CBoost3: {
+		DisplayName: C Boost3
+		Description: Mods.AAModClassic.Buffs.CBoost3.Description
+	}
+
+	DroneCool: {
+		DisplayName: Drone Cool
+		Description: Mods.AAModClassic.Buffs.DroneCool.Description
+	}
+
+	RageBuff: {
+		DisplayName: Rage Buff
+		Description: Mods.AAModClassic.Buffs.RageBuff.Description
+	}
+
+	RageCool: {
+		DisplayName: Rage Cool
+		Description: Mods.AAModClassic.Buffs.RageCool.Description
+	}
+
+	CharmBuff: {
+		DisplayName: Charm Buff
+		Description: Mods.AAModClassic.Buffs.CharmBuff.Description
+	}
+
+	TalismanBuff: {
+		DisplayName: Talisman Buff
+		Description: Mods.AAModClassic.Buffs.TalismanBuff.Description
+	}
+
+	Invokedproj: {
+		DisplayName: Invokedproj
+		Description: Mods.AAModClassic.Buffs.Invokedproj.Description
+	}
+
+	CinematicBuff: {
+		DisplayName: Cinematic Buff
+		Description: Mods.AAModClassic.Buffs.CinematicBuff.Description
+	}
+
+	luckycalming: {
+		DisplayName: luckycalming
+		Description: Mods.AAModClassic.Buffs.luckycalming.Description
+	}
+
+	luckyendurance: {
+		DisplayName: luckyendurance
+		Description: Mods.AAModClassic.Buffs.luckyendurance.Description
+	}
+
+	luckyironskin: {
+		DisplayName: luckyironskin
+		Description: Mods.AAModClassic.Buffs.luckyironskin.Description
+	}
+
+	luckylifeforce: {
+		DisplayName: luckylifeforce
+		Description: Mods.AAModClassic.Buffs.luckylifeforce.Description
+	}
+
+	luckyrage: {
+		DisplayName: luckyrage
+		Description: Mods.AAModClassic.Buffs.luckyrage.Description
+	}
+
+	luckyregeneration: {
+		DisplayName: luckyregeneration
+		Description: Mods.AAModClassic.Buffs.luckyregeneration.Description
+	}
+
+	luckysummoning: {
+		DisplayName: luckysummoning
+		Description: Mods.AAModClassic.Buffs.luckysummoning.Description
+	}
+
+	luckyswiftness: {
+		DisplayName: luckyswiftness
+		Description: Mods.AAModClassic.Buffs.luckyswiftness.Description
+	}
+
+	luckythorns: {
+		DisplayName: luckythorns
+		Description: Mods.AAModClassic.Buffs.luckythorns.Description
+	}
+
+	luckywrath: {
+		DisplayName: luckywrath
+		Description: Mods.AAModClassic.Buffs.luckywrath.Description
+	}
+}
+
+Items: {
+	AshProofVest0: {
+		DisplayName: Ash Proof Vest0
+		Tooltip: ""
+	}
+
+	AshProofVest1: {
+		DisplayName: Ash Proof Vest1
+		Tooltip: ""
+	}
+
+	AshProofVest2: {
+		DisplayName: Ash Proof Vest2
+		Tooltip: ""
+	}
+
+	AshProofVest3: {
+		DisplayName: Ash Proof Vest3
+		Tooltip: ""
+	}
+
+	BlackLotusEmblem: {
+		DisplayName: Black Lotus Emblem
+		Tooltip: ""
+	}
+
+	BlackLotus: {
+		DisplayName: Black Lotus
+		Tooltip: ""
+	}
+
+	BotchedBand: {
+		DisplayName: Botched Band
+		Tooltip: ""
+	}
+
+	CursedEyeofSoulBinder: {
+		DisplayName: Cursed Eyeof Soul Binder
+		Tooltip: ""
+	}
+
+	DemonGauntlet: {
+		DisplayName: Demon Gauntlet
+		Tooltip: ""
+	}
+
+	DragonsGuard: {
+		DisplayName: Dragons Guard
+		Tooltip: ""
+	}
+
+	DragonstrideBoots: {
+		DisplayName: Dragonstride Boots
+		Tooltip: ""
+	}
+
+	Energy_Conduit: {
+		DisplayName: Energy_ Conduit
+		Tooltip: ""
+	}
+
+	Lantern: {
+		DisplayName: Lantern
+		Tooltip: ""
+	}
+
+	OldOneCharm: {
+		DisplayName: Old One Charm
+		Tooltip: ""
+	}
+
+	OrnateBand: {
+		DisplayName: Ornate Band
+		Tooltip: ""
+	}
+
+	PalladiumShield: {
+		DisplayName: Palladium Shield
+		Tooltip: ""
+	}
+
+	ShadowBand: {
+		DisplayName: Shadow Band
+		Tooltip: ""
+	}
+
+	AquamancerWings: {
+		DisplayName: Aquamancer Wings
+		Tooltip: ""
+	}
+
+	ChaosWings: {
+		DisplayName: Chaos Wings
+		Tooltip: ""
+	}
+
+	DarkmatterJetpack: {
+		DisplayName: Darkmatter Jetpack
+		Tooltip: ""
+	}
+
+	DraconianWings: {
+		DisplayName: Draconian Wings
+		Tooltip: ""
+	}
+
+	DreadWings: {
+		DisplayName: Dread Wings
+		Tooltip: ""
+	}
+
+	MagmancerWings: {
+		DisplayName: Magmancer Wings
+		Tooltip: ""
+	}
+
+	OlympianWings: {
+		DisplayName: Olympian Wings
+		Tooltip: ""
+	}
+
+	RadiumWings: {
+		DisplayName: Radium Wings
+		Tooltip: ""
+	}
+
+	TerraWings: {
+		DisplayName: Terra Wings
+		Tooltip: ""
+	}
+
+	VultureWings: {
+		DisplayName: Vulture Wings
+		Tooltip: ""
+	}
+
+	WingsofChaos: {
+		DisplayName: Wingsof Chaos
+		Tooltip: ""
+	}
+
+	ZeroWings: {
+		DisplayName: Zero Wings
+		Tooltip: ""
+	}
+
+	AbyssalFukumen: {
+		DisplayName: Abyssal Fukumen
+		Tooltip: ""
+	}
+
+	AbyssalGi: {
+		DisplayName: Abyssal Gi
+		Tooltip: ""
+	}
+
+	AbyssalHakama: {
+		DisplayName: Abyssal Hakama
+		Tooltip: ""
+	}
+
+	AncientGoldBody: {
+		DisplayName: Ancient Gold Body
+		Tooltip: ""
+	}
+
+	AncientGoldLeg: {
+		DisplayName: Ancient Gold Leg
+		Tooltip: ""
+	}
+
+	AssassinBoots: {
+		DisplayName: Assassin Boots
+		Tooltip: ""
+	}
+
+	AssassinHood: {
+		DisplayName: Assassin Hood
+		Tooltip: ""
+	}
+
+	AssassinShirt: {
+		DisplayName: Assassin Shirt
+		Tooltip: ""
+	}
+
+	AtlanteanGreaves: {
+		DisplayName: Atlantean Greaves
+		Tooltip: ""
+	}
+
+	AtlanteanHelm: {
+		DisplayName: Atlantean Helm
+		Tooltip: ""
+	}
+
+	AtlanteanPlate: {
+		DisplayName: Atlantean Plate
+		Tooltip: ""
+	}
+
+	BiomiteBoots: {
+		DisplayName: Biomite Boots
+		Tooltip: ""
+	}
+
+	BiomiteHelmet: {
+		DisplayName: Biomite Helmet
+		Tooltip: ""
+	}
+
+	BiomitePlate: {
+		DisplayName: Biomite Plate
+		Tooltip: ""
+	}
+
+	BlazingDou: {
+		DisplayName: Blazing Dou
+		Tooltip: ""
+	}
+
+	BlazingKabuto: {
+		DisplayName: Blazing Kabuto
+		Tooltip: ""
+	}
+
+	BlazingSuneate: {
+		DisplayName: Blazing Suneate
+		Tooltip: ""
+	}
+
+	BogwoodBoots: {
+		DisplayName: Bogwood Boots
+		Tooltip: ""
+	}
+
+	BogwoodChestplate: {
+		DisplayName: Bogwood Chestplate
+		Tooltip: ""
+	}
+
+	BogwoodChest: {
+		DisplayName: Bogwood Chest
+		Tooltip: ""
+	}
+
+	BogwoodHelmet: {
+		DisplayName: Bogwood Helmet
+		Tooltip: ""
+	}
+
+	Bogwood: {
+		DisplayName: Bogwood
+		Tooltip: ""
+	}
+
+	CarrotBooster: {
+		DisplayName: Carrot Booster
+		Tooltip: ""
+	}
+
+	Carrot: {
+		DisplayName: Carrot
+		Tooltip: ""
+	}
+
+	ChampionChestplate: {
+		DisplayName: Champion Chestplate
+		Tooltip: ""
+	}
+
+	ChampionGreaves: {
+		DisplayName: Champion Greaves
+		Tooltip: ""
+	}
+
+	ChampionHeaddress: {
+		DisplayName: Champion Headdress
+		Tooltip: ""
+	}
+
+	ChampionHelmet: {
+		DisplayName: Champion Helmet
+		Tooltip: ""
+	}
+
+	ChampionHood: {
+		DisplayName: Champion Hood
+		Tooltip: ""
+	}
+
+	ChampionMask: {
+		DisplayName: Champion Mask
+		Tooltip: ""
+	}
+
+	ChaosDou: {
+		DisplayName: Chaos Dou
+		Tooltip: ""
+	}
+
+	ChaosFukumen: {
+		DisplayName: Chaos Fukumen
+		Tooltip: ""
+	}
+
+	ChaosGreaves: {
+		DisplayName: Chaos Greaves
+		Tooltip: ""
+	}
+
+	ChaosKabuto: {
+		DisplayName: Chaos Kabuto
+		Tooltip: ""
+	}
+
+	ChaosMask: {
+		DisplayName: Chaos Mask
+		Tooltip: ""
+	}
+
+	ChaosVisor: {
+		DisplayName: Chaos Visor
+		Tooltip: ""
+	}
+
+	DarkmatterBreastplate: {
+		DisplayName: Darkmatter Breastplate
+		Tooltip: ""
+	}
+
+	DarkmatterGreaves: {
+		DisplayName: Darkmatter Greaves
+		Tooltip: ""
+	}
+
+	DarkmatterHeaddress: {
+		DisplayName: Darkmatter Headdress
+		Tooltip: ""
+	}
+
+	DarkmatterHelmet: {
+		DisplayName: Darkmatter Helmet
+		Tooltip: ""
+	}
+
+	DarkmatterMask: {
+		DisplayName: Darkmatter Mask
+		Tooltip: ""
+	}
+
+	DarkmatterVisor: {
+		DisplayName: Darkmatter Visor
+		Tooltip: ""
+	}
+
+	DeathlyGreaves: {
+		DisplayName: Deathly Greaves
+		Tooltip: ""
+	}
+
+	DeathlyRibguard: {
+		DisplayName: Deathly Ribguard
+		Tooltip: ""
+	}
+
+	DeathlySkull: {
+		DisplayName: Deathly Skull
+		Tooltip: ""
+	}
+
+	DemonBoots: {
+		DisplayName: Demon Boots
+		Tooltip: ""
+	}
+
+	DemonGarb: {
+		DisplayName: Demon Garb
+		Tooltip: ""
+	}
+
+	DemonHood: {
+		DisplayName: Demon Hood
+		Tooltip: ""
+	}
+
+	DepthFukumen: {
+		DisplayName: Depth Fukumen
+		Tooltip: ""
+	}
+
+	DepthGi: {
+		DisplayName: Depth Gi
+		Tooltip: ""
+	}
+
+	DepthHakama: {
+		DisplayName: Depth Hakama
+		Tooltip: ""
+	}
+
+	DoomiteBreastplate: {
+		DisplayName: Doomite Breastplate
+		Tooltip: ""
+	}
+
+	DoomiteGreaves: {
+		DisplayName: Doomite Greaves
+		Tooltip: ""
+	}
+
+	DoomiteVisor: {
+		DisplayName: Doomite Visor
+		Tooltip: ""
+	}
+
+	DoomiteUGreaves: {
+		DisplayName: Doomite U Greaves
+		Tooltip: ""
+	}
+
+	DoomiteUHelm: {
+		DisplayName: Doomite U Helm
+		Tooltip: ""
+	}
+
+	DoomiteUPlate: {
+		DisplayName: Doomite U Plate
+		Tooltip: ""
+	}
+
+	Doomite: {
+		DisplayName: Doomite
+		Tooltip: ""
+	}
+
+	DoomsdayChestplate: {
+		DisplayName: Doomsday Chestplate
+		Tooltip: ""
+	}
+
+	DoomsdayChest: {
+		DisplayName: Doomsday Chest
+		Tooltip: ""
+	}
+
+	DoomsdayHelmet: {
+		DisplayName: Doomsday Helmet
+		Tooltip: ""
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: Doomsday Leggings
+		Tooltip: ""
+	}
+
+	DoomsdayMask: {
+		DisplayName: Doomsday Mask
+		Tooltip: ""
+	}
+
+	DracoHelm: {
+		DisplayName: Draco Helm
+		Tooltip: ""
+	}
+
+	DracoLeggings: {
+		DisplayName: Draco Leggings
+		Tooltip: ""
+	}
+
+	DracoPlate: {
+		DisplayName: Draco Plate
+		Tooltip: ""
+	}
+
+	DreadBoots: {
+		DisplayName: Dread Boots
+		Tooltip: ""
+	}
+
+	DreadHelm: {
+		DisplayName: Dread Helm
+		Tooltip: ""
+	}
+
+	DreadPlate: {
+		DisplayName: Dread Plate
+		Tooltip: ""
+	}
+
+	Dynaskull: {
+		DisplayName: Dynaskull
+		Tooltip: ""
+	}
+
+	DynaskullGreaves: {
+		DisplayName: Dynaskull Greaves
+		Tooltip: ""
+	}
+
+	DynaskullRibguard: {
+		DisplayName: Dynaskull Ribguard
+		Tooltip: ""
+	}
+
+	FleshrendGreaves: {
+		DisplayName: Fleshrend Greaves
+		Tooltip: ""
+	}
+
+	FleshrendHelm: {
+		DisplayName: Fleshrend Helm
+		Tooltip: ""
+	}
+
+	FleshrendPlate: {
+		DisplayName: Fleshrend Plate
+		Tooltip: ""
+	}
+
+	ShroomHat: {
+		DisplayName: Shroom Hat
+		Tooltip: ""
+	}
+
+	ShroomPants: {
+		DisplayName: Shroom Pants
+		Tooltip: ""
+	}
+
+	ShroomShirt: {
+		DisplayName: Shroom Shirt
+		Tooltip: ""
+	}
+
+	GoblinSlayerChest: {
+		DisplayName: Goblin Slayer Chest
+		Tooltip: ""
+	}
+
+	GoblinSlayerGreaves: {
+		DisplayName: Goblin Slayer Greaves
+		Tooltip: ""
+	}
+
+	GoblinSlayerHelm: {
+		DisplayName: Goblin Slayer Helm
+		Tooltip: ""
+	}
+
+	GoblinSlayer: {
+		DisplayName: Goblin Slayer
+		Tooltip: ""
+	}
+
+	HoodlumHood: {
+		DisplayName: Hoodlum Hood
+		Tooltip: ""
+	}
+
+	HoodlumPants: {
+		DisplayName: Hoodlum Pants
+		Tooltip: ""
+	}
+
+	HoodlumShirt: {
+		DisplayName: Hoodlum Shirt
+		Tooltip: ""
+	}
+
+	ImpBoots: {
+		DisplayName: Imp Boots
+		Tooltip: ""
+	}
+
+	ImpGarb: {
+		DisplayName: Imp Garb
+		Tooltip: ""
+	}
+
+	ImpHood: {
+		DisplayName: Imp Hood
+		Tooltip: ""
+	}
+
+	KindledDou: {
+		DisplayName: Kindled Dou
+		Tooltip: ""
+	}
+
+	KindledKabuto: {
+		DisplayName: Kindled Kabuto
+		Tooltip: ""
+	}
+
+	KindledSuneate: {
+		DisplayName: Kindled Suneate
+		Tooltip: ""
+	}
+
+	MushiumHat: {
+		DisplayName: Mushium Hat
+		Tooltip: ""
+	}
+
+	MushiumPants: {
+		DisplayName: Mushium Pants
+		Tooltip: ""
+	}
+
+	MushiumShirt: {
+		DisplayName: Mushium Shirt
+		Tooltip: ""
+	}
+
+	Mushium: {
+		DisplayName: Mushium
+		Tooltip: ""
+	}
+
+	NightsGreaves: {
+		DisplayName: Nights Greaves
+		Tooltip: ""
+	}
+
+	NightsHelm: {
+		DisplayName: Nights Helm
+		Tooltip: ""
+	}
+
+	NightsPlate: {
+		DisplayName: Nights Plate
+		Tooltip: ""
+	}
+
+	OceanBoots: {
+		DisplayName: Ocean Boots
+		Tooltip: ""
+	}
+
+	OceanHelm: {
+		DisplayName: Ocean Helm
+		Tooltip: ""
+	}
+
+	OceanShirt: {
+		DisplayName: Ocean Shirt
+		Tooltip: ""
+	}
+
+	OlympianBoots: {
+		DisplayName: Olympian Boots
+		Tooltip: ""
+	}
+
+	OlympianHelm: {
+		DisplayName: Olympian Helm
+		Tooltip: ""
+	}
+
+	OlympianPlate: {
+		DisplayName: Olympian Plate
+		Tooltip: ""
+	}
+
+	Olympia: {
+		DisplayName: Olympia
+		Tooltip: ""
+	}
+
+	OroborosBoots: {
+		DisplayName: Oroboros Boots
+		Tooltip: ""
+	}
+
+	OroborosChestplate: {
+		DisplayName: Oroboros Chestplate
+		Tooltip: ""
+	}
+
+	OroborosChest: {
+		DisplayName: Oroboros Chest
+		Tooltip: ""
+	}
+
+	OroborosHelmet: {
+		DisplayName: Oroboros Helmet
+		Tooltip: ""
+	}
+
+	AdamantitePaint: {
+		DisplayName: Adamantite Paint
+		Tooltip: ""
+	}
+
+	ChlorophytePaint: {
+		DisplayName: Chlorophyte Paint
+		Tooltip: ""
+	}
+
+	CobaltPaint: {
+		DisplayName: Cobalt Paint
+		Tooltip: ""
+	}
+
+	HallowedPaint: {
+		DisplayName: Hallowed Paint
+		Tooltip: ""
+	}
+
+	MythrilPaint: {
+		DisplayName: Mythril Paint
+		Tooltip: ""
+	}
+
+	OrichalcumPaint: {
+		DisplayName: Orichalcum Paint
+		Tooltip: ""
+	}
+
+	PalladiumPaint: {
+		DisplayName: Palladium Paint
+		Tooltip: ""
+	}
+
+	TerraPaint: {
+		DisplayName: Terra Paint
+		Tooltip: ""
+	}
+
+	TitaniumPaint: {
+		DisplayName: Titanium Paint
+		Tooltip: ""
+	}
+
+	PerfectChaosGreaves: {
+		DisplayName: Perfect Chaos Greaves
+		Tooltip: ""
+	}
+
+	PerfectChaosHood: {
+		DisplayName: Perfect Chaos Hood
+		Tooltip: ""
+	}
+
+	PerfectChaosKabuto: {
+		DisplayName: Perfect Chaos Kabuto
+		Tooltip: ""
+	}
+
+	PerfectChaosMask: {
+		DisplayName: Perfect Chaos Mask
+		Tooltip: ""
+	}
+
+	PerfectChaosPlate: {
+		DisplayName: Perfect Chaos Plate
+		Tooltip: ""
+	}
+
+	PerfectChaosVisor: {
+		DisplayName: Perfect Chaos Visor
+		Tooltip: ""
+	}
+
+	PerfectChaos: {
+		DisplayName: Perfect Chaos
+		Tooltip: ""
+	}
+
+	RadiumCuisses: {
+		DisplayName: Radium Cuisses
+		Tooltip: ""
+	}
+
+	RadiumHat: {
+		DisplayName: Radium Hat
+		Tooltip: ""
+	}
+
+	RadiumHeadgear: {
+		DisplayName: Radium Headgear
+		Tooltip: ""
+	}
+
+	RadiumHelmet: {
+		DisplayName: Radium Helmet
+		Tooltip: ""
+	}
+
+	RadiumMask: {
+		DisplayName: Radium Mask
+		Tooltip: ""
+	}
+
+	RadiumPlatemail: {
+		DisplayName: Radium Platemail
+		Tooltip: ""
+	}
+
+	RaiderChest: {
+		DisplayName: Raider Chest
+		Tooltip: ""
+	}
+
+	RaiderHelm: {
+		DisplayName: Raider Helm
+		Tooltip: ""
+	}
+
+	RaiderLegs: {
+		DisplayName: Raider Legs
+		Tooltip: ""
+	}
+
+	RazewoodBoots: {
+		DisplayName: Razewood Boots
+		Tooltip: ""
+	}
+
+	RazewoodChestplate: {
+		DisplayName: Razewood Chestplate
+		Tooltip: ""
+	}
+
+	RazewoodChest: {
+		DisplayName: Razewood Chest
+		Tooltip: ""
+	}
+
+	RazewoodHelmet: {
+		DisplayName: Razewood Helmet
+		Tooltip: ""
+	}
+
+	Razewood: {
+		DisplayName: Razewood
+		Tooltip: ""
+	}
+
+	StoneSoldierGreaves: {
+		DisplayName: Stone Soldier Greaves
+		Tooltip: ""
+	}
+
+	StoneSoldierMask: {
+		DisplayName: Stone Soldier Mask
+		Tooltip: ""
+	}
+
+	StoneSoldierPlate: {
+		DisplayName: Stone Soldier Plate
+		Tooltip: ""
+	}
+
+	StripeManHat: {
+		DisplayName: Stripe Man Hat
+		Tooltip: ""
+	}
+
+	StripeManPants: {
+		DisplayName: Stripe Man Pants
+		Tooltip: ""
+	}
+
+	StripeManShirt: {
+		DisplayName: Stripe Man Shirt
+		Tooltip: ""
+	}
+
+	TerraGreaves: {
+		DisplayName: Terra Greaves
+		Tooltip: ""
+	}
+
+	TerraHelm: {
+		DisplayName: Terra Helm
+		Tooltip: ""
+	}
+
+	TerraHood: {
+		DisplayName: Terra Hood
+		Tooltip: ""
+	}
+
+	TerraMask: {
+		DisplayName: Terra Mask
+		Tooltip: ""
+	}
+
+	TerraPlate: {
+		DisplayName: Terra Plate
+		Tooltip: ""
+	}
+
+	TerraVisor: {
+		DisplayName: Terra Visor
+		Tooltip: ""
+	}
+
+	TribalCloak: {
+		DisplayName: Tribal Cloak
+		Tooltip: ""
+	}
+
+	TribalHat: {
+		DisplayName: Tribal Hat
+		Tooltip: ""
+	}
+
+	TribalKilt: {
+		DisplayName: Tribal Kilt
+		Tooltip: ""
+	}
+
+	VikingBoots: {
+		DisplayName: Viking Boots
+		Tooltip: ""
+	}
+
+	VikingHelm: {
+		DisplayName: Viking Helm
+		Tooltip: ""
+	}
+
+	VikingPlate: {
+		DisplayName: Viking Plate
+		Tooltip: ""
+	}
+
+	WitchBoots: {
+		DisplayName: Witch Boots
+		Tooltip: ""
+	}
+
+	WitchHood: {
+		DisplayName: Witch Hood
+		Tooltip: ""
+	}
+
+	WitchRobe: {
+		DisplayName: Witch Robe
+		Tooltip: ""
+	}
+
+	AbyssClawBanner: {
+		DisplayName: Abyss Claw Banner
+		Tooltip: ""
+	}
+
+	BladonBanner: {
+		DisplayName: Bladon Banner
+		Tooltip: ""
+	}
+
+	BlazeClawBanner: {
+		DisplayName: Blaze Claw Banner
+		Tooltip: ""
+	}
+
+	BlazePhoenixBanner: {
+		DisplayName: Blaze Phoenix Banner
+		Tooltip: ""
+	}
+
+	ChaosDragonBanner: {
+		DisplayName: Chaos Dragon Banner
+		Tooltip: ""
+	}
+
+	ChaoticDawnBanner: {
+		DisplayName: Chaotic Dawn Banner
+		Tooltip: ""
+	}
+
+	ChaoticTwilightBanner: {
+		DisplayName: Chaotic Twilight Banner
+		Tooltip: ""
+	}
+
+	DragonClawBanner: {
+		DisplayName: Dragon Claw Banner
+		Tooltip: ""
+	}
+
+	DragonClaw: {
+		DisplayName: Dragon Claw
+		Tooltip: ""
+	}
+
+	DragronBanner: {
+		DisplayName: Dragron Banner
+		Tooltip: ""
+	}
+
+	ElderDragonBanner: {
+		DisplayName: Elder Dragon Banner
+		Tooltip: ""
+	}
+
+	FatPixieBanner: {
+		DisplayName: Fat Pixie Banner
+		Tooltip: ""
+	}
+
+	FlamebruteBanner: {
+		DisplayName: Flamebrute Banner
+		Tooltip: ""
+	}
+
+	FlamespitterBanner: {
+		DisplayName: Flamespitter Banner
+		Tooltip: ""
+	}
+
+	FogAnglerBanner: {
+		DisplayName: Fog Angler Banner
+		Tooltip: ""
+	}
+
+	FungusFrogBanner: {
+		DisplayName: Fungus Frog Banner
+		Tooltip: ""
+	}
+
+	HydraClawBanner: {
+		DisplayName: Hydra Claw Banner
+		Tooltip: ""
+	}
+
+	HydraClaw: {
+		DisplayName: Hydra Claw
+		Tooltip: ""
+	}
+
+	InfernalSlimeBanner: {
+		DisplayName: Infernal Slime Banner
+		Tooltip: ""
+	}
+
+	InfernoGhoulBanner: {
+		DisplayName: Inferno Ghoul Banner
+		Tooltip: ""
+	}
+
+	InfernoSalamanderBanner: {
+		DisplayName: Inferno Salamander Banner
+		Tooltip: ""
+	}
+
+	InfernoSandSharkBanner: {
+		DisplayName: Inferno Sand Shark Banner
+		Tooltip: ""
+	}
+
+	KappaBanner: {
+		DisplayName: Kappa Banner
+		Tooltip: ""
+	}
+
+	LungBanner: {
+		DisplayName: Lung Banner
+		Tooltip: ""
+	}
+
+	MadnessBatBanner: {
+		DisplayName: Madness Bat Banner
+		Tooltip: ""
+	}
+
+	MadnessSlimeBanner: {
+		DisplayName: Madness Slime Banner
+		Tooltip: ""
+	}
+
+	MagmalgamBanner: {
+		DisplayName: Magmalgam Banner
+		Tooltip: ""
+	}
+
+	MiniDjinnBanner: {
+		DisplayName: Mini Djinn Banner
+		Tooltip: ""
+	}
+
+	MireGhoulBanner: {
+		DisplayName: Mire Ghoul Banner
+		Tooltip: ""
+	}
+
+	MiregronBanner: {
+		DisplayName: Miregron Banner
+		Tooltip: ""
+	}
+
+	MireSandSharkBanner: {
+		DisplayName: Mire Sand Shark Banner
+		Tooltip: ""
+	}
+
+	MireSkulkerBanner: {
+		DisplayName: Mire Skulker Banner
+		Tooltip: ""
+	}
+
+	MireSlimeBanner: {
+		DisplayName: Mire Slime Banner
+		Tooltip: ""
+	}
+
+	MiresquitoBanner: {
+		DisplayName: Miresquito Banner
+		Tooltip: ""
+	}
+
+	MossterBanner: {
+		DisplayName: Mosster Banner
+		Tooltip: ""
+	}
+
+	MushbugBanner: {
+		DisplayName: Mushbug Banner
+		Tooltip: ""
+	}
+
+	MushroomCrabBanner: {
+		DisplayName: Mushroom Crab Banner
+		Tooltip: ""
+	}
+
+	MushroomZombieBanner: {
+		DisplayName: Mushroom Zombie Banner
+		Tooltip: ""
+	}
+
+	NewtBanner: {
+		DisplayName: Newt Banner
+		Tooltip: ""
+	}
+
+	NightGuardBanner: {
+		DisplayName: Night Guard Banner
+		Tooltip: ""
+	}
+
+	NullBanner: {
+		DisplayName: Null Banner
+		Tooltip: ""
+	}
+
+	PurityCrawlerBanner: {
+		DisplayName: Purity Crawler Banner
+		Tooltip: ""
+	}
+
+	PuritySphereBanner: {
+		DisplayName: Purity Sphere Banner
+		Tooltip: ""
+	}
+
+	PuritySquidBanner: {
+		DisplayName: Purity Squid Banner
+		Tooltip: ""
+	}
+
+	PurityWeaverBanner: {
+		DisplayName: Purity Weaver Banner
+		Tooltip: ""
+	}
+
+	ScavengerBanner: {
+		DisplayName: Scavenger Banner
+		Tooltip: ""
+	}
+
+	SearcherBanner: {
+		DisplayName: Searcher Banner
+		Tooltip: ""
+	}
+
+	SeraphBanner: {
+		DisplayName: Seraph Banner
+		Tooltip: ""
+	}
+
+	ShadowScoutBanner: {
+		DisplayName: Shadow Scout Banner
+		Tooltip: ""
+	}
+
+	ShroomJellyBanner: {
+		DisplayName: Shroom Jelly Banner
+		Tooltip: ""
+	}
+
+	SnakeBanner: {
+		DisplayName: Snake Banner
+		Tooltip: ""
+	}
+
+	SoulsuckerBanner: {
+		DisplayName: Soulsucker Banner
+		Tooltip: ""
+	}
+
+	StoneSearcherBanner: {
+		DisplayName: Stone Searcher Banner
+		Tooltip: ""
+	}
+
+	SunWatcherBanner: {
+		DisplayName: Sun Watcher Banner
+		Tooltip: ""
+	}
+
+	TerraCrawlerBanner: {
+		DisplayName: Terra Crawler Banner
+		Tooltip: ""
+	}
+
+	TerraDeadshotBanner: {
+		DisplayName: Terra Deadshot Banner
+		Tooltip: ""
+	}
+
+	TerraProbeBanner: {
+		DisplayName: Terra Probe Banner
+		Tooltip: ""
+	}
+
+	TerraSerpentBanner: {
+		DisplayName: Terra Serpent Banner
+		Tooltip: ""
+	}
+
+	TerraSphereBanner: {
+		DisplayName: Terra Sphere Banner
+		Tooltip: ""
+	}
+
+	TerraSquidBanner: {
+		DisplayName: Terra Squid Banner
+		Tooltip: ""
+	}
+
+	TerraSquireBanner: {
+		DisplayName: Terra Squire Banner
+		Tooltip: ""
+	}
+
+	TerraWarlockBanner: {
+		DisplayName: Terra Warlock Banner
+		Tooltip: ""
+	}
+
+	TerraWatcherBanner: {
+		DisplayName: Terra Watcher Banner
+		Tooltip: ""
+	}
+
+	TerraWeaverBanner: {
+		DisplayName: Terra Weaver Banner
+		Tooltip: ""
+	}
+
+	TerraWizardBanner: {
+		DisplayName: Terra Wizard Banner
+		Tooltip: ""
+	}
+
+	ThixxieBanner: {
+		DisplayName: Thixxie Banner
+		Tooltip: ""
+	}
+
+	TinyToadBanner: {
+		DisplayName: Tiny Toad Banner
+		Tooltip: ""
+	}
+
+	ToxitoadBanner: {
+		DisplayName: Toxitoad Banner
+		Tooltip: ""
+	}
+
+	VoidScoutBanner: {
+		DisplayName: Void Scout Banner
+		Tooltip: ""
+	}
+
+	VortexBanner: {
+		DisplayName: Vortex Banner
+		Tooltip: ""
+	}
+
+	Vortex: {
+		DisplayName: Vortex
+		Tooltip: ""
+	}
+
+	WyrmBanner: {
+		DisplayName: Wyrm Banner
+		Tooltip: ""
+	}
+
+	WyrmlingBanner: {
+		DisplayName: Wyrmling Banner
+		Tooltip: ""
+	}
+
+	Abyssium: {
+		DisplayName: Abyssium
+		Tooltip: ""
+	}
+
+	Apocalyptite: {
+		DisplayName: Apocalyptite
+		Tooltip: ""
+	}
+
+	BinaryReassembler: {
+		DisplayName: Binary Reassembler
+		Tooltip: ""
+	}
+
+	BogwoodBathtub: {
+		DisplayName: Bogwood Bathtub
+		Tooltip: ""
+	}
+
+	BogwoodBed: {
+		DisplayName: Bogwood Bed
+		Tooltip: ""
+	}
+
+	BogwoodBench: {
+		DisplayName: Bogwood Bench
+		Tooltip: ""
+	}
+
+	BogwoodBookshelf: {
+		DisplayName: Bogwood Bookshelf
+		Tooltip: ""
+	}
+
+	BogwoodCandelabra: {
+		DisplayName: Bogwood Candelabra
+		Tooltip: ""
+	}
+
+	BogwoodCandle: {
+		DisplayName: Bogwood Candle
+		Tooltip: ""
+	}
+
+	BogwoodChair: {
+		DisplayName: Bogwood Chair
+		Tooltip: ""
+	}
+
+	BogwoodChandelier: {
+		DisplayName: Bogwood Chandelier
+		Tooltip: ""
+	}
+
+	BogwoodClock: {
+		DisplayName: Bogwood Clock
+		Tooltip: ""
+	}
+
+	BogwoodCouch: {
+		DisplayName: Bogwood Couch
+		Tooltip: ""
+	}
+
+	BogwoodDoor: {
+		DisplayName: Bogwood Door
+		Tooltip: ""
+	}
+
+	BogwoodDresser: {
+		DisplayName: Bogwood Dresser
+		Tooltip: ""
+	}
+
+	BogwoodLamp: {
+		DisplayName: Bogwood Lamp
+		Tooltip: ""
+	}
+
+	BogwoodLantern: {
+		DisplayName: Bogwood Lantern
+		Tooltip: ""
+	}
+
+	BogwoodPiano: {
+		DisplayName: Bogwood Piano
+		Tooltip: ""
+	}
+
+	BogwoodPlatform: {
+		DisplayName: Bogwood Platform
+		Tooltip: ""
+	}
+
+	BogwoodSink: {
+		DisplayName: Bogwood Sink
+		Tooltip: ""
+	}
+
+	BogwoodTable: {
+		DisplayName: Bogwood Table
+		Tooltip: ""
+	}
+
+	BogwoodWall: {
+		DisplayName: Bogwood Wall
+		Tooltip: ""
+	}
+
+	BogwoodWorkbench: {
+		DisplayName: Bogwood Workbench
+		Tooltip: ""
+	}
+
+	AcropolisBox: {
+		DisplayName: Acropolis Box
+		Tooltip: ""
+	}
+
+	AkumaABox: {
+		DisplayName: Akuma A Box
+		Tooltip: ""
+	}
+
+	AkumaBox: {
+		DisplayName: Akuma Box
+		Tooltip: ""
+	}
+
+	AnubisBox: {
+		DisplayName: Anubis Box
+		Tooltip: ""
+	}
+
+	AnubisFBox: {
+		DisplayName: Anubis F Box
+		Tooltip: ""
+	}
+
+	AthenaABox: {
+		DisplayName: Athena A Box
+		Tooltip: ""
+	}
+
+	AthenaBox: {
+		DisplayName: Athena Box
+		Tooltip: ""
+	}
+
+	BroodBox: {
+		DisplayName: Brood Box
+		Tooltip: ""
+	}
+
+	DjinnBox: {
+		DisplayName: Djinn Box
+		Tooltip: ""
+	}
+
+	Equibox: {
+		DisplayName: Equibox
+		Tooltip: ""
+	}
+
+	FateBox: {
+		DisplayName: Fate Box
+		Tooltip: ""
+	}
+
+	FungusBox: {
+		DisplayName: Fungus Box
+		Tooltip: ""
+	}
+
+	GreedABox: {
+		DisplayName: Greed A Box
+		Tooltip: ""
+	}
+
+	GreedBox: {
+		DisplayName: Greed Box
+		Tooltip: ""
+	}
+
+	GripsBox: {
+		DisplayName: Grips Box
+		Tooltip: ""
+	}
+
+	HoardBox: {
+		DisplayName: Hoard Box
+		Tooltip: ""
+	}
+
+	HydraBox: {
+		DisplayName: Hydra Box
+		Tooltip: ""
+	}
+
+	InfernoBox: {
+		DisplayName: Inferno Box
+		Tooltip: ""
+	}
+
+	InfernoNightBox: {
+		DisplayName: Inferno Night Box
+		Tooltip: ""
+	}
+
+	InfernoUBox: {
+		DisplayName: Inferno U Box
+		Tooltip: ""
+	}
+
+	LakeBox: {
+		DisplayName: Lake Box
+		Tooltip: ""
+	}
+
+	MireBox: {
+		DisplayName: Mire Box
+		Tooltip: ""
+	}
+
+	MireDayBox: {
+		DisplayName: Mire Day Box
+		Tooltip: ""
+	}
+
+	MireUBox: {
+		DisplayName: Mire U Box
+		Tooltip: ""
+	}
+
+	MonarchBox: {
+		DisplayName: Monarch Box
+		Tooltip: ""
+	}
+
+	PagodaBox: {
+		DisplayName: Pagoda Box
+		Tooltip: ""
+	}
+
+	RajahBox: {
+		DisplayName: Rajah Box
+		Tooltip: ""
+	}
+
+	SagBox: {
+		DisplayName: Sag Box
+		Tooltip: ""
+	}
+
+	SDBox: {
+		DisplayName: S D Box
+		Tooltip: ""
+	}
+
+	SerpentBox: {
+		DisplayName: Serpent Box
+		Tooltip: ""
+	}
+
+	SGBox: {
+		DisplayName: S G Box
+		Tooltip: ""
+	}
+
+	ShenABox: {
+		DisplayName: Shen A Box
+		Tooltip: ""
+	}
+
+	ShenBox: {
+		DisplayName: Shen Box
+		Tooltip: ""
+	}
+
+	SistersBox: {
+		DisplayName: Sisters Box
+		Tooltip: ""
+	}
+
+	StarBox: {
+		DisplayName: Star Box
+		Tooltip: ""
+	}
+
+	TerrariumBox: {
+		DisplayName: Terrarium Box
+		Tooltip: ""
+	}
+
+	ToadBox: {
+		DisplayName: Toad Box
+		Tooltip: ""
+	}
+
+	VoidBox: {
+		DisplayName: Void Box
+		Tooltip: ""
+	}
+
+	YamataABox: {
+		DisplayName: Yamata A Box
+		Tooltip: ""
+	}
+
+	YamataBox: {
+		DisplayName: Yamata Box
+		Tooltip: ""
+	}
+
+	Zero2Box: {
+		DisplayName: Zero2 Box
+		Tooltip: ""
+	}
+
+	ZeroBox: {
+		DisplayName: Zero Box
+		Tooltip: ""
+	}
+
+	AbyssiumBrick: {
+		DisplayName: Abyssium Brick
+		Tooltip: ""
+	}
+
+	CovetiteBrick: {
+		DisplayName: Covetite Brick
+		Tooltip: ""
+	}
+
+	DarkmatterBrick: {
+		DisplayName: Darkmatter Brick
+		Tooltip: ""
+	}
+
+	DaybreakBrick: {
+		DisplayName: Daybreak Brick
+		Tooltip: ""
+	}
+
+	DoomsdayPlating: {
+		DisplayName: Doomsday Plating
+		Tooltip: ""
+	}
+
+	DoomstoneBrick: {
+		DisplayName: Doomstone Brick
+		Tooltip: ""
+	}
+
+	DoomstoneB: {
+		DisplayName: Doomstone B
+		Tooltip: ""
+	}
+
+	Doomstone: {
+		DisplayName: Doomstone
+		Tooltip: ""
+	}
+
+	EquinoxBrick: {
+		DisplayName: Equinox Brick
+		Tooltip: ""
+	}
+
+	Equinox: {
+		DisplayName: Equinox
+		Tooltip: ""
+	}
+
+	EventideBrick: {
+		DisplayName: Eventide Brick
+		Tooltip: ""
+	}
+
+	IncineriteBrick: {
+		DisplayName: Incinerite Brick
+		Tooltip: ""
+	}
+
+	Incinerite: {
+		DisplayName: Incinerite
+		Tooltip: ""
+	}
+
+	RadiumBrick: {
+		DisplayName: Radium Brick
+		Tooltip: ""
+	}
+
+	RelicBrick: {
+		DisplayName: Relic Brick
+		Tooltip: ""
+	}
+
+	SkycrystalBrick: {
+		DisplayName: Skycrystal Brick
+		Tooltip: ""
+	}
+
+	SkymarbleBrick: {
+		DisplayName: Skymarble Brick
+		Tooltip: ""
+	}
+
+	ChaosCrucible: {
+		DisplayName: Chaos Crucible
+		Tooltip: ""
+	}
+
+	CorruptAltar: {
+		DisplayName: Corrupt Altar
+		Tooltip: ""
+	}
+
+	CrimsonAltar: {
+		DisplayName: Crimson Altar
+		Tooltip: ""
+	}
+
+	DarkmatterOre: {
+		DisplayName: Darkmatter Ore
+		Tooltip: ""
+	}
+
+	Darkmud: {
+		DisplayName: Darkmud
+		Tooltip: ""
+	}
+
+	DaybreakIncineriteOre: {
+		DisplayName: Daybreak Incinerite Ore
+		Tooltip: ""
+	}
+
+	DaybreakIncinerite: {
+		DisplayName: Daybreak Incinerite
+		Tooltip: ""
+	}
+
+	DaybreakTorch: {
+		DisplayName: Daybreak Torch
+		Tooltip: ""
+	}
+
+	Depthsand: {
+		DisplayName: Depthsand
+		Tooltip: ""
+	}
+
+	DepthsandHardened: {
+		DisplayName: Depthsand Hardened
+		Tooltip: ""
+	}
+
+	Depthsandstone: {
+		DisplayName: Depthsandstone
+		Tooltip: ""
+	}
+
+	Depthstone: {
+		DisplayName: Depthstone
+		Tooltip: ""
+	}
+
+	DiscordianTorch: {
+		DisplayName: Discordian Torch
+		Tooltip: ""
+	}
+
+	DoomBathtub: {
+		DisplayName: Doom Bathtub
+		Tooltip: ""
+	}
+
+	DoomBed: {
+		DisplayName: Doom Bed
+		Tooltip: ""
+	}
+
+	DoomBookshelf: {
+		DisplayName: Doom Bookshelf
+		Tooltip: ""
+	}
+
+	DoomCandelabra: {
+		DisplayName: Doom Candelabra
+		Tooltip: ""
+	}
+
+	DoomCandle: {
+		DisplayName: Doom Candle
+		Tooltip: ""
+	}
+
+	DoomChair: {
+		DisplayName: Doom Chair
+		Tooltip: ""
+	}
+
+	DoomChandelier: {
+		DisplayName: Doom Chandelier
+		Tooltip: ""
+	}
+
+	DoomChest: {
+		DisplayName: Doom Chest
+		Tooltip: ""
+	}
+
+	DoomClock: {
+		DisplayName: Doom Clock
+		Tooltip: ""
+	}
+
+	DoomCouch: {
+		DisplayName: Doom Couch
+		Tooltip: ""
+	}
+
+	DoomDoor: {
+		DisplayName: Doom Door
+		Tooltip: ""
+	}
+
+	DoomDresser: {
+		DisplayName: Doom Dresser
+		Tooltip: ""
+	}
+
+	DoomLamp: {
+		DisplayName: Doom Lamp
+		Tooltip: ""
+	}
+
+	DoomLantern: {
+		DisplayName: Doom Lantern
+		Tooltip: ""
+	}
+
+	DoomPiano: {
+		DisplayName: Doom Piano
+		Tooltip: ""
+	}
+
+	DoomPlatform: {
+		DisplayName: Doom Platform
+		Tooltip: ""
+	}
+
+	DoomSink: {
+		DisplayName: Doom Sink
+		Tooltip: ""
+	}
+
+	DoomTable: {
+		DisplayName: Doom Table
+		Tooltip: ""
+	}
+
+	DoomWorkbench: {
+		DisplayName: Doom Workbench
+		Tooltip: ""
+	}
+
+	DragonfireTorch: {
+		DisplayName: Dragonfire Torch
+		Tooltip: ""
+	}
+
+	DynaskullOre: {
+		DisplayName: Dynaskull Ore
+		Tooltip: ""
+	}
+
+	EnderMemory: {
+		DisplayName: Ender Memory
+		Tooltip: ""
+	}
+
+	EventideAbyssiumOre: {
+		DisplayName: Eventide Abyssium Ore
+		Tooltip: ""
+	}
+
+	EventideAbyssium: {
+		DisplayName: Eventide Abyssium
+		Tooltip: ""
+	}
+
+	EventideTorch: {
+		DisplayName: Eventide Torch
+		Tooltip: ""
+	}
+
+	FurnitureDynamo: {
+		DisplayName: Furniture Dynamo
+		Tooltip: ""
+	}
+
+	GreedChest: {
+		DisplayName: Greed Chest
+		Tooltip: ""
+	}
+
+	GreedLantern: {
+		DisplayName: Greed Lantern
+		Tooltip: ""
+	}
+
+	HallowedAnvil: {
+		DisplayName: Hallowed Anvil
+		Tooltip: ""
+	}
+
+	HallowedForge: {
+		DisplayName: Hallowed Forge
+		Tooltip: ""
+	}
+
+	HallowedOre: {
+		DisplayName: Hallowed Ore
+		Tooltip: ""
+	}
+
+	HaphestusForge: {
+		DisplayName: Haphestus Forge
+		Tooltip: ""
+	}
+
+	HellstoneAnvil: {
+		DisplayName: Hellstone Anvil
+		Tooltip: ""
+	}
+
+	HydratoxinTorch: {
+		DisplayName: Hydratoxin Torch
+		Tooltip: ""
+	}
+
+	IndigoIce: {
+		DisplayName: Indigo Ice
+		Tooltip: ""
+	}
+
+	InfernoAltar: {
+		DisplayName: Inferno Altar
+		Tooltip: ""
+	}
+
+	InfernoChest: {
+		DisplayName: Inferno Chest
+		Tooltip: ""
+	}
+
+	MireAltar: {
+		DisplayName: Mire Altar
+		Tooltip: ""
+	}
+
+	MireChest: {
+		DisplayName: Mire Chest
+		Tooltip: ""
+	}
+
+	MoonAltar: {
+		DisplayName: Moon Altar
+		Tooltip: ""
+	}
+
+	MoonAltarA: {
+		DisplayName: Moon Altar A
+		Tooltip: ""
+	}
+
+	MushBox: {
+		DisplayName: Mush Box
+		Tooltip: ""
+	}
+
+	MushroomBlock: {
+		DisplayName: Mushroom Block
+		Tooltip: ""
+	}
+
+	OroborosBathtub: {
+		DisplayName: Oroboros Bathtub
+		Tooltip: ""
+	}
+
+	OroborosBed: {
+		DisplayName: Oroboros Bed
+		Tooltip: ""
+	}
+
+	OroborosBookshelf: {
+		DisplayName: Oroboros Bookshelf
+		Tooltip: ""
+	}
+
+	OroborosCandle: {
+		DisplayName: Oroboros Candle
+		Tooltip: ""
+	}
+
+	OroborosChair: {
+		DisplayName: Oroboros Chair
+		Tooltip: ""
+	}
+
+	OroborosClock: {
+		DisplayName: Oroboros Clock
+		Tooltip: ""
+	}
+
+	OroborosDoor: {
+		DisplayName: Oroboros Door
+		Tooltip: ""
+	}
+
+	OroborosLamp: {
+		DisplayName: Oroboros Lamp
+		Tooltip: ""
+	}
+
+	OroborosLantern: {
+		DisplayName: Oroboros Lantern
+		Tooltip: ""
+	}
+
+	OroborosPlatform: {
+		DisplayName: Oroboros Platform
+		Tooltip: ""
+	}
+
+	OroborosWall: {
+		DisplayName: Oroboros Wall
+		Tooltip: ""
+	}
+
+	OroborosWorkbench: {
+		DisplayName: Oroboros Workbench
+		Tooltip: ""
+	}
+
+	OroborosWood: {
+		DisplayName: Oroboros Wood
+		Tooltip: ""
+	}
+
+	PaladinsSmeltery: {
+		DisplayName: Paladins Smeltery
+		Tooltip: ""
+	}
+
+	QuantumFusionAccelerator: {
+		DisplayName: Quantum Fusion Accelerator
+		Tooltip: ""
+	}
+
+	RadiantArcanum: {
+		DisplayName: Radiant Arcanum
+		Tooltip: ""
+	}
+
+	RadiumOre: {
+		DisplayName: Radium Ore
+		Tooltip: ""
+	}
+
+	RazewoodBed: {
+		DisplayName: Razewood Bed
+		Tooltip: ""
+	}
+
+	RazewoodBookshelf: {
+		DisplayName: Razewood Bookshelf
+		Tooltip: ""
+	}
+
+	RazewoodCandelabra: {
+		DisplayName: Razewood Candelabra
+		Tooltip: ""
+	}
+
+	RazewoodCandle: {
+		DisplayName: Razewood Candle
+		Tooltip: ""
+	}
+
+	RazewoodChair: {
+		DisplayName: Razewood Chair
+		Tooltip: ""
+	}
+
+	RazewoodChandelier: {
+		DisplayName: Razewood Chandelier
+		Tooltip: ""
+	}
+
+	RazewoodClock: {
+		DisplayName: Razewood Clock
+		Tooltip: ""
+	}
+
+	RazewoodCouch: {
+		DisplayName: Razewood Couch
+		Tooltip: ""
+	}
+
+	RazewoodDoor: {
+		DisplayName: Razewood Door
+		Tooltip: ""
+	}
+
+	RazewoodDresser: {
+		DisplayName: Razewood Dresser
+		Tooltip: ""
+	}
+
+	RazewoodLamp: {
+		DisplayName: Razewood Lamp
+		Tooltip: ""
+	}
+
+	RazewoodLantern: {
+		DisplayName: Razewood Lantern
+		Tooltip: ""
+	}
+
+	RazewoodPiano: {
+		DisplayName: Razewood Piano
+		Tooltip: ""
+	}
+
+	RazewoodPlatform: {
+		DisplayName: Razewood Platform
+		Tooltip: ""
+	}
+
+	RazewoodSink: {
+		DisplayName: Razewood Sink
+		Tooltip: ""
+	}
+
+	RazewoodTable: {
+		DisplayName: Razewood Table
+		Tooltip: ""
+	}
+
+	RazewoodTub: {
+		DisplayName: Razewood Tub
+		Tooltip: ""
+	}
+
+	RazewoodWall: {
+		DisplayName: Razewood Wall
+		Tooltip: ""
+	}
+
+	RazewoodWorkbench: {
+		DisplayName: Razewood Workbench
+		Tooltip: ""
+	}
+
+	RottedDynastyWood: {
+		DisplayName: Rotted Dynasty Wood
+		Tooltip: ""
+	}
+
+	RottedShingles: {
+		DisplayName: Rotted Shingles
+		Tooltip: ""
+	}
+
+	RoyalBunnyCage: {
+		DisplayName: Royal Bunny Cage
+		Tooltip: ""
+	}
+
+	ScorchedDynastyWood: {
+		DisplayName: Scorched Dynasty Wood
+		Tooltip: ""
+	}
+
+	ScorchedShingles: {
+		DisplayName: Scorched Shingles
+		Tooltip: ""
+	}
+
+	SpiralStairs: {
+		DisplayName: Spiral Stairs
+		Tooltip: ""
+	}
+
+	AlphakipStatue: {
+		DisplayName: Alphakip Statue
+		Tooltip: ""
+	}
+
+	AvesStatue: {
+		DisplayName: Aves Statue
+		Tooltip: ""
+	}
+
+	BegStatue: {
+		DisplayName: Beg Statue
+		Tooltip: ""
+	}
+
+	CharlieStatue: {
+		DisplayName: Charlie Statue
+		Tooltip: ""
+	}
+
+	DallinStatue: {
+		DisplayName: Dallin Statue
+		Tooltip: ""
+	}
+
+	EnderStatue: {
+		DisplayName: Ender Statue
+		Tooltip: ""
+	}
+
+	FargoStatue: {
+		DisplayName: Fargo Statue
+		Tooltip: ""
+	}
+
+	FazerStatue: {
+		DisplayName: Fazer Statue
+		Tooltip: ""
+	}
+
+	FerretStatue: {
+		DisplayName: Ferret Statue
+		Tooltip: ""
+	}
+
+	GroxStatue: {
+		DisplayName: Grox Statue
+		Tooltip: ""
+	}
+
+	HallamStatue: {
+		DisplayName: Hallam Statue
+		Tooltip: ""
+	}
+
+	KyuuStatue: {
+		DisplayName: Kyuu Statue
+		Tooltip: ""
+	}
+
+	LCSStatue: {
+		DisplayName: L C S Statue
+		Tooltip: ""
+	}
+
+	LizStatue: {
+		DisplayName: Liz Statue
+		Tooltip: ""
+	}
+
+	MoonStatue: {
+		DisplayName: Moon Statue
+		Tooltip: ""
+	}
+
+	SauceStatue: {
+		DisplayName: Sauce Statue
+		Tooltip: ""
+	}
+
+	TailsStatue: {
+		DisplayName: Tails Statue
+		Tooltip: ""
+	}
+
+	SunAltar: {
+		DisplayName: Sun Altar
+		Tooltip: ""
+	}
+
+	SunAltarA: {
+		DisplayName: Sun Altar A
+		Tooltip: ""
+	}
+
+	TerraCore: {
+		DisplayName: Terra Core
+		Tooltip: ""
+	}
+
+	TerraPrismStation: {
+		DisplayName: Terra Prism Station
+		Tooltip: ""
+	}
+
+	TorchAsh: {
+		DisplayName: Torch Ash
+		Tooltip: ""
+	}
+
+	Torchice: {
+		DisplayName: Torchice
+		Tooltip: ""
+	}
+
+	Torchsand: {
+		DisplayName: Torchsand
+		Tooltip: ""
+	}
+
+	TorchsandHardened: {
+		DisplayName: Torchsand Hardened
+		Tooltip: ""
+	}
+
+	Torchsandstone: {
+		DisplayName: Torchsandstone
+		Tooltip: ""
+	}
+
+	Torchstone: {
+		DisplayName: Torchstone
+		Tooltip: ""
+	}
+
+	Transmuter: {
+		DisplayName: Transmuter
+		Tooltip: ""
+	}
+
+	TruePaladinsSmeltery: {
+		DisplayName: True Paladins Smeltery
+		Tooltip: ""
+	}
+
+	VoidUnit: {
+		DisplayName: Void Unit
+		Tooltip: ""
+	}
+
+	AHBag: {
+		DisplayName: A H Bag
+		Tooltip: ""
+	}
+
+	AsheSatchel: {
+		DisplayName: Ashe Satchel
+		Tooltip: ""
+	}
+
+	AsheTrophy: {
+		DisplayName: Ashe Trophy
+		Tooltip: ""
+	}
+
+	AshRain: {
+		DisplayName: Ash Rain
+		Tooltip: ""
+	}
+
+	ChaosBaton: {
+		DisplayName: Chaos Baton
+		Tooltip: ""
+	}
+
+	FireSpiritStaff: {
+		DisplayName: Fire Spirit Staff
+		Tooltip: ""
+	}
+
+	FuryFlame: {
+		DisplayName: Fury Flame
+		Tooltip: ""
+	}
+
+	HarukaBox: {
+		DisplayName: Haruka Box
+		Tooltip: ""
+	}
+
+	HarukaKunai: {
+		DisplayName: Haruka Kunai
+		Tooltip: ""
+	}
+
+	HarukaTrophy: {
+		DisplayName: Haruka Trophy
+		Tooltip: ""
+	}
+
+	HeartOfPassion: {
+		DisplayName: Heart Of Passion
+		Tooltip: ""
+	}
+
+	HeartOfSorrow: {
+		DisplayName: Heart Of Sorrow
+		Tooltip: ""
+	}
+
+	Masamune: {
+		DisplayName: Masamune
+		Tooltip: ""
+	}
+
+	MizuArashi: {
+		DisplayName: Mizu Arashi
+		Tooltip: ""
+	}
+
+	AkumaATrophy: {
+		DisplayName: Akuma A Trophy
+		Tooltip: ""
+	}
+
+	AkumaBag: {
+		DisplayName: Akuma Bag
+		Tooltip: ""
+	}
+
+	AkumaTerratool: {
+		DisplayName: Akuma Terratool
+		Tooltip: ""
+	}
+
+	AkumaTrophy: {
+		DisplayName: Akuma Trophy
+		Tooltip: ""
+	}
+
+	CrucibleScale: {
+		DisplayName: Crucible Scale
+		Tooltip: ""
+	}
+
+	Dawnstrike: {
+		DisplayName: Dawnstrike
+		Tooltip: ""
+	}
+
+	DaybreakArrow: {
+		DisplayName: Daybreak Arrow
+		Tooltip: ""
+	}
+
+	Daycrusher: {
+		DisplayName: Daycrusher
+		Tooltip: ""
+	}
+
+	Daystorm: {
+		DisplayName: Daystorm
+		Tooltip: ""
+	}
+
+	DragonSlasher: {
+		DisplayName: Dragon Slasher
+		Tooltip: ""
+	}
+
+	LungStaff: {
+		DisplayName: Lung Staff
+		Tooltip: ""
+	}
+
+	MorningGlory: {
+		DisplayName: Morning Glory
+		Tooltip: ""
+	}
+
+	RadiantDawn: {
+		DisplayName: Radiant Dawn
+		Tooltip: ""
+	}
+
+	ReignOfFire: {
+		DisplayName: Reign Of Fire
+		Tooltip: ""
+	}
+
+	ReignOfFireEX: {
+		DisplayName: Reign Of Fire E X
+		Tooltip: ""
+	}
+
+	Solar: {
+		DisplayName: Solar
+		Tooltip: ""
+	}
+
+	SunSpear: {
+		DisplayName: Sun Spear
+		Tooltip: ""
+	}
+
+	SunStaff: {
+		DisplayName: Sun Staff
+		Tooltip: ""
+	}
+
+	SunStorm: {
+		DisplayName: Sun Storm
+		Tooltip: ""
+	}
+
+	TaiyangBaolei: {
+		DisplayName: Taiyang Baolei
+		Tooltip: ""
+	}
+
+	YOTD: {
+		DisplayName: Y O T D
+		Tooltip: ""
+	}
+
+	AnubisBag: {
+		DisplayName: Anubis Bag
+		Tooltip: ""
+	}
+
+	AnubisTrophy: {
+		DisplayName: Anubis Trophy
+		Tooltip: ""
+	}
+
+	ArtifactOfJudgement: {
+		DisplayName: Artifact Of Judgement
+		Tooltip: ""
+	}
+
+	DesertStaff: {
+		DisplayName: Desert Staff
+		Tooltip: ""
+	}
+
+	ArtifactOfGuilt: {
+		DisplayName: Artifact Of Guilt
+		Tooltip: ""
+	}
+
+	CursedFury: {
+		DisplayName: Cursed Fury
+		Tooltip: ""
+	}
+
+	FAnubisBag: {
+		DisplayName: F Anubis Bag
+		Tooltip: ""
+	}
+
+	FAnubisTrophy: {
+		DisplayName: F Anubis Trophy
+		Tooltip: ""
+	}
+
+	ForsakenStaff: {
+		DisplayName: Forsaken Staff
+		Tooltip: ""
+	}
+
+	HorusCane: {
+		DisplayName: Horus Cane
+		Tooltip: ""
+	}
+
+	Lifeline: {
+		DisplayName: Lifeline
+		Tooltip: ""
+	}
+
+	SoulCrook: {
+		DisplayName: Soul Crook
+		Tooltip: ""
+	}
+
+	SoulFragment: {
+		DisplayName: Soul Fragment
+		Tooltip: ""
+	}
+
+	Soulsplitter: {
+		DisplayName: Soulsplitter
+		Tooltip: ""
+	}
+
+	Verdict: {
+		DisplayName: Verdict
+		Tooltip: ""
+	}
+
+	ForsakenFragment: {
+		DisplayName: Forsaken Fragment
+		Tooltip: ""
+	}
+
+	JackalsWrath: {
+		DisplayName: Jackals Wrath
+		Tooltip: ""
+	}
+
+	Judgment: {
+		DisplayName: Judgment
+		Tooltip: ""
+	}
+
+	NeithsString: {
+		DisplayName: Neiths String
+		Tooltip: ""
+	}
+
+	SandstormThrower: {
+		DisplayName: Sandstorm Thrower
+		Tooltip: ""
+	}
+
+	SentryOfTheEye: {
+		DisplayName: Sentry Of The Eye
+		Tooltip: ""
+	}
+
+	AthenaBag: {
+		DisplayName: Athena Bag
+		Tooltip: ""
+	}
+
+	AthenaTrophy: {
+		DisplayName: Athena Trophy
+		Tooltip: ""
+	}
+
+	DivineWindCharm: {
+		DisplayName: Divine Wind Charm
+		Tooltip: ""
+	}
+
+	GaleOfWings: {
+		DisplayName: Gale Of Wings
+		Tooltip: ""
+	}
+
+	GoddessFeather: {
+		DisplayName: Goddess Feather
+		Tooltip: ""
+	}
+
+	AthenaABag: {
+		DisplayName: Athena A Bag
+		Tooltip: ""
+	}
+
+	AthenaATrophy: {
+		DisplayName: Athena A Trophy
+		Tooltip: ""
+	}
+
+	GaleForce: {
+		DisplayName: Gale Force
+		Tooltip: ""
+	}
+
+	GoddessHarp: {
+		DisplayName: Goddess Harp
+		Tooltip: ""
+	}
+
+	HurricaneStone: {
+		DisplayName: Hurricane Stone
+		Tooltip: ""
+	}
+
+	Hurricane: {
+		DisplayName: Hurricane
+		Tooltip: ""
+	}
+
+	SkyCrystal: {
+		DisplayName: Sky Crystal
+		Tooltip: ""
+	}
+
+	StarChart: {
+		DisplayName: Star Chart
+		Tooltip: ""
+	}
+
+	StormSphere: {
+		DisplayName: Storm Sphere
+		Tooltip: ""
+	}
+
+	Windfury: {
+		DisplayName: Windfury
+		Tooltip: ""
+	}
+
+	RazorwindLongbow: {
+		DisplayName: Razorwind Longbow
+		Tooltip: ""
+	}
+
+	SeraphHarp: {
+		DisplayName: Seraph Harp
+		Tooltip: ""
+	}
+
+	SkycutterKopis: {
+		DisplayName: Skycutter Kopis
+		Tooltip: ""
+	}
+
+	BroodBag: {
+		DisplayName: Brood Bag
+		Tooltip: ""
+	}
+
+	BroodmotherTrophy: {
+		DisplayName: Broodmother Trophy
+		Tooltip: ""
+	}
+
+	BroodScale: {
+		DisplayName: Brood Scale
+		Tooltip: ""
+	}
+
+	DragonCape: {
+		DisplayName: Dragon Cape
+		Tooltip: ""
+	}
+
+	DjinnBag: {
+		DisplayName: Djinn Bag
+		Tooltip: ""
+	}
+
+	Djinnerang: {
+		DisplayName: Djinnerang
+		Tooltip: ""
+	}
+
+	DjinnTrophy: {
+		DisplayName: Djinn Trophy
+		Tooltip: ""
+	}
+
+	Sandagger: {
+		DisplayName: Sandagger
+		Tooltip: ""
+	}
+
+	SandLamp: {
+		DisplayName: Sand Lamp
+		Tooltip: ""
+	}
+
+	SandScepter: {
+		DisplayName: Sand Scepter
+		Tooltip: ""
+	}
+
+	SandstormCrossbow: {
+		DisplayName: Sandstorm Crossbow
+		Tooltip: ""
+	}
+
+	SandstormMedallion: {
+		DisplayName: Sandstorm Medallion
+		Tooltip: ""
+	}
+
+	SultanScimitar: {
+		DisplayName: Sultan Scimitar
+		Tooltip: ""
+	}
+
+	DragonSerpentNecklace: {
+		DisplayName: Dragon Serpent Necklace
+		Tooltip: ""
+	}
+
+	EFishWings: {
+		DisplayName: E Fish Wings
+		Tooltip: ""
+	}
+
+	EFlairon: {
+		DisplayName: E Flairon
+		Tooltip: ""
+	}
+
+	FancyTruffle: {
+		DisplayName: Fancy Truffle
+		Tooltip: ""
+	}
+
+	FishnadoStaff: {
+		DisplayName: Fishnado Staff
+		Tooltip: ""
+	}
+
+	SoapBlaster: {
+		DisplayName: Soap Blaster
+		Tooltip: ""
+	}
+
+	UltibladeTyphoon: {
+		DisplayName: Ultiblade Typhoon
+		Tooltip: ""
+	}
+
+	DarkVoid: {
+		DisplayName: Dark Void
+		Tooltip: ""
+	}
+
+	DBTrophy: {
+		DisplayName: D B Trophy
+		Tooltip: ""
+	}
+
+	EquinoxBag: {
+		DisplayName: Equinox Bag
+		Tooltip: ""
+	}
+
+	NCTrophy: {
+		DisplayName: N C Trophy
+		Tooltip: ""
+	}
+
+	RadiantStar: {
+		DisplayName: Radiant Star
+		Tooltip: ""
+	}
+
+	StarIdol: {
+		DisplayName: Star Idol
+		Tooltip: ""
+	}
+
+	EXSoul: {
+		DisplayName: E X Soul
+		Tooltip: ""
+	}
+
+	FireFrostMedallion: {
+		DisplayName: Fire Frost Medallion
+		Tooltip: ""
+	}
+
+	DesireCharm: {
+		DisplayName: Desire Charm
+		Tooltip: ""
+	}
+
+	GildedGlock: {
+		DisplayName: Gilded Glock
+		Tooltip: ""
+	}
+
+	GoldDigger: {
+		DisplayName: Gold Digger
+		Tooltip: ""
+	}
+
+	GreedBag: {
+		DisplayName: Greed Bag
+		Tooltip: ""
+	}
+
+	GreedTrophy: {
+		DisplayName: Greed Trophy
+		Tooltip: ""
+	}
+
+	Miner: {
+		DisplayName: Miner
+		Tooltip: ""
+	}
+
+	StoneShell: {
+		DisplayName: Stone Shell
+		Tooltip: ""
+	}
+
+	StoneSlammer: {
+		DisplayName: Stone Slammer
+		Tooltip: ""
+	}
+
+	CovetiteBar: {
+		DisplayName: Covetite Bar
+		Tooltip: ""
+	}
+
+	CovetiteOre: {
+		DisplayName: Covetite Ore
+		Tooltip: ""
+	}
+
+	DesireTalisman: {
+		DisplayName: Desire Talisman
+		Tooltip: ""
+	}
+
+	Earthbreaker: {
+		DisplayName: Earthbreaker
+		Tooltip: ""
+	}
+
+	GravitySphere: {
+		DisplayName: Gravity Sphere
+		Tooltip: ""
+	}
+
+	GreedABag: {
+		DisplayName: Greed A Bag
+		Tooltip: ""
+	}
+
+	OreCannon: {
+		DisplayName: Ore Cannon
+		Tooltip: ""
+	}
+
+	OreCannonEX: {
+		DisplayName: Ore Cannon E X
+		Tooltip: ""
+	}
+
+	OreStaff: {
+		DisplayName: Ore Staff
+		Tooltip: ""
+	}
+
+	Unearther: {
+		DisplayName: Unearther
+		Tooltip: ""
+	}
+
+	WKGTrophy: {
+		DisplayName: W K G Trophy
+		Tooltip: ""
+	}
+
+	BulwarkOfChaos: {
+		DisplayName: Bulwark Of Chaos
+		Tooltip: ""
+	}
+
+	ClawBaton: {
+		DisplayName: Claw Baton
+		Tooltip: ""
+	}
+
+	ClawOfChaos: {
+		DisplayName: Claw Of Chaos
+		Tooltip: ""
+	}
+
+	GripBag: {
+		DisplayName: Grip Bag
+		Tooltip: ""
+	}
+
+	GripTrophyBlue: {
+		DisplayName: Grip Trophy Blue
+		Tooltip: ""
+	}
+
+	GripTrophyRed: {
+		DisplayName: Grip Trophy Red
+		Tooltip: ""
+	}
+
+	HydraBag: {
+		DisplayName: Hydra Bag
+		Tooltip: ""
+	}
+
+	HydraHide: {
+		DisplayName: Hydra Hide
+		Tooltip: ""
+	}
+
+	HydraPendant: {
+		DisplayName: Hydra Pendant
+		Tooltip: ""
+	}
+
+	HydraTrophy: {
+		DisplayName: Hydra Trophy
+		Tooltip: ""
+	}
+
+	FungusBag: {
+		DisplayName: Fungus Bag
+		Tooltip: ""
+	}
+
+	FungusTrophy: {
+		DisplayName: Fungus Trophy
+		Tooltip: ""
+	}
+
+	GlowingMushium: {
+		DisplayName: Glowing Mushium
+		Tooltip: ""
+	}
+
+	GlowingMushiumBar: {
+		DisplayName: Glowing Mushium Bar
+		Tooltip: ""
+	}
+
+	HeartyTruffle: {
+		DisplayName: Hearty Truffle
+		Tooltip: ""
+	}
+
+	MagicTruffle: {
+		DisplayName: Magic Truffle
+		Tooltip: ""
+	}
+
+	MonarchBag: {
+		DisplayName: Monarch Bag
+		Tooltip: ""
+	}
+
+	MonarchTrophy: {
+		DisplayName: Monarch Trophy
+		Tooltip: ""
+	}
+
+	MushiumBar: {
+		DisplayName: Mushium Bar
+		Tooltip: ""
+	}
+
+	BaneOfTheBunny: {
+		DisplayName: Bane Of The Bunny
+		Tooltip: ""
+	}
+
+	Bunzooka: {
+		DisplayName: Bunzooka
+		Tooltip: ""
+	}
+
+	CottonCane: {
+		DisplayName: Cotton Cane
+		Tooltip: ""
+	}
+
+	Punisher: {
+		DisplayName: Punisher
+		Tooltip: ""
+	}
+
+	RabbitcopterEars: {
+		DisplayName: Rabbitcopter Ears
+		Tooltip: ""
+	}
+
+	RajahBag: {
+		DisplayName: Rajah Bag
+		Tooltip: ""
+	}
+
+	RajahCape: {
+		DisplayName: Rajah Cape
+		Tooltip: ""
+	}
+
+	RajahPelt: {
+		DisplayName: Rajah Pelt
+		Tooltip: ""
+	}
+
+	RajahSash: {
+		DisplayName: Rajah Sash
+		Tooltip: ""
+	}
+
+	RajahTrophy: {
+		DisplayName: Rajah Trophy
+		Tooltip: ""
+	}
+
+	RoyalScepter: {
+		DisplayName: Royal Scepter
+		Tooltip: ""
+	}
+
+	BaneOfTheBunnyEX: {
+		DisplayName: Bane Of The Bunny E X
+		Tooltip: ""
+	}
+
+	BunzookaEX: {
+		DisplayName: Bunzooka E X
+		Tooltip: ""
+	}
+
+	ChampionPlate: {
+		DisplayName: Champion Plate
+		Tooltip: ""
+	}
+
+	CottonCaneEX: {
+		DisplayName: Cotton Cane E X
+		Tooltip: ""
+	}
+
+	Excalihare: {
+		DisplayName: Excalihare
+		Tooltip: ""
+	}
+
+	FluffyFury: {
+		DisplayName: Fluffy Fury
+		Tooltip: ""
+	}
+
+	PunisherEX: {
+		DisplayName: Punisher E X
+		Tooltip: ""
+	}
+
+	RabbitsWrath: {
+		DisplayName: Rabbits Wrath
+		Tooltip: ""
+	}
+
+	RajahCache: {
+		DisplayName: Rajah Cache
+		Tooltip: ""
+	}
+
+	RoyalScepterEX: {
+		DisplayName: Royal Scepter E X
+		Tooltip: ""
+	}
+
+	Legg: {
+		DisplayName: Legg
+		Tooltip: ""
+	}
+
+	NeutronStaff: {
+		DisplayName: Neutron Staff
+		Tooltip: ""
+	}
+
+	SagBag: {
+		DisplayName: Sag Bag
+		Tooltip: ""
+	}
+
+	SagCore: {
+		DisplayName: Sag Core
+		Tooltip: ""
+	}
+
+	SagShield: {
+		DisplayName: Sag Shield
+		Tooltip: ""
+	}
+
+	SagTrophy: {
+		DisplayName: Sag Trophy
+		Tooltip: ""
+	}
+
+	ZeroStar: {
+		DisplayName: Zero Star
+		Tooltip: ""
+	}
+
+	ArcticMedallion: {
+		DisplayName: Arctic Medallion
+		Tooltip: ""
+	}
+
+	BlizzardBuster: {
+		DisplayName: Blizzard Buster
+		Tooltip: ""
+	}
+
+	Icepick: {
+		DisplayName: Icepick
+		Tooltip: ""
+	}
+
+	SerpentBag: {
+		DisplayName: Serpent Bag
+		Tooltip: ""
+	}
+
+	SerpentSpike: {
+		DisplayName: Serpent Spike
+		Tooltip: ""
+	}
+
+	SerpentSting: {
+		DisplayName: Serpent Sting
+		Tooltip: ""
+	}
+
+	SerpentTrophy: {
+		DisplayName: Serpent Trophy
+		Tooltip: ""
+	}
+
+	Sickle: {
+		DisplayName: Sickle
+		Tooltip: ""
+	}
+
+	SickleShot: {
+		DisplayName: Sickle Shot
+		Tooltip: ""
+	}
+
+	SnakeStaff: {
+		DisplayName: Snake Staff
+		Tooltip: ""
+	}
+
+	SnowflakeShuriken: {
+		DisplayName: Snowflake Shuriken
+		Tooltip: ""
+	}
+
+	SubzeroSlasher: {
+		DisplayName: Subzero Slasher
+		Tooltip: ""
+	}
+
+	Astroid: {
+		DisplayName: Astroid
+		Tooltip: ""
+	}
+
+	ChaosScale: {
+		DisplayName: Chaos Scale
+		Tooltip: ""
+	}
+
+	ChaosSlayer: {
+		DisplayName: Chaos Slayer
+		Tooltip: ""
+	}
+
+	ChaosSlayerEX: {
+		DisplayName: Chaos Slayer E X
+		Tooltip: ""
+	}
+
+	ChaosSoul: {
+		DisplayName: Chaos Soul
+		Tooltip: ""
+	}
+
+	DraconicRipper: {
+		DisplayName: Draconic Ripper
+		Tooltip: ""
+	}
+
+	Duality: {
+		DisplayName: Duality
+		Tooltip: ""
+	}
+
+	FlamingTwilight: {
+		DisplayName: Flaming Twilight
+		Tooltip: ""
+	}
+
+	MeteorStrike: {
+		DisplayName: Meteor Strike
+		Tooltip: ""
+	}
+
+	ShenATrophy: {
+		DisplayName: Shen A Trophy
+		Tooltip: ""
+	}
+
+	ShenCache: {
+		DisplayName: Shen Cache
+		Tooltip: ""
+	}
+
+	ShenTerratool: {
+		DisplayName: Shen Terratool
+		Tooltip: ""
+	}
+
+	ShenTrophy: {
+		DisplayName: Shen Trophy
+		Tooltip: ""
+	}
+
+	Skyfall: {
+		DisplayName: Skyfall
+		Tooltip: ""
+	}
+
+	Timesplitter: {
+		DisplayName: Timesplitter
+		Tooltip: ""
+	}
+
+	MushrockStaff: {
+		DisplayName: Mushrock Staff
+		Tooltip: ""
+	}
+
+	ToadBag: {
+		DisplayName: Toad Bag
+		Tooltip: ""
+	}
+
+	ToadLeg: {
+		DisplayName: Toad Leg
+		Tooltip: ""
+	}
+
+	ToadTongue: {
+		DisplayName: Toad Tongue
+		Tooltip: ""
+	}
+
+	ToadTrophy: {
+		DisplayName: Toad Trophy
+		Tooltip: ""
+	}
+
+	Todegun: {
+		DisplayName: Todegun
+		Tooltip: ""
+	}
+
+	AbyssalYari: {
+		DisplayName: Abyssal Yari
+		Tooltip: ""
+	}
+
+	AbyssArrow: {
+		DisplayName: Abyss Arrow
+		Tooltip: ""
+	}
+
+	AE: {
+		DisplayName: A E
+		Tooltip: ""
+	}
+
+	Crescent: {
+		DisplayName: Crescent
+		Tooltip: ""
+	}
+
+	Darksprayer: {
+		DisplayName: Darksprayer
+		Tooltip: ""
+	}
+
+	DreadScale: {
+		DisplayName: Dread Scale
+		Tooltip: ""
+	}
+
+	EternalTwilight: {
+		DisplayName: Eternal Twilight
+		Tooltip: ""
+	}
+
+	FallingTwilight: {
+		DisplayName: Falling Twilight
+		Tooltip: ""
+	}
+
+	Flairdra: {
+		DisplayName: Flairdra
+		Tooltip: ""
+	}
+
+	Hydraslayer: {
+		DisplayName: Hydraslayer
+		Tooltip: ""
+	}
+
+	HydraStabber: {
+		DisplayName: Hydra Stabber
+		Tooltip: ""
+	}
+
+	MidnightWrath: {
+		DisplayName: Midnight Wrath
+		Tooltip: ""
+	}
+
+	Naitokurosu: {
+		DisplayName: Naitokurosu
+		Tooltip: ""
+	}
+
+	Sevenshot: {
+		DisplayName: Sevenshot
+		Tooltip: ""
+	}
+
+	ThrowingCrescent: {
+		DisplayName: Throwing Crescent
+		Tooltip: ""
+	}
+
+	Toxibomb: {
+		DisplayName: Toxibomb
+		Tooltip: ""
+	}
+
+	YamataATrophy: {
+		DisplayName: Yamata A Trophy
+		Tooltip: ""
+	}
+
+	YamataBag: {
+		DisplayName: Yamata Bag
+		Tooltip: ""
+	}
+
+	YamataTerratool: {
+		DisplayName: Yamata Terratool
+		Tooltip: ""
+	}
+
+	YamataTrophy: {
+		DisplayName: Yamata Trophy
+		Tooltip: ""
+	}
+
+	Battery: {
+		DisplayName: Battery
+		Tooltip: ""
+	}
+
+	BHB: {
+		DisplayName: B H B
+		Tooltip: ""
+	}
+
+	BrokenCode: {
+		DisplayName: Broken Code
+		Tooltip: ""
+	}
+
+	DoomPortal: {
+		DisplayName: Doom Portal
+		Tooltip: ""
+	}
+
+	DoomRay: {
+		DisplayName: Doom Ray
+		Tooltip: ""
+	}
+
+	EventHorizon: {
+		DisplayName: Event Horizon
+		Tooltip: ""
+	}
+
+	GenocideCannon: {
+		DisplayName: Genocide Cannon
+		Tooltip: ""
+	}
+
+	Gigataser: {
+		DisplayName: Gigataser
+		Tooltip: ""
+	}
+
+	Neutralizer: {
+		DisplayName: Neutralizer
+		Tooltip: ""
+	}
+
+	OmegaVolley: {
+		DisplayName: Omega Volley
+		Tooltip: ""
+	}
+
+	RealityCannon: {
+		DisplayName: Reality Cannon
+		Tooltip: ""
+	}
+
+	RiftShredder: {
+		DisplayName: Rift Shredder
+		Tooltip: ""
+	}
+
+	TeslaHand: {
+		DisplayName: Tesla Hand
+		Tooltip: ""
+	}
+
+	UnstableSingularity: {
+		DisplayName: Unstable Singularity
+		Tooltip: ""
+	}
+
+	VoidStar: {
+		DisplayName: Void Star
+		Tooltip: ""
+	}
+
+	ZeroArrow: {
+		DisplayName: Zero Arrow
+		Tooltip: ""
+	}
+
+	ZeroATrophy: {
+		DisplayName: Zero A Trophy
+		Tooltip: ""
+	}
+
+	ZeroBag: {
+		DisplayName: Zero Bag
+		Tooltip: ""
+	}
+
+	ZeroTerratool: {
+		DisplayName: Zero Terratool
+		Tooltip: ""
+	}
+
+	ZeroTrophy: {
+		DisplayName: Zero Trophy
+		Tooltip: ""
+	}
+
+	ChaosRune: {
+		DisplayName: Chaos Rune
+		Tooltip: ""
+	}
+
+	ChaosSigil: {
+		DisplayName: Chaos Sigil
+		Tooltip: ""
+	}
+
+	ConfusingMushroom: {
+		DisplayName: Confusing Mushroom
+		Tooltip: ""
+	}
+
+	CuriousClaw: {
+		DisplayName: Curious Claw
+		Tooltip: ""
+	}
+
+	CursedSkull: {
+		DisplayName: Cursed Skull
+		Tooltip: ""
+	}
+
+	DiamondCarrot: {
+		DisplayName: Diamond Carrot
+		Tooltip: ""
+	}
+
+	DjinnLamp: {
+		DisplayName: Djinn Lamp
+		Tooltip: ""
+	}
+
+	DraconianRune: {
+		DisplayName: Draconian Rune
+		Tooltip: ""
+	}
+
+	DraconianSigil: {
+		DisplayName: Draconian Sigil
+		Tooltip: ""
+	}
+
+	DragonBell: {
+		DisplayName: Dragon Bell
+		Tooltip: ""
+	}
+
+	DreadRune: {
+		DisplayName: Dread Rune
+		Tooltip: ""
+	}
+
+	DreadSigil: {
+		DisplayName: Dread Sigil
+		Tooltip: ""
+	}
+
+	EquinoxWorm: {
+		DisplayName: Equinox Worm
+		Tooltip: ""
+	}
+
+	FlamesOfAnarchy: {
+		DisplayName: Flames Of Anarchy
+		Tooltip: ""
+	}
+
+	GoldenCarrot: {
+		DisplayName: Golden Carrot
+		Tooltip: ""
+	}
+
+	GoldenGrub: {
+		DisplayName: Golden Grub
+		Tooltip: ""
+	}
+
+	HydraChow: {
+		DisplayName: Hydra Chow
+		Tooltip: ""
+	}
+
+	InterestingClaw: {
+		DisplayName: Interesting Claw
+		Tooltip: ""
+	}
+
+	IntimidatingMushroom: {
+		DisplayName: Intimidating Mushroom
+		Tooltip: ""
+	}
+
+	Lifescanner: {
+		DisplayName: Lifescanner
+		Tooltip: ""
+	}
+
+	Owl: {
+		DisplayName: Owl
+		Tooltip: ""
+	}
+
+	PlanteraFlower: {
+		DisplayName: Plantera Flower
+		Tooltip: ""
+	}
+
+	PlatinumCarrot: {
+		DisplayName: Platinum Carrot
+		Tooltip: ""
+	}
+
+	Scepter: {
+		DisplayName: Scepter
+		Tooltip: ""
+	}
+
+	SubzeroCrystal: {
+		DisplayName: Subzero Crystal
+		Tooltip: ""
+	}
+
+	Toadstool: {
+		DisplayName: Toadstool
+		Tooltip: ""
+	}
+
+	WormIdol: {
+		DisplayName: Worm Idol
+		Tooltip: ""
+	}
+
+	ZeroRune: {
+		DisplayName: Zero Rune
+		Tooltip: ""
+	}
+
+	ZeroTesseract: {
+		DisplayName: Zero Tesseract
+		Tooltip: ""
+	}
+
+	Z: {
+		DisplayName: Z
+		Tooltip: ""
+	}
+
+	AncientCoin: {
+		DisplayName: Ancient Coin
+		Tooltip: ""
+	}
+
+	BloodRune: {
+		DisplayName: Blood Rune
+		Tooltip: ""
+	}
+
+	ChristmasCheer: {
+		DisplayName: Christmas Cheer
+		Tooltip: ""
+	}
+
+	GoblinSoul: {
+		DisplayName: Goblin Soul
+		Tooltip: ""
+	}
+
+	HalloweenTreat: {
+		DisplayName: Halloween Treat
+		Tooltip: ""
+	}
+
+	MartianCredit: {
+		DisplayName: Martian Credit
+		Tooltip: ""
+	}
+
+	MonsterSoul: {
+		DisplayName: Monster Soul
+		Tooltip: ""
+	}
+
+	PirateBooty: {
+		DisplayName: Pirate Booty
+		Tooltip: ""
+	}
+
+	AmphibianLongsword: {
+		DisplayName: Amphibian Longsword
+		Tooltip: ""
+	}
+
+	AmphibianLongswordEX: {
+		DisplayName: Amphibian Longsword E X
+		Tooltip: ""
+	}
+
+	AmphibianLongswordEXS: {
+		DisplayName: Amphibian Longsword E X S
+		Tooltip: ""
+	}
+
+	AmphibianLongswordS: {
+		DisplayName: Amphibian Longsword S
+		Tooltip: ""
+	}
+
+	ArchwitchStaff: {
+		DisplayName: Archwitch Staff
+		Tooltip: ""
+	}
+
+	ArchwitchWand: {
+		DisplayName: Archwitch Wand
+		Tooltip: ""
+	}
+
+	CatsEyeRifle: {
+		DisplayName: Cats Eye Rifle
+		Tooltip: ""
+	}
+
+	CatsEyeRifleEX: {
+		DisplayName: Cats Eye Rifle E X
+		Tooltip: ""
+	}
+
+	Chronos: {
+		DisplayName: Chronos
+		Tooltip: ""
+	}
+
+	CursedSickle: {
+		DisplayName: Cursed Sickle
+		Tooltip: ""
+	}
+
+	CursedSickleEX: {
+		DisplayName: Cursed Sickle E X
+		Tooltip: ""
+	}
+
+	Demise: {
+		DisplayName: Demise
+		Tooltip: ""
+	}
+
+	DemiseEX: {
+		DisplayName: Demise E X
+		Tooltip: ""
+	}
+
+	Doragonburedo: {
+		DisplayName: Doragonburedo
+		Tooltip: ""
+	}
+
+	DuckstepGun: {
+		DisplayName: Duckstep Gun
+		Tooltip: ""
+	}
+
+	DuckstepGunEX: {
+		DisplayName: Duckstep Gun E X
+		Tooltip: ""
+	}
+
+	EnderStaff: {
+		DisplayName: Ender Staff
+		Tooltip: ""
+	}
+
+	EnderStaffEX: {
+		DisplayName: Ender Staff E X
+		Tooltip: ""
+	}
+
+	Etheral: {
+		DisplayName: Etheral
+		Tooltip: ""
+	}
+
+	EtheralEX: {
+		DisplayName: Etheral E X
+		Tooltip: ""
+	}
+
+	FreedomStar: {
+		DisplayName: Freedom Star
+		Tooltip: ""
+	}
+
+	FuryForger: {
+		DisplayName: Fury Forger
+		Tooltip: ""
+	}
+
+	FuryForgerEX: {
+		DisplayName: Fury Forger E X
+		Tooltip: ""
+	}
+
+	GameRaider: {
+		DisplayName: Game Raider
+		Tooltip: ""
+	}
+
+	GentlemansLongblade: {
+		DisplayName: Gentlemans Longblade
+		Tooltip: ""
+	}
+
+	GentlemansRapier: {
+		DisplayName: Gentlemans Rapier
+		Tooltip: ""
+	}
+
+	GibsFemur: {
+		DisplayName: Gibs Femur
+		Tooltip: ""
+	}
+
+	GrimReaperScythe: {
+		DisplayName: Grim Reaper Scythe
+		Tooltip: ""
+	}
+
+	GrimReaperScytheEX: {
+		DisplayName: Grim Reaper Scythe E X
+		Tooltip: ""
+	}
+
+	GroxNote: {
+		DisplayName: Grox Note
+		Tooltip: ""
+	}
+
+	HallamDevWeapon: {
+		DisplayName: Hallam Dev Weapon
+		Tooltip: ""
+	}
+
+	InvokerBook: {
+		DisplayName: Invoker Book
+		Tooltip: ""
+	}
+
+	InvokerBookEX: {
+		DisplayName: Invoker Book E X
+		Tooltip: ""
+	}
+
+	InvokerStaff: {
+		DisplayName: Invoker Staff
+		Tooltip: ""
+	}
+
+	MagicAcorn: {
+		DisplayName: Magic Acorn
+		Tooltip: ""
+	}
+
+	MagicAcornEX: {
+		DisplayName: Magic Acorn E X
+		Tooltip: ""
+	}
+
+	MobianBuster: {
+		DisplayName: Mobian Buster
+		Tooltip: ""
+	}
+
+	PineBreaker: {
+		DisplayName: Pine Breaker
+		Tooltip: ""
+	}
+
+	Placeholder: {
+		DisplayName: Placeholder
+		Tooltip: ""
+	}
+
+	PoniumStaff: {
+		DisplayName: Ponium Staff
+		Tooltip: ""
+	}
+
+	PoniumStaffEX: {
+		DisplayName: Ponium Staff E X
+		Tooltip: ""
+	}
+
+	Prismeow: {
+		DisplayName: Prismeow
+		Tooltip: ""
+	}
+
+	Prism: {
+		DisplayName: Prism
+		Tooltip: ""
+	}
+
+	CCBookofRunes: {
+		DisplayName: C C Bookof Runes
+		Tooltip: ""
+	}
+
+	CCRuneBookPage: {
+		DisplayName: C C Rune Book Page
+		Tooltip: ""
+	}
+
+	SkrallStaff: {
+		DisplayName: Skrall Staff
+		Tooltip: ""
+	}
+
+	Skullshot: {
+		DisplayName: Skullshot
+		Tooltip: ""
+	}
+
+	SkullshotEX: {
+		DisplayName: Skullshot E X
+		Tooltip: ""
+	}
+
+	SoccStaff: {
+		DisplayName: Socc Staff
+		Tooltip: ""
+	}
+
+	SockStaff: {
+		DisplayName: Sock Staff
+		Tooltip: ""
+	}
+
+	SoulSiphon: {
+		DisplayName: Soul Siphon
+		Tooltip: ""
+	}
+
+	ThunderLord: {
+		DisplayName: Thunder Lord
+		Tooltip: ""
+	}
+
+	ThunderLordEX: {
+		DisplayName: Thunder Lord E X
+		Tooltip: ""
+	}
+
+	TimeTeller: {
+		DisplayName: Time Teller
+		Tooltip: ""
+	}
+
+	TitanAxe: {
+		DisplayName: Titan Axe
+		Tooltip: ""
+	}
+
+	TitanAxeEX: {
+		DisplayName: Titan Axe E X
+		Tooltip: ""
+	}
+
+	AlphakipTerratool: {
+		DisplayName: Alphakip Terratool
+		Tooltip: ""
+	}
+
+	GroviteTerratool: {
+		DisplayName: Grovite Terratool
+		Tooltip: ""
+	}
+
+	LizTerratool: {
+		DisplayName: Liz Terratool
+		Tooltip: ""
+	}
+
+	UmbralReaper: {
+		DisplayName: Umbral Reaper
+		Tooltip: ""
+	}
+
+	UmbreonSP: {
+		DisplayName: Umbreon S P
+		Tooltip: ""
+	}
+
+	UmbreonSPEX: {
+		DisplayName: Umbreon S P E X
+		Tooltip: ""
+	}
+
+	AADowner: {
+		DisplayName: A A Downer
+		Tooltip: ""
+	}
+
+	AASummonerTest: {
+		DisplayName: A A Summoner Test
+		Tooltip: ""
+	}
+
+	AAUndowner: {
+		DisplayName: A A Undowner
+		Tooltip: ""
+	}
+
+	AncientOreGenner: {
+		DisplayName: Ancient Ore Genner
+		Tooltip: ""
+	}
+
+	ChaosConverter: {
+		DisplayName: Chaos Converter
+		Tooltip: ""
+	}
+
+	CinematicMount: {
+		DisplayName: Cinematic Mount
+		Tooltip: ""
+	}
+
+	HardmodeUndowner: {
+		DisplayName: Hardmode Undowner
+		Tooltip: ""
+	}
+
+	NoodleSword: {
+		DisplayName: Noodle Sword
+		Tooltip: ""
+	}
+
+	RogueTest: {
+		DisplayName: Rogue Test
+		Tooltip: ""
+	}
+
+	StormTest: {
+		DisplayName: Storm Test
+		Tooltip: ""
+	}
+
+	TerrariaUndowner: {
+		DisplayName: Terraria Undowner
+		Tooltip: ""
+	}
+
+	Undowner: {
+		DisplayName: Undowner
+		Tooltip: ""
+	}
+
+	AbyssalDye: {
+		DisplayName: Abyssal Dye
+		Tooltip: ""
+	}
+
+	AbyssalWrathDye: {
+		DisplayName: Abyssal Wrath Dye
+		Tooltip: ""
+	}
+
+	BlazingDye: {
+		DisplayName: Blazing Dye
+		Tooltip: ""
+	}
+
+	BlazingFuryDye: {
+		DisplayName: Blazing Fury Dye
+		Tooltip: ""
+	}
+
+	DiscordianDye: {
+		DisplayName: Discordian Dye
+		Tooltip: ""
+	}
+
+	DiscordianInfernoDye: {
+		DisplayName: Discordian Inferno Dye
+		Tooltip: ""
+	}
+
+	DoomsdayDye: {
+		DisplayName: Doomsday Dye
+		Tooltip: ""
+	}
+
+	DesertCrate: {
+		DisplayName: Desert Crate
+		Tooltip: ""
+	}
+
+	HellCrate: {
+		DisplayName: Hell Crate
+		Tooltip: ""
+	}
+
+	IceCrate: {
+		DisplayName: Ice Crate
+		Tooltip: ""
+	}
+
+	InfernoCrate: {
+		DisplayName: Inferno Crate
+		Tooltip: ""
+	}
+
+	MireCrate: {
+		DisplayName: Mire Crate
+		Tooltip: ""
+	}
+
+	VoidCrate: {
+		DisplayName: Void Crate
+		Tooltip: ""
+	}
+
+	ScorchShark: {
+		DisplayName: Scorch Shark
+		Tooltip: ""
+	}
+
+	SharpeningLavaFish: {
+		DisplayName: Sharpening Lava Fish
+		Tooltip: ""
+	}
+
+	ShinyCharmFish: {
+		DisplayName: Shiny Charm Fish
+		Tooltip: ""
+	}
+
+	ShinyCharm: {
+		DisplayName: Shiny Charm
+		Tooltip: ""
+	}
+
+	SwimmingHydra: {
+		DisplayName: Swimming Hydra
+		Tooltip: ""
+	}
+
+	ToxinMonkfish: {
+		DisplayName: Toxin Monkfish
+		Tooltip: ""
+	}
+
+	AshJar: {
+		DisplayName: Ash Jar
+		Tooltip: ""
+	}
+
+	CorruptionFlask: {
+		DisplayName: Corruption Flask
+		Tooltip: ""
+	}
+
+	CrimsonFlask: {
+		DisplayName: Crimson Flask
+		Tooltip: ""
+	}
+
+	DarkwaterFlask: {
+		DisplayName: Darkwater Flask
+		Tooltip: ""
+	}
+
+	ForestFlask: {
+		DisplayName: Forest Flask
+		Tooltip: ""
+	}
+
+	Fungicide: {
+		DisplayName: Fungicide
+		Tooltip: ""
+	}
+
+	GlowingSporeSac: {
+		DisplayName: Glowing Spore Sac
+		Tooltip: ""
+	}
+
+	HallowFlask: {
+		DisplayName: Hallow Flask
+		Tooltip: ""
+	}
+
+	IceFlask: {
+		DisplayName: Ice Flask
+		Tooltip: ""
+	}
+
+	IcemeltFlask: {
+		DisplayName: Icemelt Flask
+		Tooltip: ""
+	}
+
+	JungleFlask: {
+		DisplayName: Jungle Flask
+		Tooltip: ""
+	}
+
+	OrderBottle: {
+		DisplayName: Order Bottle
+		Tooltip: ""
+	}
+
+	PurityFlask: {
+		DisplayName: Purity Flask
+		Tooltip: ""
+	}
+
+	SquidList: {
+		DisplayName: Squid List
+		Tooltip: ""
+	}
+
+	VoidFlask: {
+		DisplayName: Void Flask
+		Tooltip: ""
+	}
+
+	Void: {
+		DisplayName: Void
+		Tooltip: ""
+	}
+
+	DragonsGrip: {
+		DisplayName: Dragons Grip
+		Tooltip: ""
+	}
+
+	GripsOfChaos: {
+		DisplayName: Grips Of Chaos
+		Tooltip: ""
+	}
+
+	AncientArcanum: {
+		DisplayName: Ancient Arcanum
+		Tooltip: ""
+	}
+
+	AnubisBlockBook: {
+		DisplayName: Anubis Block Book
+		Tooltip: ""
+	}
+
+	AtlanteanTrident: {
+		DisplayName: Atlantean Trident
+		Tooltip: ""
+	}
+
+	BlazePike: {
+		DisplayName: Blaze Pike
+		Tooltip: ""
+	}
+
+	BogBomb: {
+		DisplayName: Bog Bomb
+		Tooltip: ""
+	}
+
+	CrystalTome: {
+		DisplayName: Crystal Tome
+		Tooltip: ""
+	}
+
+	Crystal: {
+		DisplayName: Crystal
+		Tooltip: ""
+	}
+
+	Depthsprayer: {
+		DisplayName: Depthsprayer
+		Tooltip: ""
+	}
+
+	DoomStaff: {
+		DisplayName: Doom Staff
+		Tooltip: ""
+	}
+
+	DragonsBreath: {
+		DisplayName: Dragons Breath
+		Tooltip: ""
+	}
+
+	DragonStaff: {
+		DisplayName: Dragon Staff
+		Tooltip: ""
+	}
+
+	ElectricitySpell: {
+		DisplayName: Electricity Spell
+		Tooltip: ""
+	}
+
+	Fireblast: {
+		DisplayName: Fireblast
+		Tooltip: ""
+	}
+
+	GelWand: {
+		DisplayName: Gel Wand
+		Tooltip: ""
+	}
+
+	Gong: {
+		DisplayName: Gong
+		Tooltip: ""
+	}
+
+	GunkWand: {
+		DisplayName: Gunk Wand
+		Tooltip: ""
+	}
+
+	HiveArtillery: {
+		DisplayName: Hive Artillery
+		Tooltip: ""
+	}
+
+	MadnessStaff: {
+		DisplayName: Madness Staff
+		Tooltip: ""
+	}
+
+	MagicFlower: {
+		DisplayName: Magic Flower
+		Tooltip: ""
+	}
+
+	ManaRose: {
+		DisplayName: Mana Rose
+		Tooltip: ""
+	}
+
+	NovaFlare: {
+		DisplayName: Nova Flare
+		Tooltip: ""
+	}
+
+	OceanTrident: {
+		DisplayName: Ocean Trident
+		Tooltip: ""
+	}
+
+	SludgeShot: {
+		DisplayName: Sludge Shot
+		Tooltip: ""
+	}
+
+	Spectrum: {
+		DisplayName: Spectrum
+		Tooltip: ""
+	}
+
+	StarStaff: {
+		DisplayName: Star Staff
+		Tooltip: ""
+	}
+
+	SubzeroStaff: {
+		DisplayName: Subzero Staff
+		Tooltip: ""
+	}
+
+	TerraFocus: {
+		DisplayName: Terra Focus
+		Tooltip: ""
+	}
+
+	TerraRose: {
+		DisplayName: Terra Rose
+		Tooltip: ""
+	}
+
+	Toxifang: {
+		DisplayName: Toxifang
+		Tooltip: ""
+	}
+
+	TrueGong: {
+		DisplayName: True Gong
+		Tooltip: ""
+	}
+
+	TrueManaRose: {
+		DisplayName: True Mana Rose
+		Tooltip: ""
+	}
+
+	TrueTerraRose: {
+		DisplayName: True Terra Rose
+		Tooltip: ""
+	}
+
+	VenomSpray: {
+		DisplayName: Venom Spray
+		Tooltip: ""
+	}
+
+	Volley: {
+		DisplayName: Volley
+		Tooltip: ""
+	}
+
+	WandOfSparkingEX: {
+		DisplayName: Wand Of Sparking E X
+		Tooltip: ""
+	}
+
+	AbyssiumBar: {
+		DisplayName: Abyssium Bar
+		Tooltip: ""
+	}
+
+	ApocalyptitePlate: {
+		DisplayName: Apocalyptite Plate
+		Tooltip: ""
+	}
+
+	ChaosCrystal: {
+		DisplayName: Chaos Crystal
+		Tooltip: ""
+	}
+
+	Chaos: {
+		DisplayName: Chaos
+		Tooltip: ""
+	}
+
+	CovetiteCrystal: {
+		DisplayName: Covetite Crystal
+		Tooltip: ""
+	}
+
+	DarkEnergy: {
+		DisplayName: Dark Energy
+		Tooltip: ""
+	}
+
+	DarkMatter: {
+		DisplayName: Dark Matter
+		Tooltip: ""
+	}
+
+	Darkshroom: {
+		DisplayName: Darkshroom
+		Tooltip: ""
+	}
+
+	DeepAbyssium: {
+		DisplayName: Deep Abyssium
+		Tooltip: ""
+	}
+
+	DesertMana: {
+		DisplayName: Desert Mana
+		Tooltip: ""
+	}
+
+	DevilSilk: {
+		DisplayName: Devil Silk
+		Tooltip: ""
+	}
+
+	Discordium: {
+		DisplayName: Discordium
+		Tooltip: ""
+	}
+
+	DoomiteScrap: {
+		DisplayName: Doomite Scrap
+		Tooltip: ""
+	}
+
+	Dracokarp: {
+		DisplayName: Dracokarp
+		Tooltip: ""
+	}
+
+	DragonFire: {
+		DisplayName: Dragon Fire
+		Tooltip: ""
+	}
+
+	DragonScale: {
+		DisplayName: Dragon Scale
+		Tooltip: ""
+	}
+
+	DragonSpirit: {
+		DisplayName: Dragon Spirit
+		Tooltip: ""
+	}
+
+	HeroShards: {
+		DisplayName: Hero Shards
+		Tooltip: ""
+	}
+
+	Hotshroom: {
+		DisplayName: Hotshroom
+		Tooltip: ""
+	}
+
+	HydraToxin: {
+		DisplayName: Hydra Toxin
+		Tooltip: ""
+	}
+
+	IncineriteBar: {
+		DisplayName: Incinerite Bar
+		Tooltip: ""
+	}
+
+	M79Parts: {
+		DisplayName: M79 Parts
+		Tooltip: ""
+	}
+
+	MadnessFragment: {
+		DisplayName: Madness Fragment
+		Tooltip: ""
+	}
+
+	MirePod: {
+		DisplayName: Mire Pod
+		Tooltip: ""
+	}
+
+	OceanWhisper: {
+		DisplayName: Ocean Whisper
+		Tooltip: ""
+	}
+
+	OrderBar: {
+		DisplayName: Order Bar
+		Tooltip: ""
+	}
+
+	PlanteraPetal: {
+		DisplayName: Plantera Petal
+		Tooltip: ""
+	}
+
+	PrimevalSkull: {
+		DisplayName: Primeval Skull
+		Tooltip: ""
+	}
+
+	PureEvil: {
+		DisplayName: Pure Evil
+		Tooltip: ""
+	}
+
+	RadiantIncinerite: {
+		DisplayName: Radiant Incinerite
+		Tooltip: ""
+	}
+
+	RadiumBar: {
+		DisplayName: Radium Bar
+		Tooltip: ""
+	}
+
+	RelicBar: {
+		DisplayName: Relic Bar
+		Tooltip: ""
+	}
+
+	RoyalRabbit: {
+		DisplayName: Royal Rabbit
+		Tooltip: ""
+	}
+
+	SearingSpark: {
+		DisplayName: Searing Spark
+		Tooltip: ""
+	}
+
+	SeraphFeather: {
+		DisplayName: Seraph Feather
+		Tooltip: ""
+	}
+
+	SnowMana: {
+		DisplayName: Snow Mana
+		Tooltip: ""
+	}
+
+	SoulOfSmite: {
+		DisplayName: Soul Of Smite
+		Tooltip: ""
+	}
+
+	SoulOfSpite: {
+		DisplayName: Soul Of Spite
+		Tooltip: ""
+	}
+
+	Stardust: {
+		DisplayName: Stardust
+		Tooltip: ""
+	}
+
+	SwampKoi: {
+		DisplayName: Swamp Koi
+		Tooltip: ""
+	}
+
+	TerraCrystal: {
+		DisplayName: Terra Crystal
+		Tooltip: ""
+	}
+
+	TerraShard: {
+		DisplayName: Terra Shard
+		Tooltip: ""
+	}
+
+	TerrorSoul: {
+		DisplayName: Terror Soul
+		Tooltip: ""
+	}
+
+	VikingRelic: {
+		DisplayName: Viking Relic
+		Tooltip: ""
+	}
+
+	vulture_feather: {
+		DisplayName: vulture_feather
+		Tooltip: ""
+	}
+
+	AbyssalTwilight: {
+		DisplayName: Abyssal Twilight
+		Tooltip: ""
+	}
+
+	Aerodrake: {
+		DisplayName: Aerodrake
+		Tooltip: ""
+	}
+
+	AncientPoker: {
+		DisplayName: Ancient Poker
+		Tooltip: ""
+	}
+
+	Apocalypse: {
+		DisplayName: Apocalypse
+		Tooltip: ""
+	}
+
+	AsgardianLance: {
+		DisplayName: Asgardian Lance
+		Tooltip: ""
+	}
+
+	Axis: {
+		DisplayName: Axis
+		Tooltip: ""
+	}
+
+	BackScratcher: {
+		DisplayName: Back Scratcher
+		Tooltip: ""
+	}
+
+	BladeOfEvil: {
+		DisplayName: Blade Of Evil
+		Tooltip: ""
+	}
+
+	BlazingDawn: {
+		DisplayName: Blazing Dawn
+		Tooltip: ""
+	}
+
+	BloodyMary: {
+		DisplayName: Bloody Mary
+		Tooltip: ""
+	}
+
+	BreakingDawn: {
+		DisplayName: Breaking Dawn
+		Tooltip: ""
+	}
+
+	BugSwatter: {
+		DisplayName: Bug Swatter
+		Tooltip: ""
+	}
+
+	CarnalCrusher: {
+		DisplayName: Carnal Crusher
+		Tooltip: ""
+	}
+
+	ChaosChain: {
+		DisplayName: Chaos Chain
+		Tooltip: ""
+	}
+
+	ChaosChainEX: {
+		DisplayName: Chaos Chain E X
+		Tooltip: ""
+	}
+
+	ChaosScythe: {
+		DisplayName: Chaos Scythe
+		Tooltip: ""
+	}
+
+	ChaosYari: {
+		DisplayName: Chaos Yari
+		Tooltip: ""
+	}
+
+	ChaosYariEX: {
+		DisplayName: Chaos Yari E X
+		Tooltip: ""
+	}
+
+	Chicken: {
+		DisplayName: Chicken
+		Tooltip: ""
+	}
+
+	CloudEdge: {
+		DisplayName: Cloud Edge
+		Tooltip: ""
+	}
+
+	CrystalShortsword: {
+		DisplayName: Crystal Shortsword
+		Tooltip: ""
+	}
+
+	CthulhusBlade: {
+		DisplayName: Cthulhus Blade
+		Tooltip: ""
+	}
+
+	DarkShredders: {
+		DisplayName: Dark Shredders
+		Tooltip: ""
+	}
+
+	DeathDaggers: {
+		DisplayName: Death Daggers
+		Tooltip: ""
+	}
+
+	Depthwalker: {
+		DisplayName: Depthwalker
+		Tooltip: ""
+	}
+
+	DesertScimitar: {
+		DisplayName: Desert Scimitar
+		Tooltip: ""
+	}
+
+	DMSlasher: {
+		DisplayName: D M Slasher
+		Tooltip: ""
+	}
+
+	DoomiteSaber: {
+		DisplayName: Doomite Saber
+		Tooltip: ""
+	}
+
+	DraculaKnives: {
+		DisplayName: Dracula Knives
+		Tooltip: ""
+	}
+
+	DragonBlade: {
+		DisplayName: Dragon Blade
+		Tooltip: ""
+	}
+
+	DragonBreath: {
+		DisplayName: Dragon Breath
+		Tooltip: ""
+	}
+
+	DragonFang: {
+		DisplayName: Dragon Fang
+		Tooltip: ""
+	}
+
+	DragonGlove: {
+		DisplayName: Dragon Glove
+		Tooltip: ""
+	}
+
+	Dragonkite: {
+		DisplayName: Dragonkite
+		Tooltip: ""
+	}
+
+	DuskBringer: {
+		DisplayName: Dusk Bringer
+		Tooltip: ""
+	}
+
+	Executioner: {
+		DisplayName: Executioner
+		Tooltip: ""
+	}
+
+	ExilesKatana: {
+		DisplayName: Exiles Katana
+		Tooltip: ""
+	}
+
+	Firestorm: {
+		DisplayName: Firestorm
+		Tooltip: ""
+	}
+
+	FlamingFury: {
+		DisplayName: Flaming Fury
+		Tooltip: ""
+	}
+
+	FleshrendClaymore: {
+		DisplayName: Fleshrend Claymore
+		Tooltip: ""
+	}
+
+	AmberGreatsword: {
+		DisplayName: Amber Greatsword
+		Tooltip: ""
+	}
+
+	AmberSaber: {
+		DisplayName: Amber Saber
+		Tooltip: ""
+	}
+
+	AmethystGreatsword: {
+		DisplayName: Amethyst Greatsword
+		Tooltip: ""
+	}
+
+	AmethystSaber: {
+		DisplayName: Amethyst Saber
+		Tooltip: ""
+	}
+
+	DiamondGreatsword: {
+		DisplayName: Diamond Greatsword
+		Tooltip: ""
+	}
+
+	DiamondSaber: {
+		DisplayName: Diamond Saber
+		Tooltip: ""
+	}
+
+	EmeraldGreatsword: {
+		DisplayName: Emerald Greatsword
+		Tooltip: ""
+	}
+
+	EmeraldSaber: {
+		DisplayName: Emerald Saber
+		Tooltip: ""
+	}
+
+	Poppy: {
+		DisplayName: Poppy
+		Tooltip: ""
+	}
+
+	PrismaticGreatsword: {
+		DisplayName: Prismatic Greatsword
+		Tooltip: ""
+	}
+
+	RubyGreatsword: {
+		DisplayName: Ruby Greatsword
+		Tooltip: ""
+	}
+
+	RubySaber: {
+		DisplayName: Ruby Saber
+		Tooltip: ""
+	}
+
+	SapphireGreatsword: {
+		DisplayName: Sapphire Greatsword
+		Tooltip: ""
+	}
+
+	SapphireSaber: {
+		DisplayName: Sapphire Saber
+		Tooltip: ""
+	}
+
+	TopazGreatsword: {
+		DisplayName: Topaz Greatsword
+		Tooltip: ""
+	}
+
+	TopazSaber: {
+		DisplayName: Topaz Saber
+		Tooltip: ""
+	}
+
+	GlacierBreaker: {
+		DisplayName: Glacier Breaker
+		Tooltip: ""
+	}
+
+	GrassSpear: {
+		DisplayName: Grass Spear
+		Tooltip: ""
+	}
+
+	GuardianNight: {
+		DisplayName: Guardian Night
+		Tooltip: ""
+	}
+
+	HydraGlove: {
+		DisplayName: Hydra Glove
+		Tooltip: ""
+	}
+
+	HydrasSpear: {
+		DisplayName: Hydras Spear
+		Tooltip: ""
+	}
+
+	IceLongsword: {
+		DisplayName: Ice Longsword
+		Tooltip: ""
+	}
+
+	IchorSpear: {
+		DisplayName: Ichor Spear
+		Tooltip: ""
+	}
+
+	IllumantFlail: {
+		DisplayName: Illumant Flail
+		Tooltip: ""
+	}
+
+	Incineration: {
+		DisplayName: Incineration
+		Tooltip: ""
+	}
+
+	JungleReaper: {
+		DisplayName: Jungle Reaper
+		Tooltip: ""
+	}
+
+	Lolkat: {
+		DisplayName: Lolkat
+		Tooltip: ""
+	}
+
+	MadnessSword: {
+		DisplayName: Madness Sword
+		Tooltip: ""
+	}
+
+	MagicSword: {
+		DisplayName: Magic Sword
+		Tooltip: ""
+	}
+
+	MidasClub: {
+		DisplayName: Midas Club
+		Tooltip: ""
+	}
+
+	MoltenLance: {
+		DisplayName: Molten Lance
+		Tooltip: ""
+	}
+
+	MushMace: {
+		DisplayName: Mush Mace
+		Tooltip: ""
+	}
+
+	OceanRazor: {
+		DisplayName: Ocean Razor
+		Tooltip: ""
+	}
+
+	Pyrosphere: {
+		DisplayName: Pyrosphere
+		Tooltip: ""
+	}
+
+	RaiderLance: {
+		DisplayName: Raider Lance
+		Tooltip: ""
+	}
+
+	RomulusTazesaber: {
+		DisplayName: Romulus Tazesaber
+		Tooltip: ""
+	}
+
+	RustyCutlass: {
+		DisplayName: Rusty Cutlass
+		Tooltip: ""
+	}
+
+	Ryusei: {
+		DisplayName: Ryusei
+		Tooltip: ""
+	}
+
+	SaltwaterSpear: {
+		DisplayName: Saltwater Spear
+		Tooltip: ""
+	}
+
+	SandScimitar: {
+		DisplayName: Sand Scimitar
+		Tooltip: ""
+	}
+
+	ScorchDagger: {
+		DisplayName: Scorch Dagger
+		Tooltip: ""
+	}
+
+	ScourgeOfShadows: {
+		DisplayName: Scourge Of Shadows
+		Tooltip: ""
+	}
+
+	Scourge: {
+		DisplayName: Scourge
+		Tooltip: ""
+	}
+
+	ScytheOfDecay: {
+		DisplayName: Scythe Of Decay
+		Tooltip: ""
+	}
+
+	SlapBone: {
+		DisplayName: Slap Bone
+		Tooltip: ""
+	}
+
+	StarWrathEX: {
+		DisplayName: Star Wrath E X
+		Tooltip: ""
+	}
+
+	SunLance: {
+		DisplayName: Sun Lance
+		Tooltip: ""
+	}
+
+	TerraBladeEX: {
+		DisplayName: Terra Blade E X
+		Tooltip: ""
+	}
+
+	TerraShortsword: {
+		DisplayName: Terra Shortsword
+		Tooltip: ""
+	}
+
+	Tizona: {
+		DisplayName: Tizona
+		Tooltip: ""
+	}
+
+	TrueAbyssalTwilight: {
+		DisplayName: True Abyssal Twilight
+		Tooltip: ""
+	}
+
+	TrueBlazingDawn: {
+		DisplayName: True Blazing Dawn
+		Tooltip: ""
+	}
+
+	TrueCopperShortsword: {
+		DisplayName: True Copper Shortsword
+		Tooltip: ""
+	}
+
+	TrueCopperShortswordEX: {
+		DisplayName: True Copper Shortsword E X
+		Tooltip: ""
+	}
+
+	TrueFleshrendClaymore: {
+		DisplayName: True Fleshrend Claymore
+		Tooltip: ""
+	}
+
+	TrueTinShortsword: {
+		DisplayName: True Tin Shortsword
+		Tooltip: ""
+	}
+
+	VikingPolearm: {
+		DisplayName: Viking Polearm
+		Tooltip: ""
+	}
+
+	Voidsaber: {
+		DisplayName: Voidsaber
+		Tooltip: ""
+	}
+
+	Yogan: {
+		DisplayName: Yogan
+		Tooltip: ""
+	}
+
+	AnubisBook: {
+		DisplayName: Anubis Book
+		Tooltip: ""
+	}
+
+	Fishmother: {
+		DisplayName: Fishmother
+		Tooltip: ""
+	}
+
+	GlitchFish: {
+		DisplayName: Glitch Fish
+		Tooltip: ""
+	}
+
+	TriHeadedKoi: {
+		DisplayName: Tri Headed Koi
+		Tooltip: ""
+	}
+
+	Blue: {
+		DisplayName: Blue
+		Tooltip: ""
+	}
+
+	Brown: {
+		DisplayName: Brown
+		Tooltip: ""
+	}
+
+	Gray: {
+		DisplayName: Gray
+		Tooltip: ""
+	}
+
+	Green: {
+		DisplayName: Green
+		Tooltip: ""
+	}
+
+	MadnessShroom: {
+		DisplayName: Madness Shroom
+		Tooltip: ""
+	}
+
+	Orange: {
+		DisplayName: Orange
+		Tooltip: ""
+	}
+
+	Pink: {
+		DisplayName: Pink
+		Tooltip: ""
+	}
+
+	Purple: {
+		DisplayName: Purple
+		Tooltip: ""
+	}
+
+	Rainbow: {
+		DisplayName: Rainbow
+		Tooltip: ""
+	}
+
+	Red: {
+		DisplayName: Red
+		Tooltip: ""
+	}
+
+	Yellow: {
+		DisplayName: Yellow
+		Tooltip: ""
+	}
+
+	Bomb: {
+		DisplayName: Bomb
+		Tooltip: ""
+	}
+
+	BroodEgg: {
+		DisplayName: Brood Egg
+		Tooltip: ""
+	}
+
+	CerberusWhistle: {
+		DisplayName: Cerberus Whistle
+		Tooltip: ""
+	}
+
+	DragonsSoul: {
+		DisplayName: Dragons Soul
+		Tooltip: ""
+	}
+
+	GlowmossBall: {
+		DisplayName: Glowmoss Ball
+		Tooltip: ""
+	}
+
+	K9Collar: {
+		DisplayName: K9 Collar
+		Tooltip: ""
+	}
+
+	LunaminiJar: {
+		DisplayName: Lunamini Jar
+		Tooltip: ""
+	}
+
+	MudkipBall: {
+		DisplayName: Mudkip Ball
+		Tooltip: ""
+	}
+
+	MudkipBallS: {
+		DisplayName: Mudkip Ball S
+		Tooltip: ""
+	}
+
+	PortaProbe: {
+		DisplayName: Porta Probe
+		Tooltip: ""
+	}
+
+	RoyalStar: {
+		DisplayName: Royal Star
+		Tooltip: ""
+	}
+
+	Seashroom: {
+		DisplayName: Seashroom
+		Tooltip: ""
+	}
+
+	ZeroCore: {
+		DisplayName: Zero Core
+		Tooltip: ""
+	}
+
+	DragonfireFlask: {
+		DisplayName: Dragonfire Flask
+		Tooltip: ""
+	}
+
+	GrandHealingPotion: {
+		DisplayName: Grand Healing Potion
+		Tooltip: ""
+	}
+
+	GrandManaPotion: {
+		DisplayName: Grand Mana Potion
+		Tooltip: ""
+	}
+
+	HydratoxinFlask: {
+		DisplayName: Hydratoxin Flask
+		Tooltip: ""
+	}
+
+	LuckyCracker: {
+		DisplayName: Lucky Cracker
+		Tooltip: ""
+	}
+
+	luckycalmingpotion: {
+		DisplayName: luckycalmingpotion
+		Tooltip: ""
+	}
+
+	luckyendurancepotion: {
+		DisplayName: luckyendurancepotion
+		Tooltip: ""
+	}
+
+	luckyironskinpotion: {
+		DisplayName: luckyironskinpotion
+		Tooltip: ""
+	}
+
+	luckylifeforcepotion: {
+		DisplayName: luckylifeforcepotion
+		Tooltip: ""
+	}
+
+	luckyragepotion: {
+		DisplayName: luckyragepotion
+		Tooltip: ""
+	}
+
+	luckyregenerationpotion: {
+		DisplayName: luckyregenerationpotion
+		Tooltip: ""
+	}
+
+	luckysummoningpotion: {
+		DisplayName: luckysummoningpotion
+		Tooltip: ""
+	}
+
+	luckyswiftnesspotion: {
+		DisplayName: luckyswiftnesspotion
+		Tooltip: ""
+	}
+
+	luckythornspotion: {
+		DisplayName: luckythornspotion
+		Tooltip: ""
+	}
+
+	luckywrathpotion: {
+		DisplayName: luckywrathpotion
+		Tooltip: ""
+	}
+
+	RoninPotion: {
+		DisplayName: Ronin Potion
+		Tooltip: ""
+	}
+
+	TheBigOne: {
+		DisplayName: The Big One
+		Tooltip: ""
+	}
+
+	AbyssalPentashot: {
+		DisplayName: Abyssal Pentashot
+		Tooltip: ""
+	}
+
+	AbyssalShadowshot: {
+		DisplayName: Abyssal Shadowshot
+		Tooltip: ""
+	}
+
+	Alien_Rifle: {
+		DisplayName: Alien_ Rifle
+		Tooltip: ""
+	}
+
+	ChaosArrow: {
+		DisplayName: Chaos Arrow
+		Tooltip: ""
+	}
+
+	DarkmatterArrow: {
+		DisplayName: Darkmatter Arrow
+		Tooltip: ""
+	}
+
+	DaybreakBullet: {
+		DisplayName: Daybreak Bullet
+		Tooltip: ""
+	}
+
+	DragonArrow: {
+		DisplayName: Dragon Arrow
+		Tooltip: ""
+	}
+
+	DragonfireArrow: {
+		DisplayName: Dragonfire Arrow
+		Tooltip: ""
+	}
+
+	DragonfireBullet: {
+		DisplayName: Dragonfire Bullet
+		Tooltip: ""
+	}
+
+	DragonfireDart: {
+		DisplayName: Dragonfire Dart
+		Tooltip: ""
+	}
+
+	Energy_Cell: {
+		DisplayName: Energy_ Cell
+		Tooltip: ""
+	}
+
+	EventideBullet: {
+		DisplayName: Eventide Bullet
+		Tooltip: ""
+	}
+
+	HydratoxinArrow: {
+		DisplayName: Hydratoxin Arrow
+		Tooltip: ""
+	}
+
+	HydratoxinBullet: {
+		DisplayName: Hydratoxin Bullet
+		Tooltip: ""
+	}
+
+	HydratoxinDart: {
+		DisplayName: Hydratoxin Dart
+		Tooltip: ""
+	}
+
+	M79Round: {
+		DisplayName: M79 Round
+		Tooltip: ""
+	}
+
+	M79: {
+		DisplayName: M79
+		Tooltip: ""
+	}
+
+	OrderArrow: {
+		DisplayName: Order Arrow
+		Tooltip: ""
+	}
+
+	RadiumArrow: {
+		DisplayName: Radium Arrow
+		Tooltip: ""
+	}
+
+	ReaperArrow: {
+		DisplayName: Reaper Arrow
+		Tooltip: ""
+	}
+
+	TerraArrow: {
+		DisplayName: Terra Arrow
+		Tooltip: ""
+	}
+
+	ApollosWrath: {
+		DisplayName: Apollos Wrath
+		Tooltip: ""
+	}
+
+	Battlestar: {
+		DisplayName: Battlestar
+		Tooltip: ""
+	}
+
+	Blastshot: {
+		DisplayName: Blastshot
+		Tooltip: ""
+	}
+
+	BoneBow: {
+		DisplayName: Bone Bow
+		Tooltip: ""
+	}
+
+	Bonesaw: {
+		DisplayName: Bonesaw
+		Tooltip: ""
+	}
+
+	Bubbleshot: {
+		DisplayName: Bubbleshot
+		Tooltip: ""
+	}
+
+	ChaosJavelin: {
+		DisplayName: Chaos Javelin
+		Tooltip: ""
+	}
+
+	ChaosJavelinEX: {
+		DisplayName: Chaos Javelin E X
+		Tooltip: ""
+	}
+
+	ChaosShot: {
+		DisplayName: Chaos Shot
+		Tooltip: ""
+	}
+
+	ChaosShotEX: {
+		DisplayName: Chaos Shot E X
+		Tooltip: ""
+	}
+
+	CoinPistol: {
+		DisplayName: Coin Pistol
+		Tooltip: ""
+	}
+
+	CoralBow: {
+		DisplayName: Coral Bow
+		Tooltip: ""
+	}
+
+	CosmicCarbine: {
+		DisplayName: Cosmic Carbine
+		Tooltip: ""
+	}
+
+	Deagle: {
+		DisplayName: Deagle
+		Tooltip: ""
+	}
+
+	DeathlyLongbow: {
+		DisplayName: Deathly Longbow
+		Tooltip: ""
+	}
+
+	DoomGun: {
+		DisplayName: Doom Gun
+		Tooltip: ""
+	}
+
+	DoomiteAssaultBlaster: {
+		DisplayName: Doomite Assault Blaster
+		Tooltip: ""
+	}
+
+	DoomiteHolobow: {
+		DisplayName: Doomite Holobow
+		Tooltip: ""
+	}
+
+	DragonFlamebow: {
+		DisplayName: Dragon Flamebow
+		Tooltip: ""
+	}
+
+	DragonsMaw: {
+		DisplayName: Dragons Maw
+		Tooltip: ""
+	}
+
+	DragonSpine: {
+		DisplayName: Dragon Spine
+		Tooltip: ""
+	}
+
+	DynaskullJavelin: {
+		DisplayName: Dynaskull Javelin
+		Tooltip: ""
+	}
+
+	Festivity: {
+		DisplayName: Festivity
+		Tooltip: ""
+	}
+
+	Firebuster: {
+		DisplayName: Firebuster
+		Tooltip: ""
+	}
+
+	Flare_Minigun: {
+		DisplayName: Flare_ Minigun
+		Tooltip: ""
+	}
+
+	FossilBoneslinger: {
+		DisplayName: Fossil Boneslinger
+		Tooltip: ""
+	}
+
+	HK_MP5: {
+		DisplayName: H K_ M P5
+		Tooltip: ""
+	}
+
+	HydraTrishot: {
+		DisplayName: Hydra Trishot
+		Tooltip: ""
+	}
+
+	Incapacitator: {
+		DisplayName: Incapacitator
+		Tooltip: ""
+	}
+
+	L85A2: {
+		DisplayName: L85 A2
+		Tooltip: ""
+	}
+
+	Laser_Rifle: {
+		DisplayName: Laser_ Rifle
+		Tooltip: ""
+	}
+
+	MadnessBow: {
+		DisplayName: Madness Bow
+		Tooltip: ""
+	}
+
+	MidasGun: {
+		DisplayName: Midas Gun
+		Tooltip: ""
+	}
+
+	Mossket: {
+		DisplayName: Mossket
+		Tooltip: ""
+	}
+
+	Mushbow: {
+		DisplayName: Mushbow
+		Tooltip: ""
+	}
+
+	OceanWhaler: {
+		DisplayName: Ocean Whaler
+		Tooltip: ""
+	}
+
+	OdinsBlade: {
+		DisplayName: Odins Blade
+		Tooltip: ""
+	}
+
+	PrimevalJavelin: {
+		DisplayName: Primeval Javelin
+		Tooltip: ""
+	}
+
+	PurityString: {
+		DisplayName: Purity String
+		Tooltip: ""
+	}
+
+	Railjaw: {
+		DisplayName: Railjaw
+		Tooltip: ""
+	}
+
+	RustyCrossbow: {
+		DisplayName: Rusty Crossbow
+		Tooltip: ""
+	}
+
+	SharkLauncher: {
+		DisplayName: Shark Launcher
+		Tooltip: ""
+	}
+
+	ShootingStar: {
+		DisplayName: Shooting Star
+		Tooltip: ""
+	}
+
+	SingularityCannon: {
+		DisplayName: Singularity Cannon
+		Tooltip: ""
+	}
+
+	Skystrike: {
+		DisplayName: Skystrike
+		Tooltip: ""
+	}
+
+	TerraBallista: {
+		DisplayName: Terra Ballista
+		Tooltip: ""
+	}
+
+	TheSquirter: {
+		DisplayName: The Squirter
+		Tooltip: ""
+	}
+
+	TheVulcano: {
+		DisplayName: The Vulcano
+		Tooltip: ""
+	}
+
+	Toxithrower: {
+		DisplayName: Toxithrower
+		Tooltip: ""
+	}
+
+	TrueDeathlyLongbow: {
+		DisplayName: True Deathly Longbow
+		Tooltip: ""
+	}
+
+	TrueTerraBallista: {
+		DisplayName: True Terra Ballista
+		Tooltip: ""
+	}
+
+	UWAM: {
+		DisplayName: U W A M
+		Tooltip: ""
+	}
+
+	Winterbreak: {
+		DisplayName: Winterbreak
+		Tooltip: ""
+	}
+
+	Godly: {
+		DisplayName: Godly
+		Tooltip: ""
+	}
+
+	Legendary: {
+		DisplayName: Legendary
+		Tooltip: ""
+	}
+
+	Mythical: {
+		DisplayName: Mythical
+		Tooltip: ""
+	}
+
+	Unreal: {
+		DisplayName: Unreal
+		Tooltip: ""
+	}
+
+	BlizzardDragonStaff: {
+		DisplayName: Blizzard Dragon Staff
+		Tooltip: ""
+	}
+
+	ChaosRitual: {
+		DisplayName: Chaos Ritual
+		Tooltip: ""
+	}
+
+	ChaosRitualEX: {
+		DisplayName: Chaos Ritual E X
+		Tooltip: ""
+	}
+
+	CrimsonStaff: {
+		DisplayName: Crimson Staff
+		Tooltip: ""
+	}
+
+	DemonStaff: {
+		DisplayName: Demon Staff
+		Tooltip: ""
+	}
+
+	DevilStaff: {
+		DisplayName: Devil Staff
+		Tooltip: ""
+	}
+
+	DoomiteSignal: {
+		DisplayName: Doomite Signal
+		Tooltip: ""
+	}
+
+	DoomiteSignalC: {
+		DisplayName: Doomite Signal C
+		Tooltip: ""
+	}
+
+	DoomiteSignalO: {
+		DisplayName: Doomite Signal O
+		Tooltip: ""
+	}
+
+	DragonriderStaff: {
+		DisplayName: Dragonrider Staff
+		Tooltip: ""
+	}
+
+	EaterStaff: {
+		DisplayName: Eater Staff
+		Tooltip: ""
+	}
+
+	FireStaff: {
+		DisplayName: Fire Staff
+		Tooltip: ""
+	}
+
+	HallowStaff: {
+		DisplayName: Hallow Staff
+		Tooltip: ""
+	}
+
+	HydraStaff: {
+		DisplayName: Hydra Staff
+		Tooltip: ""
+	}
+
+	OmenStaff: {
+		DisplayName: Omen Staff
+		Tooltip: ""
+	}
+
+	ProbeControlUnit: {
+		DisplayName: Probe Control Unit
+		Tooltip: ""
+	}
+
+	SkullStaff: {
+		DisplayName: Skull Staff
+		Tooltip: ""
+	}
+
+	TerraGauntlet: {
+		DisplayName: Terra Gauntlet
+		Tooltip: ""
+	}
+
+	TerraStaff: {
+		DisplayName: Terra Staff
+		Tooltip: ""
+	}
+
+	TrueHallowStaff: {
+		DisplayName: True Hallow Staff
+		Tooltip: ""
+	}
+
+	AuroraScythe: {
+		DisplayName: Aurora Scythe
+		Tooltip: ""
+	}
+
+	CarrotFarmer: {
+		DisplayName: Carrot Farmer
+		Tooltip: ""
+	}
+
+	DragonsClaw: {
+		DisplayName: Dragons Claw
+		Tooltip: ""
+	}
+
+	HydrasFury: {
+		DisplayName: Hydras Fury
+		Tooltip: ""
+	}
+
+	AbyssalArc: {
+		DisplayName: Abyssal Arc
+		Tooltip: ""
+	}
+
+	BurningGel: {
+		DisplayName: Burning Gel
+		Tooltip: ""
+	}
+
+	DarkmatterChakram: {
+		DisplayName: Darkmatter Chakram
+		Tooltip: ""
+	}
+
+	DarkmatterKunai: {
+		DisplayName: Darkmatter Kunai
+		Tooltip: ""
+	}
+
+	Dracorang: {
+		DisplayName: Dracorang
+		Tooltip: ""
+	}
+
+	Fireball: {
+		DisplayName: Fireball
+		Tooltip: ""
+	}
+
+	HellBall: {
+		DisplayName: Hell Ball
+		Tooltip: ""
+	}
+
+	HydraFang: {
+		DisplayName: Hydra Fang
+		Tooltip: ""
+	}
+
+	MadnessKnife: {
+		DisplayName: Madness Knife
+		Tooltip: ""
+	}
+
+	MurkyGel: {
+		DisplayName: Murky Gel
+		Tooltip: ""
+	}
+
+	Musharang: {
+		DisplayName: Musharang
+		Tooltip: ""
+	}
+
+	OrderDisc: {
+		DisplayName: Order Disc
+		Tooltip: ""
+	}
+
+	Spookerang: {
+		DisplayName: Spookerang
+		Tooltip: ""
+	}
+
+	SpookyKnife: {
+		DisplayName: Spooky Knife
+		Tooltip: ""
+	}
+
+	ChaosTerratool: {
+		DisplayName: Chaos Terratool
+		Tooltip: ""
+	}
+
+	CrystalPickaxe: {
+		DisplayName: Crystal Pickaxe
+		Tooltip: ""
+	}
+
+	DarkmatterJackhammer: {
+		DisplayName: Darkmatter Jackhammer
+		Tooltip: ""
+	}
+
+	DarkmatterPitchet: {
+		DisplayName: Darkmatter Pitchet
+		Tooltip: ""
+	}
+
+	DepthDigger: {
+		DisplayName: Depth Digger
+		Tooltip: ""
+	}
+
+	DoomiteJacksaw: {
+		DisplayName: Doomite Jacksaw
+		Tooltip: ""
+	}
+
+	DoomiteMiningLaser: {
+		DisplayName: Doomite Mining Laser
+		Tooltip: ""
+	}
+
+	DragonDigger: {
+		DisplayName: Dragon Digger
+		Tooltip: ""
+	}
+
+	DragonPickaxe: {
+		DisplayName: Dragon Pickaxe
+		Tooltip: ""
+	}
+
+	Excavator: {
+		DisplayName: Excavator
+		Tooltip: ""
+	}
+
+	GlowMushmallet: {
+		DisplayName: Glow Mushmallet
+		Tooltip: ""
+	}
+
+	GlowMushpick: {
+		DisplayName: Glow Mushpick
+		Tooltip: ""
+	}
+
+	Grasscutter: {
+		DisplayName: Grasscutter
+		Tooltip: ""
+	}
+
+	Hellfisher: {
+		DisplayName: Hellfisher
+		Tooltip: ""
+	}
+
+	HydraTuneller: {
+		DisplayName: Hydra Tuneller
+		Tooltip: ""
+	}
+
+	MadnessAxe: {
+		DisplayName: Madness Axe
+		Tooltip: ""
+	}
+
+	MadnessHammer: {
+		DisplayName: Madness Hammer
+		Tooltip: ""
+	}
+
+	MadnessPick: {
+		DisplayName: Madness Pick
+		Tooltip: ""
+	}
+
+	Mushmallet: {
+		DisplayName: Mushmallet
+		Tooltip: ""
+	}
+
+	Mushpick: {
+		DisplayName: Mushpick
+		Tooltip: ""
+	}
+
+	Nightaxe: {
+		DisplayName: Nightaxe
+		Tooltip: ""
+	}
+
+	OceanAxe: {
+		DisplayName: Ocean Axe
+		Tooltip: ""
+	}
+
+	OceanPick: {
+		DisplayName: Ocean Pick
+		Tooltip: ""
+	}
+
+	PerfectShadowDrill: {
+		DisplayName: Perfect Shadow Drill
+		Tooltip: ""
+	}
+
+	PerfectStonebreaker: {
+		DisplayName: Perfect Stonebreaker
+		Tooltip: ""
+	}
+
+	RadiumHammaxe: {
+		DisplayName: Radium Hammaxe
+		Tooltip: ""
+	}
+
+	RadiumPickaxe: {
+		DisplayName: Radium Pickaxe
+		Tooltip: ""
+	}
+
+	Scalpel: {
+		DisplayName: Scalpel
+		Tooltip: ""
+	}
+
+	ShadowDrill: {
+		DisplayName: Shadow Drill
+		Tooltip: ""
+	}
+
+	Stonebreaker: {
+		DisplayName: Stonebreaker
+		Tooltip: ""
+	}
+
+	Terratool: {
+		DisplayName: Terratool
+		Tooltip: ""
+	}
+
+	TerratoolEX: {
+		DisplayName: Terratool E X
+		Tooltip: ""
+	}
+
+	Toothpick: {
+		DisplayName: Toothpick
+		Tooltip: ""
+	}
+
+	TrueNightaxe: {
+		DisplayName: True Nightaxe
+		Tooltip: ""
+	}
+
+	TrueScalpel: {
+		DisplayName: True Scalpel
+		Tooltip: ""
+	}
+
+	BlackSolution: {
+		DisplayName: Black Solution
+		Tooltip: ""
+	}
+
+	BrownSolution: {
+		DisplayName: Brown Solution
+		Tooltip: ""
+	}
+
+	CodeMagnet: {
+		DisplayName: Code Magnet
+		Tooltip: ""
+	}
+
+	CodeMagnetOff: {
+		DisplayName: Code Magnet Off
+		Tooltip: ""
+	}
+
+	DeepGreenSolution: {
+		DisplayName: Deep Green Solution
+		Tooltip: ""
+	}
+
+	DoomSeeds: {
+		DisplayName: Doom Seeds
+		Tooltip: ""
+	}
+
+	DoomstopperKey: {
+		DisplayName: Doomstopper Key
+		Tooltip: ""
+	}
+
+	FungicideSolution: {
+		DisplayName: Fungicide Solution
+		Tooltip: ""
+	}
+
+	GreedKey: {
+		DisplayName: Greed Key
+		Tooltip: ""
+	}
+
+	IndigoSolution: {
+		DisplayName: Indigo Solution
+		Tooltip: ""
+	}
+
+	InfernoKey: {
+		DisplayName: Inferno Key
+		Tooltip: ""
+	}
+
+	InfernoSeeds: {
+		DisplayName: Inferno Seeds
+		Tooltip: ""
+	}
+
+	KeyOfSmite: {
+		DisplayName: Key Of Smite
+		Tooltip: ""
+	}
+
+	KeyOfSpite: {
+		DisplayName: Key Of Spite
+		Tooltip: ""
+	}
+
+	LimeSolution: {
+		DisplayName: Lime Solution
+		Tooltip: ""
+	}
+
+	MireKey: {
+		DisplayName: Mire Key
+		Tooltip: ""
+	}
+
+	MireSeeds: {
+		DisplayName: Mire Seeds
+		Tooltip: ""
+	}
+
+	Mooncaller: {
+		DisplayName: Mooncaller
+		Tooltip: ""
+	}
+
+	Moonpowder: {
+		DisplayName: Moonpowder
+		Tooltip: ""
+	}
+
+	MyceliumSeeds: {
+		DisplayName: Mycelium Seeds
+		Tooltip: ""
+	}
+
+	OrangeSolution: {
+		DisplayName: Orange Solution
+		Tooltip: ""
+	}
+
+	OrderSolution: {
+		DisplayName: Order Solution
+		Tooltip: ""
+	}
+
+	RiftMirror: {
+		DisplayName: Rift Mirror
+		Tooltip: ""
+	}
+
+	SporeSac: {
+		DisplayName: Spore Sac
+		Tooltip: ""
+	}
+
+	Suncaller: {
+		DisplayName: Suncaller
+		Tooltip: ""
+	}
+
+	Sunpowder: {
+		DisplayName: Sunpowder
+		Tooltip: ""
+	}
+
+	Timecaller: {
+		DisplayName: Timecaller
+		Tooltip: ""
+	}
+
+	TreasureRadar: {
+		DisplayName: Treasure Radar
+		Tooltip: ""
+	}
+
+	WhiteSolution: {
+		DisplayName: White Solution
+		Tooltip: ""
+	}
+
+	YellowSolution: {
+		DisplayName: Yellow Solution
+		Tooltip: ""
+	}
+
+	AlphaBag: {
+		DisplayName: Alpha Bag
+		Tooltip: ""
+	}
+
+	FishDiverBoots: {
+		DisplayName: Fish Diver Boots
+		Tooltip: ""
+	}
+
+	FishDiverJacket: {
+		DisplayName: Fish Diver Jacket
+		Tooltip: ""
+	}
+
+	FishDiverMask: {
+		DisplayName: Fish Diver Mask
+		Tooltip: ""
+	}
+
+	KipronWings: {
+		DisplayName: Kipron Wings
+		Tooltip: ""
+	}
+
+	ShinyFishDiverBoots: {
+		DisplayName: Shiny Fish Diver Boots
+		Tooltip: ""
+	}
+
+	ShinyFishDiverJacket: {
+		DisplayName: Shiny Fish Diver Jacket
+		Tooltip: ""
+	}
+
+	ShinyFishDiverMask: {
+		DisplayName: Shiny Fish Diver Mask
+		Tooltip: ""
+	}
+
+	ShinyKipronWings: {
+		DisplayName: Shiny Kipron Wings
+		Tooltip: ""
+	}
+
+	AnarchyBag: {
+		DisplayName: Anarchy Bag
+		Tooltip: ""
+	}
+
+	PristineChestplate: {
+		DisplayName: Pristine Chestplate
+		Tooltip: ""
+	}
+
+	PristineHelmet: {
+		DisplayName: Pristine Helmet
+		Tooltip: ""
+	}
+
+	PristineLeggings: {
+		DisplayName: Pristine Leggings
+		Tooltip: ""
+	}
+
+	ApawnBoots: {
+		DisplayName: Apawn Boots
+		Tooltip: ""
+	}
+
+	ApawnEgg: {
+		DisplayName: Apawn Egg
+		Tooltip: ""
+	}
+
+	ApawnHelm: {
+		DisplayName: Apawn Helm
+		Tooltip: ""
+	}
+
+	ApawnPlate: {
+		DisplayName: Apawn Plate
+		Tooltip: ""
+	}
+
+	AvesBag: {
+		DisplayName: Aves Bag
+		Tooltip: ""
+	}
+
+	DJDuckHead: {
+		DisplayName: D J Duck Head
+		Tooltip: ""
+	}
+
+	DJDuckPants: {
+		DisplayName: D J Duck Pants
+		Tooltip: ""
+	}
+
+	DJDuckShirt: {
+		DisplayName: D J Duck Shirt
+		Tooltip: ""
+	}
+
+	DuckstepWings: {
+		DisplayName: Duckstep Wings
+		Tooltip: ""
+	}
+
+	BegBag: {
+		DisplayName: Beg Bag
+		Tooltip: ""
+	}
+
+	PonyBody: {
+		DisplayName: Pony Body
+		Tooltip: ""
+	}
+
+	PonyHoofs: {
+		DisplayName: Pony Hoofs
+		Tooltip: ""
+	}
+
+	PonyMask: {
+		DisplayName: Pony Mask
+		Tooltip: ""
+	}
+
+	BlazenBag: {
+		DisplayName: Blazen Bag
+		Tooltip: ""
+	}
+
+	BlazenBooster: {
+		DisplayName: Blazen Booster
+		Tooltip: ""
+	}
+
+	BlazenBoots: {
+		DisplayName: Blazen Boots
+		Tooltip: ""
+	}
+
+	BlazenHelmet: {
+		DisplayName: Blazen Helmet
+		Tooltip: ""
+	}
+
+	BlazenPlate: {
+		DisplayName: Blazen Plate
+		Tooltip: ""
+	}
+
+	CCBox: {
+		DisplayName: C C Box
+		Tooltip: ""
+	}
+
+	CCHood: {
+		DisplayName: C C Hood
+		Tooltip: ""
+	}
+
+	CCRobe: {
+		DisplayName: C C Robe
+		Tooltip: ""
+	}
+
+	ShinyCCHood: {
+		DisplayName: Shiny C C Hood
+		Tooltip: ""
+	}
+
+	ShinyCCRobe: {
+		DisplayName: Shiny C C Robe
+		Tooltip: ""
+	}
+
+	InvokerBag: {
+		DisplayName: Invoker Bag
+		Tooltip: ""
+	}
+
+	InvokerHood: {
+		DisplayName: Invoker Hood
+		Tooltip: ""
+	}
+
+	InvokerPants: {
+		DisplayName: Invoker Pants
+		Tooltip: ""
+	}
+
+	InvokerRobe: {
+		DisplayName: Invoker Robe
+		Tooltip: ""
+	}
+
+	CharlieBag: {
+		DisplayName: Charlie Bag
+		Tooltip: ""
+	}
+
+	CharlieBoots: {
+		DisplayName: Charlie Boots
+		Tooltip: ""
+	}
+
+	CharlieCloak: {
+		DisplayName: Charlie Cloak
+		Tooltip: ""
+	}
+
+	CharlieCowl: {
+		DisplayName: Charlie Cowl
+		Tooltip: ""
+	}
+
+	CharlieWings: {
+		DisplayName: Charlie Wings
+		Tooltip: ""
+	}
+
+	FezLordsBag: {
+		DisplayName: Fez Lords Bag
+		Tooltip: ""
+	}
+
+	DellyBag: {
+		DisplayName: Delly Bag
+		Tooltip: ""
+	}
+
+	DellyBoots: {
+		DisplayName: Delly Boots
+		Tooltip: ""
+	}
+
+	DellyShirt: {
+		DisplayName: Delly Shirt
+		Tooltip: ""
+	}
+
+	DellyWig: {
+		DisplayName: Delly Wig
+		Tooltip: ""
+	}
+
+	LizBoots: {
+		DisplayName: Liz Boots
+		Tooltip: ""
+	}
+
+	LizEars: {
+		DisplayName: Liz Ears
+		Tooltip: ""
+	}
+
+	LizScarf: {
+		DisplayName: Liz Scarf
+		Tooltip: ""
+	}
+
+	LizShirt: {
+		DisplayName: Liz Shirt
+		Tooltip: ""
+	}
+
+	NightingaleWings: {
+		DisplayName: Nightingale Wings
+		Tooltip: ""
+	}
+
+	DragonWings: {
+		DisplayName: Dragon Wings
+		Tooltip: ""
+	}
+
+	LizHood: {
+		DisplayName: Liz Hood
+		Tooltip: ""
+	}
+
+	LizRobes: {
+		DisplayName: Liz Robes
+		Tooltip: ""
+	}
+
+	LizSkirt: {
+		DisplayName: Liz Skirt
+		Tooltip: ""
+	}
+
+	LizBag: {
+		DisplayName: Liz Bag
+		Tooltip: ""
+	}
+
+	FargoHat: {
+		DisplayName: Fargo Hat
+		Tooltip: ""
+	}
+
+	FargoPants: {
+		DisplayName: Fargo Pants
+		Tooltip: ""
+	}
+
+	FargoSuit: {
+		DisplayName: Fargo Suit
+		Tooltip: ""
+	}
+
+	TopHat: {
+		DisplayName: Top Hat
+		Tooltip: ""
+	}
+
+	SammyPants: {
+		DisplayName: Sammy Pants
+		Tooltip: ""
+	}
+
+	SammySweater: {
+		DisplayName: Sammy Sweater
+		Tooltip: ""
+	}
+
+	SammyWig: {
+		DisplayName: Sammy Wig
+		Tooltip: ""
+	}
+
+	WetFurrbag: {
+		DisplayName: Wet Furrbag
+		Tooltip: ""
+	}
+
+	GibsBag: {
+		DisplayName: Gibs Bag
+		Tooltip: ""
+	}
+
+	GibsJet: {
+		DisplayName: Gibs Jet
+		Tooltip: ""
+	}
+
+	GibsPlate: {
+		DisplayName: Gibs Plate
+		Tooltip: ""
+	}
+
+	GibsShorts: {
+		DisplayName: Gibs Shorts
+		Tooltip: ""
+	}
+
+	GibsSkull: {
+		DisplayName: Gibs Skull
+		Tooltip: ""
+	}
+
+	AngryPirateBoots: {
+		DisplayName: Angry Pirate Boots
+		Tooltip: ""
+	}
+
+	AngryPirateCofferplate: {
+		DisplayName: Angry Pirate Cofferplate
+		Tooltip: ""
+	}
+
+	AngryPirateHood: {
+		DisplayName: Angry Pirate Hood
+		Tooltip: ""
+	}
+
+	AngryPirateSails: {
+		DisplayName: Angry Pirate Sails
+		Tooltip: ""
+	}
+
+	GroviteSeaChest: {
+		DisplayName: Grovite Sea Chest
+		Tooltip: ""
+	}
+
+	HalHat: {
+		DisplayName: Hal Hat
+		Tooltip: ""
+	}
+
+	HalTrousers: {
+		DisplayName: Hal Trousers
+		Tooltip: ""
+	}
+
+	HalTux: {
+		DisplayName: Hal Tux
+		Tooltip: ""
+	}
+
+	MagiciansHat: {
+		DisplayName: Magicians Hat
+		Tooltip: ""
+	}
+
+	ShinyHalHat: {
+		DisplayName: Shiny Hal Hat
+		Tooltip: ""
+	}
+
+	ShinyHalTrousers: {
+		DisplayName: Shiny Hal Trousers
+		Tooltip: ""
+	}
+
+	ShinyHalTux: {
+		DisplayName: Shiny Hal Tux
+		Tooltip: ""
+	}
+
+	HappySunSticker: {
+		DisplayName: Happy Sun Sticker
+		Tooltip: ""
+	}
+
+	AkumaAMask: {
+		DisplayName: Akuma A Mask
+		Tooltip: ""
+	}
+
+	AkumaMask: {
+		DisplayName: Akuma Mask
+		Tooltip: ""
+	}
+
+	AnubisMask: {
+		DisplayName: Anubis Mask
+		Tooltip: ""
+	}
+
+	AthenaAMask: {
+		DisplayName: Athena A Mask
+		Tooltip: ""
+	}
+
+	AthenaMask: {
+		DisplayName: Athena Mask
+		Tooltip: ""
+	}
+
+	BroodmotherMask: {
+		DisplayName: Broodmother Mask
+		Tooltip: ""
+	}
+
+	DaybringerMask: {
+		DisplayName: Daybringer Mask
+		Tooltip: ""
+	}
+
+	DjinnMask: {
+		DisplayName: Djinn Mask
+		Tooltip: ""
+	}
+
+	FAnubisMask: {
+		DisplayName: F Anubis Mask
+		Tooltip: ""
+	}
+
+	FungusMask: {
+		DisplayName: Fungus Mask
+		Tooltip: ""
+	}
+
+	GreedMask: {
+		DisplayName: Greed Mask
+		Tooltip: ""
+	}
+
+	GripMaskBlue: {
+		DisplayName: Grip Mask Blue
+		Tooltip: ""
+	}
+
+	GripMaskRed: {
+		DisplayName: Grip Mask Red
+		Tooltip: ""
+	}
+
+	HydraMask1: {
+		DisplayName: Hydra Mask1
+		Tooltip: ""
+	}
+
+	HydraMask2: {
+		DisplayName: Hydra Mask2
+		Tooltip: ""
+	}
+
+	HydraMask3: {
+		DisplayName: Hydra Mask3
+		Tooltip: ""
+	}
+
+	MonarchMask: {
+		DisplayName: Monarch Mask
+		Tooltip: ""
+	}
+
+	NightcrawlerMask: {
+		DisplayName: Nightcrawler Mask
+		Tooltip: ""
+	}
+
+	RajahMask: {
+		DisplayName: Rajah Mask
+		Tooltip: ""
+	}
+
+	SagMask: {
+		DisplayName: Sag Mask
+		Tooltip: ""
+	}
+
+	SerpentMask: {
+		DisplayName: Serpent Mask
+		Tooltip: ""
+	}
+
+	ShenAMask: {
+		DisplayName: Shen A Mask
+		Tooltip: ""
+	}
+
+	ShenMask: {
+		DisplayName: Shen Mask
+		Tooltip: ""
+	}
+
+	ToadMask: {
+		DisplayName: Toad Mask
+		Tooltip: ""
+	}
+
+	WKGreedMask: {
+		DisplayName: W K Greed Mask
+		Tooltip: ""
+	}
+
+	YamataAMask: {
+		DisplayName: Yamata A Mask
+		Tooltip: ""
+	}
+
+	YamataMask: {
+		DisplayName: Yamata Mask
+		Tooltip: ""
+	}
+
+	ZeroMask: {
+		DisplayName: Zero Mask
+		Tooltip: ""
+	}
+
+	Mask: {
+		DisplayName: Mask
+		Tooltip: ""
+	}
+
+	MaskBag: {
+		DisplayName: Mask Bag
+		Tooltip: ""
+	}
+
+	MaskBoots: {
+		DisplayName: Mask Boots
+		Tooltip: ""
+	}
+
+	MaskPlate: {
+		DisplayName: Mask Plate
+		Tooltip: ""
+	}
+
+	MikBag: {
+		DisplayName: Mik Bag
+		Tooltip: ""
+	}
+
+	MikpinCloak: {
+		DisplayName: Mikpin Cloak
+		Tooltip: ""
+	}
+
+	MikpinPants: {
+		DisplayName: Mikpin Pants
+		Tooltip: ""
+	}
+
+	MikpinWig: {
+		DisplayName: Mikpin Wig
+		Tooltip: ""
+	}
+
+	MoonBag: {
+		DisplayName: Moon Bag
+		Tooltip: ""
+	}
+
+	MoonBoots: {
+		DisplayName: Moon Boots
+		Tooltip: ""
+	}
+
+	MoonHood: {
+		DisplayName: Moon Hood
+		Tooltip: ""
+	}
+
+	MoonRobe: {
+		DisplayName: Moon Robe
+		Tooltip: ""
+	}
+
+	MoonWings: {
+		DisplayName: Moon Wings
+		Tooltip: ""
+	}
+
+	ShinyMoonBoots: {
+		DisplayName: Shiny Moon Boots
+		Tooltip: ""
+	}
+
+	ShinyMoonHood: {
+		DisplayName: Shiny Moon Hood
+		Tooltip: ""
+	}
+
+	ShinyMoonRobe: {
+		DisplayName: Shiny Moon Robe
+		Tooltip: ""
+	}
+
+	ono: {
+		DisplayName: ono
+		Tooltip: ""
+	}
+
+	PlutoBag: {
+		DisplayName: Pluto Bag
+		Tooltip: ""
+	}
+
+	PlutoBoots: {
+		DisplayName: Pluto Boots
+		Tooltip: ""
+	}
+
+	PlutoMask: {
+		DisplayName: Pluto Mask
+		Tooltip: ""
+	}
+
+	PlutoPlate: {
+		DisplayName: Pluto Plate
+		Tooltip: ""
+	}
+
+	ShinyPlutoMask: {
+		DisplayName: Shiny Pluto Mask
+		Tooltip: ""
+	}
+
+	ShinyPlutoPlate: {
+		DisplayName: Shiny Pluto Plate
+		Tooltip: ""
+	}
+
+	ShoxBag: {
+		DisplayName: Shox Bag
+		Tooltip: ""
+	}
+
+	ShoxPants: {
+		DisplayName: Shox Pants
+		Tooltip: ""
+	}
+
+	ShoxPlate: {
+		DisplayName: Shox Plate
+		Tooltip: ""
+	}
+
+	ShoxVisor: {
+		DisplayName: Shox Visor
+		Tooltip: ""
+	}
+
+	TailsBody: {
+		DisplayName: Tails Body
+		Tooltip: ""
+	}
+
+	TailsHead: {
+		DisplayName: Tails Head
+		Tooltip: ""
+	}
+
+	TailsLegs: {
+		DisplayName: Tails Legs
+		Tooltip: ""
+	}
+
+	TailsToolbox: {
+		DisplayName: Tails Toolbox
+		Tooltip: ""
+	}
+
+	OldMagiciansHat: {
+		DisplayName: Old Magicians Hat
+		Tooltip: ""
+	}
+
+	TiedsLeggings: {
+		DisplayName: Tieds Leggings
+		Tooltip: ""
+	}
+
+	TiedsMask: {
+		DisplayName: Tieds Mask
+		Tooltip: ""
+	}
+
+	TiedsSuit: {
+		DisplayName: Tieds Suit
+		Tooltip: ""
+	}
+
+	CursedHood: {
+		DisplayName: Cursed Hood
+		Tooltip: ""
+	}
+
+	CursedPants: {
+		DisplayName: Cursed Pants
+		Tooltip: ""
+	}
+
+	CursedRobe: {
+		DisplayName: Cursed Robe
+		Tooltip: ""
+	}
+
+	VoidBag: {
+		DisplayName: Void Bag
+		Tooltip: ""
+	}
+
+	VoidEyeBoots: {
+		DisplayName: Void Eye Boots
+		Tooltip: ""
+	}
+
+	VoidEyeHelm: {
+		DisplayName: Void Eye Helm
+		Tooltip: ""
+	}
+
+	VoidEyePlate: {
+		DisplayName: Void Eye Plate
+		Tooltip: ""
+	}
+
+	CovetiteBrickWall: {
+		DisplayName: Covetite Brick Wall
+		Tooltip: ""
+	}
+
+	DarkmatterWall: {
+		DisplayName: Darkmatter Wall
+		Tooltip: ""
+	}
+
+	DaybreakWall: {
+		DisplayName: Daybreak Wall
+		Tooltip: ""
+	}
+
+	DoomiteWall: {
+		DisplayName: Doomite Wall
+		Tooltip: ""
+	}
+
+	DoomsdayWall: {
+		DisplayName: Doomsday Wall
+		Tooltip: ""
+	}
+
+	DoomstoneBrickWall: {
+		DisplayName: Doomstone Brick Wall
+		Tooltip: ""
+	}
+
+	EquinoxWall: {
+		DisplayName: Equinox Wall
+		Tooltip: ""
+	}
+
+	EventideWall: {
+		DisplayName: Eventide Wall
+		Tooltip: ""
+	}
+
+	IncineriteWall: {
+		DisplayName: Incinerite Wall
+		Tooltip: ""
+	}
+
+	RadiumWall: {
+		DisplayName: Radium Wall
+		Tooltip: ""
+	}
+
+	RelicWall: {
+		DisplayName: Relic Wall
+		Tooltip: ""
+	}
+
+	MonochromeApple: {
+		DisplayName: Monochrome Apple
+		Tooltip: ""
+	}
+
+	GS: {
+		DisplayName: G S
+		Tooltip: ""
+	}
+
+	SC: {
+		DisplayName: S C
+		Tooltip: ""
+	}
+}
+
+NPCs: {
+	AHDeath.DisplayName: A H Death
+	AHSpawn.DisplayName: A H Spawn
+	Ashe.DisplayName: Ashe
+	AsheDragon.DisplayName: Ashe Dragon
+	AsheDragonArms.DisplayName: Ashe Dragon Arms
+	AsheDragonBody.DisplayName: Ashe Dragon Body
+	AsheDragonBody1.DisplayName: Ashe Dragon Body1
+	AsheDragonBody2.DisplayName: Ashe Dragon Body2
+	AsheDragonTail.DisplayName: Ashe Dragon Tail
+	AsheOrbiter.DisplayName: Ashe Orbiter
+	AsheRune.DisplayName: Ashe Rune
+	AsheSpawn.DisplayName: Ashe Spawn
+	AsheVanish.DisplayName: Ashe Vanish
+	Haruka.DisplayName: Haruka
+	HarukaClone.DisplayName: Haruka Clone
+	HarukaFall.DisplayName: Haruka Fall
+	HarukaSpawn.DisplayName: Haruka Spawn
+	HarukaVanish.DisplayName: Haruka Vanish
+	Akuma.DisplayName: Akuma
+	AkumaBody.DisplayName: Akuma Body
+	AkumaTransition.DisplayName: Akuma Transition
+	AkumaA.DisplayName: Akuma A
+	AkumaABody.DisplayName: Akuma A Body
+	AwakenedLung.DisplayName: Awakened Lung
+	AwakenedLungBody.DisplayName: Awakened Lung Body
+	AwakenedLungTail.DisplayName: Awakened Lung Tail
+	SunA.DisplayName: Sun A
+	Anubis.DisplayName: Anubis
+	EyeSentry.DisplayName: Eye Sentry
+	CurseCircle.DisplayName: Curse Circle
+	CursedLocust.DisplayName: Cursed Locust
+	CursedScarab.DisplayName: Cursed Scarab
+	FATransition.DisplayName: F A Transition
+	FATransition2.DisplayName: F A Transition2
+	ForsakenAnubis.DisplayName: Forsaken Anubis
+	ForsakenSun.DisplayName: Forsaken Sun
+	HorusSentry.DisplayName: Horus Sentry
+	Naddaha.DisplayName: Naddaha
+	HorusHawk.DisplayName: Horus Hawk
+	Locust.DisplayName: Locust
+	MinionCircle.DisplayName: Minion Circle
+	Scarab.DisplayName: Scarab
+	Uraeus.DisplayName: Uraeus
+	UraeusBody.DisplayName: Uraeus Body
+	UraeusTail.DisplayName: Uraeus Tail
+	Athena.DisplayName: Athena
+	AthenaDefeat.DisplayName: Athena Defeat
+	AthenaFlee.DisplayName: Athena Flee
+	AthenaA.DisplayName: Athena A
+	AthenaDark.DisplayName: Athena Dark
+	AthenaLight.DisplayName: Athena Light
+	OwlRuneCharged.DisplayName: Owl Rune Charged
+	OwlRune.DisplayName: Owl Rune
+	OlympianDragon.DisplayName: Olympian Dragon
+	SeraphA.DisplayName: Seraph A
+	SeraphHerald.DisplayName: Seraph Herald
+	Seraph.DisplayName: Seraph
+	BroodEgg.DisplayName: Brood Egg
+	Broodmini.DisplayName: Broodmini
+	Broodmother.DisplayName: Broodmother
+	Djinn.DisplayName: Djinn
+	DaybringerBody.DisplayName: Daybringer Body
+	DaybringerHead.DisplayName: Daybringer Head
+	DaybringerTail.DisplayName: Daybringer Tail
+	Equiprobe.DisplayName: Equiprobe
+	NCCloud.DisplayName: N C Cloud
+	NightcrawlerBody.DisplayName: Nightcrawler Body
+	NightcrawlerHead.DisplayName: Nightcrawler Head
+	NightcrawlerTail.DisplayName: Nightcrawler Tail
+	FeudalFungus.DisplayName: Feudal Fungus
+	FungusFlier.DisplayName: Fungus Flier
+	FungusSlep.DisplayName: Fungus Slep
+	FungusSpore.DisplayName: Fungus Spore
+	FungusWake.DisplayName: Fungus Wake
+	Mushling.DisplayName: Mushling
+	Greed.DisplayName: Greed
+	GreedA.DisplayName: Greed A
+	GreedABody.DisplayName: Greed A Body
+	GreedBody.DisplayName: Greed Body
+	GreedMinion.DisplayName: Greed Minion
+	GreedSpawn.DisplayName: Greed Spawn
+	GreedTransition.DisplayName: Greed Transition
+	GreedTurret.DisplayName: Greed Turret
+	DragonClawM.DisplayName: Dragon Claw M
+	DragonClaw.DisplayName: Dragon Claw
+	GripOfChaosBlue.DisplayName: Grip Of Chaos Blue
+	GripOfChaosRed.DisplayName: Grip Of Chaos Red
+	HydraClawM.DisplayName: Hydra Claw M
+	HydraClaw.DisplayName: Hydra Claw
+	Hydra.DisplayName: Hydra
+	HarukaShade.DisplayName: Haruka Shade
+	HydraHead1.DisplayName: Hydra Head1
+	HydraHead2.DisplayName: Hydra Head2
+	HydraHead3.DisplayName: Hydra Head3
+	HydraHead4.DisplayName: Hydra Head4
+	HydraHead5.DisplayName: Hydra Head5
+	HydraHead6.DisplayName: Hydra Head6
+	HydraHead7.DisplayName: Hydra Head7
+	HydraHead8.DisplayName: Hydra Head8
+	HydraHead9.DisplayName: Hydra Head9
+
+	LuciferSitting: {
+		DisplayName: Lucifer Sitting
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+	}
+
+	MonarchSlep.DisplayName: Monarch Slep
+	MonarchWake.DisplayName: Monarch Wake
+	MushroomMonarch.DisplayName: Mushroom Monarch
+	RedMushling.DisplayName: Red Mushling
+	BunnyBattler.DisplayName: Bunny Battler
+	BunnyBattler2.DisplayName: Bunny Battler2
+	BunnyBrawler.DisplayName: Bunny Brawler
+	BunnyBrawler2.DisplayName: Bunny Brawler2
+	RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
+	RabbitcopterSoldier2.DisplayName: Rabbitcopter Soldier2
+	Rajah.DisplayName: Rajah
+	SupremeRajahDefeat.DisplayName: Supreme Rajah Defeat
+	SupremeRajah.DisplayName: Supreme Rajah
+	Sag.DisplayName: Sag
+	IceCrystal.DisplayName: Ice Crystal
+	SerpentBody.DisplayName: Serpent Body
+	SerpentHead.DisplayName: Serpent Head
+	SerpentTail.DisplayName: Serpent Tail
+	FuryAshe.DisplayName: Fury Ashe
+	FuryAsheOrbiter.DisplayName: Fury Ashe Orbiter
+	FuryAsheVanish.DisplayName: Fury Ashe Vanish
+	WrathHaruka.DisplayName: Wrath Haruka
+	WrathHarukaClone.DisplayName: Wrath Haruka Clone
+	WrathHarukaVanish.DisplayName: Wrath Haruka Vanish
+	AbyssGrip.DisplayName: Abyss Grip
+	BlazeGrip.DisplayName: Blaze Grip
+	Shen.DisplayName: Shen
+	ShenA.DisplayName: Shen A
+	ShenAHitbox.DisplayName: Shen A Hitbox
+	ShenDeath.DisplayName: Shen Death
+	ShenDefeat.DisplayName: Shen Defeat
+	ShenHitbox.DisplayName: Shen Hitbox
+	Shenling.DisplayName: Shenling
+	ShenlingBody1.DisplayName: Shenling Body1
+	ShenlingBody2.DisplayName: Shenling Body2
+	ShenlingTail.DisplayName: Shenling Tail
+	ShenSpawn.DisplayName: Shen Spawn
+	ShenTransition.DisplayName: Shen Transition
+	GlowshroomGrow.DisplayName: Glowshroom Grow
+	ShroomGlow.DisplayName: Shroom Glow
+	TinyToad.DisplayName: Tiny Toad
+	TruffleToad.DisplayName: Truffle Toad
+	YamataA.DisplayName: Yamata A
+	YamataAHead.DisplayName: Yamata A Head
+	YamataAHeadF.DisplayName: Yamata A Head F
+	YamataSoul.DisplayName: Yamata Soul
+	Yamata.DisplayName: Yamata
+	YamataHead.DisplayName: Yamata Head
+	YamataHeadF1.DisplayName: Yamata Head F1
+	YamataHeadF2.DisplayName: Yamata Head F2
+	YamataTransition.DisplayName: Yamata Transition
+	GenocideCannon.DisplayName: Genocide Cannon
+	Neutralizer.DisplayName: Neutralizer
+	NovaFocus.DisplayName: Nova Focus
+	OmegaVolley.DisplayName: Omega Volley
+	NullZP.DisplayName: Null Z P
+	Null.DisplayName: Null
+	ZeroEcho.DisplayName: Zero Echo
+	ZeroMini.DisplayName: Zero Mini
+	ZeroProtocol.DisplayName: Zero Protocol
+	ZeroTransition.DisplayName: Zero Transition
+	Zero.DisplayName: Zero
+	RealityCannon.DisplayName: Reality Cannon
+	RiftShredder.DisplayName: Rift Shredder
+	SearcherZero.DisplayName: Searcher Zero
+	Searcher.DisplayName: Searcher
+	Taser.DisplayName: Taser
+	TeslaHand.DisplayName: Tesla Hand
+	VoidStar.DisplayName: Void Star
+	ZeroDeactivated.DisplayName: Zero Deactivated
+	RoyalRabbit.DisplayName: Royal Rabbit
+	VoidFlowey.DisplayName: Void Flowey
+	Dynasaur.DisplayName: Dynasaur
+	Fishron.DisplayName: Fishron
+	Scavenger.DisplayName: Scavenger
+	ScavengerBody.DisplayName: Scavenger Body
+	ScavengerTail.DisplayName: Scavenger Tail
+	MiniDjinn.DisplayName: Mini Djinn
+	FatPixie.DisplayName: Fat Pixie
+	BlazePhoenix.DisplayName: Blaze Phoenix
+	ChaoticDawn.DisplayName: Chaotic Dawn
+	Dragron.DisplayName: Dragron
+	Flamebrute.DisplayName: Flamebrute
+	InfernalSlime.DisplayName: Infernal Slime
+	InfernoGhoul.DisplayName: Inferno Ghoul
+	InfernoMimic.DisplayName: Inferno Mimic
+	InfernoSalamander.DisplayName: Inferno Salamander
+	Lung.DisplayName: Lung
+	LungBody.DisplayName: Lung Body
+	LungTail.DisplayName: Lung Tail
+	MagmaSwimmer.DisplayName: Magma Swimmer
+	TheStride.DisplayName: The Stride
+	TheStrideDeathAnimation.DisplayName: The Stride Death Animation
+	Wyrm.DisplayName: Wyrm
+	WyrmBody1.DisplayName: Wyrm Body1
+	WyrmBody2.DisplayName: Wyrm Body2
+	WyrmBody3.DisplayName: Wyrm Body3
+	WyrmBody4.DisplayName: Wyrm Body4
+	Wyrmling.DisplayName: Wyrmling
+	WyrmlingBody.DisplayName: Wyrmling Body
+	WyrmlingTail1.DisplayName: Wyrmling Tail1
+	WyrmlingTail2.DisplayName: Wyrmling Tail2
+	ChaoticTwilight.DisplayName: Chaotic Twilight
+	FogAngler.DisplayName: Fog Angler
+	HarukaShadow.DisplayName: Haruka Shadow
+	Kappa.DisplayName: Kappa
+	MireGhoul.DisplayName: Mire Ghoul
+	Miregron.DisplayName: Miregron
+	MireMimic.DisplayName: Mire Mimic
+	MireSkulker.DisplayName: Mire Skulker
+	MireSlime.DisplayName: Mire Slime
+	Miresquito.DisplayName: Miresquito
+	Mosster.DisplayName: Mosster
+	Newt.DisplayName: Newt
+	Soulsucker.DisplayName: Soulsucker
+	Toxitoad.DisplayName: Toxitoad
+	Mushbug.DisplayName: Mushbug
+	MushroomCrab.DisplayName: Mushroom Crab
+	MushroomZombie.DisplayName: Mushroom Zombie
+	MushroomZombie2.DisplayName: Mushroom Zombie2
+	ShroomJelly.DisplayName: Shroom Jelly
+	SmallFrog.DisplayName: Small Frog
+	SmallToad.DisplayName: Small Toad
+	AbyssClaw.DisplayName: Abyss Claw
+	BlazeClaw.DisplayName: Blaze Claw
+	ChaosDragon.DisplayName: Chaos Dragon
+	MadnessBat.DisplayName: Madness Bat
+	MadnessSlime.DisplayName: Madness Slime
+	Nightguard.DisplayName: Nightguard
+	Sunwatcher.DisplayName: Sunwatcher
+	ElderDragon.DisplayName: Elder Dragon
+	SeraphHurt.DisplayName: Seraph Hurt
+	SnakeBody.DisplayName: Snake Body
+	SnakeBody2.DisplayName: Snake Body2
+	SnakeHead.DisplayName: Snake Head
+	SnakeTail.DisplayName: Snake Tail
+	TerraProbe.DisplayName: Terra Probe
+	TerraSquire.DisplayName: Terra Squire
+	TerraWatcher.DisplayName: Terra Watcher
+	TerraSerpent.DisplayName: Terra Serpent
+	TerraSerpentBody.DisplayName: Terra Serpent Body
+	TerraSerpentTail.DisplayName: Terra Serpent Tail
+	Bladon.DisplayName: Bladon
+	Minion1.DisplayName: Minion1
+	Minion2.DisplayName: Minion2
+	Minion3.DisplayName: Minion3
+	Minion4.DisplayName: Minion4
+	Minion4Body.DisplayName: Minion4 Body
+	Minion4Tail.DisplayName: Minion4 Tail
+	TerraDeadshot.DisplayName: Terra Deadshot
+	TerraWarlock.DisplayName: Terra Warlock
+	TerraWizard.DisplayName: Terra Wizard
+	PurityCrawler.DisplayName: Purity Crawler
+	PuritySphere.DisplayName: Purity Sphere
+	PuritySquid.DisplayName: Purity Squid
+	PurityWeaver.DisplayName: Purity Weaver
+	PurityWeaverBody.DisplayName: Purity Weaver Body
+	PurityWeaverTail.DisplayName: Purity Weaver Tail
+	SagittariusMini.DisplayName: Sagittarius Mini
+	Scout.DisplayName: Scout
+	Searcher1.DisplayName: Searcher1
+	Vortex.DisplayName: Vortex
+
+	Alpha: {
+		DisplayName: Alpha
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: Conditions unknown
+	}
+
+	GoblinSlayer: {
+		DisplayName: Goblin Slayer
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: Goblin Army is defeated
+	}
+
+	Legendscribe: {
+		DisplayName: Legendscribe
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: ""
+	}
+
+	Lovecraftian: {
+		DisplayName: Lovecraftian
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: Eye of Cthulhu defeated
+	}
+
+	Mushman: {
+		DisplayName: Mushman
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: After defeating Mushroom Monarch or Feudal Fungus, build a house in a red mushroom biome
+	}
+
+	Samurai: {
+		DisplayName: Samurai
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+
+		Census.SpawnCondition: Grips of Chaos defeated
+	}
+
+	DBPortal.DisplayName: D B Portal
+	NCPortal.DisplayName: N C Portal
+	WormSpawn.DisplayName: Worm Spawn
+}
+
+Projectiles: {
+	ShockwaveBoom.DisplayName: Shockwave Boom
+	Shockwave.DisplayName: Shockwave
+	AssassinArrow.DisplayName: Assassin Arrow
+	AssassinDagger.DisplayName: Assassin Dagger
+	BaronBunny.DisplayName: Baron Bunny
+	BaronCarrot.DisplayName: Baron Carrot
+	BaronSpear.DisplayName: Baron Spear
+	DroneBoom.DisplayName: Drone Boom
+	RajahDrone.DisplayName: Rajah Drone
+	RajahDroneShot.DisplayName: Rajah Drone Shot
+	DragonShot.DisplayName: Dragon Shot
+	DragonSpirit.DisplayName: Dragon Spirit
+	ImpMinion.DisplayName: Imp Minion
+	Searcher.DisplayName: Searcher
+	ZeroMini.DisplayName: Zero Mini
+	TerraBoom.DisplayName: Terra Boom
+	TerraBullet.DisplayName: Terra Bullet
+	TerraCrystal.DisplayName: Terra Crystal
+	TerraRoseA.DisplayName: Terra Rose A
+	TerraRose.DisplayName: Terra Rose
+	TerraSphere.DisplayName: Terra Sphere
+	FlameSoul.DisplayName: Flame Soul
+	FlameSoulShot.DisplayName: Flame Soul Shot
+	DragonClaw.DisplayName: Dragon Claw
+	HydraClaw.DisplayName: Hydra Claw
+	OmegaVolleyExtraAmmo.DisplayName: Omega Volley Extra Ammo
+	WormPointer.DisplayName: Worm Pointer
+	InvokedCaligulaShoot.DisplayName: Invoked Caligula Shoot
+	InvokedDamage.DisplayName: Invoked Damage
+	InvokedHeal.DisplayName: Invoked Heal
+	InvokedRune.DisplayName: Invoked Rune
+	InvokerStaffproj.DisplayName: Invoker Staffproj
+	Acorn.DisplayName: Acorn
+	DapperSquirrel1.DisplayName: Dapper Squirrel1
+	DapperSquirrel2.DisplayName: Dapper Squirrel2
+	FezShot.DisplayName: Fez Shot
+	Fezsplosion.DisplayName: Fezsplosion
+	Hat.DisplayName: Hat
+	SoccMinion.DisplayName: Socc Minion
+	SockPuppet.DisplayName: Sock Puppet
+	SockPuppetEX.DisplayName: Sock Puppet E X
+	Squirrel1.DisplayName: Squirrel1
+	Squirrel2.DisplayName: Squirrel2
+	BunnyRune.DisplayName: Bunny Rune
+	CCRuneNovaRay.DisplayName: C C Rune Nova Ray
+	ChaosRune.DisplayName: Chaos Rune
+	DiscordRune.DisplayName: Discord Rune
+	EnergyRune.DisplayName: Energy Rune
+	TerraRune.DisplayName: Terra Rune
+	VoidRune.DisplayName: Void Rune
+	Noodle.DisplayName: Noodle
+	DragonsGripP.DisplayName: Dragons Grip P
+	GripBlue.DisplayName: Grip Blue
+	GripRed.DisplayName: Grip Red
+	DMSlash.DisplayName: D M Slash
+	BoomBoi.DisplayName: Boom Boi
+	Broodmini.DisplayName: Broodmini
+	Cerberus.DisplayName: Cerberus
+	DragonSoul.DisplayName: Dragon Soul
+	Glowmoss.DisplayName: Glowmoss
+	K9.DisplayName: K9
+	Lunamini.DisplayName: Lunamini
+	MiniProbe.DisplayName: Mini Probe
+	Mudkip.DisplayName: Mudkip
+	MudkipS.DisplayName: Mudkip S
+	RoyalKitten.DisplayName: Royal Kitten
+	Sharkron.DisplayName: Sharkron
+	ZeroBab.DisplayName: Zero Bab
+	BabyPhoenix.DisplayName: Baby Phoenix
+	BlizzardDragon.DisplayName: Blizzard Dragon
+	ChaosConstruct.DisplayName: Chaos Construct
+	ChaosConstructShot.DisplayName: Chaos Construct Shot
+	CrimeraMinion.DisplayName: Crimera Minion
+	CrowMinion.DisplayName: Crow Minion
+	DemonEater.DisplayName: Demon Eater
+	DemonMinion.DisplayName: Demon Minion
+	DemonProj.DisplayName: Demon Proj
+	DevilMinion.DisplayName: Devil Minion
+	DevilProj.DisplayName: Devil Proj
+	DoomiteProbe.DisplayName: Doomite Probe
+	DoomiteProbeC.DisplayName: Doomite Probe C
+	DragonBody.DisplayName: Dragon Body
+	DragonHead.DisplayName: Dragon Head
+	DragonTail.DisplayName: Dragon Tail
+	EnderMinion.DisplayName: Ender Minion
+	EnderMinionEX.DisplayName: Ender Minion E X
+	HallowedPrism.DisplayName: Hallowed Prism
+	HydraProj.DisplayName: Hydra Proj
+	IceBall.DisplayName: Ice Ball
+	Prismshot.DisplayName: Prismshot
+	ProbeMinion.DisplayName: Probe Minion
+	ProbeShot.DisplayName: Probe Shot
+	ScoutMinion.DisplayName: Scout Minion
+	SkullMinion.DisplayName: Skull Minion
+	SkullShot.DisplayName: Skull Shot
+	StoneHydra.DisplayName: Stone Hydra
+	Minion1.DisplayName: Minion1
+	Minion2.DisplayName: Minion2
+	Minion3.DisplayName: Minion3
+	SummonShot.DisplayName: Summon Shot
+	TerraBlast.DisplayName: Terra Blast
+	TerraWizard.DisplayName: Terra Wizard
+	TrueHallowedPrism.DisplayName: True Hallowed Prism
+	TruePrismshot.DisplayName: True Prismshot
+	XiaoDoragon.DisplayName: Xiao Doragon
+	XiaoExplosion.DisplayName: Xiao Explosion
+	XiaoFireball.DisplayName: Xiao Fireball
+	Hellfisher_Bob.DisplayName: Hellfisher_ Bob
+	AsheBoom.DisplayName: Ashe Boom
+	AsheFire.DisplayName: Ashe Fire
+	AsheFlamethrower.DisplayName: Ashe Flamethrower
+	AsheMagicSpark.DisplayName: Ashe Magic Spark
+	AsheShot.DisplayName: Ashe Shot
+	AsheSpark.DisplayName: Ashe Spark
+	AsheSpell.DisplayName: Ashe Spell
+	AsheStrike.DisplayName: Ashe Strike
+	HarukaArrow.DisplayName: Haruka Arrow
+	HarukaKunai.DisplayName: Haruka Kunai
+	HarukaProj.DisplayName: Haruka Proj
+	HarukaStrike.DisplayName: Haruka Strike
+	AkumaBomb.DisplayName: Akuma Bomb
+	AkumaBoom.DisplayName: Akuma Boom
+	AkumaBreath.DisplayName: Akuma Breath
+	AkumaFireProj.DisplayName: Akuma Fire Proj
+	AkumaMeteor.DisplayName: Akuma Meteor
+	AFireProjHostile.DisplayName: A Fire Proj Hostile
+	AkumaABomb.DisplayName: Akuma A Bomb
+	AkumaABoom.DisplayName: Akuma A Boom
+	AkumaABreath.DisplayName: Akuma A Breath
+	AkumaADeathray.DisplayName: Akuma A Deathray
+	AkumaADeathraySmall.DisplayName: Akuma A Deathray Small
+	AkumaAFireballFrag.DisplayName: Akuma A Fireball Frag
+	AkumaAMeteor.DisplayName: Akuma A Meteor
+	AkumaRock.DisplayName: Akuma Rock
+	AsheA.DisplayName: Ashe A
+	Ash.DisplayName: Ash
+	FireshotA.DisplayName: Fireshot A
+	FlareA.DisplayName: Flare A
+	Flare.DisplayName: Flare
+	HomingBoom.DisplayName: Homing Boom
+	HomingFireballA.DisplayName: Homing Fireball A
+	HomingFireball.DisplayName: Homing Fireball
+	FireShot.DisplayName: Fire Shot
+	Flameburst.DisplayName: Flameburst
+	Block.DisplayName: Block
+	Block1.DisplayName: Block1
+	EyeSummon.DisplayName: Eye Summon
+	AnubisFireball.DisplayName: Anubis Fireball
+	AnubisSoul.DisplayName: Anubis Soul
+	BlockF.DisplayName: Block F
+	BlockF1.DisplayName: Block F1
+	CurseFlame.DisplayName: Curse Flame
+	CurseGlyphs.DisplayName: Curse Glyphs
+	ForsakenBlast.DisplayName: Forsaken Blast
+	ForsakenExplosion.DisplayName: Forsaken Explosion
+	ForsakenSkull.DisplayName: Forsaken Skull
+	ForsakenStaff.DisplayName: Forsaken Staff
+	HorusSummon.DisplayName: Horus Summon
+	Razorsand.DisplayName: Razorsand
+	SunSummon.DisplayName: Sun Summon
+	LocusSpit.DisplayName: Locus Spit
+	Pumpkin.DisplayName: Pumpkin
+	Runeblast.DisplayName: Runeblast
+	Runefire.DisplayName: Runefire
+	Scepter.DisplayName: Scepter
+	AthenaMagic.DisplayName: Athena Magic
+	AthenaShock.DisplayName: Athena Shock
+	Athena.DisplayName: Athena
+	Hurricane.DisplayName: Hurricane
+	RazorGust.DisplayName: Razor Gust
+	RuneSpawn.DisplayName: Rune Spawn
+	SwiftwindStrikeOrb.DisplayName: Swiftwind Strike Orb
+	SwiftwindStrikeSpear.DisplayName: Swiftwind Strike Spear
+	BroodBall.DisplayName: Brood Ball
+	BroodBoom.DisplayName: Brood Boom
+	BroodBreath.DisplayName: Brood Breath
+	Menacing.DisplayName: Menacing
+	DayBringerBlast.DisplayName: Day Bringer Blast
+	DayBringerDarts.DisplayName: Day Bringer Darts
+	DaybringerOrb.DisplayName: Daybringer Orb
+	DaybringerStars.DisplayName: Daybringer Stars
+	DaybringerSun.DisplayName: Daybringer Sun
+	Moonray.DisplayName: Moonray
+	NightclawerDeathray.DisplayName: Nightclawer Deathray
+	NightclawerDeathraySmall.DisplayName: Nightclawer Deathray Small
+	NightclawerLaser.DisplayName: Nightclawer Laser
+	NightclawerScythe.DisplayName: Nightclawer Scythe
+	NightcrawlerNothing.DisplayName: Nightcrawler Nothing
+	Sunbeam.DisplayName: Sunbeam
+	FungusCloud.DisplayName: Fungus Cloud
+	FungusIGoNow.DisplayName: Fungus I Go Now
+	Mushshot.DisplayName: Mushshot
+	CovStalactitePro.DisplayName: Cov Stalactite Pro
+	DesireBeam.DisplayName: Desire Beam
+	DesireSparkPro.DisplayName: Desire Spark Pro
+	GreedCoin.DisplayName: Greed Coin
+	GreedCoinA.DisplayName: Greed Coin A
+	GreedLaser.DisplayName: Greed Laser
+	Nebula.DisplayName: Nebula
+	TreasurePro.DisplayName: Treasure Pro
+	WarningPro.DisplayName: Warning Pro
+	HydraBomb.DisplayName: Hydra Bomb
+	HydraBreath.DisplayName: Hydra Breath
+	HydraMist.DisplayName: Hydra Mist
+	FakeMonarchMushroom.DisplayName: Fake Monarch Mushroom
+	MonarchRUNAWAY.DisplayName: Monarch R U N A W A Y
+	BaneR.DisplayName: Bane R
+	BunnySummon1.DisplayName: Bunny Summon1
+	BunnySummon2.DisplayName: Bunny Summon2
+	BunnySummon3.DisplayName: Bunny Summon3
+	CarrotFarmerR.DisplayName: Carrot Farmer R
+	CarrotFarmer.DisplayName: Carrot Farmer
+	CarrotHostile.DisplayName: Carrot Hostile
+	RabbitRocketBoomR.DisplayName: Rabbit Rocket Boom R
+	RabbitRocketBoom.DisplayName: Rabbit Rocket Boom
+	RajahBookIt.DisplayName: Rajah Book It
+	RajahRocket.DisplayName: Rajah Rocket
+	RajahStomp.DisplayName: Rajah Stomp
+	BaneTEXR.DisplayName: Bane T E X R
+	BaneTEX.DisplayName: Bane T E X
+	BaneT.DisplayName: Bane T
+	CarrotEXR.DisplayName: Carrot E X R
+	CarrotEX.DisplayName: Carrot E X
+	Carrot.DisplayName: Carrot
+	CarrowR.DisplayName: Carrow R
+	CarrowSplitR.DisplayName: Carrow Split R
+	CarrowSplit.DisplayName: Carrow Split
+	Carrow.DisplayName: Carrow
+	ExcalihareBoomR.DisplayName: Excalihare Boom R
+	ExcalihareBoom.DisplayName: Excalihare Boom
+	ExcalihareR.DisplayName: Excalihare R
+	Excalihare.DisplayName: Excalihare
+	RabbitBoomEXR.DisplayName: Rabbit Boom E X R
+	RabbitBoomEX.DisplayName: Rabbit Boom E X
+	RajahRocketEXR.DisplayName: Rajah Rocket E X R
+	SupremeRajahBookIt.DisplayName: Supreme Rajah Book It
+	SupremeRajahLeave.DisplayName: Supreme Rajah Leave
+	SagBlast.DisplayName: Sag Blast
+	SagBomb.DisplayName: Sag Bomb
+	SagiStar.DisplayName: Sagi Star
+	SagRing.DisplayName: Sag Ring
+	SagRocket.DisplayName: Sag Rocket
+	SagShot.DisplayName: Sag Shot
+	SagSpark.DisplayName: Sag Spark
+	SagVortex.DisplayName: Sag Vortex
+	IceBall2.DisplayName: Ice Ball2
+	IceSpike.DisplayName: Ice Spike
+	SnowBreath.DisplayName: Snow Breath
+	FuryAsheFire.DisplayName: Fury Ashe Fire
+	FuryAsheMagicSpark.DisplayName: Fury Ashe Magic Spark
+	FuryAsheStrike.DisplayName: Fury Ashe Strike
+	WrathHarukaProj.DisplayName: Wrath Haruka Proj
+	ChaosLightning.DisplayName: Chaos Lightning
+	DiscordianInferno.DisplayName: Discordian Inferno
+	AbyssalBomb.DisplayName: Abyssal Bomb
+	AbyssBoom.DisplayName: Abyss Boom
+	AbyssGripOrbiter.DisplayName: Abyss Grip Orbiter
+	AbyssGripOrbiter2.DisplayName: Abyss Grip Orbiter2
+	BlazeBomb.DisplayName: Blaze Bomb
+	BlazeBoom.DisplayName: Blaze Boom
+	BlazeCloneClaw.DisplayName: Blaze Clone Claw
+	BlazeGripRay.DisplayName: Blaze Grip Ray
+	FireballAccelB.DisplayName: Fireball Accel B
+	FireballAccelR.DisplayName: Fireball Accel R
+	FireballFragB.DisplayName: Fireball Frag B
+	FireballFragR.DisplayName: Fireball Frag R
+	FireballHomingB.DisplayName: Fireball Homing B
+	FireballHomingR.DisplayName: Fireball Homing R
+	FireballSpreadB.DisplayName: Fireball Spread B
+	FireballSpreadR.DisplayName: Fireball Spread R
+	ShenABreath.DisplayName: Shen A Breath
+	ShenDeathBoom.DisplayName: Shen Death Boom
+	ShenDeathray.DisplayName: Shen Deathray
+	ShenDeathrayVertical.DisplayName: Shen Deathray Vertical
+	ShenFireballAccel.DisplayName: Shen Fireball Accel
+	ShenFireballFrag.DisplayName: Shen Fireball Frag
+	ShenFireballHoming.DisplayName: Shen Fireball Homing
+	ShenFireballSpread.DisplayName: Shen Fireball Spread
+	FungusBubble.DisplayName: Fungus Bubble
+	Seed.DisplayName: Seed
+	ToadBomb.DisplayName: Toad Bomb
+	ToadBoom.DisplayName: Toad Boom
+	ToadBubble.DisplayName: Toad Bubble
+	AbyssalStorm.DisplayName: Abyssal Storm
+	AbyssalThunder.DisplayName: Abyssal Thunder
+	HomingSoul.DisplayName: Homing Soul
+	Shockwave2.DisplayName: Shockwave2
+	Shock.DisplayName: Shock
+	SoulBoomY.DisplayName: Soul Boom Y
+	SoulRain.DisplayName: Soul Rain
+	YamataABomb.DisplayName: Yamata A Bomb
+	YamataABoom.DisplayName: Yamata A Boom
+	YamataABreath.DisplayName: Yamata A Breath
+	YamataAShockBomb.DisplayName: Yamata A Shock Bomb
+	YamataAVenom.DisplayName: Yamata A Venom
+	YamataAVenom2.DisplayName: Yamata A Venom2
+	YamataDeathray.DisplayName: Yamata Deathray
+	YamataDeathraySmall.DisplayName: Yamata Deathray Small
+	YamataHarukaProj.DisplayName: Yamata Haruka Proj
+	YamataShot.DisplayName: Yamata Shot
+	YamataWaveDeathray.DisplayName: Yamata Wave Deathray
+	YamataWaveDeathraySmall.DisplayName: Yamata Wave Deathray Small
+	YamataBlast.DisplayName: Yamata Blast
+	YamataBomb.DisplayName: Yamata Bomb
+	YamataBoom.DisplayName: Yamata Boom
+	YamataBreath.DisplayName: Yamata Breath
+	YamataRain.DisplayName: Yamata Rain
+	YamataStorm.DisplayName: Yamata Storm
+	YamataVenom.DisplayName: Yamata Venom
+	Cyclone.DisplayName: Cyclone
+	DeathLaser.DisplayName: Death Laser
+	GenocideBoom.DisplayName: Genocide Boom
+	GenocideRocket.DisplayName: Genocide Rocket
+	NovaRay.DisplayName: Nova Ray
+	OmegaBullet.DisplayName: Omega Bullet
+	Blast.DisplayName: Blast
+	EchoRay.DisplayName: Echo Ray
+	ERROR.DisplayName: E R R O R
+	GlitchBlast.DisplayName: Glitch Blast
+	GlitchBomb.DisplayName: Glitch Bomb
+	GlitchBoom.DisplayName: Glitch Boom
+	GlitchRocket.DisplayName: Glitch Rocket
+	ProtoStar.DisplayName: Proto Star
+	Static.DisplayName: Static
+	StaticSphere.DisplayName: Static Sphere
+	ZeroDeath1.DisplayName: Zero Death1
+	ZeroDeath2.DisplayName: Zero Death2
+	RiftSlashZ.DisplayName: Rift Slash Z
+	RiftSlash.DisplayName: Rift Slash
+	RiftZ.DisplayName: Rift Z
+	Rift.DisplayName: Rift
+	VoidStarP.DisplayName: Void Star P
+	ZArrow.DisplayName: Z Arrow
+	ZeroBeam1.DisplayName: Zero Beam1
+	ZeroBlast.DisplayName: Zero Blast
+	ZeroLaser.DisplayName: Zero Laser
+	ZeroRocket.DisplayName: Zero Rocket
+	ZeroShock.DisplayName: Zero Shock
+	DynaBlast.DisplayName: Dyna Blast
+	DynaBoom.DisplayName: Dyna Boom
+	DjinnBurst1.DisplayName: Djinn Burst1
+	DjinnBurst2.DisplayName: Djinn Burst2
+	DjinnMagic1.DisplayName: Djinn Magic1
+	DjinnMagic2.DisplayName: Djinn Magic2
+	Dragonflame.DisplayName: Dragonflame
+	AcidBoom.DisplayName: Acid Boom
+	AcidProj.DisplayName: Acid Proj
+	Toxitongue.DisplayName: Toxitongue
+	SeraphFeather.DisplayName: Seraph Feather
+	Seraph.DisplayName: Seraph
+	TerraWatcherSphere.DisplayName: Terra Watcher Sphere
+	MagicBlast.DisplayName: Magic Blast
+	SummonBlast.DisplayName: Summon Blast
+	TerrariumArrow.DisplayName: Terrarium Arrow
+	PurityShot.DisplayName: Purity Shot
+	DoomLaser.DisplayName: Doom Laser
+	EyeShot.DisplayName: Eye Shot
+	JudgementNPC.DisplayName: Judgement N P C
+	AcidBall.DisplayName: Acid Ball
+	Aerodrake.DisplayName: Aerodrake
+	Aerodrake1.DisplayName: Aerodrake1
+	AbyssBall.DisplayName: Abyss Ball
+	AbyssClaw.DisplayName: Abyss Claw
+	BlazeClaw.DisplayName: Blaze Claw
+	FireMagic.DisplayName: Fire Magic
+	FireOrbiter.DisplayName: Fire Orbiter
+	FuryFlame.DisplayName: Fury Flame
+	MagicBoom.DisplayName: Magic Boom
+	MasamuneSlash.DisplayName: Masamune Slash
+	Masamune.DisplayName: Masamune
+	Mizu.DisplayName: Mizu
+	Surasshu.DisplayName: Surasshu
+	AkumaExp.DisplayName: Akuma Exp
+	ABoom.DisplayName: A Boom
+	AMeteor.DisplayName: A Meteor
+	Dawnstrike.DisplayName: Dawnstrike
+	FireA.DisplayName: Fire A
+	FireshotF.DisplayName: Fireshot F
+	FlareF.DisplayName: Flare F
+	MeteorF.DisplayName: Meteor F
+	Meteor.DisplayName: Meteor
+	DaybreakArrow.DisplayName: Daybreak Arrow
+	Daycrusher.DisplayName: Daycrusher
+	Dayser.DisplayName: Dayser
+	Daystormbullet.DisplayName: Daystormbullet
+	DaystormbulletA.DisplayName: Daystormbullet A
+	DaystormP.DisplayName: Daystorm P
+	FireProj.DisplayName: Fire Proj
+	FireProjBoom.DisplayName: Fire Proj Boom
+	FireProjEX.DisplayName: Fire Proj E X
+	FireProjEXBoom.DisplayName: Fire Proj E X Boom
+	FireRain.DisplayName: Fire Rain
+	FireTentacle.DisplayName: Fire Tentacle
+	FireworkYotD.DisplayName: Firework Yot D
+	FlamingMeteor.DisplayName: Flaming Meteor
+	LungBody.DisplayName: Lung Body
+	LungFireball.DisplayName: Lung Fireball
+	LungHead.DisplayName: Lung Head
+	LungTail.DisplayName: Lung Tail
+	MorningGlory.DisplayName: Morning Glory
+	RadiantDawn.DisplayName: Radiant Dawn
+	Solar.DisplayName: Solar
+	SunOrb.DisplayName: Sun Orb
+	SunSpear.DisplayName: Sun Spear
+	SunSpearProj.DisplayName: Sun Spear Proj
+	Sunstorm.DisplayName: Sunstorm
+	SunstormFireball.DisplayName: Sunstorm Fireball
+	YotD.DisplayName: Yot D
+	AkumaTooth.DisplayName: Akuma Tooth
+	AmberArrow.DisplayName: Amber Arrow
+	DaybreakBullet.DisplayName: Daybreak Bullet
+	EventideBullet.DisplayName: Eventide Bullet
+	EventideBullet1.DisplayName: Eventide Bullet1
+	AmphibiousBoom.DisplayName: Amphibious Boom
+	AmphibiousProjectile.DisplayName: Amphibious Projectile
+	AmphibiousProjectileEX.DisplayName: Amphibious Projectile E X
+	AmphibiousProjectileEXS.DisplayName: Amphibious Projectile E X S
+	AmphibiousProjectileS.DisplayName: Amphibious Projectile S
+	AncientArcanum.DisplayName: Ancient Arcanum
+	Antifungus.DisplayName: Antifungus
+	AntimonBoomerangP.DisplayName: Antimon Boomerang P
+	AnubisArrow.DisplayName: Anubis Arrow
+	BlockA.DisplayName: Block A
+	BlockA1.DisplayName: Block A1
+	DesertBlast.DisplayName: Desert Blast
+	EnchantedSand.DisplayName: Enchanted Sand
+	EyeOfJudgement.DisplayName: Eye Of Judgement
+	Crook.DisplayName: Crook
+	EnchancedMummyArrow.DisplayName: Enchanced Mummy Arrow
+	EnchancedMummyArrowD.DisplayName: Enchanced Mummy Arrow D
+	EyeOfForsaken.DisplayName: Eye Of Forsaken
+	ForsakenArrow.DisplayName: Forsaken Arrow
+	ForsakenBoom.DisplayName: Forsaken Boom
+	ForsakenFlame.DisplayName: Forsaken Flame
+	ForsakenFrag.DisplayName: Forsaken Frag
+	ForsakenPhantomBlade.DisplayName: Forsaken Phantom Blade
+	ForsakenSand.DisplayName: Forsaken Sand
+	ForsakenStaffBlast.DisplayName: Forsaken Staff Blast
+	HorusEye.DisplayName: Horus Eye
+	HorusHawk.DisplayName: Horus Hawk
+	Soulsplitter.DisplayName: Soulsplitter
+	FragBlast.DisplayName: Frag Blast
+	MummyArrow.DisplayName: Mummy Arrow
+	PhantomBlade.DisplayName: Phantom Blade
+	SandstormFlame.DisplayName: Sandstorm Flame
+	Sandstorm.DisplayName: Sandstorm
+	TheEye.DisplayName: The Eye
+	Apocalypse.DisplayName: Apocalypse
+	ApocalypseBoom.DisplayName: Apocalypse Boom
+	ApocalypseHeal.DisplayName: Apocalypse Heal
+	APP.DisplayName: A P P
+	ArchwitchBlast.DisplayName: Archwitch Blast
+	ArchwitchStaff.DisplayName: Archwitch Staff
+	ArchwitchStar.DisplayName: Archwitch Star
+	ArchwitchStorm.DisplayName: Archwitch Storm
+	AsgardianIce.DisplayName: Asgardian Ice
+	AsgardianLance.DisplayName: Asgardian Lance
+	AsgardianLanceShot.DisplayName: Asgardian Lance Shot
+	AthenaHurricane.DisplayName: Athena Hurricane
+	AthenaShockF.DisplayName: Athena Shock F
+	Feather.DisplayName: Feather
+	GaleArrow.DisplayName: Gale Arrow
+	HurricaneSpawn.DisplayName: Hurricane Spawn
+	OwlRune.DisplayName: Owl Rune
+	OwlRuneCharged.DisplayName: Owl Rune Charged
+	RGust.DisplayName: R Gust
+	Skyblade.DisplayName: Skyblade
+	Skyrazor.DisplayName: Skyrazor
+	StormMagic.DisplayName: Storm Magic
+	Tornado.DisplayName: Tornado
+	WindArrow.DisplayName: Wind Arrow
+	AtlanteanTridentP.DisplayName: Atlantean Trident P
+	Axis.DisplayName: Axis
+	AxisShot.DisplayName: Axis Shot
+	AxisSnow.DisplayName: Axis Snow
+	Bee.DisplayName: Bee
+	BeeStrong.DisplayName: Bee Strong
+	BigCrystal.DisplayName: Big Crystal
+	BlackSolution.DisplayName: Black Solution
+	Black.DisplayName: Black
+	BlazeBall.DisplayName: Blaze Ball
+	BlazeBlast.DisplayName: Blaze Blast
+	BloodyFlare.DisplayName: Bloody Flare
+	BogBomb.DisplayName: Bog Bomb
+	BogBoom.DisplayName: Bog Boom
+	BogOrb.DisplayName: Bog Orb
+	Bubble.DisplayName: Bubble
+	BurningGelP.DisplayName: Burning Gel P
+	CatsEye.DisplayName: Cats Eye
+	CGP.DisplayName: C G P
+	ChaosArrow.DisplayName: Chaos Arrow
+	ChaosBaton.DisplayName: Chaos Baton
+	ChaosBoom.DisplayName: Chaos Boom
+	ChaosBoomEX.DisplayName: Chaos Boom E X
+	ChaosChain.DisplayName: Chaos Chain
+	ChaosChainEX.DisplayName: Chaos Chain E X
+	ChaosChainEXSaw.DisplayName: Chaos Chain E X Saw
+	ChaosJavelin.DisplayName: Chaos Javelin
+	ChaosJavelinEX.DisplayName: Chaos Javelin E X
+	ChaosScythe.DisplayName: Chaos Scythe
+	ChaosScytheP.DisplayName: Chaos Scythe P
+	ChaosShot.DisplayName: Chaos Shot
+	ChaosShot1.DisplayName: Chaos Shot1
+	ChaosShot2.DisplayName: Chaos Shot2
+	ChaosShot3.DisplayName: Chaos Shot3
+	ChaosShotP.DisplayName: Chaos Shot P
+	ChaosYari.DisplayName: Chaos Yari
+	ChaosYariEX.DisplayName: Chaos Yari E X
+	ChaosYariEXShot.DisplayName: Chaos Yari E X Shot
+	ChaosYariShot.DisplayName: Chaos Yari Shot
+	Chronos.DisplayName: Chronos
+	ClawBaton.DisplayName: Claw Baton
+	Cloud.DisplayName: Cloud
+	CloudEdgeP.DisplayName: Cloud Edge P
+	CosmicLaser.DisplayName: Cosmic Laser
+	Crystal.DisplayName: Crystal
+	CthulhuTentacle.DisplayName: Cthulhu Tentacle
+	CursedFireball.DisplayName: Cursed Fireball
+	CursedSickle.DisplayName: Cursed Sickle
+	CursedSickleDamage.DisplayName: Cursed Sickle Damage
+	CursedSickleDamage2.DisplayName: Cursed Sickle Damage2
+	CursedSickleEffect.DisplayName: Cursed Sickle Effect
+	CursedSickleEX.DisplayName: Cursed Sickle E X
+	CursedSickleEXDamage.DisplayName: Cursed Sickle E X Damage
+	CursedSickleEXDamage2.DisplayName: Cursed Sickle E X Damage2
+	CursedSickleEXEffect.DisplayName: Cursed Sickle E X Effect
+	CursedSickleEXProj.DisplayName: Cursed Sickle E X Proj
+	CursedSickleProj.DisplayName: Cursed Sickle Proj
+	DarkArrow.DisplayName: Dark Arrow
+	DarkLeech.DisplayName: Dark Leech
+	DarkmatterArrow.DisplayName: Darkmatter Arrow
+	DarkmatterSphere.DisplayName: Darkmatter Sphere
+	Darkray.DisplayName: Darkray
+	DarkShredders.DisplayName: Dark Shredders
+	DBP.DisplayName: D B P
+	DBreath.DisplayName: D Breath
+	DeathDagger.DisplayName: Death Dagger
+	DeathDaggerHeal.DisplayName: Death Dagger Heal
+	DeathlySkull.DisplayName: Deathly Skull
+	DecayScythe.DisplayName: Decay Scythe
+	DecayScytheProj.DisplayName: Decay Scythe Proj
+	DemiseBlade.DisplayName: Demise Blade
+	DemiseBladeEX.DisplayName: Demise Blade E X
+	DemiseBlast.DisplayName: Demise Blast
+	DemiseBoom.DisplayName: Demise Boom
+	DemiseSphere.DisplayName: Demise Sphere
+	DemiseSphereEX.DisplayName: Demise Sphere E X
+	Depthsprayer.DisplayName: Depthsprayer
+	Depthwalker.DisplayName: Depthwalker
+	DesertBolt1.DisplayName: Desert Bolt1
+	DesertBolt2.DisplayName: Desert Bolt2
+	DesertGust.DisplayName: Desert Gust
+	DevilGust.DisplayName: Devil Gust
+	Djinnerang.DisplayName: Djinnerang
+	DustDevil.DisplayName: Dust Devil
+	Sandagger.DisplayName: Sandagger
+	Sandnado.DisplayName: Sandnado
+	SandSpray.DisplayName: Sand Spray
+	DMC.DisplayName: D M C
+	DMCE.DisplayName: D M C E
+	DMK.DisplayName: D M K
+	DoomBlast.DisplayName: Doom Blast
+	DoomBoom.DisplayName: Doom Boom
+	DoomiteVortex.DisplayName: Doomite Vortex
+	DoomProj.DisplayName: Doom Proj
+	DoomShot.DisplayName: Doom Shot
+	DracorangP.DisplayName: Dracorang P
+	DragonArrow.DisplayName: Dragon Arrow
+	DragonBreath.DisplayName: Dragon Breath
+	DragonBreathP.DisplayName: Dragon Breath P
+	DragonfireArrow.DisplayName: Dragonfire Arrow
+	DragonfireBullet.DisplayName: Dragonfire Bullet
+	DragonfireDart.DisplayName: Dragonfire Dart
+	DragonfireProj.DisplayName: Dragonfire Proj
+	DragonLaser.DisplayName: Dragon Laser
+	DragonP.DisplayName: Dragon P
+	DragonSP.DisplayName: Dragon S P
+	DragonSpine.DisplayName: Dragon Spine
+	Drop.DisplayName: Drop
+	Duck.DisplayName: Duck
+	Ducksplosion.DisplayName: Ducksplosion
+	Ducksplosion1.DisplayName: Ducksplosion1
+	DummyExplosion.DisplayName: Dummy Explosion
+	DummyExplosionTerra.DisplayName: Dummy Explosion Terra
+	DynaEnergy.DisplayName: Dyna Energy
+	DynaskullJavelin.DisplayName: Dynaskull Javelin
+	EFlairon.DisplayName: E Flairon
+	Fishnado.DisplayName: Fishnado
+	Typhoon.DisplayName: Typhoon
+	ElectricitySpellP.DisplayName: Electricity Spell P
+	Energy_Cell_Pro.DisplayName: Energy_ Cell_ Pro
+	Etheral.DisplayName: Etheral
+	EtheralBeam.DisplayName: Etheral Beam
+	EtheralEX.DisplayName: Etheral E X
+	EtheralLaserEX.DisplayName: Etheral Laser E X
+	EvilFlare.DisplayName: Evil Flare
+	Executioner.DisplayName: Executioner
+	FerretNote.DisplayName: Ferret Note
+	FireballP.DisplayName: Fireball P
+	FireblastP.DisplayName: Fireblast P
+	AshJar.DisplayName: Ash Jar
+	CorruptionFlask.DisplayName: Corruption Flask
+	CrimsonFlask.DisplayName: Crimson Flask
+	DarkwaterFlask.DisplayName: Darkwater Flask
+	ForestFlask.DisplayName: Forest Flask
+	Fungicide.DisplayName: Fungicide
+	GlowingSporeSac.DisplayName: Glowing Spore Sac
+	HallowFlask.DisplayName: Hallow Flask
+	IceFlask.DisplayName: Ice Flask
+	IcemeltFlask.DisplayName: Icemelt Flask
+	JungleFlask.DisplayName: Jungle Flask
+	OrderBottle.DisplayName: Order Bottle
+	PurityFlask.DisplayName: Purity Flask
+	SporeSac.DisplayName: Spore Sac
+	VoidFlask.DisplayName: Void Flask
+	Void.DisplayName: Void
+	ForestSolution.DisplayName: Forest Solution
+	FreedomBall.DisplayName: Freedom Ball
+	FreedomShot.DisplayName: Freedom Shot
+	FreedomShotCharged.DisplayName: Freedom Shot Charged
+	FreedomStar.DisplayName: Freedom Star
+	GameBoom.DisplayName: Game Boom
+	GameRocket.DisplayName: Game Rocket
+	AmberShot.DisplayName: Amber Shot
+	AmethystShot.DisplayName: Amethyst Shot
+	DiamondShot.DisplayName: Diamond Shot
+	EmeraldShot.DisplayName: Emerald Shot
+	PrismBolt.DisplayName: Prism Bolt
+	RubyShot.DisplayName: Ruby Shot
+	SapphireShot.DisplayName: Sapphire Shot
+	TopazShot.DisplayName: Topaz Shot
+	GhastBoom.DisplayName: Ghast Boom
+	GhastSkull.DisplayName: Ghast Skull
+	GibsFemur.DisplayName: Gibs Femur
+	GlacierBreaker.DisplayName: Glacier Breaker
+	Dig.DisplayName: Dig
+	Gold.DisplayName: Gold
+	GoldFountain.DisplayName: Gold Fountain
+	OreConstruct.DisplayName: Ore Construct
+	AFrag.DisplayName: A Frag
+	DaybreakBlast.DisplayName: Daybreak Blast
+	Earthquake.DisplayName: Earthquake
+	LuminiteBlast.DisplayName: Luminite Blast
+	OreBomb.DisplayName: Ore Bomb
+	OreChunk.DisplayName: Ore Chunk
+	OreChunkHM.DisplayName: Ore Chunk H M
+	OreChunkM.DisplayName: Ore Chunk M
+	OreSpores.DisplayName: Ore Spores
+	GrimReaperScythe.DisplayName: Grim Reaper Scythe
+	GrimReaperScytheEX.DisplayName: Grim Reaper Scythe E X
+	GSP.DisplayName: G S P
+	Gunk.DisplayName: Gunk
+	HarukaKunaiF.DisplayName: Haruka Kunai F
+	HellBallP.DisplayName: Hell Ball P
+	Hellshot.DisplayName: Hellshot
+	HoloArrow.DisplayName: Holo Arrow
+	HydraFangP.DisplayName: Hydra Fang P
+	HydraSlash.DisplayName: Hydra Slash
+	HydraSpear.DisplayName: Hydra Spear
+	HydraSpray.DisplayName: Hydra Spray
+	HydratoxinArrow.DisplayName: Hydratoxin Arrow
+	HydratoxinBullet.DisplayName: Hydratoxin Bullet
+	HydratoxinDart.DisplayName: Hydratoxin Dart
+	HydratoxinDrop.DisplayName: Hydratoxin Drop
+	IceChunk.DisplayName: Ice Chunk
+	IchorSpear.DisplayName: Ichor Spear
+	IllumantBall.DisplayName: Illumant Ball
+	Incapacitator.DisplayName: Incapacitator
+	Incineration.DisplayName: Incineration
+	IndigoSolution.DisplayName: Indigo Solution
+	JungleReaperP.DisplayName: Jungle Reaper P
+	JungleSolution.DisplayName: Jungle Solution
+	M79P.DisplayName: M79 P
+	MadnessKnifeP.DisplayName: Madness Knife P
+	MadnessSphere.DisplayName: Madness Sphere
+	MagicBlastF.DisplayName: Magic Blast F
+	MagicPro.DisplayName: Magic Pro
+	Magma.DisplayName: Magma
+	ManaRose.DisplayName: Mana Rose
+	ManaShot.DisplayName: Mana Shot
+	MireLeaf.DisplayName: Mire Leaf
+	MLP.DisplayName: M L P
+	MobianBuster.DisplayName: Mobian Buster
+	MobianShot.DisplayName: Mobian Shot
+	MobianShotCharged.DisplayName: Mobian Shot Charged
+	GlowingSporrow.DisplayName: Glowing Sporrow
+	SporeCloud.DisplayName: Spore Cloud
+	Sporrow.DisplayName: Sporrow
+	Moonpowder.DisplayName: Moonpowder
+	MorningStar.DisplayName: Morning Star
+	MS.DisplayName: M S
+	MSRT.DisplayName: M S R T
+	MurkyGelP.DisplayName: Murky Gel P
+	Musharang.DisplayName: Musharang
+	MushMace.DisplayName: Mush Mace
+	OceanicArrow.DisplayName: Oceanic Arrow
+	OceanWhaler.DisplayName: Ocean Whaler
+	OdinsBlade.DisplayName: Odins Blade
+	OrangeSolution.DisplayName: Orange Solution
+	OrderArrow.DisplayName: Order Arrow
+	OrderDiscP.DisplayName: Order Disc P
+	OrderSolution.DisplayName: Order Solution
+	PerfectChaosE.DisplayName: Perfect Chaos E
+	Pine.DisplayName: Pine
+	PonyBoom.DisplayName: Pony Boom
+	PonyBoomEX.DisplayName: Pony Boom E X
+	PonyBoomEX2.DisplayName: Pony Boom E X2
+	PonyShot.DisplayName: Pony Shot
+	PrimevalJavelin.DisplayName: Primeval Javelin
+	Pyrosphere.DisplayName: Pyrosphere
+	RadiumArrow.DisplayName: Radium Arrow
+	RadiumSetbonusBlast.DisplayName: Radium Setbonus Blast
+	RadiumStar.DisplayName: Radium Star
+	RaiderLance.DisplayName: Raider Lance
+	RainbowCatPro.DisplayName: Rainbow Cat Pro
+	BaneS.DisplayName: Bane S
+	Punisher.DisplayName: Punisher
+	RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
+	RabbitRocket3.DisplayName: Rabbit Rocket3
+	BaneEX.DisplayName: Bane E X
+	PunisherEX.DisplayName: Punisher E X
+	RabbitBeam.DisplayName: Rabbit Beam
+	RabbitRocketEX.DisplayName: Rabbit Rocket E X
+	RoyalRabbit.DisplayName: Royal Rabbit
+	ReaperArrow.DisplayName: Reaper Arrow
+	ReaperHitbox.DisplayName: Reaper Hitbox
+	Ryugen.DisplayName: Ryugen
+	Ryusei.DisplayName: Ryusei
+	OrbiterMinion.DisplayName: Orbiter Minion
+	SagStar.DisplayName: Sag Star
+	ZeroStarP.DisplayName: Zero Star P
+	SaltwaterSpear.DisplayName: Saltwater Spear
+	SandPro.DisplayName: Sand Pro
+	ScourgeOfShadowsP.DisplayName: Scourge Of Shadows P
+	ScourgeOfShadowsP2.DisplayName: Scourge Of Shadows P2
+	BB.DisplayName: B B
+	IceArrow.DisplayName: Ice Arrow
+	IciclePro.DisplayName: Icicle Pro
+	SerpentBody.DisplayName: Serpent Body
+	SerpentHead.DisplayName: Serpent Head
+	SerpentSpike.DisplayName: Serpent Spike
+	SerpentTail.DisplayName: Serpent Tail
+	SS.DisplayName: S S
+	Sting.DisplayName: Sting
+	Shadowshot.DisplayName: Shadowshot
+	SharkLauncherP.DisplayName: Shark Launcher P
+	Astroid.DisplayName: Astroid
+	ChaosSlayerSword.DisplayName: Chaos Slayer Sword
+	ChaosSlayerSwordBlue.DisplayName: Chaos Slayer Sword Blue
+	ChaosSlayerSwordBlueEX.DisplayName: Chaos Slayer Sword Blue E X
+	ChaosSlayerSwordEX.DisplayName: Chaos Slayer Sword E X
+	ChaosSlayerSwordRed.DisplayName: Chaos Slayer Sword Red
+	ChaosSlayerSwordRedEX.DisplayName: Chaos Slayer Sword Red E X
+	CosmicBlow.DisplayName: Cosmic Blow
+	DiscordBeam.DisplayName: Discord Beam
+	DiscordianInfernoF.DisplayName: Discordian Inferno F
+	MeteorBlue.DisplayName: Meteor Blue
+	MeteorBoom.DisplayName: Meteor Boom
+	MeteorBoomBlue.DisplayName: Meteor Boom Blue
+	MeteorBoomRed.DisplayName: Meteor Boom Red
+	Meteorite.DisplayName: Meteorite
+	MeteorRed.DisplayName: Meteor Red
+	MeteorStrike.DisplayName: Meteor Strike
+	MeteorStrikeBlue.DisplayName: Meteor Strike Blue
+	MeteorStrikeRed.DisplayName: Meteor Strike Red
+	Skyfall.DisplayName: Skyfall
+	SkyfallB.DisplayName: Skyfall B
+	SkyfallR.DisplayName: Skyfall R
+	TimesplitterP.DisplayName: Timesplitter P
+	Time.DisplayName: Time
+	ShenTooth.DisplayName: Shen Tooth
+	Singularity.DisplayName: Singularity
+	SingularityVortex.DisplayName: Singularity Vortex
+	SludgeShotP.DisplayName: Sludge Shot P
+	Snowmelt.DisplayName: Snowmelt
+	SnowSolution.DisplayName: Snow Solution
+	SoonTM.DisplayName: Soon T M
+	SoulSiphon.DisplayName: Soul Siphon
+	SoulSiphonHeal.DisplayName: Soul Siphon Heal
+	Spark2.DisplayName: Spark2
+	Spark3.DisplayName: Spark3
+	SparkBoom2.DisplayName: Spark Boom2
+	SparkBoom3.DisplayName: Spark Boom3
+	SparkFury.DisplayName: Spark Fury
+	SparkWand.DisplayName: Spark Wand
+	Spectrum.DisplayName: Spectrum
+	SpectrumBeam.DisplayName: Spectrum Beam
+	SpookerangP.DisplayName: Spookerang P
+	SpookyKnife.DisplayName: Spooky Knife
+	SPORZ.DisplayName: S P O R Z
+	Squirt.DisplayName: Squirt
+	Star1.DisplayName: Star1
+	Stars.DisplayName: Stars
+	StarWrathEXP.DisplayName: Star Wrath E X P
+	SThunderBullet.DisplayName: S Thunder Bullet
+	SubzeroSnowflake.DisplayName: Subzero Snowflake
+	SunLance.DisplayName: Sun Lance
+	Sunpowder.DisplayName: Sunpowder
+	SunSiphon.DisplayName: Sun Siphon
+	SunSphere.DisplayName: Sun Sphere
+	TerraArrow.DisplayName: Terra Arrow
+	TerraRoseShot.DisplayName: Terra Rose Shot
+	TerraRoseShotEX.DisplayName: Terra Rose Shot E X
+	TerraShotEX.DisplayName: Terra Shot E X
+	TFGWP.DisplayName: T F G W P
+	The_Plague_Pro.DisplayName: The_ Plague_ Pro
+	AuroraScythe.DisplayName: Aurora Scythe
+	AuroraScytheDamage.DisplayName: Aurora Scythe Damage
+	AuroraScytheDamage2.DisplayName: Aurora Scythe Damage2
+	AuroraScytheEffect.DisplayName: Aurora Scythe Effect
+	CarrotFarmerDamage.DisplayName: Carrot Farmer Damage
+	CarrotFarmerDamage2.DisplayName: Carrot Farmer Damage2
+	CarrotFarmerEffect.DisplayName: Carrot Farmer Effect
+	DragonsClaw.DisplayName: Dragons Claw
+	DragonsClawDamage.DisplayName: Dragons Claw Damage
+	DragonsClawDamage2.DisplayName: Dragons Claw Damage2
+	DragonsClawEffect.DisplayName: Dragons Claw Effect
+	FarmedCarrot.DisplayName: Farmed Carrot
+	HydrasFury.DisplayName: Hydras Fury
+	HydrasFuryDamage.DisplayName: Hydras Fury Damage
+	HydrasFuryDamage2.DisplayName: Hydras Fury Damage2
+	HydrasFuryEffect.DisplayName: Hydras Fury Effect
+	Throwshroom.DisplayName: Throwshroom
+	Thunder.DisplayName: Thunder
+	ThunderBoom.DisplayName: Thunder Boom
+	ThunderBullet.DisplayName: Thunder Bullet
+	ThunderSpark.DisplayName: Thunder Spark
+	TimeTeller.DisplayName: Time Teller
+	TitanAxe.DisplayName: Titan Axe
+	TitanAxeEX.DisplayName: Titan Axe E X
+	TitanEX.DisplayName: Titan E X
+	TLThunder.DisplayName: T L Thunder
+	ToadRock.DisplayName: Toad Rock
+	ToadShot.DisplayName: Toad Shot
+	Toadsplosion.DisplayName: Toadsplosion
+	ToadTongue.DisplayName: Toad Tongue
+	DarkmatterJackhammerPro.DisplayName: Darkmatter Jackhammer Pro
+	DMChainsaw.DisplayName: D M Chainsaw
+	DoomiteJacksaw.DisplayName: Doomite Jacksaw
+	HydraTuneller.DisplayName: Hydra Tuneller
+	MiningLaser.DisplayName: Mining Laser
+	PShadowDrill.DisplayName: P Shadow Drill
+	ShadowDrill.DisplayName: Shadow Drill
+	TopHat.DisplayName: Top Hat
+	Toxifang.DisplayName: Toxifang
+	Toxifire.DisplayName: Toxifire
+	TrueAbyssalTwilightShot.DisplayName: True Abyssal Twilight Shot
+	TrueBlazingDawnShot.DisplayName: True Blazing Dawn Shot
+	TrueCopperShot.DisplayName: True Copper Shot
+	TrueFleshClaymoreShot.DisplayName: True Flesh Claymore Shot
+	TrueManaRose.DisplayName: True Mana Rose
+	TrueManaShot.DisplayName: True Mana Shot
+	TrueTerraRose.DisplayName: True Terra Rose
+	UmbreonSPProjectile.DisplayName: Umbreon S P Projectile
+	ValkyrieSlash.DisplayName: Valkyrie Slash
+	Venom.DisplayName: Venom
+	VikingPolearm.DisplayName: Viking Polearm
+	Voidslash.DisplayName: Voidslash
+	VoidSpear.DisplayName: Void Spear
+	VoidWave.DisplayName: Void Wave
+	Volley.DisplayName: Volley
+	Vulcan.DisplayName: Vulcan
+	VulcanExplosion.DisplayName: Vulcan Explosion
+	Winterbreak.DisplayName: Winterbreak
+	AbyssalYariP.DisplayName: Abyssal Yari P
+	AbyssalYariP2.DisplayName: Abyssal Yari P2
+	AbyssArrow.DisplayName: Abyss Arrow
+	AbyssLash.DisplayName: Abyss Lash
+	AcidFlame.DisplayName: Acid Flame
+	AEBoom.DisplayName: A E Boom
+	Crescent.DisplayName: Crescent
+	CrescentSaw.DisplayName: Crescent Saw
+	DarkSoul.DisplayName: Dark Soul
+	Flairdra.DisplayName: Flairdra
+	FlairdraCyclone.DisplayName: Flairdra Cyclone
+	MidnightWrath.DisplayName: Midnight Wrath
+	Moonblow.DisplayName: Moonblow
+	NightSoul.DisplayName: Night Soul
+	PhantomSword.DisplayName: Phantom Sword
+	SmallToxibomb.DisplayName: Small Toxibomb
+	SoulSplit.DisplayName: Soul Split
+	TC.DisplayName: T C
+	Toxibomb.DisplayName: Toxibomb
+	Toxiboom.DisplayName: Toxiboom
+	ToxiboomSmall.DisplayName: Toxiboom Small
+	YamataPhantom.DisplayName: Yamata Phantom
+	YamataSoul.DisplayName: Yamata Soul
+	YariProj.DisplayName: Yari Proj
+	YWProjectile.DisplayName: Y W Projectile
+	YWSplit.DisplayName: Y W Split
+	YamataTooth.DisplayName: Yamata Tooth
+	Yogan.DisplayName: Yogan
+	AMR.DisplayName: A M R
+	Antimatter.DisplayName: Antimatter
+	BHBR.DisplayName: B H B R
+	CycloneF.DisplayName: Cyclone F
+	DoomRay1.DisplayName: Doom Ray1
+	EventHorizon.DisplayName: Event Horizon
+	GBlast.DisplayName: G Blast
+	GBoom.DisplayName: G Boom
+	GBoom2.DisplayName: G Boom2
+	GRocket.DisplayName: G Rocket
+	GRocket2.DisplayName: G Rocket2
+	Horizon.DisplayName: Horizon
+	Neutralizer.DisplayName: Neutralizer
+	OmegaVolleyF.DisplayName: Omega Volley F
+	Protocol.DisplayName: Protocol
+	RealityLaser.DisplayName: Reality Laser
+	RedBullet.DisplayName: Red Bullet
+	Rocket.DisplayName: Rocket
+	Teslashock.DisplayName: Teslashock
+	VoidStarPF.DisplayName: Void Star P F
+	Vortex.DisplayName: Vortex
+	VortexProj.DisplayName: Vortex Proj
+	ZeroArrow.DisplayName: Zero Arrow
+	ZeroTaze.DisplayName: Zero Taze
+	DepthsandBall.DisplayName: Depthsand Ball
+	TorchsandBall.DisplayName: Torchsand Ball
+}
+
+Configs: {
+	AAConfigClient: {
+		DisplayName: A A Config Client
+
+		NoAATownNPC: {
+			Label: "{$Mods.AAMod.Common.AATownNPC}"
+			Tooltip: "{$Mods.AAMod.Common.AATownNPCInfo}"
+		}
+
+		NoBossDialogue: {
+			Label: "{$Mods.AAMod.Common.DisableBossDialogue}"
+			Tooltip: "{$Mods.AAMod.Common.DisableBossDialogueInfo}"
+		}
+
+		AAStyleMainPage: {
+			Label: "{$Mods.AAMod.Common.AAStyleMainPage}"
+			Tooltip: "{$Mods.AAMod.Common.AAStyleMainPageInfo}"
+		}
+	}
+}

@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Vanity.Pluto.Shiny
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "PlutoPlate", 1);
-            recipe.AddRecipeGroup("AAMod:ShinyCharm");
+            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }
     }

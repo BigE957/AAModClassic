@@ -8,7 +8,7 @@ namespace AAModClassic.Projectiles
 {
     class DynaEnergy : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 16;

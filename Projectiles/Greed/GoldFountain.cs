@@ -7,7 +7,7 @@ namespace AAModClassic.Projectiles.Greed
 {
     public class GoldFountain : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Greed/GreedSpawn";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Greed/GreedSpawn";
 
         public override void SetStaticDefaults()
         {

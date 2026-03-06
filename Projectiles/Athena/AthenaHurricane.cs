@@ -11,7 +11,7 @@ namespace AAModClassic.Projectiles.Athena
 {
     public class AthenaHurricane : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
 
         public override void SetStaticDefaults()
 		{
@@ -192,7 +192,7 @@ namespace AAModClassic.Projectiles.Athena
 
     public class HurricaneSpawn : ModProjectile
     {
-        public override string Texture => "AAMod/Projectiles/Athena/Gale";
+        public override string Texture => "AAModClassic/Projectiles/Athena/Gale";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Gale");

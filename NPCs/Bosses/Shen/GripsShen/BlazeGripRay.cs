@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
     public class BlazeGripRay : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/GripsShen/BlazeGripRay";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/GripsShen/BlazeGripRay";
         private const float maxTime = 300;
         public float maxScale = 1f;
         private float timer = 0;

@@ -346,7 +346,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
     }
     public class RabbitcopterSoldier2 : RabbitcopterSoldier
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Rajah/RabbitcopterSoldier";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Rajah/RabbitcopterSoldier";
         public override void SetDefaults()
         {
             base.SetDefaults();

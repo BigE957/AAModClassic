@@ -14,7 +14,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenSpawn : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenSpawn";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenSpawn";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discord");
@@ -246,7 +246,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenDefeat : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenSpawn";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenSpawn";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discord's Defeat");
@@ -299,7 +299,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenDeath : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenSpawn";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenSpawn";
 
         public override void SetStaticDefaults()
         {
@@ -416,7 +416,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenTransition : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenTransition";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenTransition";
 
         public override void SetStaticDefaults()
         {

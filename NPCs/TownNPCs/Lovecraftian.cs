@@ -13,7 +13,7 @@ namespace AAModClassic.NPCs.TownNPCs
     [AutoloadHead]
 	public class Lovecraftian : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/TownNPCs/Lovecraftian";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/Lovecraftian";
 
         public override void SetStaticDefaults()
         {

@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
     public class AwakenedLung : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AwakenedLung";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/Awakened/AwakenedLung";
 
 
         public override void SetStaticDefaults()
@@ -306,7 +306,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
     
     public class AwakenedLungBody : AwakenedLung
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AwakenedLungBody";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/Awakened/AwakenedLungBody";
 
         public override void SetStaticDefaults()
         {
@@ -403,7 +403,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
     
     public class AwakenedLungTail : AwakenedLung
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AwakenedLungTail";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/Awakened/AwakenedLungTail";
 
         public override void SetStaticDefaults()
         {

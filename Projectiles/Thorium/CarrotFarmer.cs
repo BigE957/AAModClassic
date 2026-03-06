@@ -127,7 +127,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class CarrotFarmerDamage : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 160;
@@ -162,7 +162,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class CarrotFarmerDamage2 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -198,7 +198,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class CarrotFarmerEffect : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 8;

@@ -113,7 +113,7 @@ Hold down and jump to hover for an extended period of time
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "KipronWings", 1);
-            recipe.AddRecipeGroup("AAMod:ShinyCharm");
+            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }
     }

@@ -97,25 +97,25 @@ namespace AAModClassic.Items.Boss.AH
             return true;
         }
 
-        public override void ModifyItemLoot(ItemLoot itemLoot)
+        public override void RightClick(Player player)
         {
             if (Main.rand.Next(10) == 0)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
 
             string[] lootTableA = { "AshRain", "FuryFlame", "FireSpiritStaff", "AsheSatchel" };
             int lootA = Main.rand.Next(lootTableA.Length);
-            Main.LocalPlayer.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableA[lootA]).Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableA[lootA]).Type);
 
             string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };
             int lootH = Main.rand.Next(lootTableH.Length);
-            Main.LocalPlayer.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableH[lootH]).Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableH[lootH]).Type);
 
 
-            Main.LocalPlayer.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfPassion").Type);
-            Main.LocalPlayer.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfSorrow").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfPassion").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfSorrow").Type);
         }
 	}
 }

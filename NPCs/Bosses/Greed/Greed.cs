@@ -653,7 +653,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
     [AutoloadBossHead]
     public class GreedBody : Greed
     {
-        public override string Texture { get { return "AAMod/NPCs/Bosses/Greed/GreedBody"; } }
+        public override string Texture { get { return "AAModClassic/NPCs/Bosses/Greed/GreedBody"; } }
 
         public override void SetStaticDefaults()
         {

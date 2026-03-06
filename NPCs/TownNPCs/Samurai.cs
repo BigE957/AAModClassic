@@ -14,9 +14,9 @@ namespace AAModClassic.NPCs.TownNPCs
     [AutoloadHead]
 	public class Samurai : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/TownNPCs/Samurai";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/Samurai";
 
-        //public override string[] AltTextures => new string[] { "AAMod/NPCs/TownNPCs/SamuraiParty" };
+        //public override string[] AltTextures => new string[] { "AAModClassic/NPCs/TownNPCs/SamuraiParty" };
 
         //public override bool IsLoadingEnabled(Mod mod)
 		//{

@@ -7,7 +7,7 @@ namespace AAModClassic.Effects
 {
     public class ShockwaveBoom : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shockwave Boom");
@@ -41,11 +41,11 @@ namespace AAModClassic.Effects
             }
             if (!Main.dedServ)
             {
-                Filters.Scene["Shockwave"].GetShader().UseProgress(progress).UseOpacity(100f * (1 - progress / 3f));
+                Filters.Scene["AAModClassic:Shockwave"].GetShader().UseProgress(progress).UseOpacity(100f * (1 - progress / 3f));
                 Projectile.localAI[1]++;
                 if (Projectile.localAI[1] >= 0 && Projectile.localAI[1] <= 60)
                 {
-                    if (!Filters.Scene["Shockwave"].IsActive())
+                    if (!Filters.Scene["AAModClassic:Shockwave"].IsActive())
                     {                                                             //pulseCount rippleSize speed
                         Filters.Scene.Activate("Shockwave", Projectile.Center).GetShader().UseColor(pulseCount, rippleSize, speed).UseTargetPosition(Projectile.Center);
                     }
@@ -56,7 +56,7 @@ namespace AAModClassic.Effects
         {
             if (!Main.dedServ)
             {
-                Filters.Scene["Shockwave"].Deactivate();
+                Filters.Scene["AAModClassic:Shockwave"].Deactivate();
             }
         }
     }
@@ -65,9 +65,9 @@ namespace AAModClassic.Effects
     {
         public override void PostUpdateWorld()
         {
-            if (!Main.dedServ && Filters.Scene["Shockwave"].IsActive() && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ShockwaveBoom>()))
+            if (!Main.dedServ && Filters.Scene["AAModClassic:Shockwave"].IsActive() && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ShockwaveBoom>()))
             {
-                Filters.Scene["Shockwave"].Deactivate();
+                Filters.Scene["AAModClassic:Shockwave"].Deactivate();
             }
         }
     }

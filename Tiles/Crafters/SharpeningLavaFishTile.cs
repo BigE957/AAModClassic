@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Sharpening Lava Fish");
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(223, 113, 38), name);
-            disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = false;
+            TileID.Sets.DisableSmartCursor[Type] = false;
             AdjTiles = new int[]
             {
                 Mod.Find<ModTile>("SharpeningLavaFishTile").Type

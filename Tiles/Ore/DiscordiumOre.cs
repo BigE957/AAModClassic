@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileMergeDirt[Type] = false;
             Main.tileOreFinderPriority[Type] = 870; 
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("DiscordiumOre").Type);   
+            RegisterItemDrop(Mod.Find<ModItem>("Discordium").Type);   
             DustType = Mod.Find<ModDust>("DoomDust").Type;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Discordium Ore");

@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Blocks
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(Mod, "RoyalRabbit", 1);
             recipe.AddIngredient(ItemID.Terrarium, 1);
-            recipe.AddRecipeGroup("AAMod:Gold", 20);
+            recipe.AddRecipeGroup("AAModClassic:Gold", 20);
             recipe.Register();
         }
 

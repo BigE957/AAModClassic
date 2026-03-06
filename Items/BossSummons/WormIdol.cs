@@ -62,7 +62,7 @@ It looks like it hasn't been touched in years"); */
 
     public class WormPointer : ModProjectile
     {
-        public override string Texture => "AAMod/Textures/WormPointer";
+        public override string Texture => "AAModClassic/Textures/WormPointer";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Pointer");

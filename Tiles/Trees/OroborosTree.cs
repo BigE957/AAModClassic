@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles.Trees
     {
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<Apocalyptite>(), ModContent.TileType<Doomgrass>(), ModContent.TileType<Doomstone>(), ModContent.TileType<DoomstoneB>()];
+            GrowsOnTileId = [ModContent.TileType<Apocalyptite>(), ModContent.TileType<DoomGrass>(), ModContent.TileType<Doomstone>(), ModContent.TileType<DoomstoneB>()];
         }
 
         public override TreePaintingSettings TreeShaderSettings => new();

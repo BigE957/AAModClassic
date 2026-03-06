@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Blocks.Doom
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Glass, 6);
             recipe.AddRecipeGroup("IronBar", 3);
-            recipe.AddIngredient(Mod.Find<ModItem>("ApcalyptitePlate").Type, 10);
+            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 10);
             recipe.AddTile(null, "ACS");
             recipe.Register();
         }

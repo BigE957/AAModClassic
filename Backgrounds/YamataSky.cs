@@ -21,7 +21,7 @@ namespace AAModClassic.Backgrounds
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:YamataSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:YamataSky", isActive);
         }
     }
     public class YamataSky : CustomSky

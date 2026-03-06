@@ -452,7 +452,7 @@ namespace AAModClassic.Base.BaseMod.Base
             }
             catch (Exception e)
             {
-                BaseUtility.LogFancy("Redemption~ TILEGEN ERROR:", e);
+                BaseUtility.LogFancy("AAModClassic~ TILEGEN ERROR:", e);
             }
         }
 

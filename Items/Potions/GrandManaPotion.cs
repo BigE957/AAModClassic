@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Potions
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SuperManaPotion);
-            recipe.AddRecipeGroup("AAMod:AncientMaterials");
+            recipe.AddRecipeGroup("AAModClassic:AncientMaterials");
             recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();
 		}

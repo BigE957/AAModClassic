@@ -17,7 +17,7 @@ namespace AAModClassic.Backgrounds
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:AkumaSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:AkumaSky", isActive);
             player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
         }
     }

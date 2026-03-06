@@ -79,7 +79,7 @@ namespace AAModClassic.Projectiles.Thorium
 	}
     public class AuroraScytheDamage : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -121,7 +121,7 @@ namespace AAModClassic.Projectiles.Thorium
     }
     public class AuroraScytheDamage2 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -155,7 +155,7 @@ namespace AAModClassic.Projectiles.Thorium
     }
     public class AuroraScytheEffect : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public static Color lightColor = new Color(41, 60, 103);
 
 

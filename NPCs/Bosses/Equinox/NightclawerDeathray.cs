@@ -202,7 +202,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
     public class NightclawerDeathraySmall : NightclawerDeathray
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Equinox/NightclawerDeathray";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Equinox/NightclawerDeathray";
 
         public override void SetDefaults()
         {

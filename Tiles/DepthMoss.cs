@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Tink;
             MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));
-            RegisterItemDrop(ModContent.ItemType<Depthstone>());
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Depthstone>());
         }
 
         public override void RandomUpdate(int i, int j)

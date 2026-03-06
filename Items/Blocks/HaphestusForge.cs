@@ -60,7 +60,7 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
         {
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAMod:Altar");
+            recipe.AddRecipeGroup("AAModClassic:Altar");
             recipe.AddIngredient(ItemID.Hellforge, 1);
             recipe.AddIngredient(ItemID.Bottle, 1);
             recipe.AddIngredient(ItemID.TinkerersWorkshop, 1);

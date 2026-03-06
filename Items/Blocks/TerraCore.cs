@@ -44,7 +44,7 @@ Used to create ancient crafting stations"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddRecipeGroup("AAMod:AstralStations", 1);
+            recipe.AddRecipeGroup("AAModClassic:AstralStations", 1);
             recipe.AddIngredient(null, "TruePaladinsSmeltery", 1);
             recipe.Register();
         }

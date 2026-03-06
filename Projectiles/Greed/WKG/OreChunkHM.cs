@@ -13,7 +13,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class OreChunkHM : ModProjectile
     {
-        public override string Texture => "AAMod/Projectiles/Greed/WKG/OreChunkM";
+        public override string Texture => "AAModClassic/Projectiles/Greed/WKG/OreChunkM";
         public override void SetDefaults()
         {
             Projectile.width = 10;

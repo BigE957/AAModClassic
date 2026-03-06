@@ -79,7 +79,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class HydrasFuryDamage : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -121,7 +121,7 @@ namespace AAModClassic.Projectiles.Thorium
     }
     public class HydrasFuryDamage2 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 130;
@@ -156,7 +156,7 @@ namespace AAModClassic.Projectiles.Thorium
     public class HydrasFuryEffect : ModProjectile
     {
         public static Color lightColor = new Color(41, 60, 103);
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
 
         public override void SetDefaults()
         {

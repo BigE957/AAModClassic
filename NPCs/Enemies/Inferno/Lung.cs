@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 {
     public class Lung : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/Lung";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/Lung";
 
         public bool loludided;
 
@@ -321,7 +321,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
     
     public class LungBody : Lung
     {
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/LungBody";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/LungBody";
 
         public override void SetStaticDefaults()
         {
@@ -419,7 +419,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
     
     public class LungTail : Lung
     {
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/LungTail";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/LungTail";
 
         public override void SetStaticDefaults()
         {

@@ -46,7 +46,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 
 	public class luckyregeneration : ModBuff
 	{
-        public override string Texture => "Terraria/Buff_2";
+        public override string Texture => "Terraria/Images/Buff_2";
 
 		public override void SetStaticDefaults()
 		{

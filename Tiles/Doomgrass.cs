@@ -6,7 +6,7 @@ using AAModClassic.Tiles.Trees;
 
 namespace AAModClassic.Tiles
 {
-    public class Doomgrass : ModTile
+    public class DoomGrass : ModTile
     {
         public override void SetStaticDefaults()
         {

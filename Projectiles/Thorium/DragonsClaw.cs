@@ -80,7 +80,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class DragonsClawDamage : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 138;
@@ -122,7 +122,7 @@ namespace AAModClassic.Projectiles.Thorium
     }
     public class DragonsClawDamage2 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 138;
@@ -157,7 +157,7 @@ namespace AAModClassic.Projectiles.Thorium
 
     public class DragonsClawEffect : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public static Color lightColor = new Color(103, 40, 41);
         public override void SetDefaults()
         {

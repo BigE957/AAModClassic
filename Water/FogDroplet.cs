@@ -50,7 +50,7 @@ namespace AAModClassic.Water
 					gore.frame += 1;
 					if (gore.frame == 5)
 					{
-						int droplet = Gore.NewGore(gore.position, gore.velocity, gore.type, 1f);
+						int droplet = Gore.NewGore(Entity.GetSource_None(), gore.position, gore.velocity, gore.type, 1f);
 						Main.gore[droplet].frame = 9;
 						Main.gore[droplet].velocity *= 0f;
 					}
@@ -114,7 +114,7 @@ namespace AAModClassic.Water
 				{
 					gore.frame = 10;
 					gore.frameCounter = 0;
-					SoundEngine.PlaySound(SoundID.Drip, (int)gore.position.X + 8, (int)gore.position.Y + 8, Main.rand.Next(2));
+					SoundEngine.PlaySound(SoundID.Drip, gore.position + new Vector2(8, 8));
 				}
 			}
 			else if (Collision.WetCollision(gore.position + gore.velocity, 16, 14))
@@ -123,9 +123,9 @@ namespace AAModClassic.Water
 				{
 					gore.frame = 10;
 					gore.frameCounter = 0;
-					SoundEngine.PlaySound(SoundID.Drip, new Vector2((int)gore.position.X + 8, (int)gore.position.Y + 8));
-				}
-				int tileX = (int)(gore.position.X + 8f) / 16;
+                    SoundEngine.PlaySound(SoundID.Drip, gore.position + new Vector2(8, 8));
+                }
+                int tileX = (int)(gore.position.X + 8f) / 16;
 				int tileY = (int)(gore.position.Y + 14f) / 16;
 				if (Main.tile[tileX, tileY] != null && Main.tile[tileX, tileY].LiquidAmount > 0)
 				{

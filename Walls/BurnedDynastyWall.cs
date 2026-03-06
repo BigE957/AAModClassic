@@ -7,7 +7,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-            DustType = Mod.Find<ModDust>("AshDust").Type;
+            DustType = Mod.Find<ModDust>("AshRain").Type;
 			AddMapEntry(new Color(50, 25, 0));
 		}
 

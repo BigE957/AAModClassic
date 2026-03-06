@@ -206,7 +206,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
     public class AkumaADeathraySmall : AkumaADeathray
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AkumaADeathray";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/Awakened/AkumaADeathray";
 
         public override void SetDefaults()
         {

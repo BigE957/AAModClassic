@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Vanity.Hallam.Shiny
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "HalTux", 1);
-            recipe.AddRecipeGroup("AAMod:ShinyCharm");
+            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }
     }

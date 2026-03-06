@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
     public class YamataWaveDeathray : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Yamata/Awakened/YamataWaveDeathray";
         private const float maxTime = 300;
         private float timer = 0;
 

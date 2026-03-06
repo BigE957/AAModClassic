@@ -1,6 +1,7 @@
 ﻿using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -20,9 +21,9 @@ namespace AAModClassic.UI
         public List<int> selectedButtons;
 
         public abstract UIState State { get; }
-        public abstract Texture2D ButtonImages { get; }
-        public abstract Texture2D ButtonOnImage { get; }
-        public abstract Texture2D ButtonOffImage { get; }
+        public abstract Asset<Texture2D> ButtonImages { get; }
+        public abstract Asset<Texture2D> ButtonOnImage { get; }
+        public abstract Asset<Texture2D> ButtonOffImage { get; }
         public abstract int HeldItemType { get; }
 
         public virtual UserInterface Interface => AAMod.instance.TerratoolInterface;

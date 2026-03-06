@@ -6,7 +6,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class ShenAHitbox : ModNPC
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {

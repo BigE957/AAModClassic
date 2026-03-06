@@ -10,7 +10,7 @@ namespace AAModClassic.Items.DevTools
 {
     public class RogueTest : RogueWeapon
     {
-        public override string Texture => "AAMod/Items/DevTools/NoodleSword";
+        public override string Texture => "AAModClassic/Items/DevTools/NoodleSword";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("[DEV] Rogue Noodle Sword");

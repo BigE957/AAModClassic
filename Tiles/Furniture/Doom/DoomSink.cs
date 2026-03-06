@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
 namespace AAModClassic.Tiles.Furniture.Doom
 {

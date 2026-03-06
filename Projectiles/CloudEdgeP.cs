@@ -5,7 +5,7 @@ namespace AAModClassic.Projectiles
 {
     public class CloudEdgeP : ModProjectile
     {
-        public override string Texture => "AAMod/Projectiles/Cloud";
+        public override string Texture => "AAModClassic/Projectiles/Cloud";
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.Starfury);

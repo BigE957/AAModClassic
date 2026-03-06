@@ -9,7 +9,7 @@ namespace AAModClassic.Projectiles
 {
     public class ChaosShot1 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public int proType = 0;
         public override void SetStaticDefaults()
         {

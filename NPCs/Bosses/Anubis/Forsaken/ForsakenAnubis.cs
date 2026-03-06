@@ -564,7 +564,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
         public override void OnKill()
         {
-            NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Anubis>());
+            NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
 
             if (!AAWorld.downedAnubisA)
             {
@@ -608,7 +608,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FAnubis"), Color.ForestGreen);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
                     }

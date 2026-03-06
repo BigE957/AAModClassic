@@ -416,7 +416,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisFalse"), Color.Gold);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Anubis>());
+                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
                     }
@@ -453,7 +453,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             }
             else
             {
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Anubis>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
             }
 
             if (Main.rand.Next(10) == 0)

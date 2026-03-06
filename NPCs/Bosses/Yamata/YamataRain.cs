@@ -6,7 +6,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 {
     public class YamataRain : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 20;

@@ -19,7 +19,7 @@ namespace AAModClassic.NPCs.TownNPCs
     [AutoloadHead]
 	public class Alpha : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/TownNPCs/Alpha";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/Alpha";
 
         //public override bool IsLoadingEnabled(Mod mod)
 		//{

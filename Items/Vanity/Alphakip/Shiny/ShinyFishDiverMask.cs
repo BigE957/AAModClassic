@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Vanity.Alphakip.Shiny
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "FishDiverMask", 1);
-            recipe.AddRecipeGroup("AAMod:ShinyCharm");
+            recipe.AddRecipeGroup("AAModClassic:ShinyCharm");
             recipe.Register();
         }
     }

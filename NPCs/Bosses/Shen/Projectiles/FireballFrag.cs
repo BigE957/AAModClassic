@@ -9,7 +9,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
 {
     public class FireballFragR : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/Projectiles/FireballFragR";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/Projectiles/FireballFragR";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fireball");
@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
 
     public class FireballFragB : ModProjectile
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/Projectiles/FireballFragB";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/Projectiles/FireballFragB";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fireball");

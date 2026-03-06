@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Amethyst, 5);   
-            recipe.AddRecipeGroup("AAMod:Copper", 12);
+            recipe.AddRecipeGroup("AAModClassic:Copper", 12);
             recipe.AddTile(TileID.WorkBenches);   
             recipe.Register();
 

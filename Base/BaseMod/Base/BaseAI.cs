@@ -5113,8 +5113,9 @@ namespace AAModClassic.Base.BaseMod.Base
                 int tileX = (int)((npc.Center.X + (npc.width / 2 + 8f) * npc.spriteDirection) / 16f);
                 int tileY = (int)((npc.position.Y + npc.height - 15f) / 16f);
 
-                bool isTallGate = Framing.GetTileSafely(tileX, tileY - 1).TileType is TileID.TallGateClosed;
-                bool isDoor = Framing.GetTileSafely(tileX, tileY - 1).TileType is TileID.ClosedDoor || TileID.Sets.TileID.Sets.CloseDoorID[Type].Contains(Framing.GetTileSafely(tileX, tileY - 1).TileType);
+                int type = Framing.GetTileSafely(tileX, tileY - 1).TileType;
+                bool isTallGate = type is TileID.TallGateClosed;
+                bool isDoor = type is TileID.ClosedDoor || TileID.Sets.CloseDoorID.Contains(Framing.GetTileSafely(tileX, tileY - 1).TileType);
 
                 if (Framing.GetTileSafely(tileX, tileY - 1).HasUnactuatedTile && (isTallGate || isDoor))
                 {

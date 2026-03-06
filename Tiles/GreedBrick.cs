@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Hoard Stone").Type);   
+            //RegisterItemDrop(Mod.Find<ModItem>("Hoard Stone").Type);   
             AddMapEntry(new Color(125, 59, 42));
         }
 

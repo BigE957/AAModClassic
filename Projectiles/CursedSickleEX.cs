@@ -95,7 +95,7 @@ namespace AAModClassic.Projectiles
     }
     public class CursedSickleEXEffect : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 8;
@@ -150,7 +150,7 @@ namespace AAModClassic.Projectiles
 
     public class CursedSickleEXDamage : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 120;
@@ -181,7 +181,7 @@ namespace AAModClassic.Projectiles
 
     public class CursedSickleEXDamage2 : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 120;

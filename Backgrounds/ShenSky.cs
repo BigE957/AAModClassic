@@ -19,7 +19,7 @@ namespace AAModClassic.Backgrounds
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAMod:ShenSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:ShenSky", isActive);
         }
     }
 

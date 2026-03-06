@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.Sapphire, 5);   
-            recipe.AddRecipeGroup("AAMod:Silver", 12);
+            recipe.AddRecipeGroup("AAModClassic:Silver", 12);
             recipe.AddTile(TileID.WorkBenches);   
             recipe.Register();
 

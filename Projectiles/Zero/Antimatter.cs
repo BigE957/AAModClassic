@@ -9,7 +9,7 @@ namespace AAModClassic.Projectiles.Zero
 {
     public class Antimatter : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         //Thank you Qwerty3.14 for letting us use his Oricalcum bullet code.
         public override void SetDefaults()
         {

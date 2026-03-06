@@ -7,7 +7,7 @@ namespace AAModClassic.Projectiles
 {
     public class BloodyFlare : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bloody Flare");

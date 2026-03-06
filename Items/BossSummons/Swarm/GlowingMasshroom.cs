@@ -63,14 +63,13 @@ Can only be used in glowing mushroom biomes"); */
 
         public override bool IsLoadingEnabled(Mod mod)/* tModPorter Suggestion: If you return false for the purposes of manual loading, use the [Autoload(false)] attribute on your class instead */
         {
-            return ModLoader.GetMod("Fargowiltas") != null;
+            return ModLoader.TryGetMod("Fargowiltas", out _);
         }
 
-        private readonly Mod fargos = ModLoader.GetMod("Fargowiltas");
 
         public override void AddRecipes()
         {
-            if (fargos != null)
+            if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
             {
                 Recipe recipe = CreateRecipe(1);
                 recipe.AddIngredient(ModContent.ItemType<ConfusingMushroom>(), 1);

@@ -11,7 +11,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
     public class Wyrmling : ModNPC
 	{
 
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/WyrmlingHead";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/WyrmlingHead";
 
 
         public override void SetStaticDefaults()
@@ -276,7 +276,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
     public class WyrmlingTail1 : Wyrmling
     {
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/WyrmlingTail1";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/WyrmlingTail1";
 
         public override void SetStaticDefaults()
         {
@@ -382,7 +382,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
     public class WyrmlingBody : Wyrmling
     {
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/WyrmlingBody";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/WyrmlingBody";
 
         public override void SetStaticDefaults()
         {
@@ -489,7 +489,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
     public class WyrmlingTail2 : Wyrmling
     {
-        public override string Texture => "AAMod/NPCs/Enemies/Inferno/WyrmlingTail2";
+        public override string Texture => "AAModClassic/NPCs/Enemies/Inferno/WyrmlingTail2";
 
         public override void SetStaticDefaults()
         {

@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Melee   //where is located
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddRecipeGroup("AAMod:Gold", 15);
+            recipe.AddRecipeGroup("AAModClassic:Gold", 15);
             recipe.AddTile(TileID.LivingLoom);   
             recipe.Register();
 

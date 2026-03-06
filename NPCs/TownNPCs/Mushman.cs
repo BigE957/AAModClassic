@@ -14,7 +14,7 @@ namespace AAModClassic.NPCs.TownNPCs
     [AutoloadHead]
     public class Mushman : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/TownNPCs/Mushman";
+        public override string Texture => "AAModClassic/NPCs/TownNPCs/Mushman";
 
         //public override bool IsLoadingEnabled(Mod mod)
         //{

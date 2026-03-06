@@ -22,7 +22,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
     [AutoloadBossHead]
     public class Rajah : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Rajah/Rajah";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Rajah/Rajah";
         public int damage = 0;
 
         public override void SetStaticDefaults()
@@ -1204,7 +1204,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             return false;
         }
 
-        public override string BossHeadTexture => "AAMod/NPCs/Bosses/Rajah/Rajah_Head_Boss";
+        public override string BossHeadTexture => "AAModClassic/NPCs/Bosses/Rajah/Rajah_Head_Boss";
 
         public void MoveToPoint(Vector2 point)
         {
@@ -1231,7 +1231,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
     [AutoloadBossHead]
     public class SupremeRajah : Rajah
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Rajah/Supreme/SupremeRajah";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Rajah/Supreme/SupremeRajah";
 
         public override void SetStaticDefaults()
         {
@@ -1251,6 +1251,6 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.value = Item.sellPrice(3, 0, 0, 0);
             Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
         }
-        public override string BossHeadTexture => "AAMod/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss";
+        public override string BossHeadTexture => "AAModClassic/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss";
     }
 }

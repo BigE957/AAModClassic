@@ -602,7 +602,7 @@ namespace AAModClassic
             {
                 tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
                 {
-                    ThePitTeaser(progress);
+                    ThePit(progress);
                 }));
             }
             
@@ -852,7 +852,8 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, y);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
+                    //TODO: This was formerly generating "EverleafRoot", unsure if this is the proper replacement.
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("TerraCrystal").Type);
                 }
             }
         }
@@ -1002,7 +1003,7 @@ namespace AAModClassic
                     WorldGen.PlaceTile(position.X + i, position.Y + j, ModContent.TileType<Doomstone>());
                 }
                 int y = Raycast(position.X + i, position.Y - 5);
-                WorldGen.PlaceObject(position.X + i, y, Mod.Find<ModTile>("OroborosTree").Type);
+                WorldGen.PlaceObject(position.X + i, y, Mod.Find<ModTile>("OroborosSapling").Type);
                 WorldGen.GrowTree(position.X + i, y);
             }
         }
@@ -1441,7 +1442,7 @@ namespace AAModClassic
             Main.SceneMetrics.SnowTileCount += tileCounts[ModContent.TileType<Torchice>()] + tileCounts[ModContent.TileType<IndigoIce>()] + tileCounts[ModContent.TileType<TorchAsh>()];
             mireTiles = tileCounts[ModContent.TileType<MireGrass>()]+ tileCounts[ModContent.TileType<Depthstone>()] + tileCounts[ModContent.TileType<Depthsand>()] + tileCounts[ModContent.TileType<Depthsandstone>()] + tileCounts[ModContent.TileType<DepthsandHardened>()] + tileCounts[ModContent.TileType<IndigoIce>()];
             infernoTiles = tileCounts[ModContent.TileType<InfernoGrass>()]+ tileCounts[ModContent.TileType<Torchstone>()] + tileCounts[ModContent.TileType<Torchsand>()] + tileCounts[ModContent.TileType<Torchsandstone>()] + tileCounts[ModContent.TileType<TorchsandHardened>()] + tileCounts[ModContent.TileType<Torchice>()] + tileCounts[ModContent.TileType<TorchAsh>()];
-            voidTiles = tileCounts[ModContent.TileType<Doomstone>()] + tileCounts[ModContent.TileType<Apocalyptite>()] + tileCounts[ModContent.TileType<Doomgrass>()] + tileCounts[ModContent.TileType<DoomstoneB>()];
+            voidTiles = tileCounts[ModContent.TileType<Doomstone>()] + tileCounts[ModContent.TileType<Apocalyptite>()] + tileCounts[ModContent.TileType<DoomGrass>()] + tileCounts[ModContent.TileType<DoomstoneB>()];
             mushTiles = tileCounts[ModContent.TileType<Mycelium>() ];
             Main.SceneMetrics.JungleTileCount += mireTiles;
             pagodaTiles = tileCounts[ModContent.TileType<ScorchedDynastyWoodS>()] + tileCounts[ModContent.TileType<ScorchedShinglesS>()];
@@ -1595,6 +1596,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
+        /*
         private void ThePitTeaser(GenerationProgress progress)
         {
             progress.Message = "Sinking the Pit";
@@ -1602,7 +1604,7 @@ namespace AAModClassic
             PitTeaser biome = new PitTeaser();
             biome.Place(origin, GenVars.structures);
         }
-
+        */
 
         public static int GetWorldSize()
         {
@@ -1803,7 +1805,7 @@ namespace AAModClassic
                             }
                             else if (TileID.Sets.Conversion.Grass[type])
                             {
-                                Main.tile[k, l].TileType = (ushort)ModContent.TileType<Doomgrass>();
+                                Main.tile[k, l].TileType = (ushort)ModContent.TileType<DoomGrass>();
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
@@ -2139,7 +2141,7 @@ namespace AAModClassic
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
 
-                            if (type == ModContent.TileType<InfernoGrass>() || type == ModContent.TileType<Doomgrass>())
+                            if (type == ModContent.TileType<InfernoGrass>() || type == ModContent.TileType<DoomGrass>())
                             {
                                 Main.tile[k, l].TileType = TileID.Grass;
                                 WorldGen.SquareTileFrame(k, l, true);

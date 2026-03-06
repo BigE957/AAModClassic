@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			AddMapEntry(new Color(200, 200, 200));
-			DustType = Mod.Find<ModDust>("AshDust").Type;
+			DustType = Mod.Find<ModDust>("AshRain").Type;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
 		}

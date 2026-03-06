@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Potions
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SuperHealingPotion);
-            recipe.AddRecipeGroup("AAMod:AncientMaterials");
+            recipe.AddRecipeGroup("AAModClassic:AncientMaterials");
             recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();
 		}

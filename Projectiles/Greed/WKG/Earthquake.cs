@@ -7,7 +7,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 {
     public class Earthquake : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
 
         public override void SetDefaults()
         {

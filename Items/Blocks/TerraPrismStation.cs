@@ -35,7 +35,7 @@ Combiles all vanilla and Ancients Awakened crafting stations together"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(null, "FurnitureDynamo", 1);
             recipe.AddIngredient(null, "TerraCore", 1);
-            recipe.AddRecipeGroup("AAMod:ACS");
+            recipe.AddRecipeGroup("AAModClassic:ACS");
             recipe.Register();
         }
     }

@@ -17,7 +17,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
     [AutoloadBossHead]
     public class Akuma : ModNPC
     {
-        public override string Texture { get { return "AAMod/NPCs/Bosses/Akuma/Akuma"; } }
+        public override string Texture { get { return "AAModClassic/NPCs/Bosses/Akuma/Akuma"; } }
 
         public bool loludided;
         private bool weakness;
@@ -599,7 +599,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
     [AutoloadBossHead]
     public class AkumaBody : Akuma
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/AkumaBody";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/AkumaBody";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Akuma, Draconian Demon");

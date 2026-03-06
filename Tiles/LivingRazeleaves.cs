@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = Mod.Find<ModDust>("RazeleafDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("").Type);   
+            //RegisterItemDrop(Mod.Find<ModItem>("").Type);   
             AddMapEntry(new Color(127, 57, 0));
             MinPick = 0;
         }

@@ -124,7 +124,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
     }
     public class BunnyBrawler2 : BunnyBrawler
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Rajah/BunnyBrawler";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Rajah/BunnyBrawler";
         public override void SetDefaults()
         {
             base.SetDefaults();

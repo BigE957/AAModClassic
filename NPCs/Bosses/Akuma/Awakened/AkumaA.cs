@@ -743,7 +743,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
     [AutoloadBossHead]
     public class AkumaABody : AkumaA
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AkumaABody";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Akuma/Awakened/AkumaABody";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Oni Akuma");

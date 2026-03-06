@@ -9,7 +9,7 @@ namespace AAModClassic.Projectiles
 {
     class ArchwitchBlast : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
 
         public override void SetDefaults()
         {

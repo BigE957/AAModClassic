@@ -56,7 +56,7 @@ namespace AAModClassic
         // Textures
         public static IDictionary<string, Texture2D> Textures = null;
         public static Dictionary<string, Texture2D> precachedTextures = new Dictionary<string, Texture2D>();
-        public static string BLANK_TEX = "AAMod/BlankTex";
+        public static string BLANK_TEX = "AAModClassic/BlankTex";
 
         // UI
         internal UserInterface TerratoolInterface;
@@ -76,7 +76,7 @@ namespace AAModClassic
 
         internal static AAMod instance;
         public static AAMod self = null;
-        internal ILog Logging = LogManager.GetLogger("AAMod");
+        internal ILog Logging = LogManager.GetLogger("AAModClassic");
 
         public static bool isFullyReady;
 
@@ -295,9 +295,9 @@ namespace AAModClassic
 
         public void LoadClient()
         {
-            Asset<Effect> screenRef = ModContent.Request<Effect>("Effects/Shockwave");
-            Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
-            Filters.Scene["Shockwave"].Load();
+            Asset<Effect> screenRef = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
+            Filters.Scene["AAModClassic:Shockwave"] = new Filter(new ScreenShaderData(screenRef, "AAModClassic:Shockwave"), EffectPriority.VeryHigh);
+            Filters.Scene["AAModClassic:Shockwave"].Load();
 
             BackupVanillaBG(-1);
             BackupVanillaBG(-2);
@@ -313,25 +313,27 @@ namespace AAModClassic
             BackupVanillaBG(57);
             BackupVanillaBG(58);
 
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
-            PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value);
+            Main.QueueMainThreadAction(() => {
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value);
+            });
 
             if (MusicLoader.GetMusicSlot("Sounds/Music/Monarch") != 0) //ensure music was loaded!
             {
@@ -381,59 +383,59 @@ namespace AAModClassic
                 //MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SupremeRajah"), ItemType("SRajahBox"), TileType("SRajahBox"));
             }
 
-            Filters.Scene["AAMod:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAMod:ShenSky"] = new ShenSky();
+            Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:ShenSky"] = new ShenSky();
 
-            Filters.Scene["AAMod:ShenASky"] = new Filter(new ShenASkyData("FilterMiniTower").UseColor(.7f, 0f, .7f).UseOpacity(0.2f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAMod:ShenASky"] = new ShenASky();
+            Filters.Scene["AAModClassic:ShenASky"] = new Filter(new ShenASkyData("FilterMiniTower").UseColor(.7f, 0f, .7f).UseOpacity(0.2f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:ShenASky"] = new ShenASky();
 
-            Filters.Scene["AAMod:MireSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAMod:MireSky"] = new MireSky();
+            Filters.Scene["AAModClassic:MireSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:MireSky"] = new MireSky();
 
             VoidSky vSky = new VoidSky();
-            Filters.Scene["AAMod:VoidSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0.15f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAMod:VoidSky"] = vSky;
+            Filters.Scene["AAModClassic:VoidSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0.15f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:VoidSky"] = vSky;
 
             AthenaSky aSky = new AthenaSky();
-            Filters.Scene["AAMod:AthenaSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAMod:AthenaSky"] = aSky;
+            Filters.Scene["AAModClassic:AthenaSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:AthenaSky"] = aSky;
 
             InfernoSky iSky = new InfernoSky();
-            Filters.Scene["AAMod:InfernoSky"] = new Filter(new InfernoSkyData("FilterMiniTower").UseColor(1f, 0.20f, 0f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAMod:InfernoSky"] = iSky;
+            Filters.Scene["AAModClassic:InfernoSky"] = new Filter(new InfernoSkyData("FilterMiniTower").UseColor(1f, 0.20f, 0f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:InfernoSky"] = iSky;
 
             AkumaSky akSky = new AkumaSky();
-            Filters.Scene["AAMod:AkumaSky"] = new Filter(new AkumaSkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAMod:AkumaSky"] = akSky;
+            Filters.Scene["AAModClassic:AkumaSky"] = new Filter(new AkumaSkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:AkumaSky"] = akSky;
 
-            Filters.Scene["AAMod:YamataSky"] = new Filter(new YamataSkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAMod:YamataSky"] = new YamataSky();
+            Filters.Scene["AAModClassic:YamataSky"] = new Filter(new YamataSkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:YamataSky"] = new YamataSky();
 
             AnubisSky anSky = new AnubisSky();
-            Filters.Scene["AAMod:AnubisSky"] = new Filter(new AnubisSkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAMod:AnubisSky"] = anSky;
+            Filters.Scene["AAModClassic:AnubisSky"] = new Filter(new AnubisSkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
+            SkyManager.Instance["AAModClassic:AnubisSky"] = anSky;
 
-            ReplaceItemTexture(3460, "Resprites/Luminite");
-            ReplaceItemTexture(512, "Resprites/SoulOfNight");
+            ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
+            ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
             BlockBarier = ModContent.Request<Texture2D>("AAModClassic/Textures/BlockShield").Value;
             sunTextureBackup = TextureAssets.Sun;
             sun3TextureBackup = TextureAssets.Sun3;
 
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligulaLegs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Legs", EquipType.Legs, name: "InvokedCaligulaLegs", equipTexture: new InvokedCaligulaLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Ohno/ono_Head", EquipType.Head, name: "onoHead", equipTexture: new Items.Vanity.Ohno.onoHead());
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Ohno/ono_Body", EquipType.Body, name: "onoBody", equipTexture: new Items.Vanity.Ohno.onoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Ohno/ono_Legs", EquipType.Legs, name: "onoLegs", equipTexture: new Items.Vanity.Ohno.onoLegs());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Head", EquipType.Head, name: "onoHead", equipTexture: new Items.Vanity.Ohno.onoHead());
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Body", EquipType.Body, name: "onoBody", equipTexture: new Items.Vanity.Ohno.onoBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Ohno/ono_Legs", EquipType.Legs, name: "onoLegs", equipTexture: new Items.Vanity.Ohno.onoLegs());
 
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Cerberus/InvokerHood_Head", EquipType.Head, name: "InvokerHead", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Cerberus/InvokerRobe_Body", EquipType.Body, name: "InvokerBody", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/Cerberus/InvokerPants_Legs", EquipType.Legs, name: "InvokerLegs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerHood_Head", EquipType.Head, name: "InvokerHead", equipTexture: new InvokerHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerRobe_Body", EquipType.Body, name: "InvokerBody", equipTexture: new InvokerBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/Cerberus/InvokerPants_Legs", EquipType.Legs, name: "InvokerLegs", equipTexture: new InvokerLegs())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
 
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/CC/CCRobe_Legs", EquipType.Legs, name: "CCRobe_Legs");
-            EquipLoader.AddEquipTexture(this, "AAMod/Items/Vanity/CC/Shiny/ShinyCCRobe_Legs", EquipType.Legs, name: "ShinyCCRobe_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/CCRobe_Legs", EquipType.Legs, name: "CCRobe_Legs");
+            EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/Shiny/ShinyCCRobe_Legs", EquipType.Legs, name: "ShinyCCRobe_Legs");
         }
 
         //DO NOT MAKE THESE STATIC! DOING SO WILL PREVENT WHAT IT FIXES FROM HAPPENING.
@@ -823,7 +825,7 @@ public class AAModSystem : ModSystem
         if (wireSelectionLayerIndex != -1)
         {
             layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
-            "AAMod: Radial UIs",
+            "AAModClassic: Radial UIs",
             delegate
             {
                 if (AAMod.instance.TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
@@ -875,28 +877,28 @@ public class AAModSystem : ModSystem
                         Main.numClouds = 10;
                         if (Main.LogoB <= 255)
                         {
-                            TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
+                            TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Images/Logo");
                         }
                         if (Main.LogoB < 10 || (!Main.dayTime && Main.LogoA <= 255))
                         {
-                            TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
+                            TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Images/Logo2");
                         }
-                        TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-                        if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-                        if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
+                        TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun");
+                        if (SkyManager.Instance["AAModClassic:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:MireSky", new object[0]);
+                        if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:VoidSky", new object[0]);
 
                         if (Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
                         {
                             Main.treeBGSet1[0] = 173;
-                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-                            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-                            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-                            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-                            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-                            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-                            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-                            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-                            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+                            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 0);
+                            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 171);
+                            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 172);
+                            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 173);
+                            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 24);
+                            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 25);
+                            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 56);
+                            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 57);
+                            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 58);
                         }
                         break;
                     case 1:
@@ -907,7 +909,7 @@ public class AAModSystem : ModSystem
                         }
                         else
                         {
-                            if (SkyManager.Instance["AAMod:MireSky"] != null) SkyManager.Instance.Activate("AAMod:MireSky", default, new object[0]);
+                            if (SkyManager.Instance["AAModClassic:MireSky"] != null) SkyManager.Instance.Activate("AAModClassic:MireSky", default, new object[0]);
                         }
                         if (Main.LogoB <= 255)
                         {
@@ -944,7 +946,7 @@ public class AAModSystem : ModSystem
                         {
                             TextureAssets.Logo2 = ModContent.Request<Texture2D>("UI/LogoVoid");
                         }
-                        if (SkyManager.Instance["AAMod:VoidSky"] != null) SkyManager.Instance.Activate("AAMod:VoidSky", default, new object[0]);
+                        if (SkyManager.Instance["AAModClassic:VoidSky"] != null) SkyManager.Instance.Activate("AAModClassic:VoidSky", default, new object[0]);
                         if (Main.dayTime && (Main.bgAlphaFarBackLayer[0] < 0.10f || Main.bgAlphaFarBackLayer[0] == 1f))
                         {
                             TextureAssets.Background[0] = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
@@ -964,38 +966,38 @@ public class AAModSystem : ModSystem
             }
             else if (AAMenuReset)
             {
-                if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-                if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
-                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-                TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Logo");
-                TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Logo2");
+                if (SkyManager.Instance["AAModClassic:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:MireSky", new object[0]);
+                if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:VoidSky", new object[0]);
+                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun");
+                TextureAssets.Logo = ModContent.Request<Texture2D>("Terraria/Images/Logo");
+                TextureAssets.Logo2 = ModContent.Request<Texture2D>("Terraria/Images/Logo2");
                 AAMenuReset = false;
-                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+                TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 0);
+                TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 171);
+                TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 172);
+                TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 173);
+                TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 24);
+                TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 25);
+                TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 56);
+                TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 57);
+                TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 58);
             }
         }
         else if (AAMenuReset)
         {
             AAMenuReset = false;
-            TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Sun");
-            if (SkyManager.Instance["AAMod:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:MireSky", new object[0]);
-            if (SkyManager.Instance["AAMod:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAMod:VoidSky", new object[0]);
-            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Background_" + 0);
-            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Background_" + 171);
-            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Background_" + 172);
-            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Background_" + 173);
-            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Background_" + 24);
-            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Background_" + 25);
-            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Background_" + 56);
-            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Background_" + 57);
-            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Background_" + 58);
+            TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun");
+            if (SkyManager.Instance["AAModClassic:MireSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:MireSky", new object[0]);
+            if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive()) SkyManager.Instance.Deactivate("AAModClassic:VoidSky", new object[0]);
+            TextureAssets.Background[0] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 0);
+            TextureAssets.Background[171] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 171);
+            TextureAssets.Background[172] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 172);
+            TextureAssets.Background[173] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 173);
+            TextureAssets.Background[24] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 24);
+            TextureAssets.Background[25] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 25);
+            TextureAssets.Background[56] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 56);
+            TextureAssets.Background[57] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 57);
+            TextureAssets.Background[58] = ModContent.Request<Texture2D>("Terraria/Images/Background_" + 58);
         }
     }
 }

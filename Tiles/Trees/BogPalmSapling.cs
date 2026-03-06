@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Trees
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.newTile.RandomStyleRange = 3;
             TileObjectData.addTile(Type);
-            sapling/* tModPorter Note: Removed. Use TileID.Sets.TreeSapling and TileID.Sets.CommonSapling instead */ = true;
+            TileID.Sets.TreeSapling[Type] = TileID.Sets.CommonSapling[Type] = true;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Bog Palm Sapling");
             AddMapEntry(new Color(200, 200, 200), name);

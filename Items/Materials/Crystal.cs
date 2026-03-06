@@ -8,7 +8,7 @@ namespace AAModClassic.Items.Materials
 {
     public class Crystal : BaseAAItem
     {
-        public override string Texture => "AAMod/Items/Materials/Crystal";
+        public override string Texture => "AAModClassic/Items/Materials/Crystal";
 
         public override void SetStaticDefaults()
         {
@@ -49,7 +49,7 @@ namespace AAModClassic.Items.Materials
 
     public class TerraCrystal : BaseAAItem
     {
-        public override string Texture => "AAMod/Items/Materials/Crystal";
+        public override string Texture => "AAModClassic/Items/Materials/Crystal";
 
         public override void SetStaticDefaults()
         {
@@ -98,7 +98,7 @@ namespace AAModClassic.Items.Materials
 
     public class ChaosCrystal : BaseAAItem
     {
-        public override string Texture => "AAMod/Items/Materials/Crystal";
+        public override string Texture => "AAModClassic/Items/Materials/Crystal";
 
         public override void SetStaticDefaults()
         {

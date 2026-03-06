@@ -11,7 +11,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 {
     public class GreedTransition : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Greed/GreedSpawn";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Greed/GreedSpawn";
 
         public override void SetStaticDefaults()
         {

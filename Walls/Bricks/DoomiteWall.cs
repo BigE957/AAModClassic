@@ -9,7 +9,7 @@ namespace AAModClassic.Walls.Bricks
 	{
 		public override void SetStaticDefaults()
 		{
-            DustType = Mod.Find<ModDust>("DoomsdayDust").Type;
+            DustType = Mod.Find<ModDust>("DoomDust").Type;
 			AddMapEntry(new Color(50, 25, 0));
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;

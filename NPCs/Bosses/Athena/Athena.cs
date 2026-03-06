@@ -605,7 +605,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
     public class AthenaFlee : ModNPC
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Athena/Athena";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Athena/Athena";
 
         public override void SetStaticDefaults()
         {

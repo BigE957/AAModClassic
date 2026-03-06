@@ -6,7 +6,7 @@ namespace AAModClassic.Projectiles
 {
     public class Depthsprayer : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 10;

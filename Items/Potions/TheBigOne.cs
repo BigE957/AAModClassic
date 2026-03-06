@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Potions
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(null, "GrandHealingPotion");
             recipe.AddIngredient(null, "GrandManaPotion");
-            recipe.AddRecipeGroup("AAMod:SuperAncientMaterials");
+            recipe.AddRecipeGroup("AAModClassic:SuperAncientMaterials");
             recipe.AddTile(null, "ACS");
 			recipe.Register();
 		}

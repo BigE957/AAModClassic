@@ -11,7 +11,7 @@ namespace AAModClassic.Projectiles
 {
     internal class Antifungus : ModProjectile
     {
-        public override string Texture => "AAMod/BlankTex";
+        public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
         {
             Projectile.width = 6;

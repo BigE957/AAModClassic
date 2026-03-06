@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Blocks
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "IncineriteBar", 10);
             recipe.AddIngredient(null, "AbyssiumBar", 10);
-            recipe.AddRecipeGroup("AAMod:Altar");
+            recipe.AddRecipeGroup("AAModClassic:Altar");
             recipe.Register();
         }
     }

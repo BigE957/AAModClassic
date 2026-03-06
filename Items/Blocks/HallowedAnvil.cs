@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Blocks
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.HallowedBar, 10);
-            recipe.AddRecipeGroup("AAMod:HAnvil");
+            recipe.AddRecipeGroup("AAModClassic:HAnvil");
             recipe.AddIngredient(ItemID.PearlwoodWorkBench, 1);
             recipe.AddIngredient(ItemID.CrystalBall, 1);
             recipe.AddIngredient(ItemID.Autohammer, 1);

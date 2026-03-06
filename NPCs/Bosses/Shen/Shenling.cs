@@ -12,7 +12,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 {
     public class Shenling : ModNPC
 	{
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/Shenling";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/Shenling";
 
 
         public override void SetStaticDefaults()
@@ -392,7 +392,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenlingBody1 : Shenling
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenlingBody1";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenlingBody1";
 
         public override void SetStaticDefaults()
         {
@@ -523,7 +523,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenlingBody2 : Shenling
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenlingBody2";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenlingBody2";
 
         public override void SetStaticDefaults()
         {
@@ -654,7 +654,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
     public class ShenlingTail : Shenling
     {
-        public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenlingTail";
+        public override string Texture => "AAModClassic/NPCs/Bosses/Shen/ShenlingTail";
 
         public override void SetStaticDefaults()
         {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
 
@@ -12,11 +13,11 @@ namespace AAModClassic.UI
 
         public static int Axe = 0;
 
-        public override Texture2D ButtonImages => AAMod.instance.GetTexture("UI/Tools/ToolUI");
+        public override Asset<Texture2D> ButtonImages => ModContent.Request<Texture2D>("AAModClassic/UI/Tools/ToolUI");
 
-        public override Texture2D ButtonOnImage => AAMod.instance.GetTexture("UI/Tools/ToolButton");
+        public override Asset<Texture2D> ButtonOnImage => ModContent.Request<Texture2D>("AAModClassic/UI/Tools/ToolButton");
 
-        public override Texture2D ButtonOffImage => AAMod.instance.GetTexture("UI/Tools/ToolButtonOff");
+        public override Asset<Texture2D> ButtonOffImage => ModContent.Request<Texture2D>("AAModClassic/UI/Tools/ToolButtonOff");
 
         public override UIState State => AAMod.instance.TerratoolEXState;
 

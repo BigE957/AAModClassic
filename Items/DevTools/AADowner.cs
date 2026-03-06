@@ -5,7 +5,7 @@ namespace AAModClassic.Items.DevTools
 {
     public class AADowner : BaseAAItem
     {
-        public override string Texture => "AAMod/Items/DevTools/AAUndowner";
+        public override string Texture => "AAModClassic/Items/DevTools/AAUndowner";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("AA Downer");

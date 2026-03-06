@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Blocks
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Wood, 10);
-            recipe.AddRecipeGroup("AAMod:Iron", 2);
+            recipe.AddRecipeGroup("AAModClassic:Iron", 2);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }
