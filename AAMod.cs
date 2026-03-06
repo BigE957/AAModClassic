@@ -56,7 +56,6 @@ namespace AAModClassic
         // Textures
         public static IDictionary<string, Texture2D> Textures = null;
         public static Dictionary<string, Texture2D> precachedTextures = new Dictionary<string, Texture2D>();
-        public static string BLANK_TEX = "AAModClassic/BlankTex";
 
         // UI
         internal UserInterface TerratoolInterface;
@@ -436,6 +435,8 @@ namespace AAModClassic
 
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/CCRobe_Legs", EquipType.Legs, name: "CCRobe_Legs");
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Vanity/CC/Shiny/ShinyCCRobe_Legs", EquipType.Legs, name: "ShinyCCRobe_Legs");
+
+            BackgroundTextureLoader.AddBackgroundTexture(this, "AAModClassic/BlankTex");
         }
 
         //DO NOT MAKE THESE STATIC! DOING SO WILL PREVENT WHAT IT FIXES FROM HAPPENING.
