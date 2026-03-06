@@ -193,12 +193,13 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneHoard = AAWorld.HoardTiles > 1 && !player.GetModPlayer<AAPlayer>().ZoneStars;
+            player.GetModPlayer<AAPlayer>().ZoneHoard = (AAWorld.HoardTiles > 1 && !player.GetModPlayer<AAPlayer>().ZoneStars);
+            return player.GetModPlayer<AAPlayer>().ZoneHoard;
         }
 
-        public override int Music => AAWorld.downedZero ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Hoard") : -1;
+        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Hoard");
 
-        public override SceneEffectPriority Priority => AAWorld.downedZero ? SceneEffectPriority.Event : SceneEffectPriority.None;
+        public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<GreedBG>();
     }
