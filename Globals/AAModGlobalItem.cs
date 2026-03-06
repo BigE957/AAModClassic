@@ -484,7 +484,7 @@ namespace AAModClassic.Globals
                 }
             }
             
-			return false;
+			return null;
 		}
         public void ExtractinatorUse2(int extractType)
 		{

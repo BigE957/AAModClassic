@@ -1,9 +1,3 @@
-author = Alphakip
-version = 1.0.2.203
-displayName = Ancients Awakened
-includePDB = true
-buildIgnore = *.csproj, *.user, obj\*, bin\*, lib\*, .vs\*, *.gif, *.piskel, Unused\*
-hideCode = true
-hideResources = false
-includeSource = false
-homepage = https://discord.gg/MmpCpj4
+author = BigE
+version = 0.1
+displayName = Ancients Awakened: Classic

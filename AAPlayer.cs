@@ -40,6 +40,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
+using static Terraria.ModLoader.PlayerDrawLayer;
 
 namespace AAModClassic
 {
