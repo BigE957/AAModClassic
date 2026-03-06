@@ -4642,7 +4642,7 @@ Fishy";
                 }
             return "";
         }
-        public static string BossCheck(string Boss)
+        public static string dogshit(string Boss)
         {
             if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
                 {
@@ -4941,43 +4941,43 @@ Fishy";
                         case "GripsofChaos":
                         return "Grips of Chaos";
                         case "GripsofChaosInfo":
-                        return "The Grips fly away, having dealt with you";
+                        return "";
                         case "Broodmother":
                         return "The Broodmother";
                         case "BroodmotherInfo":
                         return " in the Inferno during the day";
                         case "BroodmotherInfo2":
-                        return "The Broodmother returns to the fiery depths";
+                        return "";
                         case "Hydra":
                         return "Hydra";
                         case "HydraInfo":
                         return " in the Mire at night";
                         case "HydraInfo2":
-                        return "The Hydra slinks back into her dark lair";
+                        return "";
                         case "SubzeroSerpent":
                         return "Subzero Serpent";
                         case "SubzeroSerpentInfo":
                         return " in the Snow biome at night";
                         case "SubzeroSerpentInfo2":
-                        return "The Subzero Serpent burrows back down into the snow";
+                        return "";
                         case "DesertDjinn":
                         return "Desert Djinn";
                         case "DesertDjinnInfo":
                         return " in the Desert during the day";
                         case "DesertDjinnInfo2":
-                        return "The Desert Djinn flexes upon you triumphantly";
+                        return "";
                         case "Sagittarius":
                         return "Sagittarius";
                         case "SagittariusInfo":
                         return " in the Void";
                         case "SagittariusInfo2":
-                        return "Sagittarius gallops off into the endless darkness...";
+                        return "";
                         case "TruffleToad":
                         return "Truffle Toad";
                         case "TruffleToadInfo":
                         return " in a glowing mushroom biome";
                         case "TruffleToadInfo2":
-                        return "The Truffle Toad croaks, then vanishes";
+                        return "";
                         case "Greed":
                         return "Greed";
                         case "GreedInfo":

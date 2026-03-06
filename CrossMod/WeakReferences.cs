@@ -31,6 +31,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.CrossMod
@@ -536,15 +537,16 @@ namespace AAModClassic.CrossMod
                         sb.Draw(texture, centered, color);
                     };
                     return portrait;
-                }
-                ;
+                };
+
+                string path = "Mods.AAModClassic.BossChecklistSupport.";
 
                 #region Mushroom Monarch
                 AddBoss(bossChecklist, mod, "MushroomMonarch", 0f, (Func<bool>)(() => AAWorld.downedMonarch), mod.Find<ModNPC>("MushroomMonarch").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("MushroomMonarch"),
-                    ["spawnInfo"] = Lang.BossCheck("Usean") + "[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]",
-                    ["despawnMessage"] = Lang.BossCheck("MushroomMonarchInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "MonarchTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnMonarch").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Monarch"),
                     ["spawnItems"] = ModContent.ItemType<IntimidatingMushroom>(),
                     ["collectibles"] = new List<int>
                     {
@@ -559,9 +561,9 @@ namespace AAModClassic.CrossMod
                 #region Feudal Fungus
                 AddBoss(bossChecklist, mod, "FeudalFungus", 0.1f, (Func<bool>)(() => AAWorld.downedFungus), mod.Find<ModNPC>("FeudalFungus").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("FeudalFungus"),
-                    ["spawnInfo"] = Lang.BossCheck("Usean") + "[i: " + ModContent.ItemType<ConfusingMushroom>() + "]" + Lang.BossCheck("FeudalFungusInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("FeudalFungusInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "FungusTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnFungus").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingMushroom>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Fungus"),
                     ["spawnItems"] = ModContent.ItemType<ConfusingMushroom>(),
                     ["collectibles"] = new List<int>
                     {
@@ -576,10 +578,10 @@ namespace AAModClassic.CrossMod
                 #region Grips
                 AddBoss(bossChecklist, mod, "GripsOfChaos", 2f, (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { mod.Find<ModNPC>("GripOfChaosRed").Type, mod.Find<ModNPC>("GripOfChaosBlue").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("GripsofChaos"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]" + Lang.BossCheck("or") + "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]" + Lang.BossCheck("atnight"),
-                    ["despawnMessage"] = Lang.BossCheck("GripsofChaosInfo"),
-                    ["spawnItems"] = ModContent.ItemType<CuriousClaw>(),
+                    ["displayName"] = Language.GetOrRegister(path + "GripsTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnGrips").Format("[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]", "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Grips"),
+                    ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousClaw>(), ModContent.ItemType<InterestingClaw>() },
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Grips.GripTrophyBlue>(),
@@ -595,9 +597,9 @@ namespace AAModClassic.CrossMod
                 #region Truffle Toad
                 AddBoss(bossChecklist, mod, "TruffleToad", 2.5f, (Func<bool>)(() => AAWorld.downedToad), mod.Find<ModNPC>("TruffleToad").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("TruffleToad"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Toadstool").Type + "]" + Lang.BossCheck("TruffleToadInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("TruffleToadInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "ToadTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnToad").WithFormatArgs("[i: " + ModContent.ItemType<Toadstool>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Toad"),
                     ["spawnItems"] = ModContent.ItemType<Toadstool>(),
                     ["collectibles"] = new List<int>
                     {
@@ -612,9 +614,9 @@ namespace AAModClassic.CrossMod
                 #region Broodmother
                 AddBoss(bossChecklist, mod, "Broodmother", 3.5f, (Func<bool>)(() => AAWorld.downedBrood), mod.Find<ModNPC>("Broodmother").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Broodmother"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DragonBell").Type + "]" + Lang.BossCheck("BroodmotherInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("BroodmotherInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "BroodmotherTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnBroodmother").WithFormatArgs("[i: " + ModContent.ItemType<DragonBell>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Broodmother"),
                     ["spawnItems"] = ModContent.ItemType<DragonBell>(),
                     ["collectibles"] = new List<int>
                     {
@@ -629,9 +631,9 @@ namespace AAModClassic.CrossMod
                 #region Hydra
                 AddBoss(bossChecklist, mod, "Hydra", 3.5f, (Func<bool>)(() => AAWorld.downedHydra), mod.Find<ModNPC>("Hydra").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Hydra"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("HydraChow").Type + "]" + Lang.BossCheck("HydraInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("HydraInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "HydraTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnHydra").WithFormatArgs("[i: " + ModContent.ItemType<HydraChow>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Hydra"),
                     ["spawnItems"] = ModContent.ItemType<HydraChow>(),
                     ["collectibles"] = new List<int>
                     {
@@ -646,9 +648,9 @@ namespace AAModClassic.CrossMod
                 #region Serpent
                 AddBoss(bossChecklist, mod, "SubzeroSerpent", 5.5f, (Func<bool>)(() => AAWorld.downedSerpent), new List<int>() { mod.Find<ModNPC>("SerpentHead").Type, mod.Find<ModNPC>("SerpentBody").Type, mod.Find<ModNPC>("SerpentTail").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("SubzeroSerpent"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("SubzeroCrystal").Type + "]" + Lang.BossCheck(""),
-                    ["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "SubzeroTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnSubzero").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Subzero"),
                     ["spawnItems"] = ModContent.ItemType<CuriousClaw>(),
                     ["collectibles"] = new List<int>
                     {
@@ -663,9 +665,9 @@ namespace AAModClassic.CrossMod
                 #region Djinn
                 AddBoss(bossChecklist, mod, "DesertDjinn", 5.5f, (Func<bool>)(() => AAWorld.downedDjinn), mod.Find<ModNPC>("Djinn").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("DesertDjinn"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DjinnLamp").Type + "]" + Lang.BossCheck("DesertDjinnInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("DesertDjinnInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "DjinnTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnDjinn").WithFormatArgs("[i: " + ModContent.ItemType<DjinnLamp>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Djinn"),
                     ["spawnItems"] = ModContent.ItemType<DjinnLamp>(),
                     ["collectibles"] = new List<int>
                     {
@@ -678,11 +680,11 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Sagittarius
-                AddBoss(bossChecklist, mod, "Sagittarius", 5.7f, (Func<bool>)(() => AAWorld.downedSag), mod.Find<ModNPC>("Sag").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Sagittarius", 6.3f, (Func<bool>)(() => AAWorld.downedSag), mod.Find<ModNPC>("Sag").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Sagittarius"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Lifescanner").Type + "]" + Lang.BossCheck("SagittariusInfo"),
-                    ["despawnMessage"] = Lang.BossCheck("SagittariusInfo2"),
+                    ["displayName"] = Language.GetOrRegister(path + "SagTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnSag").WithFormatArgs("[i: " + ModContent.ItemType<Lifescanner>() + "]"),
+                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Sag"),
                     ["spawnItems"] = ModContent.ItemType<Lifescanner>(),
                     ["collectibles"] = new List<int>
                     {
@@ -695,10 +697,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Anubis
-                AddBoss(bossChecklist, mod, "Anubis", 9.7f, (Func<bool>)(() => AAWorld.downedAnubis), mod.Find<ModNPC>("Anubis").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Anubis", 11.7f, (Func<bool>)(() => AAWorld.downedAnubis), mod.Find<ModNPC>("Anubis").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Anubis"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("Scepter").Type + "]" + Lang.BossCheck("AnubisInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AnubisTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAnubis").WithFormatArgs("[i: " + ModContent.ItemType<Scepter>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("AnubisInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<Scepter>(),
                     ["collectibles"] = new List<int>
@@ -712,10 +714,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Athena
-                AddBoss(bossChecklist, mod, "Athena", 11.5f, (Func<bool>)(() => AAWorld.downedAthena), mod.Find<ModNPC>("Athena").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Athena", 13.5f, (Func<bool>)(() => AAWorld.downedAthena), mod.Find<ModNPC>("Athena").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Athena"),
-                    ["spawnInfo"] = Lang.BossCheck("Usean") + "[i:" + AAMod.instance.Find<ModItem>("Owl").Type + "]" + Lang.BossCheck("AthenaInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AthenaTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAthena").WithFormatArgs("[i: " + ModContent.ItemType<Owl>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<Owl>(),
                     ["collectibles"] = new List<int>
@@ -729,10 +731,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Greed
-                AddBoss(bossChecklist, mod, "Greed", 11.5f, (Func<bool>)(() => AAWorld.downedGreed), new List<int>() { mod.Find<ModNPC>("Greed").Type, mod.Find<ModNPC>("GreedBody").Type }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", 13.5f, (Func<bool>)(() => AAWorld.downedGreed), new List<int>() { mod.Find<ModNPC>("Greed").Type, mod.Find<ModNPC>("GreedBody").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Greed"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenGrub").Type + "]" + Lang.BossCheck("GreedInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "GreedTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnGreed").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("GreedInfo2"),
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
                     ["collectibles"] = new List<int>
@@ -746,10 +748,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbit", 11.5f, (Func<bool>)(() => AAWorld.downedRajah), mod.Find<ModNPC>("Rajah").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbit", 13.5f, (Func<bool>)(() => AAWorld.downedRajah), mod.Find<ModNPC>("Rajah").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("RajahRabbit"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("GoldenCarrot").Type + "]" + Lang.BossCheck("RajahRabbitInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "RajahTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnRajah").WithFormatArgs("[i: " + ModContent.ItemType<GoldenCarrot>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<GoldenCarrot>(),
                     ["collectibles"] = new List<int>
@@ -763,10 +765,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Forsaken Anubis
-                AddBoss(bossChecklist, mod, "ForsakenAnubis", 15f, (Func<bool>)(() => AAWorld.downedAnubisA), mod.Find<ModNPC>("ForsakenAnubis").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ForsakenAnubis", 19f, (Func<bool>)(() => AAWorld.downedAnubisA), mod.Find<ModNPC>("ForsakenAnubis").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("AnubisA"),
-                    ["spawnInfo"] = Lang.BossCheck("AnubisAInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AnubisATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAnubisA"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<Scepter>(),
                     ["collectibles"] = new List<int>
@@ -780,10 +782,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Olympian Athena
-                AddBoss(bossChecklist, mod, "AthenaA", 15.1f, (Func<bool>)(() => AAWorld.downedAthenaA), mod.Find<ModNPC>("AthenaA").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "AthenaA", 19.1f, (Func<bool>)(() => AAWorld.downedAthenaA), mod.Find<ModNPC>("AthenaA").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("AthenaA"),
-                    ["spawnInfo"] = Lang.BossCheck("AthenaAInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AthenaATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAthenaA"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<Owl>(),
                     ["collectibles"] = new List<int>
@@ -796,10 +798,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Worm King Greed
-                AddBoss(bossChecklist, mod, "GreedA", 15.2f, (Func<bool>)(() => AAWorld.downedGreedA), mod.Find<ModNPC>("GreedA").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "GreedA", 19.2f, (Func<bool>)(() => AAWorld.downedGreedA), mod.Find<ModNPC>("GreedA").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("GreedA"),
-                    ["spawnInfo"] = Lang.BossCheck("GreedAInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "GreedATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnGreedA"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<GoldenGrub>(),
                     ["collectibles"] = new List<int>
@@ -812,10 +814,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Equinox Worms
-                AddBoss(bossChecklist, mod, "NightcrawlerDaybringer", 16f, (Func<bool>)(() => AAWorld.downedEquinox), new List<int>() { mod.Find<ModNPC>("DaybringerHead").Type, mod.Find<ModNPC>("NightcrawlerHead").Type, mod.Find<ModNPC>("DaybringerBody").Type, mod.Find<ModNPC>("NightcrawlerBody").Type, mod.Find<ModNPC>("DaybringerTail").Type, mod.Find<ModNPC>("NightcrawlerTail").Type }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "NightcrawlerDaybringer", 20f, (Func<bool>)(() => AAWorld.downedEquinox), new List<int>() { mod.Find<ModNPC>("DaybringerHead").Type, mod.Find<ModNPC>("NightcrawlerHead").Type, mod.Find<ModNPC>("DaybringerBody").Type, mod.Find<ModNPC>("NightcrawlerBody").Type, mod.Find<ModNPC>("DaybringerTail").Type, mod.Find<ModNPC>("NightcrawlerTail").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("NightcrawlerDaybringer"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("EquinoxWorm").Type + "]",
+                    ["displayName"] = Language.GetOrRegister(path + "EquinoxTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnEquinox").WithFormatArgs("[i: " + ModContent.ItemType<EquinoxWorm>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
                     ["spawnItems"] = ModContent.ItemType<EquinoxWorm>(),
                     ["collectibles"] = new List<int>
@@ -831,10 +833,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Ashe & Haruka
-                AddBoss(bossChecklist, mod, "SistersofDiscord", 17f, (Func<bool>)(() => AAWorld.downedSisters), new List<int>() { mod.Find<ModNPC>("Ashe").Type, mod.Find<ModNPC>("Haruka").Type }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SistersofDiscord", 21f, (Func<bool>)(() => AAWorld.downedSisters), new List<int>() { mod.Find<ModNPC>("Ashe").Type, mod.Find<ModNPC>("Haruka").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("SistersofDiscord"),
-                    ["spawnInfo"] = Lang.BossCheck("Usethe") + "[i:" + AAMod.instance.Find<ModItem>("FlamesOfAnarchy").Type + "]",
+                    ["displayName"] = Language.GetOrRegister(path + "AHTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAH").WithFormatArgs("[i: " + ModContent.ItemType<FlamesOfAnarchy>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("GripsofChaosInfo"),
                     ["spawnItems"] = ModContent.ItemType<FlamesOfAnarchy>(),
                     ["collectibles"] = new List<int>
@@ -848,10 +850,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Akuma
-                AddBoss(bossChecklist, mod, "Akuma", 18f, (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { mod.Find<ModNPC>("Akuma").Type, mod.Find<ModNPC>("AkumaBody").Type }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Akuma", 22f, (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { mod.Find<ModNPC>("Akuma").Type, mod.Find<ModNPC>("AkumaBody").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Akuma"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianSigil").Type + "]" + Lang.BossCheck("AkumaInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AkumaTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAkuma").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSigil>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<DraconianSigil>(),
                     ["collectibles"] = new List<int>
@@ -863,10 +865,10 @@ namespace AAModClassic.CrossMod
                     ["customPortrait"] = GetPortrait("Akuma")
                 });
 
-                AddBoss(bossChecklist, mod, "AkumaA", 18.05f, (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { mod.Find<ModNPC>("AkumaA").Type, mod.Find<ModNPC>("AkumaABody").Type }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "AkumaA", 22.05f, (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { mod.Find<ModNPC>("AkumaA").Type, mod.Find<ModNPC>("AkumaABody").Type }, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("AkumaA"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DraconianRune").Type + "]" + Lang.BossCheck("AkumaInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "AkumaATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAkuma").WithFormatArgs("[i: " + ModContent.ItemType<DraconianRune>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<DraconianRune>(),
                     ["collectibles"] = new List<int>
@@ -881,10 +883,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Yamata
-                AddBoss(bossChecklist, mod, "Yamata", 18.1f, (Func<bool>)(() => AAWorld.downedYamata), mod.Find<ModNPC>("Yamata").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Yamata", 22.1f, (Func<bool>)(() => AAWorld.downedYamata), mod.Find<ModNPC>("Yamata").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Yamata"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadSigil").Type + "]" + Lang.BossCheck("YamataInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "YamataTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnYamata").WithFormatArgs("[i: " + ModContent.ItemType<DreadSigil>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<DreadSigil>(),
                     ["collectibles"] = new List<int>
@@ -896,10 +898,10 @@ namespace AAModClassic.CrossMod
                     ["customPortrait"] = GetPortrait("Yamata")
                 });
 
-                AddBoss(bossChecklist, mod, "YamataA", 18.15f, (Func<bool>)(() => AAWorld.downedYamata), mod.Find<ModNPC>("YamataA").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "YamataA", 22.15f, (Func<bool>)(() => AAWorld.downedYamata), mod.Find<ModNPC>("YamataA").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("YamataA"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DreadRune").Type + "]" + Lang.BossCheck("YamataInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "YamataATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnYamata").WithFormatArgs("[i: " + ModContent.ItemType<DreadRune>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<DreadRune>(),
                     ["collectibles"] = new List<int>
@@ -914,10 +916,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Zero
-                AddBoss(bossChecklist, mod, "Zero", 18.2f, (Func<bool>)(() => AAWorld.downedZero), mod.Find<ModNPC>("Zero").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Zero", 22.2f, (Func<bool>)(() => AAWorld.downedZero), mod.Find<ModNPC>("Zero").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("Zero"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroTesseract").Type + "]" + Lang.BossCheck("ZeroInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "ZeroTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnZero").WithFormatArgs("[i: " + ModContent.ItemType<ZeroTesseract>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<ZeroTesseract>(),
                     ["collectibles"] = new List<int>
@@ -929,10 +931,10 @@ namespace AAModClassic.CrossMod
                     ["customPortrait"] = GetPortrait("Zero")
                 });
 
-                AddBoss(bossChecklist, mod, "ZeroP", 18.25f, (Func<bool>)(() => AAWorld.downedZero), mod.Find<ModNPC>("ZeroProtocol").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ZeroP", 22.25f, (Func<bool>)(() => AAWorld.downedZero), mod.Find<ModNPC>("ZeroProtocol").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("ZeroP"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ZeroRune").Type + "]" + Lang.BossCheck("ZeroInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "ZeroPTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnZero").WithFormatArgs("[i: " + ModContent.ItemType<ZeroRune>() + "]"),                    
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<ZeroRune>(),
                     ["collectibles"] = new List<int>
@@ -945,12 +947,12 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Champion Rajah Rabbit
-                AddBoss(bossChecklist, mod, "RajahRabbitRevenge", 19f, (Func<bool>)(() => AAWorld.downedRajahsRevenge), mod.Find<ModNPC>("SupremeRajah").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "RajahRabbitRevenge", 23f, (Func<bool>)(() => AAWorld.downedRajahsRevenge), mod.Find<ModNPC>("SupremeRajah").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("RajahRabbitRevenge"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("DiamondCarrot").Type + "]" + Lang.BossCheck("RajahRabbitRevengeInfo"),
+                    ["displayName"] = Language.GetOrRegister(path + "RajahRTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnRajahR").WithFormatArgs("[i: " + ModContent.ItemType<DiamondCarrot>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
-                    ["spawnItems"] = ModContent.ItemType<GoldenCarrot>(),
+                    ["spawnItems"] = ModContent.ItemType<DiamondCarrot>(),
                     ["collectibles"] = new List<int>
                     {
                         ///ModContent.ItemType<SRajahBox>()
@@ -960,10 +962,10 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Shen
-                AddBoss(bossChecklist, mod, "ShenDoragon", 20f, (Func<bool>)(() => AAWorld.downedShen), mod.Find<ModNPC>("Shen").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ShenDoragon", 24f, (Func<bool>)(() => AAWorld.downedShen), mod.Find<ModNPC>("Shen").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("ShenDoragon"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosSigil").Type + "]",
+                    ["displayName"] = Language.GetOrRegister(path + "ShenTitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnShen").WithFormatArgs("[i: " + ModContent.ItemType<ChaosSigil>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<ChaosSigil>(),
                     ["collectibles"] = new List<int>
@@ -975,10 +977,10 @@ namespace AAModClassic.CrossMod
                     ["customPortrait"] = GetPortrait("Shen")
                 });
 
-                AddBoss(bossChecklist, mod, "ShenDoragonA", 20.1f, (Func<bool>)(() => AAWorld.downedShen), mod.Find<ModNPC>("ShenA").Type, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "ShenDoragonA", 24.1f, (Func<bool>)(() => AAWorld.downedShen), mod.Find<ModNPC>("ShenA").Type, new Dictionary<string, object>()
                 {
-                    ["DisplayName"] = Lang.BossCheck("ShenDoragonA"),
-                    ["spawnInfo"] = Lang.BossCheck("Usea") + "[i:" + AAMod.instance.Find<ModItem>("ChaosRune").Type + "]",
+                    ["displayName"] = Language.GetOrRegister(path + "ShenATitle"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnShen").WithFormatArgs("[i: " + ModContent.ItemType<ChaosRune>() + "]"),                    
                     //["despawnMessage"] = Lang.BossCheck("SubzeroSerpentInfo2"),
                     ["spawnItems"] = ModContent.ItemType<ChaosRune>(),
                     ["collectibles"] = new List<int>
@@ -991,21 +993,6 @@ namespace AAModClassic.CrossMod
                     ["availability"] = (Func<bool>)(() => AAWorld.downedShen && Main.expertMode)
                 });
                 #endregion
-
-                // SlimeKing = 1f;
-                // EyeOfCthulhu = 2f;
-                // EaterOfWorlds = 3f;
-                // QueenBee = 4f;
-                // Skeletron = 5f;
-                // WallOfFlesh = 6f;
-                // TheTwins = 7f;
-                // TheDestroyer = 8f;
-                // SkeletronPrime = 9f;
-                // Plantera = 10f;
-                // Golem = 11f;
-                // DukeFishron = 12f;
-                // LunaticCultist = 13f;
-                // Moonlord = 14f;
             }
         }
 

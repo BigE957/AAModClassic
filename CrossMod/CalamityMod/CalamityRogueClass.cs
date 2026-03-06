@@ -213,10 +213,11 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void SetDefaults(Item item)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
+			if (ModLoader.TryGetMod("CalamityMod", out var calamity))
 			{
-				rogue = (bool) ModSupport.GetModGlobalItemConditions("CalamityMod", item, "CalamityGlobalItem", "rogue", false, false);
-				ModSupport.SetModGlobalItemConditions("CalamityMod", item, "CalamityGlobalItem", "rogue", true, false, false);
+				DamageClass rogueClass = calamity.Find<DamageClass>("RogueDamageClass");
+				rogue = item.CountsAsClass(rogueClass);
+				//ModSupport.SetModGlobalItemConditions("CalamityMod", item, "CalamityGlobalItem", "rogue", true, false, false);
 			}
 		}
 	}
@@ -229,11 +230,12 @@ namespace AAModClassic.CrossMod.CalamityMod
 		public bool stealthStrike = false;
         public override void SetDefaults(Projectile projectile)
 		{
-			if (ModSupport.GetMod("CalamityMod") != null)
-			{
-				rogue = (bool) ModSupport.GetModGlobalProjConditions("CalamityMod", projectile, "CalamityGlobalProjectile", "rogue", false, false);
-				ModSupport.SetModGlobalProjConditions("CalamityMod", projectile, "CalamityGlobalProjectile", "rogue", true, false, false);
-			}
+            if (ModLoader.TryGetMod("CalamityMod", out var calamity))
+            {
+                DamageClass rogueClass = calamity.Find<DamageClass>("RogueDamageClass");
+                rogue = projectile.CountsAsClass(rogueClass);
+                //ModSupport.SetModGlobalProjConditions("CalamityMod", projectile, "CalamityGlobalProjectile", "rogue", true, false, false);
+            }
 		}
 	}
 }

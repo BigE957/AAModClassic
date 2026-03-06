@@ -34,7 +34,7 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == Mod.Find<ModNPC>("AkumaA").Type) CalamityDR = 0.4f;
                 if(npc.type == Mod.Find<ModNPC>("Akuma").Type) CalamityDR = 0.4f;
                 if(npc.type == Mod.Find<ModNPC>("AwakenedLung").Type) CalamityDR = 0.4f;
-                if(npc.type == Mod.Find<ModNPC>("AncientLung").Type) CalamityDR = 0.4f;
+                //if(npc.type == Mod.Find<ModNPC>("AncientLung").Type) CalamityDR = 0.4f;
 
                 if(npc.type == Mod.Find<ModNPC>("AthenaA").Type) CalamityDR = 0.7f;
                 if(npc.type == Mod.Find<ModNPC>("Seraph").Type) CalamityDR = 0.7f;
@@ -61,11 +61,11 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == Mod.Find<ModNPC>("YamataA").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("YamataAHead").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("YamataAHeadF").Type) CalamityDR = 0.5f;
-                if(npc.type == Mod.Find<ModNPC>("YamataAHeadF1").Type) CalamityDR = 0.5f;
-                if(npc.type == Mod.Find<ModNPC>("YamataAHeadF2").Type) CalamityDR = 0.5f;
+                //if(npc.type == Mod.Find<ModNPC>("YamataAHeadF1").Type) CalamityDR = 0.5f;
+                //if(npc.type == Mod.Find<ModNPC>("YamataAHeadF2").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("Yamata").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("YamataHead").Type) CalamityDR = 0.5f;
-                if(npc.type == Mod.Find<ModNPC>("YamataHeadF").Type) CalamityDR = 0.5f;
+                //if(npc.type == Mod.Find<ModNPC>("YamataHeadF").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("YamataHeadF1").Type) CalamityDR = 0.5f;
                 if(npc.type == Mod.Find<ModNPC>("YamataHeadF2").Type) CalamityDR = 0.5f;
 
