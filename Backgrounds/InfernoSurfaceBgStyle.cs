@@ -33,6 +33,16 @@ namespace AAModClassic.Backgrounds
         {
             return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/InfernoBG");
         }
+
+        public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
+        {
+            return base.ChooseCloseTexture(ref scale, ref parallax, ref a, ref b);
+        }
+
+        public override int ChooseMiddleTexture()
+        {
+            return base.ChooseMiddleTexture();
+        }
     }
 
     public class InfernoUgBgStyle : ModUndergroundBackgroundStyle

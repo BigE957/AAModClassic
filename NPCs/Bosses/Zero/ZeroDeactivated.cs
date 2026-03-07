@@ -77,7 +77,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
         public float ShieldScale = 0.5f;
         public float RingRoatation = 0;
 
-        public Color GetGlowAlpha()
+        public static Color GetGlowAlpha()
         {
             return AAColor.ZeroShield;
         }
@@ -132,7 +132,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void LoadWorldData(TagCompound tag)
         {
-			Reset(); //reset it so it doesn't fuck up between world loads	
+            Reset(); //reset it so it doesn't fuck up between world loads	
             if (tag.ContainsKey("ZX"))
             {
                 ZX = tag.GetInt("ZX");
@@ -150,7 +150,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
         }
 
-		public void Reset()
+		public static void Reset()
 		{
 			ZX = -1;
 			ZY = -1;

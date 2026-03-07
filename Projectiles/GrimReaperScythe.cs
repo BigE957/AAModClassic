@@ -26,7 +26,7 @@ namespace AAModClassic.Projectiles
 		{
 			if (Projectile.localAI[0] == 0f)
 			{
-				AdjustMagnitude(ref Projectile.velocity);
+                AdjustMagnitude(ref Projectile.velocity);
 				Projectile.localAI[0] = 1f;
 			}
 			Vector2 move = Vector2.Zero;
@@ -48,13 +48,13 @@ namespace AAModClassic.Projectiles
 			}
 			if (target)
 			{
-				AdjustMagnitude(ref move);
+                AdjustMagnitude(ref move);
 				Projectile.velocity = (10 * Projectile.velocity + move) / 11f;
-				AdjustMagnitude(ref Projectile.velocity);
+                AdjustMagnitude(ref Projectile.velocity);
 			}
 		}
 
-		private void AdjustMagnitude(ref Vector2 vector)
+		private static void AdjustMagnitude(ref Vector2 vector)
 		{
 			float magnitude = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
 			if (magnitude > 6f)

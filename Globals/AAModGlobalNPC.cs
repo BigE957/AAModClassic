@@ -54,7 +54,7 @@ namespace AAModClassic.Globals
 
         public override bool InstancePerEntity => true;
 
-        public bool IsBunny(NPC npc)
+        public static bool IsBunny(NPC npc)
         {
             return npc.type == NPCID.Bunny || npc.type == NPCID.GoldBunny || npc.type == NPCID.BunnySlimed || npc.type == NPCID.BunnyXmas || npc.type == NPCID.PartyBunny;
         }
@@ -140,7 +140,7 @@ namespace AAModClassic.Globals
             if(npc.lifeMax > 0) ApplyDPSDebuff(FFlames, 40 * (npc.life / npc.lifeMax), ref npc.lifeRegen);
         }
 
-        public void ApplyDPSDebuff(bool debuff, int lifeRegenValue, int damageValue, ref int lifeRegen, ref int damage)
+        public static void ApplyDPSDebuff(bool debuff, int lifeRegenValue, int damageValue, ref int lifeRegen, ref int damage)
         {
             if (debuff)
             {
@@ -158,7 +158,7 @@ namespace AAModClassic.Globals
             }
         }
 
-        public void ApplyDPSDebuff(bool debuff, int lifeRegenValue, ref int lifeRegen)
+        public static void ApplyDPSDebuff(bool debuff, int lifeRegenValue, ref int lifeRegen)
         {
             if (debuff)
             {
@@ -827,7 +827,7 @@ namespace AAModClassic.Globals
 
         }
 
-        public void ClearPoolWithExceptions(IDictionary<int, float> pool)
+        public static void ClearPoolWithExceptions(IDictionary<int, float> pool)
         {
             try
             {
@@ -1099,7 +1099,7 @@ namespace AAModClassic.Globals
             }
         }
 
-        public void VanillaNPCSpawn(Player player)
+        public static void VanillaNPCSpawn(Player player)
         {
             int spawnRangeXMin = (int)(player.position.X / 16f) - (int)(NPC.sWidth / 16 * 0.7);
             int spawnRangeXMax = (int)(player.position.X / 16f) + (int)(NPC.sWidth / 16 * 0.7);

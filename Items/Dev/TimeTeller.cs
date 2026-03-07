@@ -63,7 +63,7 @@ namespace AAModClassic.Items.Dev
                 player.accWatch = 3;
         }
 		
-		public float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
+		public static float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
 		{
 			int minDamage = baseDamage; //this is the damage you set in SetDefaults.
 			int maxDamage = 350; //this is the damage you get at midday/midnight.

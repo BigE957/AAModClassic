@@ -308,7 +308,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         }
 		
 		
-		public Color GetGlowAlpha()
+		public static Color GetGlowAlpha()
 		{
 			return ColorUtils.COLOR_GLOWPULSE;
 		}

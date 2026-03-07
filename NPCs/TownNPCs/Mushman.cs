@@ -442,7 +442,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
         }
 
-        public string NoMushroomChat()
+        public static string NoMushroomChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
             chat.Add(Lang.TownNPCMushman("NoMushroomChat1"));
@@ -451,7 +451,7 @@ namespace AAModClassic.NPCs.TownNPCs
             return chat;
         }
 
-        public string SpecialChat()
+        public static string SpecialChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
             chat.Add(Lang.TownNPCMushman("SpecialChat1"));
@@ -460,7 +460,7 @@ namespace AAModClassic.NPCs.TownNPCs
             return chat;
         }
 
-        public string MushroomChat()
+        public static string MushroomChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
             chat.Add(Lang.TownNPCMushman("MushroomChat1"));

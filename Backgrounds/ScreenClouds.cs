@@ -74,7 +74,7 @@ namespace AAModClassic.Backgrounds
             if(setSB) Main.spriteBatch.End();
         }
 
-		public Color GetAlpha(Color newColor, float alph)
+		public static Color GetAlpha(Color newColor, float alph)
 		{
 			int alpha = 255 - (int)(255 * alph);
 			float alphaDiff = (255 - alpha) / 255f;

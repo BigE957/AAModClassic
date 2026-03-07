@@ -73,7 +73,7 @@ namespace AAModClassic.Projectiles
             Projectile.rotation += 0.3f * Projectile.direction;
         }
 
-        public void Convert(int i, int j, int size = 4)
+        public static void Convert(int i, int j, int size = 4)
         {
             for (int k = i - size; k <= i + size; k++)
             {

@@ -90,7 +90,7 @@ namespace AAModClassic.Backgrounds
             return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
         }
 
-        public Color GetAlpha(Color newColor, float alph)
+        public static Color GetAlpha(Color newColor, float alph)
         {
             int alpha = 255 - (int)(255 * alph);
             float alphaDiff = (255 - alpha) / 255f;
@@ -109,13 +109,13 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D boltTexture = mod.GetTexture("Backgrounds/AthenaBolt");
-            Texture2D flashTexture = mod.GetTexture("Backgrounds/AthenaFlash");
+            Texture2D boltTexture = AAMod.GetTexture("Backgrounds/AthenaBolt");
+            Texture2D flashTexture = AAMod.GetTexture("Backgrounds/AthenaFlash");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                clouds.Update(mod.GetTexture("Backgrounds/FogTex"));
-                clouds.Draw(mod.GetTexture("Backgrounds/FogTex"), false, Color.CornflowerBlue, true);
+                clouds.Update(AAMod.GetTexture("Backgrounds/FogTex"));
+                clouds.Draw(AAMod.GetTexture("Backgrounds/FogTex"), false, Color.CornflowerBlue, true);
             }
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
@@ -180,7 +180,7 @@ namespace AAModClassic.Backgrounds
         {
         }
 
-        private void UpdateAthenaSky()
+        private static void UpdateAthenaSky()
         {
             if (NPC.AnyNPCs(ModContent.NPCType<AthenaA>()))
             {
@@ -262,7 +262,7 @@ namespace AAModClassic.Backgrounds
             if (setSB) Main.spriteBatch.End();
         }
 
-        public Color GetAlpha(Color newColor, float alph)
+        public static Color GetAlpha(Color newColor, float alph)
         {
             int alpha = 255 - (int)(255 * alph);
             float alphaDiff = (255 - alpha) / 255f;

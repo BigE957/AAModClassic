@@ -217,7 +217,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             }
         }
 
-        public Color GetGlowAlpha()
+        public static Color GetGlowAlpha()
         {
             return AAColor.ZeroShield * (Main.mouseTextColor / 255f);
         }

@@ -715,11 +715,11 @@ namespace AAModClassic.NPCs.Bosses.Shen
             }
         }
 
-        public bool DownedRag => (bool)ModSupport.GetModWorldConditions("ThoriumMod", "ThoriumWorld", "downedRealityBreaker", false, true);
-        public bool DownedScal => (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "downedSCal", false, true);
-        public bool DownedMantid => (bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
-        public bool DownedNeb => (bool)ModSupport.GetModWorldConditions("Redemption", "RedeWorld", "downedNebuleus", false, true);
-        public bool DownedOverseer => (bool)ModSupport.GetModWorldConditions("SpiritMod", "MyWorld", "downedOverseer", false, true);
+        public static bool DownedRag => (bool)ModSupport.GetModWorldConditions("ThoriumMod", "ThoriumWorld", "downedRealityBreaker", false, true);
+        public static bool DownedScal => (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "downedSCal", false, true);
+        public static bool DownedMantid => (bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
+        public static bool DownedNeb => (bool)ModSupport.GetModWorldConditions("Redemption", "RedeWorld", "downedNebuleus", false, true);
+        public static bool DownedOverseer => (bool)ModSupport.GetModWorldConditions("SpiritMod", "MyWorld", "downedOverseer", false, true);
         //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
 
         public string BossDialogue()

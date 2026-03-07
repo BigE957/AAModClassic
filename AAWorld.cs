@@ -888,7 +888,7 @@ namespace AAModClassic
             }
         }
 
-        private void GenPrisms(GenerationProgress progress)
+        private static void GenPrisms(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("LegacyWorldGen.23");
             int amount = (int)(Main.maxTilesX * 0.4f * 0.2f);
@@ -969,7 +969,7 @@ namespace AAModClassic
             progress.Set(1f);
         }
 
-        public int BlockLining(double x, double y, int repeats, int tileType, bool random, int max, int min = 3)
+        public static int BlockLining(double x, double y, int repeats, int tileType, bool random, int max, int min = 3)
         {
             for (double i = x; i < x + repeats; i++)
             {
@@ -1008,7 +1008,7 @@ namespace AAModClassic
             }
         }
 
-        private void Altars(GenerationProgress progress)
+        private static void Altars(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildAltars");
             for (int num = 0; num < Main.maxTilesX / 390; num++)
@@ -1540,7 +1540,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void Terrarium(GenerationProgress progress)
+        private static void Terrarium(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
@@ -1551,7 +1551,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void Acropolis(GenerationProgress progress)
+        private static void Acropolis(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildAcropolis");
             Point origin = new Point((int)(Main.maxTilesX * 0.65f), 100);
@@ -1559,7 +1559,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void Hoard(GenerationProgress progress)
+        private static void Hoard(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildHoard");
             Point origin = new Point((int)(Main.maxTilesX * 0.3f), (int)(Main.maxTilesY * 0.65f));
@@ -1569,7 +1569,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void EquinoxAlt(GenerationProgress progress)
+        private static void EquinoxAlt(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildEquinoxAlt");
             Point origin = new Point((int)(Main.maxTilesX * 0.15f), 100);
@@ -1577,7 +1577,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void EnderShrine()
+        private static void EnderShrine()
         {
             Point origin = new Point((int)(Main.maxTilesX * 0.2f), (int)(Main.maxTilesY * 0.75f));
             if (Main.dungeonX > Main.maxTilesX / 2)
@@ -1588,7 +1588,7 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private void ThePit(GenerationProgress progress)
+        private static void ThePit(GenerationProgress progress)
         {
             progress.Message = "Sinking the Pit";
             Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 200);

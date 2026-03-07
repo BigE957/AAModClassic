@@ -378,7 +378,7 @@ namespace AAModClassic.Globals
             }
 		}
 
-        private void ghostHurt(Projectile projectile, int dmg, Vector2 Position)
+        private static void ghostHurt(Projectile projectile, int dmg, Vector2 Position)
 		{
 			int num = projectile.damage / 2;
 			if (dmg / 2 <= 1)

@@ -62,7 +62,7 @@ namespace AAModClassic.Tiles.Altar
 
         public static Color lightColor = Color.Violet;
 
-        public Color GetColor(Color color)
+        public static Color GetColor(Color color)
         {
             Color glowColor = Color.White;
             return glowColor;

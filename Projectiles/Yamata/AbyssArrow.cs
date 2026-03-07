@@ -121,7 +121,7 @@ namespace AAModClassic.Projectiles.Yamata
                  -Projectile.velocity.Y * 0.2f, 100, default);
                 }
 	        }
-        private float inaccuracy()
+        private static float inaccuracy()
         {
             return Main.rand.NextFloatDirection() * 1.5f;
         }

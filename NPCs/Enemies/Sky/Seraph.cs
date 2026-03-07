@@ -151,7 +151,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SeraphFeather").Type);
         }
 
-        public string SeraphBitching()
+        public static string SeraphBitching()
         {
             switch (Main.rand.Next(5))
             {
@@ -162,7 +162,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 default: return Lang.EnemyChat("SeraphChat5");
             }
         }
-        public string SeraphBitchingKill()
+        public static string SeraphBitchingKill()
         {
             switch (Main.rand.Next(5))
             {

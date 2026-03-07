@@ -3705,7 +3705,7 @@ namespace AAModClassic
 
         #region Highest Damage check
 
-        public bool MeleeHighest(Player player)
+        public static bool MeleeHighest(Player player)
         {
             return player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
                 player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Magic).Flat &&
@@ -3713,7 +3713,7 @@ namespace AAModClassic
                 player.GetDamage(DamageClass.Melee).Flat > player.GetDamage(DamageClass.Throwing).Flat;
         }
 
-        public bool RangedHighest(Player player)
+        public static bool RangedHighest(Player player)
         {
             return player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Melee).Flat &&
                 player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Magic).Flat &&
@@ -3721,7 +3721,7 @@ namespace AAModClassic
                 player.GetDamage(DamageClass.Ranged).Flat > player.GetDamage(DamageClass.Throwing).Flat;
         }
 
-        public bool MagicHighest(Player player)
+        public static bool MagicHighest(Player player)
         {
             return player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
                 player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Melee).Flat &&
@@ -3729,7 +3729,7 @@ namespace AAModClassic
                 player.GetDamage(DamageClass.Magic).Flat > player.GetDamage(DamageClass.Throwing).Flat;
         }
 
-        public bool SummonHighest(Player player)
+        public static bool SummonHighest(Player player)
         {
             return player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
                 player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Magic).Flat &&
@@ -3737,7 +3737,7 @@ namespace AAModClassic
                 player.GetDamage(DamageClass.Summon).Flat > player.GetDamage(DamageClass.Throwing).Flat;
         }
 
-        public bool ThrownHighest(Player player)
+        public static bool ThrownHighest(Player player)
         {
             return player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Ranged).Flat &&
                 player.GetDamage(DamageClass.Throwing).Flat > player.GetDamage(DamageClass.Magic).Flat &&

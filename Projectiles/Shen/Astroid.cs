@@ -214,7 +214,7 @@ namespace AAModClassic.Projectiles.Shen
         public override bool PreDraw(ref Color lightColor)
         {
 			
-            Texture2D texture = AAMod.instance.GetTexture("Chains/Astroid_Chain");
+            Texture2D texture = AAMod.GetTexture("Chains/Astroid_Chain");
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;

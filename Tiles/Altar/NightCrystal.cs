@@ -46,7 +46,7 @@ namespace AAModClassic.Tiles.Altar
             Main.spriteBatch.Draw(TextureAssets.Tile[Type].Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), c(), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
-        public Color c()
+        public static Color c()
         {
             if (AAWorld.GravActive)
             {

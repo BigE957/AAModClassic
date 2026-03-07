@@ -591,7 +591,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex = internalAI[2] != 1 ? AAMod.instance.GetTexture("NPCs/Bosses/Athena/SassyBitch") : TextureAssets.Npc[NPC.type].Value;
+            Texture2D tex = internalAI[2] != 1 ? AAMod.GetTexture("NPCs/Bosses/Athena/SassyBitch") : TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetLightColor(NPC.Center);
 
             if (NPC.ai[2] == 1)

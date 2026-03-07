@@ -51,14 +51,14 @@ namespace AAModClassic.Tiles.Crafters
 
         public Texture2D glowTex = null;
 
-        public Color GetColor(Color color)
+        public static Color GetColor(Color color)
         {
             Color glowColor = AAColor.ZeroShield;
             return glowColor;
         }
 
 
-        public Color White(Color color)
+        public static Color White(Color color)
         {
             return Color.White;
         }

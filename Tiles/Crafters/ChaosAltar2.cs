@@ -59,7 +59,7 @@ namespace AAModClassic.Tiles.Crafters
             WorldGen.SmashAltar(i, j);
         }
 
-        public void DamagePlayer (Player player)
+        public static void DamagePlayer (Player player)
         {
             player.statLife -= player.statLifeMax / 10;
         }

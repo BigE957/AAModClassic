@@ -33,7 +33,7 @@ namespace AAModClassic.Backgrounds
             if (fadeOpacity == 0f) return; //don't draw if no fog
             Main.spriteBatch.Begin();
             Player player = Main.LocalPlayer;
-            Texture2D fog = AAMod.instance.GetTexture("Backgrounds/FogTex");
+            Texture2D fog = AAMod.GetTexture("Backgrounds/FogTex");
 
             Color DefaultFog = new Color(62, 68, 100);
             Color YamataFog = new Color(100, 38, 62);
@@ -72,7 +72,7 @@ namespace AAModClassic.Backgrounds
 
             Player player = Main.LocalPlayer;
 
-            Texture2D fog = AAMod.instance.GetTexture("Backgrounds/fog");
+            Texture2D fog = AAMod.GetTexture("Backgrounds/fog");
 
             bool inMire = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
             if (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AAWorld.downedYamata) inMire = false;
@@ -109,7 +109,7 @@ namespace AAModClassic.Backgrounds
             return shader.CombinedOpacity > 0f;
         }
 
-        public Color GetAlpha(Color newColor, float alph)
+        public static Color GetAlpha(Color newColor, float alph)
         {
             int alpha = 255 - (int)(255 * alph);
             float alphaDiff = (255 - alpha) / 255f;

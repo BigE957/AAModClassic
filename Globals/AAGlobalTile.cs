@@ -326,7 +326,7 @@ namespace AAModClassic.Globals
             return false;
         }
 
-        public void PotsDropMethod(int i, int j)
+        public static void PotsDropMethod(int i, int j)
         {
             int itemcreat = 0;
             if (WorldGen.genRand.Next(30) == 0 || (Main.rand.Next(30) == 0 && Main.expertMode))

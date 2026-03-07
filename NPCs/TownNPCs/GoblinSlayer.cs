@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public static int ChatNumber = 0;
 
-        public void ResetBools()
+        public static void ResetBools()
         {
             Goblin = false;
             Blood = false;

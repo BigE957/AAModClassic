@@ -50,7 +50,7 @@ Can only be used in the underground jungle"); */
             return false;
         }
 
-        public void SpawnBoss(Player player, int npc, string displayName)
+        public static void SpawnBoss(Player player, int npc, string displayName)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

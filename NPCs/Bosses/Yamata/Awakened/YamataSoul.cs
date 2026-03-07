@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             }
         }
 
-        public Color GetGlowAlpha()
+        public static Color GetGlowAlpha()
         {
             return new Color(200, 0, 50) * (Main.mouseTextColor / 255f);
         }

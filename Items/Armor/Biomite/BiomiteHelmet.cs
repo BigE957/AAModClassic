@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Armor.Biomite
 			recipe.Register();
 		}
 
-		public string SetBonus(Player player)
+		public static string SetBonus(Player player)
 		{
 			string set = "";
 			if (Main.dayTime)

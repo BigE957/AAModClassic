@@ -496,7 +496,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
             MakeSegmentsImmune(NPC, player.whoAmI);
         }
 
-        public void MakeSegmentsImmune(NPC npc, int id)
+        public static void MakeSegmentsImmune(NPC npc, int id)
         {
             if (npc.realLife >= 0)
             {

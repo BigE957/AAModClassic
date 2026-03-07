@@ -53,17 +53,20 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = mod.GetTexture("Backgrounds/Sun");
-            Texture2D demonSun = mod.GetTexture("Backgrounds/DemonSun");
-            Texture2D MeteorTexture = mod.GetTexture("Backgrounds/AkumaMeteor");
-            Texture2D SkyTex = mod.GetTexture("Backgrounds/SkyTex");
+            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/Sun");
+            Texture2D demonSun = AAMod.GetTexture("Backgrounds/DemonSun");
+            Texture2D MeteorTexture = AAMod.GetTexture("Backgrounds/AkumaMeteor");
+            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/SkyTex");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (Main.dayTime)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
+                    if(Main.gameMenu)
+                        spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.OrangeRed * Intensity);
+                    else
+                        spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
                     float num64 = 1f;
                     num64 -= Main.cloudAlpha * 1.5f;
                     if (num64 < 0f)
@@ -91,14 +94,10 @@ namespace AAModClassic.Backgrounds
                         num22 = (float)(1.2 - num26 * 0.4);
                     }
                     Color color6 = new Color((byte)(255f * num64), (byte)(Color.White.G * num64), (byte)(Color.White.B * num64), (byte)(255f * num64));
-                    if (BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
-                    {
+                    if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
                         Main.spriteBatch.Draw(demonSun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, demonSun.Width, demonSun.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
-                    }
                     else
-                    {
-                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
-                    }
+                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
                 }
             }
             int num = -1;
@@ -175,7 +174,8 @@ namespace AAModClassic.Backgrounds
 
         public override void Deactivate(params object[] args)
         {
-            Active = false;
+            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneInferno) || (args.Length > 0 && (bool)args[0] == true))
+                Active = false;
         }
 
         public override void Reset()
@@ -196,9 +196,8 @@ namespace AAModClassic.Backgrounds
 
         }
 
-        private void UpdateInfernoSky()
+        private static void UpdateInfernoSky()
         {
-            AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
             if (AAWorld.infernoTiles < 100)
             {
                 return;

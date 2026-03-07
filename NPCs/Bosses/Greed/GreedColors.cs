@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public static Color Technecium => new Color(68, 81, 112); public static Color TechneciumGlow => new Color(96, 225, 225);
 
-        public Color MainColor(int type)
+        public static Color MainColor(int type)
         {
             switch (type)
             {
@@ -79,7 +79,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 default: return Technecium;
             }
         }
-        public Color GlowColor(int type)
+        public static Color GlowColor(int type)
         {
             switch (type)
             {

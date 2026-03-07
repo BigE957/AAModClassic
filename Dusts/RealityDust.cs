@@ -32,7 +32,7 @@ namespace AAModClassic.Dusts
             }
             return true;
         }
-        public Color GetAlpha(Color newColor)
+        public static Color GetAlpha(Color newColor)
         {
             return new Color(255, 255, 255, 0);
         }

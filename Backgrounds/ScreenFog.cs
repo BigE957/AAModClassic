@@ -23,7 +23,7 @@ namespace AAModClassic.Backgrounds
 
         public void Update(Texture2D texture)
         {
-			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
+			if(Main.netMode == NetmodeID.Server || Main.dedServ || Main.gameMenu) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
 			Player player = Main.LocalPlayer;
 			bool inMire = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
@@ -88,7 +88,7 @@ namespace AAModClassic.Backgrounds
             if(setSB) Main.spriteBatch.End();
         }
 
-		public Color GetAlpha(Color newColor, float alph)
+		public static Color GetAlpha(Color newColor, float alph)
 		{
 			int alpha = 255 - (int)(255 * alph);
 			float alphaDiff = (255 - alpha) / 255f;

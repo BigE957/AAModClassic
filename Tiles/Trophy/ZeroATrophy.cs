@@ -33,7 +33,7 @@ namespace AAModClassic.Tiles.Trophy
             }
         }
 
-        public Color Glow(Color color)
+        public static Color Glow(Color color)
         {
             return ColorUtils.COLOR_GLOWPULSE;
         }

@@ -220,7 +220,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], Mod.Find<ModNPC>("Shen").Type, false, NPC.Center, "");
         }
 
-        public Color GetColorAlpha()
+        public static Color GetColorAlpha()
         {
             return new Color(233, 0, 233) * (Main.mouseTextColor / 255f);
         }
@@ -560,7 +560,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("ShenA").Type, false, NPC.Center, "Shen Awakened", false);
         }
 
-        public Color GetColorAlpha()
+        public static Color GetColorAlpha()
         {
             return new Color(233, 0, 233) * (Main.mouseTextColor / 255f);
         }

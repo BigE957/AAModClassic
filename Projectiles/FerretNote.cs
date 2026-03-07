@@ -80,7 +80,7 @@ namespace AAModClassic.Projectiles
 			}
 		}	
 
-		public bool CanTarget(NPC npc)
+		public static bool CanTarget(NPC npc)
 		{
 			return npc.active && npc.life > 0 && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5;
 		}	

@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             }
         }
 
-        public string SeraphBitching()
+        public static string SeraphBitching()
         {
             switch (Main.rand.Next(5))
             {

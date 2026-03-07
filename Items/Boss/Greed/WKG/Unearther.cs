@@ -53,7 +53,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             }
             return true;
         }
-        public bool PickCheck(Tile tile, int pickPower)
+        public static bool PickCheck(Tile tile, int pickPower)
         {
             ModTile tile2 = TileLoader.GetTile(tile.TileType);
             if (tile.TileType == TileID.Chlorophyte && pickPower < 200)

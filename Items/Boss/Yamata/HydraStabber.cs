@@ -86,7 +86,7 @@ IInflicts Moonraze"); */
             }
         }
 
-        public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public static void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
         }

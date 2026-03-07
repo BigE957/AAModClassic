@@ -81,7 +81,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 		
 				
 
-        public Color GetGlowAlpha()
+        public static Color GetGlowAlpha()
         {
             return new Color(220, 150, 150) * (Main.mouseTextColor / 255f);
         }

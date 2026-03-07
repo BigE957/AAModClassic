@@ -785,7 +785,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 			}
         }
 
-		public Color GetAuraAlpha()
+		public static Color GetAuraAlpha()
 		{
 			Color c = Color.White * (Main.mouseTextColor / 255f);
 			//c.A = 255;
@@ -819,7 +819,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             }
         }
 
-        private void ModifyCritArea(NPC npc, ref NPC.HitModifiers modifiers)
+        private static void ModifyCritArea(NPC npc, ref NPC.HitModifiers modifiers)
         {
             if (npc.realLife >= 0)
             {
@@ -843,7 +843,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             }
         }
 
-        public void MakeSegmentsImmune(NPC npc, int id)
+        public static void MakeSegmentsImmune(NPC npc, int id)
         {
             if (npc.realLife >= 0)
             {

@@ -104,7 +104,7 @@ namespace AAModClassic.Backgrounds
             return (aura ? infinityGlowRed : Color.White) * (Main.mouseTextColor / 255f);
         }
 
-        public Color GetAlpha(Color newColor, float alph)
+        public static Color GetAlpha(Color newColor, float alph)
         {
             int alpha = 255 - (int)(255 * alph);
             float alphaDiff = (255 - alpha) / 255f;
@@ -121,15 +121,15 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = mod.GetTexture("Backgrounds/VoidBH");
-            Texture2D Asteroids1 = mod.GetTexture("Backgrounds/Asteroids1");
-            Texture2D Asteroids2 = mod.GetTexture("Backgrounds/Asteroids2");
-            Texture2D Asteroids3 = mod.GetTexture("Backgrounds/Asteroids3");
-            Texture2D Echo = mod.GetTexture("Backgrounds/Echo");
-            Texture2D LB = mod.GetTexture("Backgrounds/LB");
-            Texture2D boltTexture = mod.GetTexture("Backgrounds/VoidBolt");
-            Texture2D flashTexture = mod.GetTexture("Backgrounds/VoidFlash");
-            Texture2D Stars = mod.GetTexture("Backgrounds/Void_Starfield");
+            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/VoidBH");
+            Texture2D Asteroids1 = AAMod.GetTexture("Backgrounds/Asteroids1");
+            Texture2D Asteroids2 = AAMod.GetTexture("Backgrounds/Asteroids2");
+            Texture2D Asteroids3 = AAMod.GetTexture("Backgrounds/Asteroids3");
+            Texture2D Echo = AAMod.GetTexture("Backgrounds/Echo");
+            Texture2D LB = AAMod.GetTexture("Backgrounds/LB");
+            Texture2D boltTexture = AAMod.GetTexture("Backgrounds/VoidBolt");
+            Texture2D flashTexture = AAMod.GetTexture("Backgrounds/VoidFlash");
+            Texture2D Stars = AAMod.GetTexture("Backgrounds/Void_Starfield");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
@@ -213,7 +213,8 @@ namespace AAModClassic.Backgrounds
 
         public override void Deactivate(params object[] args)
         {
-            Active = false;
+            if (!Main.gameMenu || (args.Length > 0 && (bool)args[0] == true))
+                Active = false;
         }
 
         public override void Reset()
@@ -233,9 +234,8 @@ namespace AAModClassic.Backgrounds
         {
         }
 
-        private void UpdateVoidSky()
+        private static void UpdateVoidSky()
         {
-            AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
             if (AAWorld.voidTiles < 100)
             {
                 return;

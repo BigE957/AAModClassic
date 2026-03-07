@@ -414,7 +414,7 @@ namespace AAModClassic.Base.BaseMod.Base
         /* 
          * Returns a color of the rainbow. Percent goes from 0 to 1.
          */
-        public Color Rainbow(float percent)
+        public static Color Rainbow(float percent)
         {
             Color r = new(255, 50, 50);
             Color g = new(50, 255, 50);

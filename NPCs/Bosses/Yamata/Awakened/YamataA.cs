@@ -492,7 +492,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             NPC.rotation = 0f;
         }
 
-        public void YamataBody(NPC npc, ref float[] ai, bool ignoreWet = true, float moveInterval = 0.2f, float maxSpeedX = 2f, float maxSpeedY = 1.5f, float hoverInterval = 0.04f, float hoverMaxSpeed = 1.5f, int hoverHeight = 3)
+        public static void YamataBody(NPC npc, ref float[] ai, bool ignoreWet = true, float moveInterval = 0.2f, float maxSpeedX = 2f, float maxSpeedY = 1.5f, float hoverInterval = 0.04f, float hoverMaxSpeed = 1.5f, int hoverHeight = 3)
         {
             bool flyUpward = false;
             if (npc.justHit) { ai[2] = 0f; }

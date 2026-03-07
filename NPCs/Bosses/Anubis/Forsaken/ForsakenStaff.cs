@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             ReflectProjectiles(Projectile.Hitbox);
         }
 
-        public void ReflectProjectiles(Rectangle myRect)
+        public static void ReflectProjectiles(Rectangle myRect)
         {
             for (int i = 0; i < 1000; i++)
             {

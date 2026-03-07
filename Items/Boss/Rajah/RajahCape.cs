@@ -39,27 +39,27 @@ All effects of the Sash of Vengeance
             Color damageColor = Color.Firebrick;
             string DamageType = "";
 
-            if (modPlayer.MeleeHighest(player))
+            if (AAPlayer.MeleeHighest(player))
             {
                 DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipMelee");
                 damageColor = Color.Firebrick;
             }
-            else if (modPlayer.RangedHighest(player))
+            else if (AAPlayer.RangedHighest(player))
             {
                 DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipRanged");
                 damageColor = Color.SeaGreen;
             }
-            else if (modPlayer.MagicHighest(player))
+            else if (AAPlayer.MagicHighest(player))
             {
                 DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipMagic");
                 damageColor = Color.Violet;
             }
-            else if (modPlayer.SummonHighest(player))
+            else if (AAPlayer.SummonHighest(player))
             {
                 DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipSummoning");
                 damageColor = Color.Cyan;
             }
-            else if (modPlayer.ThrownHighest(player))
+            else if (AAPlayer.ThrownHighest(player))
             {
                 DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipThrowing");
                 damageColor = Color.DarkOrange;
@@ -90,29 +90,29 @@ All effects of the Sash of Vengeance
             player.moveSpeed += Speed(player);
             player.GetModPlayer<AAPlayer>().MaxMovespeedboost += Speed(player);
 
-            if (modPlayer.MeleeHighest(player))
+            if (AAPlayer.MeleeHighest(player))
             {
                 player.GetDamage(DamageClass.Melee) += DamageBoost(player);
             }
-            else if (modPlayer.RangedHighest(player))
+            else if (AAPlayer.RangedHighest(player))
             {
                 player.GetDamage(DamageClass.Ranged) += DamageBoost(player);
             }
-            else if (modPlayer.MagicHighest(player))
+            else if (AAPlayer.MagicHighest(player))
             {
                 player.GetDamage(DamageClass.Magic) += DamageBoost(player);
             }
-            else if (modPlayer.SummonHighest(player))
+            else if (AAPlayer.SummonHighest(player))
             {
                 player.GetDamage(DamageClass.Summon) += DamageBoost(player);
             }
-            else if (modPlayer.ThrownHighest(player))
+            else if (AAPlayer.ThrownHighest(player))
             {
                 player.GetDamage(DamageClass.Throwing) += DamageBoost(player);
             }
         }
 
-        public float DamageBoost(Player player)
+        public static float DamageBoost(Player player)
         {
             if (player.statLife <= player.statLifeMax2 * .1f)
             {
@@ -154,7 +154,7 @@ All effects of the Sash of Vengeance
             return 0f;
         }
 
-        public float Speed(Player player)
+        public static float Speed(Player player)
         {
             if (player.statLife <= player.statLifeMax2 * .1f)
             {

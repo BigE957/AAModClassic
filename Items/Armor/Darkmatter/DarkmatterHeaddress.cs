@@ -160,7 +160,7 @@ Dark, yet still barely visible"); */
                 }
             }
         }
-        int EstimatedDamage(Projectile projectile)
+        static int EstimatedDamage(Projectile projectile)
         {
             return projectile.damage * (Main.expertMode ? 4 : 2);
         }

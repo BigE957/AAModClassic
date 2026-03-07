@@ -330,7 +330,7 @@ namespace AAModClassic.NPCs.TownNPCs
             }
         }
 
-        public void ResetBools()
+        public static void ResetBools()
         {
             DoNext = false;
             Mushroom = false;
@@ -360,7 +360,7 @@ namespace AAModClassic.NPCs.TownNPCs
 		{
 			if (firstButton)
 			{
-				ResetBools();
+                ResetBools();
 				ChatNumber += 1;
 				if (ChatNumber > 21)
 				{
@@ -815,7 +815,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         }
 
-        public int FindFemaleNPC()
+        public static int FindFemaleNPC()
         {
             int FemaleNPC = Main.rand.Next(6);
             switch (FemaleNPC)

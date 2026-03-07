@@ -85,7 +85,7 @@ namespace AAModClassic.Items.Armor.Champion.Drone
             }
         }
 
-        public bool CanTarget(Entity codable, Vector2 startPos)
+        public static bool CanTarget(Entity codable, Vector2 startPos)
         {
             if (codable is NPC npc)
             {

@@ -878,7 +878,7 @@ namespace AAModClassic.World
             return true;
         }
 
-        public void HoardChest(int x, int y, int specialItem = 0)
+        public static void HoardChest(int x, int y, int specialItem = 0)
         {
             int PlacementSuccess = WorldGen.PlaceChest(x, y, (ushort)ModContent.TileType<GreedChest>(), false, 1);
 

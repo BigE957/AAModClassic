@@ -61,15 +61,15 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = mod.GetTexture("Backgrounds/YamataMoon");
-            Texture2D BeamTexture = mod.GetTexture("Backgrounds/YamataBeam");
+            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/YamataMoon");
+            Texture2D BeamTexture = AAMod.GetTexture("Backgrounds/YamataBeam");
             Texture2D[] RockTextures = new Texture2D[3];
             for (int i = 0; i < RockTextures.Length; i++)
             {
-                RockTextures[i] = mod.GetTexture("Backgrounds/YamataRock" + i);
+                RockTextures[i] = AAMod.GetTexture("Backgrounds/YamataRock" + i);
             }
 
-            Texture2D SkyTex = mod.GetTexture("Backgrounds/YamataStars");
+            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/YamataStars");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

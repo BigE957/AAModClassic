@@ -51,7 +51,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             return true;
         }
 
-        public string MapChestName(string name, int i, int j)
+        public static string MapChestName(string name, int i, int j)
         {
             int left = i;
             int top = j;
@@ -204,7 +204,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
         }
 
 
-        public Color White(Color color)
+        public static Color White(Color color)
         {
             return Color.White;
         }

@@ -81,8 +81,8 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D MeteorTexture = mod.GetTexture("Backgrounds/ShenMeteor");
-            Texture2D SkyTex = mod.GetTexture("Backgrounds/ShenBg");
+            Texture2D MeteorTexture = AAMod.GetTexture("Backgrounds/ShenMeteor");
+            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/ShenBg");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {

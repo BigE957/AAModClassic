@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Dev
             recipe.Register();
         }
 
-        public float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
+        public static float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
         {
             int minDamage = baseDamage; //this is the damage you set in SetDefaults.
             int maxDamage = 500; //this is the damage you get at midday/midnight.

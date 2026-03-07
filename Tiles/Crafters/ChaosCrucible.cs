@@ -48,7 +48,7 @@ namespace AAModClassic.Tiles.Crafters
             b = 0.50f;
         }
 
-        public Color White(Color color)
+        public static Color White(Color color)
         {
             return Color.White;
         }

@@ -41,12 +41,10 @@ namespace AAModClassic.Backgrounds
             return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
         }
 
-        readonly AAMod mod = AAMod.instance;
-
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = mod.GetTexture("Backgrounds/Moon");
-            Texture2D SkyTexture = mod.GetTexture("Backgrounds/MireSky");
+            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/Moon");
+            Texture2D SkyTexture = AAMod.GetTexture("Backgrounds/MireSky");
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (!Main.dayTime)
@@ -87,7 +85,7 @@ namespace AAModClassic.Backgrounds
                     white2.G = (byte)(white2.G * num65);
                     white2.B = (byte)(white2.B * num65);
                     white2.A = (byte)(white2.A * num65);
-                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + Main.moonModY), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
                 }
             }
         }
@@ -105,7 +103,8 @@ namespace AAModClassic.Backgrounds
 
         public override void Deactivate(params object[] args)
         {
-            Active = false;
+            if(!Main.gameMenu || (args.Length > 0 && (bool)args[0] == true))
+                Active = false;
         }
 
         public override void Reset()
@@ -125,7 +124,7 @@ namespace AAModClassic.Backgrounds
         {
         }
 
-        private void UpdateMireSky()
+        private static void UpdateMireSky()
         {
             if (AAWorld.mireTiles < 100)
             {

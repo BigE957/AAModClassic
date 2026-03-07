@@ -48,7 +48,7 @@ namespace AAModClassic.Tiles.Boss
             }
         }
 
-        public Color White(Color color)
+        public static Color White(Color color)
         {
             return AAColor.Sky;
         }

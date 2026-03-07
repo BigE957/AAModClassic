@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles
             Main.spriteBatch.Draw(Mod.GetTexture("Tiles/SkyShard"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), C(), 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
-        public Color C()
+        public static Color C()
         {
             return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
         }

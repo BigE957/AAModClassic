@@ -589,7 +589,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
         }
 
-        private void RainStop()
+        private static void RainStop()
         {
             if (Main.raining)
             {

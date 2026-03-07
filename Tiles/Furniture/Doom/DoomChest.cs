@@ -51,7 +51,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             return true;
         }
 
-        public string MapChestName(string name, int i, int j)
+        public static string MapChestName(string name, int i, int j)
         {
             int left = i;
             int top = j;
@@ -203,7 +203,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             }
         }
 
-        public Color GetColor(Color color)
+        public static Color GetColor(Color color)
         {
             Color glowColor = Color.White;
             return glowColor;
