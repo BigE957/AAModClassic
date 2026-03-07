@@ -5701,13 +5701,13 @@ MapObject.ZeroBox=Музыкальная шкатулка
 // AAMod.Tiles.Chests
 
 
-MapObject.DoomsdayChest={$Mods.AAMod.Common.DoomsdayChest_Locked}
+MapObject.DoomsdayChest={$Mods.AAModClassic.Common.DoomsdayChest_Locked}
 
-MapObject.GreedChest={$Mods.AAMod.Common.GreedChest_Locked}
+MapObject.GreedChest={$Mods.AAModClassic.Common.GreedChest_Locked}
 
-MapObject.InfernoChest={$Mods.AAMod.Common.InfernoChest_Locked}
+MapObject.InfernoChest={$Mods.AAModClassic.Common.InfernoChest_Locked}
 
-MapObject.MireChest={$Mods.AAMod.Common.MireChest_Locked}
+MapObject.MireChest={$Mods.AAModClassic.Common.MireChest_Locked}
 
 
 // AAMod.Tiles.Crafters

@@ -133,16 +133,16 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopChangeShopType");
+			button = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopChangeShopType");
 
-            string GobShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopGoblinLoot");
-            string BloodShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopBloodMoonLoot");
-            string OOAShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopOldOneArmyLoot");
-            string PirateShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopPirateLoot");
-            string EclipseShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopEclipseLoot");
-            string PumpShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopHalloweenLoot");
-            string FrostShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopChristmasLoot");
-            string MartianShop = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerShopMartianLoot");
+            string GobShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopGoblinLoot");
+            string BloodShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopBloodMoonLoot");
+            string OOAShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopOldOneArmyLoot");
+            string PirateShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopPirateLoot");
+            string EclipseShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopEclipseLoot");
+            string PumpShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopHalloweenLoot");
+            string FrostShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopChristmasLoot");
+            string MartianShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopMartianLoot");
 
             if (ChatNumber == 0)
             {

@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Armor.Paints
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.PalladiumPaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PalladiumPaintBonus");
             player.maxMinions += 1;
             player.GetModPlayer<AAPlayer>().Palladium = true;
         }

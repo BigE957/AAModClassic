@@ -25,12 +25,12 @@ Includes the effects of all the pieces used to make this.
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             string text = "";
-            text += Language.GetTextValue("Mods.AAMod.Common.InvokerBookEX1");
+            text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX1");
             
             if(!Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().DarkCaligula)
-            text += Language.GetTextValue("Mods.AAMod.Common.InvokerBookEX2");
+            text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX2");
             else
-            text += Language.GetTextValue("Mods.AAMod.Common.InvokerBookEX3");
+            text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX3");
 
             TooltipLine line = new TooltipLine(Mod, "newtooltip", text);
             list.RemoveAt(2);

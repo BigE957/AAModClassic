@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Armor.Oroboros
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.OroborosHelmetBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OroborosHelmetBonus");
             player.statDefense += 3;
         }
 

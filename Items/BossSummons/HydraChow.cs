@@ -45,7 +45,7 @@ Can only be used at night"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Hydra").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Hydra"), false);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Hydra").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
 		}
@@ -54,19 +54,19 @@ Can only be used at night"); */
 		{
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.HydraChowTimeFalse"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.HydraChowTimeFalse"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
                 return false;
             }
             if (player.GetModPlayer<AAPlayer>().ZoneMire)
 			{
 				if (NPC.AnyNPCs(Mod.Find<ModNPC>("Hydra").Type))
 				{
-					if(player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.HydraChowFalse1"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
+					if(player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.HydraChowFalse1"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
 					return false;
 				}
                 return true;
 			}
-			if(player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.HydraChowFalse2"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);			
+			if(player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.HydraChowFalse2"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);			
 			return false;
 		}	
 	}

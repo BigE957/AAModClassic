@@ -55,7 +55,7 @@ Can only be used in glowing mushroom biomes"); */
             }
             if (NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ConfusingMushroomFalse2"), Color.SkyBlue, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ConfusingMushroomFalse2"), Color.SkyBlue, false);
                 return false;
             }
             return true;

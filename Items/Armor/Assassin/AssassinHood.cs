@@ -53,7 +53,7 @@ A dark hood infused with the shadow of midnight"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.AssassinBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AssassinBonus");
             //Double tap down to go into stealth mode
             //Movement is not impeded while in stealth mode
             //Melee and Ranged damage increased while in stealth";

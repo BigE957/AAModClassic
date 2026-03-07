@@ -36,7 +36,7 @@ Can only be used in the Void"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Sag").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Sagittarius"), false);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Sag").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -45,12 +45,12 @@ Can only be used in the Void"); */
         {
             if (!player.GetModPlayer<AAPlayer>().ZoneVoid)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.LifescannerFalse"), new Color(216, 60, 0), false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<Sag>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.LifescannerFalse"), new Color(216, 60, 0), false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;
             }
             return true;

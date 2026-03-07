@@ -75,7 +75,7 @@ The power to destroy entire planets rests in this armor"); */
 		public override void UpdateArmorSet(Player player)
 		{
 			
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DoomsdayMaskBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomsdayMaskBonus");
 
             player.maxMinions += 5;
             player.AddBuff(BuffID.Hunter, 2);

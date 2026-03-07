@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Dynaskull
 		public override void UpdateArmorSet(Player player)
 		{
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DynaskullBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DynaskullBonus");
             
 			player.GetModPlayer<AAPlayer>().DynaskullSet = true;
 		}

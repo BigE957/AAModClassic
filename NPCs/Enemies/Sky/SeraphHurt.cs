@@ -100,7 +100,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                     }
                     if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {
-                        AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"), false);
+                        AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
                     }
                     BaseAI.KillNPC(NPC); 
                     NPC.netUpdate = true; 

@@ -50,7 +50,7 @@ The power of discordian rage radiates from this hood"); */
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.PerfectChaosVisorBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosVisorBonus");
             player.GetModPlayer<AAPlayer>().perfectChaosRa = true;
             player.AddBuff(Mod.Find<ModBuff>("ChaosWrath").Type, 2);
         }

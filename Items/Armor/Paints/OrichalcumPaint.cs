@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Paints
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.OrichalcumPaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OrichalcumPaintBonus");
             player.maxMinions += 2;
             player.onHitPetal = true;
         }

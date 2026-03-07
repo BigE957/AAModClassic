@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Armor.Olympian
 
         public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.OlympianHelmBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OlympianHelmBonus");
 
 			player.GetCritChance(DamageClass.Melee) += 60;
 			player.GetCritChance(DamageClass.Ranged) += 60;

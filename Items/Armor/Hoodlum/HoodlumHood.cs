@@ -33,7 +33,7 @@ Hopping Mad."); */
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.HoodlumHoodBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.HoodlumHoodBonus");
             if (player.statLife <= player.statLifeMax2 * .5f)
             {
                 player.moveSpeed += .5f;

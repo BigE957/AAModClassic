@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Armor.Chaos
         }
 
         public override void UpdateArmorSet(Player player){
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosFukumenBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosFukumenBonus");
             player.GetDamage(DamageClass.Ranged) += .25f;
             player.aggro -= 7;
             player.GetModPlayer<AAPlayer>().ChaosRa = true;

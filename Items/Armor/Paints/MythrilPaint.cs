@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Paints
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.MythrilPaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.MythrilPaintBonus");
             player.maxMinions += 3;
         }
 

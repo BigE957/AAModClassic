@@ -63,11 +63,11 @@ namespace AAModClassic.Tiles.Boss
                         item.stack--;
                         if (AAWorld.downedGreed)
                         {
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Greed"));
+                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }
                         else
                         {
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedSpawn>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAMod.Common.Greed"));
+                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedSpawn>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }
                     }
                 }

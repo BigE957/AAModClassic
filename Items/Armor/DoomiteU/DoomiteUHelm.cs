@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.DoomiteU
 
 		public override void UpdateArmorSet(Player player)
 		{
-		    player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DoomiteUHelmBonus");
+		    player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomiteUHelmBonus");
             player.maxMinions += 2;
 			player.GetKnockback(DamageClass.Summon).Base += 1f;
         }

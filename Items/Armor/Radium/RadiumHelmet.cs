@@ -56,7 +56,7 @@ Shines with the light of a starry night sky"); */
 		public override void UpdateArmorSet(Player player)
 		{
             const float effectRange = 500;
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHelmetBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RadiumHelmetBonus");
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
                 for (int p = 0; p < Main.player.Length; p++)

@@ -550,11 +550,11 @@ namespace AAModClassic.Globals
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RajahGlobalInfo1"), 107, 137, 179);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo1"), 107, 137, 179);
                     }
 
                     SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), npc.Center);
-                    SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
+                    SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
 
                 }
 
@@ -562,18 +562,18 @@ namespace AAModClassic.Globals
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RajahGlobalInfo2") + player.name.ToUpper() + "!", 107, 137, 179);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo2") + player.name.ToUpper() + "!", 107, 137, 179);
                     }
 
                     SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/Rajah"), npc.Center);
-                    SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
+                    SpawnRajah(player, true, new Vector2(npc.Center.X, npc.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
                 }
 
                 if (bunnyKills % 50 == 0 && bunnyKills % 100 != 0)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.RajahGlobalInfo3"), 107, 137, 179);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo3"), 107, 137, 179);
                     }
                 }
             }
@@ -1378,12 +1378,12 @@ namespace AAModClassic.Globals
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAMod.Common.NPCarrive"), 175, 75, 255, false);
+                                BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive"), 175, 75, 255, false);
                             }
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAMod.Common.NPCarrive")), new Color(175, 75, 255));
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive")), new Color(175, 75, 255));
                         }
                     }
                     else

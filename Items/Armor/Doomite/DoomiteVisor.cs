@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Armor.Doomite
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DoomiteVisorBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomiteVisorBonus");
             player.maxMinions += 1;
             player.GetModPlayer<AAPlayer>().doomite = true;
             if (player.whoAmI == Main.myPlayer)

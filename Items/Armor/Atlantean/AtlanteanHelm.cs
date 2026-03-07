@@ -40,7 +40,7 @@ Allows to breath underwater"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.AtlanteanBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AtlanteanBonus");
 			if (player.wet)
 			{
 				player.AddBuff(Mod.Find<ModBuff>("AtlanteanBuff").Type, 2);

@@ -40,7 +40,7 @@ namespace AAModClassic.Tiles.Chests
             // name.SetDefault("Greed Chest");
             AddMapEntry(new Color(150, 75, 0), name, MapChestName);
             name = this.GetLocalization("MapEntry", () => Name + "_Locked"); // With multiple map entries, you need unique translation keys.
-            // name.SetDefault("{$Mods.AAMod.Common.GreedChest_Locked}");
+            // name.SetDefault("{$Mods.AAModClassic.Common.GreedChest_Locked}");
             AddMapEntry(new Color(141, 64, 0), name, MapChestName);
             DustType = DustID.Gold;
             TileID.Sets.DisableSmartCursor[Type] = true;
@@ -75,7 +75,7 @@ namespace AAModClassic.Tiles.Chests
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
                     AAWorld.OpenedChest = 2;
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.GreedChest("GreedChest3"), Color.Goldenrod);
-                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Greed").Type, false, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Greed"));
+                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Greed").Type, false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                 }
             }
             dustType = this.DustType;

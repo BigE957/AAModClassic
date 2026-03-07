@@ -40,9 +40,9 @@ namespace AAModClassic.Items.Currency
                 color2.R,
                 color2.G,
                 color2.B,
-                Language.GetTextValue("Mods.AAMod.Common.PlayerBuyPrice"),
+                Language.GetTextValue("Mods.AAModClassic.Common.PlayerBuyPrice"),
                 price,
-                price == 1 ? Language.GetTextValue("Mods.AAMod.Common.AncientCoin") : Language.GetTextValue("Mods.AAMod.Common.AncientCoins")
+                price == 1 ? Language.GetTextValue("Mods.AAModClassic.Common.AncientCoin") : Language.GetTextValue("Mods.AAModClassic.Common.AncientCoins")
             });
         }
     }

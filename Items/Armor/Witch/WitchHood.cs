@@ -59,7 +59,7 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.WitchHoodBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.WitchHoodBonus");
             player.GetDamage(DamageClass.Magic) += .2f;
             player.GetDamage(DamageClass.Summon) += .2f;
             player.maxMinions += 4;

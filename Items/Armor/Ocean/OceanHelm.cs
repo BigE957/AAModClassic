@@ -40,7 +40,7 @@ You can breath in water
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.OceanHelmBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OceanHelmBonus");
             if (player.wet && !player.lavaWet && !player.honeyWet)
             {
                 player.GetDamage(DamageClass.Magic) += 0.2f;

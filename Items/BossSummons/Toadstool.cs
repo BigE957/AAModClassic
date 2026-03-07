@@ -37,7 +37,7 @@ Can only be used in a glowing mushroom biome"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("TruffleToad").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.TruffleToad"), false);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("TruffleToad").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.TruffleToad"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -46,12 +46,12 @@ Can only be used in a glowing mushroom biome"); */
         {
             if (!player.ZoneGlowshroom)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ToadstoolFalse1"), Color.Blue, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ToadstoolFalse1"), Color.Blue, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<TruffleToad>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ToadstoolFalse2"), Color.Blue, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ToadstoolFalse2"), Color.Blue, false);
                 return false;
             }
             return true;

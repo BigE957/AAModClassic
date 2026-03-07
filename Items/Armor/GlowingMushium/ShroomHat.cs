@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Armor.GlowingMushium
 		public override void UpdateArmorSet(Player player)
 		{
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ShroomHatBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ShroomHatBonus");
 
             player.buffImmune[BuffID.ManaSickness] = true;
 		}

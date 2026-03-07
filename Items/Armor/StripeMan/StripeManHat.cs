@@ -64,14 +64,14 @@ You can put any sand into the Extractinator"); */
 			string active = "";
 			if (player.GetModPlayer<AAPlayer>().StripeCrasyLucky)
 			{
-				active = Language.GetTextValue("Mods.AAMod.Common.StripeManSetBonusactive");
+				active = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonusactive");
 			}
 			else
 			{
-				active = Language.GetTextValue("Mods.AAMod.Common.StripeManSetBonusunactive");
+				active = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonusunactive");
 			}
 			
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.StripeManSetBonus1") + active  + "\n" + Language.GetTextValue("Mods.AAMod.Common.StripeManSetBonus2");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus1") + active  + "\n" + Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus2");
 
 			player.GetModPlayer<AAPlayer>().StripeManSet = true;
 		}

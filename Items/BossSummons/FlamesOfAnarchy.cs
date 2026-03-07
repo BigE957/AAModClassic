@@ -50,19 +50,19 @@ Non-Consumable"); */
 
             if (AAWorld.SistersSummoned && !AAWorld.downedSisters)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.SistersDownedInfo1"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
 
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Ashe").Type, false, -1, 0, "Ashe Akuma", false);
 
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.SistersDownedInfo2"), new Color(72, 78, 117));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo2"), new Color(72, 78, 117));
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Haruka").Type, false, 1, 0, "Haruka Yamata", false);
                 return true;
             }
             else if (AAWorld.SistersSummoned && AAWorld.downedSisters)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.SistersInfo1"), new Color(72, 78, 117));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo1"), new Color(72, 78, 117));
 
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.SistersInfo2"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo2"), new Color(102, 20, 48));
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Ashe").Type, false, -1, 0, "Ashe Akuma", false);
                 AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Haruka").Type, false, 1, 0, "Haruka Yamata", false);
                 return true;

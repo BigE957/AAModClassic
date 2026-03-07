@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosKabutoBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosKabutoBonus");
             player.GetAttackSpeed(DamageClass.Melee) += .1f;
             player.aggro += 4;
             player.GetModPlayer<AAPlayer>().kindledSet = true;

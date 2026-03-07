@@ -30,11 +30,11 @@ namespace AAModClassic.Items.Dev.Invoker
 			Player player = Main.player[Main.myPlayer];
 			if(!player.GetModPlayer<InvokerPlayer>().Thebookoflaw)
 			{
-				text += Language.GetTextValue("Mods.AAMod.Common.InvokerStaff1");
+				text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerStaff1");
 			}
 			else
 			{
-				text += Language.GetTextValue("Mods.AAMod.Common.InvokerStaff2");
+				text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerStaff2");
 			}
 			foreach (TooltipLine tooltipLine in tooltips)
 			{
@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Dev.Invoker
 					string damageWord = splitText.Last();
 					if(Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().Thebookoflaw) 
 					{
-						tooltipLine.Text = damageValue + " " + Language.GetTextValue("Mods.AAMod.Common.InvokerDamage1") + damageWord;
+						tooltipLine.Text = damageValue + " " + Language.GetTextValue("Mods.AAModClassic.Common.InvokerDamage1") + damageWord;
 					}
 				}
 				if (tooltipLine != null && tooltipLine.Name == "Tooltip0")
@@ -708,7 +708,7 @@ namespace AAModClassic.Items.Dev.Invoker
 						{
 							Player player = Main.player[num492];
 							player.GetModPlayer<InvokerPlayer>().CaligulaSoul.Add((int)Projectile.ai[1]) ;
-							CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.DarkGray, Language.GetTextValue("Mods.AAMod.Common.CaligulaSoul"), false, false);
+							CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.DarkGray, Language.GetTextValue("Mods.AAModClassic.Common.CaligulaSoul"), false, false);
 						}
 						Projectile.Kill();
 					}

@@ -45,7 +45,7 @@ namespace AAModClassic.Items.BossSummons
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             int overrideDirection = Main.rand.Next(2) == 0 ? -1 : 1;
-            SpawnBoss(player, Mod.Find<ModNPC>("Rajah").Type, true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAMod.Common.RajahRabbit"));
+            SpawnBoss(player, Mod.Find<ModNPC>("Rajah").Type, true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             return true;
         }
 
@@ -77,11 +77,11 @@ namespace AAModClassic.Items.BossSummons
                         npcName = Main.npc[npcID].ModNPC.DisplayName.ToString();
                     if (namePlural)
                     {
-                        if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken"), 175, 75, 255, false); }
+                        if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), 175, 75, 255, false); }
                         else
                         if (Main.netMode == NetmodeID.Server)
                         {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAMod.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
+                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
                         }
                     }
                     else

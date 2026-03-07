@@ -74,9 +74,9 @@ namespace AAModClassic.Items.Currency
                 color2.R,
                 color2.G,
                 color2.B,
-                Language.GetTextValue("Mods.AAMod.Common.PlayerBuyPrice"),
+                Language.GetTextValue("Mods.AAModClassic.Common.PlayerBuyPrice"),
                 price,
-                price == 1 ? Language.GetTextValue("Mods.AAMod.Common.ChristmasCheer") : Language.GetTextValue("Mods.AAMod.Common.ChristmasCheers")
+                price == 1 ? Language.GetTextValue("Mods.AAModClassic.Common.ChristmasCheer") : Language.GetTextValue("Mods.AAModClassic.Common.ChristmasCheers")
             });
         }
     }

@@ -1010,7 +1010,7 @@ namespace AAModClassic
 
         private static void Altars(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildAltars");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAltars");
             for (int num = 0; num < Main.maxTilesX / 390; num++)
             {
                 int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
@@ -1265,7 +1265,7 @@ namespace AAModClassic
                 if (RadiumOre == false)
                 {
                     RadiumOre = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedEquinoxInfo"), Color.Violet);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedEquinoxInfo"), Color.Violet);
                     for (int i = 0; i < Main.maxTilesX / 50; ++i)
                     {
                         int X = WorldGen.genRand.Next(Main.maxTilesX / 10 * 2, (int)(Main.maxTilesX / 10 * 4.5f));
@@ -1305,12 +1305,12 @@ namespace AAModClassic
                 if (Ancients == false)
                 {
                     Ancients = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedMoonlordInfo1"), Color.ForestGreen);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo1"), Color.ForestGreen);
                 }
                 if (Luminite == false)
                 {
                     Luminite = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
                     {
                         WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), (ushort)Mod.Find<ModTile>("LuminiteOre").Type);
@@ -1323,7 +1323,7 @@ namespace AAModClassic
                 if (HallowedOre == false)
                 {
                     HallowedOre = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedMechBossAnyInfo"), Color.Goldenrod);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossAnyInfo"), Color.Goldenrod);
                     int x = Main.maxTilesX;
                     int y = Main.maxTilesY;
                     for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -1340,7 +1340,7 @@ namespace AAModClassic
                 if (!DiscordOres)
                 {
                     DiscordOres = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedSistersInfo"), Color.Magenta);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSistersInfo"), Color.Magenta);
                     int x = Main.maxTilesX;
                     int y = Main.maxTilesY;
                     for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -1368,7 +1368,7 @@ namespace AAModClassic
                 if (!TerrariumEnemies)
                 {
                     TerrariumEnemies = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedBoss2Info"), Color.LimeGreen);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss2Info"), Color.LimeGreen);
                 }
             }
             if (NPC.downedBoss3)
@@ -1376,9 +1376,9 @@ namespace AAModClassic
                 if (!Dynaskull)
                 {
                     Dynaskull = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedBoss3Info1"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedBoss3Info2"), Color.Orange);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedBoss3Info3"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info1"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info2"), Color.Orange);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info3"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B);
                     int x = Main.maxTilesX;
                     int y = Main.maxTilesY;
                     for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -1397,7 +1397,7 @@ namespace AAModClassic
                 if (!AMessage)
                 {
                     AMessage = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
                 }
             }       
 
@@ -1415,7 +1415,7 @@ namespace AAModClassic
             {
                 if (downedAllAncients == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     downedAllAncients = true;
                 }
             }
@@ -1424,7 +1424,7 @@ namespace AAModClassic
                 if (InfernoStripe == false)
                 {
                     InfernoStripe = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
                     ConversionHandler.ConvertDown((int)InfernoCenter.X, 0, 120, ConversionType.INFERNO);
                 }
                 if (MireStripe == false)
@@ -1507,9 +1507,9 @@ namespace AAModClassic
 
             MireCenter = mirePos;
 
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildChaos");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildChaos");
 
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildInferno");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildInferno");
 
             {
                 Point origin = new Point((int)infernoPos.X, (int)infernoPos.Y);
@@ -1520,7 +1520,7 @@ namespace AAModClassic
                 biome.Place(origin, GenVars.structures);
             }
 
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildMire");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
 
             {
                 Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
@@ -1534,7 +1534,7 @@ namespace AAModClassic
 
         private void BogwoodConvert(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildMire");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
             Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
             BogwoodCon biome = new BogwoodCon();
             biome.Place(origin, GenVars.structures);
@@ -1542,7 +1542,7 @@ namespace AAModClassic
 
         private static void Terrarium(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildTerrarium");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
             origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
             TerrariumDelete delete = new TerrariumDelete();
@@ -1553,7 +1553,7 @@ namespace AAModClassic
 
         private static void Acropolis(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildAcropolis");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAcropolis");
             Point origin = new Point((int)(Main.maxTilesX * 0.65f), 100);
             Acropolis biome = new Acropolis();
             biome.Place(origin, GenVars.structures);
@@ -1561,7 +1561,7 @@ namespace AAModClassic
 
         private static void Hoard(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildHoard");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildHoard");
             Point origin = new Point((int)(Main.maxTilesX * 0.3f), (int)(Main.maxTilesY * 0.65f));
             Hoard biome = new Hoard();
             HoardClear delete = new HoardClear();
@@ -1571,7 +1571,7 @@ namespace AAModClassic
 
         private static void EquinoxAlt(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildEquinoxAlt");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildEquinoxAlt");
             Point origin = new Point((int)(Main.maxTilesX * 0.15f), 100);
             Equinox biome = new Equinox();
             biome.Place(origin, GenVars.structures);

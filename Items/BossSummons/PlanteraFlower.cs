@@ -36,7 +36,7 @@ Can only be used in the underground jungle"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, NPCID.Plantera, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Plantera"), false);
+            AAModGlobalNPC.SpawnBoss(player, NPCID.Plantera, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Plantera"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

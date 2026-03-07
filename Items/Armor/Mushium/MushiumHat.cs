@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Mushium
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.MushiumHatBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.MushiumHatBonus");
             player.pStone = true;
 		}
 

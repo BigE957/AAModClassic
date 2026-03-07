@@ -77,7 +77,7 @@ namespace AAModClassic.Tiles.Boss
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"));
+                        SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
                     }
                 }
             }

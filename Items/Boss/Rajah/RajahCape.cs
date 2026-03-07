@@ -41,39 +41,39 @@ All effects of the Sash of Vengeance
 
             if (AAPlayer.MeleeHighest(player))
             {
-                DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipMelee");
+                DamageType = Language.GetTextValue("Mods.AAModClassic.Common.RajahSPTooltipMelee");
                 damageColor = Color.Firebrick;
             }
             else if (AAPlayer.RangedHighest(player))
             {
-                DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipRanged");
+                DamageType = Language.GetTextValue("Mods.AAModClassic.Common.RajahSPTooltipRanged");
                 damageColor = Color.SeaGreen;
             }
             else if (AAPlayer.MagicHighest(player))
             {
-                DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipMagic");
+                DamageType = Language.GetTextValue("Mods.AAModClassic.Common.RajahSPTooltipMagic");
                 damageColor = Color.Violet;
             }
             else if (AAPlayer.SummonHighest(player))
             {
-                DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipSummoning");
+                DamageType = Language.GetTextValue("Mods.AAModClassic.Common.RajahSPTooltipSummoning");
                 damageColor = Color.Cyan;
             }
             else if (AAPlayer.ThrownHighest(player))
             {
-                DamageType = Language.GetTextValue("Mods.AAMod.Common.RajahSPTooltipThrowing");
+                DamageType = Language.GetTextValue("Mods.AAModClassic.Common.RajahSPTooltipThrowing");
                 damageColor = Color.DarkOrange;
             }
 
             string DamageAmount = (100 * DamageBoost(player)) + "% ";
-            TooltipLine DamageToltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAMod.Common.RajahSPDamageInfo"))
+            TooltipLine DamageToltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAModClassic.Common.RajahSPDamageBoost") + DamageAmount + DamageType + Language.GetTextValue("Mods.AAModClassic.Common.RajahSPDamageInfo"))
             {
                 OverrideColor = damageColor
             };
             tooltips.Add(DamageToltip);
 
             string SpeedAmount = (100 * Speed(player)) + "% ";
-            TooltipLine SpeedTooltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAMod.Common.RajahSPSpeedBoost") + SpeedAmount);
+            TooltipLine SpeedTooltip = new TooltipLine(Mod, "Damage Type", Language.GetTextValue("Mods.AAModClassic.Common.RajahSPSpeedBoost") + SpeedAmount);
             tooltips.Add(SpeedTooltip);
 
             base.ModifyTooltips(tooltips);

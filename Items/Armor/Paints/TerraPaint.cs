@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Paints
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.TerraPaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.TerraPaintBonus");
             player.maxMinions += 6;
         }
 

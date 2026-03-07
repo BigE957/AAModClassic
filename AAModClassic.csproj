@@ -7,6 +7,10 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <Folder Include="Localization\zh-Hans\" />
+	  <Folder Include="Localization\ru-RU\" />
+	</ItemGroup>
 
 	<!-- References -->
 

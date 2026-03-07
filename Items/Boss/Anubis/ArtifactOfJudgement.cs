@@ -37,7 +37,7 @@ Your defense is lowered and speed is raised while the Eye is active"); */
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = Main.player[Main.myPlayer];
-			string text1 = Language.GetTextValue("Mods.AAMod.Common.ArtifactOfJudgementInfo") + " " + player.GetModPlayer<AAPlayer>().artifactJudgementCharge;
+			string text1 = Language.GetTextValue("Mods.AAModClassic.Common.ArtifactOfJudgementInfo") + " " + player.GetModPlayer<AAPlayer>().artifactJudgementCharge;
             TooltipLine line = new TooltipLine(Mod, "text1", text1)
             {
                 OverrideColor = Color.Yellow

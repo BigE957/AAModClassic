@@ -79,7 +79,7 @@ The blazing fury of the Inferno rests in this armor"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DracoHelmBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DracoHelmBonus");
 
             player.buffImmune[46] = true;
             player.buffImmune[47] = true;

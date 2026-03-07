@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Armor.Paints
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChlorophytePaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChlorophytePaintBonus");
             player.AddBuff(BuffID.LeafCrystal, 2);
             player.maxMinions += 6;
         }

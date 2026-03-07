@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Armor.Paints
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.AdamantitePaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AdamantitePaintBonus");
             player.armorEffectDrawOutlines = true;
             player.armorEffectDrawShadow = true;
             player.maxMinions += 4;

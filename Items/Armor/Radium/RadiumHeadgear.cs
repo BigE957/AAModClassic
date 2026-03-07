@@ -53,7 +53,7 @@ Shines with the light of a starry night sky"); */
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RadiumHeadgearBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RadiumHeadgearBonus");
 
 
             player.GetModPlayer<VisorEffects>().setBonus = true;

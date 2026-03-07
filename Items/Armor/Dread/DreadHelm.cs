@@ -58,7 +58,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 		public override void UpdateArmorSet(Player player)
 		{
 			
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DreadHelmBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DreadHelmBonus");
 
             player.buffImmune[24] = true;
             player.buffImmune[39] = true;

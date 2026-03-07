@@ -32,7 +32,7 @@ Caps out at 20% damage"); */
             Player player = Main.player[Item.playerIndexTheItemIsReservedFor];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 
-            TooltipLine DamageTooltip = new TooltipLine(Mod, "Damage", Language.GetTextValue("Mods.AAMod.Common.DesireCharmInfo") + modPlayer.GreedyDamage + "%");
+            TooltipLine DamageTooltip = new TooltipLine(Mod, "Damage", Language.GetTextValue("Mods.AAModClassic.Common.DesireCharmInfo") + modPlayer.GreedyDamage + "%");
             tooltips.Add(DamageTooltip);
 
             base.ModifyTooltips(tooltips);

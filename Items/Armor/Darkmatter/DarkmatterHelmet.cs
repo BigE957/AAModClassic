@@ -78,7 +78,7 @@ Dark, yet still barely visible"); */
 		{
 
             const float effectRange = 500;
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DarkmatterHelmetBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterHelmetBonus");
             if(!Main.dayTime && player.GetModPlayer<HelmetEffects>().ShieldCoolDown > 0) player.lifeRegen += 2;
             for(int p =0; p < Main.player.Length; p++)
             {

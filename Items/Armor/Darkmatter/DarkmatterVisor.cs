@@ -59,7 +59,7 @@ Dark, yet still barely visible"); */
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DarkmatterVisorBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterVisorBonus");
             player.GetModPlayer<VisorEffects>().setBonus = true;
             player.GetModPlayer<VisorEffects>().sunPortal = false;
             player.armorEffectDrawShadowLokis = true;

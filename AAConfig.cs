@@ -14,17 +14,17 @@ namespace AAModClassic
 
         public static AAConfigClient Instance; // See ExampleConfigServer.Instance for info.
 
-        [Label("$Mods.AAMod.Common.AATownNPC")]
-        [Tooltip("$Mods.AAMod.Common.AATownNPCInfo")]
+        [Label("$Mods.AAModClassic.Common.AATownNPC")]
+        [Tooltip("$Mods.AAModClassic.Common.AATownNPCInfo")]
         public bool NoAATownNPC;
 
-        [Label("$Mods.AAMod.Common.DisableBossDialogue")]
-        [Tooltip("$Mods.AAMod.Common.DisableBossDialogueInfo")]
+        [Label("$Mods.AAModClassic.Common.DisableBossDialogue")]
+        [Tooltip("$Mods.AAModClassic.Common.DisableBossDialogueInfo")]
         public bool NoBossDialogue;
 
         [DefaultValue(false)]
-        [Label("$Mods.AAMod.Common.AAStyleMainPage")]
-        [Tooltip("$Mods.AAMod.Common.AAStyleMainPageInfo")]
+        [Label("$Mods.AAModClassic.Common.AAStyleMainPage")]
+        [Tooltip("$Mods.AAModClassic.Common.AAStyleMainPageInfo")]
         public bool AAStyleMainPage;
     }
 

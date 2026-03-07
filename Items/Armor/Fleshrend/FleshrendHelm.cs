@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Fleshrend
 		public override void UpdateArmorSet(Player player)
 		{
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.FleshrendHelmBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.FleshrendHelmBonus");
 
             player.crimsonRegen = true;
 			player.GetModPlayer<AAPlayer>().fleshrendSet = true;

@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Armor.Paints
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.TitaniumPaintBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.TitaniumPaintBonus");
             player.onHitDodge = true;
             player.maxMinions += 4;
         }

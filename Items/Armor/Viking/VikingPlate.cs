@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Armor.Viking
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.VikingPlateBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.VikingPlateBonus");
             player.endurance += .04f;
         }
 		

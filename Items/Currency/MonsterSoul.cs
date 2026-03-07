@@ -75,9 +75,9 @@ namespace AAModClassic.Items.Currency
                 color2.R,
                 color2.G,
                 color2.B,
-                Language.GetTextValue("Mods.AAMod.Common.PlayerBuyPrice"),
+                Language.GetTextValue("Mods.AAModClassic.Common.PlayerBuyPrice"),
                 price,
-                price == 1 ? Language.GetTextValue("Mods.AAMod.Common.MonsterSoul") : Language.GetTextValue("Mods.AAMod.Common.MonsterSouls")
+                price == 1 ? Language.GetTextValue("Mods.AAModClassic.Common.MonsterSoul") : Language.GetTextValue("Mods.AAModClassic.Common.MonsterSouls")
             });
         }
     }

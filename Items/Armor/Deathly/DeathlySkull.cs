@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Armor.Deathly
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DeathlySkullBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DeathlySkullBonus");
 
             player.aggro -= 5;
             player.ammoCost80 = true;

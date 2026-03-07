@@ -21,7 +21,7 @@ namespace AAModClassic
 					goblinColor.B,
 					Language.GetTextValue("LegacyTooltip.50"),
 					price,
-                    price == 1 ? Language.GetTextValue("Mods.AAMod.Common.GoblinSoul") : Language.GetTextValue("Mods.AAMod.Common.GoblinSouls")
+                    price == 1 ? Language.GetTextValue("Mods.AAModClassic.Common.GoblinSoul") : Language.GetTextValue("Mods.AAModClassic.Common.GoblinSouls")
 
             });
 		}

@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Armor.AncientGold
 
         public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.AncientGoldSetBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AncientGoldSetBonus");
             player.GetModPlayer<AAPlayer>().AncientGoldSet = true;
         }
 	}

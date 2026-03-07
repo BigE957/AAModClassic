@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosVisorBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosVisorBonus");
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             modPlayer.ChaosSu = true;
             player.maxMinions += 4;

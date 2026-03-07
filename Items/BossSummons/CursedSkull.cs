@@ -33,7 +33,7 @@ Can only be used at night"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, NPCID.SkeletronHead, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.Skeletron"), false);
+            AAModGlobalNPC.SpawnBoss(player, NPCID.SkeletronHead, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Skeletron"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

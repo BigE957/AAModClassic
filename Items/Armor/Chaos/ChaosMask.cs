@@ -43,7 +43,7 @@ Allows you to breath underwater"); */
 
         public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ChaosMaskBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosMaskBonus");
 			if (player.wet)
 			{
 				player.AddBuff(Mod.Find<ModBuff>("ChaosBuff").Type, 2);

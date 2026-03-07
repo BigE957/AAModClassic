@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override bool RightClick(int x, int y)
         {
-            Main.NewText(Language.GetTextValue("Mods.AAMod.Common.RazewoodClockGetTime"), 205, 62, 12);
+            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.RazewoodClockGetTime"), 205, 62, 12);
             return true;
         }
 

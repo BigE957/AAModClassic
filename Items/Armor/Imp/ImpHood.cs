@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Armor.Imp
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.ImpHoodBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ImpHoodBonus");
 
             player.GetModPlayer<AAPlayer>().impSet = true;
         }

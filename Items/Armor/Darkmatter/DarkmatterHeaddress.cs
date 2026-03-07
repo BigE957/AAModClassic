@@ -78,7 +78,7 @@ Dark, yet still barely visible"); */
 		{
 
 
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.DarkmatterHeaddressBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterHeaddressBonus");
             player.GetModPlayer<HeadressEffects>().setBonus = true;
             player.armorEffectDrawShadowLokis = true;
         }

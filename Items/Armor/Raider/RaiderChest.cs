@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Armor.Raider
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Common.RaiderChestBonus");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RaiderChestBonus");
             player.noKnockback = true;
             player.endurance += (1 - (player.statLife / player.statLifeMax)) * .1f;
         }

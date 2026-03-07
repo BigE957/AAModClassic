@@ -39,7 +39,7 @@ Forged in the flames of the blazing sun"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.BlazingBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.BlazingBonus");
             player.aggro += 4;
             player.GetModPlayer<AAPlayer>().kindledSet = true;
         }

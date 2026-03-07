@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Armor.Nights
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.NightsHelmBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.NightsHelmBonus");
             player.moveSpeed += 0.22f;
             player.panic = true;
 		}

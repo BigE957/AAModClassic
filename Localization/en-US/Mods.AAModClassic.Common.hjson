@@ -1,0 +1,432 @@
+//InvokerInfo
+
+InvokerBookEX1: You can control the True ability of the Invoker now\nWhen you hold the Invoker Staff, the dead enemy's soul will heal you\nYou can release the dead enemy's damage soul
+InvokerBookEX2: \nAleister's note: \nI need more powerful souls, the doragon, the huge rabit, the strange machine, more, more! Defeat them!
+InvokerBookEX3: \nLeft click to use the book. Summon the Invoked Caligula.
+
+InvokerStaff1: Strange. All is strange. \nSwinging a weapon causes summon damage?\nReally?\nLegendry Weapon.  -Cerberus
+InvokerStaff2: Left click to shoot a invoker bolt.\nRight click to banish all of the enemies according to your basic banish damage.\nBanishing enemies can heal you according to their maxlife.\nBut at what cost?\nLegendry Weapon. -Cerberus
+InvokerDamage1:  banish 
+InvokerDamage2:  summon 
+
+CaligulaSoul: Powerful Soul Steal!
+
+//Items
+
+DemiseEXInfo: The struck enemy's soul bursts
+
+ArtifactOfJudgementInfo: Charge is 
+
+ArtifactOfGuiltInfo: Charge is 
+
+DesireCharmInfo: Current Damage Boost: +
+
+DesireTalismanInfo: Current Damage Boost: +
+
+RajahSPTooltipMelee: Melee
+
+RajahSPTooltipRanged: Ranged
+
+RajahSPTooltipMagic: Magic
+
+RajahSPTooltipSummoning: Summoning
+
+RajahSPTooltipThrowing: Throwing
+
+RajahSPDamageInfo: Damage
+
+RajahSPDamageBoost: Current Damage Boost: +
+
+RajahSPSpeedBoost: Current Speed Boost: +
+
+RajahSPDamageResistance: Current Damage Resistance: +
+
+//ArmorBonus
+
+AncientGoldSetBonus: If you have enough money, you can resist an attack by losting all your money.
+
+AbyssalBonus: Your ranged attacks are imbued with the poisonous properties of hydra venom\n20% decreased ammo consumption\nEnemies are less likely to target you
+
+AssassinBonus: Increase 30% melee speed and projectile velocity\nYour melee weapons have chance to throw daggers\nYour ranged weapons have chance to shoot extra arrows\nDagger/arrow can decrease enemies' 20 defense and increase 10% damage hitting on them
+
+AtlanteanBonus: While submerged in liquids, your magic abilities and defense are enhanced
+
+BlazingBonus: Enemies are more likely to target you\nYour Swung weapons set your enemies ablaze
+
+Equipset.BogwoodHelmet: +1 Defense
+
+Equipset.ChampionHeaddressBonus: Baron Bunny fights by your side as an ally to rabbit kind\nAs you lose health, Baron Bunny's will to fight becomes stronger.
+Equipset.ChampionHelmetBonus: `You are the wall that protects the innocent`\nPressing the armor ability hotkey gives you the 'Defender's Rage' Buff.\nWhile enraged, you gain more defense as your life gets lower.\n'Defender's Rage' Lasts longer the less health you have\n'Defender's Rage' has a longer cooldown the less health you have\nDuring Cooldown, your defense is slightly lowered, but your speed is increased
+Equipset.ChampionHoodBonus: Energy Eminates from your body...\nStriking enemies has a chance to spawn an energy carrot from them\nEach energy carrot picked up boosts your damage, mana regen, and health regen\nStacks up to 3 times\nEach level increases the boosts of these stats
+Equipset.ChampionMaskBonus: `Time to hunt the hunters...`\nPressing the armor ability hotkey summons a R.A.B.I.T. Drone for 8 seconds\nR.A.B.I.T. Drone has a 15 second cooldown\nDuring Cooldown, your ranged damage and critical chance are increased by 15%
+
+ChaosFukumenBonus: Your ranged attacks are imbued with the chaos of Dragonfire and Bogtoxin\n25% increased ranged damage\nEnemies are less likely to target you\nNight Vision and hunter effects\n25% reduced ammo consumption
+ChaosKabutoBonus: 10% increased melee speed\nEnemies are more likely to target you\nEnemies that strike you are set ablaze\nYour Swung weapons inflicts them with Bogtoxin and Dragonflame
+ChaosMaskBonus: While submerged in liquids, your magic abilities are increased drastically\nYou can swim and liquid does not affect your movement
+ChaosVisorBonus: +4 Minion slots\nA dragon soul ravages foes for you
+
+DarkmatterHeaddressBonus: Minions will occasionally attempt to disrupt enemy projectiles
+DarkmatterHelmetBonus: A Dark Shield protects you.\nYou and nearby allies recieve 40% less damage while active.\nThe Dark Shield has a 30 second cooldown.\nYou have increased life regen while the shield is cooling down at night.
+DarkmatterMaskBonus1: Damage nearby enemies \n 2% of the damage dealt will heal you\n
+DarkmatterMaskBonus2: Magic Damage\n
+DarkmatterMaskBonus3: % critical strike chance
+DarkmatterVisorBonus: An unstable portal hovers above your head, shooting dark blasts when you shoot. \nDark blasts deal 30% of your weapon's damage, weakens enemies, and occasional dark locks them
+
+DeathlySkullBonus: You are as quiet as death itself, making enemies less likely to target you\n20% Reduced Ammo Consumption
+
+DemonHoodBonus: Your minions set enemies ablaze\nYou Always have a small Imp servant by your side\nImp isn't counted in your max minion count
+
+DepthFukumenBonus: Enemies are less likely to target you\n20% decreased ammo consumption\nNightvision
+
+DoomiteVisorBonus: +1 Max Minion\nA void searcher fights by your side
+
+DoomiteUHelmBonus: Increases max amount of minions by 2\nIncreases your minions knockback
+
+DoomsdayMaskBonus: Life termination systems activated\nYou detect all hostile life around you\nYou can see in the dark much more easily\nYour minion's attacks are strong enough to weaken your enemies defense for a time\n+5 Minion slots
+DoomsdayHelmetBonus: Life termination systems activated\nYou detect all hostile life around you\nYou can see in the dark much more easily\nYour magic attacks are strong enough to weaken your enemies defense for a time\nMana usage reduced by 30%
+
+DracoHelmBonus: 'Blazing fury consumes you'\nYou are immune to all ice-related debuffs\nYou glow like the blazing fire in your soul\nYour Melee attacks inflict Daybreak on your target
+
+DreadHelmBonus: 'Abyssal Wrath enrages you'\nYou are immune to all fire-related debuffs\nYou glow like the dread moon in the sky\nYour ranged attacks inflict Moonraze on your target
+
+DynaskullBonus: Your ranged projectiles have so much power behind them, they confuse the target due to concussive force
+
+FleshrendHelmBonus: Being hit by enemies triggers a bloodsplosion that damages all enemies around you\nIncreased life regen
+
+ShroomHatBonus: You are immune to Mana Sickness
+
+StripeManSetBonus1: You change the rule of Nature's randomicity\nYou will be a lucky guy? Or an unfortunate man.\nPress the Armor Ability Key to change the world's random system:
+StripeManSetBonusactive: ACTIVATED
+StripeManSetBonusunactive: UNACTIVATED
+StripeManSetBonus2: "Behold, the man is become as one of us, to know good and evil.\nAnd now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever"
+
+Equipset.TerraHelmBonus: Increased Life Regen\n28% increased melee speed\nBeing struck by an enemy causes a terra sphere to home in on the enemy that attacked you
+Equipset.TerraHoodBonus: You can autodrink mana potions\nMana usage lowered by 40%\nPressing the Armor ability hotkey causes 2 terra rose stalks to grow around you.\nEnemies struck by the stalks drop mana stars
+Equipset.TerraMaskBonus: Summons a Terra Crystal to assist you\nPressing the armor ability toggles the crystal between offensive, defensive, and support mod\nWhile in support mode, your defense and life regeneration are increased, but your damage is cut in half
+Equipset.TerraVisorBonus: Enemies less likely to target you\nRanged critical strike chance increased by 20%\nStriking an enemy with a ranged projectile may cause a terra bullet to fire at the target
+
+GoblinSlayerHelmBonus: 500% increased damage and knockback to goblins\n80% damage resistance from goblins\n'I hunt goblins or nothing.'
+
+HoodlumHoodBonus: Reaching below half heath multiplies your movement speed, melee damage, and minion damage by 50%
+
+ImpHoodBonus: Your minions set enemies ablaze
+
+KindledKabutoBonus: 2% increased damage resistance\nYour Swung weapons set your enemies ablaze
+
+MushiumHatBonus: Potion Sickness time is cut by 25%
+
+NightsHelmBonus: Being hit by enemies Sends you into a speed frenzy, increasing movement speed for a short time\n22% Increased Movement speed
+
+OceanHelmBonus: 20% increased magic damage and 15% mana use reduction while submerged in water
+
+OlympianHelmBonus: 'They will fear your precision, yet you will fear the slightest gust'\n60% increased critical strike chance
+
+OroborosHelmetBonus: +3 Defence
+
+AdamantitePaintBonus: +4 Minion slots
+ChlorophytePaintBonus: +6 Minion slots\nShoots crystal leaves at nearby enemies
+CobaltPaintBonus: +2 Minion slots
+HallowedPaintBonus: +6 Minion slots
+MythrilPaintBonus: +3 Minion slots
+OrichalcumPaintBonus: Flower petals will fall on your target for extra damage\n+2 Minion slots
+PalladiumPaintBonus: +1 Minion Slot\nGreatly increases life regeneration after striking an enemy
+TerraPaintBonus: +7 Minion slots
+TitaniumPaintBonus: +4 Minion slots\nBriefly become invulnerable after your minions strike an enemy
+
+PerfectChaosHoodBonus: 'Chaos empowers you'\nAs your health decreases, your magic damage increases and your mana consumption decreases\nYour magic attacks raze your opponents with the flames of discordian hell
+PerfectChaosKabutoBonus: 'Chaos empowers you'\nAs your health decreases, your melee damage and defense increase\nYour attacks raze your opponents with the flames of Chaos
+PerfectChaosMaskBonus: 'Chaos empowers you'\nAs your health decreases, your minion damage increases\nYour minions raze your opponents with the flames of discordian hell
+PerfectChaosVisorBonus: 'Chaos empowers you'\nAs your health decreases, your ranged damage and critical chance increases\nYour ranged attacks raze your opponents with the flames of discordian hell
+
+RadiumHatBonus1: Minions will occasionally deal damage to nearby enemies\n
+RadiumHatBonus2: Summon Damage
+RadiumHeadgearBonus: A sun portal hovers above your head, shooting sun blasts when you shoot. \nSun blasts deal 50% of your weapon's damage, and ignite them
+RadiumHelmetBonus: Nearby enemies will recieve more damage
+RadiumMaskBonus1: Damage nearby enemies \n 50% of the damage dealt will restore mana\n If mana is full you'll get mana overload buff instead\n
+RadiumMaskBonus2: Magic Damage\n
+RadiumMaskBonus3: % critical strike chance
+
+Equipset.RazewoodHelmet: +1 Defense
+
+Equipset.StoneSoldierMaskBonus: 'Become the primo penny pincher!'\nIncreases coin pickup range and shops have lower prices\nHitting enemies will sometimes drop extra coins\nEnemies have a small chance to spawn a coin portal upon dying\nAttacks inflict enemies with the Midas debuff
+
+RaiderChestBonus: You cannot be knocked back\nAs your health goes down, your damage resistance goes up
+
+TribalHatBonus: You are blessed with a gift of nature, allowing you to autodrink mana potions\nMana usage lowered by 30%
+
+VikingPlateBonus: 4% Increased damage resistance
+
+WitchHoodBonus: Scorch and Burn.\n20% Increased Magic and Minion damage\n+4 max minions\nA Fire spirit protects you\nThe Fire spirit becomes more powerful the less mana you have\nPress the Armor AbilityKey to release the Flame Power\n(Only works when you hold magic or summon weapon)
+
+//CurrencyItems
+
+PlayerBuyPrice: Buy price:
+
+AncientCoin: Ancient Coin
+AncientCoins: Ancient Coins
+
+BloodRune: Blood Rune
+BloodRunes: Blood Runes
+
+ChristmasCheer: Christmas Cheer
+ChristmasCheers: Christmas Cheers
+
+GoblinSoul: Goblin Soul
+GoblinSouls: Goblin Souls
+
+HalloweenTreat: Halloween Treat
+HalloweenTreats: Halloween Treats
+
+MartianCredit: Martian Credit
+MartianCredits: Martian Credits
+
+MonsterSoul: Monster Soul
+MonsterSouls: Monster Souls
+
+PirateBooty: Pirate Booty
+PirateBooties: Pirate Booties
+
+//GoblinSlayerShop
+
+GoblinSlayerShopChangeShopType: Change Shop Type
+
+GoblinSlayerShopGoblinLoot: Goblin Loot
+GoblinSlayerShopBloodMoonLoot: Blood Moon Loot
+GoblinSlayerShopOldOneArmyLoot: Old One's Army Loot
+GoblinSlayerShopPirateLoot: Pirate Loot
+GoblinSlayerShopEclipseLoot: Eclipse Loot
+GoblinSlayerShopHalloweenLoot: Halloween Loot
+GoblinSlayerShopChristmasLoot: Christmas Loot
+GoblinSlayerShopMartianLoot: Martian Loot
+
+//AAMod.Tiles.RazewoodF
+
+RazewoodClockGetTime: Maybe making a clock out of burned wood wasn't such a good idea. It doesn't even work.
+
+//lockedchest
+
+InfernoChest_Locked: Locked Inferno Chest
+
+MireChest_Locked: Locked Mire Chest
+
+DoomsdayChest_Locked: Locked Doomsday Chest
+
+GreedChest_Locked: Locked Greed Chest
+
+//hotkey
+
+InfinityHotKey: Snap
+Rifthotkey: Rift Home
+RiftReturnhotkey: Rift Back
+AccessoryAbilityKey: AA Accessory Ability
+ArmorAbilityKey: AA Armor Ability
+TimeStonehotKey: Time Stone
+
+//TownNPCName
+
+GoblinSlayerName: Goblin Slayer
+
+//BossName
+
+MushroomMonarch: The Mushroom Monarch
+FeudalFungus: The Feudal Fungus
+Broodmother: The Broodmother
+Hydra: The Hydra
+GripsofChaos: The Grips of Chaos
+SubzeroSerpent: The Subzero Serpent
+TruffleToad: The Truffle Toad
+Sagittarius: Sagittarius
+Skeletron: Skeletron
+RajahRabbit: Rajah Rabbit
+DesertDjinn: The Desert Djinn
+Plantera: Plantera
+Athena: Athena
+Greed: Greed
+Akuma: Akuma, Draconian Demon
+AkumaA: Oni Akuma
+Yamata: Yamata, Dread Nightmare
+YamataA: Yamata no Orochi 
+ShenDoragon: Shen Doragon; Discordian Doomsayer
+SupremeRajah: Rajah Rabbit
+
+//AAPlayerChat
+
+WorldgenReminderInfo1: Hey uh...kid? Correct me if I'm wrong, but I think your world didn't generate with Ancients Awakened stuff in it. I'd make a new one if I were you.
+WorldgenReminderInfo2: YOU IMBECILE! YOU DIDN'T GENERATE ANCIENTS AWAKENED CONTENT! MAKE A NEW WORLD NOW! REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+WorldgenReminderInfo3: ERR0R. W0RLD D0ES N0T APPEAR T0 C0NTAIN AAM0D.TM0D C0NTENT. PLEASE GENERATE A NEW W0RLD.
+WorldgenReminderInfo4: HEY! You didn't generate Ancients Awakened stuff in this world! Generate a new world before I blast you to mars!
+WorldgenReminderInfo5: Hey, uh...I don't see any Ancients Awakened content in this world. Might be smart to make a new world or whatever...
+WorldgenReminderInfo6: Hey. You. Interdimensional being. You might have forgotten to make a new world after downloading the mod. Make a new world if you want all the mod's content.
+WorldgenReminderInfo7: Make...new world....or mushmad...will squish...little terrarian...
+WorldgenReminderInfo8: ...Mortal. Your world doesn't have Ancients Awakened content if my old eyes do not deceive me. Generating a new world would be optimal.
+
+//AAWorldChangeInfo
+
+downedEquinoxInfo: The gift of the celestials sparkle in the atmosphere...
+downedMoonlordInfo1: The Ancients have Awakened!
+downedMoonlordInfo2: The Essence of the Moon Lord sparkles in the caves below...
+downedMechBossAnyInfo: The caves shine with light for a brief moment...
+downedSistersInfo: Chaotic energy grows in the deepest parts of the world.
+downedBoss2Info: You hear a hum of harmony from the Terrarium after the defeat of a great demon...
+downedBoss3Info1: Bones of the ancient past burst with energy!
+downedBoss3Info2: The desert winds stir...
+downedBoss3Info3: The winter hills rumble...
+downedMechBossInfo: Hey kid, it's me, Anubis. Do me a favor and meet me back in town, I wanna talk to ya about somethin'.
+downedAllAncientsInfo: Chaos begins to stir in the atmosphere...
+hardModeInfo: The Souls of Fury and Wrath are unleashed upon the world!
+
+//AAWorldBuild
+
+AAWorldBuildAltars: Placing Chaos Altars
+AAWorldBuildChaos: Spreading Chaos
+AAWorldBuildInferno: Scorching the Inferno
+AAWorldBuildMire: Flooding the Mire
+AAWorldBuildTerrarium: Constructing the Terrarium
+AAWorldBuildAcropolis: Floating the Acropolis
+AAWorldBuildHoard: Amassing Treasure
+AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon
+
+//AARecipeGroup
+
+darkmatterhelmet:  darkmatter helmet
+radiumhelmet:  radium helmet
+goldbar:  gold bar
+celestialcraftingstation:  celestial crafting station
+ancientmaterial:  ancient material
+superancientmaterial:  superancient material
+worldevilmaterial:  world evil material
+hardmodeforge:  hardmode forge
+chaosclaw:  chaos claw
+ironbar:  iron bar
+copperbar:  copper bar
+silverbar:  silver bar
+evilbar:  evil bar
+chaosbar:  chaos bar
+EvilorChaosBar:  evil/chaos bar
+ancientcraftingstation:  ancient crafting station
+evilsummonstaff:  evil summon staff
+altar:  altar
+ChaosLeggings:  Chaos Leggings
+ChaosChestpiece:  Chaos Chestpiece
+hardmodeanvil:  hardmode anvil
+hardmodeforge:  hardmode forge
+ShinyCharm:  Shiny Charm
+DevBag:  Dev Bag
+
+//AAConfig
+
+AATownNPC: Disable AA Town NPCs
+AATownNPCInfo: Disables this mod's town npcs from spawning, for those who'd prefer to have other npcs spawn quicker. Note: This does not affect Anubis due to him being key to progression.
+DisableBossDialogue: Disable Boss Dialogue
+DisableBossDialogueInfo: Disables dialogue from bosses to prevent chatspam. Also makes animations that have boss dialogue go by a little quicker.
+AAStyleMainPage: The AA style Main Menu
+AAStyleMainPageInfo: Enables the AA style Main Menu instead of the Vanilla menu. If you wish to play AA and any other large content mod together, you should disable this.
+
+//GlobalNPCSInfo
+
+NPCarrive:  has awoken!
+
+//BossSummonedInfo
+
+BosshasAwoken:  has awoken!
+BosshaveAwoken:  have awoken!
+
+RajahGlobalInfo1: Those who slaughter the innocent must be PUNISHED!
+RajahGlobalInfo2: YOU HAVE COMMITTED AN UNFORGIVABLE SIN! I SHALL WIPE YOU FROM THIS MORTAL REALM! PREPARE FOR TRUE PAIN AND PUNISHMENT, 
+RajahGlobalInfo3: The eyes of a wrathful creature gaze upon you...
+
+ChaosRuneYamataFalse: The imagery of a blazing demon flashes through your mind...
+ChaosRuneAkumaFalse: The imagery of a 7 headed terror flashes through your mind...
+ChaosRuneFalse: HAH! I WISH there were two of me to smash you into the ground!
+ChaosRuneTrue1: Shen Doragon has been Awakened!
+ChaosRuneTrue2: Skipping to the fun part, I see? I like you, child.
+
+ChaosSigilFalse1: Only the blue half of the sigil is lit up...
+ChaosSigilFalse2: Only the red half of the sigil is lit up...
+ChaosSigilFalse3: HAH! I WISH there were two of me to smash you into the ground!
+ChaosSigilFalse4: The Chaos Sigil glows, and imagery of the chaos pedestals flash through your mind
+ChaosSigilFalse5: The Sigil does nothing.
+ChaosSigilTrue1: Big mistake, child...
+ChaosSigilTrue2: Hmpf...again..? Alright, let's just get this done and overwith.
+
+ConfusingMushroomFalse1: The mushroom glows, and the smell of it makes you feel loopy.
+ConfusingMushroomFalse2: The Feudal Fungus keeps trying to attack you
+
+CuriousClawFalse1: The Grips of Chaos are already here!
+CuriousClawFalse2: The claw lays limp in your hand. Nasty.
+
+Grips.GripsofChaosAwoken: The Grips of Chaos have awoken!
+
+DiamondCarrotRajahText1: GRAVE MISTAKE, TERRARIAN!
+DiamondCarrotRajahText2: Show me what you got, 
+
+DjinnLampDesertFalse1: The lamp spits out sand as you rub it
+DjinnLampDesertFalse2: No ammount of rubbing the lamp will save you here
+
+DraconianDayTimeFalse: Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning.
+DraconianRuneFalse1: An image of the scorched tower at the peak of the inferno flashes through your mind
+DraconianRuneFalse2: Hey kid, that rune only works once, ya know.
+DraconianRuneInfernoFalse: You can only use that rune in the Inferno, kid.
+DraconianRuneTrue1: The air around you begins to heat up...
+DraconianRuneTrue2: Cutting right to the chase I see..? Alright then, prepare for hell..!
+
+DraconianSigilFalse: Hey kid, that Sigil only works once, ya know.
+DraconianSigilInfernoFalse: You can only use that Sigil in the Inferno, kid.
+DraconianSignalTrue1: Heh, I hope you’re ready to feel the fury of the blazing sun kid.
+DraconianSignalTrue2: Back for more, kid? Don’t you have better things to do? You already beat me once.  Alright, but I won’t go easy on you.
+
+DragonBellDayTimeFalse: The bell rings on deaf ears. The dragons are asleep now.
+DragonBellFalse1: The Broodmother has already been called
+DragonBellFalse2: The bell rings on deaf ears. The dragons are not here.
+
+DreadRuneTrue1: Yamata has been Awakened!
+DreadRuneTrue2: Yeah, yeah I get it, my first phase is obnoxious. Let's just get this over with..!
+DreadTimeFalse: NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!
+DreadFalse1: An image of the strange tree at the heart of the mire flashes through your mind
+DreadFalse2: WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!
+DreadMireFalse: Hey Dumbo! Mire is that way!
+
+DreadSigilTrue1: You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!
+DreadSigilTrue2: Back for more..?! This time you won't be so lucky you little whelp..!
+DreadSigilMireFalse: You NEED to use that sigil on the altar at the center of the mire! Trust me, nothing bad will happen!
+
+EquinoxWormawoken: The Equinox Worms have awoken!
+
+SistersDownedInfo1: Again..!? Didin't you learn from last time? Oh well, I'm gonna have a ball blasting you to shreds!
+SistersDownedInfo2: Whatever, let's just get this over with.
+SistersInfo1: Sigh... Here we go again...
+SistersInfo2: THIS TIME I'M NOT LOSING! You're gonna feel the taste of defeat you disgusting warm-blood!
+
+HydraChowTimeFalse: Nothing is coming. The creatures of the Mire sleep.
+HydraChowFalse1: The Hydra wants that food.
+HydraChowFalse2: Nothing is coming. Now you look dumb holding out this smelly ball of gunk.
+
+InterestingClawFalse1: The Grips of Chaos are already here!
+InterestingClawFalse2: The claw lays limp in your hand. Nasty.
+
+IntimidatingMushroomFalse1: The mushroom just glares at you and gives you chills just looking at it.
+IntimidatingMushroomFalse2: The mushroom Monarch keeps trying to stomp you
+
+LifescannerFalse: The Lifescanner doesn't do anything.
+
+ScepterBossFalse1: You wave the staff around like a psychopath. Nothing happens.
+ScepterBossFalse2: Uh...what are you doing?
+
+SubzeroCrystalSnowZoneFalse: The crystal shows an image of the nearby ice biome inside of it
+SubzeroCrystalFalse: The Subzero Serpent continues to attack
+
+ToadstoolFalse1: The toadstool croaks..?
+ToadstoolFalse2: The Truffle Toad croaks
+
+ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
+ZeroUnitVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID : :  FALSE. PLEASE TRY AGAIN LATER.
+ZeroUnitRuneTrue: D00MSDAY PR0T0CALL ACTIVATED MANUALLY. TERMINATI0N SYSTEMS AT FULL P0WER
+
+ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
+ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIBILITY THIS TIME, TERRARIAN.
+
+RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
+RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS, 
+
+
+

@@ -37,7 +37,7 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Djinn").Type, true, 0, 0, Language.GetTextValue("Mods.AAMod.Common.DesertDjinn"), false);
+            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Djinn").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -46,12 +46,12 @@ namespace AAModClassic.Items.BossSummons
         {
             if (!player.ZoneDesert)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DjinnLampDesertFalse1"), Color.Goldenrod.R, Color.Goldenrod.G, Color.Goldenrod.B, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DjinnLampDesertFalse1"), Color.Goldenrod.R, Color.Goldenrod.G, Color.Goldenrod.B, false);
                 return false;
             }
             if (NPC.AnyNPCs(Mod.Find<ModNPC>("Djinn").Type))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DjinnLampDesertFalse2"), Color.Goldenrod.R, Color.Goldenrod.G, Color.Goldenrod.B, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DjinnLampDesertFalse2"), Color.Goldenrod.R, Color.Goldenrod.G, Color.Goldenrod.B, false);
                 return false;
             }
             return true;

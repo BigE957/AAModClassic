@@ -44,12 +44,12 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.EquinoxWormawoken"), 175, 75, 255, false); }
+            if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.EquinoxWormawoken"), 175, 75, 255, false); }
             else if (Main.netMode == NetmodeID.Server)
-                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.EquinoxWormawoken"), 175, 75, 255, false); }
+                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.EquinoxWormawoken"), 175, 75, 255, false); }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAMod.Common.EquinoxWormawoken")), new Color(175, 75, 255), -1);
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.EquinoxWormawoken")), new Color(175, 75, 255), -1);
                 }
             AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("DaybringerHead").Type, false, 0, 0);
             AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("NightcrawlerHead").Type, false, 0, 0);

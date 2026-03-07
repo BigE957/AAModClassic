@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.GoblinSlayer
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Common.GoblinSlayerHelmBonus");
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerHelmBonus");
             player.GetModPlayer<AAPlayer>().goblinSlayer = true;
             int num = 0;
             num += player.bodyFrame.Y / 56;
