@@ -98,7 +98,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > NPCID.WalkingAntlion && npc.ModNPC.Mod == AAMod.instance && npc.boss)
+                if (npc.type >= NPCID.Count && npc.ModNPC.Mod == AAMod.instance && npc.boss)
                 {
                     bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
@@ -118,14 +118,14 @@ namespace AAModClassic.CrossMod.CalamityMod
         {
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == AAMod.instance)
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
                     if (item.type > ItemID.Celeb2 && item.ModItem.Mod == ModLoader.GetMod("CalamityMod"))
                     {
                         modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
-                if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
                 {
                     if (item.type > ItemID.Celeb2 && item.ModItem.Mod == AAMod.instance)
                     {
@@ -139,16 +139,16 @@ namespace AAModClassic.CrossMod.CalamityMod
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == AAMod.instance)
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
                 {
-                    if (projectile.type > ProjectileID.Celeb2Weapon && projectile.ModProjectile.Mod == ModLoader.GetMod("CalamityMod"))
+                    if (projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == ModSupport.GetMod("CalamityMod"))
                     {
                         modifiers.TargetDamageMultiplier *= CalamityDR * (NPC.downedPlantBoss? 0.8f : 1f) * (NPC.downedMoonlord? 0.7f : 1f);
                     }
                 }
-                if (npc.type > NPCID.WalkingAntlion && npc.boss && npc.ModNPC.Mod == ModLoader.GetMod("CalamityMod"))
+                if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == ModSupport.GetMod("CalamityMod"))
                 {
-                    if (projectile.type > ProjectileID.Celeb2Weapon && projectile.ModProjectile.Mod == AAMod.instance)
+                    if (projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)
                     {
                         modifiers.TargetDamageMultiplier *= (NPC.downedPlantBoss? 1.25f : 1f) * (NPC.downedMoonlord? 1.42f : 1f);
                     }
@@ -163,7 +163,7 @@ namespace AAModClassic.CrossMod.CalamityMod
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
 			{
-                if (projectile.hostile && !projectile.friendly && projectile.type > ProjectileID.Celeb2Weapon && projectile.ModProjectile.Mod == AAMod.instance)
+                if (projectile.hostile && !projectile.friendly && projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)
                 {
                     bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
                     bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
