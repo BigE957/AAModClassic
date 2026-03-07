@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
-            Main.tileBlockLight[Type] = true;   
+            Main.tileBlockLight[Type] = false;   
             AddMapEntry(new Color(99, 54, 6));
         }
 
