@@ -151,7 +151,7 @@ namespace AAModClassic.Backgrounds
                 Asteroidpos3.Y += (float)Math.Sin(asteroidPercent3) * 20f;
                 if (!AAWorld.downedZero)
                 {
-                    spriteBatch.Draw(Stars, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+                    spriteBatch.Draw(Stars, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                 }
                 else
                 {
@@ -161,14 +161,14 @@ namespace AAModClassic.Backgrounds
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
                     if (AAWorld.downedZero)
                     {
-                        spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true), 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                        spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }
                 }
 				Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);
 				astroGlow.A = (byte)(255f * Intensity);
-                spriteBatch.Draw(Asteroids1, Asteroidpos1, null, NPC.downedMoonlord ? astroGlow : Color.White, 0f, new Vector2(Asteroids1.Width >> 1, Asteroids1.Height >> 1), 1f, SpriteEffects.None, 1f);
-                spriteBatch.Draw(Asteroids2, Asteroidpos2, null, NPC.downedMoonlord ? astroGlow : Color.White, 0f, new Vector2(Asteroids2.Width >> 1, Asteroids2.Height >> 1), 1f, SpriteEffects.None, 1f);
-                spriteBatch.Draw(Asteroids3, Asteroidpos3, null, NPC.downedMoonlord ? astroGlow : Color.White, 0f, new Vector2(Asteroids3.Width >> 1, Asteroids3.Height >> 1), 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(Asteroids1, Asteroidpos1, null, (NPC.downedMoonlord ? astroGlow : Color.White) * Intensity, 0f, new Vector2(Asteroids1.Width >> 1, Asteroids1.Height >> 1), 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(Asteroids2, Asteroidpos2, null, (NPC.downedMoonlord ? astroGlow : Color.White) * Intensity, 0f, new Vector2(Asteroids2.Width >> 1, Asteroids2.Height >> 1), 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(Asteroids3, Asteroidpos3, null, (NPC.downedMoonlord ? astroGlow : Color.White) * Intensity, 0f, new Vector2(Asteroids3.Width >> 1, Asteroids3.Height >> 1), 1f, SpriteEffects.None, 1f);
             }
             float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);

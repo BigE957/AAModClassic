@@ -93,11 +93,14 @@ namespace AAModClassic.Backgrounds
                         }
                         num22 = (float)(1.2 - num26 * 0.4);
                     }
+
+                    num22 = MathHelper.Lerp(0.25f, num22, Intensity);
+
                     Color color6 = new Color((byte)(255f * num64), (byte)(Color.White.G * num64), (byte)(Color.White.B * num64), (byte)(255f * num64));
                     if (!Main.gameMenu && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
-                        Main.spriteBatch.Draw(demonSun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, demonSun.Width, demonSun.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                        Main.spriteBatch.Draw(demonSun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, demonSun.Width, demonSun.Height)), color6 * Intensity, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
                     else
-                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num20, num21 + (Main.gameMenu ? Main.sunModY + 240 : Main.sunModY)), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Height)), color6 * Intensity, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
                 }
             }
             int num = -1;

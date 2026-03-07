@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.UI.MenuThemes
@@ -43,7 +44,7 @@ namespace AAModClassic.UI.MenuThemes
                 {
                     2 => VoidLogo,
                     1 => Main.dayTime ? InfernoLogo : MireLogo,
-                    _ => TextureAssets.Logo,
+                    _ => Main.dayTime ? TextureAssets.Logo3 : TextureAssets.Logo4,
                 };
             }
         }
@@ -66,7 +67,7 @@ namespace AAModClassic.UI.MenuThemes
                 return Phase switch
                 {
                     2 => BlankTex,
-                    1 => Sun,
+                    //1 => Sun,
                     _ => base.SunTexture
                 };
             }
@@ -78,12 +79,12 @@ namespace AAModClassic.UI.MenuThemes
                 return Phase switch
                 {
                     2 => BlankTex,
-                    1 => Moon,
+                    //1 => Moon,
                     _ => base.MoonTexture,
                 };
             }
         }
-        public override int Music => base.Music;
+        public override int Music => MusicID.ConsoleMenu;
         public override void Update(bool isOnTitleScreen)
         {
             if (isOnTitleScreen)
@@ -136,6 +137,16 @@ namespace AAModClassic.UI.MenuThemes
                         SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
                 }
             }
+        }
+
+        public override void OnDeselected()
+        {
+            if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+            if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
+            if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
         }
     }
 }

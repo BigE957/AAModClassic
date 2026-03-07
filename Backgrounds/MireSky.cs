@@ -49,7 +49,7 @@ namespace AAModClassic.Backgrounds
             {
                 if (!Main.dayTime)
                 {
-                    spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+                    spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                     double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
                     Main.ColorOfTheSkies = Color.White;
                     if (Main.gameMenu || Main.netMode == NetmodeID.Server)
@@ -81,11 +81,14 @@ namespace AAModClassic.Backgrounds
                     {
                         num65 = 0f;
                     }
+
+                    num25 = MathHelper.Lerp(0.25f, num25, Intensity);
+
                     white2.R = (byte)(white2.R * num65);
                     white2.G = (byte)(white2.G * num65);
                     white2.B = (byte)(white2.B * num65);
                     white2.A = (byte)(white2.A * num65);
-                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + (Main.gameMenu ? Main.moonModY + 200 : Main.moonModY)), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2 * Intensity, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
                 }
             }
         }
