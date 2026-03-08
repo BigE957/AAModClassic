@@ -14,13 +14,14 @@ Ancients Awakened: Classic features:
 		* The Inferno, a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
 		* The Mire, a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
 	- The Void: Floating Islands at the top right of the world. Nothing is there, there is no reason to go there (Or is there?)
-	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you. Currently underdeveloped, but it has content post-plantera.
-- Cross-Mod content with GRealm and Thorium, with Mod of Redemption, Calamity, & Varia cross-mod content planned! (Thorium support being worked on. Currently only one healer weap)
-- Fargo's Mutant Mod support
-- A unique soundtrack.
+	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you. Underdeveloped, but it has content post-plantera.
+- Cross-Mod content with GRealm and Thorium
+- Fargo's Mutant Mod and Calamity Mod support
+- A unique soundtrack
+
+Note: Some tracks have been removed or replaced at the request of the original composers. Please respect their decision.
 
 Credit to the original team behind this version of the mod:
-- TheDoctorDallin
 - Elizabeth Miles
 - Grox The Great
 - Hallam, God of Rainbows
@@ -37,9 +38,7 @@ Credit to the original team behind this version of the mod:
 - Beg
 - GamingWithZack
 - FailureOfMankind
-- Karamitasu
 - Charlie Debnam
-- OmegaFerretMusic
 - LordCakeSpy
 - Rockwizard
 - Frogtism
