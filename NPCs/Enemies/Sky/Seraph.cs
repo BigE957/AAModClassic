@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
 
             Player player = Main.player[NPC.target];
 
-            BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.15f, 0.08f, 8f, 7f, false, 300);
+            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 8f, 7f, false, 300);
 
             if (NPC.alpha > 0)
             {

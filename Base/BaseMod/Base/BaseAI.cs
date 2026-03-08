@@ -3784,19 +3784,13 @@ namespace AAModClassic.Base.BaseMod.Base
 
         /*
 		 * A cleaned up (and edited) copy of Flier AI. (Bat, Demon, etc.) (AIStyle 14)
-		 *
+		 * 
 		 * ai : A float array that stores AI data. (Note projectile array should be synced!)
 		 * sporadic : If true, npc will overshoot targets.
 		 * maxSpeedX/maxSpeedY : the max speed of the npc on the X and Y axis, respectively.
 		 * slowdownIncrementX/slowdownIncrementY : the slowdown increment on the X and Y axis, respectively.
 		 */
-
-        public static void AIFlier(NPC npc, ref float ai, bool sporadic = true, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float maxSpeedX = 4f, float maxSpeedY = 1.5f, bool canBeBored = true, int timeUntilBoredom = 300)
-        {
-            AIFlier(npc, Main.player[npc.target], ref ai, sporadic, moveIntervalX, moveIntervalY, maxSpeedX, maxSpeedY, canBeBored, timeUntilBoredom);
-        }
-
-        public static void AIFlier(NPC npc, Entity target, ref float ai, bool sporadic = true, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float maxSpeedX = 4f, float maxSpeedY = 1.5f, bool canBeBored = true, int timeUntilBoredom = 300)
+        public static void AIFlier(NPC npc, ref float[] ai, bool sporadic = true, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float maxSpeedX = 4f, float maxSpeedY = 1.5f, bool canBeBored = true, int timeUntilBoredom = 300)
         {
             if (npc.collideX)
             {
@@ -3812,9 +3806,8 @@ namespace AAModClassic.Base.BaseMod.Base
                 if (npc.velocity.Y > 0f && npc.velocity.Y < max) { npc.velocity.Y = max; }
                 if (npc.velocity.Y < 0f && npc.velocity.Y > -max) { npc.velocity.Y = -max; }
             }
-            npc.direction = target.Center.X > npc.Center.X ? -1 : 1;
-            npc.directionY = target.Center.Y > npc.Center.Y ? -1 : 1;
-            void move()
+            npc.TargetClosest(true);
+            Action move = () =>
             {
                 if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
                 {
@@ -3850,17 +3843,17 @@ namespace AAModClassic.Base.BaseMod.Base
                     if (npc.velocity.Y < 0f) { npc.velocity.Y -= moveIntervalY * 0.5f; }
                     if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y = maxSpeedY; }
                 }
-            }
-            if (canBeBored) { ai += 1f; }
-            if (canBeBored && ai > timeUntilBoredom)
+            };
+            if (canBeBored) { ai[0] += 1f; }
+            if (canBeBored && ai[0] > timeUntilBoredom)
             {
-                if (!target.wet && Collision.CanHit(npc.position, npc.width, npc.height, target.position, target.width, target.height))
+                if (!Main.player[npc.target].wet && Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height))
                 {
-                    ai = 0f;
+                    ai[0] = 0f;
                 }
-                if (ai > timeUntilBoredom * 2) { ai = 0f; }
-                npc.direction = target.Center.X < npc.Center.X ? 1 : -1;
-                npc.directionY = target.Center.Y < npc.Center.Y ? 1 : -1;
+                if (ai[0] > timeUntilBoredom * 2) { ai[0] = 0f; }
+                npc.direction = Main.player[npc.target].Center.X < npc.Center.X ? 1 : -1;
+                npc.directionY = Main.player[npc.target].Center.Y < npc.Center.Y ? 1 : -1;
                 move();
             }
             else
@@ -3870,11 +3863,10 @@ namespace AAModClassic.Base.BaseMod.Base
                 {
                     if (npc.wet)
                     {
-                        if (npc.velocity.Y > 0f) { npc.velocity.Y *= 0.95f; }
-                        npc.velocity.Y -= 0.5f;
+                        if (npc.velocity.Y > 0f) { npc.velocity.Y = npc.velocity.Y * 0.95f; }
+                        npc.velocity.Y = npc.velocity.Y - 0.5f;
                         if (npc.velocity.Y < -maxSpeedX) { npc.velocity.Y = -maxSpeedX; }
-                        npc.direction = target.Center.X > npc.Center.X ? -1 : 1;
-                        npc.directionY = target.Center.Y > npc.Center.Y ? -1 : 1;
+                        npc.TargetClosest(true);
                     }
                     move();
                 }

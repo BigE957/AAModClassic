@@ -93,6 +93,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             {
                 damage = NPC.damage / 2;
             }
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
              
             if ((Main.dayTime && player.position.Y < Main.worldSurface) || !player.ZoneGlowshroom)
@@ -152,7 +153,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             }
             else if (internalAI[1] == AISTATE_FLIER) 
             {
-                BaseAI.AIFlier(NPC, ref NPC.ai[0], true, 0.1f,0.04f, 5f, 3f, false, 1);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
             }
             else if (internalAI[1] == AISTATE_SHOOT)
             {

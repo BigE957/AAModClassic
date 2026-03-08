@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 			}
 			NPC.oldPos[0] = NPC.position;
 
-			BaseAI.AIFlier(NPC, player, ref NPC.ai[0], true, 0.15f, 0.08f, 8f, 7f, false);
+			BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.15f, 0.08f, 8f, 7f, false);
             if (player.Center.X < NPC.Center.X)
             {
                 NPC.direction = NPC.spriteDirection = -1;

@@ -128,7 +128,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             float dist = Vector2.Distance(nextTarget, NPC.Center);
             if (YamataHead.EATTHELITTLEMAGGOT && playerDistance < 300f)
             {
-                BaseAI.AIFlier(NPC, ref customAI[0], true, .5f, .8f, 5, 5, false, 300);
+                BaseAI.AIFlier(NPC, ref customAI, true, .5f, .8f, 5, 5, false, 300);
             }
             else
             if (dist < 40f)

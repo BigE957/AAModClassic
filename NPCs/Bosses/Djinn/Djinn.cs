@@ -149,7 +149,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
                 NPC.damage = 200 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1);
                 NPC.defense = 1000;
                 NPC.ai[3]++;
-                BaseAI.AIFlier(NPC, ref NPC.ai[2], true, 0.3f, 0.3f, 16f, 16f, false, 300);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.3f, 0.3f, 16f, 16f, false, 300);
 
                 if (NPC.localAI[0]++ > 50)
                 {
@@ -217,7 +217,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             {
                 NPC.damage = 60 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1); ;
                 NPC.ai[3]++;
-                BaseAI.AIFlier(NPC, Main.player[NPC.target], ref NPC.ai[2], true, 0.1f, 0.1f, 6f, 6f, false, 300);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.1f, 6f, 6f, false, 300);
                 NPC.damage = 40;
 
                 if (NPC.ai[3] % 30 == 0)
@@ -288,7 +288,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             else
             {
                 NPC.damage = 30;
-                BaseAI.AIFlier(NPC, Main.player[NPC.target], ref NPC.ai[3], true, 0.1f, 0.04f, 4f, 2f, false, 300);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.04f, 4f, 2f, false, 300);
             }
         }
 

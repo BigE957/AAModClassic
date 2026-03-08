@@ -65,7 +65,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 				NPC.oldPos[m] = NPC.oldPos[m - 1];
 			}
 			NPC.oldPos[0] = NPC.position;
-            BaseAI.AIFlier(NPC, player, ref NPC.ai[0], false, 0.3f, 0.2f, 6f, 4.5f, false, 250);
+            BaseAI.AIFlier(NPC, ref NPC.ai, false, 0.3f, 0.2f, 6f, 4.5f, false, 250);
             if (player.Center.X < NPC.Center.X)
             {
                 NPC.direction = NPC.spriteDirection = -1;
