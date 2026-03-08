@@ -844,6 +844,8 @@ namespace AAModClassic
 
         private void GenEverleaf()
         {
+            //I do not know what an 'EverleafRoot' is.
+            /*
             int x = Main.maxTilesX;
             int y = Main.maxTilesY;
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -853,9 +855,10 @@ namespace AAModClassic
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
                     //TODO: This was formerly generating "EverleafRoot", unsure if this is the proper replacement.
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("TerraCrystal").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
                 }
             }
+            */
         }
 
         private void GenAbyssium()
