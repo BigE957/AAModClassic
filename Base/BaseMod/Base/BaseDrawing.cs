@@ -1239,7 +1239,8 @@ namespace AAModClassic.Base.BaseMod.Base
          */
         public static void DrawChain(object sb, Texture2D[] textures, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
         {
-            if (Jump <= 0f) { Jump = (textures[1].Height - 2f) * scale; }
+            if (Jump <= 0f)
+                Jump = (textures[1].Height - 2f) * scale;
             Vector2 dir = end - start;
             dir.Normalize();
             float length = Vector2.Distance(start, end);
@@ -1248,8 +1249,19 @@ namespace AAModClassic.Base.BaseMod.Base
             int texID = 0;
             int maxTextures = textures.Length - 2;
             int currentChain = 0;
+            int iterCap = 100;
+            int iters = 0;
+
             while (Way < length)
             {
+                if (iters++ > iterCap)
+                {
+                    Main.NewText("-----Early break-----");
+                    Main.NewText("Way: " + Way);
+                    Main.NewText("length: " + length);
+                    Main.NewText("Jump: " + Jump);
+                    break;
+                }
                 float texWidth;
                 float texHeight;
                 Vector2 texCenter;

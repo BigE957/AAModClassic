@@ -77,7 +77,6 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             NPC.defense = 999999;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Yamata");
             NPC.noGravity = true;
             NPC.netAlways = true;
             frameWidth = 324;
@@ -973,7 +972,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {
-            Mod mod = AAMod.instance;
+            AAMod mod = AAMod.instance;
             if (textures == null)
             {
                 string texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA";

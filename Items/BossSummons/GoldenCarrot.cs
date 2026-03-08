@@ -34,7 +34,7 @@ namespace AAModClassic.Items.BossSummons
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noUseGraphic = true;
             Item.consumable = true;
-            Item.UseSound = new SoundStyle("Sounds/Sounds/Rajah");
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/Rajah");
         }
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.

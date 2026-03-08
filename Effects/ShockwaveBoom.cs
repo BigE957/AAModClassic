@@ -47,7 +47,7 @@ namespace AAModClassic.Effects
                 {
                     if (!Filters.Scene["AAModClassic:Shockwave"].IsActive())
                     {                                                             //pulseCount rippleSize speed
-                        Filters.Scene.Activate("Shockwave", Projectile.Center).GetShader().UseColor(pulseCount, rippleSize, speed).UseTargetPosition(Projectile.Center);
+                        Filters.Scene.Activate("AAModClassic:Shockwave", Projectile.Center).GetShader().UseColor(pulseCount, rippleSize, speed).UseTargetPosition(Projectile.Center);
                     }
                 }
             }

@@ -256,7 +256,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
                     {
                         AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                            BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;

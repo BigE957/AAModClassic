@@ -642,6 +642,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), this);
                 legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), this);
             }
+
             for (int m = 0; m < 4; m++)
             {
                 legs[m].UpdateLeg(NPC);
@@ -706,6 +707,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             string tailTex = "NPCs/Bosses/Yamata/YamataTail";
             string headTex = "NPCs/Bosses/Yamata/YamataHead";
             BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(tailTex), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
+            
             if (legs != null && legs.Length == 4)
             {
                 legs[2].DrawLeg(sb, NPC); //back legs
@@ -713,6 +715,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 legs[0].DrawLeg(sb, NPC); //front legs
                 legs[1].DrawLeg(sb, NPC);
             }
+            
             DrawHead(sb, "NPCs/Bosses/Yamata/YamataHeadF1", "Glowmasks/YamataHeadF1_Glow", Head2, drawColor, false);
             DrawHead(sb, "NPCs/Bosses/Yamata/YamataHeadF1", "Glowmasks/YamataHeadF1_Glow", Head3, drawColor, false);
             DrawHead(sb, "NPCs/Bosses/Yamata/YamataHeadF1", "Glowmasks/YamataHeadF1_Glow", Head4, drawColor, false);
@@ -767,7 +770,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         Vector2 pointToStandOn = default;
         Vector2 legJoint = default;
-        public Texture2D[] textures = null;
+        public Texture2D[] textures = [];
 
         public LegInfo(int lType, Vector2 initialPos, Yamata m)
         {
@@ -883,15 +886,12 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             return default;
         }
 
-        public Vector2 GetBodyConnector(NPC npc)
-        {
-            return npc.Center + yamata.topVisualOffset + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
-        }
+        public Vector2 GetBodyConnector(NPC npc) => npc.Center + yamata.topVisualOffset + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
 
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {
-            Mod mod = AAMod.instance;
-            if (textures == null)
+            AAMod mod = AAMod.instance;
+            if (textures == null || textures.Length < 5)
             {
                 bool awakened = npc.type == mod.Find<ModNPC>("YamataA").Type;
                 string texRoot = "NPCs/Bosses/Yamata/Yamata";

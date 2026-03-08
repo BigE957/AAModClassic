@@ -1356,9 +1356,7 @@ namespace AAModClassic.Globals
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.AnyNPCs(bossType))
-                {
                     return;
-                }
 
                 int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
                 Main.npc[npcID].Center = npcCenter;

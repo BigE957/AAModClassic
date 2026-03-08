@@ -60,7 +60,7 @@ Non-Consumable"); */
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
             SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Yamata.Yamata>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
-            SoundEngine.PlaySound(new SoundStyle("Sounds/Sounds/YamataRoar"), player.position);
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/YamataRoar"), player.position);
             if (!AAWorld.downedYamata)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue1"), new Color(45, 46, 70));
