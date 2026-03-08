@@ -146,7 +146,7 @@ namespace AAModClassic
         #endregion
 
         #region Save/Load
-        public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
+        public override void PreWorldGen()
         {
             //Bosses
             downedAnubis = false;
