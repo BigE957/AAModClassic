@@ -82,7 +82,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 SoundEngine.PlaySound(SoundID.Zombie104, Projectile.position);
             }
-            float num801 = Main.npc[ai1].type == ModContent.NPCType<ZeroProtocol>() ? 2f:1f;
+            float num801 = NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()) ? 2f:1f;
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] >= maxTime)
             {

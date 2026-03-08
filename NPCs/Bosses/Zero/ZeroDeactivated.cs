@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -44,6 +45,12 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
 		public override void AI()
 		{
+            if(AAWorld.downedZero || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+            {
+                NPC.active = false;
+                return;
+            }
+
             RingRoatation += .01f;
             if (Main.netMode != NetmodeID.MultiplayerClient && AAWorld.zeroUS == true)
             {
@@ -144,7 +151,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void PostUpdateWorld()
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient && !AAWorld.downedZero)
+            if (Main.netMode != NetmodeID.MultiplayerClient && !AAWorld.downedZero && !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
             {
                 SpawnDeactivatedZero();
             }
