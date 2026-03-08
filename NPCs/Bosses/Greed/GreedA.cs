@@ -526,7 +526,6 @@ namespace AAModClassic.NPCs.Bosses.Greed
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;   //boss drops
-            AAWorld.downedSerpent = true;
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
@@ -806,6 +805,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override bool PreKill()
         {
+            Main.npc[NPC.FindFirstNPC(ModContent.NPCType<GreedA>())].StrikeInstantKill();
             return false;
         }
 
