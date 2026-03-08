@@ -34,6 +34,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             NPC.buffImmune[46] = true;
             NPC.buffImmune[47] = true;
             NPC.netAlways = true;
+            NPC.scale = 0.5f;
         }
 
         public override void AI()
@@ -48,16 +49,16 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 if (NPC.frameCounter > 8)
                 {
                     NPC.frameCounter = 0;
-                    NPC.frame.Y += 44;
+                    NPC.frame.Y += 88;
                 }
-                if (NPC.frame.Y > 44 * 6)
+                if (NPC.frame.Y > 88 * 6)
                 {
                     NPC.frame.Y = 0;
                 }
             }
             else
             {
-                NPC.frame.Y = 44 * 6;
+                NPC.frame.Y = 88 * 6;
             }
         }
     }
