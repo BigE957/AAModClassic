@@ -53,6 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             {
                 NPC.life = 0;
                 NPC.active = false;
+                return;
             }
             if(((WrathHaruka)Haruka.ModNPC).internalAI[0] != 4)
             {

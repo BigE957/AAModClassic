@@ -62,6 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void AI()
         {
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 250);

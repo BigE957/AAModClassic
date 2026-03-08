@@ -192,6 +192,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void AI()
         {
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {
@@ -397,7 +398,6 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     Shadowdashcounter = 0;
                 }
             }
-
 
             if (internalAI[0] == AISTATE_IDLE)
             {
