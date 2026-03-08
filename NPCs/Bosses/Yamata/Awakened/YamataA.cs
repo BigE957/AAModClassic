@@ -973,7 +973,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {
             AAMod mod = AAMod.instance;
-            if (textures == null)
+            if (textures == null || textures.Length < 5 || textures[1].Height == 1)
             {
                 string texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA";
                 textures = new Texture2D[5];
