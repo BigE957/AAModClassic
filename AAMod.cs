@@ -29,6 +29,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
+using Terraria.WorldBuilding;
 
 namespace AAModClassic
 {
@@ -290,8 +291,9 @@ namespace AAModClassic
 
         public void LoadClient()
         {
-            Asset<Effect> screenRef = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
-            Filters.Scene["AAModClassic:Shockwave"] = new Filter(new ScreenShaderData(screenRef, "AAModClassic:Shockwave"), EffectPriority.VeryHigh);
+            Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
+            ScreenShaderData shaderdata = new(shader, "Shockwave");
+            Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
             BackupVanillaBG(-1);
@@ -387,28 +389,23 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:MireSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
             SkyManager.Instance["AAModClassic:MireSky"] = new MireSky();
 
-            VoidSky vSky = new VoidSky();
             Filters.Scene["AAModClassic:VoidSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0.15f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:VoidSky"] = vSky;
+            SkyManager.Instance["AAModClassic:VoidSky"] = new VoidSky();
 
-            AthenaSky aSky = new AthenaSky();
             Filters.Scene["AAModClassic:AthenaSky"] = new Filter(new VoidSkyData("FilterMiniTower").UseColor(0f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:AthenaSky"] = aSky;
+            SkyManager.Instance["AAModClassic:AthenaSky"] = new AthenaSky();
 
-            InfernoSky iSky = new InfernoSky();
             Filters.Scene["AAModClassic:InfernoSky"] = new Filter(new InfernoSkyData("FilterMiniTower").UseColor(1f, 0.20f, 0f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:InfernoSky"] = iSky;
+            SkyManager.Instance["AAModClassic:InfernoSky"] = new InfernoSky();
 
-            AkumaSky akSky = new AkumaSky();
             Filters.Scene["AAModClassic:AkumaSky"] = new Filter(new AkumaSkyData("FilterMiniTower").UseColor(0f, 0.3f, 0.4f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:AkumaSky"] = akSky;
+            SkyManager.Instance["AAModClassic:AkumaSky"] = new AkumaSky();
 
             Filters.Scene["AAModClassic:YamataSky"] = new Filter(new YamataSkyData("FilterMiniTower").UseColor(.7f, 0f, 0f).UseOpacity(0.5f), EffectPriority.VeryHigh);
             SkyManager.Instance["AAModClassic:YamataSky"] = new YamataSky();
 
-            AnubisSky anSky = new AnubisSky();
             Filters.Scene["AAModClassic:AnubisSky"] = new Filter(new AnubisSkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
-            SkyManager.Instance["AAModClassic:AnubisSky"] = anSky;
+            SkyManager.Instance["AAModClassic:AnubisSky"] = new AnubisSky();
 
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
