@@ -217,7 +217,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 {
                     internalAI[2]++;
                 }
-                if ((player.Center.Y - NPC.Center.Y) > 60f) // player is below the npc.
+                if ((player.Center.Y - NPC.Center.Y) > 120f) // player is below the npc.
                 {
                     NPC.noTileCollide = true;
                 }
