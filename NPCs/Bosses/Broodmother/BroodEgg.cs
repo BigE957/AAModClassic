@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 				for(int m = 0; m < 4; m++)
 				{
 					Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
-					Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGore3").Type, 1f); //reused brood gore, it looks right for the egg
+					Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate3").Type, 1f); //reused brood gore, it looks right for the egg
 				}
             }
 			for (int m = 0; m < (isDead ? 20 : 5); m++)

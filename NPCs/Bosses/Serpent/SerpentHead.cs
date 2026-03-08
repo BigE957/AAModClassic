@@ -1166,6 +1166,9 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override bool PreKill()
         {
+            int first = NPC.FindFirstNPC(ModContent.NPCType<SerpentHead>());
+            if(first != -1)
+                Main.npc[first].StrikeInstantKill();
             return false;
         }
 
@@ -1547,6 +1550,9 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override bool PreKill()
         {
+            int first = NPC.FindFirstNPC(ModContent.NPCType<SerpentHead>());
+            if (first != -1)
+                Main.npc[first].StrikeInstantKill();
             return false;
         }
 

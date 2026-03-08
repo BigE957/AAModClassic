@@ -181,11 +181,13 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk2").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk3").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreWingchunk4").Type, 1f);
+                /*
                 for (int m = 0; m < 12; m++)
 				{
 					Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
 					Gore.NewGore(NPC.GetSource_Death(), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGore3").Type, 1f + (float)Main.rand.NextDouble() * 0.5f);
 				}
+                */
             }
 			for (int m = 0; m < (isDead ? 45 : 6); m++)
 			{
