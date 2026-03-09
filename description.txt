@@ -22,37 +22,36 @@ Ancients Awakened: Classic features:
 Note: Some tracks have been removed or replaced at the request of the original composers. Please respect their decision.
 
 Credit to the original team behind this version of the mod:
-- Elizabeth Miles
-- Grox The Great
-- Hallam, God of Rainbows
-- Tails the Fox 92
-- Chinzilla00
-- Gregg
-- Welox
-- KyuuSW
-- TheRedstoneBro
-- Glitched Pixel
-- Niorin
-- Tied
-- SpectralAves
 - Beg
-- GamingWithZack
-- FailureOfMankind
 - Charlie Debnam
-- LordCakeSpy
-- Rockwizard
-- Frogtism
-- ZipZopZoop
+- Chinzilla00
+- Dan Yami
+- Diverman Sam
+- Dradonhunter11
+- Elizabeth Miles
+- Ezalos
+- FailureOfMankind
 - Fargowilta
 - Fazergamer
-- Hero
-- Sume
-- MechanicPluto
-- Ezalos
-- Dradonhunter11
-- Dan Yami
+- Frogtism
+- GamingWithZack
+- Glitched Pixel
 - Gregg
-- Diverman Sam
-- OverlordCMD
-- Uncle Danny
+- Grox The Great
+- Hallam, God of Rainbows
+- Hero
+- KyuuSW
+- LordCakeSpy
+- MechanicPluto
+- Niorin
 - Moonburn
+- OverlordCMD
+- Rockwizard
+- SpectralAves
+- Sume
+- Tails the Fox 92
+- Tied
+- TheRedstoneBro
+- Uncle Danny
+- Welox
+- ZipZopZoop

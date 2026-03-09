@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Altar
             NPC.width = 46;
             NPC.height = 46;
             NPC.alpha = 255;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Prequinox");
+            //Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Prequinox");
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true; 
             NPC.noGravity = true;

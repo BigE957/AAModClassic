@@ -377,7 +377,7 @@ namespace AAModClassic
                 MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SleepingGiant"), Find<ModItem>("SGBox").Type, Find<ModTile>("SGBox").Type);
                 MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Shen"), Find<ModItem>("ShenBox").Type, Find<ModTile>("ShenBox").Type);
                 MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/ShenA"), Find<ModItem>("ShenABox").Type, Find<ModTile>("ShenABox").Type);
-                //MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SupremeRajah"), ItemType("SRajahBox"), TileType("SRajahBox"));
+                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SupremeRajah"), Find<ModItem>("SRajahBox").Type, Find<ModTile>("SRajahBox").Type);
             }
 
             Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);

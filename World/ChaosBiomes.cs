@@ -35,6 +35,7 @@ namespace AAModClassic.World
 
         public override int Music =>
             Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireUnderground") :
+            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") :
             Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/DM") :
             MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireSurface");
 
@@ -65,6 +66,7 @@ namespace AAModClassic.World
 
         public override int Music => 
             Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/InfernoUnderground") :
+            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") :
             !Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/IN") :
             MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/InfernoSurface");
 

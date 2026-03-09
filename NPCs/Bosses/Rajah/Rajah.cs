@@ -203,7 +203,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         }
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah5") + Name.ToUpper() + Lang.BossChat("Rajah6"), 107, 137, 179);
-                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                    //Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
                 }
             }
 
