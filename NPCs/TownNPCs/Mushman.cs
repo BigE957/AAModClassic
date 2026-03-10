@@ -473,57 +473,57 @@ namespace AAModClassic.NPCs.TownNPCs
 		{
             int nextSlot = 0;
 
-            items[nextSlot].SetDefaults(ItemID.Mushroom);
+            items[nextSlot] = new Item(ItemID.Mushroom);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.GlowingMushroom);
+            items[nextSlot] = new Item(ItemID.GlowingMushroom);
             nextSlot++;
-            items[nextSlot].SetDefaults(Mod.Find<ModItem>("SporeSac").Type);
+            items[nextSlot] = new Item(Mod.Find<ModItem>("SporeSac").Type);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.RecallPotion);
+            items[nextSlot] = new Item(ItemID.RecallPotion);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.WormholePotion);
+            items[nextSlot] = new Item(ItemID.WormholePotion);
             nextSlot++;
-            items[nextSlot].SetDefaults(Mod.Find<ModItem>("MyceliumSeeds").Type);
+            items[nextSlot] = new Item(Mod.Find<ModItem>("MyceliumSeeds").Type);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.MushroomGrassSeeds);
+            items[nextSlot] = new Item(ItemID.MushroomGrassSeeds);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.LesserHealingPotion);
+            items[nextSlot] = new Item(ItemID.LesserHealingPotion);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.LesserManaPotion);
+            items[nextSlot] = new Item(ItemID.LesserManaPotion);
             nextSlot++;
 
             if (NPC.downedBoss3 == true)
             {
-                items[nextSlot].SetDefaults(ItemID.HealingPotion);
+                items[nextSlot] = new Item(ItemID.HealingPotion);
                 nextSlot++;
-                items[nextSlot].SetDefaults(ItemID.ManaPotion);
+                items[nextSlot] = new Item(ItemID.ManaPotion);
                 nextSlot++;
             }
 
             if (Main.hardMode == true)
             {
-                items[nextSlot].SetDefaults(ItemID.GreaterHealingPotion);
+                items[nextSlot] = new Item(ItemID.GreaterHealingPotion);
                 nextSlot++;
-                items[nextSlot].SetDefaults(ItemID.GreaterManaPotion);
+                items[nextSlot] = new Item(ItemID.GreaterManaPotion);
                 nextSlot++;
             }
             if (NPC.downedMoonlord == true)
             {
-                items[nextSlot].SetDefaults(ItemID.SuperHealingPotion);
+                items[nextSlot] = new Item(ItemID.SuperHealingPotion);
                 nextSlot++;
-                items[nextSlot].SetDefaults(ItemID.SuperManaPotion);
+                items[nextSlot] = new Item(ItemID.SuperManaPotion);
                 nextSlot++;
             }
             if (AAWorld.downedAncient == true)
             {
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("GrandHealingPotion").Type);
+                items[nextSlot] = new Item(Mod.Find<ModItem>("GrandHealingPotion").Type);
                 nextSlot++;
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("GrandManaPotion").Type);
+                items[nextSlot] = new Item(Mod.Find<ModItem>("GrandManaPotion").Type);
                 nextSlot++;
             }
             if (AAWorld.downedSAncient == true)
             {
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("TheBigOne").Type);
+                items[nextSlot] = new Item(Mod.Find<ModItem>("TheBigOne").Type);
                 nextSlot++;
             }
         }

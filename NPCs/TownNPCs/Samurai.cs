@@ -130,71 +130,71 @@ namespace AAModClassic.NPCs.TownNPCs
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             int nextSlot = 0;
-            items[nextSlot].SetDefaults(ItemID.DynastyWood);
+            items[nextSlot] = new Item(ItemID.DynastyWood);
             nextSlot++;
             if (Main.dayTime)
             {
-                items[nextSlot].SetDefaults(ItemID.RedDynastyShingles);
+                items[nextSlot] = new Item(ItemID.RedDynastyShingles);
                 nextSlot++;
-                items[nextSlot].SetDefaults(ModContent.ItemType<InfernoSeeds>());
+                items[nextSlot] = new Item(ModContent.ItemType<InfernoSeeds>());
                 nextSlot++;
-                items[nextSlot].SetDefaults(ModContent.ItemType<Sunpowder>());
+                items[nextSlot] = new Item(ModContent.ItemType<Sunpowder>());
                 nextSlot++;
                 if (AAWorld.downedBrood == true)
                 {
-                    items[nextSlot].SetDefaults(ModContent.ItemType<DragonBell>());
+                    items[nextSlot] = new Item(ModContent.ItemType<DragonBell>());
                     items[nextSlot].value = 100000;
                     nextSlot++;
                 }
             }
             if (!Main.dayTime)
             {
-                items[nextSlot].SetDefaults(ItemID.BlueDynastyShingles);
+                items[nextSlot] = new Item(ItemID.BlueDynastyShingles);
                 nextSlot++;
-                items[nextSlot].SetDefaults(ModContent.ItemType<MireSeeds>());
+                items[nextSlot] = new Item(ModContent.ItemType<MireSeeds>());
                 nextSlot++;
-                items[nextSlot].SetDefaults(ModContent.ItemType<Moonpowder>());
+                items[nextSlot] = new Item(ModContent.ItemType<Moonpowder>());
                 nextSlot++;
                 if (AAWorld.downedHydra == true)
                 {
-                    items[nextSlot].SetDefaults(ModContent.ItemType<HydraChow>());
+                    items[nextSlot] = new Item(ModContent.ItemType<HydraChow>());
                     items[nextSlot].value = 100000;
                     nextSlot++;
                 }
             }
-            items[nextSlot].SetDefaults(ModContent.ItemType<LuckyCracker>());
+            items[nextSlot] = new Item(ModContent.ItemType<LuckyCracker>());
             items[nextSlot].value = 2000000;
 			nextSlot++;
-            items[nextSlot].SetDefaults(ModContent.ItemType<Items.Potions.RoninPotion>());
+            items[nextSlot] = new Item(ModContent.ItemType<Items.Potions.RoninPotion>());
             items[nextSlot].value = 50000;
 			nextSlot++;
-			items[nextSlot].SetDefaults(ItemID.Sake);
+			items[nextSlot] = new Item(ItemID.Sake);
 			nextSlot++;
-			items[nextSlot].SetDefaults(ItemID.Pho);
+			items[nextSlot] = new Item(ItemID.Pho);
 			nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.PadThai);
+            items[nextSlot] = new Item(ItemID.PadThai);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.Gi);
+            items[nextSlot] = new Item(ItemID.Gi);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.Kimono);
+            items[nextSlot] = new Item(ItemID.Kimono);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.FancyDishes);
+            items[nextSlot] = new Item(ItemID.FancyDishes);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.Katana);
+            items[nextSlot] = new Item(ItemID.Katana);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.Shuriken);
+            items[nextSlot] = new Item(ItemID.Shuriken);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.NinjaHood);
+            items[nextSlot] = new Item(ItemID.NinjaHood);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.NinjaShirt);
+            items[nextSlot] = new Item(ItemID.NinjaShirt);
             nextSlot++;
-            items[nextSlot].SetDefaults(ItemID.NinjaPants);
+            items[nextSlot] = new Item(ItemID.NinjaPants);
             nextSlot++;
             if (Main.dayTime)
             {
                 if (Main.hardMode == true)
                 {
-                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("OrangeSolution").Type);
+                    items[nextSlot] = new Item(Mod.Find<ModItem>("OrangeSolution").Type);
                     nextSlot++;
                 }
             }
@@ -202,12 +202,12 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 if (Main.hardMode == true)
                 {
-                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("IndigoSolution").Type);
+                    items[nextSlot] = new Item(Mod.Find<ModItem>("IndigoSolution").Type);
                     nextSlot++;
                 }
             }
 
-            items[nextSlot].SetDefaults(Mod.Find<ModItem>("OrderSolution").Type);
+            items[nextSlot] = new Item(Mod.Find<ModItem>("OrderSolution").Type);
             nextSlot++;
         }
 

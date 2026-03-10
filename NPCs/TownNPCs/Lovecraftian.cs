@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Flasks;
 using System.Collections.Generic;
@@ -73,8 +74,8 @@ namespace AAModClassic.NPCs.TownNPCs
         
         public override string GetChat()
         {   
-			Mod Fargos = ModLoader.GetMod("FargoMod");
-			Mod GRealm = ModLoader.GetMod("Grealm");
+			Mod Fargos = ModSupport.GetMod("FargoMod");
+			Mod GRealm = ModSupport.GetMod("Grealm");
 
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
@@ -470,69 +471,69 @@ namespace AAModClassic.NPCs.TownNPCs
             int nextSlot = 0;
             if (AAWorld.squid1 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.PurityFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.PurityFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid2 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.AshJar>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.AshJar>());
                 nextSlot++;
             }
             if (AAWorld.squid3 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<DarkwaterFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<DarkwaterFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid4 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.CorruptionFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.CorruptionFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid5 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<CrimsonFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<CrimsonFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid6 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.HallowFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.HallowFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid7 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.VoidFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.VoidFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid8 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Flasks.Fungicide>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Flasks.Fungicide>());
                 nextSlot++;
             }
             if (AAWorld.squid9 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<Items.Usable.SporeSac>());
+                items[nextSlot] = new Item(ModContent.ItemType<Items.Usable.SporeSac>());
                 nextSlot++;
             }
             if (AAWorld.squid10 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<GlowingSporeSac>());
+                items[nextSlot] = new Item(ModContent.ItemType<GlowingSporeSac>());
                 nextSlot++;
             }
             if (AAWorld.squid11 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<JungleFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<JungleFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid12 >= 1)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<IceFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<IceFlask>());
                 nextSlot++;
-                items[nextSlot].SetDefaults(ModContent.ItemType<IcemeltFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<IcemeltFlask>());
                 nextSlot++;
             }
             if (AAWorld.squid13 >= 5)
             {
-                items[nextSlot].SetDefaults(ModContent.ItemType<ForestFlask>());
+                items[nextSlot] = new Item(ModContent.ItemType<ForestFlask>());
                 nextSlot++;
             }
         }
