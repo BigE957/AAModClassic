@@ -103,6 +103,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
             if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 
+            NPC.TargetClosest();
             Player player = Main.player[zero.target];
 
             int aiTimerFire = Main.expertMode ? 230 : 280;
@@ -111,6 +112,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             float num1 = Main.player[NPC.target].position.X + (player.width / 2) - vector2.X;
             float num2 = Main.player[NPC.target].position.Y + (player.height / 2) - vector2.Y;
             float NewRotation = (float)Math.Atan2(num2, num1);
+
             NPC.rotation = MathHelper.Lerp(NPC.rotation, NewRotation, 1f / 25f);
 
             if (NPC.ai[2] >= aiTimerFire)
