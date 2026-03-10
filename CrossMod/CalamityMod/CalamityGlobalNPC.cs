@@ -96,12 +96,12 @@ namespace AAModClassic.CrossMod.CalamityMod
 
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
 		{
-            if (ModSupport.GetMod("CalamityMod") != null)
+            if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
 			{
                 if (npc.type >= NPCID.Count && npc.ModNPC.Mod == AAMod.instance && npc.boss)
                 {
-                    bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
-                    bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
+                    bool revenge = (bool)calamity.Call("GetDifficultyActive", "revengeance");
+                    bool Death = (bool)calamity.Call("GetDifficultyActive", "death");
                     if(!NPC.downedMoonlord)
                     {
                         modifiers.IncomingDamageMultiplier *= (1.1f + (revenge? 0.2f:0f) + (Death? 0.3f:0f));
@@ -161,13 +161,13 @@ namespace AAModClassic.CrossMod.CalamityMod
     {
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
 		{
-            if (ModSupport.GetMod("CalamityMod") != null)
-			{
+            if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
+            {
                 if (projectile.hostile && !projectile.friendly && projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)
                 {
-                    bool revenge = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "revenge", false, true);
-                    bool Death = (bool)ModSupport.GetModWorldConditions("CalamityMod", "CalamityWorld", "death", false, true);
-                    if(!NPC.downedMoonlord)
+                    bool revenge = (bool)calamity.Call("GetDifficultyActive", "revengeance");
+                    bool Death = (bool)calamity.Call("GetDifficultyActive", "death");
+                    if (!NPC.downedMoonlord)
                     {
                         modifiers.IncomingDamageMultiplier *= (1.1f + (revenge ? 0.2f : 0f) + (Death ? 0.3f : 0f));
                     }
