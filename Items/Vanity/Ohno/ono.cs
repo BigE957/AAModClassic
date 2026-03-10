@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Vanity.Ohno
 {
-    public class ono : BaseAAItem
+    public class Ono : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Vanity.Ohno
 		}
 	}
 
-	public class onoHead : EquipTexture
+	public class OnoHead : EquipTexture
 	{
         public override void PreUpdateVanitySet(Player player)
         {
@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Vanity.Ohno
         }
 	}
 
-	public class onoBody : EquipTexture
+	public class OnoBody : EquipTexture
 	{
         public override void PreUpdateVanitySet(Player player)
         {
@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Vanity.Ohno
         }
 	}
 
-	public class onoLegs : EquipTexture
+	public class OnoLegs : EquipTexture
 	{
         public override void PreUpdateVanitySet(Player player)
         {

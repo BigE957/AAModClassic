@@ -10,23 +10,18 @@ using ReLogic.Content;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Yamata.Awakened;
+using Terraria.GameContent;
 
 namespace AAModClassic.Backgrounds
 {
-    public class FogOverlay : Overlay
+    public class FogOverlay(string textureName, string shaderName = "Default", EffectPriority priority = EffectPriority.VeryLow, RenderLayers layer = RenderLayers.All) : Overlay(priority, layer)
     {
-        private readonly Asset<Texture2D> texture;
-        private readonly ScreenShaderData shader;
+        private readonly Asset<Texture2D> texture = ModContent.Request<Texture2D>(textureName ?? "");
+        private readonly ScreenShaderData shader = new ScreenShaderData(shaderName);
 
         public int fogOffsetX = 0;
         public float fadeOpacity = 0f;
         public float dayTimeOpacity = 0f;
-
-        public FogOverlay(string textureName, string shaderName = "Default", EffectPriority priority = EffectPriority.VeryLow, RenderLayers layer = RenderLayers.All) : base(priority, layer)
-        {
-            texture = ModContent.Request<Texture2D>(textureName ?? "");
-            shader = new ScreenShaderData(Main.ScreenShaderRef, shaderName);
-        }
 
         public override void Draw(SpriteBatch spriteBatch)
         {

@@ -642,52 +642,52 @@ Buffs: {
 		Description: The Spirit of Purity lends you power
 	}
 
-	luckycalming: {
+	LuckyCalming: {
 		DisplayName: Calm
 		Description: Reduced enemy aggression
 	}
 
-	luckyendurance: {
+	LuckyEndurance: {
 		DisplayName: Endurance
 		Description: Increase your endurance
 	}
 
-	luckyironskin: {
+	LuckyIronskin: {
 		DisplayName: Ironskin
 		Description: Increase defense by 9
 	}
 
-	luckylifeforce: {
+	LuckyLifeforce: {
 		DisplayName: Lifeforce
 		Description: 21% increased max life
 	}
 
-	luckyrage: {
+	LuckyRage: {
 		DisplayName: Rage
 		Description: 11% increased critical chance
 	}
 
-	luckyregeneration: {
+	LuckyRegeneration: {
 		DisplayName: Regeneration
 		Description: Provides life regeneration
 	}
 
-	luckysummoning: {
+	LuckySummoning: {
 		DisplayName: Summoning
 		Description: Increased max number of minions and turrents
 	}
 
-	luckyswiftness: {
+	LuckySwiftness: {
 		DisplayName: Swiftness
 		Description: 26% increased movement speed
 	}
 
-	luckythorns: {
+	LuckyThorns: {
 		DisplayName: Thorns
 		Description: Attackers also take damage
 	}
 
-	luckywrath: {
+	LuckyWrath: {
 		DisplayName: Wrath
 		Description: 11% increased damage
 	}
@@ -8085,12 +8085,12 @@ Items: {
 		Tooltip: She said it can make you lucky. Do you trust her?
 	}
 
-	luckycalmingpotion: {
+	LuckyCalmingPotion: {
 		DisplayName: Lucky Calming Potion
 		Tooltip: Reduces enemy aggression
 	}
 
-	luckyendurancepotion: {
+	LuckyEndurancePotion: {
 		DisplayName: Lucky Endurance Potion
 		Tooltip:
 			'''
@@ -8099,42 +8099,42 @@ Items: {
 			'''
 	}
 
-	luckyironskinpotion: {
+	LuckyIronskinPotion: {
 		DisplayName: Lucky Ironskin Potion
 		Tooltip: Increase defense by 9
 	}
 
-	luckylifeforcepotion: {
+	LuckyLifeforcePotion: {
 		DisplayName: Lucky Lifeforce Potion
 		Tooltip: Increases max life by 21%
 	}
 
-	luckyragepotion: {
+	LuckyRagePotion: {
 		DisplayName: Lucky Rage Potion
 		Tooltip: Increases critical chance by 11%
 	}
 
-	luckyregenerationpotion: {
+	LuckyRegenerationPotion: {
 		DisplayName: Lucky Regeneration Potion
 		Tooltip: Provides life regeneration
 	}
 
-	luckysummoningpotion: {
+	LuckySummoningPotion: {
 		DisplayName: Lucky Summoning Potion
-		Tooltip: Increases your max number of minions and turrents
+		Tooltip: Increases your max number of minions and sentries
 	}
 
-	luckyswiftnesspotion: {
+	LuckySwiftnessPotion: {
 		DisplayName: Lucky Swiftness Potion
 		Tooltip: 26% increased movement speed
 	}
 
-	luckythornspotion: {
+	LuckyThornsPotion: {
 		DisplayName: Lucky Thorns Potion
 		Tooltip: Attackers also take damage
 	}
 
-	luckywrathpotion: {
+	LuckyWrathPotion: {
 		DisplayName: Lucky Wrath Potion
 		Tooltip: Increases damage by 11%
 	}
@@ -10146,7 +10146,7 @@ Items: {
 			'''
 	}
 
-	ono: {
+	Ono: {
 		DisplayName: ono
 		Tooltip: ono
 	}

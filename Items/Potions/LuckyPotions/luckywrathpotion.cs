@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AAModClassic.Items.Potions.LuckyPotions
 {
-    public class luckywrathpotion : BaseAAItem
+    public class LuckyWrathPotion : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
         }
 	}
 
-	public class luckywrath : ModBuff
+	public class LuckyWrath : ModBuff
 	{
         public override string Texture => "Terraria/Images/Buff_117";
 

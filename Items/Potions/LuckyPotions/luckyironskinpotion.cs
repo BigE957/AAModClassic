@@ -7,7 +7,7 @@ using AAModClassic;
 
 namespace AAModClassic.Items.Potions.LuckyPotions
 {
-    public class luckyironskinpotion : BaseAAItem
+    public class LuckyIronskinPotion : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
         }
 	}
 
-	public class luckyironskin : ModBuff
+	public class LuckyIronskin : ModBuff
 	{
         public override string Texture => "Terraria/Images/Buff_5";
 

@@ -7,7 +7,7 @@ using AAModClassic;
 
 namespace AAModClassic.Items.Potions.LuckyPotions
 {
-    public class luckyswiftnesspotion : BaseAAItem
+    public class LuckySwiftnessPotion : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
         }
 	}
 
-	public class luckyswiftness : ModBuff
+	public class LuckySwiftness : ModBuff
 	{
         public override string Texture => "Terraria/Images/Buff_3";
 

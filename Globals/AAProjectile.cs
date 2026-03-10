@@ -67,7 +67,6 @@ namespace AAModClassic.Globals
 
         public override bool PreDraw(ref Color lightColor)
         {
-            if (lightColor != null) BaseDrawing.AddLight(Projectile.Center, (Color)lightColor, lightIntensity);
             if (drawCentered || drawCenteredX)
             {
                 Vector2 oldPos = Projectile.position;
@@ -88,7 +87,7 @@ namespace AAModClassic.Globals
 
         public override Color? GetAlpha(Color drawColor)
         {
-            if (drawColor != null && drawColorType != -1)
+            if (drawColorType != -1)
             {
                 if (drawColorType == 1)
                 {
