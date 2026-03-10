@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
             if (Main.rand.Next(100) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ono").Type, 1);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Ono").Type, 1);
             }
         }
 
