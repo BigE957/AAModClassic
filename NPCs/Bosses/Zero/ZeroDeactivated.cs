@@ -151,7 +151,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void PostUpdateWorld()
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient && !AAWorld.downedZero && !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+            if (Main.netMode != NetmodeID.MultiplayerClient && !AAWorld.downedZero && !NPC.AnyNPCs(ModContent.NPCType<ZeroTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
             {
                 SpawnDeactivatedZero();
             }
