@@ -627,9 +627,7 @@ namespace AAModClassic
             ZoneStars = false;
             ZoneHoard = false;
             ZoneAcropolis = false;
-            WorldgenReminder = false; 
-            GivenAnuSummon = false;
-            GivenWormIdol = false;
+            WorldgenReminder = false;
         }
 
         #endregion
@@ -1540,63 +1538,37 @@ namespace AAModClassic
 
             if (!WorldgenReminder)
             {
-                if (Main.rand.Next(8) == 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    switch (Main.rand.Next(8))
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo1"), new Color(180, 41, 32), false);
+                        case 0:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo1"), new Color(180, 41, 32), false);
+                            break;
+                        case 1:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), new Color(45, 46, 70), false);
+                            break;
+                        case 2:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo3"), new Color(255, 0, 0), false);
+                            break;
+                        case 3:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo4"), new Color(102, 20, 48), false);
+                            break;
+                        case 4:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo5"), new Color(72, 78, 117), false);
+                            break;
+                        case 5:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo6"), new Color(128, 0, 0), false);
+                            break;
+                        case 6:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo7"), new Color(216, 110, 40), false);
+                            break;
+                        case 7:
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo8"), new Color(43, 46, 61), false);
+                            break;
                     }
-                }
-                else if (Main.rand.Next(8) == 1)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), new Color(45, 46, 70), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 2)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo3"), new Color(255, 0, 0), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 3)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo4"), new Color(102, 20, 48), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 4)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo5"), new Color(72, 78, 117), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 5)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo6"), new Color(128, 0, 0), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 6)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo7"), new Color(216, 110, 40), false);
-                    }
-                }
-                else if (Main.rand.Next(8) == 7)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo8"), new Color(43, 46, 61), false);
-                    }
-                }
 
+                }
                 WorldgenReminder = true;
             }
 
