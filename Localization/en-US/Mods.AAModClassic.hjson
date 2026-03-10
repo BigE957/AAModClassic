@@ -11414,5 +11414,10 @@ Configs: {
 			Label: "{$Mods.AAModClassic.Common.AAStyleMainPage}"
 			Tooltip: "{$Mods.AAModClassic.Common.AAStyleMainPageInfo}"
 		}
+
+		DisableNewAAReminderMessage: {
+			Label: Disable New A A Reminder Message
+			Tooltip: ""
+		}
 	}
 }

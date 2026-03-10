@@ -234,6 +234,16 @@ WorldgenReminderInfo5: Hey, uh...I don't see any Ancients Awakened content in th
 WorldgenReminderInfo6: Hey. You. Interdimensional being. You might have forgotten to make a new world after downloading the mod. Make a new world if you want all the mod's content.
 WorldgenReminderInfo7: Make...new world....or mushmad...will squish...little terrarian...
 WorldgenReminderInfo8: ...Mortal. Your world doesn't have Ancients Awakened content if my old eyes do not deceive me. Generating a new world would be optimal.
+WorldgenReminderInfo9: Earthwalker..! There's no Ancients Awakened stuff in this world! Make a new world if you really wanna play this mod...idiot...
+NewAAInfo1: Hey kid, did you know there's a newer version of Ancients Awakened you could be playing? Might be worth checking it out if you ask me.
+NewAAInfo2: YOU'RE QUITE THE FOOL! YOU PROBABLY DON'T EVEN KNOW THERE'S A NEWER VERSION OF ANCIENTS AWAKENED YOU COULD BE PLAYING!
+NewAAInfo3: WARNING. AAM0D.TM0D N0T DETECTED. 0PTIMAL C0NTENT MISSING.
+NewAAInfo4: HEY YOU! Don't forget to check out the new version of Ancients Awakened, or else!
+NewAAInfo5: Hey, uh... I'm not sure if you knew, but there's a newer version of Ancients Awakened you could be playing. You might wanna give it a try or something...
+NewAAInfo6: Interdimensional being. in case you didn't already know, there's a newer version Ancients Awakened you could be playing. Give it a look when you give the chance.
+NewAAInfo7: Play new...ancients awakened....or mushmad...will crush...little terrarian...
+NewAAInfo8: ...Mortal. I hear tell of a newer version of Ancients Awakened you could be playing. Perhaps it would be wise to try it out.
+NewAAInfo9: Earthwalker! You should know that you could be playing a newer version of Ancients Awakened. You'd be an idiot not to give it a try!
 #AAWorldChangeInfo
 
 downedEquinoxInfo: The gift of the celestials sparkle in the atmosphere...
@@ -289,8 +299,8 @@ AATownNPC: Disable AA Town NPCs
 AATownNPCInfo: Disables this mod's town npcs from spawning, for those who'd prefer to have other npcs spawn quicker. Note: This does not affect Anubis due to him being key to progression.
 DisableBossDialogue: Disable Boss Dialogue
 DisableBossDialogueInfo: Disables dialogue from bosses to prevent chatspam. Also makes animations that have boss dialogue go by a little quicker.
-AAStyleMainPage: The AA style Main Menu
-AAStyleMainPageInfo: Enables the AA style Main Menu instead of the Vanilla menu. If you wish to play AA and any other large content mod together, you should disable this.
+DisableNewAAReminderMessage: Disable Ancients Awakened Reminder Message
+DisableNewAAReminderMessageInfo: Disables the reminder message on world join to check out Ancients Awakened [BETA].
 NPCarrive: has awoken!
 #GlobalNPCSInfo
 

@@ -345,6 +345,7 @@ namespace AAModClassic
         public Vector2 RiftPos = new Vector2(0, 0);
         public int PrismCooldown = 0;
         public bool WorldgenReminder = false;
+        public bool NewAAReminder = false;
         public bool DemonSun = false;
         public bool AnubisBook = false;
         public bool GivenAnuSummon = false;
@@ -628,6 +629,7 @@ namespace AAModClassic
             ZoneHoard = false;
             ZoneAcropolis = false;
             WorldgenReminder = false;
+            NewAAReminder = false;
         }
 
         #endregion
@@ -1536,40 +1538,84 @@ namespace AAModClassic
                 WorldgenReminder = true;
             }
 
-            if (!WorldgenReminder)
+            if (Main.netMode != NetmodeID.Server)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                List<int> yappers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+                if (!NewAAReminder && !ModContent.GetInstance<AAConfigClient>().DisableNewAAReminderMessage && !ModLoader.TryGetMod("AAMod", out _))
                 {
-                    switch (Main.rand.Next(8))
+                    int yapper = yappers[Main.rand.Next(yappers.Count)];
+                    switch (yapper)
                     {
                         case 0:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo1"), new Color(180, 41, 32), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo1"), new Color(180, 41, 32));
                             break;
                         case 1:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), new Color(45, 46, 70), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo2"), new Color(45, 46, 70));
                             break;
                         case 2:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo3"), new Color(255, 0, 0), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo3"), new Color(255, 0, 0));
                             break;
                         case 3:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo4"), new Color(102, 20, 48), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo4"), new Color(102, 20, 48));
                             break;
                         case 4:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo5"), new Color(72, 78, 117), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo5"), new Color(72, 78, 117));
                             break;
                         case 5:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo6"), new Color(128, 0, 0), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo6"), new Color(128, 0, 0));
                             break;
                         case 6:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo7"), new Color(216, 110, 40), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo7"), new Color(216, 110, 40));
                             break;
                         case 7:
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo8"), new Color(43, 46, 61), false);
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo8"), new Color(43, 46, 61));
+                            break;
+                        case 8:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo9"), Color.CadetBlue);
+                            break;
+
+                    }
+                    yappers.Remove(yapper);
+                }
+
+                NewAAReminder = true;
+
+                if (!WorldgenReminder)
+                {
+                    int yapper = yappers[Main.rand.Next(yappers.Count)];
+                    switch (yapper)
+                    {
+                        case 0:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo1"), new Color(180, 41, 32));
+                            break;
+                        case 1:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), new Color(45, 46, 70));
+                            break;
+                        case 2:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo3"), new Color(255, 0, 0));
+                            break;
+                        case 3:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo4"), new Color(102, 20, 48));
+                            break;
+                        case 4:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo5"), new Color(72, 78, 117));
+                            break;
+                        case 5:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo6"), new Color(128, 0, 0));
+                            break;
+                        case 6:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo7"), new Color(216, 110, 40));
+                            break;
+                        case 7:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo8"), new Color(43, 46, 61));
+                            break;
+                        case 8:
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo9"), Color.CadetBlue);
                             break;
                     }
 
+                    WorldgenReminder = true;
                 }
-                WorldgenReminder = true;
             }
 
             if (RStar)
