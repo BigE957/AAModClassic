@@ -31,7 +31,7 @@ namespace AAModClassic.Projectiles
         {
             if (Projectile.ai[0] == 0)
             {
-                return Color.Red;
+                return Color.Violet;
             }
             else if (Projectile.ai[0] == 2)
             {
@@ -39,7 +39,7 @@ namespace AAModClassic.Projectiles
             }
             else
             {
-                return Color.Violet;
+                return Color.Crimson;
             }
         }
 
