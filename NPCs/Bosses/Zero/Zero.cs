@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Pets;
@@ -170,7 +171,9 @@ namespace AAModClassic.NPCs.Bosses.Zero
             {
                 if (!AAWorld.downedZero)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ZeroBoss3"), Color.PaleVioletRed);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                        BaseUtility.Chat(Lang.BossChat("ZeroBoss3"), Color.PaleVioletRed);
+                    VoidSky.Alpha = 0f;
                 }
                 AAWorld.downedZero = true;
                 NPC.DropLoot(Mod.Find<ModItem>("ApocalyptitePlate").Type, 2, 4);

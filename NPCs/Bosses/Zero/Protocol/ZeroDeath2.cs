@@ -25,7 +25,6 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         }
         public override void AI()
         {
-            AAWorld.downedZero = true;
             if (++Projectile.frameCounter >= 10)
             {
                 Projectile.frameCounter = 0;
@@ -36,9 +35,11 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             }
             Projectile.velocity.X *= 0.00f;
             Projectile.velocity.Y += 0.00f;
-            if (Projectile.timeLeft == 913)
+            if (Projectile.timeLeft >= 913)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                AAWorld.downedZero = true;
+                if (Projectile.timeLeft == 913)
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
     }

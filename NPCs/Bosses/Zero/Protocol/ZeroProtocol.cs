@@ -1,16 +1,16 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Audio;
-
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using Terraria.Graphics.Shaders;
+﻿using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 {
@@ -112,11 +112,14 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
                 if (!AAWorld.downedZero)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                        BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZeroRune").Type);
+                    VoidSky.Alpha = 0f;
                 }
 
-                AAWorld.downedZero = true;
+                //AAWorld.downedZero = true;
+                //Death animation guy handles this
 
                 if (Main.rand.Next(10) == 0)
                 {

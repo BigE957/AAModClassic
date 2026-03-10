@@ -3,6 +3,7 @@ using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -151,7 +152,13 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void PostUpdateWorld()
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient && !AAWorld.downedZero && !NPC.AnyNPCs(ModContent.NPCType<ZeroTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+            if (Main.netMode != NetmodeID.MultiplayerClient && 
+                !AAWorld.downedZero && 
+                !NPC.AnyNPCs(ModContent.NPCType<ZeroTransition>()) &&
+                !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && 
+                !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()) && 
+                !Main.projectile.Any(p => p.active && p.type == ModContent.ProjectileType<ZeroDeath1>()) &&
+                !Main.projectile.Any(p => p.active && p.type == ModContent.ProjectileType<ZeroDeath2>()))
             {
                 SpawnDeactivatedZero();
             }

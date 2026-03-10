@@ -31,8 +31,7 @@ namespace AAModClassic.Backgrounds
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
-        public float Alpha = 0;
-
+        public static float Alpha = 1f;
 
         public override void Update(GameTime gameTime)
         {
@@ -155,14 +154,11 @@ namespace AAModClassic.Backgrounds
                 }
                 else
                 {
-                    spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity * Alpha);
+                    spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
-                    spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
-                    if (AAWorld.downedZero)
-                    {
-                        spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
-                    }
+                    spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                 }
 				Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);
 				astroGlow.A = (byte)(255f * Intensity);
