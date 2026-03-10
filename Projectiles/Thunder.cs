@@ -178,7 +178,7 @@ namespace AAModClassic.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             Vector2 end = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
-            Texture2D tex3 = TextureAssets.Extra[33].Value;
+            Texture2D tex3 = TextureAssets.Extra[ExtrasID.CultistLightingArc].Value;
             Color color25 = Lighting.GetColor((int)(Projectile.position.X + Projectile.width * 0.5) / 16, (int)((Projectile.position.Y + Projectile.height * 0.5) / 16.0));
             Projectile.GetAlpha(color25);
             Vector2 scale16 = new Vector2(Projectile.scale) / 2f;

@@ -1144,7 +1144,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             }
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = 0;
         }

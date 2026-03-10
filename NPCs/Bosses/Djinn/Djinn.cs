@@ -460,7 +460,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             }
             foreach (Point current2 in list4)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), current2.X * 16, current2.Y * 16, 0f, 0f, 658, damage, 0f, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), current2.X * 16, current2.Y * 16, 0f, 0f, ProjectileID.SandnadoHostileMark, damage, 0f, Main.myPlayer, 0f, 0f);
             }
         }
 
@@ -527,7 +527,7 @@ namespace AAModClassic.NPCs.Bosses.Djinn
         }
 
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.HealingPotion;
             AAWorld.downedDjinn = true;

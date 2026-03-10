@@ -96,7 +96,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             if (!Main.expertMode)
             {

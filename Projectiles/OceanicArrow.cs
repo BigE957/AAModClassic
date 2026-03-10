@@ -44,7 +44,7 @@ namespace AAModClassic.Projectiles
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage/4, 0, Main.myPlayer);
+				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage/4, 0, Main.myPlayer);
 				Main.projectile[proj].DamageType = DamageClass.Ranged;
 			}
 		}

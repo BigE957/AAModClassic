@@ -88,7 +88,7 @@ namespace AAModClassic.Projectiles.EFish
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, 405, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ProjectileID.FlaironBubble, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
             }
         }
@@ -101,7 +101,7 @@ namespace AAModClassic.Projectiles.EFish
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
 			}
 		}
 
@@ -113,7 +113,7 @@ namespace AAModClassic.Projectiles.EFish
 				float rand = Main.rand.NextFloat() * 6.3f;
 				vel = vel.RotatedBy(rand);
 				vel *= 4f;
-				Projectile.NewProjectile(Projectile.GetSource_OnHit(null), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, 405, Projectile.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_OnHit(null), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
 			}
             Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
             if (Projectile.type == ProjectileID.ThornChakram || Projectile.type == ProjectileID.LightDisc)

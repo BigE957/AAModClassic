@@ -607,7 +607,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 NPC.velocity.Y = 30 * Math.Sign(NPC.velocity.Y);
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
         }

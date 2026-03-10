@@ -151,7 +151,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             return false;
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.HealingPotion;
             AAWorld.downedBrood = true;
@@ -331,7 +331,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                                     {
                                         if(Main.tile[(int) player.position.X / 16 + index * 20, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].TileType]))
                                         {
-                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320, loop * 16, 0, 12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
+                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320, loop * 16, 0, 12f, ProjectileID.GeyserTrap, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
                                             Main.projectile[id].friendly = false;
                                             break;
@@ -341,7 +341,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                                     {
                                         if(Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10 - 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].TileType]))
                                         {
-                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320 - 160, loop * 16, 0, -12f, 654, damage, 0, Main.myPlayer, 0f, 0f);
+                                            int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320 - 160, loop * 16, 0, -12f, ProjectileID.GeyserTrap, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
                                             Main.projectile[id].friendly = false;
                                             break;

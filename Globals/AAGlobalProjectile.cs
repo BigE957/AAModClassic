@@ -210,7 +210,6 @@ namespace AAModClassic.Globals
                                 itemtype = 2334;
                             }
                         }
-                        bool junk = false;
                         int liquidtype = 0;
                         int tileX = 0;
                         int tileY = 0;
@@ -434,7 +433,7 @@ namespace AAModClassic.Globals
 			num10 = num7 / num10;
 			num8 *= num10;
 			num9 *= num10;
-			int soul = Projectile.NewProjectile(projectile.GetSource_FromThis(), Position.X, Position.Y, num8, num9, 356, num, 0f, projectile.owner, num6, 0f);
+			int soul = Projectile.NewProjectile(projectile.GetSource_FromThis(), Position.X, Position.Y, num8, num9, ProjectileID.SpectreWrath, num, 0f, projectile.owner, num6, 0f);
             Main.projectile[soul].minion = true;
 		}
         public Vector2 reflectvelocity = Vector2.Zero;

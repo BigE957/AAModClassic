@@ -1113,7 +1113,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.boss = false;
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             if (isSupreme)
             {

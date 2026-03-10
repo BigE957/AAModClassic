@@ -146,7 +146,7 @@ namespace AAModClassic.Projectiles
 				if (Projectile.ai[0] % 30f == 0f && Projectile.ai[0] < 241f && Main.myPlayer == Projectile.owner)
 				{
 					Vector2 vector144 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * 12f;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector144.X, vector144.Y, 618, Projectile.damage / 2, 0f, Projectile.owner, 0f, Projectile.whoAmI);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector144.X, vector144.Y, ProjectileID.NebulaArcanumSubshot, Projectile.damage / 2, 0f, Projectile.owner, 0f, Projectile.whoAmI);
 				}
 				Vector2 vector145 = Projectile.Center;
 				float num1015 = 800f;
@@ -317,7 +317,7 @@ namespace AAModClassic.Projectiles
 						vector5.Y *= -1f;
 					}
 					vector5 *= Main.rand.Next(70, 101) * 0.1f;
-					Projectile.NewProjectile(Projectile.GetSource_Death(), vector4.X, vector4.Y, vector5.X, vector5.Y, 620, (int)(Projectile.damage * 0.65), Projectile.knockBack * 0.8f, Projectile.owner, num108, 0f);
+					Projectile.NewProjectile(Projectile.GetSource_Death(), vector4.X, vector4.Y, vector5.X, vector5.Y, ProjectileID.NebulaArcanumExplosionShotShard, (int)(Projectile.damage * 0.65), Projectile.knockBack * 0.8f, Projectile.owner, num108, 0f);
 					num3 = num110;
 				}
 				for (int num111 = 0; num111 < num107; num111 = num3 + 1)
@@ -334,7 +334,7 @@ namespace AAModClassic.Projectiles
 						vector7.Y *= -1f;
 					}
 					vector7 *= Main.rand.Next(40, 81) * 0.1f;
-					Projectile.NewProjectile(Projectile.GetSource_Death(), vector6.X, vector6.Y, vector7.X, vector7.Y, 620, (int)(Projectile.damage * 0.65), Projectile.knockBack * 0.8f, Projectile.owner, num109, 0f);
+					Projectile.NewProjectile(Projectile.GetSource_Death(), vector6.X, vector6.Y, vector7.X, vector7.Y, ProjectileID.NebulaArcanumExplosionShotShard, (int)(Projectile.damage * 0.65), Projectile.knockBack * 0.8f, Projectile.owner, num109, 0f);
 					num3 = num111;
 				}
 			}
@@ -356,12 +356,12 @@ namespace AAModClassic.Projectiles
 			color58 *= num274;
 			float scale13 = 0.6f + Projectile.scale * 0.6f * num274;
 			SpriteBatch arg_DA77_0 = Main.spriteBatch;
-			Texture2D arg_DA77_1 = TextureAssets.Extra[50].Value;
+			Texture2D arg_DA77_1 = TextureAssets.Extra[ExtrasID.VortexBlack].Value;
 			Vector2 arg_DA77_2 = vector53;
 			Rectangle? sourceRectangle2 = null;
 			arg_DA77_0.Draw(arg_DA77_1, arg_DA77_2, sourceRectangle2, color58, -Projectile.rotation + 0.35f, origin8, scale13, spriteEffects ^ SpriteEffects.FlipHorizontally, 0f);
 			SpriteBatch arg_DAC3_0 = Main.spriteBatch;
-			Texture2D arg_DAC3_1 = TextureAssets.Extra[50].Value;
+			Texture2D arg_DAC3_1 = TextureAssets.Extra[ExtrasID.VortexBlack].Value;
 			Vector2 arg_DAC3_2 = vector53;
 			sourceRectangle2 = null;
 			arg_DAC3_0.Draw(arg_DAC3_1, arg_DAC3_2, sourceRectangle2, alpha4, -Projectile.rotation, origin8, Projectile.scale, spriteEffects ^ SpriteEffects.FlipHorizontally, 0f);
@@ -371,7 +371,7 @@ namespace AAModClassic.Projectiles
 			sourceRectangle2 = null;
 			arg_DB13_0.Draw(arg_DB13_1, arg_DB13_2, sourceRectangle2, color57, -Projectile.rotation * 0.7f, origin8, Projectile.scale, spriteEffects ^ SpriteEffects.FlipHorizontally, 0f);
 			SpriteBatch arg_DB72_0 = Main.spriteBatch;
-			Texture2D arg_DB72_1 = TextureAssets.Extra[50].Value;
+			Texture2D arg_DB72_1 = TextureAssets.Extra[ExtrasID.VortexBlack].Value;
 			Vector2 arg_DB72_2 = vector53;
 			sourceRectangle2 = null;
 			arg_DB72_0.Draw(arg_DB72_1, arg_DB72_2, sourceRectangle2, alpha4 * 0.8f, Projectile.rotation * 0.5f, origin8, Projectile.scale * 0.9f, spriteEffects, 0f);

@@ -221,7 +221,7 @@ namespace AAModClassic.Items.Dev.Minions
                         Vector2 value19 = vector46 - Projectile.Center;
                         value19.Normalize();
                         value19 *= 9f;
-                        int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, 449, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, ProjectileID.SaucerLaser, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                         Main.projectile[proj].extraUpdates = 1;
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].friendly = true;

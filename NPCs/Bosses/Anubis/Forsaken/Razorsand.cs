@@ -2,6 +2,7 @@ using System;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
@@ -99,7 +100,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
         public override void OnKill(int timeleft)
         {
 
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, 658, 40, 0f, Main.myPlayer, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, ProjectileID.SandnadoHostileMark, 40, 0f, Main.myPlayer, 0f, 0f);
         }
     }
 }

@@ -172,7 +172,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                             num6 = num5 / num6;
                             num3 *= num6;
                             num4 *= num6;
-                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), num, num2, num3, num4, 221, 36, 0f, Main.myPlayer, 0f, 0f);
+                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), num, num2, num3, num4, ProjectileID.FlowerPetal, 36, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[l].friendly = false;
                             Main.projectile[l].hostile = true;
                             NPC.netUpdate = true;

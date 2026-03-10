@@ -190,7 +190,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                         for (int num86 = 0; num86 < 4; num86++)
                         {
                             Vector2 vector15 = vector14 + Utils.RandomVector2(Main.rand, -0.8f, 0.8f);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), vector13.X, vector13.Y, vector15.X, vector15.Y, 577, num85, 1f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), vector13.X, vector13.Y, vector15.X, vector15.Y, ProjectileID.VortexLaser, num85, 1f, Main.myPlayer, 0f, 0f);
                         }
                     }
                 }

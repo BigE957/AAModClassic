@@ -14,6 +14,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using AAModClassic.Base.NPCs;
 using AAModClassic.Base.Projectiles;
+using ReLogic.Content;
 
 namespace AAModClassic.Base.BaseMod.Base
 {
@@ -1953,16 +1954,12 @@ namespace AAModClassic.Base.BaseMod.Base
         }
     }
 
-    public class BaseArmorData : ArmorShaderData
+    public class BaseArmorData(Asset<Effect> shader, string passName) : ArmorShaderData(shader, passName)
     {
         public static Entity lastShaderDrawObject = null;
         public static bool secondaryApply = false;
         int _uState = 0;
         public Texture2D _uExtraTex = null;
-
-        public BaseArmorData(Ref<Effect> shader, string passName) : base(shader, passName)
-        {
-        }
 
         public BaseArmorData SetState(int state)
         {

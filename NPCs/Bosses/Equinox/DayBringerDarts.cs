@@ -39,7 +39,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
         public override void OnKill(int timeLeft)
         {
-            int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, 612, Projectile.damage, 10f, Projectile.owner, 0f, 0.85f + Main.rand.NextFloat() * 1.15f);
+            int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 10f, Projectile.owner, 0f, 0.85f + Main.rand.NextFloat() * 1.15f);
             Main.projectile[id].hostile = true;
             Main.projectile[id].friendly = false;
         }

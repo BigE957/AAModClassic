@@ -41,7 +41,7 @@ namespace AAModClassic.Projectiles
 			Vector2 vector = new Vector2(num * (4f + Main.rand.Next(3)), 0f);
 			Vector2 vector2 = center + new Vector2(-(float)num * 120, 0f);
 			vector += (center + value * 15f - vector2).SafeNormalize(Vector2.Zero) * 2f;
-			int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2, vector, 700, Projectile.damage/2, 0f, Projectile.owner, 0f, 0f);
+			int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), vector2, vector, ProjectileID.MonkStaffT2Ghast, Projectile.damage/2, 0f, Projectile.owner, 0f, 0f);
 			Main.projectile[p].DamageType = DamageClass.Magic;
 		}
 

@@ -447,7 +447,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             {
                 for (int num242 = 0; num242 < 3; num242++)
                 {
-                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 226, -2.5f * hit.HitDirection, -2.5f, 0, default, 1f);
+                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, -2.5f * hit.HitDirection, -2.5f, 0, default, 1f);
                     Main.dust[num243].scale = 0.5f;
                     Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }

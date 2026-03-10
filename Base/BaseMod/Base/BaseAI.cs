@@ -6262,7 +6262,7 @@ namespace AAModClassic.Base.BaseMod.Base
         {
             int pID = -1;
             if (damage == -1) { Projectile proj = new Projectile(); proj.SetDefaults(projType); damage = proj.damage; }
-            bool properSide = (codable is NPC ? Main.netMode != 1 : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true);
+            bool properSide = (codable is NPC ? Main.netMode != NetmodeID.MultiplayerClient : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true);
             if (properSide)
             {
                 Vector2 targetCenter = position + new Vector2(width * 0.5f, height * 0.5f);
@@ -6310,7 +6310,7 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 proj.friendly = (hostility == 1 || hostility == 2);
                 proj.hostile = (hostility == -1 || hostility == 2);
-                if (Main.netMode != 0) { MNet.SendBaseNetMessage(0, proj.owner, proj.identity, proj.friendly, proj.hostile); }
+                if (Main.netMode != NetmodeID.SinglePlayer) { MNet.SendBaseNetMessage(0, proj.owner, proj.identity, proj.friendly, proj.hostile); }
             }
             proj.netUpdate2 = true;
             Main.projectile[projectileID] = proj;
@@ -6331,7 +6331,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 Main.PlaySound(soundGroup, (int)npc.Center.X, (int)npc.Center.Y, sound);
             }
             */
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int projectileID = FireProjectile(fireTarget, npc.Center, projectileType, damage, knockback, speedScalar, hostility, owner);
                 npc.netUpdate = true;
@@ -6356,7 +6356,7 @@ namespace AAModClassic.Base.BaseMod.Base
         public static int DropItem(Entity codable, int type, int amt, int maxStack, float chance, bool clusterItem = false, bool sync = false)
         {
             int itemID = -1;
-            if ((sync || Main.netMode != 1) && (float)Main.rand.NextDouble() <= chance)
+            if ((sync || Main.netMode != NetmodeID.MultiplayerClient) && (float)Main.rand.NextDouble() <= chance)
             {
                 if (clusterItem)
                 {
@@ -6368,7 +6368,7 @@ namespace AAModClassic.Base.BaseMod.Base
                         if (stackCount == amt || stackCount2 == maxStack)
                         {
                             itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, stackCount2, false, 0);
-                            if (sync) NetMessage.SendData(21, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
+                            if (sync) NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
                             stackCount2 = 0;
                         }
                     }
@@ -6380,7 +6380,7 @@ namespace AAModClassic.Base.BaseMod.Base
                     {
                         count++;
                         itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, 1, false, 0);
-                        if (sync) NetMessage.SendData(21, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
+                        if (sync) NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
                     }
                 }
             }

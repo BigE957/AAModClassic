@@ -689,7 +689,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     return;
                 }
                 Main.player[Main.myPlayer].lifeSteal -= (float)(modifiers.FinalDamage.Flat * 0.02);
-                Projectile.NewProjectile(Projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f, 305, 0, 0f, Projectile.owner, Projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
+                Projectile.NewProjectile(Projectile.GetSource_Death(), target.position.X, target.position.Y, 0f, 0f, ProjectileID.VampireHeal, 0, 0f, Projectile.owner, Projectile.owner, (float)(modifiers.FinalDamage.Flat * 0.02));
                 if (Main.rand.Next(5) == 0)
                 {
                     target.AddBuff(BuffID.Confused, 180);

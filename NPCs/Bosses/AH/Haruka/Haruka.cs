@@ -1156,7 +1156,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             NPC.velocity *= velMultiplier;
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = 0;
         }

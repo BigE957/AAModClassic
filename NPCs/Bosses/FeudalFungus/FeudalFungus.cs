@@ -194,7 +194,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, Mod.ProjType("Mushshot"), ref shootAI[0], 5, damage, 8f, false, new Vector2(20f, 15f));
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {   //boss drops
             potionType = ItemID.ManaPotion;
             

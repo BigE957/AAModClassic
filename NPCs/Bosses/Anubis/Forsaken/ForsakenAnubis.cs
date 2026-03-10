@@ -557,7 +557,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             }
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.SuperHealingPotion;
         }

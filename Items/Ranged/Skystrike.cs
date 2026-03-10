@@ -98,7 +98,7 @@ namespace AAModClassic.Items.Ranged
 				float SpeedY = num83 + Main.rand.Next(-40, 41) * 0.03f;
 				num92 *= Main.rand.Next(75, 150) * 0.01f;
 				vector2.X += Main.rand.Next(-50, 51);
-				int num93 = Projectile.NewProjectile(source, vector2.X, vector2.Y, num92, SpeedY, 710, damage, knockback, player.whoAmI, 0f, 0f);
+				int num93 = Projectile.NewProjectile(source, vector2.X, vector2.Y, num92, SpeedY, ProjectileID.DD2BetsyArrow, damage, knockback, player.whoAmI, 0f, 0f);
 				Main.projectile[num93].noDropItem = true;
 				Main.projectile[num93].tileCollide = false;
 			}
