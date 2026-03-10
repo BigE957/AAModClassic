@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Decoration
 			switch (frameX / 36)
 			{
 				case 0:
-					item = Mod.Find<ModItem>("AlphakipStatue").Type;
+					item = ItemID.AlphabetStatueE;
 					break;
 				case 1:
 					item = Mod.Find<ModItem>("LizStatue").Type;
@@ -76,7 +76,7 @@ namespace AAModClassic.Tiles.Decoration
                     item = Mod.Find<ModItem>("CharlieStatue").Type;
                     break;
                 case 14:
-                    item = Mod.Find<ModItem>("FerretStatue").Type;
+                    item = ItemID.AlphabetStatueL;
                     break;
                 case 15:
                     item = Mod.Find<ModItem>("LCSStatue").Type;

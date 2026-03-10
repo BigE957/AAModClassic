@@ -359,70 +359,23 @@ namespace AAModClassic
 
         public static string TownNPCAlpha(string Alpha)
         {
-            if(Language.ActiveCulture.Name == GameCulture.CultureName.Chinese.ToString())
-                {
-                    switch(Alpha)
-                    {
-                        case "AlphaButton1":
-                        return "开发者时装";
-                        case "AlphaButton2":
-                        return "开发者武器";
+            switch (Alpha)
+            {
+                case "AlphaButton1":
+                    return "Vanity Shop";
+                case "AlphaButton2":
+                    return "Weapon Shop";
 
-                        case "AlphaChat1":
-                        return "如果我听到你说“Kwispy”这个词，这个游戏的评分会很快变成A0";
-                        case "AlphaChat2":
-                        return @"你觉得我很可疑？我知道你的意思是说我像条
-
-咸鱼";
-                        case "AlphaChat3":
-                        return "有趣的事实, 我并不是条鱼. 我是两栖类动物.";
-                        case "AlphaChat4":
-                        return "有问题去问阿努比斯，我只是个一无所知的开发者.";
-                    }
-                }
-            else if(Language.ActiveCulture.Name == GameCulture.CultureName.Russian.ToString())
-                {
-                    switch(Alpha)
-                    {
-                        case "AlphaButton1":
-                        return "Магазин украшений";
-                        case "AlphaButton2":
-                        return "Магазин оружий";
-
-                        case "AlphaChat1":
-                        return "Если я когда-либо услышу тебя говорящего 'Квиспи', рэйтинг этой игры быстро превратится в 18+ .";
-                        case "AlphaChat2":
-                        return @"Ты думаешь я подозрительный? В принципе ты можешь сказать, что я немного 
-                        
-рыбный";
-                        case "AlphaChat3":
-                        return "Забавный факт. Я не настоящая рыба. Я амфибия.";
-                        case "AlphaChat4":
-                        return "Спрашивай Анубиса о том, что делать дальше. Он разбирается лучше меня.";
-                    }
-                }
-            else
-                {
-                    switch(Alpha)
-                    {
-                        case "AlphaButton1":
-                        return "Vanity Shop";
-                        case "AlphaButton2":
-                        return "Weapon Shop";
-
-                        case "AlphaChat1":
-                        return "If I ever hear you say the phrase 'Kwispy', this game's rating will become AO real quick.";
-                        case "AlphaChat2":
-                        return @"You think I'm suspicious? I mean you could say I'm a bit
-
-Fishy";
-                        case "AlphaChat3":
-                        return "Fun fact, I'm not actually a fish. I'm amphibious.";
-                        case "AlphaChat4":
-                        return "Go ask Anubis about where to go, he's smarter than I am about stuff.";
-                    }
-                }
-            return"";
+                case "AlphaChat1":
+                    return "Hope you don't mind me hanging around. I had to deal with a LOT of bad code to get here. Could do with a break.";
+                case "AlphaChat2":
+                    return @"A fun fact? Hmm, well I've never met my father. They say he vanished a long time ago. He's a real...\nMr. E.";
+                case "AlphaChat3":
+                    return "You're looking for a fish? No clue who you're talking about, pal.";
+                case "AlphaChat4":
+                    return "Look at me! I'm Big E! I've always been here, and I'll always be!";
+            }
+            return "";
         }
 
         public static string TownNPCAnubis(string Anubis)

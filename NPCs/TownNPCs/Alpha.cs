@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override void SetStaticDefaults()
 		{
-			Main.npcFrameCount[NPC.type] = 26;
+			Main.npcFrameCount[NPC.type] = 25;
 			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
 			NPCID.Sets.AttackFrameCount[NPC.type] = 5;
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
@@ -41,7 +41,8 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override void SetDefaults()
 		{
-			NPC.townNPC = true;
+            Main.npcFrameCount[NPC.type] = 25;
+            NPC.townNPC = true;
 			NPC.friendly = true;
 			NPC.width = 18;
 			NPC.height = 40;
@@ -75,7 +76,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
-            return ["Alphakip"];
+            return ["Big E"];
         }
 
         public override string GetChat()
@@ -126,78 +127,78 @@ namespace AAModClassic.NPCs.TownNPCs
 			int nextSlot = 0;
 			if (VanityShop)
 			{
-				items[nextSlot].SetDefaults(ModContent.ItemType<ApawnEgg>());
+				items[nextSlot] = new Item(ModContent.ItemType<ApawnEgg>());
 				items[nextSlot].shopCustomPrice = new int?(5);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				items[nextSlot].SetDefaults(ModContent.ItemType<WetFurrbag>());
+				items[nextSlot] = new Item(ModContent.ItemType<WetFurrbag>());
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<ShoxBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<ShoxBag>());
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Beg.BegBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Beg.BegBag>());
 				items[nextSlot].shopCustomPrice = new int?(10);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.CC.CCBox>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.CC.CCBox>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Blazen.BlazenBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Blazen.BlazenBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<AvesBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<AvesBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<DellyBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<DellyBag>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Tied.OldMagiciansHat>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Tied.OldMagiciansHat>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<MagiciansHat>());
+				items[nextSlot] = new Item(ModContent.ItemType<MagiciansHat>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Tails.TailsToolbox>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Tails.TailsToolbox>());
 				items[nextSlot].shopCustomPrice = new int?(15);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
 
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Alphakip.AlphaBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Alphakip.AlphaBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Dallin.FezLordsBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Dallin.FezLordsBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Eliza.LizBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Eliza.LizBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<MoonBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<MoonBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Gibs.GibsBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Gibs.GibsBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot].SetDefaults(ModContent.ItemType<Items.Vanity.Charlie.CharlieBag>());
+				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Charlie.CharlieBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
@@ -206,121 +207,121 @@ namespace AAModClassic.NPCs.TownNPCs
 			{
 				if (Main.hardMode)
 				{
-					items[nextSlot].SetDefaults(ModContent.ItemType<PineBreaker>());
+					items[nextSlot] = new Item(ModContent.ItemType<PineBreaker>());
 					items[nextSlot].shopCustomPrice = new int?(15);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
 				}
 				if (NPC.downedPlantBoss)
 				{
-					items[nextSlot].SetDefaults(ModContent.ItemType<FuryForger>());
+					items[nextSlot] = new Item(ModContent.ItemType<FuryForger>());
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<GameRaider>());
+					items[nextSlot] = new Item(ModContent.ItemType<GameRaider>());
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Items.Dev.Invoker.InvokerStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<Items.Dev.Invoker.InvokerStaff>());
 					items[nextSlot].shopCustomPrice = new int?(25);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
 				}
 				if (NPC.downedMoonlord)
 				{
-					items[nextSlot].SetDefaults(ModContent.ItemType<AmphibianLongsword>());
+					items[nextSlot] = new Item(ModContent.ItemType<AmphibianLongsword>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<CatsEyeRifle>());
+					items[nextSlot] = new Item(ModContent.ItemType<CatsEyeRifle>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<TimeTeller>());
+					items[nextSlot] = new Item(ModContent.ItemType<TimeTeller>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<CursedSickle>());
+					items[nextSlot] = new Item(ModContent.ItemType<CursedSickle>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Demise>());
+					items[nextSlot] = new Item(ModContent.ItemType<Demise>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<DuckstepGun>());
+					items[nextSlot] = new Item(ModContent.ItemType<DuckstepGun>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<EnderStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<EnderStaff>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Etheral>());
+					items[nextSlot] = new Item(ModContent.ItemType<Etheral>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<MobianBuster>());
+					items[nextSlot] = new Item(ModContent.ItemType<MobianBuster>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<GentlemansRapier>());
+					items[nextSlot] = new Item(ModContent.ItemType<GentlemansRapier>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<GibsFemur>());
+					items[nextSlot] = new Item(ModContent.ItemType<GibsFemur>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Skullshot>());
+					items[nextSlot] = new Item(ModContent.ItemType<Skullshot>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<GrimReaperScythe>());
+					items[nextSlot] = new Item(ModContent.ItemType<GrimReaperScythe>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Prismeow>());
+					items[nextSlot] = new Item(ModContent.ItemType<Prismeow>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<MagicAcorn>());
+					items[nextSlot] = new Item(ModContent.ItemType<MagicAcorn>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<Placeholder>());
+					items[nextSlot] = new Item(ModContent.ItemType<Placeholder>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<PoniumStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<PoniumStaff>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<SkrallStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<SkrallStaff>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<SockStaff>());
+					items[nextSlot] = new Item(ModContent.ItemType<SockStaff>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<SoulSiphon>());
+					items[nextSlot] = new Item(ModContent.ItemType<SoulSiphon>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<ThunderLord>());
+					items[nextSlot] = new Item(ModContent.ItemType<ThunderLord>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<TitanAxe>());
+					items[nextSlot] = new Item(ModContent.ItemType<TitanAxe>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<UmbralReaper>());
+					items[nextSlot] = new Item(ModContent.ItemType<UmbralReaper>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;
-					items[nextSlot].SetDefaults(ModContent.ItemType<UmbreonSP>());
+					items[nextSlot] = new Item(ModContent.ItemType<UmbreonSP>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;

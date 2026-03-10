@@ -1054,9 +1054,9 @@ Projectiles: {
 	DaybreakBullet.DisplayName: Antimatter
 	EventideBullet.DisplayName: Eventide Bullet
 	EventideBullet1.DisplayName: Eventide Bullet Copy
-	AmphibiousBoom.DisplayName: Mudkip
-	AmphibiousProjectile.DisplayName: Mudkip
-	AmphibiousProjectileS.DisplayName: Mudkip
+	AmphibiousBoom.DisplayName: Medium E
+	AmphibiousProjectile.DisplayName: Medium E
+	AmphibiousProjectileS.DisplayName: Medium E
 	AncientArcanum.DisplayName: Quazar
 	AntimonBoomerangP.DisplayName: AntimonBoomerangP
 	AnubisArrow.DisplayName: Anubis Arrow
@@ -1489,8 +1489,8 @@ Projectiles: {
 	Dayser.DisplayName: Dayser
 	SunSpearProj.DisplayName: Sun Spear Proj
 	SunstormFireball.DisplayName: Sunstorm Fireball
-	AmphibiousProjectileEX.DisplayName: Amphibious Projectile E X
-	AmphibiousProjectileEXS.DisplayName: Amphibious Projectile E X S
+	AmphibiousProjectileEX.DisplayName: Medium E
+	AmphibiousProjectileEXS.DisplayName: Medium E
 	Antifungus.DisplayName: Antifungus
 	BlockA.DisplayName: Block A
 	BlockA1.DisplayName: Block A1
@@ -6028,30 +6028,30 @@ Items: {
 	}
 
 	AmphibianLongsword: {
-		DisplayName: Amphibious Longsword
+		DisplayName: Extravagant Longsword
 		Tooltip:
 			'''
-			So I heard you like getting hosed. 
-			-Alphakip
+			An Excellent choice. 
+			-Big E
 			'''
 	}
 
 	AmphibianLongswordEX: {
-		DisplayName: Amphibious Greatblade
-		Tooltip: Amphibious Longsword EX
+		DisplayName: Exquisite, Extravagant Greatblade
+		Tooltip: Extravagant Longsword EX
 	}
 
 	AmphibianLongswordEXS: {
-		DisplayName: Amphibious Greatblade
-		Tooltip: Amphibious Longsword EX
+		DisplayName: Exquisite, Extravagant  Greatblade
+		Tooltip: Extravagant Longsword EX
 	}
 
 	AmphibianLongswordS: {
-		DisplayName: Amphibious Longsword
+		DisplayName: Extravagant Longsword
 		Tooltip:
 			'''
-			So I heard you like getting hosed. 
-			-Alphakip
+			An Excellent choice. 
+			-Big E
 			'''
 	}
 
@@ -6548,7 +6548,7 @@ Items: {
 	}
 
 	AlphakipTerratool: {
-		DisplayName: Amphibious Terratool
+		DisplayName: Extravagant Terratool
 		Tooltip:
 			'''
 			Right Click to change tool types
@@ -9225,11 +9225,11 @@ Items: {
 	}
 
 	AlphaBag: {
-		DisplayName: Mud Fish's Bag
+		DisplayName: Large Letter's Bag
 		Tooltip:
 			'''
 			<right> to open 
-			'All the essentials for impersonating the Fish King!'
+			'All the essentials for impersonating a rather Large Letter!'
 			'''
 	}
 
@@ -9261,7 +9261,7 @@ Items: {
 	}
 
 	KipronWings: {
-		DisplayName: Kipron Wings
+		DisplayName: Ellusive Wings
 		Tooltip:
 			'''
 			Allows flight and slow fall
@@ -9298,7 +9298,7 @@ Items: {
 	}
 
 	ShinyKipronWings: {
-		DisplayName: Shiny Kipron Wings
+		DisplayName: Shiny Ellusive Wings
 		Tooltip:
 			'''
 			Allows flight and slow fall
@@ -11327,7 +11327,7 @@ NPCs: {
 	SeraphHurt.DisplayName: Seraph Hurt
 
 	Alpha: {
-		DisplayName: Alpha
+		DisplayName: Large Letter
 
 		TownNPCMood: {
 			Content: I am content.

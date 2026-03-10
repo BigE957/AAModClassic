@@ -31,15 +31,15 @@ namespace AAModClassic.Projectiles
         {
             if (Projectile.ai[0] == 0)
             {
-                return new Color(99, 175, 249);
+                return Color.Red;
             }
             else if (Projectile.ai[0] == 2)
             {
-                return new Color(141, 105, 193);
+                return Color.Green;
             }
             else
             {
-                return new Color(197, 84, 202);
+                return Color.Violet;
             }
         }
 
