@@ -9,6 +9,7 @@ using AAModClassic.Tiles.Furniture.Keep;
 using AAModClassic.Tiles.Furniture.Razewood;
 using AAModClassic.Tiles.Furniture.Terra;
 using AAModClassic.Tiles.Keep;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Walls;
 using AAModClassic.Walls.Bricks;
 using Microsoft.Xna.Framework;

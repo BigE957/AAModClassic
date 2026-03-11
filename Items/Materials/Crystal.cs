@@ -1,7 +1,9 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Materials
@@ -19,8 +21,6 @@ namespace AAModClassic.Items.Materials
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
         {
-            
-            
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 999;
@@ -79,13 +79,13 @@ namespace AAModClassic.Items.Materials
 
         public override void AddRecipes()
         {
-            //Dropped by Biomite Core
-            /*
+            //Dropped by Biomite Core in Mixed and Beta
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "TerraShard", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
+                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => WorldTypeSystem.WorldType == AAWorldType.Release);
                 recipe.Register();
             }
             {
@@ -93,9 +93,9 @@ namespace AAModClassic.Items.Materials
                 recipe.AddIngredient(null, "DragonSpirit", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
+                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => WorldTypeSystem.WorldType == AAWorldType.Release);
                 recipe.Register();
             }
-            */
         }
     }
 

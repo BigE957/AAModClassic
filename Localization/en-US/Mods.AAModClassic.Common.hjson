@@ -381,3 +381,6 @@ ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
 ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIBILITY THIS TIME, TERRARIAN.
 RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
+
+Conditions.ReleaseExclusive: when Beta content is disabled
+Conditions.BetaExclusive: when Beta content is enabled

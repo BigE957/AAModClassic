@@ -5,6 +5,7 @@ using AAModClassic.Tiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
+using AAModClassic.UI.WorldGen;
 using AAModClassic.Walls;
 using AAModClassic.World;
 using Microsoft.Xna.Framework;
@@ -1558,6 +1559,8 @@ namespace AAModClassic
 
         private static void Terrarium(GenerationProgress progress)
         {
+            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+                return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrariumAAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
             origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
@@ -1567,6 +1570,8 @@ namespace AAModClassic
 
         private static void LostKeep(GenerationProgress progress)
         {
+            if (WorldTypeSystem.WorldType == AAWorldType.Release)
+                return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
             Point val = new ((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
             if (Main.dungeonX < Main.maxTilesX / 2)
@@ -1613,21 +1618,18 @@ namespace AAModClassic
 
         private static void ThePit(GenerationProgress progress)
         {
-            progress.Message = "Sinking the Pit";
-            Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 200);
-            Pit biome = new Pit();
-            biome.Place(origin, GenVars.structures);
+            progress.Message = "Sinking the Pit";          
+            if (WorldTypeSystem.WorldType == AAWorldType.Release)
+            {
+                Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 170);
+                new PitTeaser().Place(origin, GenVars.structures);
+            }
+            else
+            {
+                Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 200);
+                new Pit().Place(origin, GenVars.structures);
+            }
         }
-
-        /*
-        private void ThePitTeaser(GenerationProgress progress)
-        {
-            progress.Message = "Sinking the Pit";
-            Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 170);
-            PitTeaser biome = new PitTeaser();
-            biome.Place(origin, GenVars.structures);
-        }
-        */
 
         public static int GetWorldSize()
         {
