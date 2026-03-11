@@ -1274,7 +1274,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(Condition.InGlowshroom);
+                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => AAWorld.downedRajah));
                     break;
                 case NPCID.Truffle:
                     shop.Add(ItemID.TruffleWorm, Condition.DownedPlantera);
@@ -1292,7 +1292,7 @@ namespace AAModClassic.Globals
         public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
         {
             int type = npc.type;
-            if (type == NPCID.Dryad)
+            if (type == NPCID.Dryad && AAWorld.downedRajah)
             {
                 foreach(Item item in items)
                     if(item.type == ModContent.ItemType<GoldenCarrot>())

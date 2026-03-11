@@ -386,3 +386,4 @@ Conditions.ReleaseExclusive: in a Released type world
 Conditions.BetaExclusive: in a Beta type world.
 Conditions.ReleaseOrMixed: in a Release or Mixed type world
 Conditions.BetaOrMixed: in a Beta or Mixed type world
+Conditions.DownedRajah: after defeating Rajah Rabbit
