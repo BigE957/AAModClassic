@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-//using AAMod.NPCs.Bosses.Infinity;
+//using AAModClassic.NPCs.Bosses.Infinity;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

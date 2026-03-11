@@ -182,7 +182,7 @@ GoblinSlayerShopEclipseLoot: Eclipse Loot
 GoblinSlayerShopHalloweenLoot: Halloween Loot
 GoblinSlayerShopChristmasLoot: Christmas Loot
 GoblinSlayerShopMartianLoot: Martian Loot
-#AAMod.Tiles.RazewoodF
+#AAModClassic.Tiles.RazewoodF
 
 RazewoodClockGetTime: Maybe making a clock out of burned wood wasn't such a good idea. It doesn't even work.
 #lockedchest
@@ -265,6 +265,7 @@ AAWorldBuildChaos: Spreading Chaos
 AAWorldBuildInferno: Scorching the Inferno
 AAWorldBuildMire: Flooding the Mire
 AAWorldBuildTerrarium: Constructing the Terrarium
+AAWorldBuildLostKeep: Hiding a Hero's Keep
 AAWorldBuildAcropolis: Floating the Acropolis
 AAWorldBuildHoard: Amassing Treasure
 AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon

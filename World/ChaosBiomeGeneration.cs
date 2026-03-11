@@ -60,6 +60,12 @@ namespace AAModClassic.World
         public static TexGenData EnderCrystalWallData;
         public static TexGenData EnderCrystalSlopeData;
 
+        public static TexGenData KeepTileData;
+        public static TexGenData KeepWallData;
+        public static TexGenData KeepSlopeData;
+        public static TexGenData KeepPlatformData;
+        public static TexGenData KeepObjectData;
+
         public override void OnModLoad()
         {
             LakeTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Lake", AssetRequestMode.ImmediateLoad).Value);
@@ -99,6 +105,12 @@ namespace AAModClassic.World
             EnderCrystalTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystal", AssetRequestMode.ImmediateLoad).Value);
             EnderCrystalWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalWall", AssetRequestMode.ImmediateLoad).Value);
             EnderCrystalSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalSlope", AssetRequestMode.ImmediateLoad).Value);
+
+            KeepTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeep", AssetRequestMode.ImmediateLoad).Value);
+            KeepWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepWall", AssetRequestMode.ImmediateLoad).Value);
+            KeepSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepSlope", AssetRequestMode.ImmediateLoad).Value);
+            KeepPlatformData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepPlatforms", AssetRequestMode.ImmediateLoad).Value);
+            KeepObjectData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepObjects", AssetRequestMode.ImmediateLoad).Value);
         }
     }
 

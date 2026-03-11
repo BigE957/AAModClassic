@@ -3,6 +3,7 @@ using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Tiles.Keep;
 using AAModClassic.Tiles.Ore;
 using AAModClassic.Walls;
 using AAModClassic.World;
@@ -109,11 +110,16 @@ namespace AAModClassic
         public static bool downedAnubisA;
         public static bool downedAABoss;
         public static bool downedLucifer;
-
+        public static bool downedCore;
+        public static bool downedKraken;
         public static bool AnubisAwakened;
         public static bool WormActive;
         public static bool StarActive;
         public static bool GravActive;
+
+        public static bool Terra1 => downedBrood || downedHydra || NPC.downedBoss2;
+		public static bool Terra2 => NPC.downedPlantBoss;
+		public static bool Terra3 => downedShen;
 
         public static bool spawnGrips;
         //Points
@@ -630,22 +636,27 @@ namespace AAModClassic
                     Terrarium(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("LostKeep", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    LostKeep(progress);
+                }));
+
+                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Acropolis(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     VoidIslands(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Altars(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 8, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
                 }));
@@ -1247,12 +1258,12 @@ namespace AAModClassic
                         {
                             if (Main.player[k].active && !Main.player[k].dead && Main.player[k].position.Y < Main.worldSurface * 16.0)
                             {
-                                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
+                                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
                                 else if (Main.netMode == NetmodeID.Server)
-                                    if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
+                                    if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
                                     else if (Main.netMode == NetmodeID.Server)
                                     {
-                                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAMod.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
+                                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
                                     }
                                 AAModGlobalNPC.SpawnBoss(Main.player[k], Mod.Find<ModNPC>("GripOfChaosBlue").Type, false, 1, 0);
                                 AAModGlobalNPC.SpawnBoss(Main.player[k], Mod.Find<ModNPC>("GripOfChaosRed").Type, false, -1, 0);
@@ -1545,13 +1556,20 @@ namespace AAModClassic
 
         private static void Terrarium(GenerationProgress progress)
         {
-            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrariumAAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
             origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
-            TerrariumDelete delete = new TerrariumDelete();
-            TerrariumSphere biome = new TerrariumSphere();
-            delete.Place(origin, GenVars.structures);
-            biome.Place(origin, GenVars.structures);
+            new TerrariumDelete().Place(origin, GenVars.structures);
+            new TerrariumSphere().Place(origin, GenVars.structures);
+        }
+
+        private static void LostKeep(GenerationProgress progress)
+        {
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
+            Point val = new ((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
+            if (Main.dungeonX < Main.maxTilesX / 2)
+                val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
+            new Keep().Place(val, GenVars.structures);
         }
 
         private static void Acropolis(GenerationProgress progress)

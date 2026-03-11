@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.Tiles.Keep
 {
     public class TerraCrystal : ModTile
     {

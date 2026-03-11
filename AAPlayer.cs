@@ -3796,7 +3796,7 @@ namespace AAModClassic
                     Player.accOreFinder = true;
                     Player.accDreamCatcher = true;
                 }
-                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.ono>())
+                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.Ono>())
                 {
                     onoHideVanity = false;
                     onoForceVanity = true;

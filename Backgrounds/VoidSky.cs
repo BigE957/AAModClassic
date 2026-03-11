@@ -8,7 +8,7 @@ using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 
-//using AAMod.NPCs.Bosses.Infinity;
+//using AAModClassic.NPCs.Bosses.Infinity;
 
 namespace AAModClassic.Backgrounds
 {
