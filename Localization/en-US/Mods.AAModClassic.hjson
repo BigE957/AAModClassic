@@ -11785,6 +11785,11 @@ Biomes: {
 		DisplayName: Void Biome Zone
 		TownNPCDialogueName: the Void Biome Zone
 	}
+
+	LostKeepBiomeZone: {
+		DisplayName: Lost Keep Biome Zone
+		TownNPCDialogueName: the Lost Keep Biome Zone
+	}
 }
 
 Configs: {

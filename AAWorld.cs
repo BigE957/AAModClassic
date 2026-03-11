@@ -37,6 +37,7 @@ namespace AAModClassic
         public static int voidTiles = 0;
         public static int mushTiles = 0;
         public static int terraTiles = 0;
+        public static int keepTiles = 0;
         public static int stormTiles = 0;
         public static int pagodaTiles = 0;
         public static int lakeTiles = 0;
@@ -1462,6 +1463,7 @@ namespace AAModClassic
             pagodaTiles = tileCounts[ModContent.TileType<ScorchedDynastyWoodS>()] + tileCounts[ModContent.TileType<ScorchedShinglesS>()];
             lakeTiles = tileCounts[ModContent.TileType<Darkmud>()] + tileCounts[ModContent.TileType<AbyssGrass>()] + tileCounts[ModContent.TileType<AbyssWood>()] + tileCounts[ModContent.TileType<AbyssWoodSolid>()];
             terraTiles = tileCounts[ModContent.TileType<TerraCrystal>()] + tileCounts[ModContent.TileType<TerraWood>()] + tileCounts[ModContent.TileType<TerraLeaves>()];
+            keepTiles = tileCounts[ModContent.TileType<KeepBrick>()] + tileCounts[ModContent.TileType<KeepPlatform>()] + tileCounts[ModContent.TileType<TerraPillar>()];
             Radium = tileCounts[ModContent.TileType<RadiumOre>()] + tileCounts[ModContent.TileType<Tiles.Altar.DaybringerBrick>()] + tileCounts[ModContent.TileType<Tiles.Altar.NightcrawlerBrick>()];
             HoardTiles = tileCounts[ModContent.TileType<GreedBrick>()] + tileCounts[ModContent.TileType<GreedStone>()];
             CloudTiles = tileCounts[ModContent.TileType<AcropolisBlock>()] + tileCounts[ModContent.TileType<AcropolisBlock2>()];

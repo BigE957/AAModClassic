@@ -140,6 +140,22 @@ namespace AAModClassic.World
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<TerraWaterStyle>();
     }
 
+    public class LostKeepBiomeZone : ModBiome
+    {
+        public override bool IsBiomeActive(Player player)
+        {
+            return player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.keepTiles >= 1;
+        }
+
+        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/LostKeep");
+
+        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<TerrariumBG>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<TerraWaterStyle>();
+    }
+
     public class RisingMoonLakeBiomeZone : ModBiome
     {
         public override bool IsBiomeActive(Player player)
