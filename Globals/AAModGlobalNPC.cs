@@ -1,29 +1,32 @@
-using System.Collections.Generic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Items.BossSummons;
+using AAModClassic.Items.Currency;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Ranged.Ammo;
+using AAModClassic.Items.Usable;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Bosses.Serpent;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Enemies.Cavern;
+using AAModClassic.NPCs.Enemies.Sky;
+using AAModClassic.NPCs.Enemies.Snow;
+using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
+using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
+using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
+using AAModClassic.UI.WorldGen;
+using log4net;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.GameContent.Events;
-using System;
+using Terraria.ID;
 using Terraria.Localization;
-using log4net;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Dusts;
-using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
-using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
-using AAModClassic.NPCs.Enemies.Snow;
-using AAModClassic.NPCs.Bosses.Serpent;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Currency;
-using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
-using AAModClassic.Items.Materials;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Enemies.Cavern;
-using AAModClassic.NPCs.Bosses.Rajah;
-using AAModClassic.NPCs.Enemies.Sky;
-using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic.Globals
 {
@@ -203,8 +206,6 @@ namespace AAModClassic.Globals
                 modifiers.TargetDamageMultiplier *= 1.1f;
 			}
 		}
-
-        internal ILog Logging = LogManager.GetLogger("AAMod");
 
         public override void OnKill(NPC npc)
         {
@@ -1263,55 +1264,46 @@ namespace AAModClassic.Globals
             }
         }
 
+        public override void ModifyShop(NPCShop shop)
+        {
+            int type = shop.NpcType;
+            switch(type)
+            {
+                case NPCID.Demolitionist:
+                    shop.Add<M79Round>(Condition.TimeDay);
+                    break;
+                case NPCID.Dryad:
+                    shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
+                    shop.Add<GoldenCarrot>(Condition.InGlowshroom);
+                    break;
+                case NPCID.Truffle:
+                    shop.Add(ItemID.TruffleWorm);
+                    break;
+                case NPCID.Steampunker:
+                    shop.Add<DeepGreenSolution>();
+                    shop.Add<LimeSolution>();
+                    shop.Add<FungicideSolution>();
+                    shop.Add<WhiteSolution>();
+                    shop.Add<YellowSolution>();
+                    break;
+            }
+        }
+
         public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
         {
             int type = npc.type;
-            int nextSlot = 0;
-            if (type == NPCID.Demolitionist && !Main.dayTime)
-            {
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("M79Round").Type);
-                nextSlot++;
-            }
-
-            if (type == NPCID.WitchDoctor && Main.hardMode)
-            {
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("Mortar").Type);
-                nextSlot++;
-            }
-
             if (type == NPCID.Dryad)
             {
-                if (Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush)
-                {
-                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("MyceliumSeeds").Type);
-                    nextSlot++;
-                }
-                if (AAWorld.downedRajah)
-                {
-                    items[nextSlot].SetDefaults(Mod.Find<ModItem>("GoldenCarrot").Type);
-                    items[nextSlot].shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
-                    nextSlot++;
-                }
+                foreach(Item item in items)
+                    if(item.type == ModContent.ItemType<GoldenCarrot>())
+                        item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
             }
 
             if (type == NPCID.Truffle && NPC.downedPlantBoss)
             {
-                items[nextSlot].SetDefaults(ItemID.TruffleWorm);
-                items[nextSlot].shopCustomPrice = Item.sellPrice(3, 0, 0, 0);
-                nextSlot++;
-            }
-            if (type == NPCID.Steampunker)
-            {
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("DeepGreenSolution").Type);
-                nextSlot++;
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("LimeSolution").Type);
-                nextSlot++;
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("FungicideSolution").Type);
-                nextSlot++;
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("WhiteSolution").Type);
-                nextSlot++;
-                items[nextSlot].SetDefaults(Mod.Find<ModItem>("YellowSolution").Type);
-                nextSlot++;
+                foreach (Item item in items)
+                    if (item.type == ItemID.TruffleWorm)
+                        item.shopCustomPrice = Item.sellPrice(3, 0, 0, 0);
             }
         }
 
