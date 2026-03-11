@@ -79,6 +79,8 @@ namespace AAModClassic.Items.Materials
 
         public override void AddRecipes()
         {
+            //Dropped by Biomite Core
+            /*
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(null, "TerraShard", 5);
@@ -93,6 +95,7 @@ namespace AAModClassic.Items.Materials
                 recipe.AddTile(null, "TerraPrism");
                 recipe.Register();
             }
+            */
         }
     }
 

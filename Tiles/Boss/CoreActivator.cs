@@ -21,7 +21,6 @@ public class CoreActivator : ModTile
 
 	public override void SetStaticDefaults()
 	{
-		//IL_00bf: Unknown result type (might be due to invalid IL or missing references)
 		Main.tileSolidTop[Type] = false;
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoAttach[Type] = true;
@@ -43,14 +42,11 @@ public class CoreActivator : ModTile
 
 	public Color White(Color color)
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
 		return AAColor.COLOR_WHITEFADE1;
 	}
 
 	public override void PostDraw(int x, int y, SpriteBatch sb)
 	{
-		//IL_006c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
 		Tile tile = Main.tile[x, y];
 		Texture2D texture = Mod.GetTexture("Glowmasks/CoreActivator_Glow");
 		int frameY = ((tile != null && tile.HasTile) ? (tile.TileFrameY + Main.tileFrame[Type] * 36) : 0);
@@ -59,7 +55,6 @@ public class CoreActivator : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		//IL_0076: Unknown result type (might be due to invalid IL or missing references)
 		Player localPlayer = Main.LocalPlayer;
 		int num = ModContent.ItemType<Crystal>();
 		if (CoreWorld.PrismCharged)
@@ -68,7 +63,7 @@ public class CoreActivator : ModTile
 			CoreWorld.PrismCharged = false;
 			return true;
 		}
-		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(NPCID.Paladin/*ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>()*/))
+		if (BasePlayer.HasItem(localPlayer, num) && !NPC.AnyNPCs(ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>()))
 		{
 			for (int k = 0; k < 50; k++)
 			{
@@ -76,7 +71,7 @@ public class CoreActivator : ModTile
 				if (item != null && item.type == num && item.stack >= 1)
 				{
 					item.stack--;
-					SpawnBoss(localPlayer, NPCID.Paladin/*ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>()*/, localPlayer.Center);
+					SpawnBoss(localPlayer, ModContent.NPCType<AAModClassic.NPCs.Bosses.Core.Core>(), localPlayer.Center);
 				}
 			}
 		}

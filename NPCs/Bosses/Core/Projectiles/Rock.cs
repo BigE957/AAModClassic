@@ -34,6 +34,8 @@ public class Rock : ModProjectile
 		{
 			Projectile.rotation += 0.2f * (float)Projectile.direction;
 		}
+
+		Projectile.velocity.Y += 0.4f;
 	}
 
 	public override void OnKill(int timeLeft)
@@ -51,7 +53,7 @@ public class Rock : ModProjectile
 		{
 			int num2 = Main.rand.Next(-6, 6);
 			int num3 = -Main.rand.Next(3, 5);
-			int num4 = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2((float)num2, (float)num3), ModContent.ProjectileType<RockChunk>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(23));
+			int num4 = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2((float)num2, (float)num3), ModContent.ProjectileType<RockChunk>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(3));
 			Main.projectile[num4].Center = Projectile.Center - new Vector2(0f, 25f);
 		}
 	}

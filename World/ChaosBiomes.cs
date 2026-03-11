@@ -128,7 +128,8 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1;
+            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            return AAWorld.terraTiles >= 1;
         }
 
         public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Terrarium");
@@ -144,7 +145,8 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.keepTiles >= 1;
+            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            return AAWorld.keepTiles >= 1;
         }
 
         public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/LostKeep");
@@ -179,7 +181,7 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda = AAWorld.pagodaTiles >= 1;
+            return player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda = (AAWorld.keepTiles == 0 && AAWorld.pagodaTiles >= 1);
         }
 
         public override void SpecialVisuals(Player player, bool isActive)

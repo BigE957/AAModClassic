@@ -1229,6 +1229,7 @@ Projectiles: {
 	GhastBoom.DisplayName: Ghast
 	GibsFemur.DisplayName: Angry Femur
 	GlacierBreaker.DisplayName: Glacierbreaker
+	Glacier.DisplayName: Glacier
 	Dig.DisplayName: Gold Digger
 	Gold.DisplayName: Gold
 	GoldFountain.DisplayName: Gold Fountain
@@ -1291,6 +1292,7 @@ Projectiles: {
 	RadiumArrow.DisplayName: Radium Arrow
 	RaiderLance.DisplayName: Raider Lance
 	RainbowCatPro.DisplayName: Legendary Rainbow Cat
+	Rainbow.DisplayName: Rainbow
 	BaneS.DisplayName: Bane of the Bunny
 	Punisher.DisplayName: The Punisher
 	RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
@@ -1432,6 +1434,7 @@ Projectiles: {
 	RealityLaser.DisplayName: Reality Laser
 	RedBullet.DisplayName: RedBullet
 	Rocket.DisplayName: Rocket
+	Rock.DisplayName: Rock
 	Teslashock.DisplayName: Teslablast
 	VoidStarPF.DisplayName: Star Vortex
 	Void.DisplayName: Void
@@ -1612,6 +1615,13 @@ Projectiles: {
 	Horizon.DisplayName: Horizon
 	DepthsandBall.DisplayName: Depthsand Ball
 	TorchsandBall.DisplayName: Torchsand Ball
+	GlacierChunk.DisplayName: Glacier Chunk
+	HellBoom.DisplayName: Hell Boom
+	HellFireball.DisplayName: Hell Fireball
+	InfernoBreath.DisplayName: Inferno Breath
+	RockChunk.DisplayName: Rock Chunk
+	RockFall.DisplayName: Rock Fall
+	SandstormProj.DisplayName: Sandstorm Proj
 }
 
 Items: {
@@ -11733,6 +11743,8 @@ NPCs: {
 
 		Census.SpawnCondition: Conditions unknown
 	}
+
+	Core.DisplayName: Biomite Core
 }
 
 Biomes: {

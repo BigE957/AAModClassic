@@ -170,7 +170,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
+					player.cursorItemIconID = Mod.Find<ModItem>("RazewoodDresser").Type;
 					player.cursorItemIconText = "";
 				}
 			}

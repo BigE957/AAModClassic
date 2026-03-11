@@ -13,7 +13,6 @@ public class Core : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		//IL_00e7: Unknown result type (might be due to invalid IL or missing references)
 		Main.tileSolidTop[Type] = false;
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoAttach[Type] = true;

@@ -158,6 +158,7 @@ public class Core : ModNPC
 				int num = Main.rand.Next(6);
 				Vector2 center = NPC.Center;
 				Vector2 val8 = center;
+				int iters = 0;
 				while (val8 == center)
 				{
 					val8 = (Vector2)(num switch
@@ -169,7 +170,10 @@ public class Core : ModNPC
 						4 => val6, 
 						_ => val7, 
 					});
-				}
+					iters++;
+					if (iters > 100)
+						break;
+                }
 				NPC.Center = val8;
 				NPC.ai[0] = 0f;
 				NPC.ai[1] = 1f;
@@ -210,14 +214,16 @@ public class Core : ModNPC
 			switch ((int)NPC.ai[3])
 			{
 			default:
-				if (NPC.ai[0] > 180f && NPC.CountNPCS(ModContent.NPCType<TerraProbe>()) + NPC.CountNPCS(ModContent.NPCType<TerraWatcher>()) < 5 && Main.netMode != NetmodeID.MultiplayerClient)
+				if (NPC.ai[0] > 120f && NPC.CountNPCS(ModContent.NPCType<TerraProbe>()) + NPC.CountNPCS(ModContent.NPCType<TerraWatcher>()) < 5 && Main.netMode != NetmodeID.MultiplayerClient)
 				{
-					int num8 = ((Main.rand.Next(2) == 0) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
+					int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
 					int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
 					Main.npc[num9].Center = new Vector2(NPC.Center.X + 100f, NPC.Center.Y);
-					num8 = ((Main.rand.Next(2) == 0) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
+
+					num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<TerraProbe>() : ModContent.NPCType<TerraWatcher>());
 					int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
 					Main.npc[num10].Center = new Vector2(NPC.Center.X - 100f, NPC.Center.Y);
+
 					if (NPC.life < NPC.lifeMax / 2)
 					{
 						int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, num8, 0, 0f, 0f, 0f, 0f, 255);
@@ -273,7 +279,7 @@ public class Core : ModNPC
 				Vector2 val12 = NPC.Center - new Vector2(125f, 100f);
 				for (int k = 0; k < 10; k++)
 				{
-					Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), 250, 2, (Main.rand.Next(3) != 0) ? 1 : 0);
+					Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), 250, 2, (Main.rand.NextBool(3)) ? 1 : 0);
 				}
 				if (NPC.ai[0] % 45f == 0f)
 				{
@@ -309,7 +315,7 @@ public class Core : ModNPC
 				{
 					int num6 = 6;
 					int num7 = 0;
-					if (Main.rand.Next(2) == 0)
+					if (Main.rand.NextBool(2))
 					{
 						num7 = 6;
 					}
@@ -327,7 +333,7 @@ public class Core : ModNPC
 				{
 					int num12 = 6;
 					int num13 = 0;
-					if (Main.rand.Next(2) == 0)
+					if (Main.rand.NextBool(2))
 					{
 						num13 = 6;
 					}

@@ -1649,7 +1649,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().Terrarium)
+            if (Terrarium)
             {
                 Player.AddBuff(ModContent.BuffType<Terrarium>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);
