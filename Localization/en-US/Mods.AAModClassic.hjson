@@ -1229,6 +1229,7 @@ Projectiles: {
 	GhastBoom.DisplayName: Ghast
 	GibsFemur.DisplayName: Angry Femur
 	GlacierBreaker.DisplayName: Glacierbreaker
+	Glacier.DisplayName: Glacier
 	Dig.DisplayName: Gold Digger
 	Gold.DisplayName: Gold
 	GoldFountain.DisplayName: Gold Fountain
@@ -1291,6 +1292,7 @@ Projectiles: {
 	RadiumArrow.DisplayName: Radium Arrow
 	RaiderLance.DisplayName: Raider Lance
 	RainbowCatPro.DisplayName: Legendary Rainbow Cat
+	Rainbow.DisplayName: Rainbow
 	BaneS.DisplayName: Bane of the Bunny
 	Punisher.DisplayName: The Punisher
 	RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
@@ -1432,6 +1434,7 @@ Projectiles: {
 	RealityLaser.DisplayName: Reality Laser
 	RedBullet.DisplayName: RedBullet
 	Rocket.DisplayName: Rocket
+	Rock.DisplayName: Rock
 	Teslashock.DisplayName: Teslablast
 	VoidStarPF.DisplayName: Star Vortex
 	Void.DisplayName: Void
@@ -1612,6 +1615,13 @@ Projectiles: {
 	Horizon.DisplayName: Horizon
 	DepthsandBall.DisplayName: Depthsand Ball
 	TorchsandBall.DisplayName: Torchsand Ball
+	GlacierChunk.DisplayName: Glacier Chunk
+	HellBoom.DisplayName: Hell Boom
+	HellFireball.DisplayName: Hell Fireball
+	InfernoBreath.DisplayName: Inferno Breath
+	RockChunk.DisplayName: Rock Chunk
+	RockFall.DisplayName: Rock Fall
+	SandstormProj.DisplayName: Sandstorm Proj
 }
 
 Items: {
@@ -10732,6 +10742,326 @@ Items: {
 		DisplayName: S C
 		Tooltip: ""
 	}
+
+	KeepBrick: {
+		DisplayName: Keep Brick
+		Tooltip: ""
+	}
+
+	TerraBrick: {
+		DisplayName: Terra Brick
+		Tooltip: ""
+	}
+
+	KeepBath: {
+		DisplayName: Keep Bath
+		Tooltip: ""
+	}
+
+	KeepBed: {
+		DisplayName: Keep Bed
+		Tooltip: ""
+	}
+
+	KeepBookcase: {
+		DisplayName: Keep Bookcase
+		Tooltip: ""
+	}
+
+	KeepCandelabra: {
+		DisplayName: Keep Candelabra
+		Tooltip: ""
+	}
+
+	KeepCandle: {
+		DisplayName: Keep Candle
+		Tooltip: ""
+	}
+
+	KeepChair: {
+		DisplayName: Keep Chair
+		Tooltip: ""
+	}
+
+	KeepChandelier: {
+		DisplayName: Keep Chandelier
+		Tooltip: ""
+	}
+
+	KeepClock: {
+		DisplayName: Keep Clock
+		Tooltip: ""
+	}
+
+	KeepCouch: {
+		DisplayName: Keep Couch
+		Tooltip: ""
+	}
+
+	KeepDoor: {
+		DisplayName: Keep Door
+		Tooltip: ""
+	}
+
+	KeepDresser: {
+		DisplayName: Keep Dresser
+		Tooltip: ""
+	}
+
+	KeepLamp: {
+		DisplayName: Keep Lamp
+		Tooltip: ""
+	}
+
+	KeepLantern: {
+		DisplayName: Keep Lantern
+		Tooltip: ""
+	}
+
+	KeepPiano: {
+		DisplayName: Keep Piano
+		Tooltip: ""
+	}
+
+	KeepSink: {
+		DisplayName: Keep Sink
+		Tooltip: ""
+	}
+
+	KeepTable: {
+		DisplayName: Keep Table
+		Tooltip: ""
+	}
+
+	KeepWorkbench: {
+		DisplayName: Keep Workbench
+		Tooltip: ""
+	}
+
+	AcropolisPainting: {
+		DisplayName: Acropolis Painting
+		Tooltip: ""
+	}
+
+	AkumaPainting: {
+		DisplayName: Akuma Painting
+		Tooltip: ""
+	}
+
+	AnubisPainting: {
+		DisplayName: Anubis Painting
+		Tooltip: ""
+	}
+
+	CRajahPainting: {
+		DisplayName: C Rajah Painting
+		Tooltip: ""
+	}
+
+	DaedalusPainting: {
+		DisplayName: Daedalus Painting
+		Tooltip: ""
+	}
+
+	DecayPainting: {
+		DisplayName: Decay Painting
+		Tooltip: ""
+	}
+
+	FulgurusPainting: {
+		DisplayName: Fulgurus Painting
+		Tooltip: ""
+	}
+
+	GreedPainting: {
+		DisplayName: Greed Painting
+		Tooltip: ""
+	}
+
+	HotJPainting: {
+		DisplayName: Hot J Painting
+		Tooltip: ""
+	}
+
+	IZPainting: {
+		DisplayName: I Z Painting
+		Tooltip: ""
+	}
+
+	JojoBagginsPainting: {
+		DisplayName: Jojo Baggins Painting
+		Tooltip: ""
+	}
+
+	KingQueenPainting: {
+		DisplayName: King Queen Painting
+		Tooltip: ""
+	}
+
+	LuciferPainting: {
+		DisplayName: Lucifer Painting
+		Tooltip: ""
+	}
+
+	MushmadPainting: {
+		DisplayName: Mushmad Painting
+		Tooltip: ""
+	}
+
+	NKPainting: {
+		DisplayName: N K Painting
+		Tooltip: ""
+	}
+
+	RajahPainting: {
+		DisplayName: Rajah Painting
+		Tooltip: ""
+	}
+
+	SanguinePainting: {
+		DisplayName: Sanguine Painting
+		Tooltip: ""
+	}
+
+	ShenPainting: {
+		DisplayName: Shen Painting
+		Tooltip: ""
+	}
+
+	ShipPainting: {
+		DisplayName: Ship Painting
+		Tooltip: ""
+	}
+
+	SoCPainting: {
+		DisplayName: So C Painting
+		Tooltip: ""
+	}
+
+	TerraPainting: {
+		DisplayName: Terra Painting
+		Tooltip: ""
+	}
+
+	UmbraPainting: {
+		DisplayName: Umbra Painting
+		Tooltip: ""
+	}
+
+	ValkyriePainting: {
+		DisplayName: Valkyrie Painting
+		Tooltip: ""
+	}
+
+	WizardPainting: {
+		DisplayName: Wizard Painting
+		Tooltip: ""
+	}
+
+	YamataPainting: {
+		DisplayName: Yamata Painting
+		Tooltip: ""
+	}
+
+	ZeroPainting: {
+		DisplayName: Zero Painting
+		Tooltip: ""
+	}
+
+	TerraBath: {
+		DisplayName: Terra Bath
+		Tooltip: ""
+	}
+
+	TerraBed: {
+		DisplayName: Terra Bed
+		Tooltip: ""
+	}
+
+	TerraBookcase: {
+		DisplayName: Terra Bookcase
+		Tooltip: ""
+	}
+
+	TerraCandelabra: {
+		DisplayName: Terra Candelabra
+		Tooltip: ""
+	}
+
+	TerraCandle: {
+		DisplayName: Terra Candle
+		Tooltip: ""
+	}
+
+	TerraChair: {
+		DisplayName: Terra Chair
+		Tooltip: ""
+	}
+
+	TerraChandelier: {
+		DisplayName: Terra Chandelier
+		Tooltip: ""
+	}
+
+	TerraChest: {
+		DisplayName: Terra Chest
+		Tooltip: ""
+	}
+
+	TerraClock: {
+		DisplayName: Terra Clock
+		Tooltip: ""
+	}
+
+	TerraCouch: {
+		DisplayName: Terra Couch
+		Tooltip: ""
+	}
+
+	TerraDoor: {
+		DisplayName: Terra Door
+		Tooltip: ""
+	}
+
+	TerraDresser: {
+		DisplayName: Terra Dresser
+		Tooltip: ""
+	}
+
+	TerraLamp: {
+		DisplayName: Terra Lamp
+		Tooltip: ""
+	}
+
+	TerraLantern: {
+		DisplayName: Terra Lantern
+		Tooltip: ""
+	}
+
+	TerraPiano: {
+		DisplayName: Terra Piano
+		Tooltip: ""
+	}
+
+	TerraSink: {
+		DisplayName: Terra Sink
+		Tooltip: ""
+	}
+
+	TerraTable: {
+		DisplayName: Terra Table
+		Tooltip: ""
+	}
+
+	TerraWorkbench: {
+		DisplayName: Terra Workbench
+		Tooltip: ""
+	}
+
+	TerraKey: {
+		DisplayName: Terra Key
+		Tooltip: ""
+	}
 }
 
 Tiles: {
@@ -10924,6 +11254,77 @@ Tiles: {
 	OroborosSapling.MapEntry: Oroboros Sapling
 	RazePalmSapling.MapEntry: Raze Palm Sapling
 	RazewoodSapling.MapEntry: Razewood Sapling
+	Core.MapEntry: Core
+	CoreActivator.MapEntry: Core Activator
+	KeepBath.MapEntry: Keep Bath
+	KeepBed.MapEntry: Keep Bed
+	KeepBookcase.MapEntry: Keep Bookcase
+	KeepCandelabra.MapEntry: Keep Candelabra
+	KeepCandle.MapEntry: Keep Candle
+	KeepChair.MapEntry: Keep Chair
+	KeepChandelier.MapEntry: Keep Chandelier
+	KeepClock.MapEntry: Keep Clock
+	KeepCouch.MapEntry: Keep Couch
+	KeepDoorClosed.MapEntry: Keep Door Closed
+	KeepDoorOpen.MapEntry: Keep Door Open
+	KeepDresser.MapEntry: Keep Dresser
+	KeepLamp.MapEntry: Keep Lamp
+	KeepLantern.MapEntry: Keep Lantern
+	KeepPiano.MapEntry: Keep Piano
+	KeepSink.MapEntry: Keep Sink
+	KeepTable.MapEntry: Keep Table
+	KeepWorkbench.MapEntry: Keep Workbench
+	TerraBath.MapEntry: Terra Bath
+	TerraBed.MapEntry: Terra Bed
+	TerraBookcase.MapEntry: Terra Bookcase
+	TerraCandelabra.MapEntry: Terra Candelabra
+	TerraCandle.MapEntry: Terra Candle
+	TerraChair.MapEntry: Terra Chair
+	TerraChandelier.MapEntry: Terra Chandelier
+	TerraChest.MapEntry: Terra Chest
+	TerraClock.MapEntry: Terra Clock
+	TerraCouch.MapEntry: Terra Couch
+	TerraDoorClosed.MapEntry: Terra Door Closed
+	TerraDoorOpen.MapEntry: Terra Door Open
+	TerraDresser.MapEntry: Terra Dresser
+	TerraLamp.MapEntry: Terra Lamp
+	TerraLantern.MapEntry: Terra Lantern
+	TerraPiano.MapEntry: Terra Piano
+	TerraSink.MapEntry: Terra Sink
+	TerraTable.MapEntry: Terra Table
+	TerraWorkbench.MapEntry: Terra Workbench
+	AcropolisPainting.MapEntry: Acropolis Painting
+	AkumaPainting.MapEntry: Akuma Painting
+	AnubisPainting.MapEntry: Anubis Painting
+	CoreDoor.MapEntry: Core Door
+	CRajahPainting.MapEntry: C Rajah Painting
+	DaedalusPainting.MapEntry: Daedalus Painting
+	DecayPainting.MapEntry: Decay Painting
+	FulgurusPainting.MapEntry: Fulgurus Painting
+	GreedPainting.MapEntry: Greed Painting
+	HotJPainting.MapEntry: Hot J Painting
+	IZPainting.MapEntry: I Z Painting
+	JojoBagginsPainting.MapEntry: Jojo Baggins Painting
+	KeepDoor1.MapEntry: Keep Door1
+	KeepDoor2.MapEntry: Keep Door2
+	KeepDoor2S.MapEntry: Keep Door2 S
+	KeepDoor3.MapEntry: Keep Door3
+	KingQueenPainting.MapEntry: King Queen Painting
+	LuciferPainting.MapEntry: Lucifer Painting
+	MushmadPainting.MapEntry: Mushmad Painting
+	NKPainting.MapEntry: N K Painting
+	RajahPainting.MapEntry: Rajah Painting
+	SanguinePainting.MapEntry: Sanguine Painting
+	ShenPainting.MapEntry: Shen Painting
+	ShipPainting.MapEntry: Ship Painting
+	SoCPainting.MapEntry: So C Painting
+	TerraPainting.MapEntry: Terra Painting
+	TerraStatue.MapEntry: Terra Statue
+	UmbraPainting.MapEntry: Umbra Painting
+	ValkyriePainting.MapEntry: Valkyrie Painting
+	WizardPainting.MapEntry: Wizard Painting
+	YamataPainting.MapEntry: Yamata Painting
+	ZeroPainting.MapEntry: Zero Painting
 }
 
 NPCs: {
@@ -11342,6 +11743,8 @@ NPCs: {
 
 		Census.SpawnCondition: Conditions unknown
 	}
+
+	Core.DisplayName: Biomite Core
 }
 
 Biomes: {
@@ -11393,6 +11796,11 @@ Biomes: {
 	VoidBiomeZone: {
 		DisplayName: Void Biome Zone
 		TownNPCDialogueName: the Void Biome Zone
+	}
+
+	LostKeepBiomeZone: {
+		DisplayName: Lost Keep Biome Zone
+		TownNPCDialogueName: the Lost Keep Biome Zone
 	}
 }
 

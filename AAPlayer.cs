@@ -1649,7 +1649,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().Terrarium)
+            if (Terrarium)
             {
                 Player.AddBuff(ModContent.BuffType<Terrarium>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);
@@ -3796,7 +3796,7 @@ namespace AAModClassic
                     Player.accOreFinder = true;
                     Player.accDreamCatcher = true;
                 }
-                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.ono>())
+                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.Ono>())
                 {
                     onoHideVanity = false;
                     onoForceVanity = true;

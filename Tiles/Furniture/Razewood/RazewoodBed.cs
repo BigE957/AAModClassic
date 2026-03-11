@@ -72,7 +72,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("Razewood Bed").Type;
+			player.cursorItemIconID = Mod.Find<ModItem>("RazewoodBed").Type;
 		}
 	}
 }

@@ -44,7 +44,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			RegisterItemDrop(Mod.Find<ModItem>("BogwoodChest").Type);
 		}
 
-		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
+        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.BogwoodChest.DisplayName");
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}

@@ -182,7 +182,7 @@ GoblinSlayerShopEclipseLoot: Eclipse Loot
 GoblinSlayerShopHalloweenLoot: Halloween Loot
 GoblinSlayerShopChristmasLoot: Christmas Loot
 GoblinSlayerShopMartianLoot: Martian Loot
-#AAMod.Tiles.RazewoodF
+#AAModClassic.Tiles.RazewoodF
 
 RazewoodClockGetTime: Maybe making a clock out of burned wood wasn't such a good idea. It doesn't even work.
 #lockedchest
@@ -265,6 +265,7 @@ AAWorldBuildChaos: Spreading Chaos
 AAWorldBuildInferno: Scorching the Inferno
 AAWorldBuildMire: Flooding the Mire
 AAWorldBuildTerrarium: Constructing the Terrarium
+AAWorldBuildLostKeep: Hiding a Hero's Keep
 AAWorldBuildAcropolis: Floating the Acropolis
 AAWorldBuildHoard: Amassing Treasure
 AAWorldBuildEquinoxAlt: Equalizing the Sun and Moon
@@ -380,3 +381,6 @@ ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
 ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIBILITY THIS TIME, TERRARIAN.
 RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
+
+Conditions.ReleaseExclusive: when Beta content is disabled
+Conditions.BetaExclusive: when Beta content is enabled

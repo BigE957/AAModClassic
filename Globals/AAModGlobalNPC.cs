@@ -1043,7 +1043,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
                 }
-                else if (NPC.downedBoss2)
+                else if (AAWorld.Terra1)
                 {
                     pool.Add(ModContent.NPCType<PurityWeaver>(), .05f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .05f);

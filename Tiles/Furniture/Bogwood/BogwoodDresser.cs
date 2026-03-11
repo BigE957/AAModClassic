@@ -44,7 +44,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			RegisterItemDrop(Mod.Find<ModItem>("BogwoodDresser").Type);
 		}
 
-		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
+        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.BogDresser.DisplayName");
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
 		}
@@ -164,9 +166,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					player.cursorItemIconText = DefaultContainerName(i, j).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+					player.cursorItemIconText = DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.cursorItemIconText == DefaultContainerName(i, j).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
 					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
 					player.cursorItemIconText = "";
@@ -206,9 +208,9 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				else
 				{
-					player.cursorItemIconText = DefaultContainerName(i, j).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+					player.cursorItemIconText = DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString(); // Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 				}
-				if (player.cursorItemIconText == DefaultContainerName(i, j).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
 					player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDresser").Type;
 					player.cursorItemIconText = "";

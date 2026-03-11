@@ -46,6 +46,8 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             RegisterItemDrop(Mod.Find<ModItem>("OroborosChest").Type);
         }
 
+        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.OroborosChest.DisplayName");
+
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
         {
             return true;

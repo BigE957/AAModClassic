@@ -128,12 +128,30 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1;
+            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            return AAWorld.terraTiles >= 1;
         }
 
         public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Terrarium");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<TerrariumBG>();
+
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<TerraWaterStyle>();
+    }
+
+    public class LostKeepBiomeZone : ModBiome
+    {
+        public override bool IsBiomeActive(Player player)
+        {
+            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            return AAWorld.keepTiles >= 1;
+        }
+
+        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/LostKeep");
+
+        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<TerrariumBG>();
 
@@ -163,7 +181,7 @@ namespace AAModClassic.World
     {
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda = AAWorld.pagodaTiles >= 1;
+            return player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda = (AAWorld.keepTiles == 0 && AAWorld.pagodaTiles >= 1);
         }
 
         public override void SpecialVisuals(Player player, bool isActive)

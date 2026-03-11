@@ -1,5 +1,5 @@
 
-/*namespace AAMod.Items.Blocks.Boxes
+/*namespace AAModClassic.Items.Blocks.Boxes
 {
     public class SRajahBox : BaseAAItem
 	{

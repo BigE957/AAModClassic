@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 			Item.height = 16;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.rare = ItemRarityID.Lime;
-			Item.buffType = Mod.Find<ModBuff>("luckyswiftness").Type;
+			Item.buffType = Mod.Find<ModBuff>("LuckySwiftness").Type;
 			Item.buffTime = 14400;
 		}
 

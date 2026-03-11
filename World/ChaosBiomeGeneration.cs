@@ -1,22 +1,21 @@
-using System;
-using System.Collections.Generic;
-
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Tiles;
+using AAModClassic.Tiles.Boss;
+using AAModClassic.Tiles.Chests;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.UI.WorldGen;
+using AAModClassic.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
-using AAModClassic.Items.Ranged;
-using AAModClassic.Walls;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.Tiles.Chests;
-using AAModClassic.Tiles.Boss;
-using ReLogic.Content;
 
 namespace AAModClassic.World
 {
@@ -51,6 +50,7 @@ namespace AAModClassic.World
         public static TexGenData EquinoxTileData;
         public static TexGenData EquinoxSlopeData;
 
+        public static TexGenData PitContructionTileData;
         public static TexGenData PitTileData;
         public static TexGenData PitWallData;
         public static TexGenData PitLiquidData;
@@ -59,6 +59,12 @@ namespace AAModClassic.World
         public static TexGenData EnderCrystalTileData;
         public static TexGenData EnderCrystalWallData;
         public static TexGenData EnderCrystalSlopeData;
+
+        public static TexGenData KeepTileData;
+        public static TexGenData KeepWallData;
+        public static TexGenData KeepSlopeData;
+        public static TexGenData KeepPlatformData;
+        public static TexGenData KeepObjectData;
 
         public override void OnModLoad()
         {
@@ -91,6 +97,7 @@ namespace AAModClassic.World
             EquinoxTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltar", AssetRequestMode.ImmediateLoad).Value);
             EquinoxSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EquinoxAltarSlope", AssetRequestMode.ImmediateLoad).Value);
 
+            PitContructionTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitConstruction", AssetRequestMode.ImmediateLoad).Value);
             PitTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/Pit", AssetRequestMode.ImmediateLoad).Value);
             PitWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitWall", AssetRequestMode.ImmediateLoad).Value);
             PitLiquidData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/PitLava", AssetRequestMode.ImmediateLoad).Value);
@@ -99,6 +106,12 @@ namespace AAModClassic.World
             EnderCrystalTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystal", AssetRequestMode.ImmediateLoad).Value);
             EnderCrystalWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalWall", AssetRequestMode.ImmediateLoad).Value);
             EnderCrystalSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/EnderCrystalSlope", AssetRequestMode.ImmediateLoad).Value);
+
+            KeepTileData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeep", AssetRequestMode.ImmediateLoad).Value);
+            KeepWallData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepWall", AssetRequestMode.ImmediateLoad).Value);
+            KeepSlopeData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepSlope", AssetRequestMode.ImmediateLoad).Value);
+            KeepPlatformData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepPlatforms", AssetRequestMode.ImmediateLoad).Value);
+            KeepObjectData = TexGenData.FromTexture2D(ModContent.Request<Texture2D>("AAModClassic/World/LostKeepObjects", AssetRequestMode.ImmediateLoad).Value);
         }
     }
 
@@ -1110,7 +1123,7 @@ namespace AAModClassic.World
             return true;
         }
     }
-    /*
+    
     public class PitTeaser : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
@@ -1132,7 +1145,7 @@ namespace AAModClassic.World
                 new Actions.SetSlope(0)
             }));
 
-            TexGen gen = TexGen.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/World/PitConstruction").Value, colorToTile);
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets.PitContructionTileData, colorToTile);
 
             gen.Generate(origin.X, origin.Y, true, true);
 
@@ -1142,7 +1155,6 @@ namespace AAModClassic.World
             return true;
         }
     }
-    */
 
     //Unused... For now...
     /*
