@@ -23,6 +23,7 @@ using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Enemies.Cavern;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Enemies.Sky;
+using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic.Globals
 {
@@ -541,7 +542,7 @@ namespace AAModClassic.Globals
             }
 
 
-            if (Main.hardMode && IsBunny(npc) && Rajah != -1)
+            if (WorldTypeSystem.WorldType != AAWorldType.Beta && Main.hardMode && IsBunny(npc) && Rajah != -1)
             {
                 Player player = Main.player[Player.FindClosest(npc.Center, npc.width, npc.height)];
 

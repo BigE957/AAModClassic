@@ -1,13 +1,13 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.UI.WorldGen;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -45,6 +45,9 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool CanUseItem(Player player)
         {
+            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+                return false;
+
             if (!player.ZoneSnow)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SubzeroCrystalSnowZoneFalse"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, false);
@@ -90,6 +93,7 @@ namespace AAModClassic.Items.BossSummons
                 recipe.AddIngredient(null, "SnowMana", 3);
                 recipe.AddIngredient(ItemID.IceBlock, 30);
                 recipe.AddTile(TileID.IceMachine);
+                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
                 recipe.Register();
             }
         }

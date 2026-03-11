@@ -1,13 +1,14 @@
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Toad;
+using AAModClassic.UI.WorldGen;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Toad;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -44,6 +45,9 @@ Can only be used in a glowing mushroom biome"); */
 
         public override bool CanUseItem(Player player)
         {
+            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+                return false;
+
             if (!player.ZoneGlowshroom)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ToadstoolFalse1"), Color.Blue, false);
@@ -66,6 +70,7 @@ Can only be used in a glowing mushroom biome"); */
             recipe.AddIngredient(null, "Mushium", 10);
             recipe.AddIngredient(null, "GlowingMushium", 10);
             recipe.AddTile(TileID.Anvils);
+            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

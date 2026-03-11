@@ -1,6 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -49,6 +50,9 @@ Non-consumable"); */
 
         public override bool CanUseItem(Player player)
         {
+            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+                return false;
+
             return !(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
         }
@@ -87,6 +91,7 @@ Non-consumable"); */
             recipe.AddIngredient(null, "DreadScale", 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(null, "ACS");
+            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
             recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "PlatinumCarrot", 1);
@@ -95,6 +100,7 @@ Non-consumable"); */
             recipe.AddIngredient(null, "DreadScale", 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
             recipe.AddTile(null, "ACS");
+            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

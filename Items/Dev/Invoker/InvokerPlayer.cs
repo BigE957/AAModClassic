@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
 using Terraria.GameInput;
+using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic.Items.Dev.Invoker
 {
@@ -186,7 +187,7 @@ namespace AAModClassic.Items.Dev.Invoker
 				if(soul == Mod.Find<ModNPC>("ShenA").Type) soulcount ++;
 				if(soul == Mod.Find<ModNPC>("SupremeRajah").Type) soulcount ++;
 			}
-			if(soulcount >= 5)
+			if(soulcount >= (WorldTypeSystem.WorldType == AAWorldType.Beta ? 4 : 5))
 			{
 				DarkCaligula = true;
 			}

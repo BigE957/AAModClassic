@@ -26,6 +26,7 @@ using AAModClassic.Items.Flasks;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -607,7 +608,8 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<ToadMask>(),
                         ModContent.ItemType<ToadBox>()
                     },
-                    ["customPortrait"] = GetPortrait("Toad")
+                    ["customPortrait"] = GetPortrait("Toad"),
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
@@ -658,7 +660,8 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<SerpentMask>(),
                         ModContent.ItemType<SerpentBox>()
                     },
-                    ["customPortrait"] = GetPortrait("Serpent1")
+                    ["customPortrait"] = GetPortrait("Serpent1"),
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
@@ -675,7 +678,8 @@ namespace AAModClassic.CrossMod
                         ModContent.ItemType<DjinnMask>(),
                         ModContent.ItemType<DjinnBox>()
                     },
-                    ["customPortrait"] = GetPortrait("Djinn")
+                    ["customPortrait"] = GetPortrait("Djinn"),
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
@@ -957,7 +961,8 @@ namespace AAModClassic.CrossMod
                     {
                         ///ModContent.ItemType<SRajahBox>()
                     },
-                    ["customPortrait"] = GetPortrait("CRajah")
+                    ["customPortrait"] = GetPortrait("CRajah"),
+                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
                 });
                 #endregion
 
