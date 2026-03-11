@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles.Keep;
 
 public class AkumaPainting : ModTile
 {
-	public override string HighlightTexture => "AAMod/Textures/KeepPainting_Highlight";
+	public override string HighlightTexture => "AAModClassic/Textures/KeepPainting_Highlight";
 
 	public override void SetStaticDefaults()
 	{

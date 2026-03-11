@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles.Keep;
 
 public class SoCPainting : ModTile
 {
-	public override string HighlightTexture => "AAMod/Textures/LargeKeepPainting_Highlight";
+	public override string HighlightTexture => "AAModClassic/Textures/LargeKeepPainting_Highlight";
 
 	public override void SetStaticDefaults()
 	{
