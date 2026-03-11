@@ -37,7 +37,7 @@ public class TerraStatue : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		BaseUtility.Chat(Lang.TilesInfo("TerraStatueInfo"), Color.LawnGreen);
+		BaseUtility.Chat("The Hero who saved us all from the brink of chaos", Color.LawnGreen);
 		return true;
 	}
 

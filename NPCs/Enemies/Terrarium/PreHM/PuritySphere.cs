@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
         {
             Player player = Main.player[NPC.target];
             BaseAI.AISkull(NPC, ref NPC.ai, true, 4, 300, .011f, .020f);
-            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.ProjType("PurityShot"), ref shootAI[0], 120, (int)(NPC.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.ProjType("PurityShot")/*TerraShot*/, ref shootAI[0], 120, (int)(NPC.damage * (Main.expertMode ? 0.25f : 0.5f)), 3f, true, new Vector2(20f, 15f));
             if (NPC.alpha != 0)
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
