@@ -1277,7 +1277,7 @@ namespace AAModClassic.Globals
                     shop.Add<GoldenCarrot>(Condition.InGlowshroom);
                     break;
                 case NPCID.Truffle:
-                    shop.Add(ItemID.TruffleWorm);
+                    shop.Add(ItemID.TruffleWorm, Condition.DownedPlantera);
                     break;
                 case NPCID.Steampunker:
                     shop.Add<DeepGreenSolution>();
