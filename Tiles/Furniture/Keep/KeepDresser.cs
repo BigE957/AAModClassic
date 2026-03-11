@@ -47,7 +47,9 @@ public class KeepDresser : ModTile
 		RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Keep.KeepDresser>());
 	}
 
-	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
+    public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.KeepDresser.DisplayName");
+
+    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{
 		return true;
 	}
@@ -167,9 +169,9 @@ public class KeepDresser : ModTile
 			}
 			else
 			{
-				localPlayer.cursorItemIconText = DefaultContainerName(i, j).ToString();
+				localPlayer.cursorItemIconText = DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString();
 			}
-			if (localPlayer.cursorItemIconText == DefaultContainerName(i, j).ToString())
+			if (localPlayer.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString())
 			{
 				localPlayer.cursorItemIconID = ModContent.ItemType<AAModClassic.Items.Blocks.Keep.KeepDresser>();
 				localPlayer.cursorItemIconText = "";
@@ -209,9 +211,9 @@ public class KeepDresser : ModTile
 			}
 			else
 			{
-				localPlayer.cursorItemIconText = DefaultContainerName(i, j).ToString();
+				localPlayer.cursorItemIconText = DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString();
 			}
-			if (localPlayer.cursorItemIconText == DefaultContainerName(i, j).ToString())
+			if (localPlayer.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString())
 			{
 				localPlayer.cursorItemIconID = ModContent.ItemType<TerraDresser>();
 				localPlayer.cursorItemIconText = "";

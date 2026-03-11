@@ -51,6 +51,8 @@ namespace AAModClassic.Tiles.Chests
             RegisterItemDrop(Mod.Find<ModItem>("DoomsdayChest").Type);
         }
 
+        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.DoomsdayChest.DisplayName");
+
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
