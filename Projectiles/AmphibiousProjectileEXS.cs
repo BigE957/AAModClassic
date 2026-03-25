@@ -83,7 +83,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Wet, 1000);
+            //target.AddBuff(BuffID.Wet, 1000);
         }
 
         private int HomeOnTarget()

@@ -56,7 +56,7 @@ namespace AAModClassic.Items.FishingItem.Crate
                 }
 
                 int index = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
-                int index1 = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DeactivatedDoomite").Type, Main.rand.Next(0, 5));
+                int index1 = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(0, 5));
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {

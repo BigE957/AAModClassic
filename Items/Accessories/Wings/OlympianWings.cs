@@ -1,5 +1,6 @@
 using AAModClassic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,6 +14,8 @@ namespace AAModClassic.Items.Accessories.Wings
             // DisplayName.SetDefault("Olympian Wings");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Grants a dash while flying"); */
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(170, 8, 2f);
         }
 
 		public override void SetDefaults()
@@ -37,12 +40,6 @@ Grants a dash while flying"); */
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 2.1f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            //speed = 8f;
-            //acceleration *= 2f;
         }
 	}
 }

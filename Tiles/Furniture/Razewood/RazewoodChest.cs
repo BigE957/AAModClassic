@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             RegisterItemDrop(Mod.Find<ModItem>("RazewoodChest").Type);
         }
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.RazewoodChest.DisplayName");
+        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("RazewoodChest").DisplayName;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
         {

@@ -33,15 +33,13 @@ namespace AAModClassic.Items.Blocks.Boxes
 
         public override void AddRecipes()
         {
-            if (Main.expertMode == true)
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.MusicBox);
-                recipe.AddIngredient(null, "ShenBox");
-                recipe.AddIngredient(null, "ChaosSoul");
-                recipe.AddTile(TileID.Sawmill);
-                recipe.Register();
-            }
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.MusicBox);
+            recipe.AddIngredient(null, "ShenBox");
+            recipe.AddIngredient(null, "ChaosSoul");
+            recipe.AddTile(TileID.Sawmill);
+            recipe.AddCondition(Condition.InExpertMode);
+            recipe.Register();
         }
     }
 }

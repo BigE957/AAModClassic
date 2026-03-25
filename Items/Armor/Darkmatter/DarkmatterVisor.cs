@@ -109,11 +109,11 @@ Dark, yet still barely visible"); */
                 {
                     if(sunPortal)
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .5f).Flat, 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .5f), 2f, Player.whoAmI);
                     }
                     else
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.HeldItem.damage * Player.GetDamage(DamageClass.Ranged) * .3f).Flat, 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .3f), 2f, Player.whoAmI);
                     }
                     
                 }

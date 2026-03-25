@@ -1,5 +1,6 @@
 using AAModClassic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,8 @@ namespace AAModClassic.Items.Accessories.Wings
 		{
             // DisplayName.SetDefault("Vulture Wings");
             // Tooltip.SetDefault("Allows slow fall");
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(30, 4);
         }
 
 		public override void SetDefaults()
@@ -35,12 +38,6 @@ namespace AAModClassic.Items.Accessories.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            //speed = 4f;
-            //acceleration *= 1f;
         }
 
         public override void AddRecipes()

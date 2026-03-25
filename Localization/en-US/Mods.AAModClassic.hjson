@@ -1,8 +1,8 @@
 Keybinds: {
-	"Rift Home.DisplayName": Rift  Home
-	"Rift Back.DisplayName": Rift  Back
-	"AA Accessory Ability.DisplayName": A A  Accessory  Ability
-	"AA Armor Ability.DisplayName": A A  Armor  Ability
+	"Rift Home.DisplayName": Rift Home
+	"Rift Back.DisplayName": Rift Back
+	"AA Accessory Ability.DisplayName": AA Accessory Ability
+	"AA Armor Ability.DisplayName": AA Armor Ability
 }
 
 Buffs: {
@@ -6342,7 +6342,6 @@ Items: {
 			30% increased minion damage
 			+2 minion slots
 			Includes the effects of all the pieces used to make this.
-
 			'''
 	}
 
@@ -11066,6 +11065,11 @@ Items: {
 	TerraKey: {
 		DisplayName: Terra Key
 		Tooltip: ""
+	}
+
+	SRajahBox: {
+		DisplayName: Champion of the Innocent Music Box
+		Tooltip: Plays 'Supreme Justice' by OmegaFerretMusic
 	}
 }
 

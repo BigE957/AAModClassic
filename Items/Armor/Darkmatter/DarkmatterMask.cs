@@ -79,7 +79,7 @@ Dark, yet still barely visible"); */
 
 		public override void UpdateArmorSet(Player player)
 		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus1") + (int)(100 * player.GetDamage(DamageClass.Magic)).Flat + " " + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus2") + player.GetCritChance(DamageClass.Magic) + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus3");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus1") + (int)(player.GetDamage(DamageClass.Magic)).ApplyTo(100) + " " + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus2") + player.GetCritChance(DamageClass.Magic) + Language.GetTextValue("Mods.AAModClassic.Common.DarkmatterMaskBonus3");
             player.GetModPlayer<DarkmatterMaskEffects>().setBonus = true;
             player.GetModPlayer<DarkmatterMaskEffects>().sunSiphon = false;
             player.armorEffectDrawShadowLokis = true;
@@ -135,7 +135,7 @@ Dark, yet still barely visible"); */
                             type = Mod.Find<ModProjectile>("SunSiphon").Type;
                         }
 
-                        Projectile.NewProjectile(Main.npc[n].GetSource_FromThis(), Main.npc[n].Center, Vector2.Zero, type, (int)(100f * Player.GetDamage(DamageClass.Magic)).Flat, 0f, Player.whoAmI, n);
+                        Projectile.NewProjectile(Main.npc[n].GetSource_FromThis(), Main.npc[n].Center, Vector2.Zero, type, (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(100f), 0f, Player.whoAmI, n);
                     }
                 }
             }

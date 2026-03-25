@@ -60,7 +60,20 @@ namespace AAModClassic.Globals
 
         public static bool IsBunny(NPC npc)
         {
-            return npc.type == NPCID.Bunny || npc.type == NPCID.GoldBunny || npc.type == NPCID.BunnySlimed || npc.type == NPCID.BunnyXmas || npc.type == NPCID.PartyBunny;
+            return npc.type == NPCID.Bunny || 
+                   npc.type == NPCID.GoldBunny || 
+                   npc.type == NPCID.BunnySlimed || 
+                   npc.type == NPCID.BunnyXmas ||
+                   npc.type == NPCID.ExplosiveBunny ||
+                   npc.type == NPCID.GemBunnyAmber ||
+                   npc.type == NPCID.GemBunnyAmethyst ||
+                   npc.type == NPCID.GemBunnyDiamond ||
+                   npc.type == NPCID.GemBunnyEmerald ||
+                   npc.type == NPCID.GemBunnyRuby ||
+                   npc.type == NPCID.GemBunnySapphire ||
+                   npc.type == NPCID.GemBunnyTopaz ||
+                   npc.type == NPCID.TownBunny || //Idk if blud should count but whatever
+                   npc.type == NPCID.PartyBunny;
         }
 
         public override void ResetEffects(NPC npc)
@@ -86,16 +99,11 @@ namespace AAModClassic.Globals
 
         public override void SetDefaults(NPC npc)
         {
-            base.SetDefaults(npc); 
+            base.SetDefaults(npc);
 
             if (NPCID.Sets.TownCritter[npc.type])
             {
                 npc.dontTakeDamageFromHostiles = true;
-            }
-
-            if (IsBunny(npc) && AAWorld.downedRajahsRevenge)
-            {
-                npc.dontTakeDamage = true;
             }
         }
 
@@ -192,11 +200,19 @@ namespace AAModClassic.Globals
 
         public override bool PreAI(NPC npc)
         {
-            if(npc.type != NPCID.MartianSaucerCore && (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail))
+            if (npc.type != NPCID.MartianSaucerCore && (npc.boss || npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsTail))
             {
                 Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().bossactive = true;
             }
             return base.PreAI(npc);
+        }
+
+        public override void PostAI(NPC npc)
+        {
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && AAWorld.downedRajahsRevenge && IsBunny(npc))
+            {
+                npc.dontTakeDamage = true;
+            }
         }
 
         public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)

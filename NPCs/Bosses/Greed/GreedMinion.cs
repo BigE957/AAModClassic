@@ -138,7 +138,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         }
                         else if (MinionType == 20) //Chlorophyte
                         {
-                            p = ProjectileID.CrystalLeafShot;
+                            p = ProjectileID.Leaf; //ProjectileID.CrystalLeafShot;
                             ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 120, NPC.damage / 2, 9, true);
                         }
                         else if (MinionType == 22) //Nebula

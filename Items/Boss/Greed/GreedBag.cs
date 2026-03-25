@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Boss.Greed
             string[] lootTable = { "GildedGlock", "Miner", "StoneSlammer", "GoldDigger"};
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CovetiteCoin").Type, Main.rand.Next(60, 150));
+            //player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CovetiteCoin").Type, Main.rand.Next(60, 150));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DesireCharm").Type);
         }
 	}

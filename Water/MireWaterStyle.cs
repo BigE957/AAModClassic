@@ -49,7 +49,7 @@ namespace AAModClassic.Water
         public override int ChooseWaterfallStyle() => WaterfallStyle.Slot;
         public override int GetSplashDust() => SplashDust;
         public override int GetDropletGore() => DropletGore;
-        public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/Waters/MireWaterfallStyle");
+        public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/Water/MireWaterfallStyle");
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
 		{

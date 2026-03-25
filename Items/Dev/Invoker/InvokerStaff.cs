@@ -79,7 +79,7 @@ namespace AAModClassic.Items.Dev.Invoker
 				Item.noMelee = false;
 				Item.staff[Item.type] = false;
 				Item.useStyle = ItemUseStyleID.Swing;
-				Item.damage = (int)(200 * player.GetDamage(DamageClass.Summon)).Flat;
+				Item.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(200);
 				Item.DamageType = DamageClass.Summon;
 				return true;
 			}

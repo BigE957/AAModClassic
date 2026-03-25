@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Wet, 600);
+            //target.AddBuff(BuffID.Wet, 600);
         }
     }
 }

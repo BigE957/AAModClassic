@@ -38,7 +38,7 @@ namespace AAModClassic.Projectiles
             else if (Projectile.ai[0] > 90f)
                 num26 = 15f;
 
-            Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic)).Flat;
+            Projectile.damage = (int)(player.GetDamage(DamageClass.Magic)).ApplyTo(player.inventory[player.selectedItem].damage);
             Projectile.ai[0]++;
             Projectile.ai[1]++;
             bool flag9 = false;

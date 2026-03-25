@@ -46,7 +46,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             RegisterItemDrop(Mod.Find<ModItem>("DoomChest").Type);
         }
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.DoomChest.DisplayName");
+        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("DoomChest").DisplayName;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
         {

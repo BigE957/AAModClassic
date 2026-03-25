@@ -42,7 +42,7 @@ namespace AAModClassic.Projectiles
 			{
 				num26 = 5f;
 			}
-			Projectile.damage = (int)(player.inventory[player.selectedItem].damage * player.GetDamage(DamageClass.Magic)).Flat;
+			Projectile.damage = (int)(player.GetDamage(DamageClass.Magic)).ApplyTo(player.inventory[player.selectedItem].damage);
 			Projectile.ai[0] += 1f;
 			Projectile.ai[1] += 1f;
 			bool flag9 = false;

@@ -137,7 +137,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override bool PreDraw(ref Color lightColor)
         {
-            int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            int shader = -1;// GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
 

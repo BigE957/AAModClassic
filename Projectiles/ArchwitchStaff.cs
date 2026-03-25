@@ -68,7 +68,8 @@ namespace AAModClassic.Projectiles
             {
                 NPC target = Main.npc[Target];
                 int p = BaseAI.ShootPeriodic(Projectile, target.position, target.width, target.height, ModContent.ProjectileType<ArchwitchStar>(), ref Projectile.ai[0], 40, Projectile.damage, 4, true);
-                Main.projectile[p].ai[1] = target.whoAmI;
+                if(p != -1)
+                    Main.projectile[p].ai[1] = target.whoAmI;
             }
         }
 

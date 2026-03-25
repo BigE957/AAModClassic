@@ -54,27 +54,27 @@ namespace AAModClassic.Items.Armor.Champion.Baron
             if (player.statLife < player.statLifeMax2 * (4 / 5))
             {
                 MeterF = 1; shootInterval = 70f;
-                Projectile.damage = (int)(170 * player.GetDamage(DamageClass.Summon)).Flat;
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(170);
             }
             else if (player.statLife < player.statLifeMax2 * (3 / 5))
             {
                 MeterF = 2; shootInterval = 60f;
-                Projectile.damage = (int)(190 * player.GetDamage(DamageClass.Summon)).Flat;
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(190);
             }
             else if (player.statLife < player.statLifeMax2 * (2 / 5))
             {
                 MeterF = 3; shootInterval = 40f;
-                Projectile.damage = (int)(210 * player.GetDamage(DamageClass.Summon)).Flat;
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(210);
             }
             else if (player.statLife < player.statLifeMax2 * (1 / 5))
             {
                 MeterF = 4; shootInterval = 20f;
-                Projectile.damage = (int)(250 * player.GetDamage(DamageClass.Summon)).Flat;
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(250);
             }
             else
             {
                 MeterF = 5;
-                Projectile.damage = (int)(150 * player.GetDamage(DamageClass.Summon)).Flat;
+                Projectile.damage = (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(150);
             }
 
             float num633 = 700f;

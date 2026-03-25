@@ -1,10 +1,37 @@
 #InvokerInfo
 
-InvokerBookEX1: You can control the True ability of the Invoker now\nWhen you hold the Invoker Staff, the dead enemy's soul will heal you\nYou can release the dead enemy's damage soul
-InvokerBookEX2: \nAleister's note: \nI need more powerful souls, the doragon, the huge rabit, the strange machine, more, more! Defeat them!
-InvokerBookEX3: \nLeft click to use the book. Summon the Invoked Caligula.
-InvokerStaff1: Strange. All is strange. \nSwinging a weapon causes summon damage?\nReally?\nLegendry Weapon.  -Cerberus
-InvokerStaff2: Left click to shoot a invoker bolt.\nRight click to banish all of the enemies according to your basic banish damage.\nBanishing enemies can heal you according to their maxlife.\nBut at what cost?\nLegendry Weapon. -Cerberus
+InvokerBookEX1:
+	'''
+	You can control the True ability of the Invoker now
+	When you hold the Invoker Staff, the dead enemy's soul will heal you
+	You can release the dead enemy's damage soul
+	'''
+InvokerBookEX2:
+	'''
+
+	Aleister's note:
+	I need more powerful souls, the doragon, the huge rabit, the strange machine, more, more! Defeat them!
+	'''
+InvokerBookEX3:
+	'''
+
+	Left click to use the book. Summon the Invoked Caligula.
+	'''
+InvokerStaff1:
+	'''
+	Strange. All is strange.
+	Swinging a weapon causes summon damage?
+	Really?
+	Legendry Weapon.  -Cerberus
+	'''
+InvokerStaff2:
+	'''
+	Left click to shoot a invoker bolt.
+	Right click to banish all of the enemies according to your basic banish damage.
+	Banishing enemies can heal you according to their maxlife.
+	But at what cost?
+	Legendry Weapon. -Cerberus
+	'''
 InvokerDamage1: banish
 InvokerDamage2: summon
 CaligulaSoul: Powerful Soul Steal!

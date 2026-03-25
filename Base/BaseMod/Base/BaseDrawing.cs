@@ -1256,13 +1256,8 @@ namespace AAModClassic.Base.BaseMod.Base
             while (Way < length)
             {
                 if (iters++ > iterCap)
-                {
-                    Main.NewText("-----Early break-----");
-                    Main.NewText("Way: " + Way);
-                    Main.NewText("length: " + length);
-                    Main.NewText("Jump: " + Jump);
                     break;
-                }
+
                 float texWidth;
                 float texHeight;
                 Vector2 texCenter;

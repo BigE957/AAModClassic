@@ -203,7 +203,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         }
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Rajah5") + Name.ToUpper() + Lang.BossChat("Rajah6"), 107, 137, 179);
-                    //Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
+                    Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/LastStand");
                 }
             }
 
@@ -1246,10 +1246,9 @@ namespace AAModClassic.NPCs.Bosses.Rajah
             NPC.defense = 0;
             NPC.lifeMax = 1200000;
             NPC.life = 1200000;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Rajah");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SupremeRajah");
             isSupreme = true;
             NPC.value = Item.sellPrice(3, 0, 0, 0);
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/RajahTheme");
         }
         public override string BossHeadTexture => "AAModClassic/NPCs/Bosses/Rajah/SupremeRajah_Head_Boss";
     }

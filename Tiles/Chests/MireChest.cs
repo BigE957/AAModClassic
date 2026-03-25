@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Chests
             RegisterItemDrop(Mod.Find<ModItem>("MireChest").Type);
         }
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.MireChest.DisplayName");
+        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("MireChest").DisplayName;
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 

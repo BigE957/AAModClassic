@@ -58,7 +58,7 @@ Shines with the light of a starry night sky"); */
 		{
             player.GetModPlayer<DarkmatterMaskEffects>().setBonus = true;
             player.GetModPlayer<DarkmatterMaskEffects>().sunSiphon = true;
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus1") + (int)(100 * player.GetDamage(DamageClass.Magic)).Flat + " " + Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus2") + player.GetCritChance(DamageClass.Magic) + Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus3");
+            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus1") + (int)(player.GetDamage(DamageClass.Magic)).ApplyTo(100) + " " + Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus2") + player.GetCritChance(DamageClass.Magic) + Language.GetTextValue("Mods.AAModClassic.Common.RadiumMaskBonus3");
 
 			for (int i = 0; i < 15; i++)
             {

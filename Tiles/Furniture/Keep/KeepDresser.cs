@@ -47,7 +47,7 @@ public class KeepDresser : ModTile
 		RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Keep.KeepDresser>());
 	}
 
-    public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.KeepDresser.DisplayName");
+    public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("KeepDresser").DisplayName;
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{

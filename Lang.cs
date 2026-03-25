@@ -369,7 +369,7 @@ namespace AAModClassic
                 case "AlphaChat1":
                     return "Hope you don't mind me hanging around. I had to deal with a LOT of bad code to get here. Could do with a break.";
                 case "AlphaChat2":
-                    return @"A fun fact? Hmm, well I've never met my father. They say he vanished a long time ago. He's a real...\nMr. E.";
+                    return "A fun fact? Hmm, well I've never met my father. They say he vanished a long time ago. He's a real...\nMr. E.";
                 case "AlphaChat3":
                     return "You're looking for a fish? No clue who you're talking about, pal.";
                 case "AlphaChat4":

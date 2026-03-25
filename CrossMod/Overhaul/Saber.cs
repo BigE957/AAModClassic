@@ -65,7 +65,7 @@ namespace AAModClassic.CrossMod.Overhaul
                             player.MountedCenter,
                             velocity,
                             slashProjectileID,
-                            (int)(item.damage * player.GetDamage(DamageClass.Melee)).Flat,
+                            (int)(player.GetDamage(DamageClass.Melee)).ApplyTo(item.damage),
                             item.scale,
                             player.whoAmI,
                             (int)(player.itemAnimationMax * slashDelay - player.itemAnimationMax), ai1);
