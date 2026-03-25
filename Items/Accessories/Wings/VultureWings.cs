@@ -39,8 +39,8 @@ namespace AAModClassic.Items.Accessories.Wings
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 4f;
-            acceleration *= 1f;
+            //speed = 4f;
+            //acceleration *= 1f;
         }
 
         public override void AddRecipes()

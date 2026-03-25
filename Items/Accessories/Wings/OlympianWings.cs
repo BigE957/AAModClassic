@@ -30,8 +30,7 @@ Grants a dash while flying"); */
             player.wingTimeMax = 170;
         }
 
-        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
-                ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
             ascentWhenFalling = 0.85f;
             ascentWhenRising = 0.15f;
@@ -42,8 +41,8 @@ Grants a dash while flying"); */
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 8f;
-            acceleration *= 2f;
+            //speed = 8f;
+            //acceleration *= 2f;
         }
 	}
 }
