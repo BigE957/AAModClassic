@@ -2,6 +2,7 @@ using AAModClassic;
 using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,6 +15,8 @@ namespace AAModClassic.Items.Accessories.Wings
         {
             // DisplayName.SetDefault("Draconian Sun Wings");
             // Tooltip.SetDefault("Allows flight and slow fall");
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(220, 14, 3.5f);
         }
 
 		public override void SetDefaults()
@@ -50,12 +53,6 @@ namespace AAModClassic.Items.Accessories.Wings
             maxAscentMultiplier = 4f;
             constantAscend = 0.135f;
         }
-
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			//speed = 14f;
-			//acceleration *= 3.5f;
-		}
 
         public override void AddRecipes()
         {

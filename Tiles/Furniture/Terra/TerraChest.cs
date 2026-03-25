@@ -49,7 +49,7 @@ public class TerraChest : ModTile
 		RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Terra.TerraChest>());
 	}
 
-    public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.TerraChest.DisplayName");
+    public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("TerraChest").DisplayName;
 
     public override ushort GetMapOption(int i, int j)
 	{

@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev
         
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Wet, 1000);
+            //target.AddBuff(BuffID.Wet, 1000);
         }
         public override void AddRecipes()
         {

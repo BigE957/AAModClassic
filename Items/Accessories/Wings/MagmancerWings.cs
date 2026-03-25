@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,8 @@ namespace AAModClassic.Items.Accessories.Wings
 		{
             // DisplayName.SetDefault("Magmancer Wings");
             // Tooltip.SetDefault("Allows flight and slow fall");
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(120, 7, 1.5f);
         }
 
 		public override void SetDefaults()
@@ -36,12 +39,6 @@ namespace AAModClassic.Items.Accessories.Wings
 			maxCanAscendMultiplier = 1f;
 			maxAscentMultiplier = 1.7f;
 			constantAscend = 0.135f;
-		}
-
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			//speed = 7f;
-			//acceleration *= 1.5f;
 		}
 
         public override bool WingUpdate(Player player, bool inUse)

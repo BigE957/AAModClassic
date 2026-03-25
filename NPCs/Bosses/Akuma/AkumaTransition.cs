@@ -42,6 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            //NPC.frame.Y += 
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 8, NPC.frame, NPC.GetAlpha(new Color(RVal, 125, BVal)), true);
             return false;
         }
@@ -66,9 +67,9 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     if (NPC.frameCounter >= 7)
                     {
                         NPC.frameCounter = 0;
-                        NPC.frame.Y += 44;
+                        NPC.frame.Y += 42;
                     }
-                    if (NPC.frame.Y > 44 * 7)
+                    if (NPC.frame.Y > 42 * 7)
                     {
                         NPC.frame.Y = 0;
                     }
@@ -138,12 +139,12 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 			if(Main.netMode != NetmodeID.Server) //clientside stuff
 			{
 				NPC.frameCounter++;
-				if (NPC.frameCounter >= 7)
+				if (NPC.frameCounter >= 5)
 				{
 					NPC.frameCounter = 0;
-					NPC.frame.Y += 52;
+					NPC.frame.Y += 42;
 				}
-				if (NPC.frame.Y > 52 * 5)
+				if (NPC.frame.Y > 42 * 7)
 				{
 					NPC.frame.Y = 0;
 				}

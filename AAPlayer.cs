@@ -723,7 +723,7 @@ namespace AAModClassic
             {
                 if (Player.whoAmI == Main.myPlayer && !Player.immune && !npc.dontTakeDamage)
                 {
-                    int RDamage = (int)(npc.damage * Player.GetDamage(DamageClass.Generic) * 0.433f).Flat;
+                    int RDamage = (int)(Player.GetDamage(DamageClass.Generic).ApplyTo(npc.damage) * 0.433f);
                     int direc = -1;
                     if (npc.position.X + npc.width / 2 < Player.position.X + Player.width / 2)
                     {
@@ -1780,30 +1780,30 @@ namespace AAModClassic
                     {
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>(), (int)(1 * Player.GetDamage(DamageClass.Summon)).Flat, 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.BunnyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                         }
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>(), (int)(50 * Player.GetDamage(DamageClass.Summon)).Flat, 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.DiscordRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(50), 4f, Player.whoAmI, 0f, 0f);
                         }
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>(), (int)(100 * Player.GetDamage(DamageClass.Summon)).Flat, 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<Items.Dev.RuneBook.EnergyRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(100), 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                     if (CCBookEX)
                     {
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] < 1 && slotscanuse > 1f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraRune>(), (int)(1 * Player.GetDamage(DamageClass.Summon)).Flat, 0, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                         }
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] < 1 && slotscanuse > 2f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<ChaosRune>(), (int)(400 * Player.GetDamage(DamageClass.Summon)).Flat, 4f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<ChaosRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
                         }
                         if (Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] < 1 && slotscanuse > 3f)
                         {
-                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<VoidRune>(), (int)(800 * Player.GetDamage(DamageClass.Summon)).Flat, 2f, Player.whoAmI, 0f, 0f);
+                            Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<VoidRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
                         }
                     }
                 }
@@ -1840,7 +1840,7 @@ namespace AAModClassic
                 Vector2 vector2;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("RajahDrone").Type, (int)(100 * Player.GetDamage(DamageClass.Ranged)).Flat, 2, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("RajahDrone").Type, (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
             }
 
             if (TerraSu)
@@ -1873,8 +1873,8 @@ namespace AAModClassic
                     RoseCooldown = 600;
                     float playerY = Player.position.Y + Player.height;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X - 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(50 * Player.GetDamage(DamageClass.Magic)).Flat, 4, Main.myPlayer);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X - 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(50), 4, Main.myPlayer);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), new Vector2(Player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<TerraRoseA>(), (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(50), 4, Main.myPlayer);
                 }
             }
         }

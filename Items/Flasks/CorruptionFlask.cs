@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Flasks
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == Mod.Find<ModProjectile>("Flask").Type)
+            if (type == Mod.Find<ModProjectile>("CorruptionFlask").Type)
             {
                 Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 1);
                 return false;

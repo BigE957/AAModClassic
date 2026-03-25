@@ -9,7 +9,6 @@ namespace AAModClassic.Items.Melee
     {
         public override void SetDefaults()
         {
-
             Item.damage = 10;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 132;
@@ -35,11 +34,11 @@ namespace AAModClassic.Items.Melee
 			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
 		}
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Grass Spear");
-      // Tooltip.SetDefault("");
-    }
+        public override void SetStaticDefaults()
+        {
+          // DisplayName.SetDefault("Grass Spear");
+          // Tooltip.SetDefault("");
+        }
 
         public override void AddRecipes()  
         {

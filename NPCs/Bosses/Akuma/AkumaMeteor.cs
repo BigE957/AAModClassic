@@ -74,7 +74,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
+            int shader = -1;// GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             Vector2 Drawpos = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
 
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, shader, Projectile, Color.White, true);

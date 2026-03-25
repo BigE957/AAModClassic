@@ -230,6 +230,51 @@ namespace AAModClassic
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Monarch"), Find<ModItem>("MonarchBox").Type, Find<ModTile>("MonarchBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Fungus"), Find<ModItem>("FungusBox").Type, Find<ModTile>("FungusBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/GripsTheme"), Find<ModItem>("GripsBox").Type, Find<ModTile>("GripsBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/HydraTheme"), Find<ModItem>("HydraBox").Type, Find<ModTile>("HydraBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/BroodTheme"), Find<ModItem>("BroodBox").Type, Find<ModTile>("BroodBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shroom"), Find<ModItem>("MushBox").Type, Find<ModTile>("MushBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/InfernoSurface"), Find<ModItem>("InfernoBox").Type, Find<ModTile>("InfernoBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/IN"), Find<ModItem>("InfernoNightBox").Type, Find<ModTile>("InfernoNightBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/MireSurface"), Find<ModItem>("MireBox").Type, Find<ModTile>("MireBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/DM"), Find<ModItem>("MireDayBox").Type, Find<ModTile>("MireDayBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/InfernoUnderground"), Find<ModItem>("InfernoUBox").Type, Find<ModTile>("InfernoUBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/MireUnderground"), Find<ModItem>("MireUBox").Type, Find<ModTile>("MireUBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Void"), Find<ModItem>("VoidBox").Type, Find<ModTile>("VoidBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Djinn"), Find<ModItem>("DjinnBox").Type, Find<ModTile>("DjinnBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/TODE"), Find<ModItem>("ToadBox").Type, Find<ModTile>("ToadBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Boss6"), Find<ModItem>("SerpentBox").Type, Find<ModTile>("SerpentBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Sag"), Find<ModItem>("SagBox").Type, Find<ModTile>("SagBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Anubis"), Find<ModItem>("AnubisBox").Type, Find<ModTile>("AnubisBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Acropolis"), Find<ModItem>("AcropolisBox").Type, Find<ModTile>("AcropolisBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Hoard"), Find<ModItem>("HoardBox").Type, Find<ModTile>("HoardBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Greed"), Find<ModItem>("GreedBox").Type, Find<ModTile>("GreedBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Athena"), Find<ModItem>("AthenaBox").Type, Find<ModTile>("AthenaBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/RajahTheme"), Find<ModItem>("RajahBox").Type, Find<ModTile>("RajahBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/GreedA"), Find<ModItem>("GreedABox").Type, Find<ModTile>("GreedABox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AthenaA"), Find<ModItem>("AthenaABox").Type, Find<ModTile>("AthenaABox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AnubisA"), Find<ModItem>("AnubisFBox").Type, Find<ModTile>("AnubisFBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Equinox"), Find<ModItem>("Equibox").Type, Find<ModTile>("Equibox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Stars"), Find<ModItem>("StarBox").Type, Find<ModTile>("StarBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AH"), Find<ModItem>("SistersBox").Type, Find<ModTile>("SistersBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/VoidButNowItsSpooky"), Find<ModItem>("FateBox").Type, Find<ModTile>("FateBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shrines"), Find<ModItem>("LakeBox").Type, Find<ModTile>("LakeBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/AkumaShrine"), Find<ModItem>("PagodaBox").Type, Find<ModTile>("PagodaBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Zero"), Find<ModItem>("ZeroBox").Type, Find<ModTile>("ZeroBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Zero2"), Find<ModItem>("Zero2Box").Type, Find<ModTile>("Zero2Box").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Akuma"), Find<ModItem>("AkumaBox").Type, Find<ModTile>("AkumaBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Akuma2"), Find<ModItem>("AkumaABox").Type, Find<ModTile>("AkumaABox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Yamata"), Find<ModItem>("YamataBox").Type, Find<ModTile>("YamataBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Yamata2"), Find<ModItem>("YamataABox").Type, Find<ModTile>("YamataABox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Terrarium"), Find<ModItem>("TerrariumBox").Type, Find<ModTile>("TerrariumBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SleepingDragon"), Find<ModItem>("SDBox").Type, Find<ModTile>("SDBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SleepingGiant"), Find<ModItem>("SGBox").Type, Find<ModTile>("SGBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/Shen"), Find<ModItem>("ShenBox").Type, Find<ModTile>("ShenBox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/ShenA"), Find<ModItem>("ShenABox").Type, Find<ModTile>("ShenABox").Type);
+            MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot(this, "Sounds/Music/SupremeRajah"), Find<ModItem>("SRajahBox").Type, Find<ModTile>("SRajahBox").Type);
+
             isFullyReady = true;
         }
 
@@ -296,20 +341,6 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
-            BackupVanillaBG(-1);
-            BackupVanillaBG(-2);
-            BackupVanillaBG(-3);
-
-            BackupVanillaBG(0);
-            BackupVanillaBG(171);
-            BackupVanillaBG(172);
-            BackupVanillaBG(173);
-            BackupVanillaBG(24);
-            BackupVanillaBG(25);
-            BackupVanillaBG(56);
-            BackupVanillaBG(57);
-            BackupVanillaBG(58);
-
             Main.QueueMainThreadAction(() => {
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH").Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon").Value);
@@ -331,54 +362,6 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value);
             });
-
-            if (MusicLoader.GetMusicSlot("Sounds/Music/Monarch") != 0) //ensure music was loaded!
-            {
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Monarch"), Find<ModItem>("MonarchBox").Type, Find<ModTile>("MonarchBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Fungus"), Find<ModItem>("FungusBox").Type, Find<ModTile>("FungusBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/GripsTheme"), Find<ModItem>("GripsBox").Type, Find<ModTile>("GripsBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/HydraTheme"), Find<ModItem>("HydraBox").Type, Find<ModTile>("HydraBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/BroodTheme"), Find<ModItem>("BroodBox").Type, Find<ModTile>("BroodBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Shroom"), Find<ModItem>("MushBox").Type, Find<ModTile>("MushBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/InfernoSurface"), Find<ModItem>("InfernoBox").Type, Find<ModTile>("InfernoBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/IN"), Find<ModItem>("InfernoNightBox").Type, Find<ModTile>("InfernoNightBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/MireSurface"), Find<ModItem>("MireBox").Type, Find<ModTile>("MireBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/DM"), Find<ModItem>("MireDayBox").Type, Find<ModTile>("MireDayBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/InfernoUnderground"), Find<ModItem>("InfernoUBox").Type, Find<ModTile>("InfernoUBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/MireUnderground"), Find<ModItem>("MireUBox").Type, Find<ModTile>("MireUBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Void"), Find<ModItem>("VoidBox").Type, Find<ModTile>("VoidBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Djinn"), Find<ModItem>("DjinnBox").Type, Find<ModTile>("DjinnBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/TODE"), Find<ModItem>("ToadBox").Type, Find<ModTile>("ToadBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Boss6"), Find<ModItem>("SerpentBox").Type, Find<ModTile>("SerpentBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Sag"), Find<ModItem>("SagBox").Type, Find<ModTile>("SagBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Anubis"), Find<ModItem>("AnubisBox").Type, Find<ModTile>("AnubisBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Acropolis"), Find<ModItem>("AcropolisBox").Type, Find<ModTile>("AcropolisBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Hoard"), Find<ModItem>("HoardBox").Type, Find<ModTile>("HoardBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Greed"), Find<ModItem>("GreedBox").Type, Find<ModTile>("GreedBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Athena"), Find<ModItem>("AthenaBox").Type, Find<ModTile>("AthenaBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/RajahTheme"), Find<ModItem>("RajahBox").Type, Find<ModTile>("RajahBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/GreedA"), Find<ModItem>("GreedABox").Type, Find<ModTile>("GreedABox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/AthenaA"), Find<ModItem>("AthenaABox").Type, Find<ModTile>("AthenaABox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/AnubisA"), Find<ModItem>("AnubisFBox").Type, Find<ModTile>("AnubisFBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Equinox"), Find<ModItem>("Equibox").Type, Find<ModTile>("Equibox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Stars"), Find<ModItem>("StarBox").Type, Find<ModTile>("StarBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/AH"), Find<ModItem>("SistersBox").Type, Find<ModTile>("SistersBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/VoidButNowItsSpooky"), Find<ModItem>("FateBox").Type, Find<ModTile>("FateBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Shrines"), Find<ModItem>("LakeBox").Type, Find<ModTile>("LakeBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/AkumaShrine"), Find<ModItem>("PagodaBox").Type, Find<ModTile>("PagodaBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Zero"), Find<ModItem>("ZeroBox").Type, Find<ModTile>("ZeroBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Zero2"), Find<ModItem>("Zero2Box").Type, Find<ModTile>("Zero2Box").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Akuma"), Find<ModItem>("AkumaBox").Type, Find<ModTile>("AkumaBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Akuma2"), Find<ModItem>("AkumaABox").Type, Find<ModTile>("AkumaABox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Yamata"), Find<ModItem>("YamataBox").Type, Find<ModTile>("YamataBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Yamata2"), Find<ModItem>("YamataABox").Type, Find<ModTile>("YamataABox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Terrarium"), Find<ModItem>("TerrariumBox").Type, Find<ModTile>("TerrariumBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SleepingDragon"), Find<ModItem>("SDBox").Type, Find<ModTile>("SDBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SleepingGiant"), Find<ModItem>("SGBox").Type, Find<ModTile>("SGBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/Shen"), Find<ModItem>("ShenBox").Type, Find<ModTile>("ShenBox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/ShenA"), Find<ModItem>("ShenABox").Type, Find<ModTile>("ShenABox").Type);
-                MusicLoader.AddMusicBox(this, MusicLoader.GetMusicSlot("Sounds/Music/SupremeRajah"), Find<ModItem>("SRajahBox").Type, Find<ModTile>("SRajahBox").Type);
-            }
 
             Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
             SkyManager.Instance["AAModClassic:ShenSky"] = new ShenSky();
@@ -411,8 +394,6 @@ namespace AAModClassic
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
             BlockBarier = ModContent.Request<Texture2D>("AAModClassic/Textures/BlockShield").Value;
-            sunTextureBackup = TextureAssets.Sun;
-            sun3TextureBackup = TextureAssets.Sun3;
 
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
@@ -432,13 +413,7 @@ namespace AAModClassic
             BackgroundTextureLoader.AddBackgroundTexture(this, "AAModClassic/BlankTex");
         }
 
-        //DO NOT MAKE THESE STATIC! DOING SO WILL PREVENT WHAT IT FIXES FROM HAPPENING.
-        private Asset<Texture2D> sunTextureBackup = null;
-        private Asset<Texture2D> sun3TextureBackup = null;
-
-
         public Dictionary<int, Asset<Texture2D>> vanillaTextureBackups = new Dictionary<int, Asset<Texture2D>>();
-        public Dictionary<int, Asset<Texture2D>> vanillaBGBackups = new Dictionary<int, Asset<Texture2D>>();
 
         public void ReplaceItemTexture(int id, string texturePath)
         {
@@ -454,55 +429,10 @@ namespace AAModClassic
             }
         }
 
-        public void BackupVanillaBG(int id)
-        {
-            if(id > 0)
-            {
-                vanillaBGBackups.Add(id, TextureAssets.Background[id]);
-            }
-            else if(id == -1)
-            {
-                vanillaBGBackups.Add(-1, TextureAssets.Logo);
-            }
-            else if(id == -2)
-            {
-                vanillaBGBackups.Add(-2, TextureAssets.Logo2);
-            }
-            else if(id == -3)
-            {
-                vanillaBGBackups.Add(-3, TextureAssets.Sun);
-            }
-           
-        }
-
-        public void ResetBGTexture(int id)
-        {
-            if (vanillaBGBackups.ContainsKey(id))
-            {
-                if(id > 0)
-                {
-                    TextureAssets.Background[id] = vanillaBGBackups[id];
-                }
-                else if(id == -1)
-                {
-                    TextureAssets.Logo = vanillaBGBackups[-1];
-                }
-                else if(id == -2)
-                {
-                    TextureAssets.Logo2 = vanillaBGBackups[-2];
-                }
-                else if(id == -3)
-                {
-                    TextureAssets.Sun = vanillaBGBackups[-3];
-                }
-            }
-        }
-
         public override void Unload()
         {
             if (!Main.dedServ)
             {
-                CleanAAmenu();
                 UnloadClient();
             }
 
@@ -521,29 +451,6 @@ namespace AAModClassic
         {
             ResetItemTexture(3460);
             ResetItemTexture(512);
-
-            if (sunTextureBackup != null)
-                TextureAssets.Sun = sunTextureBackup;
-            if (sun3TextureBackup != null)
-                TextureAssets.Sun3 = sun3TextureBackup;
-        }
-
-        public void CleanAAmenu()
-        {
-            ResetBGTexture(-1);
-            ResetBGTexture(-2);
-            ResetBGTexture(-3);
-            //Main.logoTexture = ModContent.Request<Texture2D>("AAModClassic/Logo");
-            //Main.logo2Texture = ModContent.Request<Texture2D>("AAModClassic/Logo2");
-            ResetBGTexture(0);
-            ResetBGTexture(171);
-            ResetBGTexture(172);
-            ResetBGTexture(173);
-            ResetBGTexture(24);
-            ResetBGTexture(25);
-            ResetBGTexture(56);
-            ResetBGTexture(57);
-            ResetBGTexture(58);
         }
 
         public static void CleanupStaticArrays()

@@ -46,7 +46,7 @@ public class TerraDresser : ModTile
 		RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Terra.TerraDresser>());
 	}
 
-    public override LocalizedText DefaultContainerName(int i, int j) => Language.GetText("AAModClassic.RazewoodDresser.DisplayName");
+    public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("RazewoodDresser").DisplayName;
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{

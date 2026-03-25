@@ -41,7 +41,32 @@ namespace AAModClassic.Globals
 
             return false;
         }
-        
+
+        public static float GetSyncedItemAnimation(Projectile projectile, Player player)
+        {
+            float itemAnimation = player.itemAnimation;
+
+            if (Main.netMode != NetmodeID.SinglePlayer && Main.myPlayer == projectile.owner)
+            {
+                if (projectile.ai[1] != itemAnimation)
+                {
+                    projectile.ai[1] = itemAnimation;
+                    projectile.netUpdate = true;
+                }
+            }
+
+            if (Main.netMode == NetmodeID.SinglePlayer || Main.myPlayer == projectile.owner)
+                return itemAnimation;
+
+            if (projectile.ai[1] > 0f)
+                projectile.localAI[1] = 1f;
+
+            if (projectile.localAI[1] == 1f)
+                return projectile.ai[1];
+
+            return Math.Max(1f, player.itemAnimationMax);
+        }
+
         public override void PostAI(Projectile projectile)
         {
             if (isReflecting && projectile.hostile && !projectile.friendly)
