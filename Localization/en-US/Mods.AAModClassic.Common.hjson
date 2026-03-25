@@ -382,8 +382,10 @@ ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIB
 RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
 
-Conditions.ReleaseExclusive: in a Released type world
-Conditions.BetaExclusive: in a Beta type world.
-Conditions.ReleaseOrMixed: in a Release or Mixed type world
-Conditions.BetaOrMixed: in a Beta or Mixed type world
-Conditions.DownedRajah: after defeating Rajah Rabbit
+Conditions: {
+	ReleaseExclusive: in a Released type world
+	BetaExclusive: in a Beta type world.
+	ReleaseOrMixed: in a Release or Mixed type world
+	BetaOrMixed: in a Beta or Mixed type world
+	DownedRajah: after defeating Rajah Rabbit
+}

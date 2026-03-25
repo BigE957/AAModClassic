@@ -1622,6 +1622,11 @@ Projectiles: {
 	RockChunk.DisplayName: Rock Chunk
 	RockFall.DisplayName: Rock Fall
 	SandstormProj.DisplayName: Sandstorm Proj
+	DeityFlames.DisplayName: Deity Flames
+	Leviacane.DisplayName: Leviacane
+	Leviacane2.DisplayName: Leviacane2
+	RazorbladeRift.DisplayName: Razorblade Rift
+	CLaser.DisplayName: C Laser
 }
 
 Items: {
@@ -11745,6 +11750,38 @@ NPCs: {
 	}
 
 	Core.DisplayName: Biomite Core
+	DeityEater.DisplayName: Deity Eater
+	DeityEaterBody.DisplayName: Deity Eater Body
+	DeityEaterTail.DisplayName: Deity Eater Tail
+	DeityEye.DisplayName: Deity Eye
+	DeityLeviathan.DisplayName: Deity Leviathan
+	DeityRose.DisplayName: Deity Rose
+	DeityRoseClaws.DisplayName: Deity Rose Claws
+	DeityRoseHook.DisplayName: Deity Rose Hook
+	DeityRoseSpore.DisplayName: Deity Rose Spore
+	DeityShark.DisplayName: Deity Shark
+	DeityShark2.DisplayName: Deity Shark2
+	DeitySkull.DisplayName: Deity Skull
+	DeitySkull_Hand.DisplayName: Deity Skull_ Hand
+	DeitySkull_Hand1.DisplayName: Deity Skull_ Hand1
+	DeitySkull_Hand2.DisplayName: Deity Skull_ Hand2
+	DeitySkull_Hand3.DisplayName: Deity Skull_ Hand3
+	DeitySkull_Hand4.DisplayName: Deity Skull_ Hand4
+	DeitySkull_Hand5.DisplayName: Deity Skull_ Hand5
+	LeviathanBubble.DisplayName: Leviathan Bubble
+	CthulhuPortal.DisplayName: Cthulhu Portal
+	CthulhuSpawn.DisplayName: Cthulhu Spawn
+	DeityDragon.DisplayName: Deity Dragon
+	DeityDragonArms.DisplayName: Deity Dragon Arms
+	DeityDragonBody1.DisplayName: Deity Dragon Body1
+	DeityDragonBody2.DisplayName: Deity Dragon Body2
+	DeityDragonBody3.DisplayName: Deity Dragon Body3
+	DeityDragonTail.DisplayName: Deity Dragon Tail
+	EoA.DisplayName: Eo A
+	Portal.DisplayName: Portal
+	RiftVision.DisplayName: Rift Vision
+	SoC.DisplayName: So C
+	UDUNFUKED.DisplayName: U D U N F U K E D
 }
 
 Biomes: {
