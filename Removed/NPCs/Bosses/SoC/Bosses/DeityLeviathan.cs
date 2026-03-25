@@ -44,7 +44,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC.Bosses
             NPC.buffImmune[24] = true;
             NPC.buffImmune[31] = true;
             NPC.buffImmune[44] = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/SoC");
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
         }
 

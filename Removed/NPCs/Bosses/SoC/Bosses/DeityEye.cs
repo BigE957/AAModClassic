@@ -43,7 +43,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC.Bosses
             NPC.timeLeft = NPC.activeTime * 30;
             NPC.boss = true;
             NPC.npcSlots = 5f;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/SoC");
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
         }
 

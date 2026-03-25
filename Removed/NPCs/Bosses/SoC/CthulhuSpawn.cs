@@ -21,7 +21,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC
             NPC.height = 100;
             NPC.alpha = 255;
             NPC.damage = 0;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/SoC");
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;

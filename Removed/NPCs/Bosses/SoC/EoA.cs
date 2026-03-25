@@ -23,7 +23,8 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC
             NPC.defense = 40;
             NPC.damage = 90;
             NPC.lifeMax = 3000;
-            NPC.aiStyle = 81;
+            //NPC.aiStyle = NPCAIStyleID.TrueEyeOfCthulhu;
+            NPC.aiStyle = -1;
             NPC.width = 60;
             NPC.height = 60;
             NPC.value = 0f;
