@@ -60,11 +60,6 @@ namespace AAModClassic.Tiles.Furniture.Doom
             num = 1;
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("DoomDoor").Type);
-        }
-
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;
@@ -153,11 +148,6 @@ namespace AAModClassic.Tiles.Furniture.Doom
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = 1;
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("DoomDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

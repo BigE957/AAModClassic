@@ -89,10 +89,5 @@ namespace AAModClassic.Tiles.Crafters
             Texture2D glowTex = Mod.GetTexture("Glowmasks/TerraPrism_Glow");
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, tile.TileFrameY + (Main.tileFrame[Type] * 54), false, false, false, null, AAGlobalTile.GetRainbowColorBright);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 54, 54, Mod.Find<ModItem>("TerraPrismStation").Type);
-        }
     }
 }

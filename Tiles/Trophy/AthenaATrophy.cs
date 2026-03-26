@@ -21,7 +21,8 @@ namespace AAModClassic.Tiles.Trophy
             DustType = DustID.WoodFurniture;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Boss.Athena.Olympian.AthenaATrophy>());
+        }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -33,11 +34,6 @@ namespace AAModClassic.Tiles.Trophy
             }
             int height = tile.TileFrameY == 36 ? 18 : 16;
             Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/AthenaATrophy_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("AthenaATrophy").Type);
         }
 	}
 }

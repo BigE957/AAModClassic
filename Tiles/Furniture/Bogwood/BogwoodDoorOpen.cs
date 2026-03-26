@@ -79,11 +79,6 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			num = 1;
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("BogwoodDoor").Type);
-		}
-
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;

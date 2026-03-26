@@ -32,16 +32,10 @@ public class ShipPainting : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
 			BaseUtility.Chat("'That ship...I still don't understand what those creatures infesting it are...'", Color.SlateBlue, sync: false);
 		}
 		return true;
-	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, ModContent.ItemType<AAModClassic.Items.Blocks.Paintings.ShipPainting>(), 1, false, 0, false, false);
 	}
 }

@@ -36,9 +36,6 @@ namespace AAModClassic.Tiles.Decoration
 				case 0:
 					item = ItemID.AlphabetStatueE;
 					break;
-				case 1:
-					item = Mod.Find<ModItem>("LizStatue").Type;
-					break;
 				case 2:
 					item = Mod.Find<ModItem>("HallamStatue").Type;
 					break;
@@ -83,6 +80,9 @@ namespace AAModClassic.Tiles.Decoration
                     break;
                 case 16:
                     item = Mod.Find<ModItem>("EnderStatue").Type;
+                    break;
+                default:
+                    item = ItemID.GargoyleStatue;
                     break;
             }
 			if (item > 0)

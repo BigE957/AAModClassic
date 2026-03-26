@@ -83,23 +83,8 @@ public class KeepLamp : ModTile
 		}
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, ModContent.ItemType<AAModClassic.Items.Blocks.Keep.KeepLamp>(), 1, false, 0, false, false);
-		Chest.DestroyChest(i, j);
-	}
-
 	public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 	{
-		//IL_0066: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ef: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0101: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0113: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0119: Unknown result type (might be due to invalid IL or missing references)
 		ulong seed = Main.TileFrameSeed ^ ((ulong)j | (ulong)i);
 		Color val = new(100, 100, 100, 0);
 		int frameX = Main.tile[i, j].TileFrameX;

@@ -46,10 +46,5 @@ namespace AAModClassic.Tiles.Crafters
             g = 0.160f;
             b = 0f;
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("RadiantArcanum").Type);
-        }
     }
 }

@@ -59,11 +59,6 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             num = 1;
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
-        }
-
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;
@@ -139,11 +134,6 @@ namespace AAModClassic.Tiles.Furniture.Razewood
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = 1;
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RazewoodDoor").Type);
         }
 
         public override void MouseOver(int i, int j)

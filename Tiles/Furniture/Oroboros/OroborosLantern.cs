@@ -71,12 +71,6 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             }
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("OroborosLantern").Type);
-			Chest.DestroyChest(i, j);
-        }
-
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Color color = new Color(255, 50, 50, 0);

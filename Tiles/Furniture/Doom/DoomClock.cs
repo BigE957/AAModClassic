@@ -61,12 +61,6 @@ The number at the moment is so high you don't even know what the number is calle
             num = fail ? 1 : 3;
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DoomClock").Type);
-        }
-
-
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];

@@ -131,7 +131,6 @@ namespace AAModClassic.Tiles.Chests
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, Mod.Find<ModItem>("GreedChest").Type);
             Chest.DestroyChest(i, j);
         }
 

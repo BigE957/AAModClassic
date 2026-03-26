@@ -69,10 +69,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
                 b = 0.9f;
             }
         }
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("BogwoodCandelabra").Type);
-        }
+
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];

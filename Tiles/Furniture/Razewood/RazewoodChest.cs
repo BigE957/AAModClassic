@@ -82,7 +82,6 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, Mod.Find<ModItem>("RazewoodChest").Type/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */);
             Chest.DestroyChest(i, j);
         }
 

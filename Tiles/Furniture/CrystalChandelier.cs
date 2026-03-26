@@ -33,6 +33,7 @@ namespace AAModClassic.Tiles.Furniture
             DustType = DustID.PurpleCrystalShard;
             AdjTiles = new int[] { TileID.Chandeliers };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            RegisterItemDrop(ItemID.CrystalChandelier);
         }
         public override void HitWire(int i, int j)
         {
@@ -77,11 +78,6 @@ namespace AAModClassic.Tiles.Furniture
                 g = 0.9f;
                 b = 0.9f;
             }
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, ItemID.CrystalChandelier);
         }
     }
 }

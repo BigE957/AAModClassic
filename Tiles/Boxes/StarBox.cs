@@ -29,11 +29,6 @@ namespace AAModClassic.Tiles.Boxes
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("StarBox").Type);
-		}
-
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
             if (Main.dayTime)

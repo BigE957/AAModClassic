@@ -40,8 +40,4 @@ public class TerraStatue : ModTile
 		BaseUtility.Chat("The Hero who saved us all from the brink of chaos", Color.LawnGreen);
 		return true;
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-	}
 }

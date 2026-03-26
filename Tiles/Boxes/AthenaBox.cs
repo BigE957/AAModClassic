@@ -24,12 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = DustID.Gold;
             AddMapEntry(new Color(200, 200, 200), name);
-		}
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("AthenaBox").Type);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.AthenaBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

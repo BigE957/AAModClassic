@@ -81,11 +81,6 @@ public class KeepDoorOpen : ModTile
 		num = 1;
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, ModContent.ItemType<KeepDoor>(), 1, false, 0, false, false);
-	}
-
 	public override void MouseOver(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;

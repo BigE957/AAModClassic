@@ -90,10 +90,5 @@ namespace AAModClassic.Tiles.Crafters
             Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/TerraCore_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("TerraCore").Type);
-        }
     }
 }

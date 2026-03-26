@@ -43,11 +43,5 @@ namespace AAModClassic.Tiles.Decoration
             BaseUtility.Chat(Lang.TilesInfo("EnderMemoryInfo"), Color.Goldenrod);
             return true;
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, Mod.Find<ModItem>("EnderMemory").Type);
-        }
-
     }
 }

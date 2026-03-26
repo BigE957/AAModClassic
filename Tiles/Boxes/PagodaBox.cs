@@ -25,10 +25,6 @@ namespace AAModClassic.Tiles.Boxes
             DustType = Mod.Find<ModDust>("AkumaDust").Type;
             AddMapEntry(new Color(200, 200, 200), name);
 		}
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("PagodaBox").Type);
-		}
 
 		public override void MouseOver(int i, int j)
 		{

@@ -24,11 +24,6 @@ namespace AAModClassic.Tiles.Decoration
 			AddMapEntry(Color.Gold, name);
 		}
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("RoyalBunnyCage").Type);
-        }
-
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             if (frame == 0)

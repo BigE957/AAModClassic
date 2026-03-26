@@ -31,11 +31,6 @@ namespace AAModClassic.Tiles.Banners
 			AddMapEntry(new Color(13, 88, 130), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY) 
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("FatPixieBanner").Type);
-		}
-
 		public override void NearbyEffects(int i, int j, bool closer) 
 		{
 			if (closer)

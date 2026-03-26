@@ -19,11 +19,7 @@ namespace AAModClassic.Tiles.Trophy
             DustType = DustID.WoodFurniture;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
-		}
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("AkumaTrophy").Type);
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Boss.Akuma.AkumaTrophy>());
         }
 	}
 }

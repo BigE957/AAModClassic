@@ -37,11 +37,6 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			num = 1;
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 64, 32, Mod.Find<ModItem>("RazewoodBed").Type);
-		}
-
         public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
