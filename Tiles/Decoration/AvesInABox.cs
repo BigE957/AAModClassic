@@ -23,7 +23,8 @@ namespace AAModClassic.Tiles.Decoration
 			AddMapEntry(new Color(100, 200, 100), name);
 			DustType = DustID.t_LivingWood;
 			TileID.Sets.DisableSmartCursor[Type] = true;
-		}
+            //RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.AvesInABox>());
+        }
 
         public bool Quack = false;
         public int QuackTimer = 90;
@@ -37,11 +38,6 @@ namespace AAModClassic.Tiles.Decoration
         {
             return true;
         }
-
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, Mod.Find<ModItem>("AvesInABox").Type);
-		}
 
         public override bool RightClick(int i, int j)
         {

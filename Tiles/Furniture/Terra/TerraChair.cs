@@ -40,9 +40,4 @@ public class TerraChair : ModTile
 	{
 		num = (fail ? 1 : 3);
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 32, ModContent.ItemType<AAModClassic.Items.Blocks.Terra.TerraChair>(), 1, false, 0, false, false);
-	}
 }

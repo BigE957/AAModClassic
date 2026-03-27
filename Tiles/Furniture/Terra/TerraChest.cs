@@ -116,7 +116,6 @@ public class TerraChest : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ModContent.ItemType<AAModClassic.Items.Blocks.Terra.TerraChest>(), 1, false, 0, false, false);
 		Chest.DestroyChest(i, j);
 	}
 

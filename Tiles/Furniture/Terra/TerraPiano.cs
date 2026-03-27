@@ -39,10 +39,4 @@ public class TerraPiano : ModTile
 	{
 		num = (fail ? 1 : 3);
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 32, ModContent.ItemType<AAModClassic.Items.Blocks.Terra.TerraPiano>(), 1, false, 0, false, false);
-		Chest.DestroyChest(i, j);
-	}
 }

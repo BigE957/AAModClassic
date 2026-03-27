@@ -41,11 +41,6 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			num = 1;
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 64, 32, Mod.Find<ModItem>("OroborosBed").Type);
-		}
-
 		public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;

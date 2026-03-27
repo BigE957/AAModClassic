@@ -40,10 +40,5 @@ namespace AAModClassic.Tiles.Decoration
             int height = tile.TileFrameY == 36 ? 18 : 16;
             Main.spriteBatch.Draw(TextureAssets.Tile[tile.TileType].Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("Sticker").Type);
-        }
 	}
 }

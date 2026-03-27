@@ -35,6 +35,8 @@ namespace AAModClassic.Tiles.Crafters
                 Mod.Find<ModTile>("ACS").Type,
             };
             AnimationFrameHeight = 54;
+
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.BinaryReassembler>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -71,11 +73,6 @@ namespace AAModClassic.Tiles.Crafters
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + (Main.tileFrame[Type] * 54) : 0;
 
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("BinaryReassembler").Type);
         }
     }
 }

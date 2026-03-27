@@ -37,10 +37,5 @@ namespace AAModClassic.Tiles.Trophy
                 Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/NCTrophy_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("NCTrophy").Type);
-        }
 	}
 }

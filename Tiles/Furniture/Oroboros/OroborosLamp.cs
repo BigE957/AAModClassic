@@ -32,12 +32,6 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             b = 0f;
         }
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("OroborosLamp").Type);
-		}
-
-
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Color color = new Color(255, 50, 50, 0);

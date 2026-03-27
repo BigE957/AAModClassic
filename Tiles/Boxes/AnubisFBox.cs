@@ -24,12 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<Dusts.ForsakenDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-		}
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("AnubisFBox").Type);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.AnubisFBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

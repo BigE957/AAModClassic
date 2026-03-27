@@ -24,12 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = Mod.Find<ModDust>("AkumaDust").Type;
             AddMapEntry(new Color(200, 200, 200), name);
-		}
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("AkumaBox").Type);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.AkumaBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

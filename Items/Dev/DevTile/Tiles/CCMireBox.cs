@@ -24,10 +24,5 @@ namespace AAModClassic.Items.Dev.DevTile.Tiles
 			// modTranslation.SetDefault("Cardboard Box");
 			AddMapEntry(Color.Gold, modTranslation);
 		}
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("CCBox").Type);
-		}
     }
 }

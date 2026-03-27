@@ -63,10 +63,5 @@ namespace AAModClassic.Tiles.Crafters
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, White);
             BaseDrawing.DrawTileTexture(sb, Sphere, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, AAGlobalTile.GetShenColorBright);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 16, Mod.Find<ModItem>("ChaosCrucible").Type);
-        }
     }
 }

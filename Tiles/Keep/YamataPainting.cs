@@ -33,16 +33,10 @@ public class YamataPainting : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
 			BaseUtility.Chat("'Sweet Azathoth, will this oversized lizard zip his lip?!'", AAColor.Yamata, sync: false);
 		}
 		return true;
-	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, ModContent.ItemType<AAModClassic.Items.Blocks.Paintings.YamataPainting>(), 1, false, 0, false, false);
 	}
 }

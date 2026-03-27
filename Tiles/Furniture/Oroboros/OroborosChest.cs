@@ -43,7 +43,6 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Oroboros Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("OroborosChest").Type);
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("OroborosChest").DisplayName;
@@ -84,7 +83,6 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, Mod.Find<ModItem>("OroborosChest").Type/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */);
             Chest.DestroyChest(i, j);
         }
 

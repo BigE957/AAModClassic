@@ -28,11 +28,6 @@ namespace AAModClassic.Tiles.Decoration
             AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, Mod.Find<ModItem>("MoonAltarA").Type);
-        }
-
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (Main.tile[i, j].TileFrameY >= 56)

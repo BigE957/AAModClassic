@@ -19,19 +19,13 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			// name.SetDefault("Bogwood Bathtub");
             AddMapEntry(new Color(12, 62, 205), name);
             DustType = Mod.Find<ModDust>("BogwoodDust").Type;
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.BogwoodF.BogwoodBathtub>());
+        }
 
 		
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = 1;
 		}
-
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 64, 32, Mod.Find<ModItem>("BogwoodBathtub").Type);
-		}
-
-		
 	}
 }

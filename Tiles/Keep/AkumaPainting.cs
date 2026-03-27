@@ -29,7 +29,8 @@ public class AkumaPainting : ModTile
 		AddMapEntry(new Color(171, 71, 66), val);
 		base.DustType = DustID.WoodFurniture;
 		TileID.Sets.DisableSmartCursor[Type] = true;
-	}
+        RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Paintings.AkumaPainting>());
+    }
 
 	public override bool RightClick(int i, int j)
 	{
@@ -39,10 +40,5 @@ public class AkumaPainting : ModTile
 			BaseUtility.Chat("'The flames of hate...they still rage in this demon...'", AAColor.Akuma, sync: false);
 		}
 		return true;
-	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-        Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 48, ModContent.ItemType<AAModClassic.Items.Blocks.Paintings.AkumaPainting>(), 1, false, 0, false, false);
 	}
 }
