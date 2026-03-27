@@ -301,6 +301,34 @@ namespace AAModClassic
             if (WormActive) downed.Add("WormA");
             if (StarActive) downed.Add("StarA");
             if (GravActive) downed.Add("GravA");
+
+            tag.Add("downed", downed);
+
+            tag.Add("MCenter", MireCenter);
+            tag.Add("ICenter", InfernoCenter);
+
+
+            //Squid Lady
+
+            tag.Add("squid1", squid1);
+            tag.Add("squid2", squid2);
+            tag.Add("squid3", squid3);
+            tag.Add("squid4", squid4);
+            tag.Add("squid5", squid5);
+            tag.Add("squid6", squid6);
+            tag.Add("squid7", squid7);
+            tag.Add("squid8", squid8);
+            tag.Add("squid9", squid9);
+            tag.Add("squid10", squid10);
+            tag.Add("squid11", squid11);
+            tag.Add("squid12", squid12);
+            tag.Add("squid13", squid13);
+            tag.Add("squid14", squid14);
+            tag.Add("squid15", squid15);
+            tag.Add("squid16", squid16);
+            tag.Add("Bunny", RabbitKills);
+            tag.Add("Egg", SmashDragonEgg);
+            tag.Add("Pod", SmashHydraPod);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -347,6 +375,7 @@ namespace AAModClassic
             WormActive = downed.Contains("WormA");
             WormActive = downed.Contains("StarA");
             WormActive = downed.Contains("GravA");
+
             //World Changes
             ChaosOres = downedGrips;
             Dynaskull = NPC.downedBoss3;
@@ -367,8 +396,8 @@ namespace AAModClassic
             {
                 InfernoCenter = tag.Get<Vector2>("ICenter");
             }
-            //Squid Lady
 
+            //Squid Lady
             squid1 = tag.GetInt("squid1");
             squid2 = tag.GetInt("squid2");
             squid3 = tag.GetInt("squid3");
@@ -385,6 +414,7 @@ namespace AAModClassic
             squid14 = tag.GetInt("squid14");
             squid15 = tag.GetInt("squid15");
             squid16 = tag.GetInt("squid16");
+
             RabbitKills = tag.GetInt("Bunny");
             SmashDragonEgg = tag.GetInt("Egg");
             SmashHydraPod = tag.GetInt("Pod");
