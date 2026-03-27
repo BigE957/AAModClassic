@@ -128,7 +128,7 @@ At night, you move three times as fast and your ranged attacks & minions inflict
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.blackBelt = true;
-            player.dash = 1;
+            player.dashType = 1;
             player.spikedBoots = 2;
             player.GetModPlayer<AAPlayer>().Naitokurosu = true;
             player.buffImmune[Mod.Find<ModBuff>("HydraToxin").Type] = true;
