@@ -1,6 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.Removed;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Keep;
@@ -1431,7 +1432,16 @@ namespace AAModClassic
             {
                 if (downedAllAncients == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                        if (AAWorldRemoved.doRemovedContent)
+                        {
+                            Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
+                            Main.NewText("An otherworldly fog encompasses the ocean", Color.Cyan);
+                        }
+                    }
+                        
                     downedAllAncients = true;
                 }
             }

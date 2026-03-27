@@ -7,6 +7,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Removed;
 
 //using AAModClassic.NPCs.Bosses.Infinity;
 
@@ -158,7 +159,10 @@ namespace AAModClassic.Backgrounds
                     spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
-                    spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                    if (AAWorldRemoved.doRemovedContent && !AAWorldRemoved.downedIZ)
+                    {
+                        spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                    }
                 }
 				Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);
 				astroGlow.A = (byte)(255f * Intensity);

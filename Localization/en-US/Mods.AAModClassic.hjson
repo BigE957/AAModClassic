@@ -691,6 +691,11 @@ Buffs: {
 		DisplayName: Wrath
 		Description: 11% increased damage
 	}
+
+	LockedOn: {
+		DisplayName: Locked On
+		Description: Mods.AAModClassic.Buffs.LockedOn.Description
+	}
 }
 
 Projectiles: {
@@ -973,6 +978,7 @@ Projectiles: {
 	DeathLaser.DisplayName: Death Laser
 	GenocideBoom.DisplayName: Genocide
 	GenocideRocket.DisplayName: Genocide Rocket
+	Genocide.DisplayName: Genocide
 	NovaRay.DisplayName: Nova Ray
 	OmegaBullet.DisplayName: Omega Bullet
 	EchoRay.DisplayName: Echo Blast
@@ -1627,6 +1633,26 @@ Projectiles: {
 	Leviacane2.DisplayName: Leviacane2
 	RazorbladeRift.DisplayName: Razorblade Rift
 	CLaser.DisplayName: C Laser
+	InfinityBolt.DisplayName: Infinity Bolt
+	InfinityStorm.DisplayName: Infinity Storm
+	IZShot.DisplayName: I Z Shot
+	HurricaneSoC.DisplayName: Hurricane So C
+	Anhialation.DisplayName: Anhialation
+	AnhialationBurst.DisplayName: Anhialation Burst
+	InfinityBoom.DisplayName: Infinity Boom
+	InfinitySphere.DisplayName: Infinity Sphere
+	NovaBurst.DisplayName: Nova Burst
+	Sagittarius.DisplayName: Sagittarius
+	Supernova.DisplayName: Supernova
+	TotalDestruction.DisplayName: Total Destruction
+	Anchor.DisplayName: Anchor
+	CthulhuBomb.DisplayName: Cthulhu Bomb
+	CthulhuBoom.DisplayName: Cthulhu Boom
+	RealityBurstHuge.DisplayName: Reality Burst Huge
+	RealityBurstLarge.DisplayName: Reality Burst Large
+	RealityBurstMed.DisplayName: Reality Burst Med
+	RealityBurstSmall.DisplayName: Reality Burst Small
+	Stormray.DisplayName: Stormray
 }
 
 Items: {
@@ -5651,6 +5677,11 @@ Items: {
 			'''
 	}
 
+	Genocide: {
+		DisplayName: Genocide
+		Tooltip: ""
+	}
+
 	Gigataser: {
 		DisplayName: Gigataser
 		Tooltip: Fires void lightning
@@ -7023,6 +7054,11 @@ Items: {
 			Shoots homing flares from the sky
 			Lunar Flare EX
 			'''
+	}
+
+	Nova: {
+		DisplayName: Nova
+		Tooltip: ""
 	}
 
 	OceanTrident: {
@@ -11071,6 +11107,76 @@ Items: {
 		DisplayName: Champion of the Innocent Music Box
 		Tooltip: Plays 'Supreme Justice' by OmegaFerretMusic
 	}
+
+	Annihilator: {
+		DisplayName: Annihilator
+		Tooltip: ""
+	}
+
+	Infinitium: {
+		DisplayName: Infinitium
+		Tooltip: ""
+	}
+
+	InfinityBlade: {
+		DisplayName: Infinity Blade
+		Tooltip: ""
+	}
+
+	IZCache: {
+		DisplayName: I Z Cache
+		Tooltip: ""
+	}
+
+	IZTrophy: {
+		DisplayName: I Z Trophy
+		Tooltip: ""
+	}
+
+	Sagittarius: {
+		DisplayName: Sagittarius
+		Tooltip: ""
+	}
+
+	Sticker: {
+		DisplayName: Sticker
+		Tooltip: ""
+	}
+
+	TotalDestruction: {
+		DisplayName: Total Destruction
+		Tooltip: ""
+	}
+
+	CthulhuCannon: {
+		DisplayName: Cthulhu Cannon
+		Tooltip: ""
+	}
+
+	GalacticStormspike: {
+		DisplayName: Galactic Stormspike
+		Tooltip: ""
+	}
+
+	SoCCache: {
+		DisplayName: So C Cache
+		Tooltip: ""
+	}
+
+	SquidStorm: {
+		DisplayName: Squid Storm
+		Tooltip: ""
+	}
+
+	CursedCompass: {
+		DisplayName: Cursed Compass
+		Tooltip: ""
+	}
+
+	InfinityOverloader: {
+		DisplayName: Infinity Overloader
+		Tooltip: ""
+	}
 }
 
 Tiles: {
@@ -11334,6 +11440,8 @@ Tiles: {
 	WizardPainting.MapEntry: Wizard Painting
 	YamataPainting.MapEntry: Yamata Painting
 	ZeroPainting.MapEntry: Zero Painting
+	IZBox.MapEntry: I Z Box
+	SoCBox.MapEntry: So C Box
 }
 
 NPCs: {
@@ -11786,6 +11894,12 @@ NPCs: {
 	RiftVision.DisplayName: Rift Vision
 	SoC.DisplayName: So C
 	UDUNFUKED.DisplayName: U D U N F U K E D
+	Infinity.DisplayName: Infinity
+	InfinityCore.DisplayName: Infinity Core
+	IZHand1.DisplayName: I Z Hand1
+	IZHand2.DisplayName: I Z Hand2
+	IZSpawn1.DisplayName: I Z Spawn1
+	Oblivion.DisplayName: Oblivion
 }
 
 Biomes: {

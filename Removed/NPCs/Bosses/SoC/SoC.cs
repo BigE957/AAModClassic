@@ -36,7 +36,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC
             NPC.DeathSound = SoundID.Item88;
             NPC.knockBackResist = 0f;
             NPC.boss = true;
-            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Removed/Sounds/Music/SoC");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/SoC");
             NPC.noGravity = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;

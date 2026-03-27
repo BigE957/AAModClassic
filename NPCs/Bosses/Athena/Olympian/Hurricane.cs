@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
-    public class Hurricane : ModProjectile
+    public class HurricaneSoC : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
 

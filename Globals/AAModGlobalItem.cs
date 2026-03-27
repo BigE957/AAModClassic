@@ -38,30 +38,34 @@ namespace AAModClassic.Globals
 
             if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)
             {
-                BaseAAItem AAitem = (BaseAAItem)item.ModItem;
-
-                if (AAitem.AARarity != 0)
+                bool hasDoneShit = false;
+                if (item.ModItem is BaseAAItem AAitem)
                 {
-                    switch (AAitem.AARarity)
+                    if (AAitem.AARarity != 0)
                     {
-                        case 12:
-                            item.value = Item.sellPrice(0, 30, 0, 0);
-                            break;
+                        switch (AAitem.AARarity)
+                        {
+                            case 12:
+                                item.value = Item.sellPrice(0, 30, 0, 0);
+                                break;
 
-                        case 13:
-                            item.value = Item.sellPrice(0, 35, 0, 0);
-                            break;
+                            case 13:
+                                item.value = Item.sellPrice(0, 35, 0, 0);
+                                break;
 
-                        case 14:
-                            item.value = Item.sellPrice(0, 40, 0, 0);
-                            break;
+                            case 14:
+                                item.value = Item.sellPrice(0, 40, 0, 0);
+                                break;
 
-                        case 15:
-                            item.value = Item.sellPrice(0, 45, 0, 0);
-                            break;
+                            case 15:
+                                item.value = Item.sellPrice(0, 45, 0, 0);
+                                break;
+                        }
                     }
+                    hasDoneShit = true;
                 }
-                else
+                
+                if (hasDoneShit == false)
                 {
                     switch (item.rare)
                     {
