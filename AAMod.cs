@@ -284,8 +284,7 @@ namespace AAModClassic
             texture.GetData(buffer);
             for (int i = 0; i < buffer.Length; i++)
             {
-                buffer[i] = Color.FromNonPremultiplied(
-                        buffer[i].R, buffer[i].G, buffer[i].B, buffer[i].A);
+                buffer[i] = Color.FromNonPremultiplied(buffer[i].R, buffer[i].G, buffer[i].B, buffer[i].A);
             }
             texture.SetData(buffer);
         }
@@ -719,7 +718,7 @@ namespace AAModClassic
             }
         }
 
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)/* tModPorter Note: Removed. Use ModSystem.ModifyInterfaceLayers */
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
             int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
             if (wireSelectionLayerIndex != -1)
@@ -741,7 +740,7 @@ namespace AAModClassic
 
         private static GameTime lastUpdateUIGameTime;
 
-        public override void UpdateUI(GameTime gameTime)/* tModPorter Note: Removed. Use ModSystem.UpdateUI */
+        public override void UpdateUI(GameTime gameTime)
         {
             lastUpdateUIGameTime = gameTime;
 
