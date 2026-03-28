@@ -2,6 +2,7 @@ using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +17,9 @@ namespace AAModClassic.Items.Vanity.Aves
             // DisplayName.SetDefault("Duckstep Bass Boosters");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 'Great for impersonating Ancients Awakened Devs!'"); */
-		}
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 2.5f);
+        }
 
 		public override void SetDefaults()
 		{
@@ -51,12 +54,6 @@ namespace AAModClassic.Items.Vanity.Aves
 			maxCanAscendMultiplier = 1f;
 			maxAscentMultiplier = 3f;
 			constantAscend = 0.135f;
-		}
-
-		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-			speed = 10f;
-			acceleration *= 2.5f;
 		}
 	}
 }

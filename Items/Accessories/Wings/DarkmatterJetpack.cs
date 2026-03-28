@@ -2,6 +2,7 @@ using AAModClassic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,6 +15,8 @@ namespace AAModClassic.Items.Accessories.Wings
 		{
             // DisplayName.SetDefault("Darkmatter Booster");
             // Tooltip.SetDefault("Allows flight and slow fall");
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 10, 3f);
         }
 
 		public override void SetDefaults()
@@ -37,12 +40,6 @@ namespace AAModClassic.Items.Accessories.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 4f;
             constantAscend = 0.17f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            //speed = 10f;
-            //acceleration *= 3f;
         }
 
         public override bool WingUpdate(Player player, bool inUse)

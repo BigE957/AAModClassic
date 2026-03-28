@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,7 +19,9 @@ namespace AAModClassic.Items.Vanity.Blazen
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold up to rocket faster
 'Great for impersonating Ancients Awakened Developers!'"); */
-		}
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 6.25f, true, 15, 10);
+        }
 
 		public override void SetDefaults()
 		{
@@ -123,22 +126,6 @@ Hold up to rocket faster
                 player.wingFrame = 3;
             }
             return true;
-        }
-
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-		{
-            if (player.controlDown && player.controlJump && player.wingTime > 0f)
-            {
-                speed = 15f;
-                acceleration *= 10f;
-                player.velocity.Y *= 0f;
-            }
-            else
-            {
-                speed = 10f;
-                acceleration *= 6.25f;
-            }
         }
 	}
 }

@@ -2,6 +2,7 @@ using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,6 +18,8 @@ namespace AAModClassic.Items.Vanity.Charlie
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Devs!'"); */
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 6.25f, true, 15, 10);
         }
 
         public override void SetDefaults()
@@ -52,20 +55,6 @@ Hold down and jump to hover for an extended period of time
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            if (player.controlDown && player.controlJump && player.wingTime > 0f)
-            {
-                speed = 15f;
-                acceleration *= 10f;
-            }
-            else
-            {
-                speed = 10f;
-                acceleration *= 6.25f;
-            }
         }
 
         public override bool WingUpdate(Player player, bool inUse)
