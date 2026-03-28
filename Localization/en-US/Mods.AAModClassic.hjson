@@ -696,6 +696,11 @@ Buffs: {
 		DisplayName: Locked On
 		Description: Mods.AAModClassic.Buffs.LockedOn.Description
 	}
+
+	InfinityScorch: {
+		DisplayName: Infinity Scorch
+		Description: Mods.AAModClassic.Buffs.InfinityScorch.Description
+	}
 }
 
 Projectiles: {
@@ -1653,6 +1658,8 @@ Projectiles: {
 	RealityBurstMed.DisplayName: Reality Burst Med
 	RealityBurstSmall.DisplayName: Reality Burst Small
 	Stormray.DisplayName: Stormray
+	AntimatterRemoved.DisplayName: Antimatter Removed
+	RiftRemoved.DisplayName: Rift Removed
 }
 
 Items: {
@@ -11442,6 +11449,7 @@ Tiles: {
 	ZeroPainting.MapEntry: Zero Painting
 	IZBox.MapEntry: I Z Box
 	SoCBox.MapEntry: So C Box
+	SunkenChest.MapEntry: Sunken Chest
 }
 
 NPCs: {

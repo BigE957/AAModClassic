@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AAModClassic.Dusts;
+using AAModClassic.Removed.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using Terraria.Enums;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Removed.Projectiles.Infinity
 {
@@ -171,7 +172,7 @@ namespace AAModClassic.Removed.Projectiles.Infinity
                 for (int k = 0; k < chargeFact + 1; k++)
                 {
                     Vector2 spawn = spawnPos + ((float)Main.rand.NextDouble() * 6.28f).ToRotationVector2() * (12f - (chargeFact * 2));
-                    Dust dust = Main.dust[Dust.NewDust(pos, 20, 20, ModContent.DustType<VoidDust>(), Projectile.velocity.X / 2f,
+                    Dust dust = Main.dust[Dust.NewDust(pos, 20, 20, ModContent.DustType<VoidDustRemoved>(), Projectile.velocity.X / 2f,
                         Projectile.velocity.Y / 2f, 0, default(Color), 1f)];
                     dust.velocity = Vector2.Normalize(spawnPos - spawn) * 1.5f * (10f - chargeFact * 2f) / 10f;
                     dust.noGravity = true;
@@ -202,10 +203,10 @@ namespace AAModClassic.Removed.Projectiles.Infinity
                 float num1 = Projectile.velocity.ToRotation() + (Main.rand.Next(2) == 1 ? -1.0f : 1.0f) * 1.57f;
                 float num2 = (float)(Main.rand.NextDouble() * 0.8f + 1.0f);
                 Vector2 dustVel = new Vector2((float)Math.Cos(num1) * num2, (float)Math.Sin(num1) * num2);
-                Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, ModContent.DustType<VoidDust>(), dustVel.X, dustVel.Y, 0, new Color(), 1f)];
+                Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, ModContent.DustType<VoidDustRemoved>(), dustVel.X, dustVel.Y, 0, new Color(), 1f)];
                 dust.noGravity = true;
                 dust.scale = 1.2f;
-                dust = Dust.NewDustDirect(Main.player[Projectile.owner].Center, 0, 0, ModContent.DustType<VoidDust>(),
+                dust = Dust.NewDustDirect(Main.player[Projectile.owner].Center, 0, 0, ModContent.DustType<VoidDustRemoved>(),
                     -unit.X * Distance, -unit.Y * Distance);
                 dust.fadeIn = 0f;
                 dust.noGravity = true;
@@ -217,14 +218,14 @@ namespace AAModClassic.Removed.Projectiles.Infinity
                 Vector2 offset = Projectile.velocity.RotatedBy(1.57f, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) *
                                  Projectile.width;
                 Dust dust = Main.dust[
-                    Dust.NewDust(dustPos + offset - Vector2.One * 4f, 8, 8, 31, 0.0f, 0.0f, ModContent.DustType<VoidDust>(), new Color(), 1.5f)];
+                    Dust.NewDust(dustPos + offset - Vector2.One * 4f, 8, 8, 31, 0.0f, 0.0f, ModContent.DustType<VoidDustRemoved>(), new Color(), 1.5f)];
                 dust.velocity = dust.velocity * 0.5f;
                 dust.velocity.Y = -Math.Abs(dust.velocity.Y);
 
                 unit = dustPos - Main.player[Projectile.owner].Center;
                 unit.Normalize();
                 dust = Main.dust[
-                    Dust.NewDust(Main.player[Projectile.owner].Center + 55 * unit, 8, 8, ModContent.DustType<VoidDust>(), 0.0f, 0.0f, 100, new Color(), 1.5f)];
+                    Dust.NewDust(Main.player[Projectile.owner].Center + 55 * unit, 8, 8, ModContent.DustType<VoidDustRemoved>(), 0.0f, 0.0f, 100, new Color(), 1.5f)];
                 dust.velocity = dust.velocity * 0.5f;
                 dust.velocity.Y = -Math.Abs(dust.velocity.Y);
             }

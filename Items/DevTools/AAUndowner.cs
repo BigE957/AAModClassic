@@ -1,3 +1,4 @@
+using AAModClassic.Removed;
 using Terraria;
 using Terraria.ID;
 
@@ -53,6 +54,12 @@ Non-Consumable"); */
             AAWorld.downedAthenaA = false;
             AAWorld.downedAnubisA = false;
             AAWorld.downedGreedA = false;
+
+            if (AAWorldRemoved.doRemovedContent)
+            {
+                AAWorldRemoved.downedIZ = false;
+                AAWorldRemoved.downedSoC = false;
+            }
             return true;
         }
     }

@@ -26,7 +26,7 @@ namespace AAModClassic.Removed.Tiles
             TileID.Sets.DisableSmartCursor[Type] = true;
             LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = Mod.Find<ModDust>("VoidDust").Type;
+            DustType = Mod.Find<ModDust>("VoidDustRemoved").Type;
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 

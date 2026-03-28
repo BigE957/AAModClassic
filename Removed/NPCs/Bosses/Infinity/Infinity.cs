@@ -2,6 +2,7 @@
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Removed.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -400,7 +401,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
 				NPC.position.Y = NPC.position.Y - NPC.height / 2;
 				for (int num621 = 0; num621 < 60; num621++)
 				{
-					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default(Color), 2f);
+					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 100, default(Color), 2f);
 					Main.dust[num622].velocity *= 3f;
 					if (Main.rand.Next(2) == 0)
 					{
@@ -410,7 +411,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
 				}
 				for (int num623 = 0; num623 < 90; num623++)
 				{
-					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default(Color), 3f);
+					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 100, default(Color), 3f);
 					Main.dust[num624].noGravity = true;
 					Main.dust[num624].velocity *= 5f;
 					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 244, 0f, 0f, 100, default(Color), 2f);
@@ -438,7 +439,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
             return new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
         }
 
-        public static Texture2D glowTex = null;
+        public Texture2D glowTex = null;
         public float auraPercent = 0f;
         public bool auraDirection = true;
         public bool saythelinezero = false;
@@ -465,7 +466,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
         {
             if (glowTex == null)
             {
-                glowTex = Mod.GetTexture("Removed/NPCs/Bosses/Infinity/Infinity_Glow");
+                glowTex = Mod.GetTexture("Removed/NPCs/Bosses/Infinity/Infinity_Glow"); 
             }
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }

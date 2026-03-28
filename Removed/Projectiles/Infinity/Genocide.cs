@@ -1,4 +1,5 @@
 using AAModClassic.Dusts;
+using AAModClassic.Removed.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -38,7 +39,7 @@ namespace AAModClassic.Removed.Projectiles.Infinity
                 Vector2 vector33 = Projectile.position;
                 vector33 -= Projectile.velocity * (num447 * 0.25f);
                 Projectile.alpha = 255;
-                int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), 0f, 0f, 200, default(Color), 1f); //Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default(Color), 1f);;
+                int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 200, default(Color), 1f); //Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default(Color), 1f);;
                 Main.dust[num448].position = vector33;
                 Main.dust[num448].scale = Main.rand.Next(70, 110) * 0.013f;
                 Main.dust[num448].velocity *= 0.2f;

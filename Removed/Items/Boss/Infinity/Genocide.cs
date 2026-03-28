@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System;
 using AAModClassic.Globals;
 using AAModClassic;
+using AAModClassic.Removed.Projectiles.Zero;
 
 namespace AAModClassic.Removed.Items.Boss.Infinity
 {
@@ -34,7 +35,7 @@ Doesn't require ammo"); */
             Item.useTime = 20;
             Item.useAnimation = 20; 
             Item.useStyle = 5; 
-            Item.shoot = Mod.Find<ModProjectile>("Antimatter").Type;
+            Item.shoot = ModContent.ProjectileType<AntimatterRemoved>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.rare = 9;

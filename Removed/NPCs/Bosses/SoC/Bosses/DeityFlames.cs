@@ -1,4 +1,5 @@
-﻿using AAModClassic.Dusts;
+﻿using AAModClassic.Buffs;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -92,7 +93,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.SoC.Bosses
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Riftbent").Type, 200);
+            target.AddBuff(ModContent.BuffType<RealityBent>(), 200);
         }
     }
 }

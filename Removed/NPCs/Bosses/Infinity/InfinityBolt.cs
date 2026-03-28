@@ -1,10 +1,11 @@
+using AAModClassic.Globals;
+using AAModClassic.Removed.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.Utilities;
 using System;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
+using Terraria.Utilities;
 
 namespace AAModClassic.Removed.NPCs.Bosses.Infinity
 {
@@ -62,14 +63,14 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
                         float num851 = Projectile.rotation + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
                         float num852 = (float)Main.rand.NextDouble() * 0.8f + 1f;
                         Vector2 vector84 = new Vector2((float)Math.Cos((double)num851) * num852, (float)Math.Sin((double)num851) * num852);
-                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.VoidDust>(), vector84.X, vector84.Y, 0, default(Color), 1f);
+                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<VoidDustRemoved>(), vector84.X, vector84.Y, 0, default(Color), 1f);
                         Main.dust[num853].noGravity = true;
                         Main.dust[num853].scale = 1.2f;
                     }
                     if (Main.rand.Next(5) == 0)
                     {
                         Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866, default(Vector2)) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width;
-                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default(Color), 1.5f);
+                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 100, default(Color), 1.5f);
                         Main.dust[num854].velocity *= 0.5f;
                         Main.dust[num854].velocity.Y = -Math.Abs(Main.dust[num854].velocity.Y);
                         return;

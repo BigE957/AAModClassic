@@ -1,4 +1,5 @@
 using AAModClassic.Dusts;
+using AAModClassic.Removed.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -44,7 +45,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
 
             if (Main.rand.Next(1) == 0)
             {
-                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), 0f, 0f, 200, default(Color), 0.8f);
+                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 200, default(Color), 0.8f);
                 Main.dust[dustnumber].velocity *= 0.3f;
             }
         }

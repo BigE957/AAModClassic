@@ -9,6 +9,8 @@ using System;
 using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Removed.Dusts;
+using AAModClassic.Removed.Projectiles.Zero;
 
 namespace AAModClassic.Removed.Items.Boss.Infinity
 
@@ -29,7 +31,7 @@ namespace AAModClassic.Removed.Items.Boss.Infinity
 			Item.width = 94;
 			Item.height = 94;
 			Item.useTime = 13;
-            Item.shoot = Mod.Find<ModProjectile>("Rift").Type;
+            Item.shoot = ModContent.ProjectileType<RiftRemoved>();
             Item.shootSpeed = 14f;
             Item.useAnimation = 13;
 			Item.useStyle = 1;
@@ -100,7 +102,7 @@ namespace AAModClassic.Removed.Items.Boss.Infinity
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
             Dust dust;
-            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<VoidDust>(), 0f, 0f, 46, default(Color), 1.25f);
+            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<VoidDustRemoved>(), 0f, 0f, 46, default(Color), 1.25f);
 			dust.noGravity = true;
         }
 	}

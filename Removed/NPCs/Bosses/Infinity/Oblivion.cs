@@ -30,7 +30,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
             {
                 NPC.buffImmune[k] = true;
             }
-            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/IZDeath");
+            Music = Mod.GetSoundSlot(SoundType.Music, "Removed/Sounds/Music/IZDeath"); //TODOIZ why doesnt this work????
         }
 
         public int OblivionSpeech = 0;
