@@ -2731,30 +2731,6 @@ namespace AAModClassic
 
                         break;
 
-                    case 11:
-
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Eliza.LizBag>());
-
-                        if (dropType >= 3)
-                        {
-                            if (Main.rand.Next(2) == 0)
-                            {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CatsEyeRifle" + addonEX).Type);
-                            }
-                            else
-                            {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>(dropType == 4 ? "ArchwitchStaff" : "ArchwitchWand").Type);
-                            }
-
-                            if (dropType >= 4)
-                            {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("LizTerratool").Type);
-                            }
-                        }
-
-                        spawnedDevItems = true;
-                        break;
-
                     case 12:
 
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AvesBag>());
