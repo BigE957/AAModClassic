@@ -124,8 +124,11 @@ namespace AAModClassic.World
             tileSand = (ushort)mod.Find<ModTile>("Depthsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("DepthsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Depthsandstone").Type,
             LivingWood = (ushort)ModContent.TileType<LivingBogwood>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves>();
 
-            byte StoneWall = (byte)ModContent.WallType<DepthstoneWall>(), SandstoneWall = (byte)ModContent.WallType<DepthsandstoneWall>(), HardenedSandWall = (byte)ModContent.WallType<DepthsandHardenedWall>(),
-            GrassWall = (byte)ModContent.WallType<LivingBogleafWall>(), JungleWall = (byte)ModContent.WallType<MireJungleWall>();
+            ushort StoneWall = (ushort)ModContent.WallType<DepthstoneWall>(),
+            SandstoneWall = (ushort)ModContent.WallType<DepthsandstoneWall>(),
+            HardenedSandWall = (ushort)ModContent.WallType<DepthsandHardenedWall>(),
+            GrassWall = (ushort)ModContent.WallType<LivingBogleafWall>(),
+            JungleWall = (ushort)ModContent.WallType<MireJungleWall>();
 
 			int worldSize = GetWorldSize();
 			int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180; //how deep the biome is (scaled by world size)	
@@ -319,7 +322,7 @@ namespace AAModClassic.World
             Mod mod = AAMod.instance;
             ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves>();
 
-            byte BogwoodWall = (byte)ModContent.WallType<LivingBogwoodWall>(), LeafWall = (byte)ModContent.WallType<LivingBogleafWall>();
+            ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwoodWall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleafWall>();
 
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
@@ -414,8 +417,10 @@ namespace AAModClassic.World
             tileIce = (ushort)mod.Find<ModTile>("Torchice").Type, tileSand = (ushort)mod.Find<ModTile>("Torchsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("TorchsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Torchsandstone").Type,
             LivingWood = (ushort)ModContent.TileType<LivingRazewood>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves>();
 
-            byte StoneWall = (byte)ModContent.WallType<TorchstoneWall>(), SandstoneWall = (byte)ModContent.WallType<TorchsandstoneWall>(), HardenedSandWall = (byte)ModContent.WallType<TorchsandHardenedWall>(),
-            GrassWall = (byte)ModContent.WallType<InfernoGrassWall>();
+            ushort StoneWall = (ushort)ModContent.WallType<TorchstoneWall>(), 
+            SandstoneWall = (ushort)ModContent.WallType<TorchsandstoneWall>(),
+            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardenedWall>(),
+            GrassWall = (ushort)ModContent.WallType<InfernoGrassWall>();
 
 
             int worldSize = GetWorldSize();
