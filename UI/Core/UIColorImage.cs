@@ -35,6 +35,11 @@ namespace AAModClassic.UI.Core
             Height.Set(this.texture.Height(), 0f);
         }
 
+        public void SetFrame(Rectangle rect)
+        {
+            frame = rect;
+        }
+
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             CalculatedStyle dimensions = GetDimensions();

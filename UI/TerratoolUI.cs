@@ -73,6 +73,16 @@ namespace AAModClassic.UI
             }
         }
 
+        public override void OnActivate()
+        {
+            for (int index = 0; index < ButtonAmount; index++)
+            {
+                buttonImageList[index].SetFrame(ButtonImages.Frame(1, ButtonAmount, 0, index));
+                buttonList[index].Width.Set(ButtonOffImage.Width(), 0);
+                buttonList[index].Height.Set(ButtonOffImage.Height() / 3, 0);
+            }
+        }
+
         public override void ToggleUI(UserInterface userInterface, UIState state = null)
         {
             base.ToggleUI(userInterface, state);
@@ -89,8 +99,7 @@ namespace AAModClassic.UI
         {
             base.Update(gameTime);
 
-            if (Main.LocalPlayer.HeldItem.type != HeldItemType || Main.LocalPlayer.dead || Main.LocalPlayer.ghost
-                || ((Main.LocalPlayer.mouseInterface || Main.LocalPlayer.lastMouseInterface) && !onTerratoolMenu))
+            if (Main.LocalPlayer.HeldItem.type != HeldItemType || Main.LocalPlayer.dead || Main.LocalPlayer.ghost || ((Main.LocalPlayer.mouseInterface || Main.LocalPlayer.lastMouseInterface) && !onTerratoolMenu))
             {
                 for (int i = 0; i < buttonList.Count; i++)
                 {
@@ -110,14 +119,12 @@ namespace AAModClassic.UI
 
             for (int i = 0; i < buttonList.Count; i++)
             {
-                if (buttonList[i].ContainsPoint(Main.MouseScreen))
+                if (buttonList[i].IsMouseHovering || buttonImageList[i].IsMouseHovering)
                 {
                     Main.LocalPlayer.mouseInterface = true;
                     onTerratoolMenu = true;
                 }
             }
-
-
         }
 
         public virtual void ButtonClicked(int index)
