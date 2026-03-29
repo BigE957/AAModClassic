@@ -23,9 +23,9 @@ namespace AAModClassic.UI
 
         public override int HeldItemType => AAMod.instance.Find<ModItem>("ZeroTerratool").Type;
 
-        public override void ButtonClicked(int index)
+        public override void ButtonClicked(UIMouseEvent evt, UIElement element)
         {
-            base.ButtonClicked(index);
+            base.ButtonClicked(evt, element);
             Pick = selectedButtons.Contains(0) ? 300 : 0;
             Hammer = selectedButtons.Contains(1) ? 200 : 0;
             Axe = selectedButtons.Contains(2) ? 60 : 0;
