@@ -26,6 +26,7 @@ namespace AAModClassic.Tiles.Decoration
             TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = ModContent.DustType<Dusts.AkumaDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.SunAltar>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -46,7 +47,6 @@ namespace AAModClassic.Tiles.Decoration
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
-            Texture2D texture = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(Type, (int)tile.Slope, tile.TileColor);
 
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
@@ -59,7 +59,7 @@ namespace AAModClassic.Tiles.Decoration
             {
                 animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(TextureAssets.Tile[Type].Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
             Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/SunAltar_Glow"), new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;
         }
