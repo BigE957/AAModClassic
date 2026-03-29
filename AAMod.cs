@@ -63,7 +63,6 @@ namespace AAModClassic
         internal TerratoolZUI TerratoolZState;
         internal TerratoolSUI TerratoolSState;
         internal TerratoolKipUI TerratoolKipState;
-        internal TerratoolLizUI TerratoolLizState;
         internal TerratoolGroxUI TerratoolGroxState;
         internal TerratoolEXUI TerratoolEXState;
 
@@ -628,8 +627,6 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolSState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolKipState = new TerratoolKipUI();
             ModContent.GetInstance<AAMod>().TerratoolKipState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolLizState = new TerratoolLizUI();
-            ModContent.GetInstance<AAMod>().TerratoolLizState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolGroxState = new TerratoolGroxUI();
             ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
