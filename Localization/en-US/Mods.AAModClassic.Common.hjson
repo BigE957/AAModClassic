@@ -60,7 +60,7 @@ AbyssalBonus:
 	20% decreased ammo consumption
 	Enemies are less likely to target you
 	'''
-AssassinBonus
+AssassinBonus:
 	'''
 	Increase 30% melee speed and projectile velocity
 	Your melee weapons have chance to throw daggers
@@ -76,7 +76,7 @@ BlazingBonus:
 
 Equipset: {
 	BogwoodHelmet: +1 Defense
-	ChampionHeaddressBonus
+	ChampionHeaddressBonus:
 		'''
 		Baron Bunny fights by your side as an ally to rabbit kind
 		As you lose health, Baron Bunny's will to fight becomes stronger.
@@ -180,7 +180,7 @@ DarkmatterMaskBonus1:
 	2% of the damage dealt will heal you
 
 	'''
-DarkmatterMaskBonus2: 
+DarkmatterMaskBonus2:
 	'''
 	Magic Damage
 

@@ -604,10 +604,6 @@ namespace AAModClassic
 
     public class AAModSystem : ModSystem
     {
-        //AA Menu
-        public bool AAMenuset = false;
-        public bool AAMenuReset = true;
-
         public static bool AAloadedOnly = true;
 
         public override void Load()
@@ -631,11 +627,6 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
             ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
-        }
-
-        public override void Unload()
-        {
-            AAMenuset = false;
         }
 
         public override void AddRecipeGroups()
