@@ -439,7 +439,7 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
             return new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
         }
 
-        public Texture2D glowTex = null;
+        public Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/Removed/NPCs/Bosses/Infinity/Infinity_Glow").Value;
         public float auraPercent = 0f;
         public bool auraDirection = true;
         public bool saythelinezero = false;
@@ -464,15 +464,22 @@ namespace AAModClassic.Removed.NPCs.Bosses.Infinity
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (glowTex == null)
-            {
-                glowTex = Mod.GetTexture("Removed/NPCs/Bosses/Infinity/Infinity_Glow"); 
+            if (auraDirection) 
+            { 
+                auraPercent += 0.1f; 
+                auraDirection = auraPercent < 1f; 
             }
-            if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
-            else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
+            else 
+            { 
+                auraPercent -= 0.1f; 
+                auraDirection = auraPercent <= 0f; 
+            }
+
             DrawCore(spriteBatch, "Removed/NPCs/Bosses/Infinity/InfinityCore", Core, AAColor.Oblivion, false);
+
             if (fifthHealth)
             {
+                Main.NewText("bluha");
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
                 BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetRedAlpha());

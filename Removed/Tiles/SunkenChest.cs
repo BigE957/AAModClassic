@@ -187,7 +187,7 @@ namespace AAModClassic.Removed.Tiles
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Sunken Chest";
 				if (player.cursorItemIconText == "Sunken Chest")
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("SunkenChest").Type;
+					player.cursorItemIconID = Mod.Find<ModItem>("SunkenChest").Type; //TODOSOC this doesnt exist yet bcuz its lazy. but its sprite is in place
 					player.cursorItemIconText = "";
 				}
 			}

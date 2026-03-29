@@ -1,8 +1,14 @@
-﻿using System;
+﻿using AAMod.Backgrounds;
+using AAModClassic.Backgrounds;
+using AAModClassic.Removed.Backgrounds;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Terraria;
+using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Removed
@@ -46,6 +52,25 @@ namespace AAModClassic.Removed
             if (Redemption != null) redemptionLoaded = true;
             if (CheatSheet != null) cheatsheetLoaded = true;
             if (HEROsMod != null) herosLoaded = true;
+        }
+
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+                LoadClient();
+            }
+        }
+        public void LoadClient()
+        {
+            Filters.Scene["AAModClassic:CthulhuSky"] = new Filter(new MireSkyData("FilterMiniTower").UseColor(0f, 0.20f, 1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:CthulhuSky"] = new CthulhuSky();
+
+            Filters.Scene["AAModClassic:StormSky"] = new Filter(new StormSkyData("FilterMiniTower").UseColor(0.4f, 0f, 0.6f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:StormSky"] = new StormSky();
+
+            Filters.Scene["AAModClassic:IZSky"] = new Filter(new IZSkyData("FilterMiniTower").UseColor(0.4f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:IZSky"] = new IZSky();
         }
     }
 }
