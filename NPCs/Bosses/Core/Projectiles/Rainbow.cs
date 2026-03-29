@@ -43,7 +43,13 @@ public class Rainbow : ModProjectile
 				if (Projectile.localAI[0] > 4f)
 				{
 					Projectile.localAI[0] = 3f;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0.001f, Projectile.velocity.Y * 0.001f, ProjectileID.RainbowBack, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
+					int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0.001f, Projectile.velocity.Y * 0.001f, ProjectileID.RainbowBack, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
+					if (p >= 0)
+					{
+						Main.projectile[p].hostile = true;
+                        Main.projectile[p].friendly = false;
+						Main.projectile[p].extraUpdates = 4;
+                    }
 				}
 				if (Projectile.timeLeft > num4)
 				{
