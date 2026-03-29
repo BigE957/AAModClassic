@@ -27,7 +27,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = Mod.Find<ModDust>("RadiumDust").Type;
             AddMapEntry(new Color(200, 200, 200), name);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.StarBox>());
+        }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {

@@ -24,7 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType =  DustID.GoldCoin;
             AddMapEntry(new Color(200, 200, 200), name);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.GreedABox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

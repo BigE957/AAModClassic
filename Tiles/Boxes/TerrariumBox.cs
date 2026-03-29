@@ -24,7 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = DustID.Terra;
             AddMapEntry(new Color(100, 200, 0), name);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.TerrariumBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{
