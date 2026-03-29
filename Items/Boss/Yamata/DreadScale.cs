@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Yamata
         {
             Item.width = 32;
             Item.height = 34;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

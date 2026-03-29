@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Blocks
 
             Item.width = 24;
             Item.height = 22;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.useTurn = true;
             Item.autoReuse = true;

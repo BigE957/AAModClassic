@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Materials
             refItem.SetDefaults(ItemID.SoulofNight);
             Item.width = refItem.width;
             Item.height = refItem.height;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = 1000;
             Item.rare = refItem.rare;
         }

@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Boss.Zero
         {
             Item.width = 22;
             Item.height = 24;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

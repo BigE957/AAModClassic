@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Materials
 		{
 			Item.width = 18;
 			Item.height = 20;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
 			Item.rare = ItemRarityID.Yellow;
 		}

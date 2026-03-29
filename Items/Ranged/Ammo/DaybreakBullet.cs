@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.damage = 20;
 			Item.width = 8;
 			Item.height = 8;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.ammo = AmmoID.Bullet;
 			Item.knockBack = 2f;

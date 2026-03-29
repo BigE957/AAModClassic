@@ -13,7 +13,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.damage = 25;
 			Item.width = 8;
 			Item.height = 16;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(0, 0, 20, 0);
 			Item.rare = ItemRarityID.Orange;
 			Item.consumable = true;

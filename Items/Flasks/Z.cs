@@ -12,7 +12,7 @@ namespace AAModClassic.Items.Flasks
         {
             Item.width = 22;
             Item.height = 26;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
