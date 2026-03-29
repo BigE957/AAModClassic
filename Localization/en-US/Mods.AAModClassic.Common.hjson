@@ -54,21 +54,82 @@ RajahSPDamageResistance: Current Damage Resistance: +
 #ArmorBonus
 
 AncientGoldSetBonus: If you have enough money, you can resist an attack by losting all your money.
-AbyssalBonus: Your ranged attacks are imbued with the poisonous properties of hydra venom\n20% decreased ammo consumption\nEnemies are less likely to target you
-AssassinBonus: Increase 30% melee speed and projectile velocity\nYour melee weapons have chance to throw daggers\nYour ranged weapons have chance to shoot extra arrows\nDagger/arrow can decrease enemies' 20 defense and increase 10% damage hitting on them
+AbyssalBonus:
+	'''
+	Your ranged attacks are imbued with the poisonous properties of hydra venom
+	20% decreased ammo consumption
+	Enemies are less likely to target you
+	'''
+AssassinBonus
+	'''
+	Increase 30% melee speed and projectile velocity
+	Your melee weapons have chance to throw daggers
+	Your ranged weapons have chance to shoot extra arrows
+	Dagger/arrow can decrease enemies' 20 defense and increase 10% damage hitting on them
+	'''
 AtlanteanBonus: While submerged in liquids, your magic abilities and defense are enhanced
-BlazingBonus: Enemies are more likely to target you\nYour Swung weapons set your enemies ablaze
+BlazingBonus:
+	'''
+	Enemies are more likely to target you
+	Your Swung weapons set your enemies ablaze
+	'''
 
 Equipset: {
 	BogwoodHelmet: +1 Defense
-	ChampionHeaddressBonus: Baron Bunny fights by your side as an ally to rabbit kind\nAs you lose health, Baron Bunny's will to fight becomes stronger.
-	ChampionHelmetBonus: `You are the wall that protects the innocent`\nPressing the armor ability hotkey gives you the 'Defender's Rage' Buff.\nWhile enraged, you gain more defense as your life gets lower.\n'Defender's Rage' Lasts longer the less health you have\n'Defender's Rage' has a longer cooldown the less health you have\nDuring Cooldown, your defense is slightly lowered, but your speed is increased
-	ChampionHoodBonus: Energy Eminates from your body...\nStriking enemies has a chance to spawn an energy carrot from them\nEach energy carrot picked up boosts your damage, mana regen, and health regen\nStacks up to 3 times\nEach level increases the boosts of these stats
-	ChampionMaskBonus: `Time to hunt the hunters...`\nPressing the armor ability hotkey summons a R.A.B.I.T. Drone for 8 seconds\nR.A.B.I.T. Drone has a 15 second cooldown\nDuring Cooldown, your ranged damage and critical chance are increased by 15%
-	TerraHelmBonus: Increased Life Regen\n28% increased melee speed\nBeing struck by an enemy causes a terra sphere to home in on the enemy that attacked you
-	TerraHoodBonus: You can autodrink mana potions\nMana usage lowered by 40%\nPressing the Armor ability hotkey causes 2 terra rose stalks to grow around you.\nEnemies struck by the stalks drop mana stars
-	TerraMaskBonus: Summons a Terra Crystal to assist you\nPressing the armor ability toggles the crystal between offensive, defensive, and support mod\nWhile in support mode, your defense and life regeneration are increased, but your damage is cut in half
-	TerraVisorBonus: Enemies less likely to target you\nRanged critical strike chance increased by 20%\nStriking an enemy with a ranged projectile may cause a terra bullet to fire at the target
+	ChampionHeaddressBonus
+		'''
+		Baron Bunny fights by your side as an ally to rabbit kind
+		As you lose health, Baron Bunny's will to fight becomes stronger.
+		'''
+	ChampionHelmetBonus:
+		'''
+		`You are the wall that protects the innocent`
+		Pressing the armor ability hotkey gives you the 'Defender's Rage' Buff.
+		While enraged, you gain more defense as your life gets lower.
+		'Defender's Rage' Lasts longer the less health you have
+		'Defender's Rage' has a longer cooldown the less health you have
+		During Cooldown, your defense is slightly lowered, but your speed is increased
+		'''
+	ChampionHoodBonus:
+		'''
+		Energy Eminates from your body...
+		Striking enemies has a chance to spawn an energy carrot from them
+		Each energy carrot picked up boosts your damage, mana regen, and health regen
+		Stacks up to 3 times
+		Each level increases the boosts of these stats
+		'''
+	ChampionMaskBonus:
+		'''
+		`Time to hunt the hunters...`
+		Pressing the armor ability hotkey summons a R.A.B.I.T. Drone for 8 seconds
+		R.A.B.I.T. Drone has a 15 second cooldown
+		During Cooldown, your ranged damage and critical chance are increased by 15%
+		'''
+	TerraHelmBonus:
+		'''
+		Increased Life Regen
+		28% increased melee speed
+		Being struck by an enemy causes a terra sphere to home in on the enemy that attacked you
+		'''
+	TerraHoodBonus:
+		'''
+		You can autodrink mana potions
+		Mana usage lowered by 40%
+		Pressing the Armor ability hotkey causes 2 terra rose stalks to grow around you.
+		Enemies struck by the stalks drop mana stars
+		'''
+	TerraMaskBonus:
+		'''
+		Summons a Terra Crystal to assist you
+		Pressing the armor ability toggles the crystal between offensive, defensive, and support mod
+		While in support mode, your defense and life regeneration are increased, but your damage is cut in half
+		'''
+	TerraVisorBonus:
+		'''
+		Enemies less likely to target you
+		Ranged critical strike chance increased by 20%
+		Striking an enemy with a ranged projectile may cause a terra bullet to fire at the target
+		'''
 	RazewoodHelmet: +1 Defense
 	StoneSoldierMaskBonus:
 		'''
@@ -80,23 +141,99 @@ Equipset: {
 		'''
 }
 
-ChaosFukumenBonus: Your ranged attacks are imbued with the chaos of Dragonfire and Bogtoxin\n25% increased ranged damage\nEnemies are less likely to target you\nNight Vision and hunter effects\n25% reduced ammo consumption
-ChaosKabutoBonus: 10% increased melee speed\nEnemies are more likely to target you\nEnemies that strike you are set ablaze\nYour Swung weapons inflicts them with Bogtoxin and Dragonflame
-ChaosMaskBonus: While submerged in liquids, your magic abilities are increased drastically\nYou can swim and liquid does not affect your movement
-ChaosVisorBonus: +4 Minion slots\nA dragon soul ravages foes for you
+ChaosFukumenBonus:
+	'''
+	Your ranged attacks are imbued with the chaos of Dragonfire and Bogtoxin
+	25% increased ranged damage
+	Enemies are less likely to target you
+	Night Vision and hunter effects
+	25% reduced ammo consumption
+	'''
+ChaosKabutoBonus:
+	'''
+	10% increased melee speed
+	Enemies are more likely to target you
+	Enemies that strike you are set ablaze
+	Your Swung weapons inflicts them with Bogtoxin and Dragonflame
+	'''
+ChaosMaskBonus:
+	'''
+	While submerged in liquids, your magic abilities are increased drastically
+	You can swim and liquid does not affect your movement
+	'''
+ChaosVisorBonus:
+	'''
+	+4 Minion slots
+	A dragon soul ravages foes for you
+	'''
 DarkmatterHeaddressBonus: Minions will occasionally attempt to disrupt enemy projectiles
-DarkmatterHelmetBonus: A Dark Shield protects you.\nYou and nearby allies recieve 40% less damage while active.\nThe Dark Shield has a 30 second cooldown.\nYou have increased life regen while the shield is cooling down at night.
-DarkmatterMaskBonus1: Damage nearby enemies \n 2% of the damage dealt will heal you\n
-DarkmatterMaskBonus2: Magic Damage\n
+DarkmatterHelmetBonus:
+	'''
+	A Dark Shield protects you.
+	You and nearby allies recieve 40% less damage while active.
+	The Dark Shield has a 30 second cooldown.
+	You have increased life regen while the shield is cooling down at night.
+	'''
+DarkmatterMaskBonus1:
+	'''
+	Damage nearby enemies 
+	2% of the damage dealt will heal you
+
+	'''
+DarkmatterMaskBonus2: 
+	'''
+	Magic Damage
+
+	'''
 DarkmatterMaskBonus3: % critical strike chance
-DarkmatterVisorBonus: An unstable portal hovers above your head, shooting dark blasts when you shoot. \nDark blasts deal 30% of your weapon's damage, weakens enemies, and occasional dark locks them
-DeathlySkullBonus: You are as quiet as death itself, making enemies less likely to target you\n20% Reduced Ammo Consumption
-DemonHoodBonus: Your minions set enemies ablaze\nYou Always have a small Imp servant by your side\nImp isn't counted in your max minion count
-DepthFukumenBonus: Enemies are less likely to target you\n20% decreased ammo consumption\nNightvision
-DoomiteVisorBonus: +1 Max Minion\nA void searcher fights by your side
-DoomiteUHelmBonus: Increases max amount of minions by 2\nIncreases your minions knockback
-DoomsdayMaskBonus: Life termination systems activated\nYou detect all hostile life around you\nYou can see in the dark much more easily\nYour minion's attacks are strong enough to weaken your enemies defense for a time\n+5 Minion slots
-DoomsdayHelmetBonus: Life termination systems activated\nYou detect all hostile life around you\nYou can see in the dark much more easily\nYour magic attacks are strong enough to weaken your enemies defense for a time\nMana usage reduced by 30%
+DarkmatterVisorBonus:
+	'''
+	An unstable portal hovers above your head, shooting dark blasts when you shoot. 
+	Dark blasts deal 30% of your weapon's damage, weakens enemies, and occasional dark locks them
+	'''
+DeathlySkullBonus:
+	'''
+	You are as quiet as death itself, making enemies less likely to target you
+	20% Reduced Ammo Consumption
+	'''
+DemonHoodBonus:
+	'''
+	Your minions set enemies ablaze
+	You Always have a small Imp servant by your side
+	Imp isn't counted in your max minion count
+	'''
+DepthFukumenBonus:
+	'''
+	Enemies are less likely to target you
+	20% decreased ammo consumption
+	Nightvision
+	'''
+DoomiteVisorBonus:
+	'''
+	+1 Max Minion
+	A void searcher fights by your side
+	'''
+DoomiteUHelmBonus:
+	'''
+	Increases max amount of minions by 2
+	Increases your minions knockback
+	'''
+DoomsdayMaskBonus:
+	'''
+	Life termination systems activated
+	You detect all hostile life around you
+	You can see in the dark much more easily
+	Your minion's attacks are strong enough to weaken your enemies defense for a time
+	+5 Minion slots
+	'''
+DoomsdayHelmetBonus:
+	'''
+	Life termination systems activated
+	You detect all hostile life around you
+	You can see in the dark much more easily
+	Your magic attacks are strong enough to weaken your enemies defense for a time
+	Mana usage reduced by 30%
+	'''
 DracoHelmBonus:
 	'''
 	'Blazing fury consumes you'
@@ -112,9 +249,18 @@ DreadHelmBonus:
 	Your ranged attacks inflict Moonraze on your target
 	'''
 DynaskullBonus: Your ranged projectiles have so much power behind them, they confuse the target due to concussive force
-FleshrendHelmBonus: Being hit by enemies triggers a bloodsplosion that damages all enemies around you\nIncreased life regen
+FleshrendHelmBonus:
+	'''
+	Being hit by enemies triggers a bloodsplosion that damages all enemies around you
+	Increased life regen
+	'''
 ShroomHatBonus: You are immune to Mana Sickness
-StripeManSetBonus1: You change the rule of Nature's randomicity\nYou will be a lucky guy? Or an unfortunate man.\nPress the Armor Ability Key to change the world's random system:
+StripeManSetBonus1:
+	'''
+	You change the rule of Nature's randomicity
+	You will be a lucky guy? Or an unfortunate man.
+	Press the Armor Ability Key to change the world's random system: 
+	'''
 StripeManSetBonusactive: ACTIVATED
 StripeManSetBonusunactive: UNACTIVATED
 StripeManSetBonus2:
@@ -122,12 +268,25 @@ StripeManSetBonus2:
 	Behold, the man is become as one of us, to know good and evil.
 	And now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever
 	'''
-GoblinSlayerHelmBonus: 500% increased damage and knockback to goblins\n80% damage resistance from goblins\n'I hunt goblins or nothing.'
+GoblinSlayerHelmBonus:
+	'''
+	500% increased damage and knockback to goblins
+	80% damage resistance from goblins
+	'I hunt goblins or nothing.'
+	'''
 HoodlumHoodBonus: Reaching below half heath multiplies your movement speed, melee damage, and minion damage by 50%
 ImpHoodBonus: Your minions set enemies ablaze
-KindledKabutoBonus: 2% increased damage resistance\nYour Swung weapons set your enemies ablaze
+KindledKabutoBonus:
+	'''
+	2% increased damage resistance
+	Your Swung weapons set your enemies ablaze
+	'''
 MushiumHatBonus: Potion Sickness time is cut by 25%
-NightsHelmBonus: Being hit by enemies Sends you into a speed frenzy, increasing movement speed for a short time\n22% Increased Movement speed
+NightsHelmBonus:
+	'''
+	Being hit by enemies Sends you into a speed frenzy, increasing movement speed for a short time
+	22% Increased Movement speed
+	'''
 OceanHelmBonus: 20% increased magic damage and 15% mana use reduction while submerged in water
 OlympianHelmBonus:
 	'''
@@ -136,14 +295,30 @@ OlympianHelmBonus:
 	'''
 OroborosHelmetBonus: +3 Defence
 AdamantitePaintBonus: +4 Minion slots
-ChlorophytePaintBonus: +6 Minion slots\nShoots crystal leaves at nearby enemies
+ChlorophytePaintBonus:
+	'''
+	+6 Minion slots
+	Shoots crystal leaves at nearby enemies
+	'''
 CobaltPaintBonus: +2 Minion slots
 HallowedPaintBonus: +6 Minion slots
 MythrilPaintBonus: +3 Minion slots
-OrichalcumPaintBonus: Flower petals will fall on your target for extra damage\n+2 Minion slots
-PalladiumPaintBonus: +1 Minion Slot\nGreatly increases life regeneration after striking an enemy
+OrichalcumPaintBonus:
+	'''
+	Flower petals will fall on your target for extra damage
+	+2 Minion slots
+	'''
+PalladiumPaintBonus:
+	'''
+	+1 Minion Slot
+	Greatly increases life regeneration after striking an enemy
+	'''
 TerraPaintBonus: +7 Minion slots
-TitaniumPaintBonus: +4 Minion slots\nBriefly become invulnerable after your minions strike an enemy
+TitaniumPaintBonus:
+	'''
+	+4 Minion slots
+	Briefly become invulnerable after your minions strike an enemy
+	'''
 PerfectChaosHoodBonus:
 	'''
 	'Chaos empowers you'
@@ -168,17 +343,52 @@ PerfectChaosVisorBonus:
 	As your health decreases, your ranged damage and critical chance increases
 	Your ranged attacks raze your opponents with the flames of discordian hell
 	'''
-RadiumHatBonus1: Minions will occasionally deal damage to nearby enemies\n
+RadiumHatBonus1:
+	'''
+	Minions will occasionally deal damage to nearby enemies
+
+	'''
 RadiumHatBonus2: Summon Damage
-RadiumHeadgearBonus: A sun portal hovers above your head, shooting sun blasts when you shoot. \nSun blasts deal 50% of your weapon's damage, and ignite them
+RadiumHeadgearBonus:
+	'''
+	A sun portal hovers above your head, shooting sun blasts when you shoot. 
+	Sun blasts deal 50% of your weapon's damage, and ignite them
+	'''
 RadiumHelmetBonus: Nearby enemies will recieve more damage
-RadiumMaskBonus1: Damage nearby enemies \n 50% of the damage dealt will restore mana\n If mana is full you'll get mana overload buff instead\n
-RadiumMaskBonus2: Magic Damage\n
+RadiumMaskBonus1:
+	'''
+	Damage nearby enemies 
+	50% of the damage dealt will restore mana
+	If mana is full you'll get mana overload buff instead
+
+	'''
+RadiumMaskBonus2:
+	'''
+	Magic Damage
+
+	'''
 RadiumMaskBonus3: % critical strike chance
-RaiderChestBonus: You cannot be knocked back\nAs your health goes down, your damage resistance goes up
-TribalHatBonus: You are blessed with a gift of nature, allowing you to autodrink mana potions\nMana usage lowered by 30%
+RaiderChestBonus:
+	'''
+	You cannot be knocked back
+	As your health goes down, your damage resistance goes up
+	'''
+TribalHatBonus:
+	'''
+	You are blessed with a gift of nature, allowing you to autodrink mana potions
+	Mana usage lowered by 30%
+	'''
 VikingPlateBonus: 4% Increased damage resistance
-WitchHoodBonus: Scorch and Burn.\n20% Increased Magic and Minion damage\n+4 max minions\nA Fire spirit protects you\nThe Fire spirit becomes more powerful the less mana you have\nPress the Armor AbilityKey to release the Flame Power\n(Only works when you hold magic or summon weapon)
+WitchHoodBonus:
+	'''
+	Scorch and Burn.
+	20% Increased Magic and Minion damage
+	+4 max minions
+	A Fire spirit protects you
+	The Fire spirit becomes more powerful the less mana you have
+	Press the Armor AbilityKey to release the Flame Power
+	(Only works when you hold magic or summon weapon)
+	'''
 #CurrencyItems
 
 PlayerBuyPrice: Buy price:
