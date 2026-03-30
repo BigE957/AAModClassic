@@ -1,19 +1,12 @@
-﻿using AAModClassic.NPCs.Bosses.Akuma;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameContent.UI.States;
 using Terraria.Graphics.Capture;
@@ -24,7 +17,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
 using static Terraria.UI.UIElement;
-using static Terraria.WorldGen;
 
 namespace AAModClassic.UI.WorldGen
 {
@@ -74,25 +66,25 @@ namespace AAModClassic.UI.WorldGen
                 if (perviousStateWorldCreation)
                     return;
 
-                perviousStateWorldCreation = true;
-                _optionAAWorldType = AAWorldType.Release;
-
                 UIElement baseElement = worldCreation.Children.First();
                 UIElement[] baseChildren = baseElement.Children.ToArray();
                 UIPanel worldGenPanel = (UIPanel)baseChildren[0];
+
+                perviousStateWorldCreation = true;
+                _optionAAWorldType = AAWorldType.Release;
+
                 UITextPanel<LocalizedText> backButton = (UITextPanel<LocalizedText>)baseChildren[1];
                 UITextPanel<LocalizedText> createButton = (UITextPanel<LocalizedText>)baseChildren[2];
                 UIElement infoRack = worldGenPanel.Children.First().Children.First();
                 UIText optionDesc = (UIText)infoRack.Children.First(e => e is UISlicedImage).Children.First();
 
-                int num = 18;
-                float defaultPanelHeight = 280f + (float)num;
+                float defaultPanelHeight = worldGenPanel.Height.Pixels;//298f;
                 float defaultButtonTop = -45;
                 worldGenPanel.Height = worldGenPanel.MaxHeight = StyleDimension.FromPixels(defaultPanelHeight + 48);
                 backButton.Top = StyleDimension.FromPixels(defaultButtonTop + 48);
                 createButton.Top = StyleDimension.FromPixels(defaultButtonTop + 48);
 
-                UIHorizontalSeparator element = new UIHorizontalSeparator
+                UIHorizontalSeparator element = new()
                 {
                     Width = StyleDimension.FromPercent(1f),
                     Top = StyleDimension.FromPixels(worldGenPanel.Height.Pixels - 20f - 48f),
