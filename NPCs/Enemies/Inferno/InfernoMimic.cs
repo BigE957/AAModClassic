@@ -1,6 +1,9 @@
-using Terraria;
-using Terraria.ID;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
@@ -52,11 +55,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 			}
 		}
 
-		public override void OnKill()
-		{
-			string[] lootTable = { "OrnateBand", "SunLance" };
-			int loot = Main.rand.Next(lootTable.Length);
-			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(lootTable[loot]).Type);
-		}
-	}
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunLance>()));
+        }
+    }
 }

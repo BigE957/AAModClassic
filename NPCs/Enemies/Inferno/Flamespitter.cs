@@ -1,11 +1,12 @@
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-
-using System;
-using AAModClassic.Dusts;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Materials;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Inferno
 {
@@ -207,12 +208,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             }
 		}
 
-		public override void OnKill()
-		{
-            if (Main.rand.NextFloat() < 0.1f)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonScale>(), 10));
         }
-	}
+    }
 }
