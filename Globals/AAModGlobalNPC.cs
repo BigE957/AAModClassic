@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Currency;
@@ -895,16 +896,19 @@ namespace AAModClassic.Globals
                 pool.Add(Main.dayTime ? Mod.Find<ModNPC>("Sunwatcher").Type : Mod.Find<ModNPC>("Nightguard").Type, .2f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(spawnInfo.Player))
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
                 {
-                    pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
-                    pool.Add(Mod.Find<ModNPC>("InfernalSlime").Type, .05f);
-                    pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
-                    pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
-                    pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                    if (!ContentReplacementSystem.NeedToReplaceContent)
+                    {
+                        pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
+                        pool.Add(Mod.Find<ModNPC>("InfernalSlime").Type, .05f);
+                        pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
+                        pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
+                        pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                    }
 
                     if (Main.hardMode)
                     {
@@ -919,10 +923,13 @@ namespace AAModClassic.Globals
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
                 {
-                    pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
-                    pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
-                    pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
-                    pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                    if (!ContentReplacementSystem.NeedToReplaceContent)
+                    {
+                        pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
+                        pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
+                        pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
+                        pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                    }
 
                     if (Main.hardMode)
                     {
@@ -948,16 +955,19 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player))
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))
                 {
-                    pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
-                    pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
-                    pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
-                    pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
-                    pool.Add(Mod.Find<ModNPC>("MireSlime").Type, .025f);
+                    if (!ContentReplacementSystem.NeedToReplaceContent)
+                    {
+                        pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
+                        pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
+                        pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
+                        pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
+                        pool.Add(Mod.Find<ModNPC>("MireSlime").Type, .025f);
+                    }
 
                     if (Main.hardMode)
                     {
@@ -973,10 +983,13 @@ namespace AAModClassic.Globals
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
                 {
-                    pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
-                    pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
-                    pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
-                    pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
+                    if (!ContentReplacementSystem.NeedToReplaceContent)
+                    { 
+                        pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
+                        pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
+                        pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
+                        pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
+                    }
 
                     if (Main.hardMode)
                     {

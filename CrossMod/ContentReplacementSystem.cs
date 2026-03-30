@@ -15,13 +15,23 @@ namespace AAModClassic.CrossMod
 {
     public class ContentReplacementSystem : ModSystem
     {
-        private static Mod newAA = null;
+        public static Mod NewAA { get; private set; } = null;
 
-        public static bool NewAAPresent => newAA != null;
+        public static bool NewAAPresent => NewAA != null;
 
         public static bool NeedToReplaceContent => NewAAPresent && AAConfigClient.Instance.EnableContentReplacement;
 
         internal static readonly Dictionary<int, int> OldToNewItems = [];
+
+        private static ModBiome NewInfernoSurface = null;
+        private static ModBiome NewInfernoUnderground = null;
+
+        public static bool InNewInferno(Player p) => ContentReplacementSystem.NewAAPresent && (p.InModBiome(ContentReplacementSystem.NewInfernoSurface) || p.InModBiome(ContentReplacementSystem.NewInfernoUnderground));
+
+        private static ModBiome NewMireSurface = null;
+        private static ModBiome NewMireUnderground = null;
+
+        public static bool InNewMire(Player p) => ContentReplacementSystem.NewAAPresent && (p.InModBiome(ContentReplacementSystem.NewMireSurface) || p.InModBiome(ContentReplacementSystem.NewMireUnderground));
 
         internal static HashSet<int> ReplacedItems =>
         [
@@ -33,28 +43,36 @@ namespace AAModClassic.CrossMod
 
         public override void OnModLoad()
         {
-            if(ModLoader.TryGetMod("AAMod", out newAA))
+            if(ModLoader.TryGetMod("AAMod", out var newAA))
             {
+                NewAA = newAA;
+
+                NewAA.TryFind<ModBiome>("InfernoSurfaceBiome", out NewInfernoSurface);
+                NewAA.TryFind<ModBiome>("InfernoUndergroundBiome", out NewInfernoUnderground);
+
+                NewAA.TryFind<ModBiome>("MireSurfaceBiome", out NewMireSurface);
+                NewAA.TryFind<ModBiome>("MireUndergroundBiome", out NewMireUnderground);
+
                 #region Materials
-                OldToNewItems.Add(ModContent.ItemType<Incinerite>(), newAA.Find<ModItem>("IncineriteOre").Type);
-                OldToNewItems.Add(ModContent.ItemType<Abyssium>(), newAA.Find<ModItem>("AbyssiumOre").Type);
-                OldToNewItems.Add(ModContent.ItemType<IncineriteBar>(), newAA.Find<ModItem>("IncineriteBar").Type);
-                OldToNewItems.Add(ModContent.ItemType<AbyssiumBar>(), newAA.Find<ModItem>("AbyssiumBar").Type);
+                OldToNewItems.Add(ModContent.ItemType<Incinerite>(), NewAA.Find<ModItem>("IncineriteOre").Type);
+                OldToNewItems.Add(ModContent.ItemType<Abyssium>(), NewAA.Find<ModItem>("AbyssiumOre").Type);
+                OldToNewItems.Add(ModContent.ItemType<IncineriteBar>(), NewAA.Find<ModItem>("IncineriteBar").Type);
+                OldToNewItems.Add(ModContent.ItemType<AbyssiumBar>(), NewAA.Find<ModItem>("AbyssiumBar").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<MirePod>(), newAA.Find<ModItem>("BeastScales").Type);
+                OldToNewItems.Add(ModContent.ItemType<MirePod>(), NewAA.Find<ModItem>("BeastScales").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<DragonScale>(), newAA.Find<ModItem>("DragonScale").Type);
+                OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<DragonClaw>(), newAA.Find<ModItem>("ChaosPowder").Type);
-                OldToNewItems.Add(ModContent.ItemType<HydraClaw>(), newAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<BroodScale>(), newAA.Find<ModItem>("ScorchedScale").Type);
-                OldToNewItems.Add(ModContent.ItemType<HydraHide>(), newAA.Find<ModItem>("LurkerHide").Type);
+                OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
+                OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<Hotshroom>(), newAA.Find<ModItem>("InfernoShroom").Type);
-                OldToNewItems.Add(ModContent.ItemType<Darkshroom>(), newAA.Find<ModItem>("MireShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<Hotshroom>(), NewAA.Find<ModItem>("InfernoShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<Darkshroom>(), NewAA.Find<ModItem>("MireShroom").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<MushiumBar>(), newAA.Find<ModItem>("BlightShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<MushiumBar>(), NewAA.Find<ModItem>("BlightShroom").Type);
                 #endregion
             }
         }
