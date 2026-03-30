@@ -1,9 +1,11 @@
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System;
 using AAModClassic.Dusts;
+using AAModClassic.Items.Melee;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Mire
 {
@@ -141,13 +143,9 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
 		}
 
-		public override void OnKill()
-		{
-            
-                if (Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AbyssalTwilight").Type);
-                }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssalTwilight>(), 10));
         }
-	}
+    }
 }

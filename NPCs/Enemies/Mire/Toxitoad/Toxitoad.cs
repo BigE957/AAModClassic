@@ -1,4 +1,5 @@
 ﻿using AAModClassic;
+using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -38,7 +39,7 @@ namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (Main.hardMode && (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player)))
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.25f;
             }

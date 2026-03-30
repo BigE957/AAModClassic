@@ -1,5 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -61,9 +63,9 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
         }
 
-        public override void OnKill()
-		{
-			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraToxin").Type, Main.rand.Next(1,2));
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraToxin>(), 1, 1, 2));
         }
-	}
+    }
 }

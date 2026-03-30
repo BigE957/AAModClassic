@@ -1,9 +1,13 @@
-using Terraria;
-using Terraria.ID;
+using AAModClassic;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic;
 
 namespace AAModClassic.NPCs.Enemies.Mire
 {
@@ -51,11 +55,9 @@ namespace AAModClassic.NPCs.Enemies.Mire
 			}
 		}
 
-		public override void OnKill()
-		{
-			string[] lootTable = { "BotchedBand", "Bubbleshot", "BackScratcher" };
-			int loot = Main.rand.Next(lootTable.Length);
-			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>(lootTable[loot]).Type);
-		}
-	}
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+        }
+    }
 }

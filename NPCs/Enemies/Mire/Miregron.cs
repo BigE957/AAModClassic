@@ -1,7 +1,9 @@
+using AAModClassic.Items.Throwing;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Mire
@@ -193,12 +195,9 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
         }
 
-		public override void OnKill()
-		{
-            if (Main.rand.Next(3) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 3532, 1, false, 0, false, false);
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ItemID.Bacon, 3));
         }
-	}
+    }
 }
