@@ -12,6 +12,9 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic;
 using AAModClassic.Globals;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Boss.Toad;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.NPCs.Bosses.Toad
 {
@@ -596,25 +599,20 @@ namespace AAModClassic.NPCs.Bosses.Toad
 
         public override void OnKill()
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadTrophy").Type);
-            }
             AAWorld.downedToad = true;
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("ToadBag").Type);
-            }
-            else
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ToadMask").Type);
-                }
-                string[] lootTable = { "MushrockStaff", "ToadTongue", "Todegun" };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<ToadBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ToadTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToadMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<MushrockStaff>(), ModContent.ItemType<ToadTongue>(), ModContent.ItemType<Todegun>()));
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

@@ -10,6 +10,9 @@ using Terraria.ModLoader;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
+using AAModClassic.Items.Boss.Hydra;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.NPCs.Bosses.Hydra
 {
@@ -65,23 +68,25 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.Next(2) == 0 ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShade>());
             }
             AAWorld.downedHydra = true;
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HydraTrophy").Type);
-            }
 
-            if (!Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("HydraHide").Type, 30, 50);
-                NPC.DropLoot(Mod.Find<ModItem>("Abyssium").Type, 40, 90);
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("HydraBag").Type);
-            }
             NPC.value = 0f;
             NPC.boss = false;
+        }
 
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            //notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask(1-3)>(), 7)); Exists but doesn't drop...?
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 30, 50));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Abyssium>(), 1, 40, 90));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public Rectangle frameBottom = new Rectangle(0, 0, 1, 1);

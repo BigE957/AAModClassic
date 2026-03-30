@@ -9,6 +9,10 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.Items.Flasks;
+using AAModClassic.Items.Vanity.Mask;
 
 
 namespace AAModClassic.NPCs.Bosses.FeudalFungus
@@ -204,23 +208,23 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         {
             AAWorld.downedFungus = true;
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModProjectile>("FungusIGoNow").Type, 0, 0, 255, NPC.scale);
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingSporeSac").Type, Main.rand.Next(30, 35));
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusTrophy").Type);
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("FungusBag").Type);
-            }
-            else
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FungusMask").Type);
-                }
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowingMushium").Type, Main.rand.Next(25, 35));
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FungusBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FungusTrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingSporeSac>(), 1, 30, 35));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FungusMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GlowingMushium>(), 1, 25, 35));
+
+            npcLoot.Add(notExpertRule);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

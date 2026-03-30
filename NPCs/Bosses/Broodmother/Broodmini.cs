@@ -1,8 +1,11 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Broodmother;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -51,10 +54,10 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 			}			
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-                NPC.DropLoot(Mod.Find<ModItem>("Incinerite").Type, 5, 6);
-                NPC.DropLoot(Mod.Find<ModItem>("BroodScale").Type, 2, 4);
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 2, 4));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 5, 6));
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

@@ -1,11 +1,17 @@
 ﻿using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Tiles.Ore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -110,28 +116,26 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
 
         public override void OnKill()
         {
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodmotherTrophy").Type);
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("BroodBag").Type);
-            }
-            else
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodMask").Type);
-                }
-                if (Main.rand.Next(10) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BroodEgg").Type);
-                }
-                NPC.DropLoot(Mod.Find<ModItem>("Incinerite").Type, 75, 100);
-                NPC.DropLoot(Mod.Find<ModItem>("BroodScale").Type, 50, 75);
-            }
-        }      
+            AAWorld.downedBrood = true;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherTrophy>(), 10));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 10));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodScale>(), 1, 50, 75));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 75, 100));
+
+            npcLoot.Add(notExpertRule);
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
@@ -154,7 +158,6 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
         public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.HealingPotion;
-            AAWorld.downedBrood = true;
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {

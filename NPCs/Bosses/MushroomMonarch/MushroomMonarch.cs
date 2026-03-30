@@ -6,6 +6,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using AAModClassic.Items.Boss.MushroomMonarch;
+using AAModClassic.Items.Usable;
+using AAModClassic.Items.Vanity.Mask;
 
 
 namespace AAModClassic.NPCs.Bosses.MushroomMonarch
@@ -363,25 +367,25 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
         {
             AAWorld.downedMonarch = true;
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SporeSac").Type, Main.rand.Next(30, 35));
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchTrophy").Type);
-            }
-            if (Main.expertMode)
-            {
-                NPC.DropLoot(Mod.Find<ModItem>("MonarchBag").Type);
-            }
-            else
-            {
-                if (Main.rand.Next(7) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MonarchMask").Type);
-                }
-
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Mushium").Type, Main.rand.Next(25, 35));
-            }
         }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MonarchBag>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MonarchTrophy>(), 10));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeSac>(), 1, 30, 35));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MonarchMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 25, 35));
+
+            npcLoot.Add(notExpertRule);
+        }
+
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  //boss life scale in expertmode
