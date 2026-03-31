@@ -1,6 +1,8 @@
 ﻿using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Armor.Bogwood;
 using AAModClassic.Items.Armor.GlowingMushium;
 using AAModClassic.Items.Armor.Mushium;
+using AAModClassic.Items.Armor.Razewood;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Grips;
@@ -72,9 +74,6 @@ namespace AAModClassic.CrossMod
             #region Boss Drops
             ModContent.ItemType<Mushium>(),
             ModContent.ItemType<MushiumBar>(),
-            ModContent.ItemType<MushiumHat>(),
-            ModContent.ItemType<MushiumShirt>(),
-            ModContent.ItemType<MushiumPants>(),
             ModContent.ItemType<MushMace>(),
             ModContent.ItemType<Musharang>(),
             ModContent.ItemType<Mushbow>(),
@@ -83,13 +82,28 @@ namespace AAModClassic.CrossMod
 
             ModContent.ItemType<GlowingMushium>(),
             ModContent.ItemType<GlowingMushiumBar>(),
-            ModContent.ItemType<ShroomHat>(),
-            ModContent.ItemType<ShroomShirt>(),
-            ModContent.ItemType<ShroomPants>(),
             ModContent.ItemType<GlowMushpick>(),
             ModContent.ItemType<GlowMushmallet>(),
 
             ModContent.ItemType<ClawBaton>(),
+            #endregion
+
+            #region Armor
+            ModContent.ItemType<RazewoodHelmet>(),
+            ModContent.ItemType<RazewoodChestplate>(),
+            ModContent.ItemType<RazewoodBoots>(),
+
+            ModContent.ItemType<BogwoodHelmet>(),
+            ModContent.ItemType<BogwoodChestplate>(),
+            ModContent.ItemType<BogwoodBoots>(),
+
+            ModContent.ItemType<MushiumHat>(),
+            ModContent.ItemType<MushiumShirt>(),
+            ModContent.ItemType<MushiumPants>(),
+
+            ModContent.ItemType<ShroomHat>(),
+            ModContent.ItemType<ShroomShirt>(),
+            ModContent.ItemType<ShroomPants>(),
             #endregion
 
             #region Useless Items
@@ -118,6 +132,7 @@ namespace AAModClassic.CrossMod
                 #region Old To New
 
                 #region Blocks
+                //Biome tiles
                 OldToNewItems.Add(ModContent.ItemType<Bogwood>(), NewAA.Find<ModItem>("Bogwood").Type);
                 OldToNewItems.Add(ModContent.ItemType<Depthstone>(), NewAA.Find<ModItem>("Depthstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<Darkmud>(), NewAA.Find<ModItem>("Darkmud").Type);
@@ -133,7 +148,15 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<Torchsandstone>(), NewAA.Find<ModItem>("Torchsandstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<TorchsandHardened>(), NewAA.Find<ModItem>("HardenedTorchsand").Type);
 
+                //Crafters
                 OldToNewItems.Add(ModContent.ItemType<FurnitureDynamo>(), NewAA.Find<ModItem>("FurnitureDynamo").Type);
+
+                //Trophies (Maybe used inr ecipes? I don't know)
+                OldToNewItems.Add(ModContent.ItemType<GripTrophyBlue>(), NewAA.Find<ModItem>("MireGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<GripTrophyRed>(), NewAA.Find<ModItem>("InfernoGripTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<MonarchTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<FungusTrophy>(), NewAA.Find<ModItem>("MonarchTrophy").Type);
+                OldToNewItems.Add(ModContent.ItemType<ToadTrophy>(), NewAA.Find<ModItem>("ToadTrophy").Type);
                 #endregion
 
                 #region Materials
