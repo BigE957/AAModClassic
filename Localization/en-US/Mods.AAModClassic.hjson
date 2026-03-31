@@ -4149,7 +4149,7 @@ Items: {
 	}
 
 	AHBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Sisters of Discord)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4258,7 +4258,7 @@ Items: {
 	}
 
 	AkumaBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Oni Akuma)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4411,7 +4411,7 @@ Items: {
 	}
 
 	AnubisBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Anubis)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4451,7 +4451,7 @@ Items: {
 	}
 
 	FAnubisBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Forsaken Anubis)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4540,7 +4540,7 @@ Items: {
 	}
 
 	AthenaBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Athena)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4565,7 +4565,7 @@ Items: {
 	}
 
 	AthenaABag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Olympian Athena)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4644,7 +4644,7 @@ Items: {
 	}
 
 	BroodBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Broodmother)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4664,7 +4664,7 @@ Items: {
 	}
 
 	DjinnBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Desert Djinn)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4766,7 +4766,7 @@ Items: {
 	}
 
 	EquinoxBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Equinox Worms)
 		Tooltip:
 			'''
 			{$CommonItemTooltip.RightClickToOpen}
@@ -4832,7 +4832,7 @@ Items: {
 	}
 
 	GreedBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Greed)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4895,7 +4895,7 @@ Items: {
 	}
 
 	GreedABag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Worm King Greed)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4954,7 +4954,7 @@ Items: {
 	}
 
 	GripBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Grips of Chaos)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4969,7 +4969,7 @@ Items: {
 	}
 
 	HydraBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Hydra)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -4989,7 +4989,7 @@ Items: {
 	}
 
 	FungusBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Feudal Fungus)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5027,7 +5027,7 @@ Items: {
 	}
 
 	MonarchBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Mushroom Monarch)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5076,7 +5076,7 @@ Items: {
 	}
 
 	RajahBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Rajah Rabbit)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5170,7 +5170,7 @@ Items: {
 	}
 
 	RajahCache: {
-		DisplayName: Treasure Cache
+		DisplayName: Treasure Cache (Rajah Rabbit)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5194,7 +5194,7 @@ Items: {
 	}
 
 	SagBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Sagittarius)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5241,7 +5241,7 @@ Items: {
 	}
 
 	SerpentBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Subzero Serpent)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5382,7 +5382,7 @@ Items: {
 	}
 
 	ShenCache: {
-		DisplayName: Treasure Cache
+		DisplayName: Treasure Cache (Shen Doragon)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5420,7 +5420,7 @@ Items: {
 	}
 
 	ToadBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Truffle Toad)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5576,7 +5576,7 @@ Items: {
 	}
 
 	YamataBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Yamata No Orochi)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -5715,7 +5715,7 @@ Items: {
 	}
 
 	ZeroBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Zero Protocol)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
