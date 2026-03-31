@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Armor.Champion.Carrot
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
         }
 
         public override Color? GetAlpha(Color lightColor)

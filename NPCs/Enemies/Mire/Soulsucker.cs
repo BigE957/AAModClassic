@@ -1,9 +1,10 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Enemies.Mire
 {
@@ -89,9 +90,16 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            BaseAI.DropItem(NPC, Mod.Find<ModItem>("TerrorSoul").Type, Main.expertMode ? 1 + Main.rand.Next(2) : Main.rand.Next(1), 3, 100, true);
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerrorSoul>(), 2));
+            expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerrorSoul>(), 1, 1, 2));
+
+            npcLoot.Add(notExpertRule);
+            npcLoot.Add(expertRule);
         }
-	}
+    }
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,8 @@ namespace AAModClassic.Items.Boss.Rajah
             // DisplayName.SetDefault("Rabbitcopter Ears");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 'Yeah that's not how rabbit ears work but whatever, it works.'"); */
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 8f, 2f);
         }
 
 		public override void SetDefaults()

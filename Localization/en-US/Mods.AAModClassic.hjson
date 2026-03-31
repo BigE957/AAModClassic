@@ -3211,213 +3211,213 @@ Items: {
 	}
 
 	AcropolisBox: {
-		DisplayName: Acropolis Music Box
-		Tooltip: Plays 'Palace in the Sky' by Turquoise
+		DisplayName: Music Box (Acropolis)
+		Tooltip: Plays 'Palace in the Sky' by ENNWAY
 	}
 
 	AkumaABox: {
-		DisplayName: Akuma Awakened Music Box
-		Tooltip: Plays 'Dawn of the Dragon' by Universe
+		DisplayName: Music Box (Oni Akuma)
+		Tooltip: Plays 'Dawn of the Dragon' by Tyseki
 	}
 
 	AkumaBox: {
-		DisplayName: Akuma Music Box
+		DisplayName: Music Box (Akuma)
 		Tooltip: Plays 'Trial By Fire' by Saucecoie
 	}
 
 	AnubisBox: {
-		DisplayName: Anubis Music Box
-		Tooltip: Plays 'Strings of Judgement' by Universe
+		DisplayName: Music Box (Anubis)
+		Tooltip: Plays 'Strings of Judgement' by Tyseki
 	}
 
 	AnubisFBox: {
-		DisplayName: Forsaken Anubis Music Box
-		Tooltip: Plays 'Purgatorium' by Universe
+		DisplayName: Music Box (Forsaken Anubis)
+		Tooltip: Plays 'Purgatorium' by Tyseki
 	}
 
 	AthenaABox: {
-		DisplayName: Olympian Athena Music Box
-		Tooltip: Plays 'Goddess of Those Winged' by Turquoise
+		DisplayName: Music Box (Olympian Athena)
+		Tooltip: Plays 'Goddess of Those Winged' by ENNWAY
 	}
 
 	AthenaBox: {
-		DisplayName: Athena Music Box
-		Tooltip: Plays 'Magisaint' by Turquoise
+		DisplayName: Music Box (Athena)
+		Tooltip: Plays 'Magisaint' by ENNWAY
 	}
 
 	BroodBox: {
-		DisplayName: Broodmother Music Box
+		DisplayName: Music Box (Broodmother)
 		Tooltip: Plays 'Blazing Fury' by Spectral Aves
 	}
 
 	DjinnBox: {
-		DisplayName: Desert Djinn Music Box
-		Tooltip: Plays 'The Dust Bowl' by Universe
+		DisplayName: Music Box (Desert Djinn)
+		Tooltip: Plays 'The Dust Bowl' by Tyseki
 	}
 
 	Equibox: {
-		DisplayName: Equinox Worms Music Box
-		Tooltip: Plays 'Orbittal Equilibrium' by Charlie Debnam
+		DisplayName: Music Box (Equinox Worms)
+		Tooltip: Plays 'Symphony of the Stars'
 	}
 
 	FateBox: {
-		DisplayName: True Void Music Box
-		Tooltip: Plays 'Nihil' by Charlie Debnam
+		DisplayName: Music Box (True Void)
+		Tooltip: Plays 'Systems Engaged'
 	}
 
 	FungusBox: {
-		DisplayName: Feudal Fungus Music Box
+		DisplayName: Music Box (Feudal Fungus)
 		Tooltip: Plays 'Bioluminescent Beatdown' by Spectral Aves
 	}
 
 	GreedABox: {
-		DisplayName: Worm King Music Box
-		Tooltip: Plays 'Ira De Riquezas Perdidas' by Universe
+		DisplayName: Music Box (Worm King Greed)
+		Tooltip: Plays 'Ira De Riquezas Perdidas' by Tyseki
 	}
 
 	GreedBox: {
-		DisplayName: Greed Music Box
-		Tooltip: Plays 'Gold Digger' by Universe
+		DisplayName: Music Box (Greed)
+		Tooltip: Plays 'Gold Digger' by Tyseki
 	}
 
 	GripsBox: {
-		DisplayName: Grips of Chaos Music Box
+		DisplayName: Music Box (Grips of Chaos)
 		Tooltip: Plays 'Twin Terror' by Spectral Aves
 	}
 
 	HoardBox: {
-		DisplayName: Hoard Music Box
-		Tooltip: Plays 'Cove' by Universe
+		DisplayName: Music Box (Hoard)
+		Tooltip: Plays 'Cove' by Tyseki
 	}
 
 	HydraBox: {
-		DisplayName: Hydra Music Box
+		DisplayName: Music Box (Hydra)
 		Tooltip: Plays 'Abyssal Wrath' by Spectral Aves
 	}
 
 	InfernoBox: {
-		DisplayName: Inferno Surface Music Box
+		DisplayName: Music Box (Inferno)
 		Tooltip: Plays 'Flame-Razed Rock' by Karamitasu
 	}
 
 	InfernoNightBox: {
-		DisplayName: Inferno Night Music Box
+		DisplayName: Music Box (Inferno Night)
 		Tooltip: Plays 'Burnt to Ashes' by Quicksilvur
 	}
 
 	InfernoUBox: {
-		DisplayName: Inferno Underground Music Box
+		DisplayName: Music Box (Underground Inferno)
 		Tooltip: Plays 'Superheated' by Quicksilvur
 	}
 
 	LakeBox: {
-		DisplayName: Lake of the Rising Moon Music Box
+		DisplayName: Music Box (Lake of the Rising Moon)
 		Tooltip: Plays 'Lake of Souls' by Rockwizard
 	}
 
 	MireBox: {
-		DisplayName: Mire Surface Music Box
-		Tooltip: Plays 'Moonlit Marsh' by Charlie Debnam
+		DisplayName: Music Box (Mire)
+		Tooltip: Plays 'Secluded Swamp' by ProduceVGM
 	}
 
 	MireDayBox: {
-		DisplayName: Mire Day Music Box
-		Tooltip: Plays 'Clouded in Mystery' by Charlie Debnam
+		DisplayName: Music Box (Mire Day)
+		Tooltip: Plays 'Through the Toxic Mist' by ProduceVGM
 	}
 
 	MireUBox: {
-		DisplayName: Mire Underground Music Box
-		Tooltip: Plays 'The Deepest Reaches' by Charlie Debnam
+		DisplayName: Music Box (Underground Mire)
+		Tooltip: Plays 'Creepy Crawlers' by ProduceVGM
 	}
 
 	MonarchBox: {
-		DisplayName: Mushroom Monarch Music Box
+		DisplayName: Music Box (Mushroom Monarch)
 		Tooltip: Plays 'Fungal Face-off' by Spectral Aves
 	}
 
 	PagodaBox: {
-		DisplayName: Pagoda of the Rising Sun Music Box
+		DisplayName: Music Box (Pagoda of the Rising Sun)
 		Tooltip: Plays 'Scorched Tower' by Rockwizard
 	}
 
 	RajahBox: {
-		DisplayName: Rajah Rabbit Music Box
+		DisplayName: Music Box (Rajah Rabbit)
 		Tooltip: Plays 'JUSTICE' by Spectral Aves
 	}
 
 	SagBox: {
-		DisplayName: Sagittarius Music Box
+		DisplayName: Music Box (Sagittarius)
 		Tooltip: Plays 'Event Horizon' by SpectralAves
 	}
 
 	SDBox: {
-		DisplayName: Sleeping Dragon Music Box
-		Tooltip: Plays 'Sleeping Giants' by LordCakeSpy
+		DisplayName: Music Box (Sleeping Dragon)
+		Tooltip: Plays 'Sleeping Dragon'
 	}
 
 	SerpentBox: {
 		DisplayName: Subzero Serpent Music Box
-		Tooltip: Plays 'Burrowing Down' by Charlie Debnam
+		Tooltip: Plays 'Bells of Ice'
 	}
 
 	SGBox: {
-		DisplayName: Sleeping Giant Music Box
+		DisplayName: Music Box (Sleeping Giant)
 		Tooltip: Plays 'Sleeping Giant' by LordCakeSpy
 	}
 
 	ShenABox: {
-		DisplayName: Shen Doragon Awakened Music Box
-		Tooltip: Plays 'Blaze of Glory' by Charlie Debnam
+		DisplayName: Music Box (Awakened Shen Doragon)
+		Tooltip: Plays 'VS Champion Of Alola' by Emdasche
 	}
 
 	ShenBox: {
-		DisplayName: Shen Doragon Music Box
-		Tooltip: Plays 'Unyielding Discord' by Charlie Debnam
+		DisplayName: Music Box (Shen Doragon)
+		Tooltip: Plays 'Trial by Fire (Old)'
 	}
 
 	SistersBox: {
-		DisplayName: Sisters of Discord Music Box
+		DisplayName: Music Box (Sisters of Discord)
 		Tooltip: Plays 'Sisters of Anarchy' by Shadow Figure
 	}
 
 	StarBox: {
-		DisplayName: Celestial Stars Box
-		Tooltip: Plays 'Star's Serenade' by Charlie Debnam
+		DisplayName: Music Box (Celestial Stars)
+		Tooltip: Plays 'Interstellar'
 	}
 
 	TerrariumBox: {
-		DisplayName: Terrarium Music Box
-		Tooltip: Plays 'Heart of the World' by Quicksilvur feat Charlie Debnam
+		DisplayName: Music Box (Terrarium)
+		Tooltip: Plays 'Heart of the World' by Quicksilvur feat. Charlie Debnam
 	}
 
 	ToadBox: {
-		DisplayName: Truffle Toad Music Box
+		DisplayName: Music Box (Truffle Toad)
 		Tooltip: Plays 'TODESTOOL' by Spectral Aves
 	}
 
 	VoidBox: {
-		DisplayName: Void Music Box
-		Tooltip: Plays 'Gaze into Darkness' by Charlie Debnam
+		DisplayName: Music Box (Void)
+		Tooltip: Plays 'What Once Was'
 	}
 
 	YamataABox: {
-		DisplayName: Yamata Awakened Music Box
-		Tooltip: Plays 'Abyssal Nightmare' by Universe
+		DisplayName: Music Box (Yamata No Orochi)
+		Tooltip: Plays 'Abyssal Nightmare' by Tyseki
 	}
 
 	YamataBox: {
-		DisplayName: Yamata Music Box
+		DisplayName: Music Box (Yamata)
 		Tooltip: Plays 'Crescent of Madness' by Saucecoie
 	}
 
 	Zero2Box: {
-		DisplayName: Zero Awakened Music Box
+		DisplayName: Music Box (Zero Protocol)
 		Tooltip: Plays 'Doomsday Arrives' by Saucecoie
 	}
 
 	ZeroBox: {
-		DisplayName: Zero Music Box
-		Tooltip: Plays 'Entropy's Envoy' by Charlie Debnam
+		DisplayName: Music Box (Zero)
+		Tooltip: Plays 'Clockwork Catastrophe' by Charlie Debnam
 	}
 
 	AbyssiumBrick: {

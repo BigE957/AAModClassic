@@ -12,7 +12,7 @@ namespace AAModClassic.Items.Throwing
 			Item.damage = 100;
 			Item.DamageType = DamageClass.Ranged;
 			Item.noUseGraphic = true;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.width = 14;
 			Item.height = 38;

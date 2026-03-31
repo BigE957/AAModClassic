@@ -1,6 +1,9 @@
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -63,10 +66,10 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}
-		
-		public override void OnKill()
-		{
-			Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("BurningGel").Type, Main.rand.Next(5,15));
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BurningGel>(), 1, 5, 15));
         }
-	}
+    }
 }

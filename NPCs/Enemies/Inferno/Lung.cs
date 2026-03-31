@@ -1,12 +1,14 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Inferno
 {
@@ -281,14 +283,17 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             return false;
         }
 
-
-
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            BaseAI.DropItem(NPC, Mod.Find<ModItem>("SearingSpark").Type, Main.expertMode ? 1 + Main.rand.Next(2) : Main.rand.Next(1), 3, 100, true);
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SearingSpark>(), 2));
+            expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SearingSpark>(), 1, 1, 2));
+
+            npcLoot.Add(notExpertRule);
+            npcLoot.Add(expertRule);
         }
-
-
 
         public override void HitEffect(NPC.HitInfo hit)
         {

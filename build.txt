@@ -1,3 +1,5 @@
 author = BigE
 version = 0.1
 displayName = Ancients Awakened: Classic
+loadAfter = AAMod
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, *.sln

@@ -16,7 +16,7 @@ namespace AAModClassic.Items.Boss.Broodmother
 
 		public override void SetDefaults()
 		{
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;

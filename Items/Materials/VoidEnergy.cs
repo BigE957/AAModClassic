@@ -19,7 +19,7 @@
 		{
 			item.width = 16;
 			item.height = 16;
-			item.maxStack = 999;
+			Item.maxStack = 9999;
 			item.value = 1000;
 			item.rare = 2;
             item.alpha = 50;

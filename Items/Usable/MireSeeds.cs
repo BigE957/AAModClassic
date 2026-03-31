@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Usable
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = ItemRarityID.Yellow;
             Item.value = BaseUtility.CalcValue(0, 0, 0, 5);
 

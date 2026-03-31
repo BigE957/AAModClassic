@@ -60,7 +60,7 @@ namespace AAModClassic.Backgrounds
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.dayTime)
+                if (Main.dayTime || (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar))
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     if(Main.gameMenu)
@@ -177,7 +177,7 @@ namespace AAModClassic.Backgrounds
 
         public override void Deactivate(params object[] args)
         {
-            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneInferno) || (args.Length > 0 && (bool)args[0] == true))
+            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneInferno && !Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar && !Main.LocalPlayer.GetModPlayer<AAPlayer>().AkumaAltar) || (args.Length > 0 && (bool)args[0] == true))
                 Active = false;
         }
 

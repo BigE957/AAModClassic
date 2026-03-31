@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Ranged
             Item.useTime = 28;
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.noUseGraphic = true;
             Item.noMelee = true;

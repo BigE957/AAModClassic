@@ -43,23 +43,5 @@ namespace AAModClassic.Tiles.Crafters
         {
             return false;
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			int item = 0;
-			switch (frameX / 54)
-			{
-				case 0:
-					item = Mod.Find<ModItem>("MireAltar").Type;
-					break;
-				case 1:
-					item = Mod.Find<ModItem>("InfernoAltar").Type;
-					break;
-            }
-			if (item > 0)
-			{
-				Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, item);
-			}
-		}
 	}
 }

@@ -23,7 +23,8 @@ namespace AAModClassic.Tiles.Boxes
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
             AddMapEntry(new Color(200, 200, 200), name);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.Equibox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

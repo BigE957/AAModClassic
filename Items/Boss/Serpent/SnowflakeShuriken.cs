@@ -13,7 +13,7 @@ namespace AAModClassic.Items.Boss.Serpent
         public override void SetDefaults()
 		{
             Item.damage = 20;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 10;
             Item.height = 10;

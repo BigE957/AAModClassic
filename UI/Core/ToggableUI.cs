@@ -14,13 +14,13 @@ namespace AAModClassic.UI.Core
         {
             state = state ?? this;
 
-            if (userInterface.CurrentState is ToggableUI && userInterface.CurrentState != state)
+            if (userInterface.CurrentState is ToggableUI uI && userInterface.CurrentState != state)
             {
-                ((ToggableUI)userInterface.CurrentState).ToggleUI(userInterface, userInterface.CurrentState);
+                uI.ToggleUI(userInterface, userInterface.CurrentState);
             }
 
             Visible = !Visible;
-            userInterface.ResetLasts();
+            //userInterface.ResetLasts();
             userInterface.SetState(Visible ? state : null);
 
             SoundEngine.PlaySound(SoundID.MenuOpen);

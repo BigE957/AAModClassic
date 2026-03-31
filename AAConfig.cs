@@ -20,6 +20,8 @@ namespace AAModClassic
 
         [DefaultValue(false)]
         public bool DisableNewAAReminderMessage;
+
+        public bool EnableContentReplacement;
     }
 
     public static class Config

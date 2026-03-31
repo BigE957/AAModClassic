@@ -54,10 +54,6 @@ namespace AAModClassic
         public static ModKeybind Rift;
         public static ModKeybind RiftReturn;
 
-        // Textures
-        public static IDictionary<string, Texture2D> Textures = null;
-        public static Dictionary<string, Texture2D> precachedTextures = new Dictionary<string, Texture2D>();
-
         // UI
         internal UserInterface TerratoolInterface;
         internal TerratoolTUI TerratoolTState;
@@ -67,7 +63,6 @@ namespace AAModClassic
         internal TerratoolZUI TerratoolZState;
         internal TerratoolSUI TerratoolSState;
         internal TerratoolKipUI TerratoolKipState;
-        internal TerratoolLizUI TerratoolLizState;
         internal TerratoolGroxUI TerratoolGroxState;
         internal TerratoolEXUI TerratoolEXState;
 
@@ -284,13 +279,10 @@ namespace AAModClassic
             texture.GetData(buffer);
             for (int i = 0; i < buffer.Length; i++)
             {
-                buffer[i] = Color.FromNonPremultiplied(
-                        buffer[i].R, buffer[i].G, buffer[i].B, buffer[i].A);
+                buffer[i] = Color.FromNonPremultiplied(buffer[i].R, buffer[i].G, buffer[i].B, buffer[i].A);
             }
             texture.SetData(buffer);
         }
-
-        public static Texture2D BlockBarier = null;
 
         public override void Load()
         {
@@ -342,25 +334,25 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Shockwave"].Load();
 
             Main.QueueMainThreadAction(() => {
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar").Value);
-                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield").Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/FogTex", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaSun", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataMoon", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/YamataBeam", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaAMeteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AkumaMeteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/SkyTex", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/ShenMeteor", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaBolt", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Backgrounds/AthenaFlash", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/ZeroShield", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/RadiumStar", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Projectiles/Stars", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Toad/ToadBubble", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/NPCs/Bosses/Zero/Protocol/ProtoStar", AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/Textures/SagittariusShield", AssetRequestMode.ImmediateLoad).Value);
             });
 
             Filters.Scene["AAModClassic:ShenSky"] = new Filter(new ShenSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);
@@ -392,8 +384,6 @@ namespace AAModClassic
 
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
-
-            BlockBarier = ModContent.Request<Texture2D>("AAModClassic/Textures/BlockShield").Value;
 
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Head", EquipType.Head, name: "InvokedCaligulaHead", equipTexture: new InvokedCaligulaHead())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
             EquipLoader.AddEquipTexture(this, "AAModClassic/Items/Dev/Invoker/InvokedCaligula_Body", EquipType.Body, name: "InvokedCaligulaBody", equipTexture: new InvokedCaligulaBody())/* tModPorter Note: armTexture and femaleTexture now part of new spritesheet. https://github.com/tModLoader/tModLoader/wiki/Armor-Texture-Migration-Guide */;
@@ -436,8 +426,6 @@ namespace AAModClassic
                 UnloadClient();
             }
 
-            CleanupStaticArrays();
-
             instance = null;
             Rift = null;
             RiftReturn = null;
@@ -452,18 +440,6 @@ namespace AAModClassic
             ResetItemTexture(3460);
             ResetItemTexture(512);
         }
-
-        public static void CleanupStaticArrays()
-        {
-            if (Main.netMode != NetmodeID.Server) //handle clearing all static texture arrays
-            {
-                precachedTextures.Clear();
-
-                BlockBarier = null;
-            }
-        }
-
-        
 
         public static Texture2D GetGlowmask(string Name)
         {
@@ -628,10 +604,6 @@ namespace AAModClassic
 
     public class AAModSystem : ModSystem
     {
-        //AA Menu
-        public bool AAMenuset = false;
-        public bool AAMenuReset = true;
-
         public static bool AAloadedOnly = true;
 
         public override void Load()
@@ -651,17 +623,10 @@ namespace AAModClassic
             ModContent.GetInstance<AAMod>().TerratoolSState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolKipState = new TerratoolKipUI();
             ModContent.GetInstance<AAMod>().TerratoolKipState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolLizState = new TerratoolLizUI();
-            ModContent.GetInstance<AAMod>().TerratoolLizState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolGroxState = new TerratoolGroxUI();
             ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
             ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
             ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
-        }
-
-        public override void Unload()
-        {
-            AAMenuset = false;
         }
 
         public override void AddRecipeGroups()
@@ -719,7 +684,7 @@ namespace AAModClassic
             }
         }
 
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)/* tModPorter Note: Removed. Use ModSystem.ModifyInterfaceLayers */
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
             int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
             if (wireSelectionLayerIndex != -1)
@@ -741,7 +706,7 @@ namespace AAModClassic
 
         private static GameTime lastUpdateUIGameTime;
 
-        public override void UpdateUI(GameTime gameTime)/* tModPorter Note: Removed. Use ModSystem.UpdateUI */
+        public override void UpdateUI(GameTime gameTime)
         {
             lastUpdateUIGameTime = gameTime;
 

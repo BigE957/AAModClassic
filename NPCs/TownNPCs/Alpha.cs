@@ -186,10 +186,6 @@ namespace AAModClassic.NPCs.TownNPCs
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 				nextSlot++;
-				items[nextSlot] = new Item(ModContent.ItemType<Items.Vanity.Eliza.LizBag>());
-				items[nextSlot].shopCustomPrice = new int?(25);
-				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
-				nextSlot++;
 				items[nextSlot] = new Item(ModContent.ItemType<MoonBag>());
 				items[nextSlot].shopCustomPrice = new int?(25);
 				items[nextSlot].shopSpecialCurrency = AAMod.Coin;
@@ -230,10 +226,6 @@ namespace AAModClassic.NPCs.TownNPCs
 				if (NPC.downedMoonlord)
 				{
 					items[nextSlot] = new Item(ModContent.ItemType<AmphibianLongsword>());
-					items[nextSlot].shopCustomPrice = new int?(40);
-					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
-					nextSlot++;
-					items[nextSlot] = new Item(ModContent.ItemType<CatsEyeRifle>());
 					items[nextSlot].shopCustomPrice = new int?(40);
 					items[nextSlot].shopSpecialCurrency = AAMod.Coin;
 					nextSlot++;

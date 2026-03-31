@@ -26,7 +26,7 @@ Allows you to dash into enemies, damaging them"); */
 		public override void UpdateAccessory(Player player, bool hideVisual)
         {
 			player.GetModPlayer<AAPlayer>().clawsOfChaos = true;
-            player.dash = 2;
+            player.dashType = 2;
         }
         public override void AddRecipes()
         {

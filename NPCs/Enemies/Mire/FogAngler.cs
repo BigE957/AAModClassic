@@ -1,10 +1,10 @@
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-using System;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using System;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Mire
 {
@@ -92,16 +92,10 @@ namespace AAModClassic.NPCs.Enemies.Mire
             }
         }
 
-		public override void OnKill()
-		{
-            if (Main.rand.Next(Main.expertMode ? 49 : 99) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.AdhesiveBandage);
-            }
-            if (Main.rand.Next(100) < 4)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.RobotHat);
-            }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.AdhesiveBandage, 100, 50));
+            npcLoot.Add(ItemDropRule.Common(ItemID.RobotHat, 25));
         }
-	}
+    }
 }

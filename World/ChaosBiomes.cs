@@ -30,7 +30,8 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
+            bool rllyActive = (isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<AAPlayer>().MoonAltar;
+            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", rllyActive);
         }
 
         public override int Music =>
@@ -60,8 +61,9 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", isActive && player.Center.Y <= Main.worldSurface * 16);
-            player.ManageSpecialBiomeVisuals("HeatDistortion", isActive && Main.UseHeatDistortion);
+            bool rllyActive = (isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<AAPlayer>().SunAltar;
+            player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", rllyActive);
+            player.ManageSpecialBiomeVisuals("HeatDistortion", rllyActive && Main.UseHeatDistortion);
         }
 
         public override int Music => 
@@ -91,7 +93,7 @@ namespace AAModClassic.World
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:VoidSky", isActive);
+            player.ManageSpecialBiomeVisuals("AAModClassic:VoidSky", isActive || player.GetModPlayer<AAPlayer>().VoidUnit);
         }
 
         public override int Music => 

@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
         {
             Item.width = 10;
             Item.height = 10;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = 10000;
             Item.rare = ItemRarityID.Purple;
         }

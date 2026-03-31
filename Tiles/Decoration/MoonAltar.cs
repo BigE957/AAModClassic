@@ -1,9 +1,11 @@
 using AAModClassic;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -26,6 +28,7 @@ namespace AAModClassic.Tiles.Decoration
             TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = ModContent.DustType<YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.MoonAltar>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -41,6 +44,25 @@ namespace AAModClassic.Tiles.Decoration
         {
             frame = Main.tileFrame[TileID.LunarMonolith];
             frameCounter = Main.tileFrameCounter[TileID.LunarMonolith];
+        }
+
+        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            Tile tile = Main.tile[i, j];
+
+            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            if (Main.drawToScreen)
+            {
+                zero = Vector2.Zero;
+            }
+            int height = tile.TileFrameY == 36 ? 18 : 16;
+            int animate = 0;
+            if (tile.TileFrameY >= 56)
+            {
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
+            }
+            Main.spriteBatch.Draw(TextureAssets.Tile[Type].Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
+            return false;
         }
 
         public override bool RightClick(int i, int j)

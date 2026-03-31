@@ -17,7 +17,7 @@ public class IZPainting : ModItem
 	{
 		Item.width = 20;
 		Item.height = 20;
-		Item.maxStack = 999;
+		Item.maxStack = 9999;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
@@ -25,6 +25,6 @@ public class IZPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShipPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.IZPainting>();
 	}
 }

@@ -31,6 +31,7 @@ namespace AAModClassic.Items.Blocks
             Item.rare = ItemRarityID.Orange;
             Item.value = 1000;
             Item.accessory = false;
+            Item.maxStack = Item.CommonMaxStack;
         }
 
 

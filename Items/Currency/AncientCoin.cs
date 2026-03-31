@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Currency
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = ItemRarityID.LightPurple;
         }
     }

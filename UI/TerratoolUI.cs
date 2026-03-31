@@ -40,12 +40,9 @@ namespace AAModClassic.UI
 
         public override void OnInitialize()
         {
-            buttonList = new List<UIColorImageButton>();
-            buttonImageList = new List<UIColorImage>();
-            selectedButtons = new List<int>
-            {
-                0
-            };
+            buttonList = [];
+            buttonImageList = [];
+            selectedButtons = [ 0 ];
             buttonFrontFrame = ButtonImages.Frame(1, ButtonAmount);
             circleCenter = Main.MouseScreen - new Vector2(20, 20);
 
@@ -64,12 +61,22 @@ namespace AAModClassic.UI
                 buttonFrontFrame.Y += buttonFrontFrame.Height;
 
                 int index = i;
-                buttonList[i].OnLeftClick += (evt, element) => ButtonClicked(index);
-                buttonList[i].OnMouseOver += (evt, element) => ButtonHover(index);
-                buttonList[i].OnMouseOut += (evt, element) => ButtonLeave(index);
+                buttonList[i].OnLeftClick += ButtonClicked;
+                buttonList[i].OnMouseOver += ButtonHover;
+                buttonList[i].OnMouseOut += ButtonLeave;
 
                 buttonList[i].Append(buttonImageList[i]);
                 Append(buttonList[i]);
+            }
+        }
+
+        public override void OnActivate()
+        {
+            for (int index = 0; index < ButtonAmount; index++)
+            {
+                buttonImageList[index].SetFrame(ButtonImages.Frame(1, ButtonAmount, 0, index));
+                buttonList[index].Width.Set(ButtonOffImage.Width(), 0);
+                buttonList[index].Height.Set(40, 0);
             }
         }
 
@@ -89,8 +96,7 @@ namespace AAModClassic.UI
         {
             base.Update(gameTime);
 
-            if (Main.LocalPlayer.HeldItem.type != HeldItemType || Main.LocalPlayer.dead || Main.LocalPlayer.ghost
-                || ((Main.LocalPlayer.mouseInterface || Main.LocalPlayer.lastMouseInterface) && !onTerratoolMenu))
+            if (Main.LocalPlayer.HeldItem.type != HeldItemType || Main.LocalPlayer.dead || Main.LocalPlayer.ghost || ((Main.LocalPlayer.mouseInterface || Main.LocalPlayer.lastMouseInterface) && !onTerratoolMenu))
             {
                 for (int i = 0; i < buttonList.Count; i++)
                 {
@@ -110,18 +116,28 @@ namespace AAModClassic.UI
 
             for (int i = 0; i < buttonList.Count; i++)
             {
-                if (buttonList[i].ContainsPoint(Main.MouseScreen))
+                Main.NewText("Element " + i + " Position: (" + buttonList[i].Left.Pixels + ", " + buttonList[i].Top.Pixels + ")");
+                Main.NewText("Element " + i + " Hovering: " + buttonList[i].IsMouseHovering);
+                Main.NewText("Element " + i + " Contains Mouse: " + buttonList[i].ContainsPoint(Main.MouseScreen));
+
+                if (buttonList[i].IsMouseHovering || buttonImageList[i].IsMouseHovering)
                 {
                     Main.LocalPlayer.mouseInterface = true;
                     onTerratoolMenu = true;
                 }
             }
-
-
         }
 
-        public virtual void ButtonClicked(int index)
+        public virtual void ButtonClicked(UIMouseEvent evt, UIElement element)
         {
+            int index = -1;
+            for(int i = 0; i < ButtonAmount; i++)
+                if (element == buttonList[i])
+                    index = i;
+
+            if (index < 0)
+                return;
+
             if (selectedButtons.Count == 2)
             {
                 selectedButtons.RemoveAt(1);
@@ -141,8 +157,13 @@ namespace AAModClassic.UI
             }
         }
 
-        public virtual void ButtonHover(int index)
+        public virtual void ButtonHover(UIMouseEvent evt, UIElement element)
         {
+            int index = -1;
+            for (int i = 0; i < ButtonAmount; i++)
+                if (element == buttonList[i])
+                    index = i;
+
             buttonList[index].SetImage(ButtonOnImage);
 
             if (!selectedButtons.Contains(index))
@@ -152,8 +173,13 @@ namespace AAModClassic.UI
             }
         }
 
-        public virtual void ButtonLeave(int index)
+        public virtual void ButtonLeave(UIMouseEvent evt, UIElement element)
         {
+            int index = -1;
+            for (int i = 0; i < ButtonAmount; i++)
+                if (element == buttonList[i])
+                    index = i;
+
             buttonList[index].SetImage(ButtonOffImage);
 
             if (!selectedButtons.Contains(index))

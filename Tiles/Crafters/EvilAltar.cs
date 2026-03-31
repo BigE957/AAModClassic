@@ -26,23 +26,5 @@ namespace AAModClassic.Tiles.Crafters
             AddMapEntry(new Color(120, 0, 160), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }
-
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			int item = 0;
-			switch (frameX / 54)
-			{
-				case 0:
-					item = Mod.Find<ModItem>("CorruptAltar").Type;
-					break;
-				case 1:
-					item = Mod.Find<ModItem>("CrimsonAltar").Type;
-					break;
-            }
-			if (item > 0)
-			{
-				Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, item);
-			}
-		}
 	}
 }

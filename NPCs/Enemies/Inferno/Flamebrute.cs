@@ -1,8 +1,10 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -95,9 +97,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonScale").Type);
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonScale>()));
         }
     }
 }

@@ -34,4 +34,14 @@ public class Core : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.DustType = DustID.Terra;
 	}
+
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+    {
+        return false;
+    }
+
+    public override bool CanExplode(int i, int j)
+    {
+        return false;
+    }
 }

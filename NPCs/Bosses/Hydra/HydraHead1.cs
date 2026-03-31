@@ -1,15 +1,17 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Hydra;
+using AAModClassic.NPCs.Enemies.Mire;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria.ID;
-using Terraria.Audio;
+using System;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Enemies.Mire;
-using AAModClassic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Hydra
 {
@@ -74,17 +76,18 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             return 0f;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Blocks.Abyssium>(), Main.rand.Next(16, 26));
-            if (!Main.expertMode)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(3, 7));
-            }
-            else
-            {
-                Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<Items.Boss.Hydra.HydraHide>(), Main.rand.Next(7, 17));
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Abyssium>(), 1, 16, 20));
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+
+            expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 7, 17));
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 3, 7));
+
+            npcLoot.Add(notExpertRule);
+            npcLoot.Add(expertRule);
         }
 
         public int Head = 0;

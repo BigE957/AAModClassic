@@ -1,13 +1,15 @@
-﻿using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
+﻿using AAModClassic;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
-using AAModClassic.Dusts;
-using AAModClassic;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Enemies.Inferno
 {
@@ -259,10 +261,10 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             return false;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            NPC.DropLoot(Mod.Find<ModItem>("DragonFire").Type, 1, 3);
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.SoulofFlight, Main.rand.Next(15, 30));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonFire>(), 1, 1, 3));
+            npcLoot.Add(ItemDropRule.Common(ItemID.SoulofFlight, 1, 15, 30));
         }
 
         public override void HitEffect(NPC.HitInfo hit)

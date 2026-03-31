@@ -44,8 +44,6 @@ Terratool EX"); */
         {
             if (player.altFunctionUse == 2 && Main.mouseRight && Main.mouseRightRelease)
             {
-                Item.autoReuse = false;
-                Item.noUseGraphic = true;
                 AAMod.instance.TerratoolEXState.ToggleUI(AAMod.instance.TerratoolInterface);
                 Item.pick = 0;
                 Item.axe = 0;
@@ -55,8 +53,6 @@ Terratool EX"); */
             }
             else if(player.altFunctionUse != 2)
             {
-                Item.autoReuse = true;
-                Item.noUseGraphic = false;
                 Item.pick = TerratoolEXUI.Pick;
                 Item.axe = TerratoolEXUI.Axe;
                 Item.hammer = TerratoolEXUI.Hammer;

@@ -1,11 +1,14 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -86,12 +89,9 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             return new Color(220, 150, 150) * (Main.mouseTextColor / 255f);
         }
         
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonFire").Type, 1 + Main.rand.Next(2));
-			}
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonFire>(), 1, 1, 2));
         }
 
         public float auraPercent = 0f;

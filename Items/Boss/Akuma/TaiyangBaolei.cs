@@ -143,7 +143,7 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<AAPlayer>().Baolei = true;
-            player.dash = 3;
+            player.dashType = 3;
             player.buffImmune[20] = true;
             player.buffImmune[22] = true;
             player.buffImmune[23] = true;

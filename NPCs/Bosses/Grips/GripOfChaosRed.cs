@@ -1,9 +1,13 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Grips;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -45,33 +49,30 @@ namespace AAModClassic.NPCs.Bosses.Grips
         public override void OnKill()
         {
             int blueGripExists = NPC.CountNPCS(Mod.Find<ModNPC>("GripOfChaosBlue").Type);
-            if (Main.rand.Next(10) == 0)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripTrophyRed").Type);
-            }
             if (blueGripExists == 0)
-            {
-                if (Main.rand.Next(4) == 0 && !Main.expertMode)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ClawBaton").Type);
-                }
                 AAWorld.downedGrips = true;
-                if (Main.expertMode)
-                {
-                    NPC.DropLoot(Mod.Find<ModItem>("GripBag").Type);
-                }
-            }
-            else
-            {
-                if (Main.rand.Next(10) == 0)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GripMaskRed").Type);
-                }
-            }
-            if (!Main.expertMode)
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(30, 44));
-            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GripTrophyRed>(), 10));
+
+            LeadingConditionRule notExpert = new(new Conditions.NotExpert());
+
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Incinerite>(), 1, 30, 44));
+
+            notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripMaskRed>(), 7));
+
+            LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
+
+            lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripBag>()));
+
+            LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
+
+            lastStandingNormal.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ClawBaton>(), 4));
+
+            npcLoot.Add(lastStandingAlways);
+            npcLoot.Add(lastStandingNormal);
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

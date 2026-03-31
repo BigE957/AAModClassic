@@ -73,7 +73,7 @@ namespace AAModClassic.Backgrounds
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (!Main.dayTime)
+                if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar)
                 {
                     spriteBatch.Draw(SkyTex, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
                     double bgTop = (int)((-Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0) * 200.0);
@@ -107,6 +107,9 @@ namespace AAModClassic.Backgrounds
                     {
                         num65 = 0f;
                     }
+
+                    num25 = MathHelper.Lerp(0.25f, num25, Intensity);
+
                     white2.R = (byte)(white2.R * num65);
                     white2.G = (byte)(white2.G * num65);
                     white2.B = (byte)(white2.B * num65);

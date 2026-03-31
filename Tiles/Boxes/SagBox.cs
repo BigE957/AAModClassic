@@ -24,7 +24,8 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-		}
+            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.SagBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

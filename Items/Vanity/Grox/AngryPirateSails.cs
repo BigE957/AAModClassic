@@ -2,6 +2,7 @@ using AAModClassic;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +17,9 @@ namespace AAModClassic.Items.Vanity.Grox
             // DisplayName.SetDefault("Angry Pirate's Skysails");
             /* Tooltip.SetDefault(@"Allows flight and slow fall
 'Great for impersonating Ancients Awakened Devs!'"); */
-		}
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 2.5f);
+        }
 
 		public override void SetDefaults()
 		{

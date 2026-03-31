@@ -1,13 +1,14 @@
-using System;
-
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Audio;
+using System;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Grips
 {
@@ -375,6 +376,38 @@ namespace AAModClassic.NPCs.Bosses.Grips
                 NPC.velocity.X = 0;
                 NPC.velocity.Y -= 1;
             }
+        }
+
+        public class MissingGripAlways : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                int type = ModContent.NPCType<GripOfChaosBlue>();
+                if (info.npc.type == ModContent.NPCType<GripOfChaosBlue>())
+                    type = ModContent.NPCType<GripOfChaosRed>();
+
+                return !NPC.AnyNPCs(type);
+            }
+
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => null;
+        }
+
+        public class MissingGripNormal : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                if (Main.expertMode)
+                    return false;
+
+                int type = ModContent.NPCType<GripOfChaosBlue>();
+                if (info.npc.type == ModContent.NPCType<GripOfChaosBlue>())
+                    type = ModContent.NPCType<GripOfChaosRed>();
+
+                return !NPC.AnyNPCs(type);
+            }
+            public bool CanShowItemDropInUI() => !Main.expertMode;
+            public string GetConditionDescription() => Language.GetTextValue("Bestiary_ItemDropConditions.NotExpert");
         }
     }
 }

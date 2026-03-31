@@ -987,7 +987,6 @@ namespace AAModClassic
                 AAMod.instance.Find<ModItem>("DellyBag").Type,
                 AAMod.instance.Find<ModItem>("OldMagiciansHat").Type,
                 AAMod.instance.Find<ModItem>("MagiciansHat").Type,
-                AAMod.instance.Find<ModItem>("LizBag").Type,
                 AAMod.instance.Find<ModItem>("FezLordsBag").Type,
                 AAMod.instance.Find<ModItem>("MoonBag").Type,
                 AAMod.instance.Find<ModItem>("GibsBag").Type,

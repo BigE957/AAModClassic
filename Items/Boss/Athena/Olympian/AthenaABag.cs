@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
 
         public override void SetDefaults()
         {
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
