@@ -50,7 +50,7 @@ namespace AAModClassic.Removed.Items.BossSummons
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(null, "UnstableSingularity", 15);
             recipe.AddIngredient(null, "ApocalyptitePlate", 20);
-            //TODOIZ doesnt exist 
+            //TODOSIEGE doesnt exist 
             //recipe.AddIngredient(null, "FulguriteBar", 20);
             recipe.AddIngredient(null, "OroborosWood", 10);
             recipe.AddIngredient(null, "ZeroTesseract", 1);

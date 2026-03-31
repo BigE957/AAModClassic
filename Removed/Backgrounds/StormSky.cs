@@ -1,4 +1,5 @@
 ﻿using AAModClassic;
+using AAModClassic.Backgrounds;
 using AAModClassic.Removed.Backgrounds;
 using AAModClassic.Removed.NPCs.Bosses.Infinity;
 using Microsoft.Xna.Framework;
@@ -12,19 +13,21 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
+namespace AAModClassic.Removed.Backgrounds
 {
-    public class StormSkyScene : ModSceneEffect
+    public class StormBiomeZone : ModBiome
     {
-        public override bool IsSceneEffectActive(Player player)
+        public override bool IsBiomeActive(Player player)
         {
-            return true;
+            return player.GetModPlayer<AAPlayer>().ZoneStorm = AAWorldRemoved.StormTiles >= 1;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
             player.ManageSpecialBiomeVisuals("AAModClassic:StormSky", isActive && player.Center.Y <= Main.worldSurface * 16);
         }
+
+        public override int Music => MusicLoader.GetMusicSlot(AAMod.instance, "Removed/Sounds/Music/Maelstrom");
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 
@@ -49,8 +52,8 @@ namespace AAMod.Backgrounds
             public bool IsAlive;
         }
 
-        public Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormBolt").Value;
-        public Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormFlash").Value;
+        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormBolt").Value;
+        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormFlash").Value;
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
@@ -61,7 +64,7 @@ namespace AAMod.Backgrounds
         private readonly float fogOpacity2 = 0.4f;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
-        private Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormClouds").Value;
+        private static Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/Removed/Backgrounds/StormClouds").Value;
 
         public override void Activate(Vector2 position, params object[] args)
         {
@@ -194,7 +197,7 @@ namespace AAMod.Backgrounds
         private void UpdateStormSky()
         {
             AAPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<AAPlayer>();
-            if (AAWorld.stormTiles < 1)
+            if (AAWorldRemoved.StormTiles < 1)
             {
                 return;
             }

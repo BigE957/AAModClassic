@@ -1,5 +1,4 @@
-﻿using AAMod.Backgrounds;
-using AAModClassic.Backgrounds;
+﻿using AAModClassic.Backgrounds;
 using AAModClassic.Removed.Backgrounds;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -37,7 +36,7 @@ namespace AAModClassic.Removed
             Mod Spirit = ModLoader.HasMod("SpiritMod") ? ModLoader.GetMod("SpiritMod") : null;
             Mod Fargos = ModLoader.HasMod("Fargowiltas") ? ModLoader.GetMod("Fargowiltas") : null;
             Mod GRealm = ModLoader.HasMod("GRealm") ? ModLoader.GetMod("GRealm") : null;
-            Mod SacredTools = ModLoader.HasMod("SacredTools") ? ModLoader.GetMod("SacredTools") : null;
+            Mod SacredTools = ModLoader.HasMod("SacredTools") ? ModLoader.GetMod("SacredTools") : null; //TODO update whenever soa ports
             Mod Tremor = ModLoader.HasMod("Tremor") ? ModLoader.GetMod("Tremor") : null;
             Mod Redemption = ModLoader.HasMod("Redemption") ? ModLoader.GetMod("Redemption") : null;
             Mod CheatSheet = ModLoader.HasMod("CheatSheet") ? ModLoader.GetMod("CheatSheet") : null;

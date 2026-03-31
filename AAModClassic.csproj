@@ -10,6 +10,8 @@
 	<ItemGroup>
 	  <Folder Include="Localization\zh-Hans\" />
 	  <Folder Include="Localization\ru-RU\" />
+	  <Folder Include="Removed\Items\NewFolder1\" />
+	  <Folder Include="Removed\Items\NewFolder\" />
 	  <Folder Include="Removed\Sounds\Music\" />
 	</ItemGroup>
 

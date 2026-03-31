@@ -11184,6 +11184,16 @@ Items: {
 		DisplayName: Infinity Overloader
 		Tooltip: ""
 	}
+
+	GreedLore: {
+		DisplayName: Greed Lore
+		Tooltip: ""
+	}
+
+	AncientHydraTrishot: {
+		DisplayName: Ancient Hydra Trishot
+		Tooltip: ""
+	}
 }
 
 Tiles: {
@@ -11450,6 +11460,9 @@ Tiles: {
 	IZBox.MapEntry: I Z Box
 	SoCBox.MapEntry: So C Box
 	SunkenChest.MapEntry: Sunken Chest
+	DataBank.MapEntry: Data Bank
+	AncientStormChest.MapEntry: Parthenan Storm Chest
+	AncientDataBank.MapEntry: Ancient Data Bank
 }
 
 NPCs: {
@@ -11908,6 +11921,7 @@ NPCs: {
 	IZHand2.DisplayName: I Z Hand2
 	IZSpawn1.DisplayName: I Z Spawn1
 	Oblivion.DisplayName: Oblivion
+	Magmalgam.DisplayName: Magmalgam
 }
 
 Biomes: {
@@ -11964,6 +11978,11 @@ Biomes: {
 	LostKeepBiomeZone: {
 		DisplayName: Lost Keep Biome Zone
 		TownNPCDialogueName: the Lost Keep Biome Zone
+	}
+
+	StormBiomeZone: {
+		DisplayName: Storm Biome Zone
+		TownNPCDialogueName: the Storm Biome Zone
 	}
 }
 

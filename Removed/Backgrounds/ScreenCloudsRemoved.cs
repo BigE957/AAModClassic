@@ -66,7 +66,7 @@ namespace AAModClassic.Removed.Backgrounds
             {
                 for (int j = minY; j < maxY; j += texture.Height)
                 {
-                    Main.spriteBatch.Draw(texture, new Rectangle(i + (dir ? -fogOffsetX : fogOffsetX), j, texture.Width, texture.Height), null, fogColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(texture, new Rectangle(i + (dir ? -fogOffsetX : fogOffsetX), j, texture.Width, texture.Height), null, fogColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
                 }
             }
             if(setSB) Main.spriteBatch.End();

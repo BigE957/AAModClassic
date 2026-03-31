@@ -1,4 +1,9 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Removed.Tiles.Fulgurite.Parthenan;
+using AAModClassic.Removed.Tiles.Fulgurite.Parthenan.Ancient;
+using AAModClassic.Removed.Tiles.Fulgurite.Parthenan.Ancient.Walls;
+using AAModClassic.Tiles;
+using AAModClassic.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -34,6 +39,65 @@ namespace AAModClassic.Removed.World
         }
     }
 
+    // the original one just... doesnt try again when fail to place?
+    public class SurfaceMushroom_Refactored : MicroBiome
+    {
+        public override bool Place(Point origin, StructureMap structures)
+        {
+            Mod mod = AAMod.instance;
+
+            ushort tileGrass = (ushort)ModContent.TileType<Mycelium>(); 
+
+            int worldSize = BaseWorldGen.GetWorldSize();
+            int biomeWidth = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150, biomeWidthHalf = biomeWidth / 2; 
+            int biomeHeight = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150;
+
+            WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(new GenAction[] 
+            {
+                new InWorld(),
+                new Modifiers.OnlyTiles(new ushort[]{ TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass }),
+                new RadialDitherCenter(biomeWidth, biomeHeight, biomeWidthHalf - 10, biomeWidthHalf + 10),
+                new SetModTile(tileGrass, true, true) 
+            }));
+            WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(new GenAction[] 
+{
+                new InWorld(),
+                new Modifiers.OnlyTiles(new ushort[]{ TileID.Ebonstone, TileID.Crimstone }), 
+                new RadialDitherCenter(biomeWidth, biomeHeight, biomeWidthHalf - 10, biomeWidthHalf + 10), 
+                new SetModTile(TileID.Stone, true, true) 
+            }));
+
+            return true;
+        }
+    }
+
+    public class RadialDitherCenter : GenAction
+    {
+        private int _width, _height;
+        private float _innerRadius, _outerRadius;
+
+        public RadialDitherCenter(int width, int height, float innerRadius, float outerRadius)
+        {
+            _width = width;
+            _height = height;
+            _innerRadius = innerRadius;
+            _outerRadius = outerRadius;
+        }
+
+        public override bool Apply(Point origin, int x, int y, params object[] args)
+        {
+            Vector2 value = new((float)origin.X + _width / 2, (float)origin.Y + _height / 2);
+            Vector2 value2 = new(x, y);
+            float num = Vector2.Distance(value2, value);
+            float num2 = Math.Max(0f, Math.Min(1f, (num - _innerRadius) / (_outerRadius - _innerRadius)));
+            if (_random.NextDouble() > num2)
+            {
+                return UnitApply(origin, x, y, args);
+            }
+            return Fail();
+        }
+    }
+
     public class Parthenan : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
@@ -44,24 +108,24 @@ namespace AAModClassic.Removed.World
             
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
-            colorToTile[new Color(0, 255, 0)] = mod.Find<ModTile>("FulguritePlatingS").Type;
-            colorToTile[new Color(255, 0, 0)] = mod.Find<ModTile>("FulguriteBrickS").Type;
-            colorToTile[new Color(0, 0, 255)] = mod.Find<ModTile>("StormCloud").Type;
-            colorToTile[new Color(255, 0, 255)] = mod.Find<ModTile>("FulgurGlassS").Type;
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<AncientFulguritePlatingS>();
+            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<AncientFulguriteBrickS>();
+            colorToTile[new Color(0, 0, 255)] = ModContent.TileType<StormCloud>();
+            colorToTile[new Color(255, 0, 255)] = ModContent.TileType<AncientFulgurGlassS>();
             colorToTile[new Color(150, 150, 150)] = -2; //turn into air
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
-            colorToWall[new Color(0, 255, 0)] = mod.Find<ModWall>("FulguritePlatingWallS").Type;
-            colorToWall[new Color(255, 0, 255)] = mod.Find<ModTile>("FulgurGlassWall").Type;
+            colorToWall[new Color(0, 255, 0)] = ModContent.WallType<AncientFulguritePlatingWallS>();
+            colorToWall[new Color(255, 0, 255)] = ModContent.WallType<AncientFulgurGlassWallS>();
             colorToWall[Color.Black] = -1; //don't touch when genning				
 
             TexGen gen = TexGen.GetTexGenerator(TexGenAssetsRemoved.ParthenanTileData, colorToTile, TexGenAssetsRemoved.ParthenanWallData, colorToWall);
             
             gen.Generate(origin.X, origin.Y, true, true);
-            WorldGen.PlaceObject((int)(origin.X) + 34, (int)(origin.Y) + 47, (ushort)mod.Find<ModTile>("DataBank").Type);
-            WorldGen.PlaceChest((origin.X) + 32, (origin.Y) + 47, (ushort)mod.Find<ModTile>("StormChest").Type, true);
-            WorldGen.PlaceChest((origin.X) + 41, (origin.Y) + 47, (ushort)mod.Find<ModTile>("StormChest").Type, true);
+            WorldGen.PlaceObject((int)(origin.X) + 34, (int)(origin.Y) + 47, (ushort)ModContent.TileType<AncientDataBank>());
+            WorldGen.PlaceChest((origin.X) + 32, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            WorldGen.PlaceChest((origin.X) + 41, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
             return true;
         }
     }

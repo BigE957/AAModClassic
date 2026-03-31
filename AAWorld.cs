@@ -40,7 +40,6 @@ namespace AAModClassic
         public static int mushTiles = 0;
         public static int terraTiles = 0;
         public static int keepTiles = 0;
-        public static int stormTiles = 0;
         public static int pagodaTiles = 0;
         public static int lakeTiles = 0;
         public static int shipTiles = 0;
