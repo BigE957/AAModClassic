@@ -1,9 +1,13 @@
 ﻿using AAModClassic.Base.BaseMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
+using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Projectiles;
 using AAModClassic.Tiles.Ore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -128,6 +132,9 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
+
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonsSoul>(), ModContent.ItemType<DragonsGuard>()));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AAModClassic.Items.Pets.BroodEgg>(), 10));
 

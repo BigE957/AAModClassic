@@ -11831,5 +11831,10 @@ Configs: {
 			Label: Disable New A A Reminder Message
 			Tooltip: ""
 		}
+
+		EnableContentReplacement: {
+			Label: Enable Content Replacement
+			Tooltip: ""
+		}
 	}
 }

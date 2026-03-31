@@ -1,4 +1,10 @@
 using AAModClassic;
+using AAModClassic.CrossMod;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -74,6 +80,13 @@ namespace AAModClassic.Items.Boss.Hydra
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(75, 125));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraHide").Type, Main.rand.Next(50, 100));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraPendant").Type);
+
+            if (ContentReplacementSystem.NeedToReplaceContent)
+            {
+                int[] podDrops = [ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowmossBall>(), ModContent.ItemType<ShadowBand>()];
+                int itemID = podDrops[Main.rand.Next(podDrops.Length)];
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), itemID);
+            }
         }
 	}
 }

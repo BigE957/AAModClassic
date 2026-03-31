@@ -3,6 +3,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.CrossMod;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Broodmother;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Vanity.Mask;
+
 namespace AAModClassic.Items.Boss.Broodmother
 {
     public class BroodBag : BaseAAItem
@@ -69,6 +77,13 @@ namespace AAModClassic.Items.Boss.Broodmother
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(75, 125));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("BroodScale").Type, Main.rand.Next(50, 100));
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DragonCape").Type);
+
+            if(ContentReplacementSystem.NeedToReplaceContent)
+            {
+                int[] eggDrops = [ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonsSoul>(), ModContent.ItemType<DragonsGuard>()];
+                int itemID = eggDrops[Main.rand.Next(eggDrops.Length)];
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), itemID);
+            }
         }
 	}
 }

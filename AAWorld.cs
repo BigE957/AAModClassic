@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles;
@@ -872,6 +873,9 @@ namespace AAModClassic
 
         private void GenIncinerite()
         {
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                return;
+
             int x = Main.maxTilesX;
             int y = Main.maxTilesY;
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -897,7 +901,6 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, y);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    //TODO: This was formerly generating "EverleafRoot", unsure if this is the proper replacement.
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
                 }
             }
@@ -1502,6 +1505,9 @@ namespace AAModClassic
 
         private void MireAndInferno(GenerationProgress progress)
         {
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                return;
+
             infernoSide = (Main.dungeonX > Main.maxTilesX / 2) ? (-1) : 1;
             infernoPos.X = (Main.maxTilesX >= 8000) ? (infernoSide == 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide == 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
             mirePos.X = (Main.maxTilesX >= 8000) ? (infernoSide != 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide != 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
@@ -1581,6 +1587,9 @@ namespace AAModClassic
 
         private void BogwoodConvert(GenerationProgress progress)
         {
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                return;
+
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
             Point origin = new Point((int)mirePos.X, (int)mirePos.Y);
             BogwoodCon biome = new BogwoodCon();

@@ -59,7 +59,7 @@ namespace AAModClassic.UI.WorldGen
 
             int globalTime = (int)(Main.GlobalTimeWrappedHourly * 60);
 
-            //AAMod.instance.Logger.Info("HEY");
+            //AAMod.instance.Logger.Info(Main.MenuUI.CurrentState);
 
             if (Main.MenuUI.CurrentState is UIWorldCreation worldCreation)
             {
@@ -95,7 +95,7 @@ namespace AAModClassic.UI.WorldGen
 
                 AddAAWorldOptions(worldCreation, optionDesc, infoRack, worldGenPanel.Height.Pixels - 20f - 48f - 40, ClickAAWorldTypeOption, "AAWorldType", 1f);
             }
-            else
+            else if(Main.MenuUI.CurrentState is not UIVirtualKeyboard)
                 perviousStateWorldCreation = false;
         }
 

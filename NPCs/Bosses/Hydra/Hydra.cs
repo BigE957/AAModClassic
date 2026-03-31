@@ -1,18 +1,23 @@
-using System;
+using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Boss.Hydra;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Ranged;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.Audio;
-using Terraria.ModLoader;
-
+using System;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Items.Boss.Hydra;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Blocks;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Hydra
 {
@@ -80,6 +85,9 @@ namespace AAModClassic.NPCs.Bosses.Hydra
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<HydrasSpear>(), ModContent.ItemType<Mossket>(), ModContent.ItemType<GunkWand>(), ModContent.ItemType<GlowmossBall>(), ModContent.ItemType<ShadowBand>()));
 
             //notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraMask(1-3)>(), 7)); Exists but doesn't drop...?
 
