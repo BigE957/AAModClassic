@@ -53,6 +53,9 @@ namespace AAModClassic.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
+            if (AAMod.instance == null)
+                return;
+
             Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/Sun");
             Texture2D demonSun = AAMod.GetTexture("Backgrounds/DemonSun");
             Texture2D MeteorTexture = AAMod.GetTexture("Backgrounds/AkumaMeteor");
