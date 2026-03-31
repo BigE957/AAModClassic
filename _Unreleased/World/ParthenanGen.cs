@@ -1,0 +1,54 @@
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient.Walls;
+using AAModClassic.Tiles;
+using AAModClassic.World;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent.Generation;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.Utilities;
+using Terraria.WorldBuilding;
+
+namespace AAModClassic._Unreleased.World
+{
+    public class ParthenanGen : MicroBiome
+    {
+        public override bool Place(Point origin, StructureMap structures)
+        {
+            //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
+
+            Mod mod = AAMod.instance;
+
+
+            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<AncientFulguritePlatingS>();
+            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<AncientFulguriteBrickS>();
+            colorToTile[new Color(0, 0, 255)] = ModContent.TileType<StormCloud>();
+            colorToTile[new Color(255, 0, 255)] = ModContent.TileType<AncientFulgurGlassS>();
+            colorToTile[new Color(150, 150, 150)] = -2; //turn into air
+            colorToTile[Color.Black] = -1; //don't touch when genning		
+
+            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
+            colorToWall[new Color(0, 255, 0)] = ModContent.WallType<AncientFulguritePlatingWallS>();
+            colorToWall[new Color(255, 0, 255)] = ModContent.WallType<AncientFulgurGlassWallS>();
+            colorToWall[Color.Black] = -1; //don't touch when genning				
+
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ParthenanTileData, colorToTile, TexGenAssets_Unreleased.ParthenanWallData, colorToWall);
+
+            //TODOSIEGE some of these dont actually place in world
+            gen.Generate(origin.X, origin.Y, true, true);
+            WorldGen.PlaceObject((int)(origin.X) + 34, (int)(origin.Y) + 47, (ushort)ModContent.TileType<AncientDataBank>());
+            WorldGen.PlaceChest((origin.X) + 32, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            WorldGen.PlaceChest((origin.X) + 41, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            return true;
+        }
+    }
+}

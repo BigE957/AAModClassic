@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
             NPC.alpha = 255;
             NPC.noTileCollide = true;
-            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaBag").Type;
+            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaBag").Type;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

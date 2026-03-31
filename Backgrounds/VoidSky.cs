@@ -7,7 +7,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Removed;
+using AAModClassic._Unreleased;
 
 //using AAModClassic.NPCs.Bosses.Infinity;
 
@@ -159,7 +159,7 @@ namespace AAModClassic.Backgrounds
                     spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
-                    if (AAWorldRemoved.doRemovedContent && !AAWorldRemoved.downedIZ)
+                    if (AAWorld_Unreleased.doUnreleasedContent && !AAWorld_Unreleased.downedIZ)
                     {
                         spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }

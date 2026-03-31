@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Vanity.Gibs
             }
         }
 
-        //public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
+        //public override void DrawHands(ref bool drawHands, ref bool drawArms)/* tModPorter Note: _Unreleased. In SetStaticDefaults, use ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false if you had drawHands set to true. If you had drawArms set to true, you don't need to do anything */
         //{
         //    drawHands = false;
         //    drawArms = false;

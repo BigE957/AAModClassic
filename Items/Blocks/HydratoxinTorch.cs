@@ -54,7 +54,7 @@ namespace AAModClassic.Items.Blocks
 		}
 
 		//???
-		//public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use , , and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
+		//public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: _Unreleased. Use , , and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */
 		//{
 		//	dryTorch = false;
 		//}

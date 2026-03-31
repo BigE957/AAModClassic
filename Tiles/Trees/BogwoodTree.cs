@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Trees
             return ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/BogwoodTreeTop");
         }
 
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
             return AAMod.instance.Find<ModTile>("BogwoodSapling").Type;

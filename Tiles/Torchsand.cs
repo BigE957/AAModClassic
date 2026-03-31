@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             Main.tileSand[Type] = true;
             RegisterItemDrop(AAMod.instance.Find<ModItem>("Torchsand").Type);
-            //soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
+            //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(50, 35, 22));
             TileID.Sets.Conversion.Sand[Type] = true;
             DustType = ModContent.DustType<RazewoodDust>();

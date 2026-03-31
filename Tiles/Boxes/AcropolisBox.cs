@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
-			TileID.Sets.DisableSmartCursor[Type]/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type]/* tModPorter Note: _Unreleased. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
             DustType = DustID.BlueCrystalShard;

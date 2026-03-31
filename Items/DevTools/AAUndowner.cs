@@ -1,4 +1,4 @@
-using AAModClassic.Removed;
+using AAModClassic._Unreleased;
 using Terraria;
 using Terraria.ID;
 
@@ -55,10 +55,10 @@ Non-Consumable"); */
             AAWorld.downedAnubisA = false;
             AAWorld.downedGreedA = false;
 
-            if (AAWorldRemoved.doRemovedContent)
+            if (AAWorld_Unreleased.doUnreleasedContent)
             {
-                AAWorldRemoved.downedIZ = false;
-                AAWorldRemoved.downedSoC = false;
+                AAWorld_Unreleased.downedIZ = false;
+                AAWorld_Unreleased.downedSoC = false;
             }
             return true;
         }

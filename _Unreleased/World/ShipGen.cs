@@ -1,0 +1,51 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
+using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient.Walls;
+using AAModClassic.Tiles;
+using AAModClassic.World;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent.Generation;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.Utilities;
+using Terraria.WorldBuilding;
+
+namespace AAModClassic._Unreleased.World
+{
+    public class ShipGen : MicroBiome
+    {
+        public override bool Place(Point origin, StructureMap structures)
+        {
+            //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
+
+            Mod mod = AAMod.instance;
+
+
+            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
+            colorToTile[new Color(255, 0, 0)] = mod.Find<ModTile>("RottedDynastyWoodS").Type;
+            colorToTile[new Color(0, 255, 0)] = mod.Find<ModTile>("RottedPlatform").Type;
+            colorToTile[new Color(0, 0, 255)] = TileID.Rope;
+            colorToTile[new Color(0, 255, 255)] = mod.Find<ModTile>("CthulhuPortal").Type;
+            colorToTile[new Color(150, 150, 150)] = -2;
+            colorToTile[Color.Black] = -1; //don't touch when genning		
+
+            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
+            colorToWall[new Color(255, 0, 0)] = mod.Find<ModWall>("RottedWall").Type;
+            colorToWall[Color.Black] = -1; //don't touch when genning				
+
+            TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ShipTileData, colorToTile, TexGenAssets_Unreleased.ShipWallData, colorToWall, TexGenAssets_Unreleased.ShipLiquidData);
+            
+            gen.Generate(origin.X, origin.Y - 28, true, true);
+            
+            WorldGen.PlaceChest((origin.X) + 13, (origin.Y - 28) + 26, (ushort)mod.Find<ModTile>("SunkenChest").Type, true);
+            return true;
+        }
+    }
+}

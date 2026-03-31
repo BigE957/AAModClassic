@@ -24,7 +24,7 @@ namespace AAModClassic.NPCs.TownNPCs
         //public override bool IsLoadingEnabled(Mod mod)
 		//{
 		//	name = "Mudfish";
-		//	return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
+		//	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		//}
 
 		public override void SetStaticDefaults()

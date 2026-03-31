@@ -1189,6 +1189,34 @@ namespace AAModClassic.Base.BaseMod.Base
         }
     }
 
+    // not part of basemod but kept here for organization
+    public class RadialDitherCenter : GenAction
+    {
+        private int _width, _height;
+        private float _innerRadius, _outerRadius;
+
+        public RadialDitherCenter(int width, int height, float innerRadius, float outerRadius)
+        {
+            _width = width;
+            _height = height;
+            _innerRadius = innerRadius;
+            _outerRadius = outerRadius;
+        }
+
+        public override bool Apply(Point origin, int x, int y, params object[] args)
+        {
+            Vector2 value = new((float)origin.X + _width / 2, (float)origin.Y + _height / 2);
+            Vector2 value2 = new(x, y);
+            float num = Vector2.Distance(value2, value);
+            float num2 = Math.Max(0f, Math.Min(1f, (num - _innerRadius) / (_outerRadius - _innerRadius)));
+            if (_random.NextDouble() > num2)
+            {
+                return UnitApply(origin, x, y, args);
+            }
+            return Fail();
+        }
+    }
+
     public class ClearTileSafely : GenAction
     {
         private bool _frameNeighbors;

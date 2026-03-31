@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Vanity.Tied   //We need this to basically indicate 
             Item.vanity = true; //this defines if this item is vanity or not.
         }
 
-        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
+        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: _Unreleased. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         //{
         //    drawHair = drawAltHair = false;  //this make so the player hair does not show when the vanity mask is equipped.  add true if you want to show the player hair.
         //}

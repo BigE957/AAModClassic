@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             Music = MusicLoader.GetMusicSlot("AAModMusic/Sounds/Music/Anubis");
-            //bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AnubisBag").Type;
+            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AnubisBag").Type;
             NPC.value = Item.sellPrice(0, 1, 0, 0);
         }
 

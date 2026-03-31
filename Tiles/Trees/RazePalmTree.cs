@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override Asset<Texture2D> GetOasisTopTextures() => ModContent.Request<Texture2D>("AAModClassic/Tiles/Trees/RazePalmTreetopsOasis");
 
-        public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
+        public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
             return AAMod.instance.Find<ModTile>("RazePalmSapling").Type;

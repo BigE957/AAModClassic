@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles
             RegisterItemDrop(Mod.Find<ModItem>("Depthsand").Type);
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
-            //soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
+            //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(37, 33, 50));
             DustType = ModContent.DustType<BogwoodDust>();
         }

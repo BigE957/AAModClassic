@@ -1,7 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.Removed;
+using AAModClassic._Unreleased;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.Tiles.Keep;
@@ -1244,7 +1244,7 @@ namespace AAModClassic
 
             if (!Main.dayTime)
             {
-                if (!Main.IsFastForwardingTime()/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
+                if (!Main.IsFastForwardingTime()/* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
                 {
                     if (Main.time == 1 && !WorldGen.spawnEye)
                     {
@@ -1464,7 +1464,7 @@ namespace AAModClassic
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                        if (AAWorldRemoved.doRemovedContent)
+                        if (AAWorld_Unreleased.doUnreleasedContent)
                         {
                             Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
                             Main.NewText("An otherworldly fog encompasses the ocean", Color.Cyan);

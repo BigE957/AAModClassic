@@ -35,7 +35,7 @@ namespace AAModClassic.Bases
             Main.tileFrameImportant[Type] = false;
             AddMapEntry(new Color(200, 255, 200));
             RegisterItemDrop(ItemDropID);
-            //soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 18;
+            //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
             AddMapEntry(MapColor, this.GetLocalization("MapEntry", () => MapLegend));
         }
 

@@ -1658,8 +1658,10 @@ Projectiles: {
 	RealityBurstMed.DisplayName: Reality Burst Med
 	RealityBurstSmall.DisplayName: Reality Burst Small
 	Stormray.DisplayName: Stormray
-	AntimatterRemoved.DisplayName: Antimatter Removed
-	RiftRemoved.DisplayName: Rift Removed
+	Antimatter_Unreleased.DisplayName: Antimatter Removed
+	Rift_Unreleased.DisplayName: Rift Removed
+	Antimatter_Unreleased.DisplayName: Antimatter Removed
+	Rift_Unreleased.DisplayName: Rift Removed
 }
 
 Items: {
@@ -12007,6 +12009,11 @@ Configs: {
 
 		DisableNewAAReminderMessage: {
 			Label: Disable New A A Reminder Message
+			Tooltip: ""
+		}
+
+		EnableContentReplacement: {
+			Label: Enable Content Replacement
 			Tooltip: ""
 		}
 	}

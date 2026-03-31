@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Vanity.Gibs
             }
         }
 
-        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
+        //public override void DrawHair(ref bool drawHair, ref bool drawAltHair)/* tModPorter Note: _Unreleased. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true if you had drawHair set to true, and ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true if you had drawAltHair set to true */
         //{
         //    drawHair = false;
         //    drawAltHair = false;
