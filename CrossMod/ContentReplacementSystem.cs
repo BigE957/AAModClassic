@@ -1,4 +1,5 @@
-﻿using AAModClassic.Items.Armor.GlowingMushium;
+﻿using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Armor.GlowingMushium;
 using AAModClassic.Items.Armor.Mushium;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
@@ -91,6 +92,11 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<ClawBaton>(),
             #endregion
 
+            #region Useless Items
+            ModContent.ItemType<AshProofVest3>(),
+            ModContent.ItemType<Lantern>(),
+            ModContent.ItemType<FurnitureDynamo>(),
+            #endregion
         ];
 
         public override void Load()
@@ -126,6 +132,8 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<Torchsand>(), NewAA.Find<ModItem>("Torchsand").Type);
                 OldToNewItems.Add(ModContent.ItemType<Torchsandstone>(), NewAA.Find<ModItem>("Torchsandstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<TorchsandHardened>(), NewAA.Find<ModItem>("HardenedTorchsand").Type);
+
+                OldToNewItems.Add(ModContent.ItemType<FurnitureDynamo>(), NewAA.Find<ModItem>("FurnitureDynamo").Type);
                 #endregion
 
                 #region Materials
