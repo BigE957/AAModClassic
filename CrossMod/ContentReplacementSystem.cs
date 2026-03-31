@@ -116,7 +116,7 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<Depthstone>(), NewAA.Find<ModItem>("Depthstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<Darkmud>(), NewAA.Find<ModItem>("Darkmud").Type);
                 OldToNewItems.Add(ModContent.ItemType<Depthsand>(), NewAA.Find<ModItem>("Depthsand").Type);
-                OldToNewItems.Add(ModContent.ItemType<Depthsandstone>(), NewAA.Find<ModItem>("Depthsandstone").Type);
+                //OldToNewItems.Add(ModContent.ItemType<Depthsandstone>(), NewAA.Find<ModItem>("Depthsandstone").Type);
                 OldToNewItems.Add(ModContent.ItemType<DepthsandHardened>(), NewAA.Find<ModItem>("HardenedDepthsand").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<Razewood>(), NewAA.Find<ModItem>("Razewood").Type);
