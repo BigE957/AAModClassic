@@ -48,8 +48,8 @@ namespace AAModClassic._Unreleased.Backgrounds
             public bool IsAlive;
         }
 
-        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/VoidBolt").Value;
-        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/VoidFlash").Value;
+        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/IZSky_Bolt").Value;
+        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/IZSky_Flash").Value;
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
@@ -204,6 +204,47 @@ namespace AAModClassic._Unreleased.Backgrounds
                 UseTargetPosition(Main.npc[IZIndex].Center);
             }
             base.Apply();
+        }
+    }
+
+    public class IZSurfaceBgStyle : ModSurfaceBackgroundStyle
+    {
+        public override void ModifyFarFades(float[] fades, float transitionSpeed)
+        {
+            for (int i = 0; i < fades.Length; i++)
+            {
+                if (i == Slot)
+                {
+                    fades[i] += transitionSpeed;
+                    if (fades[i] > 1f)
+                    {
+                        fades[i] = 1f;
+                    }
+                }
+                else
+                {
+                    fades[i] -= transitionSpeed;
+                    if (fades[i] < 0f)
+                    {
+                        fades[i] = 0f;
+                    }
+                }
+            }
+        }
+
+        public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/IZSky_BG");
+        }
+
+        public override int ChooseMiddleTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/IZSky_BG");
+        }
+
+        public override int ChooseFarTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/IZSky_BG");
         }
     }
 }

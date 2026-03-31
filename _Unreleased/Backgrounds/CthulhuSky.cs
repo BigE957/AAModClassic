@@ -1,19 +1,22 @@
-﻿using System;
+﻿using AAModClassic;
+using AAModClassic._Unreleased.NPCs.Bosses.SoC;
+using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics;
 using Terraria.Graphics.Effects;
-using Terraria.Utilities;
+using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
-using AAModClassic;
+using Terraria.Utilities;
 
 namespace AAModClassic._Unreleased.Backgrounds
 {
     public class CthulhuSky : CustomSky
     {
 
-        ScreenCthulhuFog BGClouds = new ScreenCthulhuFog(true);
+        CthulhuSky_Clouds BGClouds = new CthulhuSky_Clouds(true);
 
         private UnifiedRandom random = new UnifiedRandom();
         
@@ -22,7 +25,7 @@ namespace AAModClassic._Unreleased.Backgrounds
         public float Intensity;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
-        private Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuClouds").Value;
+        private Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value;
 
         public override void Activate(Vector2 position, params object[] args)
         {
@@ -73,8 +76,8 @@ namespace AAModClassic._Unreleased.Backgrounds
                 spriteBatch.Draw(texture, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, SpriteEffects.None, 1f);
 
             }
-            BGClouds.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuClouds").Value);
-            BGClouds.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuClouds").Value, true, new Color(130, 130, 130));
+            BGClouds.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value);
+            BGClouds.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value, true, new Color(130, 130, 130));
         }
 
         public override float GetCloudAlpha()
@@ -90,6 +93,59 @@ namespace AAModClassic._Unreleased.Backgrounds
         public override bool IsActive()
         {
             return Active || Intensity > 0.001f;
+        }
+    }
+
+    public class CthulhuSkyData : ScreenShaderData
+    {
+        private int SoCIndex;
+
+        public CthulhuSkyData(string passName) : base(passName)
+        {
+        }
+
+        private void UpdateCthulhuSky()
+        {
+
+            int SoCType = ModContent.NPCType<SoC>();
+            if (SoCIndex >= 0 && Main.npc[SoCIndex].active && Main.npc[SoCIndex].type == SoCType)
+            {
+                return;
+            }
+            SoCIndex = -1;
+            for (int i = 0; i < Main.npc.Length; i++)
+            {
+                if (Main.npc[i].active && Main.npc[i].type == SoCType)
+                {
+                    SoCIndex = i;
+                    break;
+                }
+            }
+            if (Main.player[Main.myPlayer].InZone("Ocean") && !AAWorld_Unreleased.downedSoC && AAWorld.downedAllAncients)
+            {
+                return;
+            }
+        }
+
+        public override void Apply()
+        {
+            UpdateCthulhuSky();
+            if (SoCIndex != -1)
+            {
+                UseTargetPosition(Main.npc[SoCIndex].Center);
+            }
+            base.Apply();
+        }
+    }
+
+    public class CthulhuSky_Handler : ModSystem
+    {
+        CthulhuSky_Clouds CthulhuFog = new CthulhuSky_Clouds(false);
+
+        public override void PostDrawTiles()
+        {
+            CthulhuFog.Update(Mod.GetTexture("_Unreleased/Backgrounds/CthulhuSky_Clouds"));
+            CthulhuFog.Draw(Mod.GetTexture("_Unreleased/Backgrounds/CthulhuSky_Clouds"), false, Color.White, true);
         }
     }
 }

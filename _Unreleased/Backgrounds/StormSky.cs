@@ -37,7 +37,7 @@ namespace AAModClassic._Unreleased.Backgrounds
     public class StormSky : CustomSky
     {
 
-        ScreenClouds_Unreleased BGClouds = new ScreenClouds_Unreleased(true);
+        StormSky_Clouds BGClouds = new StormSky_Clouds(true);
 
         private UnifiedRandom random = new UnifiedRandom();
 
@@ -52,8 +52,8 @@ namespace AAModClassic._Unreleased.Backgrounds
             public bool IsAlive;
         }
 
-        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormBolt").Value;
-        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormFlash").Value;
+        public static Texture2D boltTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormSky_Bolt").Value;
+        public static Texture2D flashTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormSky_Flash").Value;
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
@@ -64,7 +64,7 @@ namespace AAModClassic._Unreleased.Backgrounds
         private readonly float fogOpacity2 = 0.4f;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
-        private static Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormClouds").Value;
+        private static Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/StormSky_Clouds").Value;
 
         public override void Activate(Vector2 position, params object[] args)
         {
@@ -208,6 +208,47 @@ namespace AAModClassic._Unreleased.Backgrounds
         {
             UpdateStormSky();
             base.Apply();
+        }
+    }
+
+    public class StormSurfaceBgStyle : ModSurfaceBackgroundStyle
+    {
+        public override void ModifyFarFades(float[] fades, float transitionSpeed)
+        {
+            for (int i = 0; i < fades.Length; i++)
+            {
+                if (i == Slot)
+                {
+                    fades[i] += transitionSpeed;
+                    if (fades[i] > 1f)
+                    {
+                        fades[i] = 1f;
+                    }
+                }
+                else
+                {
+                    fades[i] -= transitionSpeed;
+                    if (fades[i] < 0f)
+                    {
+                        fades[i] = 0f;
+                    }
+                }
+            }
+        }
+
+        public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/StormSky_BG");
+        }
+
+        public override int ChooseMiddleTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/StormSky_BG");
+        }
+
+        public override int ChooseFarTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "_Unreleased/Backgrounds/StormSky_BG");
         }
     }
 }

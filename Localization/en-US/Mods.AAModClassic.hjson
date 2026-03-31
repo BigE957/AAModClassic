@@ -1660,8 +1660,6 @@ Projectiles: {
 	Stormray.DisplayName: Stormray
 	Antimatter_Unreleased.DisplayName: Antimatter Removed
 	Rift_Unreleased.DisplayName: Rift Removed
-	Antimatter_Unreleased.DisplayName: Antimatter Removed
-	Rift_Unreleased.DisplayName: Rift Removed
 }
 
 Items: {
@@ -11194,6 +11192,11 @@ Items: {
 
 	AncientHydraTrishot: {
 		DisplayName: Ancient Hydra Trishot
+		Tooltip: ""
+	}
+
+	HydraTrishot_Removed: {
+		DisplayName: Hydra Trishot_ Removed
 		Tooltip: ""
 	}
 }

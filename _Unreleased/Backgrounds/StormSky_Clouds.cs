@@ -6,14 +6,14 @@ using Terraria;
 
 namespace AAModClassic._Unreleased.Backgrounds
 {
-    public class ScreenClouds_Unreleased
+    public class StormSky_Clouds
     {
 		public int fogOffsetX = 0;
 		public float fadeOpacity = 0f;
 		public float dayTimeOpacity = 0f;
 		public bool backgroundClouds = false;
 
-		public ScreenClouds_Unreleased(bool bg)
+		public StormSky_Clouds(bool bg)
 		{
             backgroundClouds = bg;
 		}

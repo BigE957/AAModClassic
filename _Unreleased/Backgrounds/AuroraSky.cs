@@ -10,7 +10,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic._Unreleased.Backgrounds
 {
-    public class SnowSky : CustomSky
+    public class AuroraSky : CustomSky
     {
 
         private UnifiedRandom random = new UnifiedRandom();
@@ -23,7 +23,7 @@ namespace AAModClassic._Unreleased.Backgrounds
 
         public override void OnLoad()
         {
-            PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/Aurora").Value;
+            PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/AuroraSky_Aurora").Value;
         }
 
         public override void Update(GameTime gameTime)

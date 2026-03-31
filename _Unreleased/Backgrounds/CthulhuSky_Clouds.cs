@@ -10,14 +10,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Backgrounds
 {
-    public class ScreenCthulhuFog
+    public class CthulhuSky_Clouds
     {
 		public int fogOffsetX = 0;
 		public float fadeOpacity = 0f;
 		public float dayTimeOpacity = 0f;
 		public bool backgroundFog = false;
 
-		public ScreenCthulhuFog(bool bg)
+		public CthulhuSky_Clouds(bool bg)
 		{
 			backgroundFog = bg;
 		}
