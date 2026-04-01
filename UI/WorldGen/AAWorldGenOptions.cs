@@ -59,8 +59,6 @@ namespace AAModClassic.UI.WorldGen
 
             int globalTime = (int)(Main.GlobalTimeWrappedHourly * 60);
 
-            //AAMod.instance.Logger.Info(Main.MenuUI.CurrentState);
-
             if (Main.MenuUI.CurrentState is UIWorldCreation worldCreation)
             {
                 if (perviousStateWorldCreation)
