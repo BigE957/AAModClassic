@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Armor.Biomite
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = Lang.BiomiteArmor("BiomiteArmor1") + SetBonus(player);
+			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor1") + SetBonus(player);
 		}
 
 		public override void AddRecipes()
@@ -46,64 +47,64 @@ namespace AAModClassic.Items.Armor.Biomite
 			if (Main.dayTime)
 			{
 				player.statLifeMax2 += 20;
-				set += Lang.BiomiteArmor("BiomiteArmor2");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor2");
 			}
 			else
 			{
 				player.statManaMax2 += 20;
-				set += Lang.BiomiteArmor("BiomiteArmor3");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor3");
 			}
 			if (player.GetModPlayer<AAPlayer>().ZoneVoid)
 			{
 				player.detectCreature = true;
-				set += Lang.BiomiteArmor("BiomiteArmor4");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor4");
 			}
 			if (player.GetModPlayer<AAPlayer>().ZoneInferno)
 			{
 				player.buffImmune[BuffID.OnFire] = true;
-				set += Lang.BiomiteArmor("BiomiteArmor5");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor5");
 			}
 			if (player.GetModPlayer<AAPlayer>().ZoneMire)
 			{
 				player.buffImmune[BuffID.Poisoned] = true;
-				set += Lang.BiomiteArmor("BiomiteArmor6");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor6");
 			}
 			if (player.GetModPlayer<AAPlayer>().Terrarium)
 			{
 				player.statDefense += 5;
-				set += Lang.BiomiteArmor("BiomiteArmor7");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor7");
 			}
 			if (player.ZoneJungle)
 			{
 				player.manaRegenBonus += 3;
-				set += Lang.BiomiteArmor("BiomiteArmor8");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor8");
 			}
 			if (player.ZoneSnow)
 			{
 				player.buffImmune[BuffID.Chilled] = true;
-				set += Lang.BiomiteArmor("BiomiteArmor9");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor9");
 			}
 			if (player.ZoneDesert)
 			{
 				player.buffImmune[BuffID.WindPushed] = true;
-				set += Lang.BiomiteArmor("BiomiteArmor10");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor10");
 			}
 			if (player.ZoneHallow)
 			{
 				player.buffImmune[BuffID.Slow] = true;
 				player.lifeRegen += 3;
-				set += Lang.BiomiteArmor("BiomiteArmor11");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor11");
 			}
 			if (player.ZoneCorrupt)
 			{
 				player.moveSpeed += .1f;
 				player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.1f;
-				set += Lang.BiomiteArmor("BiomiteArmor12");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor12");
 			}
 			if (player.ZoneCrimson)
 			{
 				player.GetArmorPenetration(DamageClass.Generic) += 5;
-				set += Lang.BiomiteArmor("BiomiteArmor13");
+				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor13");
 			}
 			return set;
 		}

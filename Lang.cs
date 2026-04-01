@@ -2,7 +2,7 @@ using Terraria.Localization;
 
 namespace AAModClassic
 {
-    public class Lang
+    public class Dipshit
     {
         public static string Worldtext(string WorldInfo)
         {

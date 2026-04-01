@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 
@@ -87,7 +88,7 @@ namespace AAModClassic.NPCs.Enemies.Hallow
 				jumpHeight = -25f;
                 if (NPC.ai[0] >= 0)
                 {
-                    CombatText.NewText(NPC.Hitbox, Color.LightGoldenrodYellow, Lang.BossChat("FatPixie"));
+                    CombatText.NewText(NPC.Hitbox, Color.LightGoldenrodYellow, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FatPixie"));
                 }
 			}
             BaseAI.AISlime(NPC, ref NPC.ai, false, 150, 4f, 2f, jumpWidth, jumpHeight);

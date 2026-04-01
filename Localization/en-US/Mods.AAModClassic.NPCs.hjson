@@ -1,0 +1,675 @@
+GlobalNPCInfo.NPCarrive: " have awoken!"
+
+TownNPCs: {
+    Alpha: {
+        AlphaButton1: "Vanity Shop"
+        AlphaButton2: "Weapon Shop"
+        AlphaChat1: "Hope you don't mind me hanging around. I had to deal with a LOT of bad code to get here. Could do with a break."
+        AlphaChat2: "A fun fact? Hmm, well I've never met my father. They say he vanished a long time ago. He's a real...\nMr. E."
+        AlphaChat3: "You're looking for a fish? No clue who you're talking about, pal."
+        AlphaChat4: "Look at me! I'm Big E! I've always been here, and I'll always be!"
+    }
+    Anubis: {
+        AnubisName: "Legendscribe"
+        SetChatButtons1: "Switch Info"
+        SetChatButtons2: "What Do I do now?"
+        SetChatButtons3: "Mushrooms. I'm serious."
+        SetChatButtons4: "More Mushrooms."
+        SetChatButtons5: "Get a Grip"
+        SetChatButtons6: "Deadweight Dragon"
+        SetChatButtons7: "Three-Headed Freak"
+        SetChatButtons8: "3 Wishes"
+        SetChatButtons9: "Cool as Ice"
+        SetChatButtons10: "Gotcha'"
+        SetChatButtons11: "Mechanical Mass"
+        SetChatButtons12: "Two heads; zero brains"
+        SetChatButtons13: "More worm bosses god dammit."
+        SetChatButtons14: "Ancient of Judgement"
+        SetChatButtons15: "Terrible Twins"
+        SetChatButtons16: "Ancient of Fury"
+        SetChatButtons17: "Ancient of Wrath"
+        SetChatButtons18: "Ancient of Doom"
+        SetChatButtons19: "Discordian Doomsayer"
+        SetChatButtons20: "The Stonekeepers"
+        SetChatButtons21: "Squakin' Headache"
+        SetChatButtons22: "What a Worm"
+        SetChatButtons23: "Hopping Hoodlum"
+        SetChatButtons24: "Harpy Hags are back"
+        SetChatButtons25: "Riches and R.I.P. you"
+        SetChatButtons26: "Wrath of the Wabbit"
+        SetChatButtons27: "I demand a rematch."
+        GetBookChat: "You got it! My limited edition copy of my esteemed biogrophy! Thanks, pal. You know what? As a gift, you can have it. Here, I'll even autograph it for you.\n...Whoops, I accidentally used my runic quill to sign it. Oh well, now it's magic."
+        GetSummonItemChat: "Hey, thanks for getting back to me. I wanna test your strength. After you thrashed those mechanical meatheads, I'm interested in seeing how you fair against someone like me. Here, take this scepter and go use it in the desert on the surface whenever you're ready. I'm ready whenever."
+        GetSummonItemChat2: "Take this. It's an old artifact that will come in handy soon. It should direct you towards a...special place to the people of this world. read the plaques there. They'll tell you what to do. We got some work to do if we want to clear out some of the major evils in the world."
+        CombatTextChat: "I'm headed home. Peace."
+        downedMonarchY: "...that was it?"
+        downedMonarchN: "Hey, you know all these little red mushrooms growing everywhere? I hear if you squish a bunch of them together and wave them around, their king or something will come and attempt to run you down. I gotta see that."
+        downedFungusY: "Nice work. Now be honest, how high are you right now?"
+        downedFungusN: "The glowing mushroom caves always make me feel loopy for some reason. Anyways, you want better magic abilities? There's a big mushroom monster that has some great magic abilities infused into it. Just plug your nose while your down there."
+        downedGripsY: "Nice job taking down those giant hands. Maybe the little ones will finally leave me alone for once."
+        downedGripsN: "Those flying claws at night are a nightmare to deal with, and they freak me out. In my travels, I've come across these two REEEEEEEEALLY big ones. Maybe if you kill them, the little ones will bugger off. Maybe killing a few of them and showing that you have in some way will call them down."
+        downedBroodY: "That was the fattest dragon I've ever seen in my life."
+        downedBroodN: "Like dragons? No? Too bad. You want better gear? You gotta go kill of this HUGE dragon made of lava. She's big, scary, and WAAAAAAAAAAAY too fat to fly, but she does anyways."
+        downedHydraY: "Good riddance. That hydra can't seem to lay off. At least her daughter is a bit more mellow...huh? Who? I'll explain later, good job."
+        downedHydraN: "The Mire has always been a gathering spot for all the nastiest lizards, but there's a really big one there, and it's got 3 heads. She's really grouchy all the time, and any time I try to go into her den, she tries to EAT me!"
+        downedDjinnY: "Hah! Who's tough now you sandy sadsack!"
+        downedDjinnN: "THAT SON OF A-- Oh hi. Sorry, I was just a bit angry about a little tussle I had with desert djinn. That magical meathead and his goons to stop flexing their muscles on me. Could you go teach em' a thing or two?"
+        downedSerpentY: "Hope you didn't get any 'FROSTBITES'! *buh-dum-tish* ...yeah I know that was lame."
+        downedSerpentN: "Snakes, why does it always have to be snakes? I hate 'em! Whatever, in the tundra recently, there have been these snow snerpents that won't leave me alone. Could ya play exterminator and find out what they're doing?"
+        downedRetrieverY: "Did you get my 3rd edition of 'The Life and Epic Adventures of Anubis the Wonder Dog!' back by any chance?"
+        downedRetrieverN: "Remember the Grips of Chaos? Those nasty grabby hands? There's a robotic one and it keeps stealing my stuff. Can you do me a favor and go throw a wrench at it or something?"
+        downedRaiderY: "So it was a giant robot after all? Well, sometimes people just overthinking the problem. That thing was almost as fat as the Broodmother."
+        downedRaiderN: "People said that they saw strange shade in one of the nights. It was so big that it even closed the moon for a moment. You should discover this mystery and do something."
+        downedOrthrusY: "I guess orthrus is what it eats, now."
+        downedOrthrusN: "Remeber the Hydra? There's a bigger one out there. And it's a robot. And it uh...shoots lightning. So uh...good luck!"
+        downedEquinoxY: "Nice job taking out the Equinox worms. I could tell you did because it's like a week later now. I hope I didn't miss my nurse's appointment..."
+        downedEquinoxN: "Like worms? Me neither, but guess what? There are 2 big ones that control the flow of day and night, and they're tough buggers. Good luck."
+        AnubisScapterLost: "You LOST the scepter?! I can't go handing these things out like candy, you know! Anyways, here's another one."
+        downedAnubisBY: "You could have gone a little easier on me, ya know. My back still hurts from that."
+        downedAnubisBN: "I hear there’s this lorekeeper guy that’s really jacked and handsome, and all the ladies love him for his amazing soul-judging abilities. What a guy."
+        downedAthenaY: "Thank the Equinox, you shut those annoying little squakers up! I was about to roast one of them over a spit and have fried chicken for dinner if they shrieked at me one more time."
+        downedAthenaN: "You know those screechin' harpies up in the sky? Well there are these REALLY obnoxious ones called seraphs who just WILL NOT SHUT UP!!! They have a leader in that sky palace to the east. Maybe if you give her the ol' one-two, they'll shut their yappers."
+        downedGreedYBookY: "Hey thanks for getting my book back. Greed stole it a while ago, probably because of the gold highlights I used to bind it. Look around that cave, maybe there's some other stuff he's stolen?"
+        downedGreedYBookN: "Hey uh...did you find my thing yet? No? Just dig around in that loot pile down there, I'm sure it's there somewhere."
+        downedGreedN: "Hey uh, there's this HUGE hoard of treasure underground somewhere with lots of gold in it, but it's guarded by this really stingy worm. You should go check it out for a boatload of booty, but uh...there's something of mine down there. Could you go get it for me? Don't worry, when you see it, you'll know it's mine."
+        downedAthenaAY: "Huh? What's a Varian you ask? That's something I haven't heard in years...so long ago that I barely even remember the name. Although I do recall something about another one kicking around somewhere..."
+        downedAthenaAN: "Hey, did that annoying little witch find you? Sorry for telling her where you were, she wouldn't stop screeching in my ear. Anyways, looks like Athena wants a rematch. Stay on your guard, bud. This seems like a trap..."
+        GreedACalamityMod: "Ya know, you duking it out with the Devourer of Gods reminded me of Greed a bit...I mean think about it. They both have wormhole capabilities and they both adapt to what they eat. Could they possibly be...nah, that'd be rediculous...or..?"
+        downedGreedAY: "So he WAS hiding his true power all along. I wonder why, though...could he be hiding from something, perhaps..?"
+        downedGreedAN: "You know, I seem to remember a story about ol' grabby-mc-steal-your-crap. When he first showed up in these parts, he was much stronger than he was when you kicked his rear end. Maybe he got weaker as time went on..? Or maybe...nah, that couldn't be it."
+        downedSistersY: "Nice, you taught those two spoiled brats a lesson! Those two didn't see it coming!"
+        downedSistersN: "Remember ol' Brood and Hydra? Well, those two have daughters. And MAN they're annoying..! Every time I go into the chaos biomes, those two are just waiting to ruin my day! Can you go give em' the ol' one-two?"
+        downedAkumaY: "Akuma thinks he's edgy. To me, he just comes across as trying to be way too cool and failing. Anyways, might wanna run some water through your hair. You got a little singed up there."
+        downedAkumaN: "Why would anyone call a sun serpent a demon? I have no idea personally...but Akuma has got to go. He always glasses my deserts with his flame breath and it pisses me off."
+        downedYamataY: "Thanks for shutting up that 7-headed sissy. He makes me want to tear my fur out."
+        downedYamataN: "Yamata, the whiny nit! He complains about everything, and he WONT SHUT UP! LIKE SERIOUSLY, YOU try and deal with seven obnoxiously loud dragon heads that chatter constantly and talk over eachother!"
+        downedZeroY: "...I'll be honest. I don't like what that thing said after it died one bit."
+        downedZeroN: "You know the void? Those spooky floating islands to the east? There's a BIG scary machine there that's always just floating there. Anyways, after you slammed the moon lord, I heard a massive shockwave come from the void. Could you check it out for me?"
+        downedShenY: "Holy-- I knew you had it in you, man! Awesome job! Although...he seemed pretty angry when you beat him...almost as angry as when he got beat by-- er, nevermind that."
+        downedShenN: "Akuma and Yamata...you know, those two were once one being. And hot dang, that guy was powerful. He leveled 2 civilizations one time. Anyways, so what was it that you needed?"
+        downedRajahCY: "So ol' Rajah finally decided to hang up the scepter? Seems like he thought you were the right pick to protect those in need. I'd do what he says. It's the right thing to do, in my opinion."
+        downedRajahCN: "Them bunnies have been getting pretty riled up lately. Something ain't right. I just feel it..."
+        Stones: "You know...after you whooped ol' Shen, I felt some...very old magic activate. Maybe you should pay a visit to some of the tougher bosses you've come across? By the way, have you seen the Goblin Summoner recently? Jeeze she got tough. Wonder what her deal is."
+        else: "I dunno? Ask me about any strong creatures you can fight currently."
+        AkumaGuideChat: "If I were you, I'd stay out of the Mire during the day. It gets really foggy and you can't see jack squat in there. I think you can make a lantern out of blaze claws if I remember correctly to help see through it..."
+        YamataGuideChat: "The Volcano in the inferno gets pretty active at night for some reason. During the day, it seems to calm down. Maybe you could get through if you made some kind of cover out of those Hydra claws? They seem to not be affected by that ash..."
+        JungleGuideChat: "Creatures in the jungle drop these really weird leaves I've noticed. They're tough as nails, though, so making gear out of it could be a pretty interesting idea..."
+        BroodMotherGuideChat: "You know those eggs at the bottom of the inferno volcano? Yeah uh, I wouldn't touch those if I were you, unless you want to deal with a very angry dragon."
+        HydraGuideChat: "Underneath the lake in the mire are some pods of...something. I don't really want to know what that Hydra thing eats. I wouldn't break them either, that lizard gets feisty when something messes with her food."
+        VoidGuideChat: "Those floating islands to the east freak me out. They're just...there. I think there's some houses on them, but I'm not going up there."
+        HardModeGuideChat1: "Hey, if you go to the underground chaos biomes, I think you can get some souls like the ones you get in the evil biomes. Those should be useful."
+        HardModeGuideChat2: "Hey you know those frogs in the mire? I hear they hoard tons of coins. Just go beat the bajeezus out of them and BAM! Cash money."
+        PlantBossGuideChat: "Did you hear that music coming from the Terrarium? I think there's something new down there. See if you can get your hands on one of those green prisms they have. I think you can make a crazy new crafting station with it."
+        EquinoxBossGuideChat: "You know those glowing spheres in the sky? If I remember correctly, they change depending on the time of day. Maybe you can get something different from them if you go at different points in the day?"
+        AnubisChatMask: "Hey, lookin' good handsome."
+        AnubisChat1: "You wouldn’t happen to be good at belly rubs would you?"
+        AnubisChat2: "You know that awful feeling of getting sand in your swim trunks after going to the beach? Imagine having that all the time. Welcome to my life."
+        AnubisChat3: "For the thousandth time, I AM NOT A FURRY!"
+        AnubisChat4: "Hey, I got this really bad itch on my back. Could ya get it for me?"
+        AnubisChat5: "No. I won’t wear a flea collar.\n \n*Scratch Scratch*"
+        AnubisChat6: "Everyone asks me who's a good boy, but I'm upset because they never tell me who it is."
+        AnubisChat7: "Have you seen my tail? I need to teach it a thing or two."
+        AnubisChat8: "The Desert Djinn may be ripped but he's got nothing on me! Check it!"
+        AnubisChat9: "Thanks for letting me crash here by the way. Walking around the desert for a couple thousand years really tuckers ya out."
+        AnubisChat10: "I wrote the Terraria Historia, yes. But I also wrote another great book. 'The Life and Epic Adventures of Anubis the Wonder Dog!' Want a copy?"
+        AnubisChat11: "Don't you hate it when "
+        AnubisChat12: "red fleshy crap"
+        AnubisChat13: "purple muggy crap"
+        AnubisChat14: " takes over your biome? it's disgusting."
+        AnubisChat15: "What creature do I hate most? Oh that's easy, King Slime. If that thing lands on you, good luck washing the slime out of your clothes or fur without a blowtorch."
+        AnubisChat16: "Geeze, I tried hitting on "
+        AnubisChat17: " earlier and they kicked the bajeezus out of me. What is it with these ladies and blood moons?"
+        AnubisChat18: "I tried hitting on "
+        AnubisChat19: " and she was totally polite to me. That's...odd...especially during a blood moon."
+        AnubisChat20: "Hey, nice outfit."
+        AnubisChat21: "Hey, like my floating party hat? Magic is fun."
+        AnubisChat22: "Disco is still popular with you terrarians, right? I can do a mean boogie."
+        AnubisChat23: "Hey uh...if anyone asks, "
+        AnubisChat24: " got all of his info from me, got it?"
+        AnubisChat25: "That "
+        AnubisChat26: " is pretty chill. Knows a lot about bosses too...actually I hope he isn't stalking me or anything."
+        AnubisChat27: "I think "
+        AnubisChat28: " isn't letting in on how smart he actually is. I mean look at that face. Pure. Raw. Genius."
+        AnubisChat29: " keeps yelling at me for eating all the shoes he makes. It's not my fault he makes them with premium lether."
+        AnubisChat30: "Don't ask "
+        AnubisChat31: " where he gets his merch. It's nasty."
+        AnubisChat32: "...and then, he flips it over, and it turns out this guy turned himself into get this; a pickle. Bloody funniest sh*t I've ever seen. Huh? Who am I talking to? I dunno."
+    }
+    GoblinSlayer: {
+        GoblinSlayerName: "Goblin Slayer"
+        GoblinSlayerChat1: "I don't trust "
+        GoblinSlayerChat2: ". There's just something about him that I don't like..."
+        GoblinSlayerChat3: " tells me that where he's from, they kill goblins a lot. I wish to visit this place sometime. Sounds glorious."
+        GoblinSlayerChat4: "I don't like goblins."
+        GoblinSlayerChat5: "Seen any goblins I can kill?"
+        GoblinSlayerChat6: "Goblins are a scourge on this earth."
+        GoblinSlayerChat7: "Find any good goblin dens to raid?"
+        GoblinSlayerChat8: "Why do I hate goblins? Because they're goblins."
+        GoblinSlayerChat9: "Hey, while you're out there, can you kill some goblins for me? Give me their souls and I'll trade you for some of my extra goblin slaying gear."
+        GoblinSlayerChat10: "Souka."
+        GoblinSlayerChat11: "There are other armies invading this land like those dreaded goblins. Fortunately, beating the snot out of those little twerps has prepared me. Bring me some special things from them and I'll give you some of the stuff I've picked up from them."
+    }
+    Lovecraftian: {
+        button1: "Shop"
+        button2: "Supply Ingredients"
+        LovecraftianChat1: "You know, where I’m from, I’m what your world would call ‘hot stuff.’"
+        LovecraftianChat2: "I wasn’t the only thing that came here. A whole bunch of other stuff came through with me when a spacial rift opened up in my world. Stuff like the Eye of Cthulhu and the Brain of Cthulhu were already here though. No clue where those two came from."
+        LovecraftianChat3: "...What are you looking at? You act like you've never seen a squid-person before."
+        LovecraftianChat4: "Yes I’m a woman. What about it? Is it the tentacle beard that threw you off?"
+        LovecraftianChat5: "If you have any sense of self preservation, I’d avoid that sunken ship in the ocean just off the coast. Scary things from my neck of the woods hang out there, especially... nevermind."
+        LovecraftianChat6: "Ever just find things in your tentacles that you don’t know how they got there? No? Just me?"
+        LovecraftianChat7: "Hey, your world is pretty interesting. Could you bring me some samples from different biomes for me to study? If you do, I can make some neat stuff to trade with you."
+        LovecraftianChat8: "Oh. This is awkward. Poor "
+        LovecraftianChat9: ". His ship was the one that got destroyed when I fell out of that rift."
+        LovecraftianChat10: "That "
+        LovecraftianChat11: " is talking out of his ass. Cthulhu would most likely squash him before he could even say *ech*."
+        LovecraftianChat12: "That dead guy shambling around freaks me out, and that’s saying something considering I’m a walking horror story. I don’t know, I just feel like he knows too much..."
+        LovecraftianChat13: "Fun fact; The Moon Lord and Cthulhu are brothers. At least that’s what some pink pixie lady I met one time told me."
+        PurityFlaskChat: "Oh! Are those purity shards? Perfect! Here, take this. You can purify most biomes with this special flask I made."
+        AshJarChat: "Dragons, eh? I've seen scarier. Anyways, here's a new flask. Careful, it's hot."
+        DarkwaterFlaskChat: "What is this..? It's literally a ball of...something. I'm gonna look into it. Here, new flask. Go crazy."
+        CorruptionFlaskChat: "Why are you gagging? There are things that smell way worse than this. It's only decomposing flesh."
+        CrimsonFlaskChat: "Hm...bones? I've seen ones like these before. Similar to ones from where I came."
+        HallowFlaskChat: "What is this stuff? It's...sparkly..? Whatever, I'll research it a bit more. Here's a new flask."
+        VoidFlaskChat: "Wow this is heavy! What is this? I've never seen this kind of metal before. Oh right. New flask. Here."
+        FungicideChat: "Hmm...glowing spores? I've never seen something like this aside from glowing mushrooms. Speaking of mushrooms, here, I found a recipe for some really good fungicide. I made it into a flask."
+        SporeSacChat1: "What is this stuff? It's so squishy...I'll make it work I guess. Oh by the way, "
+        SporeSacChat2: " showed me how to make mushroom spores. Feel free to use it how you see fit."
+        GlowingSporeSacChat1: "Hm, this stuff is pretty glowy. *Sniff* Yowza that burns my nostrils. Anyways, here, I made a glowing version of  "
+        GlowingSporeSacChat2: "'s spores."
+        JungleFlaskChat: "Oh thank you so much! These stingers will work nicely for some makeshift syringes. Here, I've developed a brand new solution that changes forest into jungle. Nifty, huh?"
+        IceFlaskChat: "Now THIS will come in handy. Thank you. Hey, speaking of ice, check this out. Snow creation AND removal flasks? You like it? Two for the price of one!"
+        ForestFlaskChat: "I wish we had these back where I came from. They're adorable~! Oh, but I'd be careful with these little guys if I were you. The dryad told me there's some giant monster that protects them...anyways, while you were out, I made a new flask. It turns Jungle into forest. Careful with it."
+        SquidListChat: "Here's a list of some things I need for my research. If you lose it, I'll happily write up a new one for you"
+        NothingChat: "Hmm...nothing? I need stuff to study. I'd like some important materials from biomes. Monster pieces, plants, etc."
+    }
+    Mushman: {
+        button1: "Shop"
+        button2: "Strange Plants"
+        MushmanChat1: "Those glowing truffles are all just such downers."
+        MushmanChat2: " offered to let me get in his hot tub one time. I denied because I had better things to do"
+        MushmanChat3: "The Mushroom Monarch isn't all he seems, you know."
+        MushmanChat4: "Don't ask where I get the mushrooms for my potions."
+        MushmanChat5: "I got potions, you got money. Wanna trade?"
+        MushmanChat6: " asked me one time if red truffles tasted as good as blue ones. Obviously not. Blue truffles are way saltier."
+        NoMushroomChat1: "I need strange plants for something. Bring me some and I'll give you some special alchemical mushrooms. Good for making potions."
+        NoMushroomChat2: "...no plants?"
+        NoMushroomChat3: "Plants please. I won't give you mushrooms without them."
+        SpecialChat1: "A Madness Mushroom? Sweet! Here's a special kind mushroom for payment. This one is really useful. Just...don't eat it directly."
+        SpecialChat2: "Oh, a Madness Mushroom! These ones I like a lot because of their special properties. Here, have a few rainbow shrooms."
+        SpecialChat3: "You can find these in both mushroom biomes, you know. Make sure to check both of them just in case. They're really useful."
+        MushroomChat1: "Thank you. These mushrooms are way more useful than worthless dyes, am I right?"
+        MushroomChat2: "Here. More colored mushrooms for all your brewing needs. Just...don't eat them."
+        MushroomChat3: "What do I use these dye materials for? Uh...things. Now leave me be, I have stuff to do!"
+    }
+    Samurai: {
+        SamuraiChat1: "I've known "
+        SamuraiChat2: " for a while. He's quite the man of culture."
+        SamuraiChat3: "I'm not really a fan of "
+        SamuraiChat4: "'s ale. It's a bit strong for my taste. I prefer Sake to be entirely honest."
+        SamuraiChat5: "The chaos biomes weren't always so.... err.... chaotic."
+        SamuraiChat6: "Have you seen my sword? I can't seem to find it anywhere."
+        SamuraiChat7: "We used to be the most powerful nation in all of terraria... then... HE came..."
+        SamuraiChat8: "I remember my old master giving me wise words such as: 'YOU ARE TRYING TO VIEW FLASH CONTENT BUT YOU DO NOT HAVE A FLASH PLAYER INSTALLED'... I’m still trying to figure that one out."
+        SamuraiChat9: "I'll be honest, I get half my lines from fortune cookies. Want one?"
+        SamuraiChat10: "If you refuse to accept anything but the best, you very often get it."
+        SamuraiChat11: "Change can hurt, but it leads a path to something better."
+        SamuraiChat12: "You cannot love life until you live the life you love."
+        SamuraiChat13: "Land is always on the mind of a flying bird."
+        SamuraiChat14: "Our deeds determine us, as much as we determine our deeds."
+        SamuraiChat15: "Never give up. You're not a failure if you don't give up."
+        SamuraiChat16: "You already know the answer to the questions lingering inside your head."
+        SamuraiChat17: "It is now, and in this world, that we must live."
+        SamuraiChat18: "You can make your own happiness."
+        SamuraiChat19: "If winter comes, can spring be far behind?"
+        SamuraiChat20: "A stranger is a friend you have not spoken to yet."
+        SamuraiChat21: "Your shoes will make you happy today."
+    }
+
+    QuestFish: {
+        Fishmother: "Okay so, I was walking through the Inferno looking for something hot for one of my epic pranks, when I saw this fat fish underwater, boiling the water around it. I thought 'PERFECT!' but I couldn't catch it because I didn't have my rod on me. Go get it, slave."
+        FishmotherLocation: "Caught anywhere in the Inferno"
+        TriHeadedKoi: "I hate the Mire. I can't see a thing in there unless it's past my bedtime, but I know there's a killer fish in there that I want that has, get this, THREE HEADS. Can you go get it for me?"
+        TriHeadedKoiLocation: "Caught anywhere in the Mire"
+        GlitchFish: "I once woke up and saw a strange fish in the water of the scary island over my head in the sky, probably in the West. You go, get it for me. You ask why there are waters in sky island? Find your own way."
+        GlitchFishLocation: "Caught anywhere in the Void"
+    }
+}
+
+EnemyChat: {
+    SeraphChat1: "Aww you're no fun! Sissy..!"
+    SeraphChat2: "Hahahah! Running away like the spineless earthwalker you are!"
+    SeraphChat3: "I'm bored now."
+    SeraphChat4: "Come back! I was having fun kicking you around..!"
+    SeraphChat5: "Aww the wittle earthwalker is weaving. Gonna go cry?"
+    SeraphKillChat1: "Whoops. They died. Oh well..!"
+    SeraphKillChat2: "Hah! I win!"
+    SeraphKillChat3: "That was fun! Come back when you don't suck!, twerp!"
+    SeraphKillChat4: "And STAY away..!"
+    SeraphKillChat5: "Well that was anticlimactic. Piece of cake!"
+    SeraphHurtChat1: "OUCH..! How RUDE! ATHENAAAAAAAAAAAAAAA!!!"
+    SeraphHurtChat2: "HEY! I was only playing! Wait till Athena hears about THIS!"
+    SeraphHurtChat3: "NOW You've done it! Oh ATHEEEEENAAAAAAAA"
+    SeraphHurtChat4: "THAT HURT..! WAAAAAAAAAAH ATHENAAAAAA THE EARTHWALKER IS BEING MEAN!"
+    SeraphHurtChat5: "*GASP*! You scuffed up my dress..! I'm getting Athena..!"
+    AthenaChat1: "...ugh...those little whiny--"
+    AthenaChat2: "I dont have time for this..!"
+}
+
+AHDeath.DisplayName: Sisters Defeat
+AHSpawn.DisplayName: Sisters of Discord
+
+Ashe: {
+	DisplayName: Ashe Akuma
+	BossChecklistIntegration.EntryName: Sistersof Discord
+}
+
+AsheDragon.DisplayName: Ashen Dragon
+AsheDragonArms.DisplayName: Ashen Dragon
+AsheDragonBody.DisplayName: Ashen Dragon
+AsheDragonBody1.DisplayName: Ashen Dragon
+AsheDragonBody2.DisplayName: Ashen Dragon
+AsheDragonTail.DisplayName: Ashen Dragon
+AsheOrbiter.DisplayName: Flame Vortex
+AsheSpawn.DisplayName: Ashe Akuma
+AsheVanish.DisplayName: Ashe Akuma
+Haruka.DisplayName: Haruka Yamata
+HarukaClone.DisplayName: Haruka Yamata
+HarukaFall.DisplayName: Haruka Yamata
+HarukaSpawn.DisplayName: Haruka Yamata
+HarukaVanish.DisplayName: Haruka Yamata
+
+Akuma: {
+	DisplayName: Akuma; Draconian Demon
+	BossChecklistIntegration.EntryName: Akuma
+}
+
+AkumaBody.DisplayName: Akuma, Draconian Demon
+AkumaTransition.DisplayName: Soul Of Fury
+
+AkumaA: {
+	DisplayName: Oni Akuma
+	BossChecklistIntegration.EntryName: Akuma A
+}
+
+AkumaABody.DisplayName: Oni Akuma
+AwakenedLung.DisplayName: Awakened Lung
+AwakenedLungBody.DisplayName: Awakened Lung
+AwakenedLungTail.DisplayName: Awakened Lung
+SunA.DisplayName: Oni Sun
+Anubis.DisplayName: Anubis Legendscribe
+CursedLocust.DisplayName: Cursed Locust
+CursedScarab.DisplayName: Cursed Scarab
+FATransition.DisplayName: Anubis Legendscribe
+FATransition2.DisplayName: Anubis Legendscribe
+ForsakenAnubis.DisplayName: Anubis; Forsaken Judge
+ForsakenSun.DisplayName: Forsaken Sun
+HorusHawk.DisplayName: Horus Hawk
+UraeusBody.DisplayName: Uraeus
+UraeusTail.DisplayName: Uraeus
+Uraeus.DisplayName: Uraeus
+AthenaFlee.DisplayName: Athena
+AthenaA.DisplayName: Olympian Athena
+AthenaDark.DisplayName: Angel Clone
+AthenaLight.DisplayName: Angel Clone
+Athena.DisplayName: Athena
+OwlRuneCharged.DisplayName: Charged Owl Rune
+OwlRune.DisplayName: Owl Rune
+OlympianDragon.DisplayName: Olympian Dragon
+SeraphA.DisplayName: Seraph Guard
+BroodEgg.DisplayName: Dragon Egg
+Broodmini.DisplayName: Broodmini
+Broodmother.DisplayName: The Broodmother
+Djinn.DisplayName: Desert Djinn
+DaybringerBody.DisplayName: Daybringer
+
+DaybringerHead: {
+	DisplayName: Daybringer
+	BossChecklistIntegration.EntryName: Nightcrawler Daybringer
+}
+
+DaybringerTail.DisplayName: Daybringer
+Equiprobe.DisplayName: Equiprobe
+NCCloud.DisplayName: Nightclawer Cloud
+NightcrawlerBody.DisplayName: Nightcrawler
+NightcrawlerHead.DisplayName: Nightcrawler
+NightcrawlerTail.DisplayName: Nightcrawler
+FeudalFungus.DisplayName: Feudal Fungus
+FungusFlier.DisplayName: Fungus Flier
+FungusSlep.DisplayName: Very Large Glowing Mushroom
+FungusSpore.DisplayName: Fungal Spore
+FungusWake.DisplayName: Very Large Glowing Mushroom...?
+Mushling.DisplayName: Mushling
+
+Greed: {
+	DisplayName: Greed
+	BossChecklistIntegration.EntryName: Greed
+}
+
+GreedA.DisplayName: Worm King Greed
+GreedABody.DisplayName: Worm King Greed
+GreedBody.DisplayName: Greed
+GreedMinion.DisplayName: Ore Construct
+GreedSpawn.DisplayName: Spark of Desire
+GreedTransition.DisplayName: Spark of Greed
+GreedTurret.DisplayName: Singularity of Desire
+DragonClawM.DisplayName: Dragon Claw
+DragonClaw.DisplayName: Dragon Claw
+GripOfChaosBlue.DisplayName: Grip of Chaos
+
+GripOfChaosRed: {
+	DisplayName: Grip of Chaos
+	BossChecklistIntegration.EntryName: Grips Of Chaos
+}
+
+HydraClawM.DisplayName: Hydra Claw
+HydraClaw.DisplayName: Hydra Claw
+Hydra.DisplayName: Hydra
+HarukaShade.DisplayName: ...
+HydraHead1.DisplayName: Hydra
+HydraHead2.DisplayName: Hydra
+HydraHead3.DisplayName: Hydra
+HydraHead4.DisplayName: Hydra
+HydraHead5.DisplayName: Hydra
+HydraHead6.DisplayName: Hydra
+HydraHead7.DisplayName: Hydra
+HydraHead8.DisplayName: Hydra
+HydraHead9.DisplayName: Hydra
+
+LuciferSitting: {
+	DisplayName: Lucifer the Pit Lord
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+MonarchSlep.DisplayName: Very Large Mushroom
+MonarchWake.DisplayName: Very Large Mushroom...?
+MushroomMonarch.DisplayName: Mushroom Monarch
+RedMushling.DisplayName: Mushling
+BunnyBattler.DisplayName: Rabbid Rabbit
+BunnyBattler2.DisplayName: Rabbid Rabbit
+BunnyBrawler.DisplayName: Bunny Brawler
+BunnyBrawler2.DisplayName: Bunny Brawler
+RabbitcopterSoldier.DisplayName: Rabbitcopter Soldier
+RabbitcopterSoldier2.DisplayName: Rabbitcopter Soldier
+Rajah.DisplayName: Rajah Rabbit
+SupremeRajahDefeat.DisplayName: Rajah Rabbit
+SupremeRajah.DisplayName: Rajah Rabbit; Champion of the Innocent
+Sag.DisplayName: Sagittarius
+IceCrystal.DisplayName: Ice Crystal
+SerpentBody.DisplayName: Subzero Serpent
+
+SerpentHead: {
+	DisplayName: Subzero Serpent
+	BossChecklistIntegration.EntryName: Subzero Serpent
+}
+
+SerpentTail.DisplayName: Subzero Serpent
+FuryAshe.DisplayName: Fury Ashe
+FuryAsheOrbiter.DisplayName: Flame Vortex
+FuryAsheVanish.DisplayName: Ashe Akuma
+WrathHaruka.DisplayName: Wrath Haruka
+WrathHarukaClone.DisplayName: Wrath Haruka
+WrathHarukaVanish.DisplayName: Wrath Haruka
+AbyssGrip.DisplayName: Grip of Abyssal Wrath
+BlazeGrip.DisplayName: Grip of Blazing Fury
+Shen.DisplayName: Shen Doragon; Discordian Doomsayer
+ShenA.DisplayName: Shen Doragon Awakened
+ShenAHitbox.DisplayName: Shen Doragon Awakened
+ShenDeath.DisplayName: Discord's Death
+ShenDefeat.DisplayName: Discord's Defeat
+ShenHitbox.DisplayName: Shen Doragon; Discordian Doomsayer
+Shenling.DisplayName: Discordian Serpent
+ShenlingBody1.DisplayName: Discordian Serpent
+ShenlingBody2.DisplayName: Discordian Serpent
+ShenlingTail.DisplayName: Discordian Serpent
+ShenSpawn.DisplayName: Discord
+ShenTransition.DisplayName: Discordian Awakening
+GlowshroomGrow.DisplayName: Glowing Mushroom
+ShroomGlow.DisplayName: Glowing Mushroom
+TinyToad.DisplayName: Tiny Toad
+TruffleToad.DisplayName: Truffle Toad
+YamataA.DisplayName: Yamata no Orochi
+YamataAHead.DisplayName: Yamata no Orochi
+YamataAHeadF.DisplayName: Yamata no Orochi
+YamataSoul.DisplayName: Mire Soul
+Yamata.DisplayName: Yamata
+YamataHead.DisplayName: Yamata
+YamataHeadF1.DisplayName: Yamata
+YamataHeadF2.DisplayName: Yamata
+YamataTransition.DisplayName: Spirit of Wrath
+GenocideCannon.DisplayName: Genocide Cannon
+Neutralizer.DisplayName: Neutralizer
+NovaFocus.DisplayName: Nova Focus
+OmegaVolley.DisplayName: Omega Volley
+NullZP.DisplayName: Null
+Null.DisplayName: Null
+ZeroEcho.DisplayName: 3CH0
+ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
+ZeroProtocol.DisplayName: ZER0 PR0T0C0L
+ZeroTransition.DisplayName: Broken Rift
+Zero.DisplayName: Zero
+RealityCannon.DisplayName: Reality Cannon
+RiftShredder.DisplayName: Rift Shredder
+SearcherZero.DisplayName: Searcher
+Searcher.DisplayName: Searcher
+Taser.DisplayName: Gigataser
+TeslaHand.DisplayName: Broken Weapon
+VoidStar.DisplayName: Void Star
+ZeroDeactivated.DisplayName: Strange Machine
+RoyalRabbit.DisplayName: Royal Rabbit
+VoidFlowey.DisplayName: ???
+Fishron.DisplayName: Fishron
+Scavenger.DisplayName: Scavenger
+ScavengerBody.DisplayName: Scavenger
+ScavengerTail.DisplayName: Scavenger
+MiniDjinn.DisplayName: Djinn
+FatPixie.DisplayName: Fat Pixie
+BlazePhoenix.DisplayName: Blaze Phoenix
+ChaoticDawn.DisplayName: Chaotic Dawn
+Dragron.DisplayName: Pigron
+Flamebrute.DisplayName: Flame Brute
+InfernalSlime.DisplayName: Infernal Slime
+InfernoGhoul.DisplayName: Infernal Ghoul
+InfernoMimic.DisplayName: Inferno Mimic
+InfernoSalamander.DisplayName: Singemander
+Lung.DisplayName: Ancient Lung
+LungBody.DisplayName: Ancient Lung
+LungTail.DisplayName: Ancient Lung
+MagmaSwimmer.DisplayName: Magma Swimmer
+TheStride.DisplayName: Flamebrute
+TheStrideDeathAnimation.DisplayName: Flamebrute
+Wyrm.DisplayName: Wyrm
+WyrmBody1.DisplayName: Wyrm
+WyrmBody2.DisplayName: Wyrm
+WyrmBody3.DisplayName: Wyrm
+WyrmBody4.DisplayName: Wyrm
+Wyrmling.DisplayName: Wyrmling
+WyrmlingBody.DisplayName: Wyrmling
+WyrmlingTail1.DisplayName: Wyrmling
+WyrmlingTail2.DisplayName: Wyrmling
+ChaoticTwilight.DisplayName: Chaotic Twilight
+FogAngler.DisplayName: Fog Angler
+HarukaShadow.DisplayName: ...
+Kappa.DisplayName: Kappa
+MireGhoul.DisplayName: Shadow Ghoul
+Miregron.DisplayName: Pigron
+MireMimic.DisplayName: Mire Mimic
+MireSkulker.DisplayName: Skulker
+MireSlime.DisplayName: Murky Slime
+Miresquito.DisplayName: Miresquito
+Mosster.DisplayName: Mosster
+Newt.DisplayName: Newt
+Soulsucker.DisplayName: Soulsucker
+Toxitoad.DisplayName: Toxitoad
+Mushbug.DisplayName: Mushbug
+MushroomCrab.DisplayName: Mushroom Crab
+MushroomZombie.DisplayName: Mushroom Zombie
+MushroomZombie2.DisplayName: Mushroom Zombie
+ShroomJelly.DisplayName: Mushroom Jelly
+SmallFrog.DisplayName: Fungus Frog
+SmallToad.DisplayName: Tiny Toad
+AbyssClaw.DisplayName: Abyss Claw
+BlazeClaw.DisplayName: Blaze Claw
+ChaosDragon.DisplayName: Chaos Dragon
+MadnessBat.DisplayName: Madness Flier
+MadnessSlime.DisplayName: Madness Slime
+Nightguard.DisplayName: Night Guard
+Sunwatcher.DisplayName: Sun Watcher
+ElderDragon.DisplayName: Elder Dragon
+SnakeBody.DisplayName: Snow Serpent
+SnakeBody2.DisplayName: Snow Serpent
+SnakeHead.DisplayName: Snow Serpent
+SnakeTail.DisplayName: Snow Serpent
+TerraProbe.DisplayName: Unity Probe
+TerraSquire.DisplayName: Terra Squire
+TerraWatcher.DisplayName: Unity Watcher
+TerraSerpent.DisplayName: Terra Serpent
+TerraSerpentBody.DisplayName: Terra Serpent
+TerraSerpentTail.DisplayName: Terra Serpent
+Bladon.DisplayName: Terra Knight
+Minion1.DisplayName: Terra Squid
+Minion2.DisplayName: Terra Crawler
+Minion3.DisplayName: Terra Sphere
+Minion4.DisplayName: Terra Weaver
+Minion4Body.DisplayName: Terra Weaver
+Minion4Tail.DisplayName: Terra Weaver
+TerraDeadshot.DisplayName: Terra Deadshot
+TerraWarlock.DisplayName: Terra Warlock
+TerraWizard.DisplayName: Terra Wizard
+PurityCrawler.DisplayName: Purity Crawler
+PuritySphere.DisplayName: Purity Sphere
+PuritySquid.DisplayName: Purity Squid
+PurityWeaver.DisplayName: Purity Weaver
+PurityWeaverBody.DisplayName: Terra Weaver
+PurityWeaverTail.DisplayName: Terra Weaver
+SagittariusMini.DisplayName: Shadow Scout
+Scout.DisplayName: Void Scout
+Searcher1.DisplayName: Stone Searcher
+Vortex.DisplayName: Vortex
+
+GoblinSlayer: {
+	DisplayName: Goblin Slayer
+	Census.SpawnCondition: Goblin Army is defeated
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+DBPortal.DisplayName: Bright Star
+NCPortal.DisplayName: Black Void
+WormSpawn.DisplayName: Heavenly Voice
+
+Legendscribe: {
+	Census.SpawnCondition: ""
+	DisplayName: Legendscribe
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+Mushman: {
+	Census.SpawnCondition: After defeating Mushroom Monarch or Feudal Fungus, build a house in a red mushroom biome
+	DisplayName: Mushman
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+Lovecraftian: {
+	Census.SpawnCondition: Eye of Cthulhu defeated
+	DisplayName: Lovecraftian
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+Samurai: {
+	Census.SpawnCondition: Grips of Chaos defeated
+	DisplayName: Samurai
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+}
+
+AsheRune.DisplayName: Ashe Rune
+EyeSentry.DisplayName: Eye Sentry
+CurseCircle.DisplayName: Curse Circle
+HorusSentry.DisplayName: Horus Sentry
+Naddaha.DisplayName: Naddaha
+Locust.DisplayName: Locust
+MinionCircle.DisplayName: Minion Circle
+Scarab.DisplayName: Scarab
+AthenaDefeat.DisplayName: Athena Defeat
+SeraphHerald.DisplayName: Seraph Herald
+Seraph.DisplayName: Seraph
+Dynasaur.DisplayName: Dynasaur
+SeraphHurt.DisplayName: Seraph Hurt
+
+Alpha: {
+	DisplayName: Large Letter
+
+	TownNPCMood: {
+		Content: I am content.
+		NoHome: I hate not having a home.
+		FarFromHome: I am too far from home.
+		LoveSpace: I love having so much space.
+		DislikeCrowded: I dislike how crowded I am.
+		HateCrowded: I hate how crowded I am.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+
+	Census.SpawnCondition: Conditions unknown
+}
+
+Core.DisplayName: Biomite Core

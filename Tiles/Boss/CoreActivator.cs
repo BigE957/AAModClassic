@@ -104,7 +104,7 @@ public class CoreActivator : ModTile
 				int num = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)val.X, (int)val.Y, bossType, 0, 0f, 0f, 0f, 0f, 255);
 				Main.npc[num].Center = val;
 				Main.npc[num].netUpdate = true;
-				BaseUtility.Chat(Lang.BossChat("CoreSpawn"), 175, 75, byte.MaxValue, sync: false);
+				BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), 175, 75, byte.MaxValue, sync: false);
 			}
 		}
 		else

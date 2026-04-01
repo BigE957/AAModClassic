@@ -67,7 +67,7 @@ namespace AAModClassic.Tiles.Altar
                             player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Mod.Find<ModItem>("EquinoxWorm").Type);
                             if (!AAWorld.WormActive)
                             {
-                                BaseUtility.Chat(Lang.TheEquinox("WormAltarOK"), new Color(75, 175, 255));
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormAltarOK"), new Color(75, 175, 255));
                                 SpawnBoss(player, ModContent.NPCType<WormSpawn>(), false, player.Center);
                             }
                         }
@@ -75,7 +75,7 @@ namespace AAModClassic.Tiles.Altar
                 }
                 else
                 {
-                    BaseUtility.Chat(Lang.TheEquinox("WormAltar"), new Color (75, 175, 255));
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormAltar"), new Color (75, 175, 255));
                 }
             }
             return true;

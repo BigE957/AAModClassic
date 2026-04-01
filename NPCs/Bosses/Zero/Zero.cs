@@ -11,6 +11,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 
@@ -82,7 +83,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 RespawnArms1 = true;
 
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss10"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss10"), Color.Red, false);
                 NPC.netUpdate = true;
             }
             if (NPC.life <= (int)(NPC.lifeMax * .33f) && !RespawnArms2 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -91,7 +92,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 NPC.ai[1] = 0;
                 RespawnArms2 = true;
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss10"), Color.Red, false);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss10"), Color.Red, false);
                 NPC.netUpdate = true;
             }
 
@@ -108,7 +109,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ZeroGore3").Type, 1f);
                 if (!Main.expertMode)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss2"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss2"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
             }
         }
@@ -150,7 +151,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             {
                 NPC.DropLoot(Mod.Find<ModItem>("ApocalyptitePlate").Type, 2, 4);
 
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss1"), Color.Red.R, Color.Red.G, Color.Red.B);
                 if (AAWorld.downedZero)
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, Mod.Find<ModNPC>("ZeroProtocol").Type, 0, 0, 0, 0, 0, NPC.target);
@@ -172,7 +173,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 if (!AAWorld.downedZero)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) 
-                        BaseUtility.Chat(Lang.BossChat("ZeroBoss3"), Color.PaleVioletRed);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroBoss3"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
                 AAWorld.downedZero = true;

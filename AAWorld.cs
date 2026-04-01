@@ -1277,7 +1277,7 @@ namespace AAModClassic
                                     spawnGrips = true;
                                     if (Main.netMode == NetmodeID.SinglePlayer)
                                     {
-                                        Main.NewText(Lang.BossSummonsInfo("GripsAwoken"), 50, 255, 130);
+                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
                                     }
                                     else if (Main.netMode == NetmodeID.Server)
                                     {

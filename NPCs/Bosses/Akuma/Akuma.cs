@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -173,7 +174,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     if (weakness == false)
                     {
                         weakness = true;
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma1"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma1"), new Color(180, 41, 32));
                     }
                 }
                 else if (!NPC.HasBuff(BuffID.Wet))
@@ -351,7 +352,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma2"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma2"), new Color(180, 41, 32));
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -362,7 +363,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma3"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma3"), new Color(180, 41, 32));
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y - 1f;
@@ -414,7 +415,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!QuoteSaid && sayQuote)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote1) ? Lang.BossChat("Akuma4") : Lang.BossChat("Akuma5"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote1) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma4") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma5"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote1 = true;
                 }
@@ -433,7 +434,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 if (!QuoteSaid && sayQuote)
                 {
                     if (!Quote3 || Main.rand.Next(4) == 0)
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Lang.BossChat("Akuma7") : Lang.BossChat("Akuma8"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote3) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma7") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma8"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -447,7 +448,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 if (!QuoteSaid && sayQuote)
                 {
                     if (!Quote5 || Main.rand.Next(4) == 0)
-                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote5) ? Lang.BossChat("Akuma13") : Lang.BossChat("Akuma14"), new Color(180, 41, 32));
+                        if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat((!Quote5) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma13") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma14"), new Color(180, 41, 32));
                     QuoteSaid = true;
                     Quote5 = true;
                 }
@@ -493,7 +494,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 if (!AAWorld.downedAkuma)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Akuma11"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma11"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 }
                 string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
                 AAWorld.downedAkuma = true;
@@ -511,7 +512,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma12"), new Color(180, 41, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma12"), new Color(180, 41, 32));
 
             }
             if (Main.expertMode)

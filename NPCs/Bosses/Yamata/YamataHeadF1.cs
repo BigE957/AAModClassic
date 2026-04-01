@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.Yamata.Awakened;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Yamata
 {
@@ -243,7 +244,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
         {
             if (NPC.life <= 0)
             {
-                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Lang.BossChat("YamataHead"), true, true);
+                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataHead"), true, true);
             }
         }
 

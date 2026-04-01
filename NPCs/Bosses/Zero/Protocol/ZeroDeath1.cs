@@ -2,6 +2,7 @@ using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
@@ -30,7 +31,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    AAMod.Chat(Lang.BossChat("ZeroDeath1"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath1"), Color.Red.R, Color.Red.G, Color.Red.B);
                     linesaid = true;
                 }
             }
@@ -51,7 +52,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         {
             if (!AAWorld.downedZero && Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath3"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
             int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("ZeroDeath2").Type, 0, 0);
             Main.projectile[p].Center = Projectile.Center;

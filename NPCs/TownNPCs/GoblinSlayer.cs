@@ -95,23 +95,23 @@ namespace AAModClassic.NPCs.TownNPCs
             int Goblin = NPC.FindFirstNPC(NPCID.GoblinTinkerer);
 			if (Goblin >= 0 && Main.rand.Next(4) == 0)
 			{
-                chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat1") + Main.npc[Goblin].GivenName + Lang.TownNPCGoblinSlayer("GoblinSlayerChat2"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat1") + Main.npc[Goblin].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
             if (DD2Bartender >= 0 && Main.rand.Next(4) == 0)
             {
-                return Main.npc[DD2Bartender].GivenName + Lang.TownNPCGoblinSlayer("GoblinSlayerChat3");
+                return Main.npc[DD2Bartender].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat3");
             }
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat4"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat5"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat6"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat7"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat8"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat9"));
-            chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat10"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat5"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat6"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat7"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat8"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat9"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat10"));
             if (NPC.downedPirates || NPC.downedMartians || DownedBools.downedOgre)
             {
-                chat.Add(Lang.TownNPCGoblinSlayer("GoblinSlayerChat11"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat11"));
             }
             return chat; 
         }

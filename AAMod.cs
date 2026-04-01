@@ -310,11 +310,11 @@ namespace AAModClassic
             GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
             GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
 
-            Rift = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("Rifthotkey"), "C");
-            RiftReturn = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("RiftReturnhotkey"), "X");
+            Rift = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.Rifthotkey"), "C");
+            RiftReturn = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.RiftReturnhotkey"), "X");
 
-            AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("AccessoryAbilityKey"), "U");
-            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Lang.Hotkey("ArmorAbilityKey"), "Y"); 
+            AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.AccessoryAbilityKey"), "U");
+            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y"); 
             
             Terraria.On_Wiring.ActuateForced += Wiring_ActuateForced;
             Terraria.On_Wiring.Actuate += Actuate;

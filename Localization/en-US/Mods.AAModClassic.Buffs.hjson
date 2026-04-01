@@ -1,0 +1,685 @@
+AsheFlame: {
+	DisplayName: Ashe Flame
+	Description: You get the flame power of inferno
+}
+
+Athena: {
+	DisplayName: Athena
+	Description: "'I'll help you, but but I'll still thrash you someday.'"
+}
+
+AtlanteanBuff: {
+	DisplayName: Atlantean Power
+	Description: Your magic abilities are increased
+}
+
+BabyPhoenix: {
+	DisplayName: Baby Phoenix
+	Description: Summons a baby phoenix to fight for you
+}
+
+BlazingPain: {
+	DisplayName: Scorching Pain
+	Description: Fire debuffs inflict double damage on you
+}
+
+BoomBoi: {
+	DisplayName: Boomer
+	Description: Doesn't actually explode...Yet.
+}
+
+BrokenArmor: {
+	DisplayName: Broken Armor
+	Description: Mods.AAModClassic.Buffs.BrokenArmor.Description
+}
+
+Broodmini: {
+	DisplayName: Broodmini
+	Description: Smol bab
+}
+
+BurningAsh: {
+	DisplayName: Burning Ash
+	Description: Ash is melting your skin
+}
+
+CCRune: {
+	DisplayName: Rune
+	Description: Summons runes to fight for you
+}
+
+Cerberus: {
+	DisplayName: Cerberus
+	Description: "'Aww, that isn't so scary!'"
+}
+
+ChaosBuff: {
+	DisplayName: Chaotic Fury
+	Description: Your magic abilities are increased substantially
+}
+
+ChaosClaw: {
+	DisplayName: Discordian Claw
+	Description: Summons a discordian claw to fight for you
+}
+
+ChaosConstruct: {
+	DisplayName: Chaos Construct
+	Description: Summons a chaos construct to fight for you
+}
+
+ChaosWrath: {
+	DisplayName: Chaotic Wrath
+	Description: Pain only makes you stronger
+}
+
+Clueless: {
+	DisplayName: Fog
+	Description: You can't see a thing
+}
+
+CrasyLucky: {
+	DisplayName: Lucky?
+	Description: You feel the world around you become strange
+}
+
+CrimeraMinion: {
+	DisplayName: Crimtane Crimera
+	Description: Summons a crimtane crimera to fight for you
+}
+
+CrowMinion: {
+	DisplayName: Crow
+	Description: Summons a vicious crow to fight for you
+}
+
+CursedHellfire: {
+	DisplayName: Cursed Hellfire
+	Description: Your flesh and blood are burning away
+}
+
+DapperSquirrel: {
+	DisplayName: Dapper Squirrel
+	Description: Now with funny hats
+}
+
+DarkCurse: {
+	DisplayName: Dark Curse
+	Description: You deal significanlty less damage!
+}
+
+DarkLock: {
+	DisplayName: Dark Lock
+	Description: You're locked in place by darkness!
+}
+
+DemonBuff: {
+	DisplayName: Demon Lord
+	Description: You command a small imp that follows you around.
+}
+
+DemonMinion: {
+	DisplayName: Demon Buddy
+	Description: Summons a demon to fight for you
+}
+
+DestinedToDie: {
+	DisplayName: Destined To Die
+	Description: Mods.AAModClassic.Buffs.DestinedToDie.Description
+}
+
+DevilMinion: {
+	DisplayName: Devil Servant
+	Description: Summons a devil to fight for you
+}
+
+DiscordInferno: {
+	DisplayName: Discordian Inferno
+	Description: Your soul is tearing itself apart
+}
+
+DoomiteProbe: {
+	DisplayName: Doomite Probe
+	Description: Summons a doomite probe to fight for you
+}
+
+DoomiteProbeC: {
+	DisplayName: Doomite Radio Probe
+	Description: Summons a doomite radio probe to fight for you
+}
+
+DragonFire: {
+	DisplayName: Dragon Fire
+	Description: Your damage output is reduced
+}
+
+DragonfireFlaskBuff: {
+	DisplayName: Weapon Imbue: Dragonfire
+	Description: Melee attacks inflict Dragonfire
+}
+
+DragonMinion: {
+	DisplayName: Flame Dragon
+	Description: Summons a dragon to fight for you
+}
+
+DragonSoul: {
+	DisplayName: Dragon Soul
+	Description: Burns with the rage of a dragon
+}
+
+DragonSpirit: {
+	DisplayName: Dragon Spirit
+	Description: Summons a Dragon Spirit to fight for you
+}
+
+DustDevil: {
+	DisplayName: Dust Devil
+	Description: Summons a dust devil to fight for you
+}
+
+DynaEnergy1: {
+	DisplayName: Dyna-Energy
+	Description: Mods.AAModClassic.Buffs.DynaEnergy1.Description
+}
+
+DynaEnergy2: {
+	DisplayName: Dyna-Energy
+	Description: Mods.AAModClassic.Buffs.DynaEnergy2.Description
+}
+
+EaterMinion: {
+	DisplayName: Demon Eater
+	Description: Summons a demonite eater to fight for you
+}
+
+Electrified: {
+	DisplayName: Electrified
+	Description: Mods.AAModClassic.Buffs.Electrified.Description
+}
+
+EnderMinionBuff: {
+	DisplayName: Ender Minion
+	Description: Summons a conflagrate construct to fight for you
+}
+
+EnderMinionBuffEX: {
+	DisplayName: Ender Minion EX
+	Description: Summons a terra construct to fight for you
+}
+
+EyeOfForsaken: {
+	DisplayName: Eye of the Forsaken
+	Description:
+		'''
+		Eye of the Forsaken is protecting you
+		Damage and speed are increased
+		'''
+}
+
+EyeOfJudgement: {
+	DisplayName: Eye of Judgement
+	Description:
+		'''
+		Eye of Judgement is protecting you
+		Damage and speed are increased
+		'''
+}
+
+Falling: {
+	DisplayName: Falling
+	Description: Mods.AAModClassic.Buffs.Falling.Description
+}
+
+FireSpirit: {
+	DisplayName: Fire Spirit
+	Description: Daz Hot
+}
+
+Fishnado: {
+	DisplayName: Fishnado
+	Description: Summons a fishnado to fight for you
+}
+
+FlameSoul: {
+	DisplayName: Flame Soul
+	Description: The weaker you are, the harder it fights
+}
+
+Forsaken: {
+	DisplayName: Forsaken
+	Description: You are forsaken
+}
+
+ForsakenFlames: {
+	DisplayName: Forsaken Flames
+	Description: Your sins manifest upon your flesh as flames
+}
+
+ForsakenWeak: {
+	DisplayName: Forsaken Weakening
+	Description: Weakens enemy contact damage
+}
+
+Glitched: {
+	DisplayName: Glitched
+	Description: Your head is like 10 feet in front of you
+}
+
+Glowmoss: {
+	DisplayName: Glowmoss Ball
+	Description: Don't ask what makes it glows. Trust me.
+}
+
+GripMinion: {
+	DisplayName: Grips of Chaos
+	Description: Summons a chaos claw to fight for you
+}
+
+HallowedPrism: {
+	DisplayName: Hallow Prism
+	Description: Summons a prism to fight for you
+}
+
+Hunted: {
+	DisplayName: Hunted
+	Description:
+		'''
+		You are being hunted by an abyssal creature
+		Flight time and run speed reduced
+		'''
+}
+
+HydraToxin: {
+	DisplayName: Hydra Toxin
+	Description: The longer you have it, the faster it festers and eats you away
+}
+
+HydratoxinFlaskBuff: {
+	DisplayName: Weapon Imbue: Hydratoxin
+	Description: Melee attacks inflict hydratoxin
+}
+
+Impaled: {
+	DisplayName: Impaled
+	Description: Ouch!
+}
+
+InfinityOverload: {
+	DisplayName: Elemental Overload
+	Description: The elements lash out against your very being
+}
+
+InvokedCaligulaSafe: {
+	DisplayName: Invoked Caligula
+	Description: Your claw hit the enemy crasily and heal you.
+}
+
+InvokerofMadness: {
+	DisplayName: The Invoker of Madness
+	Description: The Crasy Invoker
+}
+
+Irradiated: {
+	DisplayName: Irradiated
+	Description: Your health is burning away
+}
+
+K9: {
+	DisplayName: K9 Unit
+	Description: Bork.
+}
+
+Lunamini: {
+	DisplayName: Lunamini
+	Description: A small lunar bee follows you
+}
+
+LungMinion: {
+	DisplayName: Ancient Lung
+	Description: Summons an ancient dragon to fight for you
+}
+
+ManaOverload: {
+	DisplayName: Mana Overload
+	Description: Double magic attack speed
+}
+
+MB: {
+	DisplayName: Lunar Wasp
+	Description: plz don't sue Erilipah
+}
+
+MiniProbe: {
+	DisplayName: Mini Probe
+	Description: Seeks out life and treasure for you
+}
+
+Moonraze: {
+	DisplayName: Moonraze
+	Description: Incinerated by lunar rays
+}
+
+Mudkip: {
+	DisplayName: Mudkip
+	Description: So I heard you like mudkips
+}
+
+MudkipS: {
+	DisplayName: Shiny Mudkip
+	Description: So I heard you like mudkips
+}
+
+Orbiters: {
+	DisplayName: Orbiters
+	Description: Flames orbit you, empowering you
+}
+
+PrettyPony: {
+	DisplayName: Pretty Pony
+	Description: Its a horse.
+}
+
+PrinceFishron: {
+	DisplayName: Pretty Pony
+	Description: Its a horse.
+}
+
+ProbeMinion: {
+	DisplayName: Void Probe
+	Description: Summons a void probe to fight for you
+}
+
+Protocol: {
+	DisplayName: D00M PR0T0C0L
+	Description: Summons a baby ZER0 PR0T0C0L to fight for you
+}
+
+RabbitcopterSoldier: {
+	DisplayName: Rabbitcopter Soldier
+	Description: Summons a Rabbitcopter Soldier to fight for you
+}
+
+RadiumInferno: {
+	DisplayName: Radium Inferno
+	Description: Rapidly depleting life
+}
+
+RealityBent: {
+	DisplayName: Riftbent
+	Description: The space around you is being distorted
+}
+
+ReaperCD: {
+	DisplayName: Reaper Scythe Immunity Cooldown
+	Description: You cannot use dashing ability of the weapon now
+}
+
+ReaperImmune: {
+	DisplayName: Reaper Scythe immunity
+	Description: You are immune to damage and deal 10x damage
+}
+
+ReaperImmune2: {
+	DisplayName: Reaper Scythe immunity
+	Description: You are immune to damage and deal 15x damage
+}
+
+Ronin: {
+	DisplayName: Ronin
+	Description: You wont take any damage
+}
+
+RoyalKitten: {
+	DisplayName: Royal Kitten
+	Description: "'She's so pretty!'"
+}
+
+RoyalRabbit: {
+	DisplayName: Royal Rabbit
+	Description: Summons a Royal Rabbit to fight for you
+}
+
+SagOrbiter: {
+	DisplayName: Sagittarius Orbiter
+	Description: Summons an orbiter to fight for you
+}
+
+SagShield: {
+	DisplayName: Shields Up
+	Description: They can't get in, but your weapons can't get out.
+}
+
+ScoutMinion: {
+	DisplayName: Void Scout
+	Description: Summons a Void Scout to fight for you
+}
+
+Searcher: {
+	DisplayName: Searcher Scout
+	Description: Summons a searcher to fight for you
+}
+
+Seraph: {
+	DisplayName: Seraph
+	Description: Small but feisty
+}
+
+Sharkron: {
+	DisplayName: Sharkron
+	Description: It won't bite...much...
+}
+
+Shroomed: {
+	DisplayName: SHROOM'D
+	Description: You've been shroomed
+}
+
+SkullMinion: {
+	DisplayName: Skull Minion
+	Description: Summons a dungeon skull to fight for you
+}
+
+SnakeMinion: {
+	DisplayName: Snow Serpent
+	Description: Summons a snow serpent to fight for you
+}
+
+Socc: {
+	DisplayName: Socc
+	Description: Socc.
+}
+
+SockPuppet: {
+	DisplayName: Sock Puppet
+	Description: Summons a Sock Puppet to fight for you
+}
+
+SpearStuck: {
+	DisplayName: Speared
+	Description: There's a spear stuck in you. Ouch.
+}
+
+Squirrel: {
+	DisplayName: Squirrel
+	Description: Throws nuts
+}
+
+Stunned: {
+	DisplayName: Stunned
+	Description: It's small but has a fiery temper
+}
+
+Terrablaze: {
+	DisplayName: Terrablaze
+	Description: Incoming damage increased
+}
+
+Terrarium: {
+	DisplayName: Terra's Guidance
+	Description: Your feet glow with the power of the terrarium, preventing fall damage
+}
+
+TerraSummon: {
+	DisplayName: Terra Minions
+	Description: An array of unity constructs at your disposal
+}
+
+TerraWizard: {
+	DisplayName: Terra Wizard
+	Description: Magic
+}
+
+TimeFrozen: {
+	DisplayName: Time Frozen
+	Description: Mods.AAModClassic.Buffs.TimeFrozen.Description
+}
+
+TrueHallowedPrism: {
+	DisplayName: True Hallow Prism
+	Description: Summons a holy prism to fight for you
+}
+
+UnstableSoul: {
+	DisplayName: Unstable Soul
+	Description:
+		'''
+		You are now etheral 
+		You have more invincibility frames, but less defense
+		'''
+}
+
+XiaoDoragon: {
+	DisplayName: Xiao Doragon
+	Description: Summons a small chaos dragon to fight for you
+}
+
+YamataAGravity: {
+	DisplayName: True Abyssal Gravity
+	Description: "'REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'"
+}
+
+YamataGravity: {
+	DisplayName: Abyssal Gravity
+	Description: "'YOU AIN'T GETTIN' AWAY FROM ME, PUNK!'"
+}
+
+Yanked: {
+	DisplayName: Yanked
+	Description: "'YOU AREN'T GOING ANYWHERE, YOU LITTLE SISSY!'"
+}
+
+ZeroBab: {
+	DisplayName: ZER0 lite
+	Description: LIFE DETECTION SYSTEMS ENGAGED
+}
+
+AssassinHurt: {
+	DisplayName: AssassinHirt
+	Description: Mods.AAModClassic.Buffs.AssassinHurt.Description
+}
+
+BaronBuff: {
+	DisplayName: Baron Bunny
+	Description: Baron Bunny protects you
+}
+
+CBoost1: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+CBoost2: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+CBoost3: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+DroneCool: {
+	DisplayName: R.A.B.I.T. Unit Reload Protocol
+	Description: RELOADING. DAMAGE COMPENSATION PROVIDED.
+}
+
+RageBuff: {
+	DisplayName: Defender's Rage
+	Description: A champion of Terraria never backs down
+}
+
+RageCool: {
+	DisplayName: Rajah's Rage
+	Description: A champion of Terraria never backs down
+}
+
+CharmBuff: {
+	DisplayName: Desire
+	Description: MORE COINS, MORE POWER!!!
+}
+
+TalismanBuff: {
+	DisplayName: Ruthless Desire
+	Description: MONEY MONEY MONEY!!!
+}
+
+Invokedproj: {
+	DisplayName: Be Banished
+	Description: You are marked by Invoked Magic
+}
+
+CinematicBuff: {
+	DisplayName: Purity Shield
+	Description: The Spirit of Purity lends you power
+}
+
+LuckyCalming: {
+	DisplayName: Calm
+	Description: Reduced enemy aggression
+}
+
+LuckyEndurance: {
+	DisplayName: Endurance
+	Description: Increase your endurance
+}
+
+LuckyIronskin: {
+	DisplayName: Ironskin
+	Description: Increase defense by 9
+}
+
+LuckyLifeforce: {
+	DisplayName: Lifeforce
+	Description: 21% increased max life
+}
+
+LuckyRage: {
+	DisplayName: Rage
+	Description: 11% increased critical chance
+}
+
+LuckyRegeneration: {
+	DisplayName: Regeneration
+	Description: Provides life regeneration
+}
+
+LuckySummoning: {
+	DisplayName: Summoning
+	Description: Increased max number of minions and turrents
+}
+
+LuckySwiftness: {
+	DisplayName: Swiftness
+	Description: 26% increased movement speed
+}
+
+LuckyThorns: {
+	DisplayName: Thorns
+	Description: Attackers also take damage
+}
+
+LuckyWrath: {
+	DisplayName: Wrath
+	Description: 11% increased damage
+}

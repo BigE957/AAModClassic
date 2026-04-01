@@ -40,7 +40,7 @@ namespace AAModClassic.Tiles.Decoration
 
         public override bool RightClick(int i, int j)
         {
-            BaseUtility.Chat(Lang.TilesInfo("EnderMemoryInfo"), Color.Goldenrod);
+            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.EnderMemoryInfo"), Color.Goldenrod);
             return true;
         }
     }

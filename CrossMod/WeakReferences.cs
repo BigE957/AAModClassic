@@ -43,7 +43,7 @@ namespace AAModClassic.CrossMod
         {
             PerformHealthBarSupport();
             PerformBossChecklistSupport();
-            PerformCencusSupport();
+            //PerformCencusSupport();
             PerformFargosSetup();
         }
 
@@ -1004,6 +1004,7 @@ namespace AAModClassic.CrossMod
             }
         }
 
+        /*
         private static void PerformCencusSupport()
         {
             if (ModLoader.TryGetMod("Census", out var censusMod))
@@ -1023,6 +1024,7 @@ namespace AAModClassic.CrossMod
                 }
             }
         }
+        */
 
         private static void PerformFargosSetup()
         {

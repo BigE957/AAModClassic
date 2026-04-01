@@ -13,6 +13,7 @@ using AAModClassic;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Shox;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
@@ -83,10 +84,10 @@ namespace AAModClassic.NPCs.TownNPCs
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
-            chat.Add(Lang.TownNPCAlpha("AlphaChat1"));
-            chat.Add(Lang.TownNPCAlpha("AlphaChat2"));
-            chat.Add(Lang.TownNPCAlpha("AlphaChat3"));
-            chat.Add(Lang.TownNPCAlpha("AlphaChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaChat4"));
 
 			return chat;
 		}
@@ -102,8 +103,8 @@ namespace AAModClassic.NPCs.TownNPCs
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Lang.TownNPCAlpha("AlphaButton1");
-			button2 = Lang.TownNPCAlpha("AlphaButton2");
+			button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaButton1");
+			button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Alpha.AlphaButton2");
 		}
 
 		public static bool VanityShop = true;

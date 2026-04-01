@@ -7,6 +7,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
@@ -236,7 +237,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     if (!text)
                     {
                         text = true;
-                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Lang.BossChat("FAnubisCombat"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisCombat"), true);
                     }
 
                     if (NPC.ai[1] == 10)
@@ -568,7 +569,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (!AAWorld.downedAnubisA)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FAnubisWin"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubisWin"), Color.ForestGreen);
             }
 
             AAWorld.downedAnubisA = true;
@@ -607,7 +608,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FAnubis"), Color.ForestGreen);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FAnubis"), Color.ForestGreen);
                         int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;

@@ -13,7 +13,7 @@ namespace AAModClassic.UI
     public class WindowTitles : ModSystem
     {
         private static LocalizedText _AAWindowTitle;
-        private static bool loaded = false;
+
         public override void PostSetupContent()
         {
             if (Main.dedServ)
@@ -36,8 +36,6 @@ namespace AAModClassic.UI
                 // this is what vanilla terraria does to set it's title, so i'm replicating that here
                 Platform.Get<IWindowService>().SetUnicodeTitle(Main.instance.Window, _AAWindowTitle.Value);
                 Platform.Get<IWindowService>().SetIcon(Main.instance.Window);
-
-                loaded = true;
             });
         }
 
@@ -51,7 +49,6 @@ namespace AAModClassic.UI
                 Platform.Get<IWindowService>().SetIcon(Main.instance.Window);
 
                 _AAWindowTitle = null;
-                loaded = false;
             });
             base.Unload();
         }

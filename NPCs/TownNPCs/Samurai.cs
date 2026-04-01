@@ -87,30 +87,30 @@ namespace AAModClassic.NPCs.TownNPCs
             int TravellingMerchant = NPC.FindFirstNPC(NPCID.TravellingMerchant);
 			if (TravellingMerchant >= 0 && Main.rand.Next(4) == 0)
 			{
-                chat.Add(Lang.TownNPCSamurai("SamuraiChat1") + Main.npc[TravellingMerchant].GivenName + Lang.TownNPCSamurai("SamuraiChat2"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat1") + Main.npc[TravellingMerchant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
             if (DD2Bartender >= 0 && Main.rand.Next(4) == 0)
             {
-                return Lang.TownNPCSamurai("SamuraiChat3") + Main.npc[DD2Bartender].GivenName + Lang.TownNPCSamurai("SamuraiChat4");
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat3") + Main.npc[DD2Bartender].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat4");
             }
-            chat.Add(Lang.TownNPCSamurai("SamuraiChat5"));
-            chat.Add(Lang.TownNPCSamurai("SamuraiChat6"));
-            chat.Add(Lang.TownNPCSamurai("SamuraiChat7"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat8"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat9"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat10"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat11"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat12"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat13"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat14"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat15"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat16"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat17"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat18"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat19"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat20"));
-			chat.Add(Lang.TownNPCSamurai("SamuraiChat21"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat5"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat6"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat7"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat8"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat9"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat10"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat11"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat12"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat13"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat14"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat15"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat16"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat17"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat18"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat19"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat20"));
+			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat21"));
             return chat; 
         }
         

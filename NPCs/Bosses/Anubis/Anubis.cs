@@ -8,6 +8,7 @@ using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Globals;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
@@ -185,13 +186,13 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     int damage = NPC.damage / 2;
                     if (NPC.ai[3] == 0 && proj == ModContent.ProjectileType<Pumpkin>())
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.BossChat("AnubisCombat1"), true); 
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat1"), true); 
                         damage = 300;
                     }
 
                     if (NPC.ai[1] == 20)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.BossChat("AnubisCombat2"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat2"), true);
                     }
 
                     BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, proj, ref NPC.ai[3], 80, damage, 10, true);
@@ -215,7 +216,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         break;
                     if (NPC.ai[1] == 10)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.BossChat("AnubisCombat3"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat3"), true);
 
                         if (Main.rand.Next(2) == 0 && NPC.life < NPC.lifeMax * (2/3))
                         {
@@ -270,7 +271,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
                     if (NPC.ai[1] == 20)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.BossChat("AnubisCombat4"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat4"), true);
                     }
                     if (NPC.ai[1] == 120)
                     {
@@ -298,7 +299,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
                     if (NPC.ai[1] == 20)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Lang.BossChat("AnubisCombat5"), true);
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisCombat5"), true);
                     }
 
                     if (NPC.life > NPC.lifeMax * (2/3))
@@ -415,7 +416,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AnubisFalse"), Color.Gold);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisFalse"), Color.Gold);
                         int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<TownNPCs.Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         NPC.active = false;
@@ -686,29 +687,29 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                                 int activePlayers = 0;
                                 foreach (Player p in Main.ActivePlayers)
                                     activePlayers++;
-                                string s = activePlayers > 1 ? Lang.BossChat("AnubisGuys") : Lang.BossChat("Anubisbud");
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis1") + s + Lang.BossChat("Anubis2"), Color.Gold);
+                                string s = activePlayers > 1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AnubisGuys") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubisbud");
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis1") + s + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis2"), Color.Gold);
                             }
 
                             if (internalAI[1] == 150)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis3"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis3"), Color.Gold);
                             }
 
                             if (internalAI[1] == 240)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis4"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis4"), Color.Gold);
                             }
 
                             if (internalAI[1] == 320)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis5"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis5"), Color.Gold);
                             }
 
                             if (internalAI[1] >= 410)
                             {
                                 Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis6"), Color.Gold);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis6"), Color.Gold);
                                 internalAI[0] = 1;
                                 Teleport();
                                 NPC.netUpdate = true;
@@ -717,7 +718,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                         else
                         {
                             Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
-                            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Anubis7"), Color.Gold);
+                            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis7"), Color.Gold);
                             internalAI[0] = 1;
                             Teleport();
                             NPC.netUpdate = true;

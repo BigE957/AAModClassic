@@ -1,0 +1,54 @@
+AcropolisBiomeZone: {
+	DisplayName: Acropolis
+	TownNPCDialogueName: the Acropolis
+}
+
+HoardBiomeZone: {
+	DisplayName: Hoard
+	TownNPCDialogueName: the Hoard
+}
+
+InfernoBiomeZone: {
+	DisplayName: Inferno
+	TownNPCDialogueName: the Inferno
+}
+
+MireBiomeZone: {
+	DisplayName: Mire
+	TownNPCDialogueName: the Mire
+}
+
+MushroomBiomeZone: {
+	DisplayName: Mushroom
+	TownNPCDialogueName: the Mushroom
+}
+
+RadiumBiomeZone: {
+	DisplayName: Radium
+	TownNPCDialogueName: the Radium
+}
+
+RisingMoonLakeBiomeZone: {
+	DisplayName: Rising Moon Lake
+	TownNPCDialogueName: the Rising Moon Lake
+}
+
+RisingSunPagodaBiomeZone: {
+	DisplayName: Rising Sun Pagoda
+	TownNPCDialogueName: the Rising Sun Pagoda
+}
+
+TerrariumBiomeZone: {
+	DisplayName: Terrarium
+	TownNPCDialogueName: the Terrarium
+}
+
+VoidBiomeZone: {
+	DisplayName: Void
+	TownNPCDialogueName: the Void
+}
+
+LostKeepBiomeZone: {
+	DisplayName: Lost Keep
+	TownNPCDialogueName: the Lost Keep
+}

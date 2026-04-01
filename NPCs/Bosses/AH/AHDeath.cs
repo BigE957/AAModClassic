@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.AH
@@ -53,11 +54,11 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (AAWorld.downedSisters)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath1"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath1"), new Color(102, 20, 48));
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath2"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath2"), new Color(72, 78, 117));
                 }
             }
 
@@ -65,11 +66,11 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (AAWorld.downedSisters)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath3"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath3"), new Color(72, 78, 117));
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath4") + (player.Male ? Lang.BossChat("male") : Lang.BossChat("fimale")) + Lang.BossChat("AHDeath5"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath4") + (player.Male ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.male") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.fimale")) + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath5"), new Color(102, 20, 48));
                 }
             }
 
@@ -77,19 +78,19 @@ namespace AAModClassic.NPCs.Bosses.AH
             {
                 if (AAWorld.downedSisters)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath6"), new Color(102, 20, 48));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath6"), new Color(102, 20, 48));
                     NPC.active = false;
                     AAWorld.downedSisters = true;
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath7"), new Color(72, 78, 117));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath7"), new Color(72, 78, 117));
                 }
             }
             
             if (NPC.ai[1] == 700)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHDeath8"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AHDeath8"), new Color(102, 20, 48));
                 AAWorld.downedSisters = true;
                 NPC.active = false;
             }

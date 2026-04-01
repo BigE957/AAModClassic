@@ -10,6 +10,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using Terraria.Localization;
 
 
 namespace AAModClassic.NPCs.Bosses.Yamata
@@ -116,17 +117,17 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             {
                 if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata10"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata10"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata11"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata11"), new Color(45, 46, 70));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata12"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata12"), new Color(45, 46, 70));
                     quarterHealth = true;
                 }
             }
@@ -134,17 +135,17 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             {
                 if (NPC.life <= (NPC.lifeMax / 4 * 3) && threeQuarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata13"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata13"), new Color(45, 46, 70));
                     threeQuarterHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata14"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata14"), new Color(45, 46, 70));
                     HalfHealth = true;
                 }
                 if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata15"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata15"), new Color(45, 46, 70));
                     quarterHealth = true;
                 }
             }
@@ -166,11 +167,11 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                     NPC.DropLoot(Items.Boss.Yamata.YamataTrophy.type, 1f / 10);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Yamata1"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata1"), new Color(45, 46, 70));
                     NPC.DropLoot(Items.Vanity.Mask.YamataMask.type, 1f / 7);
                     if (!AAWorld.downedYamata)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("Yamata2"), Color.Indigo);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata2"), Color.Indigo);
                     }
                 }
                 if (Main.expertMode)
@@ -320,7 +321,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 if (Main.netMode != NetmodeID.MultiplayerClient && !flag)
                 {
                     flag = true;
-                    AAMod.Chat(Lang.BossChat("Yamata4"), new Color(45, 46, 70));
+                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata4"), new Color(45, 46, 70));
                 }
                 NPC.alpha += 10;
                 if (NPC.alpha >= 255)
@@ -358,7 +359,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     NoFlyCountDown = 0;
                     NoFly4U = true;
 
-                    if (NPC.type == ModContent.NPCType<Yamata>()) if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata6"), new Color(45, 46, 70));
+                    if (NPC.type == ModContent.NPCType<Yamata>()) if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata6"), new Color(45, 46, 70));
                 }
 
                 float dist = NPC.Distance(playerTarget.Center);
@@ -368,7 +369,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     {
                         if (!FirstLine)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata8"), new Color(45, 46, 70));
+                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata8"), new Color(45, 46, 70));
                             FirstLine = true;
                         }
                     }
@@ -432,7 +433,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
         {
             if ((Main.netMode != NetmodeID.MultiplayerClient) && !loludide)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Yamata9"), new Color(45, 46, 70));
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata9"), new Color(45, 46, 70));
                 loludide = true;
             }
 
