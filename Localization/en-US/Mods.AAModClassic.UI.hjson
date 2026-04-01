@@ -4,3 +4,13 @@ Beta: Beta
 AAWorldDescriptionRelease: Experience Ancients Awakened as it was in its final release version.
 AAWorldDescriptionMixed: Experience a mix of new and old content from both versions of the mod.
 AAWorldDescriptionBeta: Experience a new Ancients Awakened, ported from an In-Dev Beta.
+
+WindowTitle: {
+	0: Ancients Awakened: Youngins Asleep
+	1: Ancients Awakened: Lost at Sea...
+	2: Ancients Awakened: The Slayer Cometh
+	3: Ancients Awakened: Burning in Discordian Hell
+	4: Ancients Awakened: Medium Sized Rock
+	5: Ancients Awakened: Also try Ancients Awakened!
+	6: Ancients Awakened: QUICK HIDE THE GLOWMASK STASH
+}
