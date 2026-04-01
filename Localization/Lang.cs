@@ -1,8 +1,10 @@
 using Terraria.Localization;
 
-namespace AAModClassic
+namespace AAModClassic.Localization
 {
-    public class Dipshit
+
+    //Kept onlt for the purpose of MAYBE eventually porting the other two supported languages
+    public class LangFileArchived
     {
         public static string Worldtext(string WorldInfo)
         {

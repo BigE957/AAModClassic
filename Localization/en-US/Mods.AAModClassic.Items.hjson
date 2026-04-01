@@ -1637,12 +1637,12 @@ InfernoBox: {
 
 InfernoNightBox: {
 	DisplayName: Music Box (Inferno Night)
-	Tooltip: Plays 'Burnt to Ashes' by Quicksilvur
+	Tooltip: Plays 'Burnt to Ashes' by Shadow Figure
 }
 
 InfernoUBox: {
 	DisplayName: Music Box (Underground Inferno)
-	Tooltip: Plays 'Superheated' by Quicksilvur
+	Tooltip: Plays 'Superheated' by Shadow Figure
 }
 
 LakeBox: {
@@ -1722,7 +1722,7 @@ StarBox: {
 
 TerrariumBox: {
 	DisplayName: Music Box (Terrarium)
-	Tooltip: Plays 'Heart of the World' by Quicksilvur feat. Charlie Debnam
+	Tooltip: Plays 'Heart of the World' by Shadow Figure feat. Charlie Debnam
 }
 
 ToadBox: {
