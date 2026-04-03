@@ -634,15 +634,24 @@ namespace AAModClassic
                 }));
             }
 
-
-            int shiniesIndex1 = tasks.FindIndex(genpass => genpass.Name.Equals("Larva"));
-
-            if (shiniesIndex1 > -1)
+            if (ModLoader.HasMod("CalamityMod"))
             {
-                tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Add(new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ThePit(progress);
                 }));
+            }
+            else
+            {
+                int shiniesIndex1 = tasks.FindIndex(genpass => genpass.Name.Equals("Larva"));
+
+                if (shiniesIndex1 > -1)
+                {
+                    tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
+                    {
+                        ThePit(progress);
+                    }));
+                }
             }
             
             int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
@@ -1600,7 +1609,7 @@ namespace AAModClassic
         {
             if (WorldTypeSystem.WorldType == AAWorldType.Beta)
                 return;
-            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrariumAAWorldBuildTerrarium");
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
             origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
             new TerrariumDelete().Place(origin, GenVars.structures);
@@ -1612,16 +1621,16 @@ namespace AAModClassic
             if (WorldTypeSystem.WorldType == AAWorldType.Release)
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
-            Point val = new ((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
+            Point val = new ((int)((float)Main.maxTilesX * 0.3f), (int)((float)Main.maxTilesY * 0.38f));
             if (Main.dungeonX < Main.maxTilesX / 2)
-                val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
+                val = new((int)((float)Main.maxTilesX * 0.7f), (int)((float)Main.maxTilesY * 0.38f));
             new Keep().Place(val, GenVars.structures);
         }
 
         private static void Acropolis(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAcropolis");
-            Point origin = new Point((int)(Main.maxTilesX * 0.65f), 100);
+            Point origin = new Point((int)(Main.maxTilesX * 0.65f), ModLoader.HasMod("Remnants") ? 75 : 100);
             Acropolis biome = new Acropolis();
             biome.Place(origin, GenVars.structures);
         }
@@ -1629,7 +1638,7 @@ namespace AAModClassic
         private static void Hoard(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildHoard");
-            Point origin = new Point((int)(Main.maxTilesX * 0.3f), (int)(Main.maxTilesY * 0.65f));
+            Point origin = new Point((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ?  0.75f : 0.65f)));
             Hoard biome = new Hoard();
             HoardClear delete = new HoardClear();
             delete.Place(origin, GenVars.structures);
@@ -1657,15 +1666,19 @@ namespace AAModClassic
 
         private static void ThePit(GenerationProgress progress)
         {
-            progress.Message = "Sinking the Pit";          
+            progress.Message = "Sinking the Pit";
+
+            //Added to save Lucifer from the Brimstone Crags
+            int offset = ModLoader.HasMod("CalamityMod") && GenVars.dungeonX > Main.maxTilesX / 2 ? 600 : 500;
+
             if (WorldTypeSystem.WorldType == AAWorldType.Release)
             {
-                Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 170);
+                Point origin = new Point(Main.maxTilesX - offset, Main.maxTilesY - 170);
                 new PitTeaser().Place(origin, GenVars.structures);
             }
             else
             {
-                Point origin = new Point(Main.maxTilesX - 500, Main.maxTilesY - 200);
+                Point origin = new Point(Main.maxTilesX - offset, Main.maxTilesY - 200);
                 new Pit().Place(origin, GenVars.structures);
             }
         }
@@ -1889,6 +1902,7 @@ namespace AAModClassic
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
                         }
+                        
                         else if (conversionType == 5) //Fungicide
                         {
                             if (wall == WallID.Mushroom)
@@ -1926,13 +1940,13 @@ namespace AAModClassic
                         }
                         else if (conversionType == 6) //Jungle
                         {
-                            if (wall == 2)
+                            if (wall == WallID.DirtUnsafe)
                             {
                                 Main.tile[k, l].WallType = WallID.MudUnsafe;
                                 WorldGen.SquareWallFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
-                            else if (wall == 63)
+                            else if (wall == WallID.GrassUnsafe)
                             {
                                 Main.tile[k, l].WallType = WallID.JungleUnsafe;
                                 WorldGen.SquareWallFrame(k, l, true);
@@ -1957,7 +1971,7 @@ namespace AAModClassic
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
 
-                            if (type == 0 && Main.tile[k, l].HasTile)
+                            if (type == TileID.Dirt && Main.tile[k, l].HasTile)
                             {
                                 Main.tile[k, l].TileType = TileID.Mud;
                                 WorldGen.SquareTileFrame(k, l, true);
@@ -1975,19 +1989,19 @@ namespace AAModClassic
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
-                            else if (type == 3)
+                            else if (type == TileID.Plants)
                             {
                                 Main.tile[k, l].TileType = TileID.JunglePlants;
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
-                            else if (type == 52)
+                            else if (type == TileID.Vines)
                             {
                                 Main.tile[k, l].TileType = TileID.JungleVines;
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
-                            else if (type == 73)
+                            else if (type == TileID.Plants2)
                             {
                                 Main.tile[k, l].TileType = TileID.JunglePlants2;
                                 WorldGen.SquareTileFrame(k, l, true);
