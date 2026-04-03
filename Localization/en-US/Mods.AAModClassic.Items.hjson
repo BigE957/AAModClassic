@@ -9441,32 +9441,81 @@ SRajahBox: {
 }
 
 RajahSPTooltip: {
-    Melee: "Melee"
-    Ranged: "Ranged"
-    Magic: "Magic"
-    Summoning: "Summoning"
-    Throwing: "Throwing"
-    DamageType: "Damage Type"
-    CurrentDamageBoost:+: "Current Damage Boost: +"
-    CurrentSpeedBoost:: "Current Speed Boost: "
-    CurrentDamageResistance:: "Current Damage Resistance: "
-    Damage: " Damage"
+	Melee: Melee
+	Ranged: Ranged
+	Magic: Magic
+	Summoning: Summoning
+	Throwing: Throwing
+	DamageType: Damage Type
+	CurrentDamageBoost: +: "Current Damage Boost: +"
+	CurrentSpeedBoost: "Current Speed Boost: "
+	CurrentDamageResistance: "Current Damage Resistance: "
+	Damage: " Damage"
 }
 
-GreedTooltip.CurrentDamageBoost:+: "Current Damage Boost: +"
+GreedTooltip.CurrentDamageBoost: +: "Current Damage Boost: +"
 
 BiomiteArmor: {
-    BiomiteArmor1: "Provide different setbonuses based on biome you're in"
-    BiomiteArmor2: "\nIncreases maximum life by 20"
-    BiomiteArmor3: "\nIncreases maximum mana by 20"
-    BiomiteArmor4: "\nYou can detect the enemies around you"
-    BiomiteArmor5: "\nYou immune to 'On fire!' debuff"
-    BiomiteArmor6: "\nYou immune to 'Poisoned' debuff"
-    BiomiteArmor7: "\nIncrease 5 defense"
-    BiomiteArmor8: "\nIncrease your mana regenaration"
-    BiomiteArmor9: "\nYou immune to 'Chilled' debuff"
-    BiomiteArmor10: "\nYou immune to 'Mighty Wind' debuff"
-    BiomiteArmor11: "\nIncrease your life regenaration\nYou immune to Slow"
-    BiomiteArmor12: "\nIncrease 10% movespeed"
-    BiomiteArmor13: "\nIncrease 5 armor penetration"
+	BiomiteArmor1: Provide different setbonuses based on biome you're in
+	BiomiteArmor2:
+		'''
+
+		Increases maximum life by 20
+		'''
+	BiomiteArmor3:
+		'''
+
+		Increases maximum mana by 20
+		'''
+	BiomiteArmor4:
+		'''
+
+		You can detect the enemies around you
+		'''
+	BiomiteArmor5:
+		'''
+
+		You immune to 'On fire!' debuff
+		'''
+	BiomiteArmor6:
+		'''
+
+		You immune to 'Poisoned' debuff
+		'''
+	BiomiteArmor7:
+		'''
+
+		Increase 5 defense
+		'''
+	BiomiteArmor8:
+		'''
+
+		Increase your mana regenaration
+		'''
+	BiomiteArmor9:
+		'''
+
+		You immune to 'Chilled' debuff
+		'''
+	BiomiteArmor10:
+		'''
+
+		You immune to 'Mighty Wind' debuff
+		'''
+	BiomiteArmor11:
+		'''
+
+		Increase your life regenaration
+		You immune to Slow
+		'''
+	BiomiteArmor12:
+		'''
+
+		Increase 10% movespeed
+		'''
+	BiomiteArmor13:
+		'''
+
+		Increase 5 armor penetration
+		'''
 }

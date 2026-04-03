@@ -57,7 +57,14 @@ YamataBox.MapEntry: Yamata Box
 Zero2Box.MapEntry: Zero2 Box
 ZeroBox.MapEntry: Zero Box
 DoomsdayChest.MapEntry: Doomsday Chest
-GreedChest.MapEntry: Greed Chest
+
+GreedChest: {
+	MapEntry: Greed Chest
+	GreedChest1: The ground below you trembles slightly...
+	GreedChest2: You hear a scream echo through the caverns...
+	GreedChest3: HANDS OFF MY LOOT YOU THIEVING APE!!!
+}
+
 InfernoChest.MapEntry: Inferno Chest
 MireChest.MapEntry: Mire Chest
 ACS.MapEntry: A C S
@@ -260,27 +267,21 @@ YamataPainting.MapEntry: Yamata Painting
 ZeroPainting.MapEntry: Zero Painting
 
 TilesInfo: {
-    Spawnpointremoved: "Spawn point removed!"
-    Spawnpointset: "Spawn point set!"
-    EnderMemoryInfo: "In memory of a long lost friend still in our hearts."
-    DracoAltar1: "Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning."
-    DracoAltar2: "Hey kid, that Sigil only works once, ya know."
-    DracoAltar3: "Heh, I hope you're ready to feel the fury of the blazing sun kid."
-    DracoAltar4: "Back for more, kid? Don't you have better things to do? You already beat me once.  Alright, but I won't go easy on you."
-    DreadAltar1: "NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!"
-    DreadAltar2: "WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!"
-    DreadAltar3: "You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!"
-    DreadAltar4: "Back for more..?! This time you won't be so lucky you little whelp..!"
-    DragonEgg1: "The sound of the egg breaking echoes through the volcano..."
-    DragonEgg2: "You hear a distant roar..."
-    DragonEgg3: "You hear a tired, quiet roar, and then...snoring..?"
-    HydraPod1: "The contents spill from the broken pod. Nasty."
-    HydraPod2: "You hear hissing somewhere nearby"
-    HydraPod3: "You hear hissing, but it scuttles away into the fog..."
-}
-
-GreedChest: {
-    GreedChest1: "The ground below you trembles slightly..."
-    GreedChest2: "You hear a scream echo through the caverns..."
-    GreedChest3: "HANDS OFF MY LOOT YOU THIEVING APE!!!"
+	Spawnpointremoved: Spawn point removed!
+	Spawnpointset: Spawn point set!
+	EnderMemoryInfo: In memory of a long lost friend still in our hearts.
+	DracoAltar1: Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning.
+	DracoAltar2: Hey kid, that Sigil only works once, ya know.
+	DracoAltar3: Heh, I hope you're ready to feel the fury of the blazing sun kid.
+	DracoAltar4: Back for more, kid? Don't you have better things to do? You already beat me once.  Alright, but I won't go easy on you.
+	DreadAltar1: NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!
+	DreadAltar2: WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!
+	DreadAltar3: You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!
+	DreadAltar4: Back for more..?! This time you won't be so lucky you little whelp..!
+	DragonEgg1: The sound of the egg breaking echoes through the volcano...
+	DragonEgg2: You hear a distant roar...
+	DragonEgg3: You hear a tired, quiet roar, and then...snoring..?
+	HydraPod1: The contents spill from the broken pod. Nasty.
+	HydraPod2: You hear hissing somewhere nearby
+	HydraPod3: You hear hissing, but it scuttles away into the fog...
 }

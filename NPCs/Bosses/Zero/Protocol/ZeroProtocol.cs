@@ -566,7 +566,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 }
                 if(NPC.ai[2] == 40)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroAwakened10"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.ZeroAwakened10").WithFormatArgs(Main.SavePath.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
                 }
                 if(NPC.ai[2] == 110)
                 {

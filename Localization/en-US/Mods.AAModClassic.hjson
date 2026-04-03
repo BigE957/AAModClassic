@@ -3,6 +3,17 @@ Keybinds: {
 	RiftReturnhotkey: Rift Back
 	AccessoryAbilityKey: AA Accessory Ability
 	ArmorAbilityKey: AA Armor Ability
+
+	Mods: {
+		AAModClassic: {
+			Keybinds: {
+				Rifthotkey.DisplayName: Mods. A A Mod Classic. Keybinds. Rifthotkey
+				RiftReturnhotkey.DisplayName: Mods. A A Mod Classic. Keybinds. Rift Returnhotkey
+				AccessoryAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Accessory Ability Key
+				ArmorAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Armor Ability Key
+			}
+		}
+	}
 }
 
 Configs: {
@@ -37,9 +48,9 @@ Configs: {
 }
 
 WorldBuild: {
-    Info1: "Placing Chaos Altars"
-    Info2: "Spreading Chaos"
-    Info3: "Scorching the Inferno"
-    Info4: "Flooding the Mire"
-    Info5: "Constructing the Terrarium"
+	Info1: Placing Chaos Altars
+	Info2: Spreading Chaos
+	Info3: Scorching the Inferno
+	Info4: Flooding the Mire
+	Info5: Constructing the Terrarium
 }
