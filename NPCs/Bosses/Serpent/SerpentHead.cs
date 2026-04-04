@@ -17,13 +17,42 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 	{
         public int damage = 0;
 
-		public override void SetStaticDefaults()
+        private static int CorruptHead;
+        private static int CrimsonHead;
+        private static int InfernoHead;
+        private static int MireHead;
+        private static int HallowHead;
+
+        public override void Load()
+        {
+            CorruptHead = Mod.AddBossHeadTexture("AAModClassic/NPCs/Bosses/Serpent/Variants/SerpentHead_Corrupt", Type);
+            CrimsonHead = Mod.AddBossHeadTexture("AAModClassic/NPCs/Bosses/Serpent/Variants/SerpentHead_Crimson", Type);
+            InfernoHead = Mod.AddBossHeadTexture("AAModClassic/NPCs/Bosses/Serpent/Variants/SerpentHead_Inferno", Type);
+            MireHead = Mod.AddBossHeadTexture("AAModClassic/NPCs/Bosses/Serpent/Variants/SerpentHead_Mire", Type);
+            HallowHead = Mod.AddBossHeadTexture("AAModClassic/NPCs/Bosses/Serpent/Variants/SerpentHead_Hallow", Type);
+        }
+        
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Subzero Serpent");
-            Main.npcFrameCount[NPC.type] = 4;
-		}
+            Main.npcFrameCount[NPC.type] = 4;       
+        }
 
-		public override void SetDefaults()
+        public override void BossHeadSlot(ref int index)
+        {
+            index = (int)NPC.ai[2] switch
+            {
+                1 => CorruptHead,
+                2 => CrimsonHead,
+                3 => InfernoHead,
+                4 => MireHead,
+                5 => HallowHead,
+                _ => index,
+            };
+        }
+
+
+        public override void SetDefaults()
 		{
 			NPC.npcSlots = 5f;
             NPC.width = 32;
@@ -140,9 +169,10 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 NPC.TargetClosest(true);
             }
             NPC.velocity.Length();
-            if (Main.netMode != NetmodeID.MultiplayerClient)
+            
+            if (internalAI[4] != 1)
             {
-                if (internalAI[4] != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[3] = NPC.whoAmI;
                     int previousSegment = NPC.whoAmI;
@@ -1264,21 +1294,6 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
             BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor, true);
             return false;
-        }
-
-        public override string BossHeadTexture => Head();
-
-        private string Head()
-        {
-            switch ((int)NPC.ai[2])
-            {
-                case 1: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Hallow";
-                case 2: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Crimson";
-                case 3: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Inferno";
-                case 4: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Mire";
-                case 5: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Hallow";
-                default: return "NPCs/Bosses/Serpent/SerpentHead_Head_Boss";
-            }
         }
     }
 
