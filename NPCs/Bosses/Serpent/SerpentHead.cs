@@ -902,6 +902,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void AI()
         {
+            if (!Main.npc[NPC.realLife].active)
+            {
+                NPC.active = false;
+                return;
+            }
+
             int tileX = (int)(NPC.position.X / 16f) - 1;
             int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
             int tileY = (int)(NPC.position.Y / 16f) - 1;
@@ -1332,6 +1338,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override void AI()
         {
+            if (!Main.npc[NPC.realLife].active)
+            {
+                NPC.active = false;
+                return;
+            }
+
             int tileX = (int)(NPC.position.X / 16f) - 1;
             int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
             int tileY = (int)(NPC.position.Y / 16f) - 1;
