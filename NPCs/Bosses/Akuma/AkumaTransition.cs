@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using Microsoft.Xna.Framework;

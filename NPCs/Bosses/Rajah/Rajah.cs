@@ -17,6 +17,7 @@ using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Boss.Rajah;
 using Terraria.Localization;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {

@@ -26,6 +26,31 @@ using AAModClassic.Items.Flasks;
 using AAModClassic.Items.Materials;
 using AAModClassic.Items.Usable;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
+using AAModClassic.NPCs.Bosses.AH.Haruka;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.NPCs.Bosses.Anubis;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Broodmother;
+using AAModClassic.NPCs.Bosses.Djinn;
+using AAModClassic.NPCs.Bosses.Equinox;
+using AAModClassic.NPCs.Bosses.FeudalFungus;
+using AAModClassic.NPCs.Bosses.Greed;
+using AAModClassic.NPCs.Bosses.Grips;
+using AAModClassic.NPCs.Bosses.Hydra;
+using AAModClassic.NPCs.Bosses.MushroomMonarch;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Bosses.Sag;
+using AAModClassic.NPCs.Bosses.Serpent;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Toad;
+using AAModClassic.NPCs.Bosses.Yamata;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -562,7 +587,7 @@ namespace AAModClassic.CrossMod
                     #endregion
 
                     #region Feudal Fungus
-                    AddBoss(bossChecklist, mod, "FeudalFungus", 0.1f, (Func<bool>)(() => AAWorld.downedFungus), mod.Find<ModNPC>("FeudalFungus").Type, new Dictionary<string, object>()
+                    AddBoss(bossChecklist, mod, "FeudalFungus", 0.1f, (Func<bool>)(() => AAWorld.downedFungus), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
                     {
                         ["displayName"] = Language.GetOrRegister(path + "FungusTitle"),
                         ["spawnInfo"] = Language.GetOrRegister(path + "SpawnFungus").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingMushroom>() + "]"),
@@ -707,9 +732,9 @@ namespace AAModClassic.CrossMod
                 AddBoss(bossChecklist, mod, "Anubis", 11.7f, (Func<bool>)(() => AAWorld.downedAnubis), ModContent.NPCType<Anubis>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AnubisTitle"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAnubis").WithFormatArgs("[i: " + ModContent.ItemType<Scepter>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAnubis").WithFormatArgs("[i: " + ModContent.ItemType<Items.BossSummons.Scepter>() + "]"),
                     //["despawnMessage"] = Lang.BossCheck("AnubisInfoInfo2"),
-                    ["spawnItems"] = ModContent.ItemType<Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<AnubisTrophy>(),
@@ -777,7 +802,7 @@ namespace AAModClassic.CrossMod
                     ["displayName"] = Language.GetOrRegister(path + "AnubisATitle"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAnubisA"),
                     //["despawnMessage"] = Lang.BossCheck("AthenaInfoInfo2"),
-                    ["spawnItems"] = ModContent.ItemType<Scepter>(),
+                    ["spawnItems"] = ModContent.ItemType<Items.BossSummons.Scepter>(),
                     ["collectibles"] = new List<int>
                     {
                         ModContent.ItemType<Items.Boss.Anubis.Forsaken.FAnubisTrophy>(),
@@ -857,7 +882,7 @@ namespace AAModClassic.CrossMod
                 #endregion
 
                 #region Akuma
-                AddBoss(bossChecklist, mod, "Akuma", 22f, (Func<bool>)(() => AAWorld.downedAkuma), new List<int>() { ModContent.NPCType<Akuma>(), ModContent.NPCType<AkumaBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Akuma", 22f, () => AAWorld.downedAkuma, new List<int>() { ModContent.NPCType<Akuma>(), ModContent.NPCType<AkumaBody>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "AkumaTitle"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SpawnAkuma").WithFormatArgs("[i: " + ModContent.ItemType<DraconianSigil>() + "]"),

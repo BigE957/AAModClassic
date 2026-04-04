@@ -1,5 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
+using AAModClassic.NPCs.Bosses.Greed;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -59,8 +61,8 @@ namespace AAModClassic.Tiles.Chests
 
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
-            bool Greed = NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>());
-            if (!Greed)
+            bool greed = NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>());
+            if (!greed)
             {
                 if (AAWorld.OpenedChest == 2)
                 {

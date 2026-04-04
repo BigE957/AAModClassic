@@ -14,6 +14,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.Items.Boss.Shen;
 
 namespace AAModClassic.NPCs.Bosses.Shen
 {

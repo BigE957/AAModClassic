@@ -9,6 +9,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.Globals;
 using Terraria.Localization;
+using AAModClassic.Items.Boss.Anubis;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
@@ -473,7 +475,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                     NPC.DropLoot(ModContent.ItemType<AnubisMask>());
                 }
                 NPC.DropLoot(ModContent.ItemType<ForsakenFragment>(), Main.rand.Next(8, 16));
-                NPC.DropLoot(ModContent.ItemType<ArtifactOfJudgment>());
+                NPC.DropLoot(ModContent.ItemType<ArtifactOfJudgement>());
                 string[] lootTable = { "Judgment", "NeithsString", "DesertStaff", "JackalsWrath", "Sandthrower", "SentryOfTheEye" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);

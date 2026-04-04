@@ -1,10 +1,12 @@
 using AAModClassic;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Magic;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
