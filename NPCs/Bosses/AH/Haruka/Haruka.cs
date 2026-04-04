@@ -12,6 +12,7 @@ using AAModClassic.Dusts;
 using AAModClassic.NPCs.Bosses.AH;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.Items.Boss.AH;
 
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
@@ -159,8 +160,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void OnKill()
         {
-            int Ashe = NPC.CountNPCS(ModContent.NPCType<Ashe>());
-            if (Ashe == 0)
+            int ashe = NPC.CountNPCS(ModContent.NPCType<Ashe.Ashe>());
+            if (ashe == 0)
             {
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
                 if (Main.expertMode)
@@ -206,9 +207,9 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                 damage = NPC.damage / 2;
             }
 
-            int Ashe = NPC.CountNPCS(ModContent.NPCType<Ashe>());
+            int ashe = NPC.CountNPCS(ModContent.NPCType<Ashe.Ashe>());
             bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;
-            if (Ashe == 0)
+            if (ashe == 0)
             {
                 if (NPC.life < NPC.lifeMax / 4)
                 {

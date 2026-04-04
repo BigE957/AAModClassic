@@ -1,3 +1,5 @@
+using AAModClassic.Dusts;
+using AAModClassic.Items.Blocks.BogwoodF;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ObjectInteractions;
@@ -67,7 +69,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<Bogwood Bed>();
+			player.cursorItemIconID = ModContent.ItemType<BogwoodBed>();
 		}
 	}
 }
