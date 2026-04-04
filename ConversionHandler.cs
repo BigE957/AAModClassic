@@ -1,4 +1,4 @@
-using AAModClassic.World.Convertions;
+using AAModClassic.World.Conversions;
 using System;
 using System.Threading;
 using Terraria;

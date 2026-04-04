@@ -1,12 +1,13 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Athena
 {
@@ -122,6 +123,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                             {
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaDefeat9"), Color.CornflowerBlue);
                                 AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
+                                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
                                 int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer);
                                 Main.projectile[b].Center = NPC.Center;

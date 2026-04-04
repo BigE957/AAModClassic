@@ -1,8 +1,9 @@
-﻿using System;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -81,6 +82,8 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override bool PreAI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             if (Main.expertMode)

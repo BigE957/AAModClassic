@@ -44,6 +44,11 @@ Configs: {
 			Label: Enable Content Replacement
 			Tooltip: ""
 		}
+
+		AncientIntroText: {
+			Label: Ancient Intro Text
+			Tooltip: ""
+		}
 	}
 }
 

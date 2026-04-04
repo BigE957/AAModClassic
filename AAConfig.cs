@@ -18,6 +18,9 @@ namespace AAModClassic
 
         public bool NoBossDialogue;
 
+        [DefaultValue(true)]
+        public bool AncientIntroText;
+
         [DefaultValue(false)]
         public bool DisableNewAAReminderMessage;
 

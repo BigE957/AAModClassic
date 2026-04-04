@@ -1,17 +1,17 @@
-﻿using Terraria;
-using System;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.ID;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-
+using System;
 using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
@@ -114,6 +114,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override bool PreAI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {

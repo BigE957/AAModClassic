@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -30,6 +31,7 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using static Terraria.GameContent.Bestiary.IL_BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions;
 
 namespace AAModClassic
 {
@@ -684,6 +686,18 @@ namespace AAModClassic
             }
         }
 
+        private static GameTime lastUpdateUIGameTime;
+
+        public override void UpdateUI(GameTime gameTime)
+        {
+            lastUpdateUIGameTime = gameTime;
+
+            if (AAMod.instance.TerratoolInterface?.CurrentState != null)
+            {
+                AAMod.instance.TerratoolInterface.Update(gameTime);
+            }
+        }
+
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
             int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
@@ -701,18 +715,6 @@ namespace AAModClassic
                     return true;
                 },
                 InterfaceScaleType.UI));
-            }
-        }
-
-        private static GameTime lastUpdateUIGameTime;
-
-        public override void UpdateUI(GameTime gameTime)
-        {
-            lastUpdateUIGameTime = gameTime;
-
-            if (AAMod.instance.TerratoolInterface?.CurrentState != null)
-            {
-                AAMod.instance.TerratoolInterface.Update(gameTime);
             }
         }
     }
