@@ -187,7 +187,7 @@ namespace AAModClassic.Items.Dev.Invoker
 				if(soul == Mod.Find<ModNPC>("ShenA").Type) soulcount ++;
 				if(soul == Mod.Find<ModNPC>("SupremeRajah").Type) soulcount ++;
 			}
-			if(soulcount >= (WorldTypeSystem.WorldType == AAWorldType.Beta ? 4 : 5))
+			if(soulcount >= 5)//(WorldTypeSystem.WorldType == AAWorldType.Beta ? 4 : 5))
 			{
 				DarkCaligula = true;
 			}

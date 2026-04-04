@@ -2,6 +2,7 @@
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -189,8 +190,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         Main.npc[segment].realLife = NPC.whoAmI;
                         NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
-                        previousSegment = (true ? segment : (NPC.whoAmI = segment));
-                        //To-Do: Make this only apply if unofficial content is enabled instead of always
+                        previousSegment = (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? segment : (NPC.whoAmI = segment));
                     }
                     internalAI[4] = 1;
                     NPC.netUpdate = true;

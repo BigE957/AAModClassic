@@ -85,7 +85,7 @@ namespace AAModClassic.Items.Materials
                 recipe.AddIngredient(null, "TerraShard", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
-                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => WorldTypeSystem.WorldType == AAWorldType.Release);
+                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
             }
             {
@@ -93,7 +93,7 @@ namespace AAModClassic.Items.Materials
                 recipe.AddIngredient(null, "DragonSpirit", 5);
                 recipe.AddIngredient(null, "Crystal");
                 recipe.AddTile(null, "TerraPrism");
-                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => WorldTypeSystem.WorldType == AAWorldType.Release);
+                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Commoon.Conditions.ReleaseExclusive"), () => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased));
                 recipe.Register();
             }
         }

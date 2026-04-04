@@ -46,8 +46,8 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool CanUseItem(Player player)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
-                return false;
+            //if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+            //    return false;
 
             if (!player.ZoneSnow)
             {
@@ -111,14 +111,12 @@ namespace AAModClassic.Items.BossSummons
 
         public override void AddRecipes()
         {
-            {
-                Recipe recipe = CreateRecipe(1);
-                recipe.AddIngredient(null, "SnowMana", 3);
-                recipe.AddIngredient(ItemID.IceBlock, 30);
-                recipe.AddTile(TileID.IceMachine);
-                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
-                recipe.Register();
-            }
+            Recipe recipe = CreateRecipe(1);
+            recipe.AddIngredient(null, "SnowMana", 3);
+            recipe.AddIngredient(ItemID.IceBlock, 30);
+            recipe.AddTile(TileID.IceMachine);
+            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
+            recipe.Register();
         }
 	}
 }

@@ -609,8 +609,6 @@ namespace AAModClassic.World
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
-                return true;
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
 
             int worldSize = GetWorldSize();
