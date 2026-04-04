@@ -73,6 +73,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
             npcLoot.Add(lastStandingAlways);
             npcLoot.Add(lastStandingNormal);
+            npcLoot.Add(notExpert);
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

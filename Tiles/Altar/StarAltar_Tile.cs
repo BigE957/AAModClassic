@@ -104,7 +104,7 @@ namespace AAModClassic.Tiles.Altar
             }
             else
             {
-                BaseUtility.Chat(Lang.TheEquinox("StarAltar"), Color.SkyBlue);
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.StarAltar"), Color.SkyBlue);
             }
             return true;
         }

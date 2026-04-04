@@ -11,6 +11,7 @@ using System.IO;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
@@ -196,7 +197,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                             if (weakness == false)
                             {
                                 weakness = true;
-                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("Akuma1"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma1"), Color.DeepSkyBlue);
                             }
                         }
                     }
@@ -440,13 +441,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                             spawnAshe = true;
                             if (AAWorld.downedAkuma)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA1"), Color.DeepSkyBlue);
-                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA2"), new Color(102, 20, 48));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA1"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA2"), new Color(102, 20, 48));
                             }
                             else
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA3"), new Color(102, 20, 48));
-                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA4"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA3"), new Color(102, 20, 48));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA4"), Color.DeepSkyBlue);
                             }
                         }
                     }
@@ -477,7 +478,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
             if (!Main.dayTime)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA8"), Color.DeepSkyBlue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA8"), Color.DeepSkyBlue);
                 Main.dayTime = true;
                 Main.time = 0;
             }
@@ -486,7 +487,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             {
                 if (Loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA9"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA9"), new Color(180, 41, 32));
                     Loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -603,7 +604,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 {
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DraconianRune>());
                 }
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(AAWorld.downedAkuma ? Lang.BossChat("AkumaA10") : Lang.BossChat("AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA10") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA11"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
                 AAWorld.downedAkuma = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
@@ -620,7 +621,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 NPC.DropLoot(ModContent.ItemType<AkumaBag>());
                 return;
             }
-            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaA12"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
             return;
         }
 

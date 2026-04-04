@@ -1,0 +1,287 @@
+CCMireBox.MapEntry: C C Mire Box
+CerberusKennel.MapEntry: Cerberus Kennel
+InvokerBookTile.MapEntry: Invoker Book Tile
+GravAltar.MapEntry: Grav Altar
+StarAltar.MapEntry: Star Altar
+WormAltar.MapEntry: Worm Altar
+Banners.MapEntry: Banners
+FatPixieBanner.MapEntry: Fat Pixie Banner
+ThixxieBanner.MapEntry: Thixxie Banner
+AcropolisAltar.MapEntry: Acropolis Altar
+DragonEgg.MapEntry: Dragon Egg
+GreedAltar.MapEntry: Greed Altar
+HydraPod.MapEntry: Hydra Pod
+Throne.MapEntry: Throne
+AcropolisBox.MapEntry: Acropolis Box
+AkumaABox.MapEntry: Akuma A Box
+AkumaBox.MapEntry: Akuma Box
+AnubisBox.MapEntry: Anubis Box
+AnubisFBox.MapEntry: Anubis F Box
+AthenaABox.MapEntry: Athena A Box
+AthenaBox.MapEntry: Athena Box
+BroodBox.MapEntry: Brood Box
+DjinnBox.MapEntry: Djinn Box
+Equibox.MapEntry: Equibox
+FateBox.MapEntry: Fate Box
+FungusBox.MapEntry: Fungus Box
+GreedABox.MapEntry: Greed A Box
+GreedBox.MapEntry: Greed Box
+GripsBox.MapEntry: Grips Box
+HoardBox.MapEntry: Hoard Box
+HydraBox.MapEntry: Hydra Box
+InfernoBox.MapEntry: Inferno Box
+InfernoNightBox.MapEntry: Inferno Night Box
+InfernoUBox.MapEntry: Inferno U Box
+LakeBox.MapEntry: Lake Box
+MireBox.MapEntry: Mire Box
+MireDayBox.MapEntry: Mire Day Box
+MireUBox.MapEntry: Mire U Box
+MonarchBox.MapEntry: Monarch Box
+MushBox.MapEntry: Mush Box
+PagodaBox.MapEntry: Pagoda Box
+RajahBox.MapEntry: Rajah Box
+SagBox.MapEntry: Sag Box
+SDBox.MapEntry: S D Box
+SerpentBox.MapEntry: Serpent Box
+SGBox.MapEntry: S G Box
+ShenABox.MapEntry: Shen A Box
+ShenBox.MapEntry: Shen Box
+SistersBox.MapEntry: Sisters Box
+SRajahBox.MapEntry: S Rajah Box
+StarBox.MapEntry: Star Box
+TerrariumBox.MapEntry: Terrarium Box
+ToadBox.MapEntry: Toad Box
+VoidBox.MapEntry: Void Box
+YamataABox.MapEntry: Yamata A Box
+YamataBox.MapEntry: Yamata Box
+Zero2Box.MapEntry: Zero2 Box
+ZeroBox.MapEntry: Zero Box
+DoomsdayChest.MapEntry: Doomsday Chest
+
+GreedChest: {
+	MapEntry: Greed Chest
+	GreedChest1: The ground below you trembles slightly...
+	GreedChest2: You hear a scream echo through the caverns...
+	GreedChest3: HANDS OFF MY LOOT YOU THIEVING APE!!!
+}
+
+InfernoChest.MapEntry: Inferno Chest
+MireChest.MapEntry: Mire Chest
+ACS.MapEntry: A C S
+BinaryReassembler.MapEntry: Binary Reassembler
+ChaosAltar.MapEntry: Chaos Altar
+ChaosAltar1.MapEntry: Chaos Altar1
+ChaosAltar2.MapEntry: Chaos Altar2
+ChaosCrucible.MapEntry: Chaos Crucible
+EvilAltar.MapEntry: Evil Altar
+FurnitureDynamo.MapEntry: Furniture Dynamo
+HallowedAnvil.MapEntry: Hallowed Anvil
+HallowedForge.MapEntry: Hallowed Forge
+HaphestusForge.MapEntry: Haphestus Forge
+HellstoneAnvil.MapEntry: Hellstone Anvil
+PaladinsSmeltery.MapEntry: Paladins Smeltery
+QuantumFusionAccelerator.MapEntry: Quantum Fusion Accelerator
+RadiantArcanum.MapEntry: Radiant Arcanum
+SharpeningLavaFishTile.MapEntry: Sharpening Lava Fish Tile
+TerraCore.MapEntry: Terra Core
+TerraPrism.MapEntry: Terra Prism
+ToxinMonkfishTile.MapEntry: Toxin Monkfish Tile
+Transmuter.MapEntry: Transmuter
+TruePaladinsSmeltery.MapEntry: True Paladins Smeltery
+DesertCrate.MapEntry: Desert Crate
+HellCrate.MapEntry: Hell Crate
+IceCrate.MapEntry: Ice Crate
+InfernoCrate.MapEntry: Inferno Crate
+MireCrate.MapEntry: Mire Crate
+VoidCrate.MapEntry: Void Crate
+AvesInABox.MapEntry: Aves In A Box
+DevStatue.MapEntry: Dev Statue
+EnderMemory.MapEntry: Ender Memory
+GreedLantern.MapEntry: Greed Lantern
+MoonBeeJar.MapEntry: Moon Bee Jar
+RoyalBunnyCage.MapEntry: Royal Bunny Cage
+BogwoodBathtub.MapEntry: Bogwood Bathtub
+BogwoodBed.MapEntry: Bogwood Bed
+BogwoodBench.MapEntry: Bogwood Bench
+BogwoodBookshelf.MapEntry: Bogwood Bookshelf
+BogwoodCandelabra.MapEntry: Bogwood Candelabra
+BogwoodCandle.MapEntry: Bogwood Candle
+BogwoodChair.MapEntry: Bogwood Chair
+BogwoodChandelier.MapEntry: Bogwood Chandelier
+BogwoodChest.MapEntry: Bogwood Chest
+BogwoodClock.MapEntry: Bogwood Clock
+BogwoodCouch.MapEntry: Bogwood Couch
+BogwoodDoorClosed.MapEntry: Bogwood Door Closed
+BogwoodDoorOpen.MapEntry: Bogwood Door Open
+BogwoodDresser.MapEntry: Bogwood Dresser
+BogwoodLamp.MapEntry: Bogwood Lamp
+BogwoodLantern.MapEntry: Bogwood Lantern
+BogwoodPiano.MapEntry: Bogwood Piano
+BogwoodSink.MapEntry: Bogwood Sink
+BogwoodTable.MapEntry: Bogwood Table
+BogwoodWorkbench.MapEntry: Bogwood Workbench
+CrystalChandelier.MapEntry: Crystal Chandelier
+DoomBathtub.MapEntry: Doom Bathtub
+DoomBed.MapEntry: Doom Bed
+DoomBookshelf.MapEntry: Doom Bookshelf
+DoomCandelabra.MapEntry: Doom Candelabra
+DoomCandle.MapEntry: Doom Candle
+DoomChair.MapEntry: Doom Chair
+DoomChandelier.MapEntry: Doom Chandelier
+DoomChest.MapEntry: Doom Chest
+DoomClock.MapEntry: Doom Clock
+DoomCouch.MapEntry: Doom Couch
+DoomDoorClosed.MapEntry: Doom Door Closed
+DoomDoorOpen.MapEntry: Doom Door Open
+DoomDresser.MapEntry: Doom Dresser
+DoomLamp.MapEntry: Doom Lamp
+DoomLantern.MapEntry: Doom Lantern
+DoomPiano.MapEntry: Doom Piano
+DoomSink.MapEntry: Doom Sink
+DoomTable.MapEntry: Doom Table
+DoomWorkbench.MapEntry: Doom Workbench
+OroborosBathtub.MapEntry: Oroboros Bathtub
+OroborosBed.MapEntry: Oroboros Bed
+OroborosBookcase.MapEntry: Oroboros Bookcase
+OroborosChair.MapEntry: Oroboros Chair
+OroborosChest.MapEntry: Oroboros Chest
+OroborosClock.MapEntry: Oroboros Clock
+OroborosDoorClosed.MapEntry: Oroboros Door Closed
+OroborosDoorOpen.MapEntry: Oroboros Door Open
+OroborosLantern.MapEntry: Oroboros Lantern
+OroborosWorkbench.MapEntry: Oroboros Workbench
+SpiralStairs.MapEntry: Spiral Stairs
+RazewoodBed.MapEntry: Razewood Bed
+RazewoodBookshelf.MapEntry: Razewood Bookshelf
+RazewoodCandelabra.MapEntry: Razewood Candelabra
+RazewoodCandle.MapEntry: Razewood Candle
+RazewoodChair.MapEntry: Razewood Chair
+RazewoodChandelier.MapEntry: Razewood Chandelier
+RazewoodChest.MapEntry: Razewood Chest
+RazewoodClock.MapEntry: Razewood Clock
+RazewoodCouch.MapEntry: Razewood Couch
+RazewoodDoorClosed.MapEntry: Razewood Door Closed
+RazewoodDoorOpen.MapEntry: Razewood Door Open
+RazewoodDresser.MapEntry: Razewood Dresser
+RazewoodLamp.MapEntry: Razewood Lamp
+RazewoodLantern.MapEntry: Razewood Lantern
+RazewoodPiano.MapEntry: Razewood Piano
+RazewoodSink.MapEntry: Razewood Sink
+RazewoodTable.MapEntry: Razewood Table
+RazewoodTub.MapEntry: Razewood Tub
+RazewoodWorkbench.MapEntry: Razewood Workbench
+AbyssiumOre.MapEntry: Abyssium Ore
+Apocalyptite.MapEntry: Apocalyptite
+CovetiteOre.MapEntry: Covetite Ore
+DaybreakIncineriteOre.MapEntry: Daybreak Incinerite Ore
+DiscordiumOre.MapEntry: Discordium Ore
+DynaskullOre.MapEntry: Dynaskull Ore
+EventideAbyssiumOre.MapEntry: Eventide Abyssium Ore
+HallowedOre.MapEntry: Hallowed Ore
+IncineriteOre.MapEntry: Incinerite Ore
+LuminiteOre.MapEntry: Luminite Ore
+PrismOre.MapEntry: Prism Ore
+RadiumOre.MapEntry: Radium Ore
+RelicOre.MapEntry: Relic Ore
+SkyCrystal.MapEntry: Sky Crystal
+DaybreakTorch.MapEntry: Daybreak Torch
+DiscordianTorch.MapEntry: Discordian Torch
+DragonfireTorch.MapEntry: Dragonfire Torch
+EventideTorch.MapEntry: Eventide Torch
+HydratoxinTorch.MapEntry: Hydratoxin Torch
+BogPalmSapling.MapEntry: Bog Palm Sapling
+BogwoodSapling.MapEntry: Bogwood Sapling
+OroborosSapling.MapEntry: Oroboros Sapling
+RazePalmSapling.MapEntry: Raze Palm Sapling
+RazewoodSapling.MapEntry: Razewood Sapling
+Core.MapEntry: Core
+CoreActivator.MapEntry: Core Activator
+KeepBath.MapEntry: Keep Bath
+KeepBed.MapEntry: Keep Bed
+KeepBookcase.MapEntry: Keep Bookcase
+KeepCandelabra.MapEntry: Keep Candelabra
+KeepCandle.MapEntry: Keep Candle
+KeepChair.MapEntry: Keep Chair
+KeepChandelier.MapEntry: Keep Chandelier
+KeepClock.MapEntry: Keep Clock
+KeepCouch.MapEntry: Keep Couch
+KeepDoorClosed.MapEntry: Keep Door Closed
+KeepDoorOpen.MapEntry: Keep Door Open
+KeepDresser.MapEntry: Keep Dresser
+KeepLamp.MapEntry: Keep Lamp
+KeepLantern.MapEntry: Keep Lantern
+KeepPiano.MapEntry: Keep Piano
+KeepSink.MapEntry: Keep Sink
+KeepTable.MapEntry: Keep Table
+KeepWorkbench.MapEntry: Keep Workbench
+TerraBath.MapEntry: Terra Bath
+TerraBed.MapEntry: Terra Bed
+TerraBookcase.MapEntry: Terra Bookcase
+TerraCandelabra.MapEntry: Terra Candelabra
+TerraCandle.MapEntry: Terra Candle
+TerraChair.MapEntry: Terra Chair
+TerraChandelier.MapEntry: Terra Chandelier
+TerraChest.MapEntry: Terra Chest
+TerraClock.MapEntry: Terra Clock
+TerraCouch.MapEntry: Terra Couch
+TerraDoorClosed.MapEntry: Terra Door Closed
+TerraDoorOpen.MapEntry: Terra Door Open
+TerraDresser.MapEntry: Terra Dresser
+TerraLamp.MapEntry: Terra Lamp
+TerraLantern.MapEntry: Terra Lantern
+TerraPiano.MapEntry: Terra Piano
+TerraSink.MapEntry: Terra Sink
+TerraTable.MapEntry: Terra Table
+TerraWorkbench.MapEntry: Terra Workbench
+AcropolisPainting.MapEntry: Acropolis Painting
+AkumaPainting.MapEntry: Akuma Painting
+AnubisPainting.MapEntry: Anubis Painting
+CoreDoor.MapEntry: Core Door
+CRajahPainting.MapEntry: C Rajah Painting
+DaedalusPainting.MapEntry: Daedalus Painting
+DecayPainting.MapEntry: Decay Painting
+FulgurusPainting.MapEntry: Fulgurus Painting
+GreedPainting.MapEntry: Greed Painting
+HotJPainting.MapEntry: Hot J Painting
+IZPainting.MapEntry: I Z Painting
+JojoBagginsPainting.MapEntry: Jojo Baggins Painting
+KeepDoor1.MapEntry: Keep Door1
+KeepDoor2.MapEntry: Keep Door2
+KeepDoor2S.MapEntry: Keep Door2 S
+KeepDoor3.MapEntry: Keep Door3
+KingQueenPainting.MapEntry: King Queen Painting
+LuciferPainting.MapEntry: Lucifer Painting
+MushmadPainting.MapEntry: Mushmad Painting
+NKPainting.MapEntry: N K Painting
+RajahPainting.MapEntry: Rajah Painting
+SanguinePainting.MapEntry: Sanguine Painting
+ShenPainting.MapEntry: Shen Painting
+ShipPainting.MapEntry: Ship Painting
+SoCPainting.MapEntry: So C Painting
+TerraPainting.MapEntry: Terra Painting
+TerraStatue.MapEntry: Terra Statue
+UmbraPainting.MapEntry: Umbra Painting
+ValkyriePainting.MapEntry: Valkyrie Painting
+WizardPainting.MapEntry: Wizard Painting
+YamataPainting.MapEntry: Yamata Painting
+ZeroPainting.MapEntry: Zero Painting
+
+TilesInfo: {
+	Spawnpointremoved: Spawn point removed!
+	Spawnpointset: Spawn point set!
+	EnderMemoryInfo: In memory of a long lost friend still in our hearts.
+	DracoAltar1: Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning.
+	DracoAltar2: Hey kid, that Sigil only works once, ya know.
+	DracoAltar3: Heh, I hope you're ready to feel the fury of the blazing sun kid.
+	DracoAltar4: Back for more, kid? Don't you have better things to do? You already beat me once.  Alright, but I won't go easy on you.
+	DreadAltar1: NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!
+	DreadAltar2: WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!
+	DreadAltar3: You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!
+	DreadAltar4: Back for more..?! This time you won't be so lucky you little whelp..!
+	DragonEgg1: The sound of the egg breaking echoes through the volcano...
+	DragonEgg2: You hear a distant roar...
+	DragonEgg3: You hear a tired, quiet roar, and then...snoring..?
+	HydraPod1: The contents spill from the broken pod. Nasty.
+	HydraPod2: You hear hissing somewhere nearby
+	HydraPod3: You hear hissing, but it scuttles away into the fog...
+}

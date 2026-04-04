@@ -4,3 +4,26 @@ Beta: Beta
 AAWorldDescriptionRelease: Experience Ancients Awakened as it was in its final release version.
 AAWorldDescriptionMixed: Experience a mix of new and old content from both versions of the mod.
 AAWorldDescriptionBeta: Experience a new Ancients Awakened, ported from an In-Dev Beta.
+
+WindowTitle: {
+	0: Ancients Awakened: Youngins Asleep
+	1: Ancients Awakened: Lost at Sea...
+	2: Ancients Awakened: The Slayer Cometh
+	3: Ancients Awakened: Burning in Discordian Hell
+	4: Ancients Awakened: Medium Sized Rock
+	5: Ancients Awakened: Also try Ancients Awakened!
+	6: Ancients Awakened: QUICK HIDE THE GLOWMASK STASH
+	7: Ancients Awakened: the highly anticipated prequel!
+	8: Ancients Awakened: SLAM. SLAM. SLAM. SLAM.
+	9: Ancients Awakened: ...No, Ancients Asleep.
+	10: Ancients Awakened: Also try Tremor!
+	11: Ancients Awakened: Chungus Land Incident
+	12: Ancients Awakened: Also try Valcodix
+	13: Ancients Awakened: Cthulhu is mad... and is missing a soul!
+	14: Ancients Awakened: He is the storm that is approaching
+	15: Ancients Awakened: Five Nights at Anubis'
+	16: Ancients Awakened: Lore Compliant
+	17: Ancients Awakened: Also Try Elements Awoken!
+	18: Ancients Awakened: Ported in full for your enjoyment
+	19: Ancients Awakened: A bright but dark future unfolds...
+}

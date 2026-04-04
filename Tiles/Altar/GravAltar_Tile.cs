@@ -74,7 +74,7 @@ namespace AAModClassic.Tiles.Altar
             }
             else
             {
-                BaseUtility.Chat(Lang.TheEquinox("GravAltar"), Color.SkyBlue);
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.GravAltar"), Color.SkyBlue);
             }
             return true;
         }

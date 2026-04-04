@@ -12,6 +12,7 @@ using AAModClassic.Globals;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Dusts;
+using Terraria.Localization;
 
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
@@ -161,11 +162,11 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         {
             if (DontSayDeathLine)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("WrathHaruka1"), new Color(72, 78, 117));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.WrathHaruka1"), new Color(72, 78, 117));
             }
             else
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("WrathHaruka2"), new Color(72, 78, 117));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.WrathHaruka2"), new Color(72, 78, 117));
             }
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WrathHarukaVanish>());
             NPC.value = 0f;

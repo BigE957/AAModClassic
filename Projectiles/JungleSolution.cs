@@ -1,7 +1,8 @@
+using AAModClassic.Dusts;
+using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.Projectiles
 {
@@ -25,7 +26,8 @@ namespace AAModClassic.Projectiles
             int dustType = ModContent.DustType<SwarmDust>();
             if (Projectile.owner == Main.myPlayer)
             {
-                AAWorld.AAConvert((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 6);
+                Point tilePos = Projectile.Center.ToTileCoordinates();
+                WorldGen.Convert(tilePos.X, tilePos.Y, ModContent.GetInstance<JungleConversion>().Type);
             }
             if (Projectile.timeLeft > 133)
             {

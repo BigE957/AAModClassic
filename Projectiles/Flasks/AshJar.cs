@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.World.Convertions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -69,7 +70,7 @@ namespace AAModClassic.Projectiles.Flasks
 
                     if (Math.Sqrt(x * x + y * y) <= radius + 0.5)   //circle
                     {
-                        AAWorld.AAConvert(xPosition, yPosition, 1, 1);
+                        WorldGen.Convert(xPosition, yPosition, ModContent.GetInstance<InfernoConversion>().Type, 1, true, true);
                     }
                 }
             }

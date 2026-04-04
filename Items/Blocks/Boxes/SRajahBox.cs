@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 
         public override void SetDefaults()
 		{
-			Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 15;
 			Item.useTime = 10;
@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.createTile = ModContent.TileType<AAModClassic.Tiles.Boxes.SRajahBox>();
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
 			Item.value = 10000;
 			Item.accessory = true;
 		}

@@ -1,0 +1,83 @@
+BossAwoken: " have awoken!"
+GripsAwoken: The sound of scraping against the ground can be heard nearby...
+EquinoxWormawoken: The Equinox Worms have awoken!
+ChaosRuneYamataFalse: The imagery of a blazing demon flashes through your mind...
+ChaosRuneAkumaFalse: The imagery of a 7 headed terror flashes through your mind...
+ChaosRuneFalse: HAH! I WISH there were two of me to smash you into the ground!
+ChaosRuneAncientsFalse: The Rune does nothing...
+ChaosRuneTrue1: Shen Doragon has been Awakened!
+ChaosRuneTrue2: Skipping to the fun part, I see? I like you, child.
+ChaosSigilFalse1: Only the blue half of the sigil is lit up...
+ChaosSigilFalse2: Only the red half of the sigil is lit up...
+ChaosSigilFalse3: HAH! I WISH there were two of me to smash you into the ground!
+ChaosSigilFalse4: The Chaos Sigil glows, and imagery of the chaos pedestals flash through your mind
+ChaosSigilFalse5: The sigil does nothing...
+ChaosSigilTrue1: Big mistake, child...
+ChaosSigilTrue2: Hmpf...again..? Alright, let's just get this done and overwith.
+ConfusingMushroomFalse: The mushroom glows, and the smell of it makes you feel loopy.
+ConfusingMushroomTrue: The Feudal Fungus keeps trying to attack you
+CuriousClawTrue: The Grips of Chaos are already here!
+CuriousClawFalse: The claw lays limp in your hand. Nasty.
+CyberneticBellFalse: The bell rings, but nothing happens.
+CyberneticBellTrue: The Raider hears the bell and keeps attempting to kill you
+CyberneticClawFalse: The claw just lays limp in your hand.
+CyberneticClawTrue: The Retriever is still trying to grab you
+CyberneticShroomFalse: Stop waving that metal mushroom around like a psychopath.
+CyberneticShroomTrue: The Techno Truffle exists.
+DiamondCarrotRajahText: GRAVE MISTAKE, TERRARIAN!
+DiamondCarrotRajahText2: "Show me what you got, "
+DjinnLampDayTimeFalse: The lamp shimmers in the moonlight, yet does nothing
+DjinnLampDesertFalse: The lamp spits out sand as you rub it
+DjinnLampTrue: No ammount of rubbing the lamp will save you here
+DraconianDayTimeFalse: Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning.
+DraconianRuneFalse1: An image of the scorched tower at the peak of the inferno flashes through your mind
+DraconianRuneFalse2: Hey kid, that rune only works once, ya know.
+DraconianRuneInfernoFalse: You can only use that rune in the Inferno, kid.
+DraconianRuneInfernoFalse2: That sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno.
+DraconianRuneTrue1: The air around you begins to heat up...
+DraconianRuneTrue2: Cutting right to the chase I see..? Alright then, prepare for hell..!
+DraconianSigilFalse: Hey kid, that Sigil only works once, ya know.
+DraconianSigilInfernoFalse: You can only use that Sigil in the Inferno, kid.
+DraconianSignalTrue1: Heh, I hope you’re ready to feel the fury of the blazing sun kid.
+DraconianSignalTrue2: Back for more, kid? Don’t you have better things to do? You already beat me once.  Alright, but I won’t go easy on you.
+DragonBellDayTimeFalse: The bell rings on deaf ears. The dragons are asleep now.
+DragonBellTrue: The Broodmother has already been called
+DragonBellFalse: The bell rings on deaf ears. The dragons are not here.
+DreadRuneTrue1: Yamata has been Awakened!
+DreadRuneTrue2: Yeah, yeah I get it, my first phase is obnoxious. Let's just get this over with..!
+DreadTimeFalse: NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!
+DreadFalse1: An image of the strange tree at the heart of the mire flashes through your mind
+DreadFalse2: WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!
+DreadMireFalse: Hey Dumbo! Mire is that way!
+DreadMireFalse2: You NEED to use that sigil on the altar at the center of the mire! Trust me, nothing bad will happen!
+DreadSigilTrue1: You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!
+DreadSigilTrue2: Back for more..?! This time you won't be so lucky you little whelp..!
+SistersDownedInfo1: Again..!? Didin't you learn from last time? Oh well, I'm gonna have a ball blasting you to shreds!
+SistersDownedInfo2: Whatever, let's just get this over with.
+SistersInfo1: Sigh... Here we go again...
+SistersInfo2: THIS TIME I'M NOT LOSING! You're gonna feel the taste of defeat you disgusting warm-blood!
+HydraChowTimeFalse: Nothing is coming. The creatures of the Mire sleep.
+HydraChowTrue: The Hydra wants that food.
+HydraChowFalse: Nothing is coming. Now you look dumb holding out this smelly ball of gunk.
+InterestingClawTrue: The Grips of Chaos are already here!
+InterestingClawFalse: The claw lays limp in your hand. Nasty.
+IntimidatingMushroomFalse: The mushroom just glares at you and gives you chills just looking at it.
+IntimidatingMushroomTrue: The mushroom Monarch keeps trying to stomp you
+LifescannerFalse: The Lifescanner doesn't do anything.
+ScrapHeapFalse: You feel a static shock from using this. Maybe it's trying to send a signal?
+ScrapHeapTrue: Orthrus wants to eat that AND you
+SubzeroCrystalTimeFalse: The crystal just sits there, melting in the sun
+SubzeroCrystalSnowZoneFalse: The crystal shows an image of the nearby ice biome inside of it
+SubzeroCrystalTrue: The Subzero Serpent continues to attack
+ToadstoolFalse: The toadstool croaks..?
+ToadstoolTrue: The Truffle Toad croaks
+ZeroFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
+ZeroVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. PLEASE TRY AGAIN LATER.
+ZeroRuneTrue: D00MSDAY PR0T0CALL ACTIVATED MANUALLY. TERMINATI0N SYSTEMS AT FULL P0WER
+ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
+ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIBILITY THIS TIME, TERRARIAN.
+RajahGlobalInfo1: Those who slaughter the innocent must be PUNISHED!
+RajahGlobalInfo2: "YOU HAVE COMMITTED AN UNFORGIVABLE SIN! I SHALL WIPE YOU FROM THIS MORTAL REALM! PREPARE FOR TRUE PAIN AND PUNISHMENT, "
+RajahGlobalInfo3: The eyes of a wrathful creature gaze upon you...
+RoyalRabbit1: Those who slaughter the innocent must be PUNISHED!
+RoyalRabbit2: "YOU WILL PAY FOR YOUR SINS, "

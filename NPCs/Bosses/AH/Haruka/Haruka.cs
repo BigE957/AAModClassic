@@ -11,6 +11,7 @@ using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.NPCs.Bosses.AH;
 using Terraria.Audio;
+using Terraria.Localization;
 
 
 namespace AAModClassic.NPCs.Bosses.AH.Haruka
@@ -177,7 +178,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
             }
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("HarukaDowned"), new Color(72, 78, 117));
+            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.HarukaDowned"), new Color(72, 78, 117));
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>());
 
         }

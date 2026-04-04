@@ -1,3 +1,4 @@
+using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -25,7 +26,8 @@ namespace AAModClassic.Projectiles
             int dustType = DustID.GoldFlame;
             if (Projectile.owner == Main.myPlayer)
             {
-                AAWorld.AAConvert((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 9);
+                Point tilePos = Projectile.Center.ToTileCoordinates();
+                WorldGen.Convert(tilePos.X, tilePos.Y, ModContent.GetInstance<TundraRemovalConversion>().Type);
             }
             if (Projectile.timeLeft > 133)
             {

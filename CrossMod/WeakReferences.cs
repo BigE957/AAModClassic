@@ -43,7 +43,7 @@ namespace AAModClassic.CrossMod
         {
             PerformHealthBarSupport();
             PerformBossChecklistSupport();
-            PerformCencusSupport();
+            //PerformCencusSupport();
             PerformFargosSetup();
         }
 
@@ -542,76 +542,79 @@ namespace AAModClassic.CrossMod
 
                 string path = "Mods.AAModClassic.BossChecklistSupport.";
 
-                #region Mushroom Monarch
-                AddBoss(bossChecklist, mod, "MushroomMonarch", 0f, (Func<bool>)(() => AAWorld.downedMonarch), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
+                if (!ContentReplacementSystem.NeedToReplaceContent)
                 {
-                    ["displayName"] = Language.GetOrRegister(path + "MonarchTitle"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnMonarch").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]"),
-                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Monarch"),
-                    ["spawnItems"] = ModContent.ItemType<IntimidatingMushroom>(),
-                    ["collectibles"] = new List<int>
+                    #region Mushroom Monarch
+                    AddBoss(bossChecklist, mod, "MushroomMonarch", 0f, (Func<bool>)(() => AAWorld.downedMonarch), ModContent.NPCType<MushroomMonarch>(), new Dictionary<string, object>()
                     {
-                        ModContent.ItemType<MonarchTrophy>(),
-                        ModContent.ItemType<MonarchMask>(),
-                        ModContent.ItemType<MonarchBox>()
-                    },
-                    ["customPortrait"] = GetPortrait("Monarch")
-                });
-                #endregion
+                        ["displayName"] = Language.GetOrRegister(path + "MonarchTitle"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "SpawnMonarch").WithFormatArgs("[i: " + ModContent.ItemType<IntimidatingMushroom>() + "]"),
+                        ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Monarch"),
+                        ["spawnItems"] = ModContent.ItemType<IntimidatingMushroom>(),
+                        ["collectibles"] = new List<int>
+                        {
+                            ModContent.ItemType<MonarchTrophy>(),
+                            ModContent.ItemType<MonarchMask>(),
+                            ModContent.ItemType<MonarchBox>()
+                        },
+                        ["customPortrait"] = GetPortrait("Monarch")
+                    });
+                    #endregion
 
-                #region Feudal Fungus
-                AddBoss(bossChecklist, mod, "FeudalFungus", 0.1f, (Func<bool>)(() => AAWorld.downedFungus), ModContent.NPCType<FeudalFungus>(), new Dictionary<string, object>()
-                {
-                    ["displayName"] = Language.GetOrRegister(path + "FungusTitle"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnFungus").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingMushroom>() + "]"),
-                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Fungus"),
-                    ["spawnItems"] = ModContent.ItemType<ConfusingMushroom>(),
-                    ["collectibles"] = new List<int>
+                    #region Feudal Fungus
+                    AddBoss(bossChecklist, mod, "FeudalFungus", 0.1f, (Func<bool>)(() => AAWorld.downedFungus), mod.Find<ModNPC>("FeudalFungus").Type, new Dictionary<string, object>()
                     {
-                        ModContent.ItemType<Items.Boss.MushroomMonarch.FungusTrophy>(),
-                        ModContent.ItemType<FungusMask>(),
-                        ModContent.ItemType<FungusBox>()
-                    },
-                    ["customPortrait"] = GetPortrait("Fungus")
-                });
-                #endregion
+                        ["displayName"] = Language.GetOrRegister(path + "FungusTitle"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "SpawnFungus").WithFormatArgs("[i: " + ModContent.ItemType<ConfusingMushroom>() + "]"),
+                        ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Fungus"),
+                        ["spawnItems"] = ModContent.ItemType<ConfusingMushroom>(),
+                        ["collectibles"] = new List<int>
+                        {
+                            ModContent.ItemType<Items.Boss.MushroomMonarch.FungusTrophy>(),
+                            ModContent.ItemType<FungusMask>(),
+                            ModContent.ItemType<FungusBox>()
+                        },
+                        ["customPortrait"] = GetPortrait("Fungus")
+                    });
+                    #endregion
 
-                #region Grips
-                AddBoss(bossChecklist, mod, "GripsOfChaos", 2f, (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosRed>(), ModContent.NPCType<GripOfChaosBlue>() }, new Dictionary<string, object>()
-                {
-                    ["displayName"] = Language.GetOrRegister(path + "GripsTitle"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnGrips").Format("[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]", "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]"),
-                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Grips"),
-                    ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousClaw>(), ModContent.ItemType<InterestingClaw>() },
-                    ["collectibles"] = new List<int>
+                    #region Grips
+                    AddBoss(bossChecklist, mod, "GripsOfChaos", 2f, (Func<bool>)(() => AAWorld.downedGrips), new List<int>() { ModContent.NPCType<GripOfChaosRed>(), ModContent.NPCType<GripOfChaosBlue>() }, new Dictionary<string, object>()
                     {
-                        ModContent.ItemType<Items.Boss.Grips.GripTrophyBlue>(),
-                        ModContent.ItemType<Items.Boss.Grips.GripTrophyRed>(),
-                        ModContent.ItemType<GripMaskBlue>(),
-                        ModContent.ItemType<GripMaskRed>(),
-                        ModContent.ItemType<GripsBox>()
-                    },
-                    ["customPortrait"] = GetPortrait("Grips")
-                });
-                #endregion
+                        ["displayName"] = Language.GetOrRegister(path + "GripsTitle"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "SpawnGrips").Format("[i:" + AAMod.instance.Find<ModItem>("CuriousClaw").Type + "]", "[i:" + AAMod.instance.Find<ModItem>("InterestingClaw").Type + "]"),
+                        ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Grips"),
+                        ["spawnItems"] = new List<int> { ModContent.ItemType<CuriousClaw>(), ModContent.ItemType<InterestingClaw>() },
+                        ["collectibles"] = new List<int>
+                        {
+                            ModContent.ItemType<Items.Boss.Grips.GripTrophyBlue>(),
+                            ModContent.ItemType<Items.Boss.Grips.GripTrophyRed>(),
+                            ModContent.ItemType<GripMaskBlue>(),
+                            ModContent.ItemType<GripMaskRed>(),
+                            ModContent.ItemType<GripsBox>()
+                        },
+                            ["customPortrait"] = GetPortrait("Grips")
+                        });
+                        #endregion
 
-                #region Truffle Toad
-                AddBoss(bossChecklist, mod, "TruffleToad", 2.5f, (Func<bool>)(() => AAWorld.downedToad), ModContent.NPCType<TruffleToad>(), new Dictionary<string, object>()
-                {
-                    ["displayName"] = Language.GetOrRegister(path + "ToadTitle"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "SpawnToad").WithFormatArgs("[i: " + ModContent.ItemType<Toadstool>() + "]"),
-                    ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Toad"),
-                    ["spawnItems"] = ModContent.ItemType<Toadstool>(),
-                    ["collectibles"] = new List<int>
+                    #region Truffle Toad
+                    AddBoss(bossChecklist, mod, "TruffleToad", 2.5f, (Func<bool>)(() => AAWorld.downedToad), ModContent.NPCType<TruffleToad>(), new Dictionary<string, object>()
                     {
-                        ModContent.ItemType<ToadTrophy>(),
-                        ModContent.ItemType<ToadMask>(),
-                        ModContent.ItemType<ToadBox>()
-                    },
-                    ["customPortrait"] = GetPortrait("Toad"),
-                    ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
-                });
-                #endregion
+                        ["displayName"] = Language.GetOrRegister(path + "ToadTitle"),
+                        ["spawnInfo"] = Language.GetOrRegister(path + "SpawnToad").WithFormatArgs("[i: " + ModContent.ItemType<Toadstool>() + "]"),
+                        ["despawnMessage"] = Language.GetOrRegister(path + "Despawn" + "Toad"),
+                        ["spawnItems"] = ModContent.ItemType<Toadstool>(),
+                        ["collectibles"] = new List<int>
+                        {
+                            ModContent.ItemType<ToadTrophy>(),
+                            ModContent.ItemType<ToadMask>(),
+                            ModContent.ItemType<ToadBox>()
+                        },
+                            ["customPortrait"] = GetPortrait("Toad"),
+                            ["availability"] = (Func<bool>)(() => WorldTypeSystem.WorldType != AAWorldType.Beta)
+                        });
+                        #endregion
+                }
 
                 #region Broodmother
                 AddBoss(bossChecklist, mod, "Broodmother", 3.5f, (Func<bool>)(() => AAWorld.downedBrood), ModContent.NPCType<Broodmother>(), new Dictionary<string, object>()
@@ -1001,6 +1004,7 @@ namespace AAModClassic.CrossMod
             }
         }
 
+        /*
         private static void PerformCencusSupport()
         {
             if (ModLoader.TryGetMod("Census", out var censusMod))
@@ -1020,6 +1024,7 @@ namespace AAModClassic.CrossMod
                 }
             }
         }
+        */
 
         private static void PerformFargosSetup()
         {

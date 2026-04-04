@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Dusts;
+using AAModClassic.World.Convertions;
 
 namespace AAModClassic.Projectiles
 {
@@ -26,7 +27,8 @@ namespace AAModClassic.Projectiles
             int dustType = ModContent.DustType<VoidDust>();
             if (Projectile.owner == Main.myPlayer)
             {
-                AAWorld.AAConvert((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 3);
+                Point tilePos = Projectile.Center.ToTileCoordinates();
+                WorldGen.Convert(tilePos.X, tilePos.Y, ModContent.GetInstance<VoidConversion>().Type);
             }
             if (Projectile.timeLeft > 133)
             {

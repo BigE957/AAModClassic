@@ -1,13 +1,16 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Yamata
@@ -117,29 +120,28 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
 				if (NPC.ai[0] == 375)    
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition1"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition1"), new Color(45, 46, 70));
 					NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 650)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition2"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition2"), new Color(45, 46, 70));
 				}else
 				if (NPC.ai[0] == 900)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition3"), new Color(45, 46, 70));
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition7"), Color.PaleVioletRed);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition3"), new Color(45, 46, 70));
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition7"), Color.PaleVioletRed);
                     NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 1100)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition4"), new Color(146, 30, 68));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition4"), new Color(146, 30, 68));
 				}else
 				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
 				{
 					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition6"), new Color(146, 30, 68));
-
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition6"), new Color(146, 30, 68));
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
@@ -257,7 +259,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     {
                         AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
                         if (Main.netMode != NetmodeID.MultiplayerClient) 
-                            BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;

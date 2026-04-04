@@ -7,6 +7,7 @@ using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Enemies.Sky
 {
@@ -155,22 +156,22 @@ namespace AAModClassic.NPCs.Enemies.Sky
         {
             switch (Main.rand.Next(5))
             {
-                case 0: return Lang.EnemyChat("SeraphChat1");
-                case 1: return Lang.EnemyChat("SeraphChat2");
-                case 2: return Lang.EnemyChat("SeraphChat3");
-                case 3: return Lang.EnemyChat("SeraphChat4");
-                default: return Lang.EnemyChat("SeraphChat5");
+                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat1");
+                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat2");
+                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat3");
+                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat4");
+                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat5");
             }
         }
         public static string SeraphBitchingKill()
         {
             switch (Main.rand.Next(5))
             {
-                case 0: return Lang.EnemyChat("SeraphKillChat1");
-                case 1: return Lang.EnemyChat("SeraphKillChat2");
-                case 2: return Lang.EnemyChat("SeraphKillChat3");
-                case 3: return Lang.EnemyChat("SeraphKillChat4");
-                default: return Lang.EnemyChat("SeraphKillChat5");
+                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat1");
+                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat2");
+                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat3");
+                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat4");
+                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat5");
             }
         }
     }

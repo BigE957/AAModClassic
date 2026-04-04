@@ -1,5 +1,6 @@
 ﻿using AAModClassic;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace AAModClassic.Items.Misc
 {
@@ -31,8 +32,8 @@ namespace AAModClassic.Items.Misc
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)
         {
-            description = Lang.questFish("GlitchFish");
-            catchLocation = Lang.questFish("GlitchFishLocation");
+            description = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.QuestFish.GlitchFish");
+            catchLocation = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.QuestFish.GlitchFishLocation");
         }
     }
 }

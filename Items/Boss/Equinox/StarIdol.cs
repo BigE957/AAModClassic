@@ -51,11 +51,11 @@ Can only be used if there arent many radium stars in the world."); */
                         {
                             if (Main.dayTime)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(43, 178, 245));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Worldtext.StarIdolInfo"), new Color(43, 178, 245));
                             }
                             else
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.Worldtext("StarIdolInfo"), new Color(0, 255, 181));
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Worldtext.StarIdolInfo"), new Color(0, 255, 181));
                             }
                             return false;
                         }

@@ -13,6 +13,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic;
 using AAModClassic.NPCs.Bosses.Shen;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 {
@@ -543,11 +544,11 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
         {
             if (DontSayDeathLine)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FuryAshe1") + Main.LocalPlayer.name + "!", new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FuryAshe1") + Main.LocalPlayer.name + "!", new Color(102, 20, 48));
             }
             else
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("FuryAshe2"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FuryAshe2"), new Color(102, 20, 48));
             }
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FuryAsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;

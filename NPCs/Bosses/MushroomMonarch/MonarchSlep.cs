@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.CrossMod;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,6 +41,9 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            if (ContentReplacementSystem.NeedToReplaceContent)
+                return 0f;
+
             bool biomeCorrect = spawnInfo.Player.InZone("Surface") && spawnInfo.Player.InZone("Purity") || spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush;
             if (spawnInfo.PlayerSafe || NPC.AnyNPCs(ModContent.NPCType<MonarchSlep>()) || NPC.AnyNPCs(ModContent.NPCType<MonarchWake>()) || NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {

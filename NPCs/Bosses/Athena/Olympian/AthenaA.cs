@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {
@@ -521,7 +522,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                 NPC.TargetClosest();
                 if (player.dead || !player.active || Math.Abs(Vector2.Distance(NPC.position, player.position)) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA1"), Color.CornflowerBlue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaA1"), Color.CornflowerBlue);
                     int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                     Main.npc[p].Center = NPC.Center;
                     NPC.active = false;
@@ -621,7 +622,7 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             }
             else
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AthenaA2"), Color.CornflowerBlue);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AthenaA2"), Color.CornflowerBlue);
                 int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                 Main.npc[p].Center = NPC.Center;
             }

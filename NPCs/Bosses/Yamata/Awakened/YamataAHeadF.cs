@@ -9,6 +9,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria.ModLoader.UI.ModBrowser;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
@@ -363,7 +364,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
         {
             if (NPC.life <= 0)
             {
-                CombatText.NewText(NPC.getRect(), new Color(146, 30, 68), Lang.BossChat("YamataAHead"), false, false);
+                CombatText.NewText(NPC.getRect(), new Color(146, 30, 68), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.YamataAHead"), false, false);
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<YamataSoul>());
             }
         }

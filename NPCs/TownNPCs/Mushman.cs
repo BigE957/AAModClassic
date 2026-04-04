@@ -8,6 +8,7 @@ using AAModClassic.Items.Mushrooms;
 using AAModClassic;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.TownNPCs
 {
@@ -121,28 +122,28 @@ namespace AAModClassic.NPCs.TownNPCs
             int Truffle = NPC.FindFirstNPC(NPCID.Truffle);
             if (Truffle >= 0 && Main.rand.Next(4) == 0)
             {
-                chat.Add(Lang.TownNPCMushman("MushmanChat1"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat1"));
             }
             int WitchDoctor = NPC.FindFirstNPC(NPCID.WitchDoctor);
             if (WitchDoctor >= 0 && Main.rand.Next(4) == 0)
             {
-                return Main.npc[WitchDoctor].GivenName + Lang.TownNPCMushman("MushmanChat2");
+                return Main.npc[WitchDoctor].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat2");
             }
-            chat.Add(Lang.TownNPCMushman("MushmanChat3"));
-            chat.Add(Lang.TownNPCMushman("MushmanChat4"));
-            chat.Add(Lang.TownNPCMushman("MushmanChat5"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat5"));
             int Clothier = NPC.FindFirstNPC(NPCID.Clothier);
             if (Clothier >= 0 && Main.rand.Next(4) == 0)
             {
-                return Main.npc[Clothier].GivenName + Lang.TownNPCMushman("MushmanChat6");
+                return Main.npc[Clothier].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat6");
             }
             return chat; 
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = Lang.TownNPCMushman("button1");
-            button2 = Lang.TownNPCMushman("button2");
+            button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.button1");
+            button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.button2");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -445,27 +446,27 @@ namespace AAModClassic.NPCs.TownNPCs
         public static string NoMushroomChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
-            chat.Add(Lang.TownNPCMushman("NoMushroomChat1"));
-            chat.Add(Lang.TownNPCMushman("NoMushroomChat2"));
-            chat.Add(Lang.TownNPCMushman("NoMushroomChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat3"));
             return chat;
         }
 
         public static string SpecialChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
-            chat.Add(Lang.TownNPCMushman("SpecialChat1"));
-            chat.Add(Lang.TownNPCMushman("SpecialChat2"));
-            chat.Add(Lang.TownNPCMushman("SpecialChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat3"));
             return chat;
         }
 
         public static string MushroomChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
-            chat.Add(Lang.TownNPCMushman("MushroomChat1"));
-            chat.Add(Lang.TownNPCMushman("MushroomChat2"));
-            chat.Add(Lang.TownNPCMushman("MushroomChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat3"));
             return chat;
         }
 

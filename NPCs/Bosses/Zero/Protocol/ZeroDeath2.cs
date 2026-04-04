@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Zero.Protocol
@@ -39,7 +40,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 AAWorld.downedZero = true;
                 if (Projectile.timeLeft == 913)
-                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ZeroDeath4"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
         }
     }

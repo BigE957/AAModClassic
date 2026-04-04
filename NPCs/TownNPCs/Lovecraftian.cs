@@ -2,10 +2,12 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Items.Flasks;
+using AAModClassic.Items.Usable;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
@@ -84,45 +86,45 @@ namespace AAModClassic.NPCs.TownNPCs
             int Mutant = Fargos == null ? -1 : NPC.FindFirstNPC(Fargos.Find<ModNPC>("Mutant").Type);
             int HordeZombie = GRealm == null ? -1 : NPC.FindFirstNPC(GRealm.Find<ModNPC>("HordeZombie").Type);
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat1"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat1"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat2"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat2"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat3"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat3"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat4"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat4"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat5"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat5"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat6"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat6"));
 
-            chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat7"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat7"));
             
 
             //If Pirate is present
             if (Pirate >= 0)
             {
-                chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat8") + Main.npc[Pirate].GivenName + Lang.TownNPCLovecraftian("LovecraftianChat9"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat8") + Main.npc[Pirate].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat9"));
             }
 
             //If mutant is present
 
             if (Mutant >= 0)
             {
-                chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat10") + Main.npc[Mutant].GivenName + Lang.TownNPCLovecraftian("LovecraftianChat11"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat10") + Main.npc[Mutant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat11"));
             }
 
             //If Horde Zombie is present
             if (HordeZombie >= 0)
             {
-                chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat12"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat12"));
             }
 
 
             //Post - Moon Lord
             if (NPC.downedMoonlord)
             {
-                chat.Add(Lang.TownNPCLovecraftian("LovecraftianChat13"));
+                chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat13"));
             }
 
             //Providing materials
@@ -132,8 +134,8 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = Lang.TownNPCLovecraftian("button1");
-            button2 = Lang.TownNPCLovecraftian("button2");
+            button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.button1");
+            button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.button2");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -176,7 +178,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid1 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("PurityFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.PurityFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<PurityFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<PurityFlask>();
                     }
@@ -198,7 +200,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid2 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("AshJarChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.AshJarChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<AshJar>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<AshJar>();
                     }
@@ -220,7 +222,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid3 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("DarkwaterFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.DarkwaterFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<DarkwaterFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<DarkwaterFlask>();
                     }
@@ -242,7 +244,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid4 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("CorruptionFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.CorruptionFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<CorruptionFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<CorruptionFlask>();
                     }
@@ -264,7 +266,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid5 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("CrimsonFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.CrimsonFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<CrimsonFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<CrimsonFlask>();
                     }
@@ -285,7 +287,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid6 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("HallowFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.HallowFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<HallowFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<HallowFlask>();
                     }
@@ -306,7 +308,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid7 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("VoidFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.VoidFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<VoidFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<Z>();
                     }
@@ -327,7 +329,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid8 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("FungicideChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.FungicideChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Fungicide>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<Fungicide>();
                     }
@@ -348,7 +350,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid9 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("SporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("SporeSacChat2");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat2");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeSac>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<SporeSac>();
                     }
@@ -369,7 +371,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid10 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("GlowingSporeSacChat2");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat2");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeSac>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeSac>();
                     }
@@ -390,7 +392,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid11 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("JungleFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.JungleFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<JungleFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<JungleFlask>();
                     }
@@ -411,7 +413,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid12 == 0)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("IceFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.IceFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<IceFlask>(), 3);
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<IcemeltFlask>(), 3);
                         Main.npcChatCornerItem = ModContent.ItemType<IceFlask>();
@@ -433,7 +435,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     if (AAWorld.squid13 == 4)
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("ForestFlaskChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.ForestFlaskChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<ForestFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<ForestFlask>();
                     }
@@ -448,7 +450,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 {
                     if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.Flasks.SquidList>()))
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("SquidListChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SquidListChat");
                         int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<SquidList>(), 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
@@ -457,7 +459,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     }
                     else
                     {
-                        Main.npcChatText = Lang.TownNPCLovecraftian("NothingChat");
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.NothingChat");
                     }
                     Main.npcChatCornerItem = 0;
                     SoundEngine.PlaySound(SoundID.MenuTick);

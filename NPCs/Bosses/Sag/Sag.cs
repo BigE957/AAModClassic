@@ -11,6 +11,7 @@ using System.IO;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using Terraria.Localization;
 
 namespace AAModClassic.NPCs.Bosses.Sag
 {
@@ -211,7 +212,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
 
                 if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Lang.BossChat("SagChat"), true, true);
+                    CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SagChat"), true, true);
                     lowHealth = true;
                 }
             }

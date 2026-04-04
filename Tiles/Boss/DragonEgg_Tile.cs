@@ -86,12 +86,12 @@ namespace AAModClassic.Tiles.Boss
             if (AAWorld.SmashDragonEgg == 2)
             {
                 AAWorld.SmashDragonEgg--;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("DragonEgg1"), Color.DarkOrange);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg1"), Color.DarkOrange);
             }
             else if (AAWorld.SmashDragonEgg == 1)
             {
                 AAWorld.SmashDragonEgg--;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("DragonEgg2"), Color.DarkOrange);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg2"), Color.DarkOrange);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace AAModClassic.Tiles.Boss
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("DragonEgg3"), Color.DarkOrange);
+                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg3"), Color.DarkOrange);
                 }
             }
         }

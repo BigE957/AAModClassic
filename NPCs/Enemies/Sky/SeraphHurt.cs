@@ -122,11 +122,11 @@ namespace AAModClassic.NPCs.Enemies.Sky
         {
             switch (Main.rand.Next(5))
             {
-                case 0: return Lang.EnemyChat("SeraphHurtChat1");
-                case 1: return Lang.EnemyChat("SeraphHurtChat2");
-                case 2: return Lang.EnemyChat("SeraphHurtChat3");
-                case 3: return Lang.EnemyChat("SeraphHurtChat4");
-                default: return Lang.EnemyChat("SeraphHurtChat5");
+                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat1");
+                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat2");
+                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat3");
+                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat4");
+                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat5");
             }
         }
 
