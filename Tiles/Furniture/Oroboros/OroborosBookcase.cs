@@ -11,7 +11,7 @@ using AAModClassic.Globals;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosBookcase : ModTile
+    public class OroborosBookcase_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

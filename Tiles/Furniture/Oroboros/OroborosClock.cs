@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosClock : ModTile
+    public class OroborosClock_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

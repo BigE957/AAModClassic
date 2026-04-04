@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosLantern : ModTile
+    public class OroborosLantern_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

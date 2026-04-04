@@ -9,7 +9,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosWorkbench : ModTile
+    public class OroborosWorkbench_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

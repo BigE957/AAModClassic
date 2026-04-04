@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-	public class OroborosPlatform : ModTile
+	public class OroborosPlatform_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

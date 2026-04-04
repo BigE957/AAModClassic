@@ -14,7 +14,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Furniture.Oroboros
 {
-    public class OroborosChest : ModTile
+    public class OroborosChest_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {
