@@ -1,5 +1,4 @@
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -10,6 +9,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 {
     public class IceBall2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Ice Ball");
+            Main.projFrames[Projectile.type] = 6;
+        }
+
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
@@ -21,10 +26,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             Projectile.friendly = false;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("IceBall");
-		}
+        public override bool PreAI()
+        {
+            Projectile.frame = (int)Projectile.ai[1];
+            return true;
+        }
 
         public override bool PreKill(int timeLeft)
         {
@@ -32,12 +38,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             int pieCut = 20;
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<IceDust>(), 0f, 0f, 100, Color.White, 1.6f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.IceDust>(), 0f, 0f, 100, Color.White, 1.6f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / pieCut * 6.28f);
             }
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<IceDust>(), 0f, 0f, 100, Color.White, 2f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.IceDust>(), 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m /pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
             }

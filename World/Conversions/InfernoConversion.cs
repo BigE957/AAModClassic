@@ -10,7 +10,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.WallLoader;
 
-namespace AAModClassic.World.Convertions
+namespace AAModClassic.World.Conversions
 {
     public class InfernoConversion : ModBiomeConversion
     {

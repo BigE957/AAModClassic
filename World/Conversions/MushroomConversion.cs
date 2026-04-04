@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.World.Convertions
+namespace AAModClassic.World.Conversions
 {
     public class MushroomConversion : ModBiomeConversion
     {

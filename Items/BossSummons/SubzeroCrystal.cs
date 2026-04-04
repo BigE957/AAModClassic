@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.UI.WorldGen;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -38,7 +39,7 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("SerpentHead").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.SubzeroSerpent"), false);
+            SpawnBoss(player, ModContent.NPCType<SerpentHead>(), Language.GetTextValue("Mods.AAModClassic.Common.SubzeroSerpent"));
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -61,14 +62,36 @@ namespace AAModClassic.Items.BossSummons
             return true;
         }
 
-        public void SpawnBoss(Player player, string name, string displayName)
+        public void SpawnBoss(Player player, int bossType, string displayName)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int bossType = Mod.Find<ModNPC>(name).Type;
                 if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
-                Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-2000, 2000, (float)Main.rand.NextDouble()), 1200f);
+
+                int type = 0;
+                if (player.ZoneCorrupt)
+                {
+                    type = 1;
+                }
+                else if (player.ZoneCrimson)
+                {
+                    type = 2;
+                }
+                else if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                {
+                    type = 3;
+                }
+                else if (player.GetModPlayer<AAPlayer>().ZoneMire)
+                {
+                    type = 4;
+                }
+                else if (player.ZoneHallow)
+                {
+                    type = 5;
+                }
+
+                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.Center.X, (int)player.Center.Y, bossType, 0, ai2: type);
+                Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-2000, 2000, (float)Main.rand.NextDouble()), -1000f);
                 Main.npc[npcID].netUpdate2 = true;
                 string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : displayName;
                 if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }

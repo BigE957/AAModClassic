@@ -1,10 +1,9 @@
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
+using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic.NPCs.Bosses.Serpent
 {
@@ -25,7 +24,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 		public override void SetStaticDefaults()
 		{
 		    // DisplayName.SetDefault("Ice Crystal");
-		}
+            Main.npcFrameCount[NPC.type] = 6;
+        }
 
         public override void AI()
         {
@@ -39,9 +39,15 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
             else
             {
-                BaseAI.ShootPeriodic(NPC, NPC.position, NPC.width, NPC.height, ModContent.ProjectileType<IceSpike>(), ref NPC.ai[0], 180, NPC.damage / 2, 7, true);
+                int p = BaseAI.ShootPeriodic(NPC, NPC.position, NPC.width, NPC.height, ModContent.ProjectileType<IceSpike>(), ref NPC.ai[0], 180, NPC.damage / 2, 7, true);
+                Main.projectile[p].ai[1] = NPC.ai[1];
                 NPC.alpha = 40;
             }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frame.Y = frameHeight * (int)NPC.ai[1];
         }
 
         public override void OnKill()
@@ -50,12 +56,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             int pieCut = 20;
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(NPC.Center.X - 1, NPC.Center.Y - 1), 2, 2, ModContent.DustType<SnowDust>(), 0f, 0f, 100, Color.White, 1.6f);
+                int dustID = Dust.NewDust(new Vector2(NPC.Center.X - 1, NPC.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.SnowDust>(), 0f, 0f, 100, Color.White, 1.6f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / pieCut * 6.28f);
             }
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(NPC.Center.X - 1, NPC.Center.Y - 1), 2, 2, ModContent.DustType<SnowDust>(), 0f, 0f, 100, Color.White, 2f);
+                int dustID = Dust.NewDust(new Vector2(NPC.Center.X - 1, NPC.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.SnowDust>(), 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m /pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
             }

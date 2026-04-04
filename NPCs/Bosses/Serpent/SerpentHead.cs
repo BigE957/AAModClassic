@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,11 +26,22 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 		public override void SetDefaults()
 		{
 			NPC.npcSlots = 5f;
-            NPC.width = 38;
-            NPC.height = 38;
+            NPC.width = 32;
+            NPC.height = 32;
+            if (NPC.ai[2] == 2)
+            {
+                NPC.lifeMax = 7000;
+            }
+            else if (NPC.ai[2] == 5)
+            {
+                NPC.lifeMax = 15000;
+            }
+            else
+            {
+                NPC.lifeMax = 6000;
+            }
             NPC.damage = 35;
-            NPC.defense = 25;
-            NPC.lifeMax = 6000;
+            NPC.defense = 10;
             NPC.value = 50000f;
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
@@ -76,11 +87,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                internalAI[0] = reader.ReadFloat();
-                internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
+                internalAI[0] = reader.Read();
+                internalAI[1] = reader.Read();
+                internalAI[2] = reader.Read();
+                internalAI[3] = reader.Read();
+                internalAI[4] = reader.Read();
             }
         }
 
@@ -134,8 +145,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 if (internalAI[4] != 1)
                 {
                     NPC.ai[3] = NPC.whoAmI;
-                    NPC.realLife = NPC.whoAmI;
-                    int whoamI = NPC.whoAmI;
+                    int previousSegment = NPC.whoAmI;
+                    //NPC.realLife = NPC.whoAmI;
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
@@ -144,13 +155,12 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         {
                             type = Mod.Find<ModNPC>("SerpentTail").Type;
                         }
-                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-                        Main.npc[segment].ai[3] = NPC.whoAmI;
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, NPC.ai[2], NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
-                        Main.npc[segment].ai[1] = whoamI;
-                        Main.npc[whoamI].ai[0] = segment;
+                        NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
-                        whoamI = segment;
+                        previousSegment = (true ? segment : (NPC.whoAmI = segment));
+                        //To-Do: Make this only apply if unofficial content is enabled instead of always
                     }
                     internalAI[4] = 1;
                     NPC.netUpdate = true;
@@ -230,6 +240,13 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             float maxDistance = 16f;
             float num48 = 0.1f;
             float num49 = 0.15f;
+
+            if (NPC.ai[2] == 1 || NPC.ai[2] == 5)
+            {
+                num48 = 0.13f;
+                num49 = 0.2f;
+            }
+
             Vector2 center = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
             float targetX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
             float targetY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
@@ -321,8 +338,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     SoundEngine.PlaySound(SoundID.WormDig, NPC.position);
                 }
                 num52 = (float)Math.Sqrt(targetX * targetX + targetY * targetY);
-                float num55 = Math.Abs(targetX);
-                float num56 = Math.Abs(targetY);
+                float TargetPosX = Math.Abs(targetX);
+                float TargetPosY = Math.Abs(targetY);
                 float num57 = maxDistance / num52;
                 targetX *= num57;
                 targetY *= num57;
@@ -386,7 +403,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                         }
                     }
                 }
-                else if (num55 > num56)
+                else if (TargetPosX > TargetPosY)
                 {
                     if (NPC.velocity.X < targetX)
                     {
@@ -521,6 +538,16 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         private void Rain()
         {
+            if (NPC.ai[2] == 3 || NPC.ai[2] == 5)
+            {
+                NPC.defense = 32;
+            }
+
+            if (NPC.ai[2] == 4 || NPC.ai[2] == 5)
+            {
+                NPC.damage = 40;
+            }
+
             if (Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f || Main.player[NPC.target].dead)
             {
                 if (StopSnow == 0)
@@ -589,7 +616,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
         }
 
-        private static void RainStop()
+        private void RainStop()
         {
             if (Main.raining)
             {
@@ -624,7 +651,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 if (NPC.CountNPCS(ModContent.NPCType<IceCrystal>()) < 3)
                 {
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, 0, 0, 0, 0, NPC.target);
+                   NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.position.X + Main.rand.Next(-500, 500), (int)player.position.Y + 500, ModContent.NPCType<IceCrystal>(), 0, NPC.ai[2], 0, 0, 0, NPC.target);
                 }
                 internalAI[2] = 2;
                 NPC.netUpdate = true;
@@ -643,7 +670,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     attackTimer++;
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
-                        BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<IceBall2>(), damage, 3, 14f, 0, 0, -1);
+                        int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<IceBall2>(), damage, 3, 14f, 0, 0, -1);
+                        Main.projectile[p].ai[1] = NPC.ai[2]; 
                         NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
@@ -667,6 +695,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 if (fireAttack == true)
                 {
                     attackTimer++;
+
                     if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(BuffID.Wet))
                     {
                         for (int i = 0; i < 5; ++i)
@@ -685,7 +714,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 1.5f, NPC.velocity.Y * 1.5f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer, 0, NPC.ai[2]);
                         }
                     }
                     if (attackTimer >= 80)
@@ -712,11 +741,11 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 		{
 			if (Main.expertMode)
 			{
-				target.AddBuff(BuffID.Chilled, 200, true);
+                target.AddBuff(BuffID.Chilled, 200, true);
 			}
 			else
 			{
-				target.AddBuff(BuffID.Chilled, 100, true);
+                target.AddBuff(BuffID.Chilled, 100, true);
 			}
 		}
 
@@ -741,7 +770,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
@@ -750,13 +779,14 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreHead").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("Gores/SZSGoreHead").Type, 1f);
             }
         }
 
         public override void OnKill()
         {
             AAWorld.downedSerpent = true;
+
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
@@ -767,7 +797,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 NPC.DropLoot(Mod.Find<ModItem>("SnowMana").Type, 10, 15);
                 string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
                 int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(SerpentMask.type, 1f / 7);
+                NPC.DropLoot(Items.Vanity.Mask.SerpentMask.type, 1f / 7);
                 if (Main.rand.Next(9) == 0)
                 {
                     NPC.DropLoot(Mod.Find<ModItem>("SnowflakeShuriken").Type, 90, 120);
@@ -788,6 +818,24 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             NPC.value = 0f;
             NPC.boss = false;
         }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
+
+            switch ((int)NPC.ai[2])
+            {
+                case 0: break;
+                case 1: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/Corrupt"); break;
+                case 2: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/Crimson"); break;
+                case 3: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/Inferno"); break;
+                case 4: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/Mire"); break;
+                case 5: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/Hallow"); break;
+            }
+
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor, true);
+            return false;
+        }
     }
 
     public class SerpentBody : ModNPC
@@ -801,10 +849,10 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         public override void SetDefaults()
         {
             NPC.npcSlots = 5f;
-            NPC.width = 38;
-            NPC.height = 38;
+            NPC.width = 32;
+            NPC.height = 32;
             NPC.damage = 35;
-            NPC.defense = 25;
+            NPC.defense = 10;
             NPC.lifeMax = 6000;
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.knockBackResist = 0f;
@@ -1166,9 +1214,6 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override bool PreKill()
         {
-            int first = NPC.FindFirstNPC(ModContent.NPCType<SerpentHead>());
-            if(first != -1)
-                Main.npc[first].StrikeInstantKill();
             return false;
         }
 
@@ -1190,7 +1235,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
@@ -1199,7 +1244,40 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreBody").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("Gores/SZSGoreBody").Type, 1f);
+            }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
+
+            switch ((int)NPC.ai[2])
+            {
+                case 0: break;
+                case 1: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/CorruptBody"); break;
+                case 2: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/CrimsonBody"); break;
+                case 3: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/InfernoBody"); break;
+                case 4: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/MireBody"); break;
+                case 5: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/HallowBody"); break;
+            }
+
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor, true);
+            return false;
+        }
+
+        public override string BossHeadTexture => Head();
+
+        private string Head()
+        {
+            switch ((int)NPC.ai[2])
+            {
+                case 1: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Hallow";
+                case 2: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Crimson";
+                case 3: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Inferno";
+                case 4: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Mire";
+                case 5: return "NPCs/Bosses/Serpent/Variants/SerpentHead_Hallow";
+                default: return "NPCs/Bosses/Serpent/SerpentHead_Head_Boss";
             }
         }
     }
@@ -1215,10 +1293,10 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         public override void SetDefaults()
         {
             NPC.npcSlots = 5f;
-            NPC.width = 38;
-            NPC.height = 38;
+            NPC.width = 32;
+            NPC.height = 32;
             NPC.damage = 35;
-            NPC.defense = 25;
+            NPC.defense = 10;
             NPC.lifeMax = 6000;
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.knockBackResist = 0f;
@@ -1550,9 +1628,6 @@ namespace AAModClassic.NPCs.Bosses.Serpent
 
         public override bool PreKill()
         {
-            int first = NPC.FindFirstNPC(ModContent.NPCType<SerpentHead>());
-            if (first != -1)
-                Main.npc[first].StrikeInstantKill();
             return false;
         }
 
@@ -1574,7 +1649,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
         {
             for (int x = 0; x < 5; x++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
             if (NPC.life == 0)
             {
@@ -1583,8 +1658,26 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreTail").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("Gores/SZSGoreTail").Type, 1f);
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            Texture2D tex = TextureAssets.Npc[NPC.type].Value;
+
+            switch ((int)NPC.ai[2])
+            {
+                case 0: break;
+                case 1: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/CorruptTail"); break;
+                case 2: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/CrimsonTail"); break;
+                case 3: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/InfernoTail"); break;
+                case 4: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/MireTail"); break;
+                case 5: tex = Mod.GetTexture("NPCs/Bosses/Serpent/Variants/HallowTail"); break;
+            }
+
+            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor, true);
+            return false;
         }
     }
 }
