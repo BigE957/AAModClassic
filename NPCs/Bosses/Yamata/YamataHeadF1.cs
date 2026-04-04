@@ -165,7 +165,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
                     Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                     dir *= 5f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? Mod.Find<ModProjectile>("YamataABreath").Type : Mod.Find<ModProjectile>("YamataBreath").Type, NPC.damage / 4, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? ModContent.ProjectileType<YamataABreath>() : ModContent.ProjectileType<YamataBreath>(), NPC.damage / 4, 0f, Main.myPlayer);
                 }
                 return;
             }
@@ -204,7 +204,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                         SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
                         Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                         dir *= 5f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? Mod.Find<ModProjectile>("YamataABreath").Type : Mod.Find<ModProjectile>("YamataBreath").Type, NPC.damage / 4, 0f, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, isAwakened ? ModContent.ProjectileType<YamataABreath>() : ModContent.ProjectileType<YamataBreath>(), NPC.damage / 4, 0f, Main.myPlayer);
                     }
                 }
                 else

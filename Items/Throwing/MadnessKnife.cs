@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.consumable = true;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.shoot = Mod.Find<ModProjectile>("MadnessKnifeP").Type;
+			Item.shoot = ModContent.ProjectileType<MadnessKnifeP>();
 			Item.shootSpeed = 12f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;
@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Throwing
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(75);
-			recipe.AddIngredient(Mod.Find<ModItem>("MadnessFragment").Type);
+			recipe.AddIngredient(ModContent.ItemType<MadnessFragment>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

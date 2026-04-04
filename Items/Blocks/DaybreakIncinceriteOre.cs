@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("DaybreakIncineriteOre").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<DaybreakIncineriteOre>(); //put your CustomBlock Tile name
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

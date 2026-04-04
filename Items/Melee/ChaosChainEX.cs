@@ -26,7 +26,7 @@ Chaos Chain EX"); */
             Item.width = 30;
             Item.height = 10;
             Item.damage = 275;
-            Item.shoot = Mod.Find<ModProjectile>("ChaosChainEX").Type;
+            Item.shoot = ModContent.ProjectileType<ChaosChainEX>();
             Item.shootSpeed = 18f;
             Item.UseSound = SoundID.Item116;
             Item.rare = ItemRarityID.Cyan;

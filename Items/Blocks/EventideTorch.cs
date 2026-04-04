@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("EventideTorch").Type;
+			Item.createTile = ModContent.TileType<EventideTorch>();
 			Item.flame = true;
             AARarity = 13;
             Item.value = Item.sellPrice(0, 0, 50, 0);
@@ -48,7 +48,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			if (Main.rand.Next(player.itemAnimation > 0 ? 40 : 80) == 0)
 			{
-				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, Mod.Find<ModDust>("YamataADust").Type);
+				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, ModContent.DustType<YamataADust>());
 			}
 			Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
 			Lighting.AddLight(position, AAColor.YamataA.R / 255, AAColor.YamataA.G / 255, AAColor.YamataA.B / 255);

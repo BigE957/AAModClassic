@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("Darkmatter").Type;
+            Item.createTile = ModContent.TileType<Darkmatter>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
         }
 

@@ -60,8 +60,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     for (int i = 0; i < 16; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 8);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<ShenFireballAccel>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<ShenFireballAccel>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                     }
                 }
             }
@@ -84,8 +84,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 for (int i = 0; i < 16; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 8);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("ShenFireballAccel").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<ShenFireballAccel>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<ShenFireballAccel>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                 }
             }
         }

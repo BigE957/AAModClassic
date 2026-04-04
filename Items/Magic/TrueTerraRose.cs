@@ -35,7 +35,7 @@ Terra Rose EX"); */
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("TerraRoseShotEX").Type;
+			Item.shoot = ModContent.ProjectileType<TerraRoseShotEX>();
 			Item.shootSpeed = 20f;
         }
 
@@ -48,7 +48,7 @@ Terra Rose EX"); */
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = Mod.Find<ModProjectile>("TrueTerraRose").Type;
+                Item.shoot = ModContent.ProjectileType<TrueTerraRose>();
                 Item.damage = 70;
                 Item.useTime = 30;
                 Item.useAnimation = 30;
@@ -56,7 +56,7 @@ Terra Rose EX"); */
             }
             else
             {
-                Item.shoot = Mod.Find<ModProjectile>("TerraRoseShotEX").Type;
+                Item.shoot = ModContent.ProjectileType<TerraRoseShotEX>();
                 Item.damage = 500;
                 Item.useTime = 10;
                 Item.useAnimation = 10;
@@ -68,8 +68,8 @@ Terra Rose EX"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(Mod.Find<ModItem>("TerraRose").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+            recipe.AddIngredient(ModContent.ItemType<TerraRose>());
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(null, "QuantumFusionAccelerator");
             recipe.Register();
         }

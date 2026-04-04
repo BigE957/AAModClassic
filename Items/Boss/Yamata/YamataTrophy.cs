@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Boss.Yamata
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("YamataTrophy").Type;
+			Item.createTile = ModContent.TileType<YamataTrophy>();
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+			DustType = ModContent.DustType<AbyssiumDust>();
 			AddMapEntry(new Color(0, 10, 150));
             Terraria.ID.WallID.Sets.Conversion.Sandstone[Type] = true;
         }

@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Piano");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             AdjTiles = new int[] { TileID.Pianos };
         }
 

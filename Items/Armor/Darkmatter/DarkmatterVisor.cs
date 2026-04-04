@@ -53,7 +53,7 @@ Dark, yet still barely visible"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
+            return body.type == ModContent.ItemType<DarkmatterBreastplate>() && legs.type == ModContent.ItemType<DarkmatterGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -109,11 +109,11 @@ Dark, yet still barely visible"); */
                 {
                     if(sunPortal)
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("SunSphere").Type, (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .5f), 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, ModContent.ProjectileType<SunSphere>(), (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .5f), 2f, Player.whoAmI);
                     }
                     else
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, Mod.Find<ModProjectile>("DarkmatterSphere").Type, (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .3f), 2f, Player.whoAmI);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + portalOffset, (Main.MouseWorld - (Player.Center + portalOffset)).SafeNormalize(-Vector2.UnitY) * Player.HeldItem.shootSpeed, ModContent.ProjectileType<DarkmatterSphere>(), (int)(Player.GetDamage(DamageClass.Ranged).ApplyTo(Player.HeldItem.damage) * .3f), 2f, Player.whoAmI);
                     }
                     
                 }

@@ -212,9 +212,9 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 NPC.netUpdate = true;
             }
 
-            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ShenHitbox").Type))
+            if (!NPC.AnyNPCs(ModContent.NPCType<ShenHitbox>()))
             {
-                int hitbox = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ShenHitbox").Type, 0, NPC.whoAmI, 0f, 0f, 0f, 255);
+                int hitbox = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenHitbox>(), 0, NPC.whoAmI, 0f, 0f, 0f, 255);
                 Main.npc[hitbox].netUpdate = true;
             }
 
@@ -739,8 +739,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 SpawnGrips = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon2"), Color.DarkMagenta);
-                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("AbyssGrip").Type, false, 0, 0);
-                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("BlazeGrip").Type, false, 0, 0);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AbyssGrip>(), false, 0, 0);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<BlazeGrip>(), false, 0, 0);
                 SoundEngine.PlaySound(SoundID.Roar, player.position);
             }
             if (NPC.life <= NPC.lifeMax * .4f && !SpawnGrips && isAwakened)
@@ -760,8 +760,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon8"), new Color(72, 78, 117));
                 }
 
-                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("FuryAshe").Type, false, 0, 0);
-                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("WrathHaruka").Type, false, 0, 0);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<FuryAshe>(), false, 0, 0);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<WrathHaruka>(), false, 0, 0);
             }
 
             if (NPC.life <= NPC.lifeMax * 0.80f && !Health4 && !isAwakened)
@@ -821,18 +821,18 @@ namespace AAModClassic.NPCs.Bosses.Shen
                         if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ShenDoragon18"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
                     AAWorld.downedShen = true;
-                    NPC.DropLoot(Mod.Find<ModItem>("ChaosScale").Type, 20, 30);
+                    NPC.DropLoot(ModContent.ItemType<ChaosScale>(), 20, 30);
                     string[] lootTable = { "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                    //BaseAI.DropItem(NPC, Mod.Find<ModItem>("ShenTrophy").Type, 1, 1, 15, true);
+                    //BaseAI.DropItem(NPC, ModContent.ItemType<ShenTrophy>(), 1, 1, 15, true);
 
                 }
                 else
                 {
                     NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenTransition>());
                 }
-                BaseAI.DropItem(NPC, Mod.Find<ModItem>("ShenTrophy").Type, 1, 1, 15, true);
+                BaseAI.DropItem(NPC, ModContent.ItemType<ShenTrophy>(), 1, 1, 15, true);
                 NPC.value = 0f;
                 NPC.boss = false;
             }

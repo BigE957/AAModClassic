@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
-    public class AnhialationBurst : ModProjectile
+    public class Annihilator_AnnihilationBurst : ModProjectile
     {
         public override void SetStaticDefaults()
         {

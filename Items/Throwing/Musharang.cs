@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Throwing
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Blue;
 			Item.shootSpeed = 6f;
-			Item.shoot = Mod.Find<ModProjectile>("Musharang").Type;
+			Item.shoot = ModContent.ProjectileType<Musharang>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.noMelee = true;

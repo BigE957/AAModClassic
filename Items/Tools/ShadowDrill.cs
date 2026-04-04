@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Tools
 			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ShadowDrill").Type;
+			Item.shoot = ModContent.ProjectileType<ShadowDrill>();
 			Item.shootSpeed = 40f;
 		}
 

@@ -104,7 +104,7 @@ namespace AAModClassic.Projectiles.Yamata
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
 
         public override void OnKill(int timeleft)
@@ -120,7 +120,7 @@ namespace AAModClassic.Projectiles.Yamata
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("ToxiboomSmall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<ToxiboomSmall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

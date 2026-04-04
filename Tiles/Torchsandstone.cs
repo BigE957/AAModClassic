@@ -12,8 +12,8 @@ namespace AAModClassic.Tiles
             Terraria.ID.TileID.Sets.Conversion.Sandstone[Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("Torchsandstone").Type);   
+            DustType = ModContent.DustType<RazewoodDust>();
+            RegisterItemDrop(ModContent.ItemType<Torchsandstone>());   
             AddMapEntry(new Color(50, 40, 40));
             MinPick = 65;
         }

@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
             bool flag = NPC.life <= 0 || (!NPC.active && NPC.AnyNPCs(ModContent.NPCType<Zero>()));
             if (flag && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int ind = NPC.NewNPC(NPC.GetSource_Death(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("TeslaHand").Type, NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
+                int ind = NPC.NewNPC(NPC.GetSource_Death(), (int)(NPC.position.X + (double)(NPC.width / 2)), (int)NPC.position.Y + (NPC.height / 2), ModContent.NPCType<TeslaHand>(), NPC.whoAmI, NPC.ai[0], NPC.ai[1], NPC.ai[2], NPC.ai[3], NPC.target);
                 Main.npc[ind].Center = NPC.Center;
                 Main.npc[ind].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                 Main.npc[ind].velocity *= 8f;
@@ -91,14 +91,14 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("Zero").Type, 1000, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Zero>(), 1000, null);
                 if (npcID >= 0) body = npcID;
             }
 
             if (body == -1) return;
 
             NPC zero = Main.npc[body];
-            if (zero == null || zero.life <= 0 || !zero.active || zero.type != Mod.Find<ModNPC>("Zero").Type) { NPC.active = false; return; }
+            if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<Zero>()) { NPC.active = false; return; }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {

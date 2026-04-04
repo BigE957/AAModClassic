@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = true;   
             Item.useTurn = true;
-            Item.shoot = Mod.Find<ModProjectile>("CloudEdgeP").Type;
+            Item.shoot = ModContent.ProjectileType<CloudEdgeP>();
             Item.shootSpeed = 12f;                                 
         }
 

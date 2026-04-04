@@ -13,9 +13,9 @@ namespace AAModClassic.Walls.Bricks
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("DaybreakWall").Type);
+            RegisterItemDrop(ModContent.ItemType<DaybreakWall>());
             AddMapEntry(new Color(40, 12, 10));
-            DustType = Mod.Find<ModDust>("DaybreakIncineriteDust").Type;
+            DustType = ModContent.DustType<DaybreakIncineriteDust>();
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)

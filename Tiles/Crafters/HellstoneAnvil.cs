@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Hellstone Anvil");
-            DustType = Mod.Find<ModDust>("RazeleafDust").Type;
+            DustType = ModContent.DustType<RazeleafDust>();
             AddMapEntry(new Color(200, 150, 0), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.WorkBenches, TileID.Anvils };

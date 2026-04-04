@@ -23,12 +23,12 @@ namespace AAModClassic.Items.Blocks.Oroboros
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = Mod.Find<ModTile>("OroborosCandle").Type;
+            Item.createTile = ModContent.TileType<OroborosCandle>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("OroborosWood").Type, 4);
+            recipe.AddIngredient(ModContent.ItemType<OroborosWood>(), 4);
             recipe.AddIngredient(ItemID.Torch, 1);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();

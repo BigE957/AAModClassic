@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void OnKill()
         {
-            int redGripExists = NPC.CountNPCS(Mod.Find<ModNPC>("GripOfChaosRed").Type);
+            int redGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosRed>());
             if (redGripExists == 0)
                 AAWorld.downedGrips = true;
         }

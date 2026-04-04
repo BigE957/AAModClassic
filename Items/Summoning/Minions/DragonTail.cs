@@ -112,8 +112,8 @@ namespace AAModClassic.Items.Summoning.Minions
                 scaleFactor16 = 16f;
                 int arg_2D9AD_0 = Main.projectile[byUUID].alpha;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("DragonHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
-                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == Mod.Find<ModProjectile>("DragonHead").Type)
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<DragonHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == ModContent.ProjectileType<DragonHead>())
                 {
                     Main.projectile[byUUID].Kill();
                     Projectile.Kill();

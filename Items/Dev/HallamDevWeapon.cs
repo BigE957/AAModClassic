@@ -36,7 +36,7 @@ Prismeow EX"); */
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item44;
 			Item.autoReuse = false;
-			Item.shoot = Mod.Find<ModProjectile>("RainbowCatPro").Type;
+			Item.shoot = ModContent.ProjectileType<RainbowCatPro>();
 			Item.shootSpeed = 0f;
             Item.expert = true; Item.expertOnly = true;
 

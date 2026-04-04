@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("BabyPhoenix").Type;
+            Item.shoot = ModContent.ProjectileType<BabyPhoenix>();
             Item.damage = 12;
             Item.width = 42;
             Item.height = 44;

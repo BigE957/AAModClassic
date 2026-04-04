@@ -54,12 +54,12 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			NPC.noGravity = true;
 			if(body == -1)
 			{
-				int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("Anubis").Type, 500f, null);	
+				int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Anubis>(), 500f, null);	
 				if(npcID >= 0) body = npcID;
 			}
 			if(body == -1) return;				
 			NPC anubis = Main.npc[body];
-			if(anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != Mod.Find<ModNPC>("Anubis").Type){ BaseAI.KillNPCWithLoot(NPC); return; }
+			if(anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<Anubis>()){ BaseAI.KillNPCWithLoot(NPC); return; }
 
 			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
 			{
@@ -77,7 +77,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 			NPC.rotation = (NPC.position.X - NPC.oldPos[1].X) * 0.05f;
 
             Player player = Main.player[anubis.target];
-            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, Mod.Find<ModProjectile>("LocusSpit").Type, ref NPC.ai[2], Main.expertMode ? 120 : 80, NPC.damage / 2, 9, true);
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<LocusSpit>(), ref NPC.ai[2], Main.expertMode ? 120 : 80, NPC.damage / 2, 9, true);
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

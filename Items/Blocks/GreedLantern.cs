@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("GreedLantern").Type;
+			Item.createTile = ModContent.TileType<GreedLantern>();
 		}
 	}
 }

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Magic
             Item.mana = 5;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = false;
-            Item.shoot = Mod.Find<ModProjectile>("Volley").Type;
+            Item.shoot = ModContent.ProjectileType<Volley>();
             Item.shootSpeed = 5f;
         }
 

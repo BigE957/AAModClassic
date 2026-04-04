@@ -158,7 +158,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
                 Player player = Main.LocalPlayer;
 
-                int Special = player.FindItem(Mod.Find<ModItem>("MadnessShroom").Type);
+                int Special = player.FindItem(ModContent.ItemType<MadnessShroom>());
                 int Item = player.FindItem(ItemID.StrangePlant1);
                 int Item2 = player.FindItem(ItemID.StrangePlant2);
                 int Item3 = player.FindItem(ItemID.StrangePlant3);
@@ -477,13 +477,13 @@ namespace AAModClassic.NPCs.TownNPCs
             nextSlot++;
             items[nextSlot] = new Item(ItemID.GlowingMushroom);
             nextSlot++;
-            items[nextSlot] = new Item(Mod.Find<ModItem>("SporeSac").Type);
+            items[nextSlot] = new Item(ModContent.ItemType<SporeSac>());
             nextSlot++;
             items[nextSlot] = new Item(ItemID.RecallPotion);
             nextSlot++;
             items[nextSlot] = new Item(ItemID.WormholePotion);
             nextSlot++;
-            items[nextSlot] = new Item(Mod.Find<ModItem>("MyceliumSeeds").Type);
+            items[nextSlot] = new Item(ModContent.ItemType<MyceliumSeeds>());
             nextSlot++;
             items[nextSlot] = new Item(ItemID.MushroomGrassSeeds);
             nextSlot++;
@@ -516,14 +516,14 @@ namespace AAModClassic.NPCs.TownNPCs
             }
             if (AAWorld.downedAncient == true)
             {
-                items[nextSlot] = new Item(Mod.Find<ModItem>("GrandHealingPotion").Type);
+                items[nextSlot] = new Item(ModContent.ItemType<GrandHealingPotion>());
                 nextSlot++;
-                items[nextSlot] = new Item(Mod.Find<ModItem>("GrandManaPotion").Type);
+                items[nextSlot] = new Item(ModContent.ItemType<GrandManaPotion>());
                 nextSlot++;
             }
             if (AAWorld.downedSAncient == true)
             {
-                items[nextSlot] = new Item(Mod.Find<ModItem>("TheBigOne").Type);
+                items[nextSlot] = new Item(ModContent.ItemType<TheBigOne>());
                 nextSlot++;
             }
         }
@@ -547,7 +547,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = Mod.Find<ModProjectile>("Throwshroom").Type;
+            projType = ModContent.ProjectileType<Throwshroom>();
             attackDelay = 1;
         }
 

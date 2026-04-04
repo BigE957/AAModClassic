@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles
             Main.tileMerge[TileID.Mud][Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = Mod.Find<ModDust>("YamataADust").Type;
+            DustType = ModContent.DustType<YamataADust>();
 			AddMapEntry(new Color(100, 0, 30));
 		}
 

@@ -13,8 +13,8 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             Terraria.ID.TileID.Sets.Conversion.HardenedSand[Type] = true;
             Main.tileLighted[Type] = false;
-            DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("DepthsandHardened").Type);   
+            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            RegisterItemDrop(ModContent.ItemType<DepthsandHardened>());   
             AddMapEntry(new Color(0, 0, 127));
 			MinPick = 65;
         }

@@ -34,7 +34,7 @@ namespace AAModClassic.Projectiles.EFish
                     Projectile.frame = 0;
                 }
             }
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("Fishnado").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<Fishnado>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             player.AddBuff(ModContent.BuffType<Buffs.Fishnado>(), 3600);

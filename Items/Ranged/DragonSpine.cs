@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged
         public override void SetDefaults()
         {
 
-            Item.shoot = Mod.Find<ModProjectile>("DragonSpine").Type;
+            Item.shoot = ModContent.ProjectileType<DragonSpine>();
             Item.shootSpeed = 9f;
             Item.damage = 18;
             Item.knockBack = 4f;

@@ -28,7 +28,7 @@ Bane of the Bunny EX"); */
             Item.knockBack = 4f;
             Item.UseSound = SoundID.Item1;
             Item.value = Item.sellPrice(1, 0, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("BaneEX").Type;
+            Item.shoot = ModContent.ProjectileType<BaneEX>();
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true; Item.expertOnly = true;
             Item.useAnimation = 13;
@@ -49,14 +49,14 @@ Bane of the Bunny EX"); */
                 Item.useAnimation = 11;
                 Item.useTime = 11;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.shoot = Mod.Find<ModProjectile>("BaneEX").Type;  
+                Item.shoot = ModContent.ProjectileType<BaneEX>();  
             }
             else
             {
                 Item.useAnimation = 13;
                 Item.useTime = 13;
                 Item.useStyle = ItemUseStyleID.Swing;
-                Item.shoot = Mod.Find<ModProjectile>("BaneTEX").Type;
+                Item.shoot = ModContent.ProjectileType<BaneTEX>();
             }
             return base.CanUseItem(player);
         }

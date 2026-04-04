@@ -31,7 +31,7 @@ Allows you to work with Dark Matter and Radium"); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
-            Item.createTile = Mod.Find<ModTile>("QuantumFusionAccelerator").Type;
+            Item.createTile = ModContent.TileType<QuantumFusionAccelerator>();
         }
 
 

@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Usable
 
 		public override void SetDefaults()
 		{
-			Item.shoot = Mod.Find<ModProjectile>("SPORZ").Type - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<SPORZ>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

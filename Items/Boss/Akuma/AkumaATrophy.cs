@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Akuma
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
             Item.expert = true; Item.expertOnly = true;
-			Item.createTile = Mod.Find<ModTile>("AkumaATrophy").Type;
+			Item.createTile = ModContent.TileType<AkumaATrophy>();
 		}
 	}
 }

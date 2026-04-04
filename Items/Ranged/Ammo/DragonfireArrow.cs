@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.knockBack = 4f;
 			Item.value = 100;
             Item.rare = ItemRarityID.LightRed;
-            Item.shoot = Mod.Find<ModProjectile>("DragonfireArrow").Type;   //The projectile shoot when your weapon using this ammo
+            Item.shoot = ModContent.ProjectileType<DragonfireArrow>();   //The projectile shoot when your weapon using this ammo
 			Item.shootSpeed = 1f;                  //The speed of the projectile
 			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.
 		}
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		{
 			Recipe recipe = CreateRecipe(150);
 			recipe.AddIngredient(ItemID.WoodenArrow, 150);
-			recipe.AddIngredient(Mod.Find<ModItem>("DragonFire").Type, 1);
+			recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

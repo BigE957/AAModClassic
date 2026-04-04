@@ -37,17 +37,17 @@ namespace AAModClassic.Items.Boss.Anubis
 			int damage = damageDone;
 			Vector2 vel1 = new Vector2(0, -1);
 			vel1 *= 11f;
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y-20, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-5, target.Center.Y-20, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-10, target.Center.Y-18, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-15, target.Center.Y-16, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-20, target.Center.Y-14, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-25, target.Center.Y-12, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+5, target.Center.Y-20, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+10, target.Center.Y-18, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+15, target.Center.Y-16, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+20, target.Center.Y-14, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
-			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+25, target.Center.Y-12, vel1.X, vel1.Y, Mod.Find<ModProjectile>("EnchantedSand").Type, damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y-20, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-5, target.Center.Y-20, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-10, target.Center.Y-18, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-15, target.Center.Y-16, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-20, target.Center.Y-14, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X-25, target.Center.Y-12, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+5, target.Center.Y-20, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+10, target.Center.Y-18, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+15, target.Center.Y-16, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+20, target.Center.Y-14, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X+25, target.Center.Y-12, vel1.X, vel1.Y, ModContent.ProjectileType<EnchantedSand>(), damage/3, 0, Main.myPlayer);
 		}
 
 		public override void AddRecipes()

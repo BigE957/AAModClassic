@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Boxes
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("SistersBox").Type;
+			player.cursorItemIconID = ModContent.ItemType<SistersBox>();
 		}
 	}
 }

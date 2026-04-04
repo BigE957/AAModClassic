@@ -11,13 +11,13 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("Apocalyptite").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<Apocalyptite>()] = true;
             Terraria.ID.TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("DoomstoneB").Type);   
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            RegisterItemDrop(ModContent.ItemType<DoomstoneB>());   
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(40, 20, 20));
 			MinPick = 60;
         }

@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                 Main.dust[num469].velocity *= 2f;
             }
             SoundEngine.PlaySound(SoundID.Item89);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 51 + 8, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("Shock").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y - 51 + 8, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Shock>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

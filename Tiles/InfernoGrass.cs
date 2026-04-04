@@ -20,7 +20,7 @@ namespace AAModClassic.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = Mod.Find<ModDust>("RazeleafDust").Type;
+            DustType = ModContent.DustType<RazeleafDust>();
             AddMapEntry(new Color(255, 153, 51));
             RegisterItemDrop(ItemID.DirtBlock);
         }
@@ -35,8 +35,8 @@ namespace AAModClassic.Tiles
             }
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1500) == 0)
             {
-                PlaceObject(i, j - 1, Mod.Find<ModTile>("Hotshroom").Type);
-                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Hotshroom").Type, 0, 0, -1, -1);
+                PlaceObject(i, j - 1, ModContent.TileType<Hotshroom>());
+                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom>(), 0, 0, -1, -1);
 
             }
         }

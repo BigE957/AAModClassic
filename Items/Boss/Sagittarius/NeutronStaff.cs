@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.mana = 2;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("SagStar").Type;
+            Item.shoot = ModContent.ProjectileType<SagStar>();
             Item.shootSpeed = 7f;
         }   
 

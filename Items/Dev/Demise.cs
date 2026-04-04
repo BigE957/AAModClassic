@@ -30,7 +30,7 @@ Right Click to unleash demon blades that fall from the sky"); */
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("DemiseSphere").Type;
+			Item.shoot = ModContent.ProjectileType<DemiseSphere>();
             Item.shootSpeed = 9f;
 		}
 
@@ -47,14 +47,14 @@ Right Click to unleash demon blades that fall from the sky"); */
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
-                Item.shoot = Mod.Find<ModProjectile>("DemiseBlade").Type;
+                Item.shoot = ModContent.ProjectileType<DemiseBlade>();
             }
             else
             {
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.shoot = Mod.Find<ModProjectile>("DemiseSphere").Type;
+                Item.shoot = ModContent.ProjectileType<DemiseSphere>();
             }
             return base.CanUseItem(player);
         }
@@ -84,7 +84,7 @@ Right Click to unleash demon blades that fall from the sky"); */
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("DemiseBlade").Type, damage * 3 / 2, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<DemiseBlade>(), damage * 3 / 2, knockback, Main.myPlayer);
                 }
             }
             else
@@ -92,7 +92,7 @@ Right Click to unleash demon blades that fall from the sky"); */
                 for (int i = 0; i < 3; i++)
                 {
                     Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DemiseSphere").Type, damage, knockback, player.whoAmI);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DemiseSphere>(), damage, knockback, player.whoAmI);
                 }
             }
             return false;

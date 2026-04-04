@@ -30,9 +30,9 @@ namespace AAModClassic.Items.Summoning
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = Mod.Find<ModProjectile>("XiaoDoragon").Type;
+            Item.shoot = ModContent.ProjectileType<XiaoDoragon>();
             Item.shootSpeed = 10f;
-            Item.buffType = Mod.Find<ModBuff>("XiaoDoragon").Type;
+            Item.buffType = ModContent.BuffType<XiaoDoragon>();
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true;
@@ -54,7 +54,7 @@ namespace AAModClassic.Items.Summoning
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(source, vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("XiaoDoragon").Type, damage, player.GetWeaponKnockback(Item, knockback), Main.myPlayer, 0f, 0f);
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<XiaoDoragon>(), damage, player.GetWeaponKnockback(Item, knockback), Main.myPlayer, 0f, 0f);
             return false;
         }
 

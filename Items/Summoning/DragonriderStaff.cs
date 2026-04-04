@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Summoning
             Item.damage = 50;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = Mod.Find<ModProjectile>("DragonHead").Type;
+            Item.shoot = ModContent.ProjectileType<DragonHead>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;
@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Summoning
             Item.useTime = 24;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.buffType = Mod.Find<ModBuff>("DragonMinion").Type;
+            Item.buffType = ModContent.BuffType<DragonMinion>();
             Item.DamageType = DamageClass.Summon;
             Item.value = Item.sellPrice(0, 8, 0, 0);
         }
@@ -80,8 +80,8 @@ namespace AAModClassic.Items.Summoning
                 Projectile proj = Main.projectile[i];
                 if (proj.active && proj.owner == player.whoAmI)
                 {
-                    if (headCheck == -1 && proj.type == Mod.Find<ModProjectile>("DragonHead").Type) headCheck = i;
-                    if (tailCheck == -1 && proj.type == Mod.Find<ModProjectile>("DragonTail").Type) tailCheck = i;
+                    if (headCheck == -1 && proj.type == ModContent.ProjectileType<DragonHead>()) headCheck = i;
+                    if (tailCheck == -1 && proj.type == ModContent.ProjectileType<DragonTail>()) tailCheck = i;
                     if (headCheck != -1 && tailCheck != -1) break;
                 }
             }
@@ -89,17 +89,17 @@ namespace AAModClassic.Items.Summoning
             //initial spawn
             if (headCheck == -1 && tailCheck == -1)
             {
-                int current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonHead").Type, damage, knockback, player.whoAmI, 0f, 0f);
+                int current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, ModContent.ProjectileType<DragonHead>(), damage, knockback, player.whoAmI, 0f, 0f);
 
                 int previous = 0;
 
                 for (int i = 0; i < 1; i++)
                 {
-                    current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockback, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, ModContent.ProjectileType<DragonBody>(), damage, knockback, player.whoAmI, current, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, Mod.Find<ModProjectile>("DragonTail").Type, damage, knockback, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(source, position.X, position.Y, 0, 0, ModContent.ProjectileType<DragonTail>(), damage, knockback, player.whoAmI, current, 0f);
 
                 Main.projectile[previous].localAI[1] = current;
                 Main.projectile[previous].netUpdate = true;
@@ -112,7 +112,7 @@ namespace AAModClassic.Items.Summoning
 
                 for (int i = 0; i < 4; i++)
                 {
-                    current = Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("DragonBody").Type, damage, knockback, player.whoAmI,
+                    current = Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DragonBody>(), damage, knockback, player.whoAmI,
                         Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                     previous = current;

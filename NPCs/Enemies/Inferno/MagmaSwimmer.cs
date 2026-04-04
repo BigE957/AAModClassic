@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MagmalgamBanner").Type;
+			BannerItem = ModContent.ItemType<MagmalgamBanner>();
         }
 
         public override void AI()

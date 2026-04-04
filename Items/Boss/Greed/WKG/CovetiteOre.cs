@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 1, 8, 0);
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("CovetiteOre").Type;
+            Item.createTile = ModContent.TileType<CovetiteOre>();
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }

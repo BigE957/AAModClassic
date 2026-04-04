@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Fleshrend
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("FleshrendPlate").Type && legs.type == Mod.Find<ModItem>("FleshrendGreaves").Type;
+			return body.type == ModContent.ItemType<FleshrendPlate>() && legs.type == ModContent.ItemType<FleshrendGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

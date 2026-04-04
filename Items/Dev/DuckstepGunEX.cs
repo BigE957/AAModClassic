@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Dev
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 15f;
-            Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
+            Item.shoot = ModContent.ProjectileType<Duck>();
             Item.rare = ItemRarityID.Red;
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow";
             glowmaskDrawType = GLOWMASKTYPE_GUN;

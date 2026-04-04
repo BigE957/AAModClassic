@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Crafters
             AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation,
-                Mod.Find<ModTile>("QuantumFusionAccelerator").Type
+                ModContent.TileType<QuantumFusionAccelerator>()
 
             };
             AnimationFrameHeight = 54;

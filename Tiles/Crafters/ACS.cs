@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles.Crafters
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.addTile(Type);

@@ -25,7 +25,7 @@ A somber engraving is etched into the base."); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 0;
-            Item.createTile = Mod.Find<ModTile>("EnderMemory").Type;
+            Item.createTile = ModContent.TileType<EnderMemory>();
         }
     }
 }

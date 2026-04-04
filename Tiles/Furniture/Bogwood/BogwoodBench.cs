@@ -28,7 +28,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Bench");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
 		}
 
 		

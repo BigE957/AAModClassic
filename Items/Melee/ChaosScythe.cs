@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.useAnimation = 17;
             Item.useTime = 17;
             Item.shootSpeed = 5;
-            Item.shoot = Mod.Find<ModProjectile>("ChaosScythe").Type;
+            Item.shoot = ModContent.ProjectileType<ChaosScythe>();
         }
 
         public override void SetStaticDefaults()

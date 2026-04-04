@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
             Item.rare = ItemRarityID.Red;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("ForsakenAnubis").Type;
+        //public override int BossBagNPC => ModContent.NPCType<ForsakenAnubis>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -56,15 +56,15 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("FAnubisMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<FAnubisMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SoulFragment").Type, Main.rand.Next(10, 20));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ArtifactOfGuilt").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SoulFragment>(), Main.rand.Next(10, 20));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ArtifactOfGuilt>());
             string[] lootTable = { "Verdict", "Lifeline", "ForsakenStaff", "Soulsplitter", "CursedFury", "HorusCane" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);

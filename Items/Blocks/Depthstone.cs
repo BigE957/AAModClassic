@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.rare = ItemRarityID.Green;
-            Item.createTile = Mod.Find<ModTile>("Depthstone").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<Depthstone>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

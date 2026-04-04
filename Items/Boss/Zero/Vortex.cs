@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = Mod.Find<ModProjectile>("Vortex").Type;
+            Item.shoot = ModContent.ProjectileType<Vortex>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 

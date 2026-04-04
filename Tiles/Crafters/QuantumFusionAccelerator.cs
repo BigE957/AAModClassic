@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Crafters
             // name.SetDefault("Quantum Fusion Accelerator");
             AddMapEntry(new Color(0, 0, 40), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            DustType = Mod.Find<ModDust>("DarkmatterDust").Type;
+            DustType = ModContent.DustType<DarkmatterDust>();
             AdjTiles = new int[]
             {
                 TileID.LunarCraftingStation

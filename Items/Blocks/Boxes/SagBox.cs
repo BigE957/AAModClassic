@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("SagBox").Type;
+			Item.createTile = ModContent.TileType<SagBox>();
             Item.width = 72;
 			Item.height = 36;
 			Item.rare = ItemRarityID.LightRed;

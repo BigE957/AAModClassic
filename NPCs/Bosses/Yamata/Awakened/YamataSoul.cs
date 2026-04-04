@@ -44,7 +44,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("YamataAuraDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<YamataAuraDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -76,7 +76,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 600);
+            target.AddBuff(ModContent.BuffType<HydraToxin>(), 600);
         }
     }
 }

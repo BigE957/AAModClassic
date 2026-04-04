@@ -19,10 +19,10 @@ namespace AAModClassic.Buffs
 		{
 			player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<AAPlayer>().MudkipS = true;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[Mod.Find<ModProjectile>("MudkipS").Type] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<MudkipS>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("MudkipS").Type, 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<MudkipS>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
         }
 	}

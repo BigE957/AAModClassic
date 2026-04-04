@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Enemies.Snow
             NPC.value = Item.sellPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("SnakeBanner").Type;
+			BannerItem = ModContent.ItemType<SnakeBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Enemies.Snow
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-			AAAI.AIWorm(NPC, new int[]{ Mod.Find<ModNPC>("SnakeHead").Type, Mod.Find<ModNPC>("SnakeBody").Type, Mod.Find<ModNPC>("SnakeTail").Type }, 9, 8f, 12f, 0.1f, false, false);
+			AAAI.AIWorm(NPC, new int[]{ ModContent.NPCType<SnakeHead>(), ModContent.NPCType<SnakeBody>(), ModContent.NPCType<SnakeTail>() }, 9, 8f, 12f, 0.1f, false, false);
             
             if (NPC.velocity.X < 0f)
             {

@@ -37,49 +37,49 @@ namespace AAModClassic.Tiles.Decoration
 					item = ItemID.AlphabetStatueE;
 					break;
 				case 2:
-					item = Mod.Find<ModItem>("HallamStatue").Type;
+					item = ModContent.ItemType<HallamStatue>();
 					break;
 				case 3:
-					item = Mod.Find<ModItem>("FazerStatue").Type;
+					item = ModContent.ItemType<FazerStatue>();
 					break;
                 case 4:
-                    item = Mod.Find<ModItem>("DallinStatue").Type;
+                    item = ModContent.ItemType<DallinStatue>();
                     break;
                 case 5:
-                    item = Mod.Find<ModItem>("AvesStatue").Type;
+                    item = ModContent.ItemType<AvesStatue>();
                     break;
                 case 6:
-                    item = Mod.Find<ModItem>("GroxStatue").Type;
+                    item = ModContent.ItemType<GroxStatue>();
                     break;
                 case 7:
-                    item = Mod.Find<ModItem>("MoonStatue").Type;
+                    item = ModContent.ItemType<MoonStatue>();
                     break;
                 case 8:
-                    item = Mod.Find<ModItem>("SauceStatue").Type;
+                    item = ModContent.ItemType<SauceStatue>();
                     break;
                 case 9:
-                    item = Mod.Find<ModItem>("KyuuStatue").Type;
+                    item = ModContent.ItemType<KyuuStatue>();
                     break;
                 case 10:
-                    item = Mod.Find<ModItem>("BegStatue").Type;
+                    item = ModContent.ItemType<BegStatue>();
                     break;
                 case 11:
-                    item = Mod.Find<ModItem>("FargoStatue").Type;
+                    item = ModContent.ItemType<FargoStatue>();
                     break;
                 case 12:
-                    item = Mod.Find<ModItem>("TailsStatue").Type;
+                    item = ModContent.ItemType<TailsStatue>();
                     break;
                 case 13:
-                    item = Mod.Find<ModItem>("CharlieStatue").Type;
+                    item = ModContent.ItemType<CharlieStatue>();
                     break;
                 case 14:
                     item = ItemID.AlphabetStatueL;
                     break;
                 case 15:
-                    item = Mod.Find<ModItem>("LCSStatue").Type;
+                    item = ModContent.ItemType<LCSStatue>();
                     break;
                 case 16:
-                    item = Mod.Find<ModItem>("EnderStatue").Type;
+                    item = ModContent.ItemType<EnderStatue>();
                     break;
                 default:
                     item = ItemID.GargoyleStatue;

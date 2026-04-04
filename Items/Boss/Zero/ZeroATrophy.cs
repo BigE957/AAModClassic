@@ -42,7 +42,7 @@ namespace AAModClassic.Items.Boss.Zero
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("ZeroATrophy").Type;
+			Item.createTile = ModContent.TileType<ZeroATrophy>();
 		}
     }
 }

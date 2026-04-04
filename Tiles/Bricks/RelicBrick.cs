@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("RelicBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<RelicBrick>());   
             AddMapEntry(Color.LightBlue);
             DustType = DustID.Ice;
         }

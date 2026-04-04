@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.CaveBat;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MadnessBatBanner").Type;
+			BannerItem = ModContent.ItemType<MadnessBatBanner>();
         }
 
         public override void FindFrame(int frameHeight)
@@ -94,7 +94,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MadnessFragment").Type, Main.rand.Next(1,2));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<MadnessFragment>(), Main.rand.Next(1,2));
         }
 
     }

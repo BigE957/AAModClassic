@@ -57,14 +57,14 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("ZeroProtocol").Type, -1, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<ZeroProtocol>(), -1, null);
                 if (npcID >= 0) body = npcID;
             }
 
             if (body == -1) return;
 
             NPC zero = Main.npc[body];
-            if (zero == null || zero.life <= 0 || !zero.active || zero.type != Mod.Find<ModNPC>("ZeroProtocol").Type) { NPC.active = false; return; }
+            if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<ZeroProtocol>()) { NPC.active = false; return; }
 
             if (zero.ai[1] == 1f && Main.netMode != NetmodeID.MultiplayerClient)
             {

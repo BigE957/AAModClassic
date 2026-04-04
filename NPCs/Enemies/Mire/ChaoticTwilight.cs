@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ChaoticTwilightBanner").Type;
+			BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
         }
 
         public override void AI()

@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic._Unreleased.NPCs.Bosses.SoC;
+﻿using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +10,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Unreleased.Backgrounds
+namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 {
     public class CthulhuSky : CustomSky
     {
@@ -25,6 +24,7 @@ namespace AAModClassic._Unreleased.Backgrounds
         public float Intensity;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
+        //TODOREFACTOR
         private Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value;
 
         public override void Activate(Vector2 position, params object[] args)
@@ -76,13 +76,13 @@ namespace AAModClassic._Unreleased.Backgrounds
                 spriteBatch.Draw(texture, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, SpriteEffects.None, 1f);
 
             }
-            BGClouds.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value);
-            BGClouds.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value, true, new Color(130, 130, 130));
+            BGClouds.Update(texture);
+            BGClouds.Draw(texture, true, new Color(130, 130, 130));
         }
 
         public override float GetCloudAlpha()
         {
-            return (1f - Intensity);
+            return 1f - Intensity;
         }
 
         public override void Reset()
@@ -107,7 +107,7 @@ namespace AAModClassic._Unreleased.Backgrounds
         private void UpdateCthulhuSky()
         {
 
-            int SoCType = ModContent.NPCType<SoC>();
+            int SoCType = ModContent.NPCType<SoulOfCthulhu>();
             if (SoCIndex >= 0 && Main.npc[SoCIndex].active && Main.npc[SoCIndex].type == SoCType)
             {
                 return;

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("EvilAltar").Type;
+            Item.createTile = ModContent.TileType<EvilAltar>();
             Item.placeStyle = 0;
             Item.width = 28;
             Item.height = 26;

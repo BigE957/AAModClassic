@@ -21,8 +21,8 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = Mod.Find<ModProjectile>("Lunamini").Type;
-            Item.buffType = Mod.Find<ModBuff>("Lunamini").Type;
+			Item.shoot = ModContent.ProjectileType<Lunamini>();
+            Item.buffType = ModContent.BuffType<Lunamini>();
             Item.noUseGraphic = true;
 		}
 

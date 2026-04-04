@@ -25,10 +25,10 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Candle");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Candelabras };
-            RegisterItemDrop(Mod.Find<ModItem>("BogwoodCandle").Type);
+            RegisterItemDrop(ModContent.ItemType<BogwoodCandle>());
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)
@@ -60,7 +60,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("BogwoodCandle").Type;
+            player.cursorItemIconID = ModContent.ItemType<BogwoodCandle>();
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -77,7 +77,7 @@ namespace AAModClassic.Tiles.Decoration
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("MoonAltarA").Type;
+            player.cursorItemIconID = ModContent.ItemType<MoonAltarA>();
         }
 
         public override void HitWire(int i, int j)

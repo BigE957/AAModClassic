@@ -22,8 +22,8 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = Mod.Find<ModProjectile>("RoyalKitten").Type;
-            Item.buffType = Mod.Find<ModBuff>("RoyalKitten").Type;
+			Item.shoot = ModContent.ProjectileType<RoyalKitten>();
+            Item.buffType = ModContent.BuffType<RoyalKitten>();
             Item.noUseGraphic = true;
 		}
 

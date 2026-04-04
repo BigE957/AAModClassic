@@ -71,7 +71,7 @@ Dark, yet still barely visible"); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
+			return body.type == ModContent.ItemType<DarkmatterBreastplate>() && legs.type == ModContent.ItemType<DarkmatterGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -148,7 +148,7 @@ Dark, yet still barely visible"); */
             for (int i = 0; i < 100; i++)
             {
                 float theta = Main.rand.NextFloat(-(float)Math.PI, (float)Math.PI);
-                Dust dust = Dust.NewDustPerfect(projectile.Center, Mod.Find<ModDust>("DarkmatterDust").Type, PolarVector(radius / 30, theta));
+                Dust dust = Dust.NewDustPerfect(projectile.Center, ModContent.DustType<DarkmatterDust>(), PolarVector(radius / 30, theta));
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);

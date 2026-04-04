@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Athena
 			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("Skyblade").Type;
+            Item.shoot = ModContent.ProjectileType<Skyblade>();
             Item.shootSpeed = 10;
 		}
 

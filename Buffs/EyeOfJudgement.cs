@@ -23,9 +23,9 @@ Damage and speed are increased"); */
 			player.GetDamage(DamageClass.Summon) += 0.2f;
 			player.GetDamage(DamageClass.Throwing) += 0.2f;
 			player.moveSpeed += 0.25f;
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EyeOfJudgement").Type] <= 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<EyeOfJudgement>()] <= 0)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y-90, 0f, 0f, Mod.Find<ModProjectile>("EyeOfJudgement").Type, 100, 0, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y-90, 0f, 0f, ModContent.ProjectileType<EyeOfJudgement>(), 100, 0, player.whoAmI);
 			}
 		}
 	}

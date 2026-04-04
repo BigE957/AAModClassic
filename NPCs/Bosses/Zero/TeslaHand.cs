@@ -62,14 +62,14 @@ namespace AAModClassic.NPCs.Bosses.Zero
         {
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("Zero").Type, 1000, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Zero>(), 1000, null);
                 if (npcID >= 0) body = npcID;
             }
 
             if (body == -1) return;
 
             NPC zero = Main.npc[body];
-            if (zero == null || zero.life <= 0 || !zero.active || zero.type != Mod.Find<ModNPC>("Zero").Type) { NPC.active = false; return; }
+            if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<Zero>()) { NPC.active = false; return; }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {

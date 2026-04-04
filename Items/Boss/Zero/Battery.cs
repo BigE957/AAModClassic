@@ -30,7 +30,7 @@ Non-consumable"); */
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = Mod.Find<ModProjectile>("RealityLaser").Type;
+			Item.shoot = ModContent.ProjectileType<RealityLaser>();
 			Item.shootSpeed = 0f;
 			Item.ammo = AmmoID.Bullet;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

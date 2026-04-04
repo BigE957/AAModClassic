@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Armor.DoomiteU
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("DoomiteUPlate").Type && legs.type == Mod.Find<ModItem>("DoomiteUGreaves").Type;
+			return body.type == ModContent.ItemType<DoomiteUPlate>() && legs.type == ModContent.ItemType<DoomiteUGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

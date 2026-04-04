@@ -36,7 +36,7 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("MushroomMonarch").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.MushroomMonarch"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<MushroomMonarch>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.MushroomMonarch"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

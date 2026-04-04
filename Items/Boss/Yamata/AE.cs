@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Boss.Yamata
             Item.UseSound = SoundID.Item34;
             Item.value = 1000000;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("AcidFlame").Type; //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<AcidFlame>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Boss.Yamata
             for (int i = 0; i < 3; i++)
             {
                 Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("AcidFlame").Type, damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<AcidFlame>(), damage, knockback, player.whoAmI);
             }
             shoot++;
 
@@ -67,7 +67,7 @@ namespace AAModClassic.Items.Boss.Yamata
 
             if (shoot >= 6)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("AcidFlame").Type, damage * 2, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AcidFlame>(), damage * 2, knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;

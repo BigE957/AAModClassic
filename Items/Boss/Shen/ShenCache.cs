@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Shen
 			Item.expert = true; Item.expertOnly = true;
 		}
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("ShenA").Type;
+        //public override int BossBagNPC => ModContent.NPCType<ShenA>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -57,9 +57,9 @@ namespace AAModClassic.Items.Boss.Shen
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ChaosScale").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ChaosSoul").Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("EXSoul").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ChaosScale>(), Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ChaosSoul>());
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<EXSoul>());
             string[] lootTable = 
             {
                 "ChaosSlayer", "MeteorStrike", "Skyfall", "Astroid", "DraconicRipper", "FlamingTwilight", "ShenTerratool", "Timesplitter"

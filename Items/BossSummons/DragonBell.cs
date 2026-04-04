@@ -37,7 +37,7 @@ Only useable during the day"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Broodmother").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Broodmother"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Broodmother>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Broodmother"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -51,7 +51,7 @@ Only useable during the day"); */
             }
             if (player.GetModPlayer<AAPlayer>().ZoneInferno)
             {
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Broodmother").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<Broodmother>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DragonBellFalse1"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                     return false;

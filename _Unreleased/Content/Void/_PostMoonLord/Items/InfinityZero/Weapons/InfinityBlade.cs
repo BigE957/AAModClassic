@@ -6,13 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using System;
-using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.Dusts;
-using AAModClassic._Unreleased.Projectiles.Zero;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 
 {
     public class InfinityBlade : ModItem
@@ -78,13 +76,13 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 30f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 5; i++)
             {
-                offsetAngle = startAngle + (deltaAngle * i);
+                offsetAngle = startAngle + deltaAngle * i;
                 Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, Item.playerIndexTheItemIsReservedFor);
             }
             return false;
@@ -102,7 +100,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
             Dust dust;
-            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 46, default(Color), 1.25f);
+            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 46, default, 1.25f);
 			dust.noGravity = true;
         }
 	}

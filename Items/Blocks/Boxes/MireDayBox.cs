@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("MireDayBox").Type;
+			Item.createTile = ModContent.TileType<MireDayBox>();
 			Item.width = 24;
 			Item.height = 24;
 			Item.rare = ItemRarityID.LightRed;

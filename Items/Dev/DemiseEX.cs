@@ -32,7 +32,7 @@ Demise EX"); */
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("DemiseSphereEX").Type;
+			Item.shoot = ModContent.ProjectileType<DemiseSphereEX>();
             Item.shootSpeed = 13f;
             Item.expert = true;
             Item.expertOnly = true;
@@ -50,7 +50,7 @@ Demise EX"); */
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
-                Item.shoot = Mod.Find<ModProjectile>("DemiseBladeEX").Type;
+                Item.shoot = ModContent.ProjectileType<DemiseBladeEX>();
                 Item.shootSpeed = 15f;
             }
             else
@@ -58,7 +58,7 @@ Demise EX"); */
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.shoot = Mod.Find<ModProjectile>("DemiseSphereEX").Type;
+                Item.shoot = ModContent.ProjectileType<DemiseSphereEX>();
                 Item.shootSpeed = 13f;
             }
             return base.CanUseItem(player);
@@ -89,7 +89,7 @@ Demise EX"); */
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("DemiseBladeEX").Type, damage * 3 / 2, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<DemiseBladeEX>(), damage * 3 / 2, knockback, Main.myPlayer);
                 }
             }
             else
@@ -97,7 +97,7 @@ Demise EX"); */
                 for (int i = 0; i < 5; i++)
                 {
                     Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DemiseSphereEX").Type, damage, knockback, player.whoAmI);
+                    int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DemiseSphereEX>(), damage, knockback, player.whoAmI);
                     Main.projectile[p].Center = player.Center;
                 }
             }

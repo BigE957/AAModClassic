@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.Djinn
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Djinn").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Djinn>();
 
         public override bool CanRightClick()
         {
@@ -31,25 +31,25 @@ namespace AAModClassic.Items.Boss.Djinn
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DjinnMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DjinnMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DesertMana").Type, Main.rand.Next(15, 20));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DesertMana>(), Main.rand.Next(15, 20));
             string[] lootTable = { "Djinnerang", "SandLamp", "SandScepter", "SandstormCrossbow", "SultanScimitar" };
             int loot = Main.rand.Next(lootTable.Length);
             if (Main.rand.Next(9) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Sandagger").Type, Main.rand.Next(100, 130));
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Sandagger>(), Main.rand.Next(100, 130));
             }
             else
             {
                 player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
             }
-			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SandstormMedallion").Type);		
+			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SandstormMedallion>());		
         }
     }
 }

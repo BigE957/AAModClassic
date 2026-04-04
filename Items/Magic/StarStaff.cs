@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Magic
             Item.value = 100000;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("Star1").Type;
+            Item.shoot = ModContent.ProjectileType<Star1>();
             Item.shootSpeed = 9f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;

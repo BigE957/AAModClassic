@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.Grips
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("ClawBaton").Type;
+            Item.shoot = ModContent.ProjectileType<ClawBaton>();
             Item.damage = 14;
             Item.width = 52;
             Item.height = 52;
@@ -55,10 +55,10 @@ namespace AAModClassic.Items.Boss.Grips
                     switch (shootMe)
                     {
                         case 0:
-                            shootMe = Mod.Find<ModProjectile>("HydraClaw").Type;
+                            shootMe = ModContent.ProjectileType<HydraClaw>();
                             break;
                         default:
-                            shootMe = Mod.Find<ModProjectile>("DragonClaw").Type;
+                            shootMe = ModContent.ProjectileType<DragonClaw>();
                             break;
                     }
                 }

@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("SunWatcherBanner").Type;
+			BannerItem = ModContent.ItemType<SunWatcherBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonHead").Type] > 0) modPlayer.DragonMinion = true;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<DragonHead>()] > 0) modPlayer.DragonMinion = true;
             if (!modPlayer.DragonMinion)
             {
                 player.DelBuff(buffIndex);

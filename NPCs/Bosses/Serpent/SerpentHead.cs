@@ -139,10 +139,10 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
-                        int type = Mod.Find<ModNPC>("SerpentBody").Type;
+                        int type = ModContent.NPCType<SerpentBody>();
                         if (a == Length)
                         {
-                            type = Mod.Find<ModNPC>("SerpentTail").Type;
+                            type = ModContent.NPCType<SerpentTail>();
                         }
                         int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         Main.npc[segment].ai[3] = NPC.whoAmI;
@@ -685,7 +685,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                             PlayerPosX += NPC.velocity.X * 0.5f;
                             PlayerDistance.X -= PlayerPosX * 1f;
                             PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("SnowBreath").Type, damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<SnowBreath>(), damage, 0, Main.myPlayer);
                         }
                     }
                     if (attackTimer >= 80)
@@ -761,16 +761,16 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentMask>());
                 }
                 AAWorld.downedSerpent = true;
-                NPC.DropLoot(Mod.Find<ModItem>("SnowMana").Type, 10, 15);
+                NPC.DropLoot(ModContent.ItemType<SnowMana>(), 10, 15);
                 string[] lootTable = { "BlizardBuster", "SerpentSpike", "Icepick", "SerpentSting", "Sickle", "SickleShot", "SnakeStaff", "SubzeroSlasher" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(SerpentMask.type, 1f / 7);
                 if (Main.rand.Next(9) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("SnowflakeShuriken").Type, 90, 120);
+                    NPC.DropLoot(ModContent.ItemType<SnowflakeShuriken>(), 90, 120);
                 }
                 else
                 {
@@ -783,7 +783,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SerpentTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SerpentTrophy>());
             }
             NPC.value = 0f;
             NPC.boss = false;
@@ -940,8 +940,8 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 {
                     for (int a = 0; a < 200; a++)
                     {
-                        if (Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerHead").Type || Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerBody").Type ||
-                            Main.npc[a].type == Mod.Find<ModNPC>("ArmoredDiggerTail").Type)
+                        if (Main.npc[a].type == ModContent.NPCType<ArmoredDiggerHead>() || Main.npc[a].type == ModContent.NPCType<ArmoredDiggerBody>() ||
+                            Main.npc[a].type == ModContent.NPCType<ArmoredDiggerTail>())
                         {
                             Main.npc[a].active = false;
                         }

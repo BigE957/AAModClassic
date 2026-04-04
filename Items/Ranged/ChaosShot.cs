@@ -55,7 +55,7 @@ namespace AAModClassic.Items.Ranged
             }
             for (int m = 0; m < 2; m++)
             {
-                Projectile.NewProjectile(source, position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(source, position, velocity, m == 0 ? ModContent.ProjectileType<ChaosShot2>() : ModContent.ProjectileType<ChaosShot3>(), damage, knockback, player.whoAmI);
             }
             return false;
 		}

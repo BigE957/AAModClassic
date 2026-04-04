@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useTime = 65;
             Item.useAnimation = 65;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = Mod.Find<ModProjectile>("Dawnstrike").Type;
+            Item.shoot = ModContent.ProjectileType<Dawnstrike>();
             Item.channel = true;
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);

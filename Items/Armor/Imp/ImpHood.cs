@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Imp
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("ImpGarb").Type && legs.type == Mod.Find<ModItem>("ImpBoots").Type;
+            return body.type == ModContent.ItemType<ImpGarb>() && legs.type == ModContent.ItemType<ImpBoots>();
         }
 
         public override void UpdateArmorSet(Player player)

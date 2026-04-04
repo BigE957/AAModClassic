@@ -28,7 +28,7 @@ Used to create ancient crafting stations"); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
-            Item.createTile = Mod.Find<ModTile>("TerraCore").Type;
+            Item.createTile = ModContent.TileType<TerraCore>();
         }
         public override void ModifyTooltips(List<TooltipLine> list)
         {

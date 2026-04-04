@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("DoomiteBar").Type;
+            Item.createTile = ModContent.TileType<DoomiteBar>();
             Item.value = Terraria.Item.sellPrice(0, 0, 32, 0);
         }
     }

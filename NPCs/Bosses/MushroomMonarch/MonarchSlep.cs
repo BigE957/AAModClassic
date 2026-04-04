@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             bool biomeCorrect = spawnInfo.Player.InZone("Surface") && spawnInfo.Player.InZone("Purity") || spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush;
-            if (spawnInfo.PlayerSafe || NPC.AnyNPCs(Mod.Find<ModNPC>("MonarchSlep").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("MonarchWake").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("MushroomMonarch").Type))
+            if (spawnInfo.PlayerSafe || NPC.AnyNPCs(ModContent.NPCType<MonarchSlep>()) || NPC.AnyNPCs(ModContent.NPCType<MonarchWake>()) || NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
                 return 0f;
             }
@@ -58,9 +58,9 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.MushDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
-            if (Main.netMode != NetmodeID.MultiplayerClient && (NPC.CountNPCS(Mod.Find<ModNPC>("MonarchWake").Type) + NPC.CountNPCS(Mod.Find<ModNPC>("MushroomMonarch").Type)) < 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient && (NPC.CountNPCS(ModContent.NPCType<MonarchWake>()) + NPC.CountNPCS(ModContent.NPCType<MushroomMonarch>())) < 1)
             {
-                int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("MonarchWake").Type);
+                int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MonarchWake>());
                 Main.npc[id].position = NPC.position;
             }
             NPC.active = false;

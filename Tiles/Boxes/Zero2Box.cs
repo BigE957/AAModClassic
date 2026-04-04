@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.Zero2Box>());
         }
@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Boxes
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("Zero2Box").Type;
+			player.cursorItemIconID = ModContent.ItemType<Zero2Box>();
 		}
 	}
 }

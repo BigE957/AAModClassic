@@ -28,7 +28,7 @@ Inflicts Daybroken"); */
             Item.damage = 1000;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("SunOrb").Type;
+            Item.shoot = ModContent.ProjectileType<SunOrb>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item78;

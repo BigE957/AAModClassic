@@ -9,7 +9,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     public class Oblivion : ModNPC
     {
@@ -69,7 +69,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     if (OblivionSpeech == 1080)
                     {
                         Main.NewText("Good job. Here, have a sticker.", color1);
-                        Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, Mod.Find<ModItem>("Sticker").Type);
+                        Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                     }
                     if (OblivionSpeech == 1260)
                     {

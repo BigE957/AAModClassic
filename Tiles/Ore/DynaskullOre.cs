@@ -19,8 +19,8 @@ namespace AAModClassic.Tiles.Ore
             //true for block to emit light
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("DynaskullOre").Type);
-            DustType = Mod.Find<ModDust>("InfinityOverloadY").Type;
+            RegisterItemDrop(ModContent.ItemType<DynaskullOre>());
+            DustType = ModContent.DustType<InfinityOverloadY>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Dynaskull Ore");
             AddMapEntry(new Color(100, 100, 0), name);

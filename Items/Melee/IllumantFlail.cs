@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.rare = ItemRarityID.Lime;
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = Mod.Find<ModProjectile>("IllumantBall").Type;
+            Item.shoot = ModContent.ProjectileType<IllumantBall>();
             Item.UseSound = SoundID.Item1;
         }
 

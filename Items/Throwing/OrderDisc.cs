@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Throwing
 			Item.knockBack = 4;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 12;
-			Item.shoot = Mod.Find<ModProjectile>("OrderDiscP").Type;
+			Item.shoot = ModContent.ProjectileType<OrderDiscP>();
 			Item.width = 46;
 			Item.height = 46;
             Item.noMelee = true;
@@ -51,7 +51,7 @@ namespace AAModClassic.Items.Throwing
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("OrderBar").Type, 15);
+			recipe.AddIngredient(ModContent.ItemType<OrderBar>(), 15);
 			recipe.AddIngredient(ItemID.Ectoplasm, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

@@ -65,7 +65,7 @@ namespace AAModClassic.Items.Summoning.Minions
             float num637 = 0.05f;
 			for (int num638 = 0; num638 < 1000; num638++)
 			{
-				bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("ScoutMinion").Type;
+				bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<ScoutMinion>();
 				if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
 				{
 					if (Projectile.position.X < Main.projectile[num638].position.X)
@@ -216,7 +216,7 @@ namespace AAModClassic.Items.Summoning.Minions
 			if (Projectile.ai[0] == 0f)
 			{
 				float scaleFactor3 = 8f;
-				int num658 = Mod.Find<ModProjectile>("Neutralizer").Type;
+				int num658 = ModContent.ProjectileType<Neutralizer>();
 				if (flag25 && Projectile.ai[1] == 0f)
 				{
 					Projectile.ai[1] += 1f;

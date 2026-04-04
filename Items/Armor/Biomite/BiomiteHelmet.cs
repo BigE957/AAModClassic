@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Armor.Biomite
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("BiomitePlate").Type && legs.type == Mod.Find<ModItem>("BiomiteBoots").Type;
+			return body.type == ModContent.ItemType<BiomitePlate>() && legs.type == ModContent.ItemType<BiomiteBoots>();
 		}
 
 		public override void UpdateArmorSet(Player player)

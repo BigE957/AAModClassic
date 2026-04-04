@@ -1,5 +1,6 @@
-using System;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -10,9 +11,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Unreleased.Tiles
+namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 {
-    public class SunkenChest : ModTile
+    public class SunkenChest_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -36,14 +37,14 @@ namespace AAModClassic._Unreleased.Tiles
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Sunken Chest");
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			DustType = ModContent.DustType<BogwoodDust>();
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
 			//disableSmartCursor/* tModPorter Note: _Unreleased. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
 			//chest/* tModPorter Note: _Unreleased. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Sunken Chest";
 			TileID.Sets.BasicChest[Type] = true;
-			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("SunkenChest").Type;
+			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<SunkenChest>();
 		}
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("SunkenChest").DisplayName;
@@ -187,7 +188,7 @@ namespace AAModClassic._Unreleased.Tiles
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Sunken Chest";
 				if (player.cursorItemIconText == "Sunken Chest")
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("SunkenChest").Type; //TODOSOC this doesnt exist yet bcuz its lazy. but its sprite is in place
+					player.cursorItemIconID = ModContent.ItemType<SunkenChest>(); //TODOSOC this doesnt exist yet bcuz its lazy. but its sprite is in place
 					player.cursorItemIconText = "";
 				}
 			}

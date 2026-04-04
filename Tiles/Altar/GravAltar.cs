@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Altar
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            DustType = Mod.Find<ModDust>("DarkmatterDust").Type;
+            DustType = ModContent.DustType<DarkmatterDust>();
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Direction = TileObjectDirection.None;
@@ -94,7 +94,7 @@ namespace AAModClassic.Tiles.Altar
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("GS").Type;
+            player.cursorItemIconID = ModContent.ItemType<GS>();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Yamata
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 10f;
-            Item.shoot = Mod.Find<ModProjectile>("MidnightWrath").Type;
+            Item.shoot = ModContent.ProjectileType<MidnightWrath>();
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.noMelee = true;

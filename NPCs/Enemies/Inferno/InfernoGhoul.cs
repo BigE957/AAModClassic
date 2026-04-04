@@ -20,7 +20,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
 			Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("InfernoGhoulBanner").Type;
+			BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

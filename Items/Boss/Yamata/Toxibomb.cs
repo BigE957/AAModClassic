@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Boss.Yamata        //We need this to basically indi
             Item.mana = 9;
             Item.UseSound = SoundID.Item20; 
             Item.autoReuse = true; 
-            Item.shoot = Mod.Find<ModProjectile>("SmallToxibomb").Type;  
+            Item.shoot = ModContent.ProjectileType<SmallToxibomb>();  
             Item.shootSpeed = 20f;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
@@ -55,7 +55,7 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
         {
             if (Main.rand.Next(3) == 0)
             {
-                type = Mod.Find<ModProjectile>("Toxibomb").Type;
+                type = ModContent.ProjectileType<Toxibomb>();
             }
             return true;
         }

@@ -137,7 +137,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     {
                         for (int m = 0; m < RuneCount; m++)
                         {
-                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, Mod.Find<ModProjectile>("CurseGlyphs").Type, NPC.damage / 2, 0, Main.myPlayer);
+                            int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<CurseGlyphs>(), NPC.damage / 2, 0, Main.myPlayer);
                             Main.projectile[p].Center = NPC.Center;
                             Main.projectile[p].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                             Main.projectile[p].velocity *= 8f;
@@ -335,7 +335,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                         Vector2 vel = NPC.velocity;
                         vel.Normalize();
                         vel *= 10f;
-                        int type = Mod.Find<ModProjectile>("SunSummon").Type;
+                        int type = ModContent.ProjectileType<SunSummon>();
                         for (int i = 0; i < Max; i++)
                         {
                             vel = vel.RotatedBy(rotation);
@@ -575,7 +575,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
             if (Main.rand.Next(10) == 0)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("FAnubisTrophy").Type);
+                NPC.DropLoot(ModContent.ItemType<FAnubisTrophy>());
             }
 
             if (Main.expertMode)
@@ -586,9 +586,9 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("FAnubisMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<FAnubisMask>());
                 }
-                NPC.DropLoot(Mod.Find<ModItem>("SoulFragment").Type, Main.rand.Next(8, 16));
+                NPC.DropLoot(ModContent.ItemType<SoulFragment>(), Main.rand.Next(8, 16));
                 string[] lootTable = { "Verdict", "Lifeline", "ForsakenStaff", "Soulsplitter", "CursedFury", "HorusCane" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);

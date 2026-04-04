@@ -1,10 +1,9 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Buffs
+namespace AAModClassic._Unreleased.Content.Void.Buffs
 {
     public class InfinityScorch : ModBuff
 	{

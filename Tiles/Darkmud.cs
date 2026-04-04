@@ -10,14 +10,14 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssGrass").Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWoodSolid").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssGrass>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssWoodSolid>()] = true;
             Main.tileBlendAll[Type] = false;
 			Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
-            DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
+            DustType = ModContent.DustType<DeepAbyssiumDust>();
             AddMapEntry(new Color(0, 0, 100));
 			MinPick = 65;
         }

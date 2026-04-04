@@ -18,9 +18,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.UnluckyYarn);
-			Item.shoot = Mod.Find<ModProjectile>("MudkipS").Type;
+			Item.shoot = ModContent.ProjectileType<MudkipS>();
             
-            Item.buffType = Mod.Find<ModBuff>("MudkipS").Type;
+            Item.buffType = ModContent.BuffType<MudkipS>();
 		}
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)

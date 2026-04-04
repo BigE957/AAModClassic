@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Armor.AncientGold
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == ItemID.AncientGoldHelmet && legs.type == Mod.Find<ModItem>("AncientGoldLeg").Type;
+			return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeg>();
         }
 
         public override void UpdateArmorSet(Player player)

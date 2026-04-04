@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.expert = true; Item.expertOnly = true;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Sag").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Sag>();
 
         public override bool CanRightClick()
         {
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SagMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SagMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -42,8 +42,8 @@ namespace AAModClassic.Items.Boss.Sagittarius
             string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Doomite").Type, Main.rand.Next(35, 45));
-			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SagShield").Type);			
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Doomite>(), Main.rand.Next(35, 45));
+			player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SagShield>());			
         }
     }
 }

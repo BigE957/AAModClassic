@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Dev
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
-            Item.shoot = Mod.Find<ModProjectile>("TimeTeller").Type;
+            Item.shoot = ModContent.ProjectileType<TimeTeller>();
         }
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)

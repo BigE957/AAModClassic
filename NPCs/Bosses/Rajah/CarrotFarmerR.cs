@@ -92,7 +92,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                     for (i = 0; i < 30; i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        int carrotType = rajah.isSupreme ? Mod.Find<ModProjectile>("CarrotEXR").Type : Mod.Find<ModProjectile>("CarrotHostile").Type;
+                        int carrotType = rajah.isSupreme ? ModContent.ProjectileType<CarrotEXR>() : ModContent.ProjectileType<CarrotHostile>();
                         if (Main.rand.Next(rajah.isSupreme ? 10 : 15) == 0)
                         {
                             int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), carrotType, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);

@@ -41,7 +41,7 @@ namespace AAModClassic.Tiles.Torches
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(0, 20, 100), name);
 			DustType = ModContent.DustType<Dusts.YamataADust>();
-			RegisterItemDrop(Mod.Find<ModItem>("EventideTorch").Type);
+			RegisterItemDrop(ModContent.ItemType<EventideTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
 			TileID.Sets.Torch[Type] = true;

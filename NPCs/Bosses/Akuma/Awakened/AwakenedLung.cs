@@ -52,7 +52,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
         {
             Player player = Main.player[NPC.target];
        
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -83,13 +83,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
                     for (int i = 0; i < 12; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AwakenedLungBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AwakenedLungBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         
                     }
                     
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AwakenedLungTail").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AwakenedLungTail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -338,11 +338,11 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("AwakenedLung").Type)
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<AwakenedLung>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
@@ -439,11 +439,11 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 NPC.TargetClosest(true);
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("AwakenedLung").Type)
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<AwakenedLung>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);

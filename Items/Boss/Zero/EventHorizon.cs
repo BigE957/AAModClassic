@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.knockBack = 2f;
             Item.UseSound = SoundID.Item116;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("EventHorizon").Type;
+            Item.shoot = ModContent.ProjectileType<EventHorizon>();
             Item.shootSpeed = 22f;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
@@ -89,7 +89,7 @@ namespace AAModClassic.Items.Boss.Zero
             double deltaAngle = spread / 6f;
             double offsetAngle;
             offsetAngle = startAngle + (deltaAngle * 1);
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("EventHorizon").Type, damage, knockback, player.whoAmI, 0.0f, ai3);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<EventHorizon>(), damage, knockback, player.whoAmI, 0.0f, ai3);
             return false;
         }
 	}

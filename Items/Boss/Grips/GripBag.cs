@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Grips
 			Item.rare = ItemRarityID.Cyan;
 			Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("GripOfChaosBlue").Type;
+        //public override int BossBagNPC => ModContent.NPCType<GripOfChaosBlue>();
 
         public override bool CanRightClick()
 		{
@@ -32,11 +32,11 @@ namespace AAModClassic.Items.Boss.Grips
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GripMaskBlue").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GripMaskBlue>());
             }
             else if (Main.rand.Next(7) == 1)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GripMaskRed").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GripMaskRed>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -45,11 +45,11 @@ namespace AAModClassic.Items.Boss.Grips
             }
             if (Main.rand.Next(3) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ClawBaton").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawBaton>());
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(25, 56));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Incinerite").Type, Main.rand.Next(25, 56));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ClawOfChaos").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Abyssium>(), Main.rand.Next(25, 56));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Incinerite>(), Main.rand.Next(25, 56));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ClawOfChaos>());
 		}
 	}
 }

@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Magic        //We need this to basically indicate t
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("BogOrb").Type;
+            Item.shoot = ModContent.ProjectileType<BogOrb>();
             Item.shootSpeed = 8f;
         }
 

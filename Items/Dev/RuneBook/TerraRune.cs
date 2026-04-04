@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("CCRune").Type, 3600);
+            player.AddBuff(ModContent.BuffType<CCRune>(), 3600);
             if (!modPlayer.CCBookEX)
             {
                 Projectile.active = false;
@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             {
                 modPlayer.CCRune = false;
             }
-            if (player.HasBuff(Mod.Find<ModBuff>("CCRune").Type))
+            if (player.HasBuff(ModContent.BuffType<CCRune>()))
             {
                 Projectile.timeLeft = 2;
             }
@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Dev.RuneBook
 
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("TerraRune").Type;
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TerraRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)

@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Usable
 			Item.consumable = true;
 			Item.useTime = 28;
 			Item.useAnimation = 28;
-			Item.shoot = Mod.Find<ModProjectile>("SPORZ").Type;
+			Item.shoot = ModContent.ProjectileType<SPORZ>();
 			Item.shootSpeed = 1f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = Item.sellPrice(0, 0, 1, 0);
@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Usable
             }
             else
             {
-                Item.shoot = Mod.Find<ModProjectile>("SPORZ").Type;
+                Item.shoot = ModContent.ProjectileType<SPORZ>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

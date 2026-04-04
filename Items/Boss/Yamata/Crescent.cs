@@ -27,7 +27,7 @@ Inflicts Moonraze"); */
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = Mod.Find<ModProjectile>("Crescent").Type;
+            Item.shoot = ModContent.ProjectileType<Crescent>();
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
 

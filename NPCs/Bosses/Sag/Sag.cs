@@ -200,7 +200,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             {
                 Vector2 SparkPos = NPC.Center + new Vector2(Main.rand.Next(-48, 48), 0);
                 Vector2 SparkSpeed = new Vector2(Main.rand.Next(-4, 4), Main.rand.Next(0, 4));
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), SparkPos, SparkSpeed, Mod.Find<ModProjectile>("SagSpark").Type, NPC.damage / 4, 1);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), SparkPos, SparkSpeed, ModContent.ProjectileType<SagSpark>(), NPC.damage / 4, 1);
 
                 for (int num242 = 0; num242 < 5; num242++)
                 {
@@ -257,7 +257,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                     }
                     if (internalAI[0] > 80 && internalAI[0] % 30 == 0)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(3, 7) * NPC.direction, -6f), Mod.Find<ModProjectile>("SagBomb").Type, NPC.damage / 4, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(3, 7) * NPC.direction, -6f), ModContent.ProjectileType<SagBomb>(), NPC.damage / 4, 3);
                     }
                     break;
                 case 3:
@@ -470,13 +470,13 @@ namespace AAModClassic.NPCs.Bosses.Sag
             AAWorld.downedSag = true;
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SagTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SagTrophy>());
             }
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("SagMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<SagMask>());
                 }
                 string[] lootTable = { "SagCore", "NeutronStaff", "Legg" };
                 int loot = Main.rand.Next(lootTable.Length);
@@ -485,7 +485,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
             }
             else
             {
-                NPC.DropLoot(Mod.Find<ModItem>("SagBag").Type);
+                NPC.DropLoot(ModContent.ItemType<SagBag>());
             }
         }
 

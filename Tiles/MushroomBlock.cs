@@ -14,7 +14,7 @@ namespace AAModClassic.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("MushroomBlock").Type);
+            RegisterItemDrop(ModContent.ItemType<MushroomBlock>());
 			AddMapEntry(new Color(120, 90, 0));
 		}
 	}

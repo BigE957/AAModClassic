@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DiscordInferno").Type, 600);
+            target.AddBuff(ModContent.BuffType<DiscordInferno>(), 600);
         }
 
         public override void OnKill(int timeLeft)

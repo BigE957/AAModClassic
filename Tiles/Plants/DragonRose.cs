@@ -45,7 +45,7 @@ namespace AAModClassic.Tiles.Plants
 				//TileID.PlanterBox
 			};
 			TileObjectData.addTile(Type);
-            //RegisterItemDrop(Mod.Find<ModItem>("DragonRose").Type);
+            //RegisterItemDrop(ModContent.ItemType<DragonRose>());
 		}
 		public override bool CanPlace(int i, int j)
 		{

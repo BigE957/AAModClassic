@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = Mod.Find<ModWall>("DoomiteWall").Type; //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<DoomiteWall>(); //put your CustomBlock Tile name
         }
 
         

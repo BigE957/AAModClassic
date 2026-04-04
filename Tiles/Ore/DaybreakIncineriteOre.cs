@@ -25,8 +25,8 @@ namespace AAModClassic.Tiles.Ore
             //true for block to emit light
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("DaybreakIncineriteOre").Type);   
-            DustType = Mod.Find<ModDust>("AkumaADust").Type;
+            RegisterItemDrop(ModContent.ItemType<DaybreakIncineriteOre>());   
+            DustType = ModContent.DustType<AkumaADust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Daybreak Incinerite Ore");
             AddMapEntry(new Color(100, 30, 0), name);

@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("XiaoExplosion").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<XiaoExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Main.projectile[p].Center = target.Center;
 
             target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 200);
@@ -72,7 +72,7 @@ namespace AAModClassic.Items.Summoning.Minions
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("XiaoExplosion").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<XiaoExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

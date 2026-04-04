@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
             AIType = NPCID.GoblinScout;
             NPC.rarity = 2;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ToxitoadBanner").Type;
+			BannerItem = ModContent.ItemType<ToxitoadBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -187,12 +187,12 @@ namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
                     if (NPC.direction == -1)
                     {
                         //Main.PlaySound(SoundID.Item3, (int)npc.position.X, (int)npc.position.Y);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), ModContent.ProjectileType<AcidProj>(), 15, 3);
                     }
                     else
                     {
                         //Main.PlaySound(SoundID.Item3, (int)npc.position.X, (int)npc.position.Y);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 57f, NPC.position.Y + 18f), new Vector2(6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 57f, NPC.position.Y + 18f), new Vector2(6 + Main.rand.Next(0, 6), -4 + Main.rand.Next(-4, 0)), ModContent.ProjectileType<AcidProj>(), 15, 3);
                     }
                 }
                 if (tongueTimer >= 100)

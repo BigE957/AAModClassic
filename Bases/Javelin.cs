@@ -92,7 +92,7 @@ namespace AAModClassic.Bases
                 (target.Center - Projectile.Center) *
                 0.75f; // Change velocity based on delta center of targets (difference between entity centers)
             Projectile.netUpdate = true; // netUpdate projectile javelin
-            target.AddBuff(Mod.Find<ModBuff>("Impaled").Type, 900); // Adds the Impaled debuff
+            target.AddBuff(ModContent.BuffType<Impaled>(), 900); // Adds the Impaled debuff
             Projectile.penetrate = -1;
             Projectile.damage = 0; // Makes sure the sticking javelins do not deal damage anymore
 

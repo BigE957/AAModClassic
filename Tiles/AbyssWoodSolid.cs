@@ -13,10 +13,10 @@ namespace AAModClassic.Tiles
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssLeaves").Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssWood").Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("Darkmud").Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssGrass").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssLeaves>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssWood>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<Darkmud>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssGrass>()] = true;
             HitSound = SoundID.Dig;// 21;
             DustType = ModContent.DustType<Dusts.AbyssDust>();
             AddMapEntry(new Color(52, 0, 200));

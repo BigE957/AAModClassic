@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Boss.Akuma
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("AkumaTrophy").Type;
+			Item.createTile = ModContent.TileType<AkumaTrophy>();
 		}
 	}
 }

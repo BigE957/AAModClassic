@@ -81,7 +81,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 
                     if (NPC.ai[1] >= 900)
                     {
-                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 0, Main.myPlayer, 0, 10);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 0, Main.myPlayer, 0, 10);
                         Main.projectile[b].Center = NPC.Center;
 
                         NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ForsakenAnubis>());

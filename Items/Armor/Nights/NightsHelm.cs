@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Armor.Nights
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("NightsPlate").Type && legs.type == Mod.Find<ModItem>("NightsGreaves").Type;
+			return body.type == ModContent.ItemType<NightsPlate>() && legs.type == ModContent.ItemType<NightsGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

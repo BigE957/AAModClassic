@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Throwing
 	        Item.value = 100000;
 	        Item.rare = ItemRarityID.Purple;
 	        Item.shootSpeed = 12f;
-	        Item.shoot = Mod.Find<ModProjectile>("DMC").Type;
+	        Item.shoot = ModContent.ProjectileType<DMC>();
 	        Item.UseSound = SoundID.Item1;
 	        Item.autoReuse = true;
             Item.noMelee = true;
@@ -81,7 +81,7 @@ namespace AAModClassic.Items.Throwing
             {
                 if(i == 1) continue;
                 offsetAngle = startAngle + (deltaAngle * i);
-                int proj = Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("DMCE").Type, damage, knockback, Item.playerIndexTheItemIsReservedFor);
+                int proj = Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<DMCE>(), damage, knockback, Item.playerIndexTheItemIsReservedFor);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             return true;

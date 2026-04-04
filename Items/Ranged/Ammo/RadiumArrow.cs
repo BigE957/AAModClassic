@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.knockBack = 4f;
 			Item.value = 30;
 			Item.rare = ItemRarityID.Purple;
-			Item.shoot = Mod.Find<ModProjectile>("RadiumArrow").Type;
+			Item.shoot = ModContent.ProjectileType<RadiumArrow>();
 			Item.shootSpeed = 6f; 
 			Item.ammo = AmmoID.Arrow;
 			Item.rare = ItemRarityID.Cyan;

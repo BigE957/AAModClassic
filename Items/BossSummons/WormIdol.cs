@@ -30,9 +30,9 @@ It looks like it hasn't been touched in years"); */
 
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("WormPointer").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<WormPointer>()] < 1)
                 {
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("WormPointer").Type, 0, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<WormPointer>(), 0, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

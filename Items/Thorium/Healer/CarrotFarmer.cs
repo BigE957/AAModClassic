@@ -37,7 +37,7 @@ Grants 1 soul essence on direct hit"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("CarrotFarmer").Type;
+            Item.shoot = ModContent.ProjectileType<CarrotFarmer>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -45,7 +45,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CarrotFarmerEffect").Type, damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<CarrotFarmerEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}

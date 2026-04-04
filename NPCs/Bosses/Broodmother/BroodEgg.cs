@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             NPC.ai[3] += 1f;
             if (NPC.ai[3] >= hatchTimer)
             {
-                NPC.Transform(Mod.Find<ModNPC>("Broodmini").Type);
+                NPC.Transform(ModContent.NPCType<Broodmini>());
             }
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.velocity.Y == 0f && Math.Abs(NPC.velocity.X) < 0.2 && NPC.ai[3] >= hatchTimer * 0.75)
             {

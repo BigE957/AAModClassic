@@ -39,7 +39,7 @@ Grants 1 soul essence on direct hit"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("AuroraScythe").Type;
+            Item.shoot = ModContent.ProjectileType<AuroraScythe>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -47,7 +47,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AuroraScytheEffect").Type, damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<AuroraScytheEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}

@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Hydra
 			Item.expert = true; Item.expertOnly = true;
 		}
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Hydra").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Hydra>();
 
         public override bool CanRightClick()
 		{
@@ -56,24 +56,24 @@ namespace AAModClassic.Items.Boss.Hydra
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraMask1").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask1>());
             }
             else if (Main.rand.Next(7) == 1)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraMask2").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask2>());
             }
             else if(Main.rand.Next(7) == 2)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraMask3").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraMask3>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Abyssium").Type, Main.rand.Next(75, 125));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraHide").Type, Main.rand.Next(50, 100));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("HydraPendant").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Abyssium>(), Main.rand.Next(75, 125));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraHide>(), Main.rand.Next(50, 100));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<HydraPendant>());
         }
 	}
 }

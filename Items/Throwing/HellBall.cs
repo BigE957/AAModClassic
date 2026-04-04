@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Throwing
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
-            Item.shoot = Mod.Find<ModProjectile>("HellBallP").Type;
+            Item.shoot = ModContent.ProjectileType<HellBallP>();
 			Item.width = 56;
             Item.height = 56;
             Item.noMelee = true;
@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Throwing
             int num = 0;
             for (int i = 0; i < 200; i++)
             {
-                if (Main.projectile[i].active && Main.projectile[i].type == Mod.Find<ModProjectile>("HellBallP").Type)
+                if (Main.projectile[i].active && Main.projectile[i].type == ModContent.ProjectileType<HellBallP>())
                 {
                     num++;
                 }

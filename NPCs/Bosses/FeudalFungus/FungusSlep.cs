@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.PlayerSafe || NPC.AnyNPCs(Mod.Find<ModNPC>("FungusSlep").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("FungusWake").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("FeudalFungus").Type) && !spawnInfo.Player.ZoneGlowshroom)
+            if (spawnInfo.PlayerSafe || NPC.AnyNPCs(ModContent.NPCType<FungusSlep>()) || NPC.AnyNPCs(ModContent.NPCType<FungusWake>()) || NPC.AnyNPCs(ModContent.NPCType<FeudalFungus>()) && !spawnInfo.Player.ZoneGlowshroom)
             {
                 return 0f;
             }
@@ -64,9 +64,9 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.MushDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
-            if (Main.netMode != NetmodeID.MultiplayerClient && (NPC.CountNPCS(Mod.Find<ModNPC>("FungusWake").Type) + NPC.CountNPCS(Mod.Find<ModNPC>("FeudalFungus").Type)) < 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient && (NPC.CountNPCS(ModContent.NPCType<FungusWake>()) + NPC.CountNPCS(ModContent.NPCType<FeudalFungus>())) < 1)
             {
-                int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FungusWake").Type);
+                int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<FungusWake>());
                 Main.npc[id].position = NPC.position;
             }
             NPC.active = false;

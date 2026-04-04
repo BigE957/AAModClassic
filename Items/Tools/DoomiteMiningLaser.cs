@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Tools
             Item.pick = 100;
             Item.axe = 30;
             Item.UseSound = SoundID.Item23;
-            Item.shoot = Mod.Find<ModProjectile>("MiningLaser").Type;
+            Item.shoot = ModContent.ProjectileType<MiningLaser>();
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 54, 0);
             Item.tileBoost = 2;

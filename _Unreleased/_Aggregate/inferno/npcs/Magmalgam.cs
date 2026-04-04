@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 //TODOGENERAL holy shit what do i do with this thing
-namespace AAModClassic._Unreleased.NPCs.Enemies.Inferno.Magmalgam
+namespace AAModClassic._Unreleased._Aggregate.inferno.npcs
 {
     /*public class Magmalgam : ModNPC
     {

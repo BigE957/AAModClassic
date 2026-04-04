@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     public class DeityDragon : ModNPC
     {
@@ -48,12 +48,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 SoundEngine.PlaySound(SoundID.Item119, NPC.position);
                 NPC.localAI[3] = 1f;
             }
-            NPC.dontTakeDamage = (NPC.alpha > 0);
+            NPC.dontTakeDamage = NPC.alpha > 0;
             if (NPC.dontTakeDamage)
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 228, 0f, 0f, 100, default(Color), 2f);
+                    int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 228, 0f, 0f, 100, default, 2f);
                     Main.dust[num2].noGravity = true;
                     Main.dust[num2].noLight = true;
                 }
@@ -69,11 +69,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             int num5 = NPC.type;
             flag = true;
             
-            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || (flag && (double)Main.player[NPC.target].position.Y < Main.worldSurface * 16.0))
+            if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || flag && Main.player[NPC.target].position.Y < Main.worldSurface * 16.0)
             {
                 NPC.TargetClosest(true);
             }
-            if (Main.player[NPC.target].dead || (flag && (double)Main.player[NPC.target].position.Y < Main.worldSurface * 16.0))
+            if (Main.player[NPC.target].dead || flag && Main.player[NPC.target].position.Y < Main.worldSurface * 16.0)
             {
                 if (NPC.timeLeft > 300)
                 {
@@ -89,7 +89,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 
                 if (NPC.ai[0] == 0f)
                 {
-                    NPC.ai[3] = (float)NPC.whoAmI;
+                    NPC.ai[3] = NPC.whoAmI;
                     NPC.realLife = NPC.whoAmI;
                     int num9 = NPC.whoAmI;
                     for (int l = 0; l < 30; l++)
@@ -111,20 +111,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         {
                             num10 = ModContent.NPCType<DeityDragonTail>();
                         }
-                        int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + (float)(NPC.width / 2)), (int)(NPC.position.Y + (float)NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-                        Main.npc[num11].ai[3] = (float)NPC.whoAmI;
+                        int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                        Main.npc[num11].ai[3] = NPC.whoAmI;
                         Main.npc[num11].realLife = NPC.whoAmI;
-                        Main.npc[num11].ai[1] = (float)num9;
-                        Main.npc[num9].ai[0] = (float)num11;
+                        Main.npc[num11].ai[1] = num9;
+                        Main.npc[num9].ai[0] = num11;
                         num9 = num11;
                         NPC.netUpdate = true;
                     }
                 }
             }
             int num29 = (int)(NPC.position.X / 16f) - 1;
-            int num30 = (int)((NPC.position.X + (float)NPC.width) / 16f) + 2;
+            int num30 = (int)((NPC.position.X + NPC.width) / 16f) + 2;
             int num31 = (int)(NPC.position.Y / 16f) - 1;
-            int num32 = (int)((NPC.position.Y + (float)NPC.height) / 16f) + 2;
+            int num32 = (int)((NPC.position.Y + NPC.height) / 16f) + 2;
             if (num29 < 0)
             {
                 num29 = 0;
@@ -154,25 +154,25 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             num37 = 20f;
             num38 = 0.55f;
            
-            Vector2 vector2 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-            float num40 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2);
-            float num41 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2);
+            Vector2 vector2 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float num40 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+            float num41 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
             
-            num40 = (float)((int)(num40 / 16f) * 16);
-            num41 = (float)((int)(num41 / 16f) * 16);
-            vector2.X = (float)((int)(vector2.X / 16f) * 16);
-            vector2.Y = (float)((int)(vector2.Y / 16f) * 16);
+            num40 = (int)(num40 / 16f) * 16;
+            num41 = (int)(num41 / 16f) * 16;
+            vector2.X = (int)(vector2.X / 16f) * 16;
+            vector2.Y = (int)(vector2.Y / 16f) * 16;
             num40 -= vector2.X;
             num41 -= vector2.Y;
             
             float num53 = (float)Math.Sqrt((double)(num40 * num40 + num41 * num41));
-            if (NPC.ai[1] > 0f && NPC.ai[1] < (float)Main.npc.Length)
+            if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {
                 try
                 {
-                    vector2 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                    num40 = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - vector2.X;
-                    num41 = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - vector2.Y;
+                    vector2 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    num40 = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - vector2.X;
+                    num41 = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - vector2.Y;
                 }
                 catch
                 {
@@ -181,7 +181,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 num53 = (float)Math.Sqrt((double)(num40 * num40 + num41 * num41));
                 int num54 = NPC.width;
                 num54 = 42;
-                num53 = (num53 - (float)num54) / num53;
+                num53 = (num53 - num54) / num53;
                 num40 *= num53;
                 num41 *= num53;
                 NPC.velocity = Vector2.Zero;
@@ -207,7 +207,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 num40 *= num58;
                 num41 *= num58;
                 bool flag6 = false;
-                if (((NPC.velocity.X > 0f && num40 < 0f) || (NPC.velocity.X < 0f && num40 > 0f) || (NPC.velocity.Y > 0f && num41 < 0f) || (NPC.velocity.Y < 0f && num41 > 0f)) && Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) > num38 / 2f && num53 < 300f)
+                if ((NPC.velocity.X > 0f && num40 < 0f || NPC.velocity.X < 0f && num40 > 0f || NPC.velocity.Y > 0f && num41 < 0f || NPC.velocity.Y < 0f && num41 > 0f) && Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) > num38 / 2f && num53 < 300f)
                 {
                     flag6 = true;
                     if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < num37)
@@ -222,7 +222,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                     {
                         if (NPC.velocity.X == 0f)
                         {
-                            NPC.velocity.X = NPC.velocity.X - (float)NPC.direction;
+                            NPC.velocity.X = NPC.velocity.X - NPC.direction;
                         }
                         NPC.velocity.X = NPC.velocity.X * 1.1f;
                     }
@@ -233,7 +233,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 }
                 if (!flag6)
                 {
-                    if ((NPC.velocity.X > 0f && num40 > 0f) || (NPC.velocity.X < 0f && num40 < 0f) || (NPC.velocity.Y > 0f && num41 > 0f) || (NPC.velocity.Y < 0f && num41 < 0f))
+                    if (NPC.velocity.X > 0f && num40 > 0f || NPC.velocity.X < 0f && num40 < 0f || NPC.velocity.Y > 0f && num41 > 0f || NPC.velocity.Y < 0f && num41 < 0f)
                     {
                         if (NPC.velocity.X < num40)
                         {
@@ -251,7 +251,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         {
                             NPC.velocity.Y = NPC.velocity.Y - num38;
                         }
-                        if ((double)Math.Abs(num41) < (double)num37 * 0.2 && ((NPC.velocity.X > 0f && num40 < 0f) || (NPC.velocity.X < 0f && num40 > 0f)))
+                        if ((double)Math.Abs(num41) < (double)num37 * 0.2 && (NPC.velocity.X > 0f && num40 < 0f || NPC.velocity.X < 0f && num40 > 0f))
                         {
                             if (NPC.velocity.Y > 0f)
                             {
@@ -262,7 +262,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                                 NPC.velocity.Y = NPC.velocity.Y - num38 * 2f;
                             }
                         }
-                        if ((double)Math.Abs(num40) < (double)num37 * 0.2 && ((NPC.velocity.Y > 0f && num41 < 0f) || (NPC.velocity.Y < 0f && num41 > 0f)))
+                        if ((double)Math.Abs(num40) < (double)num37 * 0.2 && (NPC.velocity.Y > 0f && num41 < 0f || NPC.velocity.Y < 0f && num41 > 0f))
                         {
                             if (NPC.velocity.X > 0f)
                             {
@@ -319,7 +319,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         }
                     }
                 }
-                NPC.rotation = (float)Math.Atan2((double)NPC.velocity.Y, (double)NPC.velocity.X) + 1.57f;
+                NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
 
                 float num62 = Vector2.Distance(Main.player[NPC.target].Center, NPC.Center);
                 int num63 = 0;
@@ -327,11 +327,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     num63 = 4;
                 }
-                if ((double)num63 > NPC.frameCounter)
+                if (num63 > NPC.frameCounter)
                 {
                     NPC.frameCounter += 1.0;
                 }
-                if ((double)num63 < NPC.frameCounter)
+                if (num63 < NPC.frameCounter)
                 {
                     NPC.frameCounter -= 1.0;
                 }
@@ -351,11 +351,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             for (int num468 = 0; num468 < 3; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color), 2f);
+                    -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
                 num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color));
+                    -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }
@@ -400,20 +400,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (NPC.life <= 0)
             {
 
-                NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
                 NPC.height = 78;
-                NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<CthulhuDust>();
                 int dust2 = ModContent.DustType<CthulhuDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default, 1f);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -447,7 +447,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -462,12 +462,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                float dirX = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - npcCenter.X;
-                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - npcCenter.Y;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
                 NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)NPC.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
@@ -535,20 +535,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (NPC.life <= 0)
             {
 
-                NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
                 NPC.height = 78;
-                NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<CthulhuDust>();
                 int dust2 = ModContent.DustType<CthulhuDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default, 1f);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -582,7 +582,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -597,12 +597,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                float dirX = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - npcCenter.X;
-                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - npcCenter.Y;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
                 NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)NPC.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
@@ -670,20 +670,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (NPC.life <= 0)
             {
 
-                NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
                 NPC.height = 78;
-                NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<CthulhuDust>();
                 int dust2 = ModContent.DustType<CthulhuDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default, 1f);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -717,7 +717,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -732,12 +732,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                float dirX = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - npcCenter.X;
-                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - npcCenter.Y;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
                 NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)NPC.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
@@ -805,20 +805,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (NPC.life <= 0)
             {
 
-                NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
                 NPC.height = 78;
-                NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<CthulhuDust>();
                 int dust2 = ModContent.DustType<CthulhuDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default, 1f);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -852,7 +852,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -867,12 +867,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                float dirX = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - npcCenter.X;
-                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - npcCenter.Y;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
                 NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)NPC.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 
@@ -940,20 +940,20 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (NPC.life <= 0)
             {
 
-                NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
                 NPC.width = 44;
                 NPC.height = 78;
-                NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
-                NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
                 int dust1 = ModContent.DustType<CthulhuDust>();
                 int dust2 = ModContent.DustType<CthulhuDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
                 Main.dust[dust1].fadeIn = 1f;
                 Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default(Color), 1f);
+                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0, default, 1f);
                 Main.dust[dust2].velocity *= 0.5f;
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
@@ -987,7 +987,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -1002,12 +1002,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (NPC.ai[1] < (double)Main.npc.Length)
             {
-                Vector2 npcCenter = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-                float dirX = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - npcCenter.X;
-                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - npcCenter.Y;
+                Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                float dirX = Main.npc[(int)NPC.ai[1]].position.X + Main.npc[(int)NPC.ai[1]].width / 2 - npcCenter.X;
+                float dirY = Main.npc[(int)NPC.ai[1]].position.Y + Main.npc[(int)NPC.ai[1]].height / 2 - npcCenter.Y;
                 NPC.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                float dist = (length - (float)NPC.width) / length;
+                float dist = (length - NPC.width) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 

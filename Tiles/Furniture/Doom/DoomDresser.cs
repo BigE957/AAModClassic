@@ -38,11 +38,11 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Dresser");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
 			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Doom Dresser";
-			RegisterItemDrop(Mod.Find<ModItem>("DoomDresser").Type);
+			RegisterItemDrop(ModContent.ItemType<DoomDresser>());
 		}
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("DoomDresser").DisplayName;
@@ -171,7 +171,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
+					player.cursorItemIconID = ModContent.ItemType<ExampleDresser>();
 					player.cursorItemIconText = "";
 				}
 			}
@@ -213,7 +213,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("DoomDresser").Type;
+					player.cursorItemIconID = ModContent.ItemType<DoomDresser>();
 					player.cursorItemIconText = "";
 				}
 			}

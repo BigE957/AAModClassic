@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Vanity.Dallin
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Hoverboard);
             }
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("K9Collar").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<K9Collar>());
         }
     }
 }

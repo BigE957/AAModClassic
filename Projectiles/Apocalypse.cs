@@ -137,7 +137,7 @@ namespace AAModClassic.Projectiles
                 }
                 Main.LocalPlayer.lifeSteal -= num;
                 int num2 = Projectile.owner;
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, Mod.Find<ModProjectile>("ApocalypseHeal").Type, 0, 0f, Projectile.owner, num2, num);
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, ModContent.ProjectileType<ApocalypseHeal>(), 0, 0f, Projectile.owner, num2, num);
             }
         }
     }

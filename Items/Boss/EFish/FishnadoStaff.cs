@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Boss.EFish
 			Item.CloneDefaults(ItemID.TempestStaff);
 			Item.damage = 150;
 			Item.rare = ItemRarityID.Purple;
-			Item.shoot = Mod.Find<ModProjectile>("Fishnado").Type;
+			Item.shoot = ModContent.ProjectileType<Fishnado>();
         }
 
         public override void AddRecipes()

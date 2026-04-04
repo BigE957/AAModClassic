@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = Mod.Find<ModProjectile>("GRocket").Type;
+            Item.shoot = ModContent.ProjectileType<GRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
@@ -62,7 +62,7 @@ namespace AAModClassic.Items.Boss.Zero
             {
                 position += muzzleOffset;
             }
-            type = Main.rand.Next(4) == 0 ? Mod.Find<ModProjectile>("GRocket2").Type : Mod.Find<ModProjectile>("GRocket").Type;
+            type = Main.rand.Next(4) == 0 ? ModContent.ProjectileType<GRocket2>() : ModContent.ProjectileType<GRocket>();
             Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }

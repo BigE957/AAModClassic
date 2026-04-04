@@ -97,7 +97,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
 
                 if (player.dead || !player.active || Vector2.Distance(player.Center, NPC.Center) > 5000)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<MonarchRUNAWAY>(), 0, 0);
                     NPC.active = false;
                     return;
                 }
@@ -304,7 +304,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 }
                 else
                 {
-                    Projectile.NewProjectile(NPC.GetSource_OnHurt(projectile), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_OnHurt(projectile), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<FakeMonarchMushroom>(), 0, 0);
                 }
             }
         }
@@ -323,7 +323,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
                 }
                 else
                 {
-                    Projectile.NewProjectile(NPC.GetSource_OnHurt(player), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("FakeMonarchMushroom").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_OnHurt(player), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<FakeMonarchMushroom>(), 0, 0);
                 }
             }
         }
@@ -366,7 +366,7 @@ namespace AAModClassic.NPCs.Bosses.MushroomMonarch
         public override void OnKill()
         {
             AAWorld.downedMonarch = true;
-            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("MonarchRUNAWAY").Type, 0, 0);
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<MonarchRUNAWAY>(), 0, 0);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

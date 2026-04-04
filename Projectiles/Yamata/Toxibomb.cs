@@ -104,7 +104,7 @@ namespace AAModClassic.Projectiles.Yamata
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
         public override void OnKill(int timeleft)
         {
@@ -115,9 +115,9 @@ namespace AAModClassic.Projectiles.Yamata
             for (int i = 0; i < 2; i++)
             {
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<YWSplit>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
-                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, Mod.Find<ModProjectile>("YWSplit").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<YWSplit>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
             for (int num468 = 0; num468 < 20; num468++)
@@ -130,7 +130,7 @@ namespace AAModClassic.Projectiles.Yamata
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("Toxiboom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Toxiboom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

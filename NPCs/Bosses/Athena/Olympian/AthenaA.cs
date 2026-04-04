@@ -251,13 +251,13 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 
                     if (NPC.ai[1] == 120)
                     {
-                        int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), ModContent.ProjectileType<RuneSpawn>(), NPC.damage / 2, 3);
                         Main.projectile[a].Center = NPC.Center;
-                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), ModContent.ProjectileType<RuneSpawn>(), NPC.damage / 2, 3);
                         Main.projectile[b].Center = NPC.Center;
-                        int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), ModContent.ProjectileType<RuneSpawn>(), NPC.damage / 2, 3);
                         Main.projectile[c].Center = NPC.Center;
-                        int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("RuneSpawn").Type, NPC.damage / 2, 3);
+                        int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), ModContent.ProjectileType<RuneSpawn>(), NPC.damage / 2, 3);
                         Main.projectile[d].Center = NPC.Center;
                     }
                     if (NPC.ai[1] > 180)
@@ -627,20 +627,20 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
             }
             if(Main.expertMode)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("AthenaABag").Type);
+                NPC.DropLoot(ModContent.ItemType<AthenaABag>());
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("AthenaAMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<AthenaAMask>());
                 }
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(20, 25));
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SkyCrystal").Type, Main.rand.Next(25, 40));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GoddessFeather>(), Main.rand.Next(20, 25));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SkyCrystal>(), Main.rand.Next(25, 40));
                 string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(Mod.Find<ModItem>("StarChart").Type);
+                NPC.DropLoot(ModContent.ItemType<StarChart>());
             }
             AAWorld.downedAthenaA = true;
         }

@@ -16,7 +16,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("SerpentHead").Type] > 0) modPlayer.SnakeMinion = true;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<SerpentHead>()] > 0) modPlayer.SnakeMinion = true;
             if (!modPlayer.SnakeMinion)
             {
                 player.DelBuff(buffIndex);

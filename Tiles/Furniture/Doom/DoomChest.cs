@@ -38,12 +38,12 @@ namespace AAModClassic.Tiles.Furniture.Doom
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Chest");
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Doom Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("DoomChest").Type);
+            RegisterItemDrop(ModContent.ItemType<DoomChest>());
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("DoomChest").DisplayName;
@@ -185,7 +185,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Doom Chest";
                 if (player.cursorItemIconText == "Doom Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("DoomChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<DoomChest>();
                     player.cursorItemIconText = "";
                 }
             }

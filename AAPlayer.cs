@@ -714,7 +714,7 @@ namespace AAModClassic
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) 
 		{
-			if (npc.HasBuff(Mod.Find<ModBuff>("ForsakenWeak").Type))
+			if (npc.HasBuff(ModContent.BuffType<ForsakenWeak>()))
 			{
                 modifiers.FinalDamage.Flat -= modifiers.FinalDamage.Flat / 5;
 			}
@@ -802,7 +802,7 @@ namespace AAModClassic
                 }
             }
 
-            if (target.HasBuff(Mod.Find<ModBuff>("Forsaken").Type) && proj.type == Mod.Find<ModProjectile>("EnchancedMummyArrow").Type)
+            if (target.HasBuff(ModContent.BuffType<Forsaken>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
             {
 				float num1 = 9f;
 				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
@@ -828,9 +828,9 @@ namespace AAModClassic
 				for (int i = 0; i < numberProjectiles; i++)
 				{
 					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
-					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, Mod.Find<ModProjectile>("ForsakenArrow").Type, damageDone / 2, proj.knockBack, Player.whoAmI);
+					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
-				target.buffImmune[Mod.Find<ModBuff>("Forsaken").Type] = true;
+				target.buffImmune[ModContent.BuffType<Forsaken>()] = true;
 			}
         }
 
@@ -850,7 +850,7 @@ namespace AAModClassic
         {
             if (TerraMe)
             {
-                Projectile.NewProjectile(Player.GetSource_OnHurt(hurtInfo.DamageSource), Player.Center, Vector2.Zero, Mod.Find<ModProjectile>("TerraSphere").Type, 30, 4, Main.myPlayer, 0, npc.whoAmI);
+                Projectile.NewProjectile(Player.GetSource_OnHurt(hurtInfo.DamageSource), Player.Center, Vector2.Zero, ModContent.ProjectileType<TerraSphere>(), 30, 4, Main.myPlayer, 0, npc.whoAmI);
             }
 
             if (DragonsGuard || ChaosMe)
@@ -978,7 +978,7 @@ namespace AAModClassic
 
             if (darkmatterSetMe)
             {
-                target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                target.AddBuff(ModContent.BuffType<Electrified>(), 500);
             }
 
             if (kindledSet)
@@ -1031,14 +1031,14 @@ namespace AAModClassic
                 target.AddBuff(BuffID.Wet, 600);
             }
 
-            if (Player.HasBuff(Mod.Find<ModBuff>("DragonfireFlaskBuff").Type))
+            if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
             {
-                target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 900);
+                target.AddBuff(ModContent.BuffType<DragonFire>(), 900);
             }
 
-            if (Player.HasBuff(Mod.Find<ModBuff>("HydratoxinFlaskBuff").Type))
+            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
             {
-                target.AddBuff(Mod.Find<ModBuff>("Hydratoxin").Type, 900);
+                target.AddBuff(ModContent.BuffType<Hydratoxin>(), 900);
             }
             if (StoneSoldier)
             {
@@ -1049,7 +1049,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(30) == 0)
                 {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, Mod.Find<ModItem>("CarrotBooster").Type, 1, false, 0, true);
+                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 }
             }
@@ -1078,7 +1078,7 @@ namespace AAModClassic
 
                 if (darkmatterSetMe)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
                 }
 
                 if (ChaosMe || ChaosMe1)
@@ -1093,14 +1093,14 @@ namespace AAModClassic
                     target.AddBuff(buff, 180);
                 }
 
-                if (Player.HasBuff(Mod.Find<ModBuff>("DragonfireFlaskBuff").Type))
+                if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 900);
+                    target.AddBuff(ModContent.BuffType<DragonFire>(), 900);
                 }
 
-                if (Player.HasBuff(Mod.Find<ModBuff>("HydratoxinFlaskBuff").Type))
+                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Hydratoxin").Type, 900);
+                    target.AddBuff(ModContent.BuffType<Hydratoxin>(), 900);
                 }
             }
 
@@ -1128,7 +1128,7 @@ namespace AAModClassic
 
                 if (darkmatterSetRa)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
                 }
 
                 if (ChaosRa || ChaosRa2)
@@ -1157,7 +1157,7 @@ namespace AAModClassic
 
                 if (darkmatterSetMa)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
                 }
 
                 if (ChaosMa)
@@ -1168,7 +1168,7 @@ namespace AAModClassic
 
                 if (BlackLotusEmblem)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 180);
+                    target.AddBuff(ModContent.BuffType<Moonraze>(), 180);
                 }
             }
 
@@ -1191,7 +1191,7 @@ namespace AAModClassic
 
                 if (darkmatterSetSu)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
                 }
             }
 
@@ -1199,7 +1199,7 @@ namespace AAModClassic
             {
                 if (darkmatterSetTh)
                 {
-                    target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
                 }
 
                 if (Alpha && Main.rand.Next(2) == 0 && !target.boss)
@@ -1212,7 +1212,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(30) == 0)
                 {
-                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, Mod.Find<ModItem>("CarrotBooster").Type, 1, false, 0, true);
+                    int i = Item.NewItem(target.GetSource_OnHurt(Player), target.Hitbox, ModContent.ItemType<CarrotBooster>(), 1, false, 0, true);
                     Main.item[i].velocity = new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 }
             }
@@ -1266,27 +1266,27 @@ namespace AAModClassic
             {
                 if (liquidType == 0 && Player.ZoneSnow)
                 {
-                    itemDrop = Mod.Find<ModItem>("IceCrate").Type;
+                    itemDrop = ModContent.ItemType<IceCrate>();
                 }
 
                 if (liquidType == 0 && Player.ZoneDesert)
                 {
-                    itemDrop = Mod.Find<ModItem>("DesertCrate").Type;
+                    itemDrop = ModContent.ItemType<DesertCrate>();
                 }
 
                 if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<AAPlayer>().ZoneInferno)
                 {
-                    itemDrop = Mod.Find<ModItem>("InfernoCrate").Type;
+                    itemDrop = ModContent.ItemType<InfernoCrate>();
                 }
 
                 if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneMire)
                 {
-                    itemDrop = Mod.Find<ModItem>("MireCrate").Type;
+                    itemDrop = ModContent.ItemType<MireCrate>();
                 }
 
                 if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneVoid)
                 {
-                    itemDrop = Mod.Find<ModItem>("VoidCrate").Type;
+                    itemDrop = ModContent.ItemType<VoidCrate>();
                 }
 
                 if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneHoard)
@@ -1296,34 +1296,34 @@ namespace AAModClassic
 
                 if (liquidType == 1 && attempt.CanFishInLava && Player.ZoneUnderworldHeight)
                 {
-                    itemDrop = Mod.Find<ModItem>("HellCrate").Type;
+                    itemDrop = ModContent.ItemType<HellCrate>();
                 }
             }
 
-            if (attempt.questFish == Mod.Find<ModItem>("TriHeadedKoi").Type && Player.GetModPlayer<AAPlayer>().ZoneMire && Main.rand.NextBool())
+            if (attempt.questFish == ModContent.ItemType<TriHeadedKoi>() && Player.GetModPlayer<AAPlayer>().ZoneMire && Main.rand.NextBool())
             {
-                itemDrop = Mod.Find<ModItem>("TriHeadedKoi").Type;
+                itemDrop = ModContent.ItemType<TriHeadedKoi>();
             }
 
-            if (attempt.questFish == Mod.Find<ModItem>("Fishmother").Type && Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.rand.NextBool())
+            if (attempt.questFish == ModContent.ItemType<Fishmother>() && Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.rand.NextBool())
             {
-                itemDrop = Mod.Find<ModItem>("Fishmother").Type;
+                itemDrop = ModContent.ItemType<Fishmother>();
             }
 
-            if (attempt.questFish == Mod.Find<ModItem>("GlitchFish").Type && Player.GetModPlayer<AAPlayer>().ZoneVoid && Main.rand.NextBool())
+            if (attempt.questFish == ModContent.ItemType<GlitchFish>() && Player.GetModPlayer<AAPlayer>().ZoneVoid && Main.rand.NextBool())
             {
-                itemDrop = Mod.Find<ModItem>("GlitchFish").Type;
+                itemDrop = ModContent.ItemType<GlitchFish>();
             }
 
             if (Player.GetModPlayer<AAPlayer>().ZoneInferno)
             {
                 if(Main.rand.Next(50) == 0 && Main.hardMode)
                 {
-                    itemDrop = Mod.Find<ModItem>("ScorchShark").Type;
+                    itemDrop = ModContent.ItemType<ScorchShark>();
                 }
                 else if(Main.rand.Next(49) == 0)
                 {
-                    itemDrop = Mod.Find<ModItem>("SharpeningLavaFish").Type;
+                    itemDrop = ModContent.ItemType<SharpeningLavaFish>();
                 }
             }
 
@@ -1331,11 +1331,11 @@ namespace AAModClassic
             {
                 if(Main.rand.Next(50) == 0 && Main.hardMode)
                 {
-                    itemDrop = Mod.Find<ModItem>("SwimmingHydra").Type;
+                    itemDrop = ModContent.ItemType<SwimmingHydra>();
                 }
                 else if(Main.rand.Next(49) == 0)
                 {
-                    itemDrop = Mod.Find<ModItem>("ToxinMonkfish").Type;
+                    itemDrop = ModContent.ItemType<ToxinMonkfish>();
                 }
             }
 
@@ -1377,12 +1377,12 @@ namespace AAModClassic
             }
 			if (artifactJudgementCharge >= 250)
 			{
-				Player.AddBuff(Mod.Find<ModBuff>("EyeOfJudgement").Type, 900);
+				Player.AddBuff(ModContent.BuffType<EyeOfJudgement>(), 900);
 				artifactJudgementCharge = 0;
 			}
 			if (artifactGuiltCharge >= 250)
 			{
-				Player.AddBuff(Mod.Find<ModBuff>("EyeOfForsaken").Type, 900);
+				Player.AddBuff(ModContent.BuffType<EyeOfForsaken>(), 900);
 				artifactGuiltCharge = 0;
 			}
             if (!Greed1 && !Greed2)
@@ -1506,9 +1506,9 @@ namespace AAModClassic
 
             if (Orbiters)
             {
-                Spheres = BaseAI.GetProjectiles(Player.Center, Mod.Find<ModProjectile>("FireOrbiter").Type, Main.myPlayer, 48);
+                Spheres = BaseAI.GetProjectiles(Player.Center, ModContent.ProjectileType<FireOrbiter>(), Main.myPlayer, 48);
 
-                if (Player.ownedProjectileCounts[Mod.Find<ModProjectile>("FireOrbiter").Type] > 0)
+                if (Player.ownedProjectileCounts[ModContent.ProjectileType<FireOrbiter>()] > 0)
                 {
                     Player.GetDamage(DamageClass.Summon) += AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<FireOrbiter>()) * .1f;
 
@@ -1702,7 +1702,7 @@ namespace AAModClassic
                     int i = 0;
                     while (i < 3)
                     {
-                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, Mod.Find<ModProjectile>("AssassinDagger").Type, (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
+                        if(Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Player.GetSource_ItemUse(Player.inventory[Player.selectedItem]), Spwanposition[i].X, Spwanposition[i].Y, SpeedVector.X, SpeedVector.Y, ModContent.ProjectileType<AssassinDagger>(), (int)(Player.inventory[Player.selectedItem].damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
                         float round = 16f;
                         int k = 0;
                         while (k < round)
@@ -1710,7 +1710,7 @@ namespace AAModClassic
                             Vector2 vector12 = Vector2.UnitX * 0f;
                             vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
                             vector12 = vector12.RotatedBy(SpeedVector.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, Mod.Find<ModDust>("AcidDust").Type, 0f, 0f, 0, default, 1f);
+                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<AcidDust>(), 0f, 0f, 0, default, 1f);
                             Main.dust[Dusti].scale = 1.5f;
                             Main.dust[Dusti].noGravity = true;
                             Main.dust[Dusti].position = Spwanposition[i] + vector12;
@@ -1834,13 +1834,13 @@ namespace AAModClassic
                 Player.armorEffectDrawShadowLokis = true;
             }
 
-            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(Mod.Find<ModBuff>("DroneCool").Type) && 
-                !AAGlobalProjectile.AnyProjectiles(Mod.Find<ModProjectile>("RajahDrone").Type))
+            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<DroneCool>()) && 
+                !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<RajahDrone>()))
             {
                 Vector2 vector2;
                 vector2.X = Main.mouseX + Main.screenPosition.X;
                 vector2.Y = Main.mouseY + Main.screenPosition.Y;
-                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("RajahDrone").Type, (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
+                Projectile.NewProjectile(Player.GetSource_FromThis(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<RajahDrone>(), (int)(Player.GetDamage(DamageClass.Ranged)).ApplyTo(100), 2, Main.myPlayer, 0f, 0f);
             }
 
             if (TerraSu)
@@ -1885,9 +1885,9 @@ namespace AAModClassic
             {
                 for (int i = 0; i < 22; i++)
                 {
-                    if (Player.buffType[i] == Mod.Find<ModBuff>("CBoost1").Type || 
-                        Player.buffType[i] == Mod.Find<ModBuff>("CBoost2").Type ||
-                        Player.buffType[i] == Mod.Find<ModBuff>("CBoost3").Type)
+                    if (Player.buffType[i] == ModContent.BuffType<CBoost1>() || 
+                        Player.buffType[i] == ModContent.BuffType<CBoost2>() ||
+                        Player.buffType[i] == ModContent.BuffType<CBoost3>())
                     {
                         Player.DelBuff(i);
                     }
@@ -1908,7 +1908,7 @@ namespace AAModClassic
             for (int i = 0; i < 58; i++)
 			{
                 item = Player.inventory[i];
-				if (item.type == Mod.Find<ModItem>("RoninPotion").Type && ItemLoader.CanUseItem(item, Player))
+				if (item.type == ModContent.ItemType<RoninPotion>() && ItemLoader.CanUseItem(item, Player))
 				{
                     break;
                 }
@@ -1917,7 +1917,7 @@ namespace AAModClassic
 			{
 				return;
 			}
-			if (Player.potionDelay > 0 || (Player.statLife == Player.statLifeMax2 && item.type != Mod.Find<ModItem>("RoninPotion").Type))
+			if (Player.potionDelay > 0 || (Player.statLife == Player.statLifeMax2 && item.type != ModContent.ItemType<RoninPotion>()))
 			{
 				return;
 			}
@@ -2087,7 +2087,7 @@ namespace AAModClassic
                     Spwanposition[2] = new Vector2(Player.Center.X - Player.direction * Main.rand.NextFloat(25f, RandomX), Player.Center.Y - Main.rand.NextFloat(-RandomY,RandomY));
                     for (int i = 0; i < 3; i++)
                     {
-                        Projectile.NewProjectile(Player.GetSource_FromThis(), Spwanposition[i].X, Spwanposition[i].Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("AssassinArrow").Type, (int)(item.damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
+                        Projectile.NewProjectile(Player.GetSource_FromThis(), Spwanposition[i].X, Spwanposition[i].Y, velocity.X, velocity.Y, ModContent.ProjectileType<AssassinArrow>(), (int)(item.damage * 1.3), 2f, Player.whoAmI, 0f, 1f);
                         float round = 16f;
                         int k = 0;
                         while (k < round)
@@ -2095,7 +2095,7 @@ namespace AAModClassic
                             Vector2 vector12 = Vector2.UnitX * 0f;
                             vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
                             vector12 = vector12.RotatedBy(velocity.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, Mod.Find<ModDust>("AcidDust").Type, 0f, 0f, 0, default, 1f);
+                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<AcidDust>(), 0f, 0f, 0, default, 1f);
                             Main.dust[Dusti].scale = 1.5f;
                             Main.dust[Dusti].noGravity = true;
                             Main.dust[Dusti].position = Spwanposition[i] + vector12;
@@ -2638,7 +2638,7 @@ namespace AAModClassic
 
                         if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("AlphakipTerratool").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<AlphakipTerratool>());
                         }
 
                         spawnedDevItems = true;
@@ -2649,7 +2649,7 @@ namespace AAModClassic
 
                         if (dropType >= 1)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("MonochromeApple").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<MonochromeApple>());
                         }
 
                         if (dropType >= 3)
@@ -2671,14 +2671,14 @@ namespace AAModClassic
 
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("SoulSiphon").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SoulSiphon>());
                         }
                         break;
 
                     case 5:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("TailsHead").Type);
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("TailsBody").Type);
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("TailsLegs").Type);
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsHead>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsBody>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<TailsLegs>());
 
                         if (dropType >= 3)
                         {
@@ -2691,7 +2691,7 @@ namespace AAModClassic
                     case 6:
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("SkrallStaff").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<SkrallStaff>());
                             spawnedDevItems = true;
                         }
 
@@ -2703,7 +2703,7 @@ namespace AAModClassic
                         break;
 
                     case 8:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("FezLordsBag").Type);
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<FezLordsBag>());
 
                         if (dropType >= 3)
                         {
@@ -2776,7 +2776,7 @@ namespace AAModClassic
 
                         if (dropType >= 4)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("GroviteTerratool").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GroviteTerratool>());
                         }
 
                         spawnedDevItems = true;
@@ -2788,7 +2788,7 @@ namespace AAModClassic
 
                         if (dropType >= 2)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CCRuneBookPage").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CCRuneBookPage>());
                         }
 
                         spawnedDevItems = true;
@@ -2799,21 +2799,21 @@ namespace AAModClassic
 
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.Next(2) == 0 ? Mod.Find<ModItem>("Skullshot").Type : Mod.Find<ModItem>("GibsFemur").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Main.rand.Next(2) == 0 ? ModContent.ItemType<Skullshot>() : ModContent.ItemType<GibsFemur>());
                         }
 
                         spawnedDevItems = true;
                         break;
 
                     case 18:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("ApawnEgg").Type);
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ApawnEgg>());
                         spawnedDevItems = true;
                         break;
 
                     case 19:
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CursedHood").Type);
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CursedRobe").Type);
-                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("CursedPants").Type);
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedHood>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedRobe>());
+                        Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<CursedPants>());
 
                         if (dropType >= 3)
                         {
@@ -2840,7 +2840,7 @@ namespace AAModClassic
                             }
                             else
                             {
-                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("Placeholder").Type);
+                                Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Placeholder>());
                             }
                         }
 
@@ -2872,7 +2872,7 @@ namespace AAModClassic
                     case 24:
                         if (dropType >= 2)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("UmbralReaper").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<UmbralReaper>());
                         }
                         spawnedDevItems = true;
                         break;
@@ -2889,7 +2889,7 @@ namespace AAModClassic
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<Items.Vanity.Cerberus.InvokerBag>());
                         if (dropType >= 3)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("InvokerStaff").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<InvokerStaff>());
                         }
                         spawnedDevItems = true;
                         break;
@@ -2897,7 +2897,7 @@ namespace AAModClassic
                     case 27:
                         if (dropType >= 2)
                         {
-                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), Mod.Find<ModItem>("GameRaider").Type);
+                            Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<GameRaider>());
                         }
                         spawnedDevItems = true;
                         break;
@@ -3070,7 +3070,7 @@ namespace AAModClassic
                         {
                             Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                             shoot *= 8f;
-                            int id = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, shoot.X, shoot.Y, Mod.Find<ModProjectile>("AsheFire").Type, Player.inventory[Player.selectedItem].damage, 5, Main.myPlayer, 0f, 1f);
+                            int id = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AsheFire>(), Player.inventory[Player.selectedItem].damage, 5, Main.myPlayer, 0f, 1f);
                             Main.projectile[id].DamageType = DamageClass.Magic;
                             Main.projectile[id].hostile = false;
                             Main.projectile[id].friendly = true;
@@ -3122,7 +3122,7 @@ namespace AAModClassic
                     vector2.X = Main.mouseX + Main.screenPosition.X;
                     vector2.Y = Main.mouseY + Main.screenPosition.Y;
 
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DragonShot").Type, damage, knockback, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<DragonShot>(), damage, knockback, Main.myPlayer, 0f, 0f);
                 }
             }
 
@@ -3145,7 +3145,7 @@ namespace AAModClassic
             for (int i = 0; i < 58; i++)
             {
                 Item item = Player.inventory[i];
-                if (item.type == Mod.Find<ModItem>("ShinyCharm").Type)
+                if (item.type == ModContent.ItemType<ShinyCharm>())
                 {
                     if (Main.rand.Next(2048) == 0)
                     {
@@ -3500,7 +3500,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("ForsakenDust").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default, 1.5f);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<ForsakenDust>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default, 1.5f);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3517,7 +3517,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadB").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadB>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3532,7 +3532,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadR").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadR>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3547,7 +3547,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadG").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadG>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3562,7 +3562,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadY").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadY>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3577,7 +3577,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadP").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadP>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3592,7 +3592,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, Mod.Find<ModDust>("InfinityOverloadO").Type, Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadO>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3757,7 +3757,7 @@ namespace AAModClassic
             for (int n = 10; n < 18 + Player.extraAccessorySlots; n++)
             {
                 Item item = Player.armor[n];
-                if (item.type == Mod.Find<ModItem>("StripeManShirt").Type)
+                if (item.type == ModContent.ItemType<StripeManShirt>())
                 {
                     Player.accWatch = 3;
                     Player.accDepthMeter = 1;
@@ -3777,7 +3777,7 @@ namespace AAModClassic
                     onoHideVanity = false;
                     onoForceVanity = true;
                 }
-                if (item.type == Mod.Find<ModItem>("Equinox").Type)
+                if (item.type == ModContent.ItemType<Equinox>())
                 {
                     Player.hideWolf = false;
                     Player.forceWerewolf = true;
@@ -3852,11 +3852,11 @@ namespace AAModClassic
 
                 hasItems = true;
 
-                if (Main.chest[chestIndex].item[i].type == mod.Find<ModItem>("KeyOfSmite").Type)
+                if (Main.chest[chestIndex].item[i].type == ModContent.ItemType<KeyOfSmite>())
                 {
                     hasInfernoKey = true;
                 }
-                else if (Main.chest[chestIndex].item[i].type != mod.Find<ModItem>("KeyOfSpite").Type)
+                else if (Main.chest[chestIndex].item[i].type != ModContent.ItemType<KeyOfSpite>())
                 {
                     return;
                 }
@@ -3887,10 +3887,10 @@ namespace AAModClassic
             NetMessage.SendData(MessageID.ChestUpdates, -1, -1, null, 1, x, y, 0f, chestIndex);
             NetMessage.SendTileSquare(-1, x, y, 3);
 
-            int npcToSpawn = mod.Find<ModNPC>("MireMimic").Type;
+            int npcToSpawn = ModContent.NPCType<MireMimic>();
             if (hasInfernoKey)
             {
-                npcToSpawn = mod.Find<ModNPC>("InfernoMimic").Type;
+                npcToSpawn = ModContent.NPCType<InfernoMimic>();
             }
 
             int npcIndex = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 16, y * 16 + 32, npcToSpawn);
@@ -3950,91 +3950,91 @@ namespace AAModClassic
                 Vector2 position = drawInfo.Position;
                 int dyeHead = drawInfo.cHead;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DracoHelm").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoHelm>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomsdayHelmet").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterVisor").Type))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterVisor>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterHelm").Type))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelm>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterHelmet").Type))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterHeaddress").Type))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHeaddress>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHeaddress_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterMask").Type))
+                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumHat").Type))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHat>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHat_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumHelm").Type))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelm>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelm_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumHelmet").Type))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumHeadgear").Type))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHeadgear>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHeadgear_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumMask").Type))
+                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumMask_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("GripMaskRed").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GripMaskRed>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GripMaskRed_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DaybringerMask").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DaybringerMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DaybringerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("NightcrawlerMask").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<NightcrawlerMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/NightcrawlerMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                //else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RetrieverMask").Type))
+                //else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<RetrieverMask>()))
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RetrieverMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 //}
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ZeroMask").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ZeroMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ZeroMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                //else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TiedMask").Type))
+                //else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<TiedMask>()))
                 //{
                 //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TiedMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.FlashGlow, drawInfo.shadow), drawPlayer.bodyFrame);
                 //}
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ShroomHat").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomHat>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomHat_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DJDuckHead").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DJDuckHead>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckHead_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomiteVisor").Type) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteVisor>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosKabuto").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosKabuto>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4042,7 +4042,7 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosKabuto_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosMask").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosMask>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4050,7 +4050,7 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosHood").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosHood>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4058,7 +4058,7 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosVisor").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosVisor>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4066,23 +4066,23 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("BlazenHelmet").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("GibsSkull").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<GibsSkull>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/GibsSkull_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("CursedHood").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedHood>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("HoodlumHood").Type) && drawPlayer.statLife < (drawPlayer.statLifeMax2 / 2))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<HoodlumHood>()) && drawPlayer.statLife < (drawPlayer.statLifeMax2 / 2))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/HoodlumHood_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AthenaAMask").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<AthenaAMask>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AthenaAMask_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Flash, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4098,7 +4098,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TaiyangBaolei").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<TaiyangBaolei>()))
                 {
                     string texturePath = Main.dayTime ? "Glowmasks/TaiyangBaoleiA_Shield_Glow" : "Glowmasks/TaiyangBaolei_Shield_Glow";
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4117,27 +4117,27 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("SoulStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<SoulStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SoulStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("SpaceStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<SpaceStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/SpaceStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RealityStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<RealityStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/RealityStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("TimeStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<TimeStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/TimeStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PowerStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PowerStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PowerStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("MindStone").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<MindStone>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawPlayer, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/MindStone_Face_Glow").Value, drawInfo.cFace, drawPlayer, drawInfo.Position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.headFrame);
                 }
@@ -4154,7 +4154,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("Naitokurosu").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<Naitokurosu>()))
                 {
                     string texturePath = Main.dayTime ? "Glowmasks/Naitokurosu_Neck_Glow" : "Glowmasks/NaitokurosuA_Neck_Glow";
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4171,7 +4171,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DemonGauntlet").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DemonGauntlet>()))
                 {
                     Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DemonGauntlet_HandsOn_Glow").Value;
                     Color GlowColor = WorldGen.crimson ? AAColor.Ichor : AAColor.CursedInferno;
@@ -4190,7 +4190,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DemonGauntlet").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DemonGauntlet>()))
                 {
                     Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DemonGauntlet_HandsOff_Glow").Value;
                     Color GlowColor = WorldGen.crimson ? AAColor.Ichor : AAColor.CursedInferno;
@@ -4210,35 +4210,35 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DracoPlate").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomsdayChestplate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterBreastplate").Type))
+                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterBreastplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterBreastplate_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumPlatemail").Type))
+                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumPlatemail>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Body").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ShroomShirt").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomShirt>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DJDuckShirt").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DJDuckShirt>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DJDuckShirt_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomiteBreastplate").Type) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteBreastplate>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosPlate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosPlate>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4246,11 +4246,11 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_" + (drawPlayer.Male ? "Body" : "Female") + "_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("BlazenPlate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenPlate_" + (drawPlayer.Male ? "Body" : "Female")).Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("CursedRobe").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedRobe>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedRobe_Body_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4267,31 +4267,31 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DracoPlate").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoPlate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomsdayChestplate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayChestplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayChestplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterBreastplate").Type))
+                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterBreastplate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumPlatemail").Type))
+                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumPlatemail>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumPlatemail_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ShroomShirt").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomShirt>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomShirt_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomiteBreastplate").Type) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteBreastplate>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteBreastplate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("PerfectChaosPlate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<PerfectChaosPlate>()))
                 {
                     if (drawPlayer.direction == 1)
                     {
@@ -4299,11 +4299,11 @@ namespace AAModClassic
                     }
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/PerfectChaosPlate_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Shen3, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("BlazenPlate").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenPlate>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenPlate_Arms").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("CursedRobe").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedRobe>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedRobe_Arms_Glow").Value, drawInfo.cBody, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
@@ -4320,35 +4320,35 @@ namespace AAModClassic
                 Player drawPlayer = drawInfo.drawPlayer;
                 AAPlayer modPlayer = drawPlayer.GetModPlayer<AAPlayer>();
 
-                if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DracoLeggings").Type))
+                if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DracoLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DracoLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 2, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomsdayLeggings").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomsdayLeggings>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomsdayLeggings_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DarkmatterGreaves").Type))
+                else if (modPlayer.Darkmatter && !Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterGreaves>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("RadiumCuisses").Type))
+                else if (modPlayer.Radium && Main.dayTime && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumCuisses>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumCuisses_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("ShroomPants").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<ShroomPants>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ShroomPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("DoomiteGreaves").Type) && modPlayer.doomite)
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DoomiteGreaves>()) && modPlayer.doomite)
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DoomiteGreaves_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.ZeroShield, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("BlazenBoots").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<BlazenBoots>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/BlazenBoots_Legs").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.legFrame);
                 }
-                else if (HasAndCanDraw(drawPlayer, mod.Find<ModItem>("CursedPants").Type))
+                else if (HasAndCanDraw(drawPlayer, ModContent.ItemType<CursedPants>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/CursedPants_Legs_Glow").Value, drawInfo.cLegs, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.COLOR_WHITEFADE1, drawInfo.shadow), drawPlayer.legFrame);
                 }
@@ -4392,7 +4392,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateHood").Type))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateHood>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateHood_Head_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cHead, drawPlayer, drawPlayer.bodyFrame, drawPlayer.headRotation, drawPlayer.headPosition, drawInfo.headVect);
@@ -4412,7 +4412,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateCofferplate").Type))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateCofferplate>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/GroviteCofferplateBodyGlow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cBody, drawPlayer, drawPlayer.bodyFrame, drawPlayer.bodyRotation, drawPlayer.bodyPosition, drawInfo.bodyVect);
@@ -4432,7 +4432,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateBoots").Type))
+                if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateBoots>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateBoots_Legs_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cLegs, drawPlayer, drawPlayer.legFrame, drawPlayer.legRotation, drawPlayer.legPosition, drawInfo.legVect);
@@ -4452,7 +4452,7 @@ namespace AAModClassic
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
-                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateCofferplate").Type))
+                if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateCofferplate>()))
                 {
                     Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateCofferplate_Arms_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cBody, drawPlayer, drawPlayer.bodyFrame, drawPlayer.bodyRotation, drawPlayer.bodyPosition, drawInfo.bodyVect);
@@ -4475,7 +4475,7 @@ namespace AAModClassic
                 int accSlot = 0;
                 bool social = false;
 
-                if (drawInfo.shadow == 0 && !drawPlayer.mount.Active && HasAndCanDraw(drawPlayer, mod.Find<ModItem>("AngryPirateSails").Type, ref social, ref accSlot))
+                if (drawInfo.shadow == 0 && !drawPlayer.mount.Active && HasAndCanDraw(drawPlayer, ModContent.ItemType<AngryPirateSails>(), ref social, ref accSlot))
                 {
                     int dye = BaseDrawing.GetDye(drawPlayer, accSlot, social, true);
                     if (dye == -1)
@@ -4527,11 +4527,11 @@ namespace AAModClassic
                 if (cbuff > 0)
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost1").Value;
-                    if (drawPlayer.HasBuff(mod.Find<ModBuff>("CBoost2").Type))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost2>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost2").Value;
                     }
-                    if (drawPlayer.HasBuff(mod.Find<ModBuff>("CBoost3").Type))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost3>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost3").Value;
                     }

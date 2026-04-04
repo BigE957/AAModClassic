@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles
             {
                 if (target.life <= 0)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0, 0), Mod.Find<ModProjectile>("CursedFireball").Type, hit.Damage, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0, 0), ModContent.ProjectileType<CursedFireball>(), hit.Damage, 0);
                 }
             }
         }

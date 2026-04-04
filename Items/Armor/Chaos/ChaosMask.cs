@@ -38,7 +38,7 @@ Allows you to breath underwater"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("ChaosDou").Type && legs.type == Mod.Find<ModItem>("ChaosGreaves").Type;
+            return body.type == ModContent.ItemType<ChaosDou>() && legs.type == ModContent.ItemType<ChaosGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -46,7 +46,7 @@ Allows you to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosMaskBonus");
 			if (player.wet)
 			{
-				player.AddBuff(Mod.Find<ModBuff>("ChaosBuff").Type, 2);
+				player.AddBuff(ModContent.BuffType<ChaosBuff>(), 2);
             }
             player.accFlipper = true;
             player.ignoreWater = true;
@@ -55,7 +55,7 @@ Allows you to breath underwater"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("AtlanteanHelm").Type);
+			recipe.AddIngredient(ModContent.ItemType<AtlanteanHelm>());
 			recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

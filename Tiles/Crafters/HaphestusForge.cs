@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
-            DustType = Mod.Find<ModDust>("RazeleafDust").Type;
+            DustType = ModContent.DustType<RazeleafDust>();
             // name.SetDefault("Hephaestus Forge");
             AddMapEntry(new Color(200, 150, 0), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Crafters
               TileID.DemonAltar,
               TileID.Chairs,
               TileID.Anvils,
-              Mod.Find<ModTile>("HellstoneAnvil").Type
+              ModContent.TileType<HellstoneAnvil>()
               };
             AnimationFrameHeight = 38;
         }

@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.expertMode)
                     {
-                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, Mod.Find<ModItem>("AHBag").Type);
+                        Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
                     }
 
                     if (!Main.expertMode)
@@ -90,7 +90,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
                     if (Main.rand.Next(10) == 0)
                     {
-                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
+                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
                     }
 
                     NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>(), 0, 0, 4);

@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RoyalBunnyCage").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<RoyalBunnyCage>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

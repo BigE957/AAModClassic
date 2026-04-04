@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.Anubis
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("TheEye").Type;
+            Item.shoot = ModContent.ProjectileType<TheEye>();
             Item.damage = 65;
             Item.width = 50;
             Item.height = 50;

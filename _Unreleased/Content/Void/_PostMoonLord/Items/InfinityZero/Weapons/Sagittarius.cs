@@ -6,10 +6,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
     public class Sagittarius : ModItem
 	{
@@ -35,7 +34,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
             Item.knockBack = 2f;
             Item.UseSound = SoundID.Item116;
             Item.value = Item.buyPrice(1, 0, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("Sagittarius").Type;
+            Item.shoot = ModContent.ProjectileType<Sagittarius>();
             Item.shootSpeed = 22f;
 		}
 
@@ -87,13 +86,13 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
             float ai3Y = (Main.rand.NextFloat() - 0.25f) * 0.7853982f; //0.5
             float ai3Z = (Main.rand.NextFloat() - 0.12f) * 0.7853982f;
             float spread = 45f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 4; i++)
             {
-                offsetAngle = startAngle + (deltaAngle * i);
+                offsetAngle = startAngle + deltaAngle * i;
                 Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, player.whoAmI, 0.0f, ai3);
 
             }

@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Akuma
         public override void SetDefaults()
         {
 
-            Item.shoot = Mod.Find<ModProjectile>("MorningGlory").Type;
+            Item.shoot = ModContent.ProjectileType<MorningGlory>();
             Item.shootSpeed = 24f;
             Item.damage = 197;
             Item.knockBack = 4f;

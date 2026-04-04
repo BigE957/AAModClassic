@@ -538,21 +538,21 @@ namespace AAModClassic.NPCs.Bosses.Djinn
             Sandstorm.TimeLeft = 0;
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DjinnTrophy>());
             }
             if (!Main.expertMode)
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DjinnMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DjinnMask>());
                 }
-                NPC.DropLoot(Mod.Find<ModItem>("DesertMana").Type, 10, 15);
+                NPC.DropLoot(ModContent.ItemType<DesertMana>(), 10, 15);
                 string[] lootTable = { "Djinnerang", "SandLamp", "SandScepter", "SandstormCrossbow", "SultanScimitar" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Items.Vanity.Mask.DjinnMask.type, 1f / 7);
                 if (Main.rand.Next(6) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("Sandagger").Type, 90, 120);
+                    NPC.DropLoot(ModContent.ItemType<Sandagger>(), 90, 120);
                 }
                 else
                 {

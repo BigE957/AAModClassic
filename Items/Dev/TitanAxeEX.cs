@@ -30,7 +30,7 @@ Titan Axe EX"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
+            Item.shoot = ModContent.ProjectileType<Surasshu>();
             Item.shootSpeed = 15f;
             Item.expert = true; Item.expertOnly = true;
             Item.UseSound = SoundID.Item1;
@@ -49,21 +49,21 @@ Titan Axe EX"); */
                 Item.damage = 300;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.DamageType = DamageClass.Throwing;
-                Item.shoot = Mod.Find<ModProjectile>("TitanAxeEX").Type;
+                Item.shoot = ModContent.ProjectileType<TitanAxeEX>();
             }
             else
             {
                 Item.damage = 450;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-                Item.shoot = Mod.Find<ModProjectile>("TitanEX").Type;
+                Item.shoot = ModContent.ProjectileType<TitanEX>();
             }
             return base.CanUseItem(player);
         }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
             target.AddBuff(BuffID.Daybreak, 600);
         }
 

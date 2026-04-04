@@ -40,12 +40,12 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse != 2)
             {
-                Item.shoot = Mod.Find<ModProjectile>("IcemeltFlask").Type;
+                Item.shoot = ModContent.ProjectileType<IcemeltFlask>();
                 Item.shootSpeed = 9f;
             }
             else
             {
-                Item.shoot = Mod.Find<ModProjectile>("Snowmelt").Type;
+                Item.shoot = ModContent.ProjectileType<Snowmelt>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

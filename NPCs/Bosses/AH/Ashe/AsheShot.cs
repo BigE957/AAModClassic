@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void AI()
         {
-            if(Main.npc[(int)Projectile.ai[0]].type == Mod.Find<ModNPC>("AsheRune").Type)
+            if(Main.npc[(int)Projectile.ai[0]].type == ModContent.NPCType<AsheRune>())
             {
                 if(Projectile.ai[1] ++ < 30)
                 {

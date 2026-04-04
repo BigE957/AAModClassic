@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.value = Item.sellPrice(0, 0, 1, 0);
 			Item.rare = ItemRarityID.Pink;
 			Item.consumable = true;
-			Item.shoot = Mod.Find<ModProjectile>("Energy_Cell_Pro").Type;
+			Item.shoot = ModContent.ProjectileType<Energy_Cell_Pro>();
 			Item.ammo = Item.type;
 			
 		}

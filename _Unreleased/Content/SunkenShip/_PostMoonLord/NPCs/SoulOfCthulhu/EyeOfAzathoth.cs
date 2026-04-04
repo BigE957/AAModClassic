@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,9 +8,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
-    public class EoA : ModNPC
+    public class EyeOfAzathoth : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -59,8 +58,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             int num1197 = 0;
             while (num1196 < 10)
             {
-                num1194 = (float)NPC.MoonLordAttacksArray2[1, num1196];
-                if (num1194 + (float)num1197 > NPC.ai[1])
+                num1194 = NPC.MoonLordAttacksArray2[1, num1196];
+                if (num1194 + num1197 > NPC.ai[1])
                 {
                     break;
                 }
@@ -71,11 +70,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             {
                 num1196 = 0;
                 NPC.ai[1] = 0f;
-                num1194 = (float)NPC.MoonLordAttacksArray2[1, num1196];
+                num1194 = NPC.MoonLordAttacksArray2[1, num1196];
                 num1197 = 0;
             }
-            NPC.ai[0] = (float)NPC.MoonLordAttacksArray2[0, num1196];
-            float num1198 = (float)((int)NPC.ai[1] - num1197);
+            NPC.ai[0] = NPC.MoonLordAttacksArray2[0, num1196];
+            float num1198 = (int)NPC.ai[1] - num1197;
             if (NPC.ai[0] != num1195)
             {
                 NPC.netUpdate = true;
@@ -136,12 +135,12 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 Vector2 vector187 = value33 - Vector2.UnitY * 200f;
                 vector187 = Vector2.Normalize(vector187) * scaleFactor9;
                 int num1199 = 30;
-                NPC.velocity.X = (NPC.velocity.X * (float)(num1199 - 1) + vector187.X) / (float)num1199;
-                NPC.velocity.Y = (NPC.velocity.Y * (float)(num1199 - 1) + vector187.Y) / (float)num1199;
+                NPC.velocity.X = (NPC.velocity.X * (num1199 - 1) + vector187.X) / num1199;
+                NPC.velocity.Y = (NPC.velocity.Y * (num1199 - 1) + vector187.Y) / num1199;
                 float num1200 = 0.25f;
                 for (int num1201 = 0; num1201 < 200; num1201++)
                 {
-                    if (num1201 != NPC.whoAmI && Main.npc[num1201].active && Main.npc[num1201].type == ModContent.NPCType<EoA>() && Vector2.Distance(NPC.Center, Main.npc[num1201].Center) < 150f)
+                    if (num1201 != NPC.whoAmI && Main.npc[num1201].active && Main.npc[num1201].type == ModContent.NPCType<EyeOfAzathoth>() && Vector2.Distance(NPC.Center, Main.npc[num1201].Center) < 150f)
                     {
                         if (NPC.position.X < Main.npc[num1201].position.X)
                         {
@@ -198,7 +197,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     Vector2 vector188 = Utils.Vector2FromElipse(NPC.localAI[0].ToRotationVector2(), value31 * NPC.localAI[1]);
                     Vector2 vector189 = Vector2.Normalize(v9) * 8f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector188.X, NPC.Center.Y + vector188.Y, vector189.X, vector189.Y, 462, 35, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector188.X, NPC.Center.Y + vector188.Y, vector189.X, vector189.Y, ProjectileID.PhantasmalBolt, 35, 0f, Main.myPlayer, 0f, 0f);
                     return;
                 }
             }
@@ -252,15 +251,15 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             break;
                     }
                     Vector2 spinningpoint8 = Vector2.UnitY * -30f;
-                    Vector2 value34 = spinningpoint8.RotatedBy((double)((float)num1203 * 6.28318548f / 6f), default(Vector2));
-                    Vector2 value35 = spinningpoint8.RotatedBy((double)((float)num1204 * 6.28318548f / 6f), default(Vector2));
-                    Vector2 vector190 = Vector2.Lerp(value34, value35, num1202 - (float)((int)num1202));
+                    Vector2 value34 = spinningpoint8.RotatedBy((double)(num1203 * 6.28318548f / 6f), default);
+                    Vector2 value35 = spinningpoint8.RotatedBy((double)(num1204 * 6.28318548f / 6f), default);
+                    Vector2 vector190 = Vector2.Lerp(value34, value35, num1202 - (int)num1202);
                     float value36 = vector190.Length() / 30f;
                     NPC.localAI[0] = vector190.ToRotation();
                     NPC.localAI[1] = MathHelper.Lerp(NPC.localAI[1], value36, 0.5f);
                     for (int num1205 = 0; num1205 < 2; num1205++)
                     {
-                        int num1206 = Dust.NewDust(NPC.Center + vector190 - Vector2.One * 4f, 0, 0, 229, 0f, 0f, 0, default(Color), 1f);
+                        int num1206 = Dust.NewDust(NPC.Center + vector190 - Vector2.One * 4f, 0, 0, 229, 0f, 0f, 0, default, 1f);
                         Main.dust[num1206].velocity += vector190 / 15f;
                         Main.dust[num1206].noGravity = true;
                     }
@@ -272,7 +271,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             vec4 = Vector2.UnitY * -1f;
                         }
                         vec4 *= 4f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector190.X, NPC.Center.Y + vector190.Y, vec4.X, vec4.Y, 454, 55, 0f, Main.myPlayer, 30f, (float)NPC.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector190.X, NPC.Center.Y + vector190.Y, vec4.X, vec4.Y, 454, 55, 0f, Main.myPlayer, 30f, NPC.whoAmI);
                         return;
                     }
                 }
@@ -290,7 +289,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             for (int num1207 = 0; num1207 < 1000; num1207++)
                             {
                                 Projectile projectile7 = Main.projectile[num1207];
-                                if (projectile7.active && projectile7.type == 454 && projectile7.ai[1] == (float)NPC.whoAmI && projectile7.ai[0] != -1f)
+                                if (projectile7.active && projectile7.type == 454 && projectile7.ai[1] == NPC.whoAmI && projectile7.ai[0] != -1f)
                                 {
                                     projectile7.velocity += NPC.velocity;
                                     projectile7.netUpdate = true;
@@ -314,7 +313,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         for (int num1208 = 0; num1208 < 1000; num1208++)
                         {
                             Projectile projectile8 = Main.projectile[num1208];
-                            if (projectile8.active && projectile8.type == 454 && projectile8.ai[1] == (float)NPC.whoAmI && projectile8.ai[0] != -1f)
+                            if (projectile8.active && projectile8.type == 454 && projectile8.ai[1] == NPC.whoAmI && projectile8.ai[0] != -1f)
                             {
                                 projectile8.ai[0] = -1f;
                                 projectile8.velocity = velocity8;
@@ -371,7 +370,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                     }
                     if (num1198 == 45f)
                     {
-                        NPC.ai[2] = (float)(Main.rand.Next(2) == 0).ToDirectionInt() * 6.28318548f / 40f;
+                        NPC.ai[2] = (Main.rand.Next(2) == 0).ToDirectionInt() * 6.28318548f / 40f;
                         NPC.netUpdate = true;
                     }
                     if ((num1198 - 15f - 30f) % 40f == 0f)
@@ -436,8 +435,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                                 num1212 = 1.65f;
                             }
                             Vector2 vector194 = center25 + ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * value31 / 2f;
-                            int num1213 = Dust.NewDust(vector194 - Vector2.One * 8f, 16, 16, num1211, NPC.velocity.X / 2f, NPC.velocity.Y / 2f, 0, default(Color), 1f);
-                            Main.dust[num1213].velocity = Vector2.Normalize(center25 - vector194) * 3.5f * (10f - (float)num1209 * 2f) / 10f;
+                            int num1213 = Dust.NewDust(vector194 - Vector2.One * 8f, 16, 16, num1211, NPC.velocity.X / 2f, NPC.velocity.Y / 2f, 0, default, 1f);
+                            Main.dust[num1213].velocity = Vector2.Normalize(center25 - vector194) * 3.5f * (10f - num1209 * 2f) / 10f;
                             Main.dust[num1213].noGravity = true;
                             Main.dust[num1213].scale = num1212;
                             Main.dust[num1213].customData = this;
@@ -459,8 +458,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             {
                                 num1214 = 1f;
                             }
-                            vector195 = vector195.RotatedBy((double)(-(double)num1214 * 6.28318548f / 6f), default(Vector2));
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector195.X, vector195.Y, 455, 50, 0f, Main.myPlayer, num1214 * 6.28318548f / 540f, (float)NPC.whoAmI);
+                            vector195 = vector195.RotatedBy((double)(-(double)num1214 * 6.28318548f / 6f), default);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector195.X, vector195.Y, 455, 50, 0f, Main.myPlayer, num1214 * 6.28318548f / 540f, NPC.whoAmI);
                             NPC.ai[2] = (vector195.ToRotation() + 9.424778f) * num1214;
                             NPC.netUpdate = true;
                         }
@@ -469,7 +468,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         {
                             NPC.localAI[1] = 1f;
                         }
-                        float num1215 = (float)(NPC.ai[2] >= 0f).ToDirectionInt();
+                        float num1215 = (NPC.ai[2] >= 0f).ToDirectionInt();
                         float num1216 = NPC.ai[2];
                         if (num1216 < 0f)
                         {
@@ -496,11 +495,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             for (int num468 = 0; num468 < 3; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color), 2f);
+                    -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
                 num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color));
+                    -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }

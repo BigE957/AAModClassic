@@ -14,7 +14,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 
 		public override void SetDefaults()
 		{
-			Item.shoot = Mod.Find<ModProjectile>("DragonfireDart").Type;
+			Item.shoot = ModContent.ProjectileType<DragonfireDart>();
 			Item.width = 8;
 			Item.height = 8;
 			Item.maxStack = 9999;
@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Ranged.Ammo
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(100);
-			recipe.AddIngredient(Mod.Find<ModItem>("DragonFire").Type, 1);
+			recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 1);
 			recipe.Register();
 		}
 	}

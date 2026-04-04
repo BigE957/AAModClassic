@@ -51,7 +51,7 @@ Shines with the light of a starry night sky"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("RadiumPlatemail").Type && legs.type == Mod.Find<ModItem>("RadiumCuisses").Type;
+            return body.type == ModContent.ItemType<RadiumPlatemail>() && legs.type == ModContent.ItemType<RadiumCuisses>();
         }
 
 		public override void UpdateArmorSet(Player player)
@@ -66,7 +66,7 @@ Shines with the light of a starry night sky"); */
                 double angle = Main.rand.NextDouble() * 2d * Math.PI;
                 offset.X += (float)(Math.Sin(angle) * 300);
                 offset.Y += (float)(Math.Cos(angle) * 300);
-                Dust dust = Main.dust[Dust.NewDust(player.Center + offset - new Vector2(4, 4), 0, 0,  Mod.Find<ModDust>("RadiumDust").Type, 0, 0, 100, default, 1f)];
+                Dust dust = Main.dust[Dust.NewDust(player.Center + offset - new Vector2(4, 4), 0, 0,  ModContent.DustType<RadiumDust>(), 0, 0, 100, default, 1f)];
                 dust.velocity = player.velocity;
                 dust.noGravity = true;
             }

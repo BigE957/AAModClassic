@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<TerraWeaverBanner>();
         }
         public override bool PreAI()
         {
@@ -44,7 +44,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -64,12 +64,12 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                     int WormLength = 9;
                     for (int i = 0; i < WormLength; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Minion4Body").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Minion4Body>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                     }
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Minion4Tail").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Minion4Tail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -237,7 +237,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<TerraWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -297,7 +297,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -363,7 +363,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<TerraWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -397,7 +397,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

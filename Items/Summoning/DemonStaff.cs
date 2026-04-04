@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = Mod.Find<ModProjectile>("DemonMinion").Type;
+            Item.shoot = ModContent.ProjectileType<DemonMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = Mod.Find<ModBuff>("DemonMinion").Type;
+            Item.buffType = ModContent.BuffType<DemonMinion>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
@@ -75,7 +75,7 @@ namespace AAModClassic.Items.Summoning
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("DemonMinion").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<DemonMinion>(), num73, num74, i, 0f, 0f);
             return false;
         }
 

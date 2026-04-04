@@ -1,14 +1,13 @@
 using System;
-using AAModClassic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class Anchor : ModProjectile
+    public class RealityAnchor_Proj : ModProjectile
     {
 		public override void SetStaticDefaults()
 		{
@@ -72,9 +71,9 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
                 Projectile.tileCollide = false;
                 float num41 = 16f;
                 float num42 = 4f;
-                Vector2 vector2 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
-                float num43 = Main.player[Projectile.owner].position.X + (float)(Main.player[Projectile.owner].width / 2) - vector2.X;
-                float num44 = Main.player[Projectile.owner].position.Y + (float)(Main.player[Projectile.owner].height / 2) - vector2.Y;
+                Vector2 vector2 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+                float num43 = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - vector2.X;
+                float num44 = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - vector2.Y;
                 float num45 = (float)Math.Sqrt((double)(num43 * num43 + num44 * num44));
                 if (num45 > 3000f)
                 {
@@ -139,12 +138,12 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 Vector2 velocity = Projectile.velocity;
                 velocity.Normalize();
-                Projectile.rotation = (float)Math.Atan2((double)velocity.Y, (double)velocity.X) + 1.57f;
+                Projectile.rotation = (float)Math.Atan2(velocity.Y, velocity.X) + 1.57f;
                 return;
             }
             Vector2 vector4 = Projectile.Center - Main.player[Projectile.owner].Center;
             vector4.Normalize();
-            Projectile.rotation = (float)Math.Atan2((double)vector4.Y, (double)vector4.X) + 1.57f;
+            Projectile.rotation = (float)Math.Atan2(vector4.Y, vector4.X) + 1.57f;
             return;
         }
 
@@ -167,7 +166,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 30, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("RealityBurstHuge").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 30, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstHuge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -175,7 +174,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("RealityBurstLarge").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstLarge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -183,7 +182,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 10, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("RealityBurstMed").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 10, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstMed>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -191,7 +190,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 5, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("RealityBurstSmall").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 5, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstSmall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }

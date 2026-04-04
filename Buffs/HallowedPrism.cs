@@ -16,7 +16,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("HallowedPrism").Type] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<HallowedPrism>()] > 0)
 			{
 				modPlayer.HallowedPrism = true;
 			}

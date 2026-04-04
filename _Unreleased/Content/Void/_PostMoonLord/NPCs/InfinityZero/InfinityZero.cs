@@ -2,7 +2,6 @@
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,11 +9,12 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
 	[AutoloadBossHead]
-	public class Infinity : ModNPC
+	public class InfinityZero : ModNPC
 	{
         public NPC Zero1;
         public NPC Zero2;
@@ -25,7 +25,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
         public NPC Core;
         public bool ZerosSpawned = false;
         public bool Reseting = false;
-        public Vector2 topVisualOffset = default(Vector2);
+        public Vector2 topVisualOffset = default;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
@@ -57,7 +57,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/Sounds/IZRoar");
             NPC.scale *= 1.4f;
             //TODOIZ
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("IZCache").Type;
+            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<IZCache>();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -70,7 +70,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if ((Main.netMode == 2 || Main.dedServ))
+            if (Main.netMode == 2 || Main.dedServ)
             {
                 writer.Write((short)customAI[0]);
                 writer.Write((short)customAI[1]);
@@ -106,7 +106,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             if (StormTimer >= 750)
             {
                 StormTimer = 0;
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, Mod.Find<ModProjectile>("InfinityStorm").Type, NPC.damage, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityStorm>(), NPC.damage, 0, Main.myPlayer);
             }
 
             if (Main.netMode != 2)
@@ -176,7 +176,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     {
                         NPC.alpha = 0;
                     }
-                    movementMax = MathHelper.Lerp(1f, 4f, Math.Min(1f, Math.Max(0f, (Vector2.Distance(NPC.Center, targetPlayer.Center) / 1000f))));
+                    movementMax = MathHelper.Lerp(1f, 4f, Math.Min(1f, Math.Max(0f, Vector2.Distance(NPC.Center, targetPlayer.Center) / 1000f)));
 				}
                 if (targetPlayer.dead) //speed changes depending on how far the player is
                 {
@@ -195,37 +195,37 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                 {
                     int latestNPC = NPC.whoAmI;
 					int handType = 0;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand1").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero1 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand1").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero2 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand1").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero3 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand2").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero4 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand2").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero5 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("IZHand2").Type, 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
                     Zero6 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, Mod.Find<ModNPC>("InfinityCore").Type, 0, NPC.whoAmI);
-                    Main.npc[(int)latestNPC].realLife = NPC.whoAmI;
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityCore>(), 0, NPC.whoAmI);
+                    Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
                     Core = Main.npc[latestNPC];
                 }
@@ -263,7 +263,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             }
             else
             {
-                NPC.DropLoot(Mod.Find<ModItem>("Infinitium").Type, 25, 35);
+                NPC.DropLoot(ModContent.ItemType<Infinitium>(), 25, 35);
                 string[] lootTable =
                 {
                     "Genocide",
@@ -294,7 +294,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
         public override void BossLoot(ref string name, ref int potionType)
 		{
-			potionType = Mod.Find<ModItem>("GrandHealingPotion").Type;
+			potionType = ModContent.ItemType<GrandHealingPotion>();
         }
 		
 		private void ModifyHit(ref int damage)
@@ -328,7 +328,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
-            if (NPC.life <= ((NPC.lifeMax / 4) * 3) && threeQuarterHealth == false)
+            if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
                 if (Main.netMode != 1) BaseUtility.Chat("WARNING. Systems have reached 75% efficiency.", new Color(158, 3, 32));
                 threeQuarterHealth = true;
@@ -374,7 +374,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     OpenCore = false;
                     CoreTimer = 600;
                     IZHand1.RepairMode = false;
-                    IZHand2.RepairMode = false;
+                    IZHand1.RepairMode = false;
                 }
 
             }
@@ -384,7 +384,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             }
 			if (NPC.life <= 0)
 			{
-				float randomSpread = (Main.rand.Next(-50, 50) / 100);
+				float randomSpread = Main.rand.Next(-50, 50) / 100;
                 //TODOIZ
                 /*
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore1").Type, 1.4f);
@@ -393,15 +393,15 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore4").Type, 1.4f);
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore5").Type, 1.4f);
 				*/
-                NPC.position.X = NPC.position.X + (NPC.width / 2);
-				NPC.position.Y = NPC.position.Y + (NPC.height / 2);
+                NPC.position.X = NPC.position.X + NPC.width / 2;
+				NPC.position.Y = NPC.position.Y + NPC.height / 2;
 				NPC.width = 400;
 				NPC.height = 350;
 				NPC.position.X = NPC.position.X - NPC.width / 2;
 				NPC.position.Y = NPC.position.Y - NPC.height / 2;
 				for (int num621 = 0; num621 < 60; num621++)
 				{
-					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default(Color), 2f);
+					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 2f);
 					Main.dust[num622].velocity *= 3f;
 					if (Main.rand.Next(2) == 0)
 					{
@@ -411,10 +411,10 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 				}
 				for (int num623 = 0; num623 < 90; num623++)
 				{
-					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default(Color), 3f);
+					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
 					Main.dust[num624].noGravity = true;
 					Main.dust[num624].velocity *= 5f;
-					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 244, 0f, 0f, 100, default(Color), 2f);
+					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 244, 0f, 0f, 100, default, 2f);
 					Main.dust[num624].velocity *= 2f;
 				}
 			}
@@ -492,7 +492,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             }
 
 
-            string ZeroTex = ("_Unreleased/NPCs/Bosses/Infinity/IZHand1");
+            string ZeroTex = "_Unreleased/NPCs/Bosses/Infinity/IZHand1";
 
             //bottom arms
             DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero6, drawColor);
@@ -513,7 +513,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is IZHand1 || Zero.ModNPC is IZHand2))
             {
 				IZHand1 handNPC = (IZHand1)Zero.ModNPC;
-                string ArmTex = ("_Unreleased/NPCs/Bosses/Infinity/IZArm");
+                string ArmTex = "_Unreleased/NPCs/Bosses/Infinity/IZArm";
                 Texture2D ArmTex2D = Mod.GetTexture(ArmTex);
 				Texture2D zeroTex = Mod.GetTexture(zeroTexture);
                 Texture2D glowTex = Mod.GetTexture(glowMaskTexture);				

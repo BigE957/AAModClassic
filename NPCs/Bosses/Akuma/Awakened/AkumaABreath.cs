@@ -84,7 +84,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
         }
     }
 }

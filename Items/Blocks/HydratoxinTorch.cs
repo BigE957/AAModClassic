@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("HydratoxinTorch").Type;
+			Item.createTile = ModContent.TileType<HydratoxinTorch>();
 			Item.flame = true;
             Item.rare = ItemRarityID.Orange;
             Item.value = Item.sellPrice(0, 0, 1, 0);

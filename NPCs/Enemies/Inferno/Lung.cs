@@ -52,7 +52,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("LungBanner").Type;
+			BannerItem = ModContent.ItemType<LungBanner>();
         }
         public override bool PreAI()
         {
@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             float acceleration = 0.09f;
             
             
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaADust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -94,13 +94,13 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
                     for (int i = 0; i < 9; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(),(int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(),(int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<LungBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         
                     }
                     
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("LungTail").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<LungTail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -339,7 +339,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("LungBanner").Type;
+			BannerItem = ModContent.ItemType<LungBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -360,10 +360,10 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaDust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Lung").Type)
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Lung>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);
@@ -437,7 +437,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("LungBanner").Type;
+			BannerItem = ModContent.ItemType<LungBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -463,10 +463,10 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaDust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Lung").Type)
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Lung>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);

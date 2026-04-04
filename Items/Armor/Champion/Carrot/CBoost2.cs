@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Armor.Champion.Carrot
             if (player.buffTime[buffIndex] == 2)
             {
                 mplayer.CarrotBuff--;
-                player.buffType[buffIndex] = Mod.Find<ModBuff>("CBoost1").Type;
+                player.buffType[buffIndex] = ModContent.BuffType<CBoost1>();
                 player.buffTime[buffIndex] = 480;
             }
         }

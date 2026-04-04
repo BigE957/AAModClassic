@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Dev
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("AmphibiousProjectileEX").Type;
+			Item.shoot = ModContent.ProjectileType<AmphibiousProjectileEX>();
             Item.shootSpeed = 18f;
             Item.expert = true; Item.expertOnly = true;
 		}

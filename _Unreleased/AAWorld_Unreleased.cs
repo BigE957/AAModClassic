@@ -1,9 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Items.BossSummons;
-using AAModClassic._Unreleased.Tiles;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
-using AAModClassic._Unreleased.World;
 using AAModClassic.Tiles;
 using AAModClassic.Tiles.Keep;
 using AAModClassic.World;
@@ -22,6 +17,13 @@ using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
+using AAModClassic._Unreleased.Content.Parthenan.World;
+using AAModClassic._Unreleased.Content.SunkenShip.World;
+using AAModClassic._Removed;
+using AAModClassic._Removed.Content.Parthenan.Tiles;
+using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 
 namespace AAModClassic._Unreleased
 {

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Banners
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 1000;
-			Item.createTile = Mod.Find<ModTile>("Banners").Type;
+			Item.createTile = ModContent.TileType<Banners>();
 			Item.placeStyle = 69;        //Place style means which frame(Horizontally, starting from 0) of the tile should be placed
 		}
 	}

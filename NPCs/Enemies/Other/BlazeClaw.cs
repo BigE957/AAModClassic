@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("BlazeClawBanner").Type;
+			BannerItem = ModContent.ItemType<BlazeClawBanner>();
         }
 
         public override void AI()
@@ -90,7 +90,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DaybreakIncineriteOre").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DaybreakIncineriteOre>());
         }
     }
 }

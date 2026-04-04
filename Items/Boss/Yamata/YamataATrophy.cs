@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Yamata
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
             Item.expert = true; Item.expertOnly = true;
-			Item.createTile = Mod.Find<ModTile>("YamataATrophy").Type;
+			Item.createTile = ModContent.TileType<YamataATrophy>();
 		}
 	}
 }

@@ -188,24 +188,24 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             {
                 if (!AAWorld.downedYamata)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadRune").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<DreadRune>());
                 }
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataATrophy").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<YamataATrophy>());
                 }
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("YamataAMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<YamataAMask>());
                 }
 
-                BaseAI.DropItem(NPC, Mod.Find<ModItem>("YamataATrophy").Type, 1, 1, 15, true);
+                BaseAI.DropItem(NPC, ModContent.ItemType<YamataATrophy>(), 1, 1, 15, true);
                 
-                NPC.DropLoot(Mod.Find<ModItem>("YamataBag").Type);
+                NPC.DropLoot(ModContent.ItemType<YamataBag>());
                 AAWorld.downedYamata = true;
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
                 }
             }
         }
@@ -246,36 +246,36 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     const int headX = 300;
                     const int headY = -500;
 
-                    TrueHead = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHead").Type, 0)];
+                    TrueHead = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHead>(), 0)];
                     TrueHead.ai[0] = NPC.whoAmI;
                     TrueHead.ai[1] = 0;
                     TrueHead.ai[2] = headY;
-                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head2.ai[0] = NPC.whoAmI;
                     Head2.ai[1] = headX * -3f;
                     Head2.ai[2] = headY * 0.7f;
                     Head2.ai[3] = 3f;
-                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head3.ai[0] = NPC.whoAmI;
                     Head3.ai[1] = headX * -2f;
                     Head3.ai[2] = headY * 0.8f;
                     Head3.ai[3] = 2f;
-                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head4.ai[0] = NPC.whoAmI;
                     Head4.ai[1] = headX * -1f;
                     Head4.ai[2] = headY * 0.9f;
                     Head4.ai[3] = 1f;
-                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head5.ai[0] = NPC.whoAmI;
                     Head5.ai[1] = headX * 1f;
                     Head5.ai[2] = headY * 0.9f;
                     Head5.ai[3] = 1f;
-                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head6.ai[0] = NPC.whoAmI;
                     Head6.ai[1] = headX * 2f;
                     Head6.ai[2] = headY * 0.8f;
                     Head6.ai[3] = 2f;
-                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("YamataAHeadF").Type, 0)];
+                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
                     Head7.ai[0] = NPC.whoAmI;
                     Head7.ai[1] = headX * 3f;
                     Head7.ai[2] = headY * 0.7f;
@@ -303,37 +303,37 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                             NPC npc2 = Main.npc[npcID];
                             if (npc2 != null)
                             {
-                                if (TrueHead == null && npc2.type == Mod.Find<ModNPC>("YamataAHead").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (TrueHead == null && npc2.type == ModContent.NPCType<YamataAHead>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     TrueHead = npc2;
                                 }
                                 else
-                                if (Head2 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head2 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head2 = npc2;
                                 }
                                 else
-                                if (Head3 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head3 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head3 = npc2;
                                 }
                                 else
-                                if (Head4 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head4 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head4 = npc2;
                                 }
                                 else
-                                if (Head5 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head5 = npc2;
                                 }
                                 else
-                                if (Head6 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head6 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head6 = npc2;
                                 }
                                 else
-                                if (Head7 == null && npc2.type == Mod.Find<ModNPC>("YamataAHeadF").Type && npc2.ai[0] == NPC.whoAmI)
+                                if (Head7 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head7 = npc2;
                                 }

@@ -104,15 +104,15 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 			{
 				if(!HeadsSpawned)
 				{
-                    headindex[0] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead1").Type, 0);
+                    headindex[0] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead1>(), 0);
 					Head1 = Main.npc[headindex[0]];
 					Head1.ai[0] = NPC.whoAmI;
 
-                    headindex[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead2").Type, 0);
+                    headindex[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead2>(), 0);
 					Head2 = Main.npc[headindex[1]];
 					Head2.ai[0] = NPC.whoAmI;
 
-                    headindex[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("HydraHead3").Type, 0);
+                    headindex[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead3>(), 0);
 					Head3 = Main.npc[headindex[2]];
 					Head3.ai[0] = NPC.whoAmI;					
 

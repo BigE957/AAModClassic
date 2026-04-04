@@ -89,7 +89,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 }
                 else if (NPC.ai[0] >= 610)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("GreedA").Type, true, NPC.Center, Lang.BossChat("GreedAName"), false);
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedA>(), true, NPC.Center, Lang.BossChat("GreedAName"), false);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -132,7 +132,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type))
+            if (!NPC.AnyNPCs(ModContent.NPCType<GreedA>()))
             {
                 return false;
             }

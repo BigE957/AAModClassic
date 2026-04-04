@@ -29,7 +29,7 @@ namespace AAModClassic.Buffs
                 if (
                     Main.projectile[i].active && Main.projectile[i].GetGlobalProjectile<ImplaingProjectile>().CanImpale && 
                     ((Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == npc.whoAmI) || 
-                    (Main.projectile[i].type == Mod.Find<ModProjectile>("OreChunk").Type && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI))
+                    (Main.projectile[i].type == ModContent.ProjectileType<OreChunk>() && Main.projectile[i].ai[0] == 1f && Main.projectile[i].ai[1] == ItemID.TungstenOre && Main.projectile[i].localAI[1] == npc.whoAmI))
                 )
                 {
 

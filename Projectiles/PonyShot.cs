@@ -96,7 +96,7 @@ namespace AAModClassic.Projectiles
             if (!NoScythes)
             {
                 SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("PonyBoom").Type, Projectile.damage, 0, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<PonyBoom>(), Projectile.damage, 0, Projectile.owner, 0f, 0f);
             }
         }
     }

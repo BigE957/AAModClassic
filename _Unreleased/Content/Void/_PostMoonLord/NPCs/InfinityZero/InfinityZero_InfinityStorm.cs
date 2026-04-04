@@ -1,7 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,10 +9,11 @@ using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class InfinityStorm : ModProjectile
+    public class InfinityZero_InfinityStorm : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
@@ -85,9 +85,9 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                 for (int num842 = 0; num842 < num838; num842++)
                 {
                     Vector2 vector82 = array5[num842] - Projectile.Center;
-                    float ai = (float)Main.rand.Next(100);
+                    float ai = Main.rand.Next(100);
                     Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 7f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<InfinityBolt>(), Projectile.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<InfinityZero_InfinityBolt>(), Projectile.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                 }
             }
             Lighting.AddLight(Projectile.Center, 0.4f, 0.85f, 0.9f);
@@ -112,7 +112,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     {
                         num844 = 0.5f;
                     }
-                    Vector2 value47 = new Vector2((float)(-(float)Projectile.width) * 0.2f * Projectile.scale, 0f).RotatedBy((double)(num844 * 6.28318548f), default(Vector2)).RotatedBy((double)Projectile.velocity.ToRotation(), default(Vector2));
+                    Vector2 value47 = new Vector2((float)-(float)Projectile.width * 0.2f * Projectile.scale, 0f).RotatedBy((double)(num844 * 6.28318548f), default).RotatedBy((double)Projectile.velocity.ToRotation(), default);
                     int num845 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num845].position = Projectile.Center + value47;
                     Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - Projectile.Center) * 2f;
@@ -129,7 +129,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     {
                         num847 = 0.5f;
                     }
-                    Vector2 value48 = new Vector2((float)(-(float)Projectile.width) * 0.6f * Projectile.scale, 0f).RotatedBy((double)(num847 * 6.28318548f), default(Vector2)).RotatedBy((double)Projectile.velocity.ToRotation(), default(Vector2));
+                    Vector2 value48 = new Vector2((float)-(float)Projectile.width * 0.6f * Projectile.scale, 0f).RotatedBy((double)(num847 * 6.28318548f), default).RotatedBy((double)Projectile.velocity.ToRotation(), default);
                     int num848 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num848].velocity = Vector2.Zero;
                     Main.dust[num848].position = Projectile.Center + value48;

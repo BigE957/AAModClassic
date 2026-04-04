@@ -30,7 +30,7 @@ Non-consumable"); */
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0); ;
 			Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = Mod.Find<ModProjectile>("AbyssArrow").Type;
+			Item.shoot = ModContent.ProjectileType<AbyssArrow>();
 			Item.shootSpeed = 3f;
 			Item.ammo = AmmoID.Arrow;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

@@ -33,7 +33,7 @@ namespace AAModClassic.Items.DevTools
             Item.autoReuse = true;   
             Item.useTurn = true;
             Item.expert = true; Item.expertOnly = true;
-			Item.shoot = Mod.Find<ModProjectile>("Noodle").Type;
+			Item.shoot = ModContent.ProjectileType<Noodle>();
 			Item.shootSpeed = 9f;
         }
 

@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
         {
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("ZeroProtocol").Type, -1, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<ZeroProtocol>(), -1, null);
                 if (npcID >= 0) body = npcID;
             }
 
@@ -80,20 +80,20 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 {
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 14f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-14f, 0f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -14f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 14f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(14f, 0f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-14f, 0f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
                     }
                 }
                 if(NPC.ai[1] % 180 == 120)
                 {
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, -10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, 10f), Mod.Find<ModProjectile>("ProtoStar").Type, NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, -10f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, -10f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-10f, 10f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(10f, 10f), ModContent.ProjectileType<ProtoStar>(), NPC.damage/2, 3);
                     }
                 }
             }

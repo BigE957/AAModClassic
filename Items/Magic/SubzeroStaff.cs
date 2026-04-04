@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Magic
             Item.useTime = 3;
             Item.width = 62;
             Item.height = 62;
-            Item.shoot = Mod.Find<ModProjectile>("SubzeroSnowflake").Type;
+            Item.shoot = ModContent.ProjectileType<SubzeroSnowflake>();
             Item.shootSpeed = 17f;
             Item.knockBack = 5f;
             Item.value = Item.sellPrice(0, 10, 0, 0);

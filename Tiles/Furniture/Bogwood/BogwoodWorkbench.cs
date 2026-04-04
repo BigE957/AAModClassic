@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Workbench");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.WorkBenches };
 		}

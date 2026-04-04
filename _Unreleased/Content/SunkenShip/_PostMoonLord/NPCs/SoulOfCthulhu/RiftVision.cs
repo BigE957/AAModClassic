@@ -7,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     public class RiftVision : ModNPC
     {
@@ -96,7 +96,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 int num1284 = 10;
                 for (int num1285 = 0; num1285 < 2; num1285++)
                 {
-                    int num1286 = Dust.NewDust(NPC.position - new Vector2((float)num1284), NPC.width + num1284 * 2, NPC.height + num1284 * 2, 228, 0f, 0f, 100, default(Color), 2f);
+                    int num1286 = Dust.NewDust(NPC.position - new Vector2(num1284), NPC.width + num1284 * 2, NPC.height + num1284 * 2, 228, 0f, 0f, 100, default, 2f);
                     Main.dust[num1286].noGravity = true;
                     Main.dust[num1286].noLight = true;
                 }
@@ -106,7 +106,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             {
                 NPC.TargetClosest(true);
                 NPC.ai[0] = 1f;
-                NPC.ai[1] = (float)NPC.direction;
+                NPC.ai[1] = NPC.direction;
             }
             else if (NPC.ai[0] == 1f)
             {
@@ -144,7 +144,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                     num1292 = -num1289;
                 }
                 NPC.velocity.Y = (NPC.velocity.Y * (num1291 - 1f) + num1292) / num1291;
-                if ((NPC.ai[1] > 0f && Main.player[NPC.target].Center.X - NPC.Center.X < -num1290) || (NPC.ai[1] < 0f && Main.player[NPC.target].Center.X - NPC.Center.X > num1290))
+                if (NPC.ai[1] > 0f && Main.player[NPC.target].Center.X - NPC.Center.X < -num1290 || NPC.ai[1] < 0f && Main.player[NPC.target].Center.X - NPC.Center.X > num1290)
                 {
                     NPC.ai[0] = 2f;
                     NPC.ai[1] = 0f;
@@ -175,7 +175,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     NPC.TargetClosest(true);
                     NPC.ai[0] = 3f;
-                    NPC.ai[1] = (float)NPC.direction;
+                    NPC.ai[1] = NPC.direction;
                 }
             }
             else if (NPC.ai[0] == 3f)
@@ -205,13 +205,13 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 {
                     NPC.TargetClosest(true);
                     NPC.ai[0] = 0f;
-                    NPC.ai[1] = (float)NPC.direction;
+                    NPC.ai[1] = NPC.direction;
                 }
             }
             int num1298 = 10;
             for (int num1299 = 0; num1299 < 1; num1299++)
             {
-                int num1300 = Dust.NewDust(NPC.position - new Vector2((float)num1298), NPC.width + num1298 * 2, NPC.height + num1298 * 2, 228, 0f, 0f, 100, default(Color), 2f);
+                int num1300 = Dust.NewDust(NPC.position - new Vector2(num1298), NPC.width + num1298 * 2, NPC.height + num1298 * 2, 228, 0f, 0f, 100, default, 2f);
                 Main.dust[num1300].noGravity = true;
                 Main.dust[num1300].noLight = true;
             }
@@ -223,11 +223,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             for (int num468 = 0; num468 < 3; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color), 2f);
+                    -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
                 num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color));
+                    -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }

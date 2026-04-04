@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Throwing
 			Item.knockBack = 4;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
-			Item.shoot = Mod.Find<ModProjectile>("DracorangP").Type;
+			Item.shoot = ModContent.ProjectileType<DracorangP>();
 			Item.width = 22;
 			Item.height = 32;
             Item.noMelee = true;
@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Throwing
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DracorangP").Type] < Item.stack)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<DracorangP>()] < Item.stack)
 			{
 				return true;
 			}
@@ -45,7 +45,7 @@ Stacks up to 5"); */
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("RadiantIncinerite").Type, 3);
+			recipe.AddIngredient(ModContent.ItemType<RadiantIncinerite>(), 3);
 			recipe.AddIngredient(ItemID.LivingFireBlock, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

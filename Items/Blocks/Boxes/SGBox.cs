@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("SGBox").Type;
+			Item.createTile = ModContent.TileType<SGBox>();
             Item.width = 72;
 			Item.height = 36;
             Item.rare = ItemRarityID.Cyan;

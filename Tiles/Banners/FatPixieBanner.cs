@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Banners
 			if (closer)
 			{
 				Player player = Main.LocalPlayer;
-				player.HasNPCBannerBuff(Mod.Find<ModNPC>("FatPixie").Type);
+				player.HasNPCBannerBuff(ModContent.NPCType<FatPixie>());
 			}
 		}
 	}

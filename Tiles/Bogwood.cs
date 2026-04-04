@@ -12,9 +12,9 @@ namespace AAModClassic.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Bogwood").Type);   
+            RegisterItemDrop(ModContent.ItemType<Bogwood>());   
             AddMapEntry(new Color(0, 0, 51));
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
         }
     }
 }

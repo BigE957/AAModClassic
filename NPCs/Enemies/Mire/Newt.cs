@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("NewtBanner").Type;
+			BannerItem = ModContent.ItemType<NewtBanner>();
         }
         
         private bool tongueAttack;
@@ -121,11 +121,11 @@ namespace AAModClassic.NPCs.Enemies.Mire
                 {
                     if (NPC.direction == -1)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 56f, NPC.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 56f, NPC.Center.Y), new Vector2(3 + Main.rand.Next(0, 3), -4 + Main.rand.Next(-4, 0)), ModContent.ProjectileType<AcidProj>(), 15, 3);
                     }
                     else
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 56f, NPC.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("AcidProj").Type, 15, 3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 56f, NPC.Center.Y), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), ModContent.ProjectileType<AcidProj>(), 15, 3);
                     }
                 }
                 if (tongueTimer >= 100)

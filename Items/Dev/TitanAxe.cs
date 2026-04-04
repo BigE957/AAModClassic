@@ -52,7 +52,7 @@ namespace AAModClassic.Items.Dev
 
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = Mod.Find<ModProjectile>("TitanAxe").Type;
+                Item.shoot = ModContent.ProjectileType<TitanAxe>();
                 Item.noMelee = true;
                 Item.noUseGraphic = true;
             }

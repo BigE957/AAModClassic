@@ -53,7 +53,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+            target.AddBuff(ModContent.BuffType<Electrified>(), 500);
         }
 
         public override bool PreDraw(ref Color lightColor)

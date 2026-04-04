@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("AbyssiumBrick").Type;
+            Item.createTile = ModContent.TileType<AbyssiumBrick>();
         }
 
         public override void SetStaticDefaults()

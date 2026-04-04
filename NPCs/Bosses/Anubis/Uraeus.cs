@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-			AAAI.AIWorm(NPC, new int[]{ Mod.Find<ModNPC>("Uraeus").Type, Mod.Find<ModNPC>("UraeusBody").Type, Mod.Find<ModNPC>("UraeusTail").Type }, 7, 0f, 10f, 0.07f, true, false, true, true, true);
+			AAAI.AIWorm(NPC, new int[]{ ModContent.NPCType<Uraeus>(), ModContent.NPCType<UraeusBody>(), ModContent.NPCType<UraeusTail>() }, 7, 0f, 10f, 0.07f, true, false, true, true, true);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

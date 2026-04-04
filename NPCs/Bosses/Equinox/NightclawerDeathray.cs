@@ -44,7 +44,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && (Main.npc[(int)Projectile.ai[1]].type == Mod.Find<ModNPC>("NightcrawlerBody").Type) && !Main.dayTime)
+            if (Main.npc[(int)Projectile.ai[1]].active && (Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<NightcrawlerBody>()) && !Main.dayTime)
             {
                 if (Projectile.ai[0] == 0)
                 {

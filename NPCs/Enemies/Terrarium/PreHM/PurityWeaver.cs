@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("PurityWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
         }
 
         public override Color? GetAlpha(Color drawColor)
@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -252,7 +252,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("PurityWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -312,7 +312,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -384,7 +384,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("PurityWeaverBanner").Type;
+			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -418,7 +418,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

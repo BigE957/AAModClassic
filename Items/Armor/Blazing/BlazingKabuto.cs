@@ -34,7 +34,7 @@ Forged in the flames of the blazing sun"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-            return body.type == Mod.Find<ModItem>("BlazingDou").Type && legs.type == Mod.Find<ModItem>("BlazingSuneate").Type;
+            return body.type == ModContent.ItemType<BlazingDou>() && legs.type == ModContent.ItemType<BlazingSuneate>();
         }
 
 		public override void UpdateArmorSet(Player player)
@@ -47,10 +47,10 @@ Forged in the flames of the blazing sun"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("KindledKabuto").Type);
+            recipe.AddIngredient(ModContent.ItemType<KindledKabuto>());
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(Mod.Find<ModItem>("Doomite").Type, 5);
+            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

@@ -59,11 +59,11 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 NPC.frame.Y = 152 * 25;
             }
-            if (NPC.ai[0] >= 135 && !NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type) && Main.netMode != NetmodeID.MultiplayerClient)
+            if (NPC.ai[0] >= 135 && !NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()) && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("ZeroProtocol").Type, false, NPC.Center, "", false);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ZeroProtocol>(), false, NPC.Center, "", false);
 
-                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                 Main.projectile[b].Center = NPC.Center;
 
                 NPC.netUpdate = true;
@@ -73,7 +73,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type))
+            if (!NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
             {
                 return false;
             }

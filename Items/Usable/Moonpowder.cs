@@ -9,7 +9,7 @@ namespace AAModClassic.Items.Usable
 	{
 		public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("Moonpowder").Type;
+            Item.shoot = ModContent.ProjectileType<Moonpowder>();
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 4f;
             Item.width = 16;

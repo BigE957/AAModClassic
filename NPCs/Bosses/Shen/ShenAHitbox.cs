@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
         {
             NPC.TargetClosest(true);
             int boss = (int)NPC.ai[0];
-            if (boss < 0 || boss >= 200 || !Main.npc[boss].active || Main.npc[boss].type != Mod.Find<ModNPC>("ShenA").Type)
+            if (boss < 0 || boss >= 200 || !Main.npc[boss].active || Main.npc[boss].type != ModContent.NPCType<ShenA>())
             {
                 NPC.active = false;
                 return false;

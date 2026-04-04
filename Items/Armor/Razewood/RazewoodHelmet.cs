@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Armor.Razewood
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("RazewoodChestplate").Type && legs.type == Mod.Find<ModItem>("RazewoodBoots").Type;
+            return body.type == ModContent.ItemType<RazewoodChestplate>() && legs.type == ModContent.ItemType<RazewoodBoots>();
         }
 
         public override void UpdateArmorSet(Player player)

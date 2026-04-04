@@ -50,7 +50,7 @@ namespace AAModClassic.Projectiles.AH
             float num16 = 150f;
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("ChaosClaw").Type, 3600);
+            player.AddBuff(ModContent.BuffType<ChaosClaw>(), 3600);
             if (player.dead)
             {
                 modPlayer.ChaosClaw = false;
@@ -215,7 +215,7 @@ namespace AAModClassic.Projectiles.AH
             if (Projectile.ai[0] == 0f)
             {
                 float speedScale = 7f;
-                int shoot = Mod.Find<ModProjectile>("BlazeBall").Type;
+                int shoot = ModContent.ProjectileType<BlazeBall>();
                 if (foundTarget && Projectile.ai[1] == 0f)
                 {
                     Projectile.ai[1] += 1f;

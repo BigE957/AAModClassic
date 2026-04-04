@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.AH
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("ChaosBaton").Type;
+            Item.shoot = ModContent.ProjectileType<ChaosBaton>();
             Item.damage = 100;
             Item.width = 52;
             Item.noMelee = true;
@@ -62,10 +62,10 @@ namespace AAModClassic.Items.Boss.AH
                     switch (shootMe)
                     {
                         case 0:
-                            shootMe = Mod.Find<ModProjectile>("AbyssClaw").Type;
+                            shootMe = ModContent.ProjectileType<AbyssClaw>();
                             break;
                         default:
-                            shootMe = Mod.Find<ModProjectile>("BlazeClaw").Type;
+                            shootMe = ModContent.ProjectileType<BlazeClaw>();
                             break;
                     }
                 }

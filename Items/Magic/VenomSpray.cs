@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Magic
             Item.autoReuse = true;
             Item.useTime = 12;
             Item.useAnimation = 12;
-            Item.shoot = Mod.Find<ModProjectile>("Venom").Type;
+            Item.shoot = ModContent.ProjectileType<Venom>();
             Item.shootSpeed = 9f;    
         }   
 

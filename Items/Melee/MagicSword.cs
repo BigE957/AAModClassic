@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Melee
 			Item.useTime = 30;
 			Item.useAnimation = 15;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = Mod.Find<ModProjectile>("MagicPro").Type;
+			Item.shoot = ModContent.ProjectileType<MagicPro>();
 			Item.shootSpeed = 8f;
 			Item.knockBack = 5;
 			Item.value = Item.sellPrice(0, 10, 0, 0);

@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev
             Item.value = 500000;
             Item.autoReuse = true;
             Item.noMelee = true;
-            Item.shoot = Mod.Find<ModProjectile>("SoonTM").Type;
+            Item.shoot = ModContent.ProjectileType<SoonTM>();
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

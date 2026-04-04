@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.height = 34;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 450;
-            Item.shoot = Mod.Find<ModProjectile>("RadiantDawn").Type;
+            Item.shoot = ModContent.ProjectileType<RadiantDawn>();
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;

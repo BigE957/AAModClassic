@@ -134,13 +134,13 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 				{
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition4"), new Color(146, 30, 68));
 				}else
-				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
+				if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
 				{
-					AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
+					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("YamataTransition6"), new Color(146, 30, 68));
 
-                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
                     SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Sounds/YamataRoar"), NPC.position);
@@ -253,13 +253,13 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                         NPC.netUpdate = true;
                     }
                     else
-                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
+                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
                     {
-                        AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("YamataA").Type, false, NPC.Center, "", false);
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataA>(), false, NPC.Center, "", false);
                         if (Main.netMode != NetmodeID.MultiplayerClient) 
                             BaseUtility.Chat(Lang.BossChat("YamataTransition5"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
-                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;
 
                         NPC.netUpdate = true;
@@ -301,7 +301,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
+            if (!NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
             {
                 return false;
             }

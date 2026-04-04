@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.AH
             Item.useTime = 2;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = Mod.Find<ModProjectile>("FuryFlame").Type;
+            Item.shoot = ModContent.ProjectileType<FuryFlame>();
             Item.mana = 4;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 25, 0, 0);

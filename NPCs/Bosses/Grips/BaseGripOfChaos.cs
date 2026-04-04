@@ -152,18 +152,18 @@ namespace AAModClassic.NPCs.Bosses.Grips
                     NPC.ai[3] = 0;
                     for (int i = 0; i < 200; i++)
                     {
-                        if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                        if (NPC.type == ModContent.NPCType<GripOfChaosBlue>())
                         {
-                            if (Main.npc[i].type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                            if (Main.npc[i].type == ModContent.NPCType<GripOfChaosRed>())
                             {
                                 Main.npc[i].ai[0] = 1;
                                 Main.npc[i].ai[3] = 0;
                                 break;
                             }
                         }
-                        if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                        if (NPC.type == ModContent.NPCType<GripOfChaosRed>())
                         {
-                            if (Main.npc[i].type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                            if (Main.npc[i].type == ModContent.NPCType<GripOfChaosBlue>())
                             {
                                 Main.npc[i].ai[0] = 1;
                                 Main.npc[i].ai[3] = 0;
@@ -226,9 +226,9 @@ namespace AAModClassic.NPCs.Bosses.Grips
                 {
                     targetPlayer.Center = NPC.Center + new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-4, 4));
                     internalAI[1]++;
-                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosRed>())
                         NPC.rotation += 0.1f - (internalAI[1] / 600f);
-                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosBlue>())
                         NPC.rotation -= 0.1f - (internalAI[1] / 600f);
                     if (internalAI[1] == 120)
                     {
@@ -240,9 +240,9 @@ namespace AAModClassic.NPCs.Bosses.Grips
                 }
                 if (internalAI[2] != 0)
                 {
-                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosRed").Type)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosRed>())
                         NPC.rotation -= 0.1f - (internalAI[2] / 600);
-                    if (NPC.type == Mod.Find<ModNPC>("GripOfChaosBlue").Type)
+                    if (NPC.type == ModContent.NPCType<GripOfChaosBlue>())
                         NPC.rotation += 0.1f - (internalAI[2] / 600);
                     internalAI[2]++;
                 }

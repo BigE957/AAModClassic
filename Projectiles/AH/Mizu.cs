@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles.AH
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
             for (int i = 0; i < 1; i++)
             {
-                int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("CthulhuAuraDust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                 if (Main.rand.Next(6) != 0)
                 {
                     Main.dust[d].noGravity = true;
@@ -56,7 +56,7 @@ namespace AAModClassic.Projectiles.AH
                     Main.dust[d].velocity.X *= 1.2f;
                     Main.dust[d].velocity.Y *= 1.2f;
                 }
-                int e = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("CthulhuAuraDust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                int e = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<CthulhuAuraDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                 if (Main.rand.Next(6) != 0)
                 {
                     Main.dust[e].noGravity = true;

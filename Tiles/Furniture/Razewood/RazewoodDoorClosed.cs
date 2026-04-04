@@ -43,10 +43,10 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("RazewoodDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<RazewoodDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -64,7 +64,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("RazewoodDoor").Type;
+            player.cursorItemIconID = ModContent.ItemType<RazewoodDoor>();
         }
     }
     public class RazewoodDoorOpen : ModTile
@@ -120,10 +120,10 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            TileID.Sets.CloseDoorID[Type] = Mod.Find<ModTile>("RazewoodDoorClosed").Type;
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<RazewoodDoorClosed>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -141,7 +141,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("RazewoodDoor").Type;
+            player.cursorItemIconID = ModContent.ItemType<RazewoodDoor>();
         }
     }
 }

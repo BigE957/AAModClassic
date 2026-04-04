@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Magic
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("TFGWP").Type;  
+            Item.shoot = ModContent.ProjectileType<TFGWP>();  
             Item.shootSpeed = 7f;     
         }   
 

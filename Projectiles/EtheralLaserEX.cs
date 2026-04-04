@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles
 			{
 				Projectile.velocity = -Vector2.UnitY;
 			}
-			if (Projectile.type != Mod.Find<ModProjectile>("EtheralLaserEX").Type || !Main.projectile[(int)Projectile.ai[1]].active || Main.projectile[(int)Projectile.ai[1]].type != Mod.Find<ModProjectile>("EtheralEX").Type)
+			if (Projectile.type != ModContent.ProjectileType<EtheralLaserEX>() || !Main.projectile[(int)Projectile.ai[1]].active || Main.projectile[(int)Projectile.ai[1]].type != ModContent.ProjectileType<EtheralEX>())
 			{
 				Projectile.Kill();
 				return;

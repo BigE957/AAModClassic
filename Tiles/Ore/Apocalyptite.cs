@@ -17,13 +17,13 @@ namespace AAModClassic.Tiles.Ore
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("Doomstone").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<Doomstone>()] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileOreFinderPriority[Type] = 860;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("Apocalyptite").Type);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            RegisterItemDrop(ModContent.ItemType<Apocalyptite>());
+            DustType = ModContent.DustType<DoomDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Apocalyptite Ore");
             AddMapEntry(new Color(70, 20, 20), name);

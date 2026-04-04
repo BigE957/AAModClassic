@@ -35,7 +35,7 @@ namespace AAModClassic.Tiles.Boss
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedSpawn").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedTransition").Type))
+            if (NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
             {
                 frame = 1;
             }
@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Boss
 
         public override bool RightClick(int i, int j)
         {
-            if (NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedSpawn").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedTransition").Type))
+            if (NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>()))
             {
                 return true;
             }
@@ -90,7 +90,7 @@ namespace AAModClassic.Tiles.Boss
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("GoldenGrub").Type;
+            player.cursorItemIconID = ModContent.ItemType<GoldenGrub>();
         }
     }
 }

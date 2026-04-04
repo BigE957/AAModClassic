@@ -12,9 +12,9 @@ namespace AAModClassic.Walls.Bricks
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("IncineriteWall").Type);
+            RegisterItemDrop(ModContent.ItemType<IncineriteWall>());
             AddMapEntry(new Color(40, 30, 10));
-            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            DustType = ModContent.DustType<IncineriteDust>();
         }
     }
 }

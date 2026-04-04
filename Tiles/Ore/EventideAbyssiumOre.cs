@@ -24,8 +24,8 @@ namespace AAModClassic.Tiles.Ore
             HitSound = SoundID.Tink;
             TileID.Sets.JungleSpecial[Type] = true;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("EventideAbyssiumOre").Type);   
-            DustType = Mod.Find<ModDust>("YamataDust").Type;
+            RegisterItemDrop(ModContent.ItemType<EventideAbyssiumOre>());   
+            DustType = ModContent.DustType<YamataDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Eventide Abyssium Ore");
             AddMapEntry(new Color(0, 0, 30), name);

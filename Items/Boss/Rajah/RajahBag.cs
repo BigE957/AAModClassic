@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.expert = true; Item.expertOnly = true;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Rajah").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Rajah>();
 
         public override bool CanRightClick()
         {
@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Rajah
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -41,13 +41,13 @@ namespace AAModClassic.Items.Boss.Rajah
                 modPlayer.PMLDevArmor();
             }
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<RajahPelt>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahPelt").Type, Main.rand.Next(20, 25));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahSash").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahPelt>(), Main.rand.Next(20, 25));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahSash>());
             string[] lootTable = { "BaneOfTheBunny", "Bunzooka", "Punisher", "RabbitcopterEars", "RoyalScepter" };
             int loot = Main.rand.Next(lootTable.Length);
             if (Main.rand.Next(6) == 1 && ModSupport.GetMod("ThoriumMod") != null)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CarrotFarmer").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CarrotFarmer>());
             }
             else
             {

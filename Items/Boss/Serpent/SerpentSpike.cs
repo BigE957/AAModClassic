@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Serpent
             Item.value = Item.sellPrice(0, 5, 0, 0); 
             Item.rare = ItemRarityID.Orange;
             Item.shootSpeed = 5f;
-            Item.shoot = Mod.Find<ModProjectile>("SerpentSpike").Type;  
+            Item.shoot = ModContent.ProjectileType<SerpentSpike>();  
             Item.autoReuse = true;
         }
 

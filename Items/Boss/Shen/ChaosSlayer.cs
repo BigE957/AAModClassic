@@ -32,7 +32,7 @@ blades go through tiles
             Item.knockBack = 12;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ChaosSlayerSword").Type;
+			Item.shoot = ModContent.ProjectileType<ChaosSlayerSword>();
 			Item.shootSpeed = 5;
             Item.useTurn = true;
             Item.rare = ItemRarityID.Cyan;
@@ -76,7 +76,7 @@ blades go through tiles
 			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI);
 			for (int m = 0; m < 2; m++)
 			{
-				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRed").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlue").Type, damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? ModContent.ProjectileType<ChaosSlayerSwordRed>() : ModContent.ProjectileType<ChaosSlayerSwordBlue>(), damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

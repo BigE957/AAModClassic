@@ -33,7 +33,7 @@ namespace AAModClassic.Tiles.Boxes
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("ToadBox").Type;
+			player.cursorItemIconID = ModContent.ItemType<ToadBox>();
 		}
 	}
 }

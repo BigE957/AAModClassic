@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Vanity.Cerberus
             Item.width = 32;
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
-            Item.createTile = Mod.Find<ModTile>("CerberusKennel").Type; 
+            Item.createTile = ModContent.TileType<CerberusKennel>(); 
         }
 
         public override bool CanRightClick()

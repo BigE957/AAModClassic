@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Crafters
 			LocalizedText name = CreateMapEntryName();
             Main.tileLighted[Type] = true;
             // name.SetDefault("Dragon Altar");
-            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            DustType = ModContent.DustType<IncineriteDust>();
             AddMapEntry(new Color(160, 100, 0), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

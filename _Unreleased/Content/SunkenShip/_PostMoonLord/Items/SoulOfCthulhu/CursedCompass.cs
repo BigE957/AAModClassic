@@ -6,13 +6,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using AAModClassic;
-using AAModClassic._Unreleased;
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.NPCs.Bosses.SoC;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 
-namespace AAModClassic._Unreleased.Items.BossSummons
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
     public class CursedCompass : ModItem
     {

@@ -6,10 +6,10 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     [AutoloadBossHead]
-    public class IZHand1 : ModNPC
+    public class InfinityZeroHand1 : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -39,7 +39,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             return 0f;
         }
 
-		public Infinity Body = null;
+		public InfinityZero Body = null;
 		public int handType = 0; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand= true;
         public static bool RepairMode = false;
@@ -59,7 +59,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			set
 			{
 				float oldValue = NPC.ai[1];
-				NPC.ai[1] = (value ? 1f : 0f);
+				NPC.ai[1] = value ? 1f : 0f;
 				if(NPC.ai[1] != oldValue) NPC.netUpdate = true;
 			}
 		}
@@ -72,7 +72,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			set
 			{
 				float oldValue = NPC.ai[1];
-				NPC.ai[1] = (value ? 1.5f : 0f);
+				NPC.ai[1] = value ? 1.5f : 0f;
 				if(NPC.ai[1] != oldValue) NPC.netUpdate = true;
 			}
 		}		
@@ -91,7 +91,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if ((Main.netMode == 2 || Main.dedServ))
+            if (Main.netMode == 2 || Main.dedServ)
             {
                 writer.Write((short)customAI[0]);
                 writer.Write((short)customAI[1]);
@@ -118,18 +118,18 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 		{
 
             int num429 = 1;
-            if (NPC.position.X + (NPC.width / 2) < Main.player[NPC.target].position.X + Main.player[NPC.target].width)
+            if (NPC.position.X + NPC.width / 2 < Main.player[NPC.target].position.X + Main.player[NPC.target].width)
             {
                 num429 = -1;
             }
             Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-            float PlayerPosX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) + (num429 * 180) - PlayerDistance.X;
-            float PlayerPosY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - PlayerDistance.Y;
-            float PlayerPos = (float)Math.Sqrt((PlayerPosX * PlayerPosX) + (PlayerPosY * PlayerPosY));
+            float PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 + num429 * 180 - PlayerDistance.X;
+            float PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
+            float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
             float num433 = 6f;
-            PlayerPosX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - PlayerDistance.X;
-            PlayerPosY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - PlayerDistance.Y;
-            PlayerPos = (float)Math.Sqrt((PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY));
+            PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - PlayerDistance.X;
+            PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
+            PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
             PlayerPos = num433 / PlayerPos;
             PlayerPosX *= PlayerPos;
             PlayerPosY *= PlayerPos;
@@ -142,7 +142,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
             ZeroShot++;
             
-            int aiTimerShoot = (NPC.whoAmI % 3 == 0 ? 50 : NPC.whoAmI % 2 == 0 ? 150 : 100); //aiTimerFire is different per head by using whoAmI (which is usually different) 
+            int aiTimerShoot = NPC.whoAmI % 3 == 0 ? 50 : NPC.whoAmI % 2 == 0 ? 150 : 100; //aiTimerFire is different per head by using whoAmI (which is usually different) 
             if (leftHand) aiTimerShoot += 30;
             if (ZeroShot >= aiTimerShoot)
             {
@@ -152,7 +152,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     float rotation = MathHelper.ToRadians(20);
                     for (int i = 0; i < 3 + 1; i++)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX, PlayerPosY, Mod.Find<ModProjectile>("IZShot").Type, 140, 0, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX, PlayerPosY, ModContent.ProjectileType<IZShot>(), 140, 0, Main.myPlayer);
                     }
                 }
             }
@@ -181,9 +181,9 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             if (Body == null)
 			{
 				NPC npcBody = Main.npc[(int)NPC.ai[0]];
-				if(npcBody.type == Mod.Find<ModNPC>("Infinity").Type)
+				if(npcBody.type == ModContent.NPCType<InfinityZero>())
 				{
-					Body = (Infinity)npcBody.ModNPC;
+					Body = (InfinityZero)npcBody.ModNPC;
 				}
 				handType = (int)NPC.ai[1];
 				NPC.localAI[3] = 30 * handType; //so they start at different rotation points
@@ -220,7 +220,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			if(Main.netMode != 1)
 			{
 				customAI[0]++;
-				int aiTimerFire = (NPC.whoAmI % 3 == 0 ? 250 : NPC.whoAmI % 2 == 0 ? 250 : 200); //aiTimerFire is different per head by using whoAmI (which is usually different) 
+				int aiTimerFire = NPC.whoAmI % 3 == 0 ? 250 : NPC.whoAmI % 2 == 0 ? 250 : 200; //aiTimerFire is different per head by using whoAmI (which is usually different) 
 				if(leftHand) aiTimerFire += 60;
 
 				if(customAI[0] >= 150 && customAI[3] == 0) //pick random spot to move head to
@@ -232,7 +232,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 					customAI[1] = movementVector.X;
 					customAI[2] = movementVector.Y;
 					NPC.netUpdate = true;
-					customAI[3] = (Main.rand.Next(3) == 0 ? 1 : 0); //wether or not to charge
+					customAI[3] = Main.rand.Next(3) == 0 ? 1 : 0; //wether or not to charge
                 }else
 				if(targetPlayer != null && customAI[0] >= aiTimerFire) //get ready to charge player
 				{
@@ -265,7 +265,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 				if(NPC.localAI[3] > 150)
 				{
 					NPC.rotation += MathHelper.Lerp(0.3f, 0.005f, NPC.rotation / ((float)Math.PI * 2));
-					if(NPC.rotation >= ((float)Math.PI * 2))
+					if(NPC.rotation >= (float)Math.PI * 2)
 					{
 						NPC.localAI[3] = 0;
 						NPC.rotation = 0f;
@@ -279,7 +279,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 				NPC.localAI[3] = 0;
 				if(targetPlayer != null && !ChargeAttack)
 				{
-					NPC.velocity = (targetPlayer.Center - NPC.Center);
+					NPC.velocity = targetPlayer.Center - NPC.Center;
 					NPC.velocity = Vector2.Normalize(NPC.velocity) * 0.005f;
 				}
 				NPC.rotation = BaseUtility.RotationTo(NPC.Center, NPC.Center + NPC.velocity);
@@ -306,9 +306,9 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			}else
 			{
 				NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
-				NPC.velocity *= (ChargeAttack ? 18f : 8f);
+				NPC.velocity *= ChargeAttack ? 18f : 8f;
 			}
-			NPC.position += (Body.NPC.oldPos[0] - Body.NPC.position);	
+			NPC.position += Body.NPC.oldPos[0] - Body.NPC.position;	
 			//npc.spriteDirection = -1; commented out temporarily			
 		}
 		

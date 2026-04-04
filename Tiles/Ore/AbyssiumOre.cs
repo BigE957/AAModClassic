@@ -15,14 +15,14 @@ namespace AAModClassic.Tiles.Ore
 			Main.tileMergeDirt[Type] = true;
             Main.tileOreFinderPriority[Type] = 330; 
             Main.tileSpelunker[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("Depthstone").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<Depthstone>()] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Abyssium").Type);   
-            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            RegisterItemDrop(ModContent.ItemType<Abyssium>());   
+            DustType = ModContent.DustType<AbyssiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Abyssium Ore");
             AddMapEntry(new Color(0, 0, 51), name);

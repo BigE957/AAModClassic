@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.height = 78;
             NPC.lavaImmune = false;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MossterBanner").Type;
+			BannerItem = ModContent.ItemType<MossterBanner>();
 
         }
 

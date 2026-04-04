@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.addTile(Type);
 
             DustType = Terraria.ID.DustID.Ice;
-            RegisterItemDrop(Mod.Find<ModItem>("RelicBar").Type);   
+            RegisterItemDrop(ModContent.ItemType<RelicBar>());   
             AddMapEntry(new Color(0, 0, 255));
 			MinPick = 0;
         }

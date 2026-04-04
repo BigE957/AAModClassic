@@ -38,7 +38,7 @@ Can only be used in a glowing mushroom biome"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("TruffleToad").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.TruffleToad"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<TruffleToad>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.TruffleToad"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

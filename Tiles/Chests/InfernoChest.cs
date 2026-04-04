@@ -41,11 +41,11 @@ namespace AAModClassic.Tiles.Chests
             name = this.GetLocalization("MapEntry", () => Name + "_Locked"); // With multiple map entries, you need unique translation keys.
             // name.SetDefault("{$Mods.AAModClassic.Common.InfernoChest_Locked}");
             AddMapEntry(new Color(0, 141, 63), name, MapChestName);
-            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            DustType = ModContent.DustType<IncineriteDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Inferno Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("InfernoChest").Type);
+            RegisterItemDrop(ModContent.ItemType<InfernoChest>());
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("InfernoChest").DisplayName;
@@ -225,7 +225,7 @@ namespace AAModClassic.Tiles.Chests
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Inferno Chest";
                 if (player.cursorItemIconText == "Inferno Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("InfernoChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<InfernoChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
                         player.cursorItemIconID = ModContent.ItemType<InfernoKey>();
                     player.cursorItemIconText = "";

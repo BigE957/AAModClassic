@@ -75,7 +75,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
             }
 			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
-				int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Top.X, Projectile.Top.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("BroodBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				int projID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Top.X, Projectile.Top.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<BroodBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 				Main.projectile[projID].Bottom = Projectile.Bottom + new Vector2(0, 10);
 				Main.projectile[projID].netUpdate = true;
 			}

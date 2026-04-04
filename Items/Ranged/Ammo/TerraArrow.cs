@@ -22,7 +22,7 @@ Not Consumable"); */
 			Item.knockBack = 4f;
 			Item.value = 30;
 			Item.rare = ItemRarityID.Blue;
-			Item.shoot = Mod.Find<ModProjectile>("TerraArrow").Type;
+			Item.shoot = ModContent.ProjectileType<TerraArrow>();
             Item.shootSpeed = 1f;
 			Item.ammo = AmmoID.Arrow;
 		}

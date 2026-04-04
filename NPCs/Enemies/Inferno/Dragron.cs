@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("DragronBanner").Type;
+			BannerItem = ModContent.ItemType<DragronBanner>();
         }
 
 

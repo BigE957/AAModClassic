@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks.Doom
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
-			Item.createTile = Mod.Find<ModTile>("DoomChest").Type;
+			Item.createTile = ModContent.TileType<DoomChest>();
 		}
 
 		public override void AddRecipes()

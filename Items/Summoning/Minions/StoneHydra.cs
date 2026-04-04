@@ -164,7 +164,7 @@ namespace AAModClassic.Items.Summoning.Minions
                     if (Main.myPlayer == Projectile.owner)
                     {
                         float num521 = 6f;
-                        int num522 = Mod.Find<ModProjectile>("BogBomb").Type;
+                        int num522 = ModContent.ProjectileType<BogBomb>();
                         Vector2 vector37 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                         if (num518 == 0)
                         {

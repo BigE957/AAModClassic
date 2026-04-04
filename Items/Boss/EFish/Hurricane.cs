@@ -65,7 +65,7 @@ Tsunami EX"); */
 				}
 				if (Main.rand.NextBool(8))
 				{
-					type = Mod.Find<ModProjectile>("OceanicArrow").Type;
+					type = ModContent.ProjectileType<OceanicArrow>();
 				}
 				else
 				{

@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Magic
 			Item.mana = 10;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("FireblastP").Type;
+			Item.shoot = ModContent.ProjectileType<FireblastP>();
 			Item.shootSpeed = 8f;
 		}   
 
@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpellTome);
-			recipe.AddIngredient(Mod.Find<ModItem>("DragonFire").Type, 20);
+			recipe.AddIngredient(ModContent.ItemType<DragonFire>(), 20);
 			recipe.AddIngredient(null, "SoulOfSmite", 15);
 			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();

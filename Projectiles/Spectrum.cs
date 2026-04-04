@@ -119,7 +119,7 @@ namespace AAModClassic.Projectiles
 						int num29 = Projectile.damage;
 						for (int l = 0; l < 7; l++)
 						{
-							Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("SpectrumBeam").Type, num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, ModContent.ProjectileType<SpectrumBeam>(), num29, Projectile.knockBack, Projectile.owner, l, Projectile.whoAmI);
 						}
 						Projectile.netUpdate = true;
 					}

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Serpent
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("SerpentTrophy").Type;
+			Item.createTile = ModContent.TileType<SerpentTrophy>();
 		}
 	}
 }

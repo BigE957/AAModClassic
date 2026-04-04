@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Sag
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, 0, 0, Mod.Find<ModProjectile>("SagRing").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, 0, 0, ModContent.ProjectileType<SagRing>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override bool PreDraw(ref Color lightColor)

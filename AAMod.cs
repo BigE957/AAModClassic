@@ -159,8 +159,8 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "Wyrmling" : (m == 1 ? "WyrmlingBody" : (m == 2 ? "WyrmlingTail1" : "WyrmlingTail2")));
                             if (npc != null)
                             {
-                                npc.Banner = mod.Find<ModNPC>("Wyrmling").Type;
-                                npc.BannerItem = mod.Find<ModItem>("WyrmlingBanner").Type;
+                                npc.Banner = ModContent.NPCType<Wyrmling>();
+                                npc.BannerItem = ModContent.ItemType<WyrmlingBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
@@ -172,8 +172,8 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "Wyrm" : (m == 1 ? "WyrmBody1" : (m == 2 ? "WyrmBody2" : (m == 3 ? "WyrmBody3" : "WyrmBody4"))));
                             if (npc != null)
                             {
-                                npc.Banner = mod.Find<ModNPC>("Wyrm").Type;
-                                npc.BannerItem = mod.Find<ModItem>("WyrmBanner").Type;
+                                npc.Banner = ModContent.NPCType<Wyrm>();
+                                npc.BannerItem = ModContent.ItemType<WyrmBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
@@ -185,8 +185,8 @@ namespace AAModClassic
                             ModNPC npc = GetNPC(m == 0 ? "SnakeHead" : (m == 1 ? "SnakeBody" : "SnakeTail"));
                             if (npc != null)
                             {
-                                npc.Banner = mod.Find<ModNPC>("SnakeHead").Type;
-                                npc.BannerItem = mod.Find<ModItem>("SnakeBanner").Type;
+                                npc.Banner = ModContent.NPCType<SnakeHead>();
+                                npc.BannerItem = ModContent.ItemType<SnakeBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }

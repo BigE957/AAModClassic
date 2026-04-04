@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Ore
             TileID.Sets.Ore[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Prism").Type);   
+            RegisterItemDrop(ModContent.ItemType<Prism>());   
             DustType = DustID.Stone;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Prism Ore");

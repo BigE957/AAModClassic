@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Chandelier");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
             AdjTiles = new int[] { TileID.Chandeliers };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 

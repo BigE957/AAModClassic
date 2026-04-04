@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Melee.Gem   //where is located
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;   
             Item.useTurn = true; 
-			Item.shoot = Mod.Find<ModProjectile>("PrismBolt").Type;
+			Item.shoot = ModContent.ProjectileType<PrismBolt>();
 			Item.shootSpeed = 13f;
         }
 

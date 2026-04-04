@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Dev
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("UmbreonSPProjectile").Type;
+			Item.shoot = ModContent.ProjectileType<UmbreonSPProjectile>();
 			Item.shootSpeed = 20f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Magic
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("Gunk").Type;
+            Item.shoot = ModContent.ProjectileType<Gunk>();
             Item.shootSpeed = 4f;
         }
     }

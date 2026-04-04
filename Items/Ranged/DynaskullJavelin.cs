@@ -16,7 +16,7 @@ namespace AAModClassic.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("DynaskullJavelin").Type;
+            Item.shoot = ModContent.ProjectileType<DynaskullJavelin>();
             Item.shootSpeed = 12f;
             Item.damage = 40;
             Item.knockBack = 5f;

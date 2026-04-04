@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.Terra
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
+			return body.type == ModContent.ItemType<TerraPlate>() && legs.type == ModContent.ItemType<TerraGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

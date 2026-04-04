@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("RottedShingles").Type);   
+            RegisterItemDrop(ModContent.ItemType<RottedShingles>());   
             AddMapEntry(new Color(0, 0, 50));
 			MinPick = 0;
         }

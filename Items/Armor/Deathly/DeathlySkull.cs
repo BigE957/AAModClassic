@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Armor.Deathly
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("DeathlyRibguard").Type && legs.type == Mod.Find<ModItem>("DeathlyGreaves").Type;
+            return body.type == ModContent.ItemType<DeathlyRibguard>() && legs.type == ModContent.ItemType<DeathlyGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)

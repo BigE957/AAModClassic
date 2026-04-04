@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Melee
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 64;
             Item.height = 64;
-            Item.shoot = Mod.Find<ModProjectile>("Axis").Type;
+            Item.shoot = ModContent.ProjectileType<Axis>();
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 30;
 			Item.useTime = 30;
@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Melee
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.NorthPole);
-            recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
 			recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();
 		}

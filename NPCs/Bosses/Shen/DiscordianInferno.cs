@@ -116,7 +116,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Projectile.ai[0] == 1 ? Mod.Find<ModBuff>("DragonFire").Type : Mod.Find<ModBuff>("HydraToxin").Type, 200);
+            target.AddBuff(Projectile.ai[0] == 1 ? ModContent.BuffType<DragonFire>() : ModContent.BuffType<HydraToxin>(), 200);
         }
     }
 }

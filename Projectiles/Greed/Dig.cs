@@ -52,9 +52,9 @@ namespace AAModClassic.Projectiles.Greed
         public override void OnKill(int timeLeft)
         {
             Vector2 vector = Vector2.Normalize(Projectile.velocity);
-            if (!AAGlobalProjectile.AnyProjectiles(Mod.Find<ModProjectile>("GoldFountain").Type))
+            if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<GoldFountain>()))
             {
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X - vector.X * 20f, Projectile.position.Y - vector.Y * 20f, 0, 0, Mod.Find<ModProjectile>("GoldFountain").Type, Projectile.damage, 1, Projectile.owner, 0, 0);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X - vector.X * 20f, Projectile.position.Y - vector.Y * 20f, 0, 0, ModContent.ProjectileType<GoldFountain>(), Projectile.damage, 1, Projectile.owner, 0, 0);
             }
         }
     }

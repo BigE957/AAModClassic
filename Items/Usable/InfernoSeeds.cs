@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Usable
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.createTile = Mod.Find<ModTile>("InfernoGrass").Type;
+            Item.createTile = ModContent.TileType<InfernoGrass>();
             Item.consumable = true;		
         }
 

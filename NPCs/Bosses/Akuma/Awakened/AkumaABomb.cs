@@ -89,13 +89,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
         }
 
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item124);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AkumaABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AkumaABoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             
         }
         public override bool PreDraw(ref Color lightColor)

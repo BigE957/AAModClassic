@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Boss.Zero
 			Item.width = 94;
 			Item.height = 70;
 			Item.useTime = 22;
-            Item.shoot = Mod.Find<ModProjectile>("Rift").Type;
+            Item.shoot = ModContent.ProjectileType<Rift>();
             Item.shootSpeed = 10f;
             Item.useAnimation = 22;
 			Item.useStyle = ItemUseStyleID.Swing;

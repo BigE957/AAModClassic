@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("DiscordianTorch").Type;
+			Item.createTile = ModContent.TileType<DiscordianTorch>();
 			Item.flame = true;
             AARarity = 14;
             Item.value = Item.sellPrice(0, 0, 50, 0);
@@ -50,7 +50,7 @@ namespace AAModClassic.Items.Blocks
 		{
 			if (Main.rand.Next(player.itemAnimation > 0 ? 40 : 80) == 0)
 			{
-				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, Mod.Find<ModDust>("DiscordDust").Type);
+				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, ModContent.DustType<DiscordDust>());
 			}
 			Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
 			Lighting.AddLight(position, AAColor.Shen.R / 255, AAColor.Shen.G / 255, AAColor.Shen.B / 255);

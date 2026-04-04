@@ -73,8 +73,8 @@ namespace AAModClassic.Projectiles.AH
 			for (int i = 0; i < 4; i++)
 			{
 				double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), Mod.Find<ModProjectile>("Ash").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 		}
 		
@@ -82,7 +82,7 @@ namespace AAModClassic.Projectiles.AH
         {
             Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MagicBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
             Projectile.active = false;
 		}
     }

@@ -5,9 +5,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
-    public class Anhialation : ModProjectile
+    public class Annihilator_Annihilation : ModProjectile
 	{
         public override void SetStaticDefaults()
         {
@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
 
         public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("AnhialationBurst").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<AnhialationBurst>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
 

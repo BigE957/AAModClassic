@@ -27,10 +27,10 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
 		public override void AI()
 		{
-            if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != Mod.Find<ModNPC>("Anubis").Type)) master = -1;
+            if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != ModContent.NPCType<Anubis>())) master = -1;
             if (master == -1)
             {
-                master = BaseAI.GetNPC(Projectile.Center, Mod.Find<ModNPC>("Anubis").Type, -1, null);
+                master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<Anubis>(), -1, null);
                 if (master == -1) master = -2;
             }
             if (master == -1) { return; }

@@ -36,7 +36,7 @@ Provides light & spelunker effect when worn"); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("StoneSoldierPlate").Type && legs.type == Mod.Find<ModItem>("StoneSoldierGreaves").Type;
+			return body.type == ModContent.ItemType<StoneSoldierPlate>() && legs.type == ModContent.ItemType<StoneSoldierGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)

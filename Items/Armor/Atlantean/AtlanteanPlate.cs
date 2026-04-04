@@ -34,15 +34,15 @@ It vibrates with the powers of Atlantis"); */
 		{
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("OceanShirt").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("HydraHide").Type, 8);
+            recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
             recipe.AddIngredient(null, "RelicBar", 8);
             recipe.AddIngredient(null, "Doomite", 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("OceanShirt").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("BroodScale").Type, 8);
+            recipe.AddIngredient(ModContent.ItemType<OceanShirt>());
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
             recipe.AddIngredient(null, "Doomite", 8);
             recipe.AddTile(TileID.DemonAltar);

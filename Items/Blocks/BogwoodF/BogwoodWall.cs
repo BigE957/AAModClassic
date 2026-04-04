@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = Mod.Find<ModWall>("BogwoodWall").Type; //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<BogwoodWall>(); //put your CustomBlock Tile name
         }
 
         

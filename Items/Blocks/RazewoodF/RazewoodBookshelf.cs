@@ -23,12 +23,12 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = Mod.Find<ModTile>("RazewoodBookshelf").Type;
+            Item.createTile = ModContent.TileType<RazewoodBookshelf>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Razewood").Type, 20);
+            recipe.AddIngredient(ModContent.ItemType<Razewood>(), 20);
             recipe.AddIngredient(ItemID.Book, 10);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();

@@ -1,4 +1,4 @@
-﻿using AAModClassic._Unreleased.Dusts;
+﻿using AAModClassic._Unreleased.Content.Void.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,10 +7,10 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.Zero
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
     // to investigate: Projectile.Damage, (8843)
-    class Rift_Unreleased : ModProjectile
+    class InfinityBlade_Rift : ModProjectile
 	{
         public short customGlowMask = 0;
         //TODOIZ
@@ -58,9 +58,9 @@ namespace AAModClassic._Unreleased.Projectiles.Zero
             {
                 if (Main.npc[num475].CanBeChasedBy(Projectile, false) && Collision.CanHit(Projectile.Center, 1, 1, Main.npc[num475].Center, 1, 1))
                 {
-                    float num476 = Main.npc[num475].position.X + (float)(Main.npc[num475].width / 2);
-                    float num477 = Main.npc[num475].position.Y + (float)(Main.npc[num475].height / 2);
-                    float num478 = Math.Abs(Projectile.position.X + (float)(Projectile.width / 2) - num476) + Math.Abs(Projectile.position.Y + (float)(Projectile.height / 2) - num477);
+                    float num476 = Main.npc[num475].position.X + Main.npc[num475].width / 2;
+                    float num477 = Main.npc[num475].position.Y + Main.npc[num475].height / 2;
+                    float num478 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num476) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num477);
                     if (num478 < num474)
                     {
                         num474 = num478;
@@ -73,15 +73,15 @@ namespace AAModClassic._Unreleased.Projectiles.Zero
             if (flag17)
             {
                 float num483 = 20f;
-                Vector2 vector35 = new Vector2(Projectile.position.X + ((float)Projectile.width * 0.5f), Projectile.position.Y + ((float)Projectile.height * 0.5f));
+                Vector2 vector35 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
                 float num484 = num472 - vector35.X;
                 float num485 = num473 - vector35.Y;
-                float num486 = (float)Math.Sqrt((double)((num484 * num484) + (num485 * num485)));
+                float num486 = (float)Math.Sqrt((double)(num484 * num484 + num485 * num485));
                 num486 = num483 / num486;
                 num484 *= num486;
                 num485 *= num486;
-                Projectile.velocity.X = ((Projectile.velocity.X * 20f) + num484) / 21f;
-                Projectile.velocity.Y = ((Projectile.velocity.Y * 20f) + num485) / 21f;
+                Projectile.velocity.X = (Projectile.velocity.X * 20f + num484) / 21f;
+                Projectile.velocity.Y = (Projectile.velocity.Y * 20f + num485) / 21f;
                 Projectile.rotation += Projectile.direction * 0.8f;
                 Projectile.ai[0] += 1f;
                 if (Projectile.ai[0] >= 30f)

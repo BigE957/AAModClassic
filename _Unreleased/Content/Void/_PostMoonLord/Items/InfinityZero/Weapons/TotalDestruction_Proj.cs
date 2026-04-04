@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Dusts;
-using AAModClassic._Unreleased.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -7,10 +6,11 @@ using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.Projectiles.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
-    public class TotalDestruction : ModProjectile
+    public class TotalDestruction_Proj : ModProjectile
     {
         // The maximum charge value
         private const float MaxChargeValue = 50f;
@@ -58,7 +58,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
         }
 
         // The core function of drawing a laser
-        public void DrawLaser(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 unit, float step, int damage, float rotation = 0f, float scale = 1f, float maxDist = 2000f, Color color = default(Color), int transDist = 50)
+        public void DrawLaser(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 unit, float step, int damage, float rotation = 0f, float scale = 1f, float maxDist = 2000f, Color color = default, int transDist = 50)
         {
             Vector2 origin = start;
             float r = unit.ToRotation() + rotation;
@@ -171,7 +171,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
                 Vector2 spawnPos = Projectile.Center + dustVelocity;
                 for (int k = 0; k < chargeFact + 1; k++)
                 {
-                    Vector2 spawn = spawnPos + ((float)Main.rand.NextDouble() * 6.28f).ToRotationVector2() * (12f - (chargeFact * 2));
+                    Vector2 spawn = spawnPos + ((float)Main.rand.NextDouble() * 6.28f).ToRotationVector2() * (12f - chargeFact * 2);
                     Dust dust = Main.dust[Dust.NewDust(pos, 20, 20, ModContent.DustType<VoidDust_Unreleased>(), Projectile.velocity.X / 2f,
                         Projectile.velocity.Y / 2f, 0, default(Color), 1f)];
                     dust.velocity = Vector2.Normalize(spawnPos - spawn) * 1.5f * (10f - chargeFact * 2f) / 10f;

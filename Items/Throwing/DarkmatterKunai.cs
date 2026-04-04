@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Throwing
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 0;
 			Item.shootSpeed = 15f;
-			Item.shoot = Mod.Find<ModProjectile>("DMK").Type;
+			Item.shoot = ModContent.ProjectileType<DMK>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.consumable = true;

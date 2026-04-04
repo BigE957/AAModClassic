@@ -54,7 +54,7 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("WitchRobe").Type && legs.type == Mod.Find<ModItem>("WitchBoots").Type;
+			return body.type == ModContent.ItemType<WitchRobe>() && legs.type == ModContent.ItemType<WitchBoots>();
         }
 
 		public override void UpdateArmorSet(Player player)
@@ -68,13 +68,13 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(Mod.Find<ModBuff>("FlameSoul").Type) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<FlameSoul>()) == -1)
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("FlameSoul").Type, 3600, true);
+                    player.AddBuff(ModContent.BuffType<FlameSoul>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("FlameSoul").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<FlameSoul>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("FlameSoul").Type, 60, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<FlameSoul>(), 60, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

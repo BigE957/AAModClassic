@@ -38,7 +38,7 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("SerpentHead").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.SubzeroSerpent"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SerpentHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.SubzeroSerpent"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
@@ -53,7 +53,7 @@ namespace AAModClassic.Items.BossSummons
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SubzeroCrystalSnowZoneFalse"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, false);
                 return false;
             }
-            if (NPC.AnyNPCs(Mod.Find<ModNPC>("SerpentHead").Type))
+            if (NPC.AnyNPCs(ModContent.NPCType<SerpentHead>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SubzeroCrystalFalse"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, false);
                 return false;

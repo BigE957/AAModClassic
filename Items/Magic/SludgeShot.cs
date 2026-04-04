@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Magic
 			Item.rare = ItemRarityID.Orange;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("SludgeShotP").Type;
+			Item.shoot = ModContent.ProjectileType<SludgeShotP>();
 			Item.shootSpeed = 12f;
 		}
 

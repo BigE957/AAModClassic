@@ -36,12 +36,12 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Chest");
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
 			TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Bogwood Chest";
-			RegisterItemDrop(Mod.Find<ModItem>("BogwoodChest").Type);
+			RegisterItemDrop(ModContent.ItemType<BogwoodChest>());
 		}
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("BogwoodChest").DisplayName;
@@ -183,7 +183,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Bogwood Chest";
 				if (player.cursorItemIconText == "Bogwood Chest")
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("BogwoodChest").Type;
+					player.cursorItemIconID = ModContent.ItemType<BogwoodChest>();
 					player.cursorItemIconText = "";
 				}
 			}

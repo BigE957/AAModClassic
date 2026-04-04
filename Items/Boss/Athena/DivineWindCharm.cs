@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Athena
             Item.damage = 100;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("OwlRune").Type;
+            Item.shoot = ModContent.ProjectileType<OwlRune>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item78;

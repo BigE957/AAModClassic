@@ -41,7 +41,7 @@ namespace AAModClassic.Items.DevTools
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Stone)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("IncineriteOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<IncineriteOre>());
                 }
             }
 
@@ -51,7 +51,7 @@ namespace AAModClassic.Items.DevTools
                 int tilesY = WorldGen.genRand.Next(0, y);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)ModContent.TileType<EverleafRoot>());
                 }
             }
 
@@ -61,7 +61,7 @@ namespace AAModClassic.Items.DevTools
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("AbyssiumOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<AbyssiumOre>());
                 }
             }
             
@@ -71,7 +71,7 @@ namespace AAModClassic.Items.DevTools
                 int tilesY = WorldGen.genRand.Next(0, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.IceBlock)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("RelicOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<RelicOre>());
                 }
             }
 
@@ -85,7 +85,7 @@ namespace AAModClassic.Items.DevTools
                     i = WorldGen.genRand.Next(0, Main.maxTilesX);
                     j = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
                 }
-                WorldGen.TileRunner(i, j, WorldGen.genRand.Next(2, 6), WorldGen.genRand.Next(3, 7), Mod.Find<ModTile>("PrismOre").Type);
+                WorldGen.TileRunner(i, j, WorldGen.genRand.Next(2, 6), WorldGen.genRand.Next(3, 7), ModContent.TileType<PrismOre>());
             }
         }
     }

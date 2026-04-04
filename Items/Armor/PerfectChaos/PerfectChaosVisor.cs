@@ -45,14 +45,14 @@ The power of discordian rage radiates from this hood"); */
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("PerfectChaosPlate").Type && legs.type == Mod.Find<ModItem>("PerfectChaosGreaves").Type;
+			return body.type == ModContent.ItemType<PerfectChaosPlate>() && legs.type == ModContent.ItemType<PerfectChaosGreaves>();
 		}
 
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosVisorBonus");
             player.GetModPlayer<AAPlayer>().perfectChaosRa = true;
-            player.AddBuff(Mod.Find<ModBuff>("ChaosWrath").Type, 2);
+            player.AddBuff(ModContent.BuffType<ChaosWrath>(), 2);
         }
 
         public override void UpdateEquip(Player player)

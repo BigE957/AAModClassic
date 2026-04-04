@@ -52,12 +52,12 @@ N0N-C0NSUMABLE"); */
         {
             if (player.GetModPlayer<AAPlayer>().ZoneVoid)
             {
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Zero").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<Zero>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
@@ -75,8 +75,8 @@ N0N-C0NSUMABLE"); */
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 AAWorld.zeroUS = true;
-                if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type))
-                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, Mod.Find<ModNPC>("ZeroProtocol").Type);
+                if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
+                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroProtocol>());
             }
 
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/ZeroDeath"));

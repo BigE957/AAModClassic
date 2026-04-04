@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Djinn
             Item.mana = 7;          
             Item.UseSound = SoundID.Item21;      
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("SandSpray").Type; 
+            Item.shoot = ModContent.ProjectileType<SandSpray>(); 
             Item.shootSpeed = 9f; 
         }
         

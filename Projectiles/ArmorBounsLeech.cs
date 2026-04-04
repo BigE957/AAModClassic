@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Magic;
-            dust = Mod.Find<ModDust>("DarkmatterDust").Type;
+            dust = ModContent.DustType<DarkmatterDust>();
             potencyFactor = .02f;
         }
         public override void PlayerBenifit(int potency, Player player)
@@ -96,7 +96,7 @@ namespace AAModClassic.Projectiles
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Magic;
-            dust = Mod.Find<ModDust>("RadiumDust").Type;
+            dust = ModContent.DustType<RadiumDust>();
             potencyFactor = .25f;
         }
         public override void PlayerBenifit(int potency, Player player)
@@ -122,18 +122,18 @@ namespace AAModClassic.Projectiles
             }
             if (overloadCount >0)
             {
-                if (player.HasBuff(Mod.Find<ModBuff>("ManaOverload").Type))
+                if (player.HasBuff(ModContent.BuffType<ManaOverload>()))
                 {
 
-                    player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] += overloadCount * 2;
-                    if (player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] > 600)
+                    player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] += overloadCount * 2;
+                    if (player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] > 600)
                     {
-                        player.buffTime[player.FindBuffIndex(Mod.Find<ModBuff>("ManaOverload").Type)] = 600;
+                        player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] = 600;
                     }
                 }
                 else
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("ManaOverload").Type, overloadCount * 2);
+                    player.AddBuff(ModContent.BuffType<ManaOverload>(), overloadCount * 2);
                 }
                 CombatText.NewText(player.Hitbox, Color.Purple, overloadCount * 2);
             }

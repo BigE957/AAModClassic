@@ -27,7 +27,7 @@ Combiles all vanilla and Ancients Awakened crafting stations together"); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 100000;
-            Item.createTile = Mod.Find<ModTile>("TerraPrism").Type;
+            Item.createTile = ModContent.TileType<TerraPrism>();
         }
 
         public override void AddRecipes()

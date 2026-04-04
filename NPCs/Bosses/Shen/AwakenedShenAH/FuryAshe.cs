@@ -87,7 +87,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, Mod.Find<ModProjectile>("DiscordianInferno").Type, ref NPC.ai[2], 22, NPC.damage / 4, 9, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<DiscordianInferno>(), ref NPC.ai[2], 22, NPC.damage / 4, 9, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         AIChange();
@@ -121,7 +121,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, Mod.Find<ModProjectile>("ShenABreath").Type, ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenABreath>(), ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         NPC.ai[1] = 0;
@@ -162,8 +162,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("ShenFireballAccel").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), ModContent.ProjectileType<ShenFireballAccel>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), ModContent.ProjectileType<ShenFireballAccel>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -487,7 +487,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                 {
                     for(int i = 0; i < 200; i++)
                     {
-                        if(Main.npc[i].type == Mod.Find<ModNPC>("FuryAsheOrbiter").Type)
+                        if(Main.npc[i].type == ModContent.NPCType<FuryAsheOrbiter>())
                         {
                             Main.npc[i].life = 0;
                             Main.npc[i].active = false;
@@ -502,7 +502,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     rotation = 2f * (float)Math.PI / 4;
                     for (int m = 0; m < 4; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("FuryAsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -512,7 +512,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("FuryAsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -523,7 +523,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("FuryAsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<FuryAsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }

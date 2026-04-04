@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
-            DustType = Mod.Find<ModDust>("MushDust").Type;
+            DustType = ModContent.DustType<MushDust>();
 			AddMapEntry(new Color(100, 100, 0));
             RegisterItemDrop(ItemID.DirtBlock);
 		}
@@ -27,8 +27,8 @@ namespace AAModClassic.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(30) == 0)
             {
-                PlaceObject(i, j - 1, Mod.Find<ModTile>("Mushroom").Type);
-                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Mushroom").Type, Main.rand.Next(5), 0, -1, -1);
+                PlaceObject(i, j - 1, ModContent.TileType<Mushroom>());
+                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Mushroom>(), Main.rand.Next(5), 0, -1, -1);
             }
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(1000) == 0)
             {

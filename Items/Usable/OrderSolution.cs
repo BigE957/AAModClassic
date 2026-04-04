@@ -15,7 +15,7 @@ Cleanses the Chaos"); */
 
 		public override void SetDefaults()
 		{
-			Item.shoot = Mod.Find<ModProjectile>("OrderSolution").Type - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<OrderSolution>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

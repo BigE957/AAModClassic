@@ -18,7 +18,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.CloneDefaults(NPCID.SandShark);
             AnimationType = NPCID.SandShark;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("InfernoSandSharkBanner").Type;
+			BannerItem = ModContent.ItemType<InfernoSandSharkBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

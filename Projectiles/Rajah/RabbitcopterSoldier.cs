@@ -33,7 +33,7 @@ namespace AAModClassic.Projectiles.Rajah
         }
         public override void AI()
         {
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("RabbitcopterSoldier").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<RabbitcopterSoldier>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             if (!player.active)
@@ -60,7 +60,7 @@ namespace AAModClassic.Projectiles.Rajah
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("RabbitcopterSoldier").Type;
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<RabbitcopterSoldier>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)

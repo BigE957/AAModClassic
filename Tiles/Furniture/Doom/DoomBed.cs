@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Bed");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
 			TileID.Sets.CanBeSleptIn[Type] = true;
@@ -68,7 +68,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("Doom Bed").Type;
+			player.cursorItemIconID = ModContent.ItemType<Doom Bed>();
 		}
 
 

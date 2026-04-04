@@ -34,7 +34,7 @@ namespace AAModClassic.Projectiles.Anubis
 			Projectile.Center = player.Center;
 			Projectile.position.Y = player.Center.Y-90;
 			Projectile.spriteDirection = player.direction;
-			if (player.dead || !player.HasBuff(Mod.Find<ModBuff>("EyeOfJudgement").Type))
+			if (player.dead || !player.HasBuff(ModContent.BuffType<EyeOfJudgement>()))
 			{
 				Projectile.Kill();
 			}

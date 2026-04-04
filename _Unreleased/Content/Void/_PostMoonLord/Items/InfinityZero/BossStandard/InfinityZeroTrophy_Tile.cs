@@ -7,9 +7,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Unreleased.Tiles.Trophy
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
-    public class IZTrophy : ModTile
+    public class InfinityZeroTrophy_Tile : ModTile
     {
         public Texture2D glowTex;
         public bool glow = true;
@@ -30,13 +30,13 @@ namespace AAModClassic._Unreleased.Tiles.Trophy
         {
             if (!glow) return;
             Color color = BaseUtility.ColorMult(AAPlayer.ZeroColor, 0.7f);
-            r = (color.R / 255f); g = (color.G / 255f); b = (color.B / 255f);
+            r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            if (glow && (tile != null && tile.HasTile && tile.TileType == this.Type))
+            if (glow && tile != null && tile.HasTile && tile.TileType == this.Type)
             {
                 if (glowTex == null) glowTex = Mod.GetTexture("_Unreleased/Glowmasks/IZTrophy_Glow");
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
@@ -45,7 +45,7 @@ namespace AAModClassic._Unreleased.Tiles.Trophy
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, Mod.Find<ModItem>("IZTrophy").Type);
+            Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, ModContent.ItemType<IZTrophy>());
         }
 	}
 }

@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Chair");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Chairs };
         }

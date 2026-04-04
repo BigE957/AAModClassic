@@ -21,7 +21,7 @@ namespace AAModClassic.Buffs
     {
         public override bool PreAI(NPC npc)
         {
-            if (npc.HasBuff(Mod.Find<ModBuff>("DarkLock").Type))
+            if (npc.HasBuff(ModContent.BuffType<DarkLock>()))
             {
                 npc.velocity = Vector2.Zero;
                 return false;
@@ -30,7 +30,7 @@ namespace AAModClassic.Buffs
         }
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (npc.HasBuff(Mod.Find<ModBuff>("DarkLock").Type) && npc.active)
+            if (npc.HasBuff(ModContent.BuffType<DarkLock>()) && npc.active)
             {
                 Texture2D DarkX = new Texture2D(Main.graphics.GraphicsDevice, npc.width, npc.height);
                 Color[] dataColors = new Color[npc.width * npc.height];

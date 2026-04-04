@@ -144,7 +144,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                     flaming = true;
                     Vector2 shootspeed = Vector2.Normalize(Projectile.velocity) * 20f;
                     Vector2 shootpos = Vector2.Normalize(Projectile.velocity).RotatedBy((float)Math.PI / 2 * Projectile.direction) * Projectile.height / 2;
-                    int fire = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, Mod.Find<ModProjectile>("DragonfireProj").Type, (int)(Projectile.damage / 1.5), 0, Projectile.owner);
+                    int fire = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + Projectile.velocity.X + shootpos.X, Projectile.position.Y + Projectile.velocity.Y + shootpos.Y, shootspeed.X, shootspeed.Y, ModContent.ProjectileType<DragonfireProj>(), (int)(Projectile.damage / 1.5), 0, Projectile.owner);
                     Main.projectile[fire].minion = true;
                     Main.projectile[fire].minionSlots = 0f;
                 }
@@ -309,7 +309,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                 scaleFactor16 = 16f;
                 int arg_2D9AD_0 = Main.projectile[byUUID].alpha;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("LungHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<LungHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
             }
 
             if (!flag67) return;
@@ -351,7 +351,7 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                 if (byUUID != -1)
                 {
                     Projectile projectile1 = Main.projectile[byUUID];
-                    if (projectile1.type != Mod.Find<ModProjectile>("LungHead").Type) projectile1.localAI[1] = Projectile.localAI[1];
+                    if (projectile1.type != ModContent.ProjectileType<LungHead>()) projectile1.localAI[1] = Projectile.localAI[1];
                     projectile1 = Main.projectile[(int)Projectile.localAI[1]];
                     projectile1.ai[0] = Projectile.ai[0];
                     projectile1.ai[1] = 1f;
@@ -464,8 +464,8 @@ namespace AAModClassic.Projectiles.Akuma.Lung
                 scaleFactor16 = 16f;
                 int arg_2D9AD_0 = Main.projectile[byUUID].alpha;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("LungHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
-                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == Mod.Find<ModProjectile>("LungHead").Type)
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<LungHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == ModContent.ProjectileType<LungHead>())
                 {
                     Main.projectile[byUUID].Kill();
                     Projectile.Kill();

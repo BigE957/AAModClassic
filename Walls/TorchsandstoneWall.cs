@@ -7,7 +7,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            DustType = ModContent.DustType<IncineriteDust>();
 			AddMapEntry(new Color(25, 12, 10));
             Terraria.ID.WallID.Sets.Conversion.Sandstone[Type] = true;
         }

@@ -15,8 +15,8 @@ namespace AAModClassic.Tiles
             Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("Razewood").Type);   
+            DustType = ModContent.DustType<RazewoodDust>();
+            RegisterItemDrop(ModContent.ItemType<Razewood>());   
             AddMapEntry(new Color(40, 40, 40));
             MinPick = 0;
         }

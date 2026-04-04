@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Boss.Broodmother
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("BroodTrophy").Type;
+			Item.createTile = ModContent.TileType<BroodTrophy>();
             
 		}
 

@@ -53,7 +53,7 @@ namespace AAModClassic.Projectiles.Yamata
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + .25f * (float)Math.PI;
 			for (int i = 0; i < 3; i++)
 			{
-				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("YamataADust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataADust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
 				if (Main.rand.Next(6) != 0)
 				{
 					Main.dust[d].noGravity = true;
@@ -70,7 +70,7 @@ namespace AAModClassic.Projectiles.Yamata
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 500);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
         }		
 
         public override void OnKill(int timeLeft)

@@ -20,7 +20,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            DustType = ModContent.DustType<AbyssiumDust>();
             HitSound = SoundID.Tink;
             MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));
@@ -31,8 +31,8 @@ namespace AAModClassic.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
             {
-                PlaceObject(i, j - 1, Mod.Find<ModTile>("Darkshroom").Type);
-                NetMessage.SendObjectPlacement(-1, i, j - 1, Mod.Find<ModTile>("Darkshroom").Type, 0, 0, -1, -1);
+                PlaceObject(i, j - 1, ModContent.TileType<Darkshroom>());
+                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Darkshroom>(), 0, 0, -1, -1);
 
             }
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(40) == 0)

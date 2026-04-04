@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraProbeBanner").Type;
+			BannerItem = ModContent.ItemType<TerraProbeBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

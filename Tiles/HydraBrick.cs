@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
-            //RegisterItemDrop(Mod.Find<ModItem>("Hydra Brick").Type);   
+            //RegisterItemDrop(ModContent.ItemType<Hydra Brick>());   
             AddMapEntry(new Color(125, 59, 42));
         }
 

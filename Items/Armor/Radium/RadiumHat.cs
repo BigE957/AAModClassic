@@ -46,7 +46,7 @@ Shines with the light of a starry night sky"); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("RadiumPlatemail").Type && legs.type == Mod.Find<ModItem>("RadiumCuisses").Type;
+            return body.type == ModContent.ItemType<RadiumPlatemail>() && legs.type == ModContent.ItemType<RadiumCuisses>();
         }
 
 		public override void UpdateArmorSet(Player player)
@@ -116,11 +116,11 @@ Shines with the light of a starry night sky"); */
             for (int i = 0; i < 100; i++)
             {
                 float theta = Main.rand.NextFloat(-(float)Math.PI, (float)Math.PI);
-                Dust dust = Dust.NewDustPerfect(projectile.Center, Mod.Find<ModDust>("RadiumDust").Type, PolarVector(radius / 30, theta));
+                Dust dust = Dust.NewDustPerfect(projectile.Center, ModContent.DustType<RadiumDust>(), PolarVector(radius / 30, theta));
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);
-            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("RadiumSetbonusBlast").Type, (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)).Flat, 0f, projectile.owner, radius);
+            Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ModContent.ProjectileType<RadiumSetbonusBlast>(), (int)(baseBlastDamage * Main.player[projectile.owner].GetDamage(DamageClass.Summon)).Flat, 0f, projectile.owner, radius);
             
         }
         public static Vector2 PolarVector(float radius, float theta)

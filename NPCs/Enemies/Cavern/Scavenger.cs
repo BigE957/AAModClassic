@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ScavengerBanner").Type;
+			BannerItem = ModContent.ItemType<ScavengerBanner>();
         }
 
         public override void AI()
@@ -64,11 +64,11 @@ namespace AAModClassic.NPCs.Enemies.Cavern
                     int a;
                     if (num36 >= 0 && num36 < 5)
                     {
-                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerBody").Type, NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), ModContent.NPCType<ScavengerBody>(), NPC.whoAmI);
                     }
                     else
                     {
-                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), Mod.Find<ModNPC>("ScavengerTail").Type, NPC.whoAmI);
+                        a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + (NPC.width / 2), (int)NPC.position.Y + (NPC.height / 2), ModContent.NPCType<ScavengerTail>(), NPC.whoAmI);
                     }
                     Main.npc[a].realLife = NPC.whoAmI;
                     Main.npc[a].ai[2] = NPC.whoAmI;
@@ -410,7 +410,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
 
         public override void OnKill()
         {
-            BaseAI.DropItem(NPC, Mod.Find<ModItem>("CovetiteCrystal").Type, Main.expertMode ? 1 + Main.rand.Next(1) : 1, 5, Main.expertMode ? 40 : 30, true);
+            BaseAI.DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), Main.expertMode ? 1 + Main.rand.Next(1) : 1, 5, Main.expertMode ? 40 : 30, true);
             NPC.DropLoot(ModContent.ItemType<Items.Usable.GreedKey>(), .05f);
         }
 

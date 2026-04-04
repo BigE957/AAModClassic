@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.autoReuse = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = Mod.Find<ModProjectile>("HurricaneSpawn").Type;
+            Item.shoot = ModContent.ProjectileType<HurricaneSpawn>();
             Item.shootSpeed = 9f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;

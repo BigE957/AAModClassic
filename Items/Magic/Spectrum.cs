@@ -32,7 +32,7 @@ Last Prism EX"); */
 			Item.channel = true;
 	        Item.knockBack = 0f;
 	        Item.value = 1000000;
-	        Item.shoot = Mod.Find<ModProjectile>("Spectrum").Type;
+	        Item.shoot = ModContent.ProjectileType<Spectrum>();
 	        Item.shootSpeed = 30f;
 			Item.rare = ItemRarityID.Cyan;
 	    }
@@ -41,7 +41,7 @@ Last Prism EX"); */
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LastPrism);
-			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
 			recipe.AddTile(null, "ACS");
 			recipe.Register();
 		}

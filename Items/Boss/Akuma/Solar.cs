@@ -31,7 +31,7 @@ Inflicts daybroken"); */
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = Mod.Find<ModProjectile>("Solar").Type;
+            Item.shoot = ModContent.ProjectileType<Solar>();
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
         }

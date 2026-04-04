@@ -7,9 +7,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Unreleased.Tiles
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard
 {
-    class SoCBox : ModTile
+    class SoulOfCthulhuMusicBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -23,13 +23,14 @@ namespace AAModClassic._Unreleased.Tiles
             TileID.Sets.DisableSmartCursor[Type] = true;
             LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = Mod.Find<ModDust>("CthulhuDust").Type;
+            DustType = ModContent.DustType<CthulhuDust>();
             AddMapEntry(new Color(200, 200, 200), name);
 		}
         
+		//TODOSOC port his box item
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, Mod.Find<ModItem>("SoCBox").Type);
+			Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, ModContent.ItemType<SoCBox>());
 		}
 
 		public override void MouseOver(int i, int j)
@@ -37,7 +38,7 @@ namespace AAModClassic._Unreleased.Tiles
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("SoCBox").Type;
+			player.cursorItemIconID = ModContent.ItemType<SoCBox>();
 		}
 	}
 }

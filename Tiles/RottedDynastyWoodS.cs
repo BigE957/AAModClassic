@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles
 			Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;
             
-            RegisterItemDrop(Mod.Find<ModItem>("RottedDynastyWood").Type);   
+            RegisterItemDrop(ModContent.ItemType<RottedDynastyWood>());   
             AddMapEntry(new Color(39, 34, 8));
 			MinPick = 0;
         }

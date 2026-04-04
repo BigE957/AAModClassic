@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("DarkmatterBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<DarkmatterBrick>());   
             AddMapEntry(new Color(30, 30, 51));
             DustType = ModContent.DustType<DarkmatterDust>();
         }

@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Vanity.CC
             Item.width = 32;
             Item.height = 32;
             Item.expert = true; Item.expertOnly = true;
-            Item.createTile = Mod.Find<ModTile>("CCMireBox").Type; 
+            Item.createTile = ModContent.TileType<CCMireBox>(); 
         }
 
         public override bool CanRightClick()

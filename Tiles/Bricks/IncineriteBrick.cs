@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("IncineriteBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<IncineriteBrick>());   
             AddMapEntry(new Color(80, 60, 20));
             DustType = ModContent.DustType<Dusts.IncineriteDust>();
         }

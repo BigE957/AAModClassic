@@ -79,7 +79,7 @@ Non-Consumable"); */
                 {
                     return false;
                 }
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("AkumaTransition").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<AkumaTransition>()))
                 {
                     return false;
                 }
@@ -93,7 +93,7 @@ Non-Consumable"); */
         {
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneTrue1"), new Color(175, 75, 255));
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneTrue2"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("AkumaA").Type, false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.AkumaA"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaA>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.AkumaA"), false);
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/AkumaRoar"), player.position);
             return true;
         }

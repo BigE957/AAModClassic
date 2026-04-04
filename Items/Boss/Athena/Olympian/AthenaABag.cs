@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.rare = ItemRarityID.Red;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("AthenaA").Type;
+        //public override int BossBagNPC => ModContent.NPCType<AthenaA>();
 
         public override bool CanRightClick()
         {
@@ -34,20 +34,20 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("AthenaAMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AthenaAMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GoddessHarp").Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(25, 30));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SkyCrystal").Type, Main.rand.Next(30, 50));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessHarp>());
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessFeather>(), Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SkyCrystal>(), Main.rand.Next(30, 50));
             string[] lootTable = { "HurricaneStone", "Olympia", "Windfury", "GaleForce" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("StarChart").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StarChart>());
         }
     }
 }

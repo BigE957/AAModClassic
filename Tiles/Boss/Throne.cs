@@ -40,13 +40,13 @@ namespace AAModClassic.Tiles.Boss
             var dist = (int)Vector2.Distance(player.Center / 16, new Vector2(i, j));
             if (dist <= 100)
             {
-                if (!NPC.AnyNPCs(Mod.Find<ModNPC>("LuciferSitting").Type))
+                if (!NPC.AnyNPCs(ModContent.NPCType<LuciferSitting>()))
                 {
                     i += 2;
                     i *= 16;
                     j += 5;
                     j *= 16;
-                    int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), i + 1, j + 1, Mod.Find<ModNPC>("LuciferSitting").Type);
+                    int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), i + 1, j + 1, ModContent.NPCType<LuciferSitting>());
                     if (Main.netMode == NetmodeID.Server)
                     {
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);

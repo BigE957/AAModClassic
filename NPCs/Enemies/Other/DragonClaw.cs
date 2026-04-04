@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("DragonClawBanner").Type;
+			BannerItem = ModContent.ItemType<DragonClawBanner>();
         }
 
         public override void AI()
@@ -79,7 +79,7 @@ namespace AAModClassic.NPCs.Enemies.Other
         }
         public override void OnKill()
         {
-            NPC.DropLoot(Mod.Find<ModItem>("DragonClaw").Type, 1);
+            NPC.DropLoot(ModContent.ItemType<DragonClaw>(), 1);
         }
     }
 }

@@ -50,7 +50,7 @@ Potential lag warning"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			type = Mod.Find<ModProjectile>("Carrow").Type;
+			type = ModContent.ProjectileType<Carrow>();
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f;
             int num118 = Main.rand.Next(2,5);

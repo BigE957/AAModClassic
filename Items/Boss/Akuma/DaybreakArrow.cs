@@ -28,7 +28,7 @@ Non-consumable"); */
 			Item.consumable = false;
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("DaybreakArrow").Type;
+            Item.shoot = ModContent.ProjectileType<DaybreakArrow>();
 			Item.shootSpeed = 3f;
 			Item.ammo = AmmoID.Arrow;
             Item.rare = ItemRarityID.Cyan;

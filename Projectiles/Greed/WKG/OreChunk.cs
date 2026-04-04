@@ -116,7 +116,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == Mod.Find<ModItem>("Abyssium").Type)
+            else if(k == ModContent.ItemType<Abyssium>())
             {
                 if(Projectile.ai[0]++ > 800)
                 {
@@ -192,7 +192,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     if(velocity.X != Projectile.velocity.X) Projectile.velocity.X = 0;
                 }
             }
-            else if(k == Mod.Find<ModItem>("DarkmatterOre").Type)
+            else if(k == ModContent.ItemType<DarkmatterOre>())
             {
                 int num5 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width * 3, Projectile.height * 3, ModContent.DustType<DarkmatterDust>() , 0f, 0f, 200, default, 0.5f);
                 Main.dust[num5].noGravity = true;
@@ -233,7 +233,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == Mod.Find<ModItem>("DaybreakIncineriteOre").Type)
+            else if(k == ModContent.ItemType<DaybreakIncineriteOre>())
             {
                 if(Projectile.ai[0] == 1f)
                 {
@@ -248,7 +248,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == Mod.Find<ModItem>("RadiumOre").Type)
+            else if(k == ModContent.ItemType<RadiumOre>())
             {
                 Projectile.ai[0] ++;
                 if(Projectile.ai[0] > 600)
@@ -261,7 +261,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 }
                 Projectile.velocity += Vector2.Normalize(Projectile.velocity) * 0.03f;
             }
-            else if(k == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
+            else if(k == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 if(Projectile.localAI[0] == 1)
                 {
@@ -292,7 +292,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == Mod.Find<ModItem>("Apocalyptite").Type)
+            else if(k == ModContent.ItemType<Apocalyptite>())
             {
                 if((Projectile.ai[0] ++) % 40 == 20 && Projectile.localAI[0] < 3)
                 {
@@ -400,7 +400,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 				Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 			}
 
-            if (Projectile.ai[1] == ItemID.DemoniteOre || Projectile.ai[1] == Mod.Find<ModItem>("Abyssium").Type || Projectile.ai[1] == ItemID.LunarOre || Projectile.ai[1] == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
+            if (Projectile.ai[1] == ItemID.DemoniteOre || Projectile.ai[1] == ModContent.ItemType<Abyssium>() || Projectile.ai[1] == ItemID.LunarOre || Projectile.ai[1] == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 Main.spriteBatch.Draw(TextureAssets.Item[(int)Projectile.ai[1]].Value, Projectile.position, null, lightColor, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             }
@@ -450,7 +450,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     Main.dust[num292].noGravity = true;
                 };
             }
-            else if (Projectile.ai[1] == Mod.Find<ModItem>("Abyssium").Type)
+            else if (Projectile.ai[1] == ModContent.ItemType<Abyssium>())
             {
                 for(int shoot = 0; shoot < 3; shoot ++)
                 {
@@ -474,11 +474,11 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0, 0);
             }
-            else if (Projectile.ai[1] == Mod.Find<ModItem>("DaybreakIncineriteOre").Type)
+            else if (Projectile.ai[1] == ModContent.ItemType<DaybreakIncineriteOre>())
             {
                 NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
             }
-            else if (Projectile.ai[1] == Mod.Find<ModItem>("Apocalyptite").Type)
+            else if (Projectile.ai[1] == ModContent.ItemType<Apocalyptite>())
             {
                 for (int v = 0; v < 4; v++)
                 {
@@ -615,7 +615,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             if(k == ItemID.TungstenOre)
             {
-                target.AddBuff(Mod.Find<ModBuff>("Impaled").Type, 900);
+                target.AddBuff(ModContent.BuffType<Impaled>(), 900);
                 Rectangle rectangle = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
                 if (Projectile.owner == Main.myPlayer)
                 {
@@ -695,7 +695,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     target.AddBuff(BuffID.Confused, 180);
                 }
             }
-            else if(k == Mod.Find<ModItem>("Incinerite").Type)
+            else if(k == ModContent.ItemType<Incinerite>())
             {
                 target.AddBuff(BuffID.OnFire, 240);
                 if (Main.rand.Next(5) == 0)
@@ -720,11 +720,11 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     }
                 }
             }
-            else if(k == Mod.Find<ModItem>("Abyssium").Type)
+            else if(k == ModContent.ItemType<Abyssium>())
             {
                 target.AddBuff(BuffID.Venom, 180);
             }
-            else if(k == Mod.Find<ModItem>("DynaskullOre").Type)
+            else if(k == ModContent.ItemType<DynaskullOre>())
             {
                 if(Projectile.ai[0] != 1f)
                 {
@@ -734,7 +734,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     {
                         shoot = new Vector2((float)Math.Sin(shootid * 0.125f * Math.PI), (float)Math.Cos(shootid * 0.125f * Math.PI));
                         shoot *= 10f;
-                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, (int)(modifiers.FinalDamage.Flat /2), 5, Main.myPlayer, 0, Mod.Find<ModItem>("DynaskullOre").Type);
+                        int p = NewProjectile(Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, projType, (int)(modifiers.FinalDamage.Flat /2), 5, Main.myPlayer, 0, ModContent.ItemType<DynaskullOre>());
                         Main.projectile[p].ai[0] = 1f;
                         Main.projectile[p].scale /= 2;
                         Main.projectile[p].width /= 2;
@@ -774,7 +774,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             else if(k == ItemID.PalladiumOre)
             {
                 if(Projectile.damage / 2 > 100f)
-                NewProjectile(Projectile.position.X, Projectile.position.Y, -Projectile.velocity.X, -Projectile.velocity.Y, Mod.Find<ModProjectile>("OreChunk").Type, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, ItemID.PalladiumOre);
+                NewProjectile(Projectile.position.X, Projectile.position.Y, -Projectile.velocity.X, -Projectile.velocity.Y, ModContent.ProjectileType<OreChunk>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, ItemID.PalladiumOre);
             }
             else if(k == ItemID.MythrilOre || k == ItemID.OrichalcumOre)
             {
@@ -803,13 +803,13 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 Projectile.height = (int)(Projectile.height / 1.3);
                 Projectile.damage = (int)(Projectile.damage / 1.3);
             }
-            else if(k == Mod.Find<ModItem>("HallowedOre").Type)
+            else if(k == ModContent.ItemType<HallowedOre>())
             {
                 //target.AddBuff(BuffID.Slow, 180);
                 Player player = Main.player[Projectile.owner];
                 if(Projectile.ai[0] < 2f)
                 {
-                    int p = NewProjectile(player.Center.X, player.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("OreChunk").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, ++Projectile.ai[0], Mod.Find<ModItem>("HallowedOre").Type);
+                    int p = NewProjectile(player.Center.X, player.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<OreChunk>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ++Projectile.ai[0], ModContent.ItemType<HallowedOre>());
                 }
             }
             else if(k == ItemID.ChlorophyteOre)
@@ -829,7 +829,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     vector = Vector2.Normalize(vector);
                     for(int newone = -1; newone <= 1; newone += 2)
                     {
-                        int p = NewProjectile(Projectile.Center.X + vector.X * 40f * newone, Projectile.Center.Y + vector.Y * 40f * newone, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("OreChunk").Type, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, ItemID.LunarOre);
+                        int p = NewProjectile(Projectile.Center.X + vector.X * 40f * newone, Projectile.Center.Y + vector.Y * 40f * newone, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<OreChunk>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, ItemID.LunarOre);
                         Main.projectile[p].scale /= 2;
                         Main.projectile[p].width /= 2;
                         Main.projectile[p].height /= 2;
@@ -838,7 +838,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 }
                 if(Projectile.ai[0] != 1f) NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<LuminiteBlast>(), (int)(Projectile.damage / 2.5), Projectile.knockBack, Projectile.owner, 0, 0);
             }
-            else if(k == Mod.Find<ModItem>("SkyCrystal").Type)
+            else if(k == ModContent.ItemType<SkyCrystal>())
             {
                 int num90 = 3;
                 if (Main.rand.Next(3) == 0)
@@ -865,27 +865,27 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     num92 *= Main.rand.Next(75, 150) * 0.01f;
                     vector2.X += Main.rand.Next(-50, 51);
                     Vector2 speedfinal = Vector2.Normalize(new Vector2(num92, speedY2)) * Projectile.velocity.Length();
-                    NewProjectile(vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, Mod.Find<ModProjectile>("SeraphFeather").Type, Projectile.damage, 0, Projectile.owner, 0f, 1f);
+                    NewProjectile(vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, ModContent.ProjectileType<SeraphFeather>(), Projectile.damage, 0, Projectile.owner, 0f, 1f);
                 }
             }
-            else if(k == Mod.Find<ModItem>("CovetiteOre").Type)
+            else if(k == ModContent.ItemType<CovetiteOre>())
             {
                 for(int i = 0; i < 12; i++)
                 {
                     NewProjectile(Projectile.position.X + 30f, Projectile.position.Y + 30f, Main.rand.Next(-3, 4), Main.rand.Next(-3, 10), ModContent.ProjectileType<Gold>(), Projectile.damage / 2, 1, Projectile.owner, 0, 1);
                 }
             }
-            else if(k == Mod.Find<ModItem>("DarkmatterOre").Type)
+            else if(k == ModContent.ItemType<DarkmatterOre>())
             {
                 target.AddBuff(ModContent.BuffType<Electrified>(), 180);
             }
-            else if(k == Mod.Find<ModItem>("DaybreakIncineriteOre").Type)
+            else if(k == ModContent.ItemType<DaybreakIncineriteOre>())
             {
                 target.AddBuff(BuffID.Daybreak, 400);
-                NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DaybreakBlast").Type, (int)(Projectile.damage / 2.5), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                NewProjectile(Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DaybreakBlast>(), (int)(Projectile.damage / 2.5), Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
             }
-            else if(k == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
+            else if(k == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 400);
 
@@ -1092,11 +1092,11 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 item.SetDefaults(k, false);
             }
-            if(k == ItemID.DemoniteOre || k == Mod.Find<ModItem>("Abyssium").Type || k == Mod.Find<ModItem>("RadiumOre").Type)
+            if(k == ItemID.DemoniteOre || k == ModContent.ItemType<Abyssium>() || k == ModContent.ItemType<RadiumOre>())
             {
                 Projectile.extraUpdates = 1;
             }
-            else if(k == ItemID.Hellstone || k == Mod.Find<ModItem>("Incinerite").Type)
+            else if(k == ItemID.Hellstone || k == ModContent.ItemType<Incinerite>())
             {
                 for (int num291 = 0; num291 < 5; num291++)
                 {
@@ -1109,7 +1109,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 Projectile.extraUpdates = 2;
             }
-            else if(k == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
+            else if(k == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 Projectile.extraUpdates = 2;
                 Projectile.tileCollide = false;
@@ -1350,11 +1350,11 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return 117;
             }
-            else if (k == Mod.Find<ModItem>("Abyssium").Type)
+            else if (k == ModContent.ItemType<Abyssium>())
             {
                 return ModContent.DustType<AbyssiumDust>();
             }
-            else if (k == Mod.Find<ModItem>("Incinerite").Type)
+            else if (k == ModContent.ItemType<Incinerite>())
             {
                 return ModContent.DustType<IncineriteDust>();
             }
@@ -1386,7 +1386,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return 146;
             }
-            else if (k == Mod.Find<ModItem>("HallowedOre").Type)
+            else if (k == ModContent.ItemType<HallowedOre>())
             {
                 return DustID.Gold;
             }
@@ -1398,23 +1398,23 @@ namespace AAModClassic.Projectiles.Greed.WKG
             {
                 return ModContent.DustType<LuminiteDust>();
             }
-            else if (k == Mod.Find<ModItem>("DarkmatterOre").Type)
+            else if (k == ModContent.ItemType<DarkmatterOre>())
             {
                 return ModContent.DustType<DarkmatterDust>();
             }
-            else if (k == Mod.Find<ModItem>("RadiumOre").Type)
+            else if (k == ModContent.ItemType<RadiumOre>())
             {
                 return ModContent.DustType<RadiumDust>();
             }
-            else if (k == Mod.Find<ModItem>("DaybreakIncineriteOre").Type)
+            else if (k == ModContent.ItemType<DaybreakIncineriteOre>())
             {
                 return ModContent.DustType<DaybreakIncineriteDust>();
             }
-            else if (k == Mod.Find<ModItem>("EventideAbyssiumOre").Type)
+            else if (k == ModContent.ItemType<EventideAbyssiumOre>())
             {
                 return ModContent.DustType<YamataDust>();
             }
-            else if (k == Mod.Find<ModItem>("Apocalyptite").Type)
+            else if (k == ModContent.ItemType<Apocalyptite>())
             {
                 return ModContent.DustType<VoidDust>();
             }

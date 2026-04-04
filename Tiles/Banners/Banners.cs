@@ -270,7 +270,7 @@ namespace AAModClassic.Tiles.Banners
 
                 Player player = Main.LocalPlayer;	
 				player.HasNPCBannerBuff(Mod.Find<ModNPC>(name).Type);
-				if(name == "MushroomZombie") player.HasNPCBannerBuff(Mod.Find<ModNPC>("MushroomZombie2").Type);
+				if(name == "MushroomZombie") player.HasNPCBannerBuff(ModContent.NPCType<MushroomZombie2>());
             }
         }
 

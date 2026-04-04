@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("StoneHydra").Type;
+            Item.shoot = ModContent.ProjectileType<StoneHydra>();
             Item.damage = 15;
             Item.width = 50;
             Item.height = 50;

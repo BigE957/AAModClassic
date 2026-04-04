@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Ranged
             Item.useTime = 13;
             Item.useAnimation = 13;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = Mod.Find<ModProjectile>("Squirt").Type;
+            Item.shoot = ModContent.ProjectileType<Squirt>();
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.LightPurple;

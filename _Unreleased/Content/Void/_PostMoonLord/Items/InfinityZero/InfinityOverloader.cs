@@ -10,11 +10,10 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using AAModClassic.Globals;
-using AAModClassic;
-using AAModClassic._Unreleased.Buffs;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic._Unreleased.Content.Void.Buffs;
 
-namespace AAModClassic._Unreleased.Items.BossSummons
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
     public class InfinityOverloader : ModItem
 	{
@@ -119,7 +118,7 @@ namespace AAModClassic._Unreleased.Items.BossSummons
 
 		public override bool CanUseItem(Player player)
 		{
-            if (NPC.AnyNPCs(Mod.Find<ModNPC>("Infinity").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("IZSpawn1").Type))
+            if (NPC.AnyNPCs(ModContent.NPCType<Infinity>()) || NPC.AnyNPCs(ModContent.NPCType<IZSpawn1>()))
             {
                 return false;
             }

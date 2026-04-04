@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                 {
                     for (int num298 = 0; num298 < 5; num298++)
                     {
-                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("AbyssDust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.7f);
+                        int num299 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.7f);
                         if (Main.rand.Next(6) != 0)
                         {
                             Main.dust[num299].noGravity = true;
@@ -90,7 +90,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Poison").Type, 300);
+            target.AddBuff(ModContent.BuffType<Poison>(), 300);
         }
     }
 }

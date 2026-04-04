@@ -7,7 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Items.Boss.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
 public class CthulhuCannon : ModItem
 {
@@ -32,7 +32,7 @@ public class CthulhuCannon : ModItem
         Item.UseSound = SoundID.Item11;
         Item.autoReuse = true;
         Item.shootSpeed = 14f;
-        Item.shoot = Mod.Find<ModProjectile>("CthulhuBomb").Type;
+        Item.shoot = ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>();
         Item.useAmmo = 771;
     }
     
@@ -49,7 +49,7 @@ public class CthulhuCannon : ModItem
     
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-    	Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("CthulhuBomb").Type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
+    	Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
     	return false;
 	}
 }}

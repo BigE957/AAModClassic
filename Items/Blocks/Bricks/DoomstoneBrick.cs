@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("DoomstoneBrick").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<DoomstoneBrick>(); //put your CustomBlock Tile name
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

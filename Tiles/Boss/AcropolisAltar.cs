@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Boss
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (NPC.AnyNPCs(Mod.Find<ModNPC>("Athena").Type))
+            if (NPC.AnyNPCs(ModContent.NPCType<Athena>()))
             {
                 frame = 1;
             }
@@ -144,7 +144,7 @@ namespace AAModClassic.Tiles.Boss
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("Owl").Type;
+            player.cursorItemIconID = ModContent.ItemType<Owl>();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("SoulsuckerBanner").Type;
+			BannerItem = ModContent.ItemType<SoulsuckerBanner>();
         }
 
         public override void FindFrame(int frameHeight)

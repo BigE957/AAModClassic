@@ -56,10 +56,10 @@ namespace AAModClassic.Items.Summoning.Minions
                 }
             }
 
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("BabyPhoenix").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<BabyPhoenix>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("BabyPhoenix").Type, 3600);
+            player.AddBuff(ModContent.BuffType<BabyPhoenix>(), 3600);
             if (flag64)
             {
                 if (player.dead)

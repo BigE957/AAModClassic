@@ -27,9 +27,9 @@ namespace AAModClassic.Items.Vanity.Fazer
 
  		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("SammyWig").Type);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("SammySweater").Type);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("SammyPants").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<SammyWig>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<SammySweater>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<SammyPants>());
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.FishingItem.Crate
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.createTile = Mod.Find<ModTile>("InfernoCrate").Type;
+            Item.createTile = ModContent.TileType<InfernoCrate>();
         }
 
         public override void SetStaticDefaults()

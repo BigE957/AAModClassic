@@ -23,9 +23,9 @@ Damage and speed are increased"); */
 			player.GetDamage(DamageClass.Summon) += 0.25f;
 			player.GetDamage(DamageClass.Throwing) += 0.25f;
 			player.moveSpeed += 0.35f;
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EyeOfForsaken").Type] <= 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<EyeOfForsaken>()] <= 0)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y-90, 0f, 0f, Mod.Find<ModProjectile>("EyeOfForsaken").Type, 150, 0, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y-90, 0f, 0f, ModContent.ProjectileType<EyeOfForsaken>(), 150, 0, player.whoAmI);
 			}
 		}
 	}

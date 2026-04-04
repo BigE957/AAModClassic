@@ -140,7 +140,7 @@ namespace AAModClassic.Projectiles.Akuma
 		{
             target.AddBuff(BuffID.Daybreak, 600);
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-			int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center.X, target.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AkumaExp").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+			int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center.X, target.Center.Y, 0f, 0f, ModContent.ProjectileType<AkumaExp>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			Main.projectile[p].DamageType = DamageClass.Melee;
 			Main.projectile[p].friendly = true;
 			Main.projectile[p].hostile = false;

@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Red;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("Apocalyptite").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<Apocalyptite>(); //put your CustomBlock Tile name
             
         }
 

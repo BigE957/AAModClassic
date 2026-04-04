@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.knockBack = 5;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ForsakenStaffBlast").Type;
+			Item.shoot = ModContent.ProjectileType<ForsakenStaffBlast>();
 			Item.shootSpeed = 16f;
 			Item.rare = ItemRarityID.Purple;
 		}

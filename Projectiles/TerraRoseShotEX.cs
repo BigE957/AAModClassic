@@ -91,7 +91,7 @@ namespace AAModClassic.Projectiles
         public override void OnKill(int timeLeft)
 		{
 			SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DummyExplosionTerra").Type, Projectile.damage, 0, Main.myPlayer);
+			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ModContent.ProjectileType<DummyExplosionTerra>(), Projectile.damage, 0, Main.myPlayer);
 			for (int index1 = 0; index1 < 20; ++index1)
 			{
 				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GreenFairy, 0.0f, 0.0f, 100, new Color(), 1f);

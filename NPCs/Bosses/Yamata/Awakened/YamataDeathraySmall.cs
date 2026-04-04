@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == Mod.Find<ModNPC>("YamataAHeadF").Type)
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<YamataAHeadF>())
             {
                 Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitY * 45;
             }

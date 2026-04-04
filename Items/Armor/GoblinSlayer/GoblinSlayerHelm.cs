@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Armor.GoblinSlayer
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("GoblinSlayerChest").Type && legs.type == Mod.Find<ModItem>("GoblinSlayerGreaves").Type;
+			return body.type == ModContent.ItemType<GoblinSlayerChest>() && legs.type == ModContent.ItemType<GoblinSlayerGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

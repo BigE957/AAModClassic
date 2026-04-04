@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Toad
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("ToadShot").Type;
+            Item.shoot = ModContent.ProjectileType<ToadShot>();
 		}
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

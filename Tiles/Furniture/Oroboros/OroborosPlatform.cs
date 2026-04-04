@@ -30,8 +30,8 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
-			RegisterItemDrop(Mod.Find<ModItem>("OroborosPlatform").Type);
+            DustType = ModContent.DustType<DoomDust>();
+			RegisterItemDrop(ModContent.ItemType<OroborosPlatform>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
         }

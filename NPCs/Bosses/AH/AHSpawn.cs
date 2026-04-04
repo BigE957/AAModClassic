@@ -98,7 +98,7 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("AsheSpawn").Type, 0, NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 200, (int)NPC.position.Y - 150, ModContent.NPCType<AsheSpawn>(), 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] == 700)
@@ -108,13 +108,13 @@ namespace AAModClassic.NPCs.Bosses.AH
 
             if (NPC.ai[1] == 550)
             {
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 200, (int)NPC.position.Y - 150, Mod.Find<ModNPC>("HarukaSpawn").Type, 0, NPC.whoAmI);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 200, (int)NPC.position.Y - 150, ModContent.NPCType<HarukaSpawn>(), 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] == 820)
             {
                 Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AH");
-                Main.npc[BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("AsheSpawn").Type, -1)].Transform(Mod.Find<ModNPC>("Ashe").Type);
+                Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AsheSpawn>(), -1)].Transform(ModContent.NPCType<Ashe>());
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHSpawn8"), new Color(102, 20, 48));
                 SpawnBoss(player, "Ashe");
             }
@@ -122,7 +122,7 @@ namespace AAModClassic.NPCs.Bosses.AH
             if (NPC.ai[1] >= 960)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AHSpawn9"), new Color(72, 78, 117));
-                Main.npc[BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("HarukaSpawn").Type, -1)].Transform(Mod.Find<ModNPC>("Haruka").Type);
+                Main.npc[BaseAI.GetNPC(NPC.Center, ModContent.NPCType<HarukaSpawn>(), -1)].Transform(ModContent.NPCType<Haruka>());
                 SpawnBoss(player, "Haruka");
                 NPC.active = false;
             }

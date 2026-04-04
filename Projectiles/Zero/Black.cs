@@ -62,7 +62,7 @@ namespace AAModClassic.Projectiles.Zero
 		{
 			if (!flag1)
 			{
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f), Mod.Find<ModProjectile>("CycloneF").Type, Projectile.damage / 3, 0.0f, Main.myPlayer, 0.0f, 0.0f);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f), ModContent.ProjectileType<CycloneF>(), Projectile.damage / 3, 0.0f, Main.myPlayer, 0.0f, 0.0f);
 			}
 		}
 

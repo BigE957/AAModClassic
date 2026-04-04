@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.GlowingMushium
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("ShroomShirt").Type && legs.type == Mod.Find<ModItem>("ShroomPants").Type;
+			return body.type == ModContent.ItemType<ShroomShirt>() && legs.type == ModContent.ItemType<ShroomPants>();
 		}
 
 		public override void UpdateArmorSet(Player player)

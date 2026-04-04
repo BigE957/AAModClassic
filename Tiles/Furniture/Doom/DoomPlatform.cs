@@ -29,8 +29,8 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
-			RegisterItemDrop(Mod.Find<ModItem>("DoomPlatform").Type);
+            DustType = ModContent.DustType<DoomDust>();
+			RegisterItemDrop(ModContent.ItemType<DoomPlatform>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };
         }

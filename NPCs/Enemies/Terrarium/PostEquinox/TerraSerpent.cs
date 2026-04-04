@@ -38,7 +38,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraSerpentBanner").Type;
+			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
         }
         
         public override bool PreAI()
@@ -259,7 +259,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             base.SetDefaults();
             NPC.dontCountMe = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraSerpentBanner").Type;
+			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -324,7 +324,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -378,7 +378,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             base.SetDefaults();
             NPC.dontCountMe = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraSerpentBanner").Type;
+			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
         }
         
         public override bool PreAI()
@@ -407,7 +407,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

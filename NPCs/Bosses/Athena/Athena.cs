@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
             Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Athena");
             NPC.alpha = 255;
             NPC.noTileCollide = true;
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AthenaBag").Type;
+            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AthenaBag>();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -558,7 +558,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                 {
                     int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Olympian.AthenaA>());
                     Main.npc[a].Center = NPC.Center;
-                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Lang.BossChat("Athena10"));
 
@@ -569,15 +569,15 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
             if (Main.expertMode)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("AthenaBag").Type);       
+                NPC.DropLoot(ModContent.ItemType<AthenaBag>());       
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("AthenaMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<AthenaMask>());
                 }
-                NPC.DropLoot(Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(20, 25));
+                NPC.DropLoot(ModContent.ItemType<GoddessFeather>(), Main.rand.Next(20, 25));
                 string[] lootTable = { "DivineWindCharm", "GaleOfWings", "RazorwindLongbow", "SkycutterKopis", "OlympianWings"};
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);

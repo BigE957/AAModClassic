@@ -32,10 +32,10 @@ namespace AAModClassic.Items.Dev.RuneBook
         public override void AI()
         {
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("ChaosRune").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<ChaosRune>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("CCRune").Type, 3600);
+            player.AddBuff(ModContent.BuffType<CCRune>(), 3600);
             if (!modPlayer.CCBookEX)
             {
                 Projectile.active = false;
@@ -60,7 +60,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("ChaosRune").Type;
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<ChaosRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)
@@ -253,7 +253,7 @@ namespace AAModClassic.Items.Dev.RuneBook
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, Mod.Find<ModProjectile>("FlairdraCyclone").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 Main.projectile[id].minion = true;
             }
         }
@@ -263,7 +263,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             target.AddBuff(buff, 1200);
             if(Main.dayTime)
             {
-                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[id].minion = true;
             }
         }

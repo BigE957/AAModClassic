@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ChaosShotP").Type;
+			Item.shoot = ModContent.ProjectileType<ChaosShotP>();
             Item.shootSpeed = 16f;
             Item.expert = true; Item.expertOnly = true;
 
@@ -70,7 +70,7 @@ namespace AAModClassic.Items.Melee
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 500);
-			target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 500);
+			target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
         }
 	}
 }

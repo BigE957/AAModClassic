@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Magic
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("MadnessSphere").Type;
+            Item.shoot = ModContent.ProjectileType<MadnessSphere>();
             Item.shootSpeed = 6f;
         }
 

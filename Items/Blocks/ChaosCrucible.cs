@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
-            Item.createTile = Mod.Find<ModTile>("ChaosCrucible").Type;
+            Item.createTile = ModContent.TileType<ChaosCrucible>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

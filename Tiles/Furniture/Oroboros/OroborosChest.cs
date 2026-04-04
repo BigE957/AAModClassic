@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Oroboros Chest");
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
@@ -184,7 +184,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Oroboros Chest";
                 if (player.cursorItemIconText == "Oroboros Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("OroborosChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<OroborosChest>();
                     player.cursorItemIconText = "";
                 }
             }

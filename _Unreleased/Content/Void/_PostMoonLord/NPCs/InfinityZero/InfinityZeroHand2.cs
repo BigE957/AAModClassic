@@ -3,10 +3,11 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     [AutoloadBossHead]
-    public class IZHand2 : IZHand1
+    public class InfinityZeroHand2 : InfinityZeroHand1
     {
 		public override string Texture
 		{

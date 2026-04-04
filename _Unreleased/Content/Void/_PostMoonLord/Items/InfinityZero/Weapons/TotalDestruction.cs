@@ -4,10 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
     public class TotalDestruction : ModItem
     {
@@ -33,7 +32,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
             Item.damage = 250;
             Item.UseSound = SoundID.Item13;
             Item.channel = true;
-            Item.shoot = Mod.Find<ModProjectile>("TotalDestruction").Type;
+            Item.shoot = ModContent.ProjectileType<TotalDestruction>();
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.noMelee = true;
             Item.DamageType = DamageClass.Magic;

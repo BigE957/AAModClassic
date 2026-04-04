@@ -42,7 +42,7 @@ namespace AAModClassic.Tiles.Torches
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(150, 10, 180), name);
 			DustType = ModContent.DustType<Discord>();
-			RegisterItemDrop(Mod.Find<ModItem>("DiscordianTorch").Type);
+			RegisterItemDrop(ModContent.ItemType<DiscordianTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
 			TileID.Sets.Torch[Type] = true;

@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("PrimevalJavelin").Type;
+            Item.shoot = ModContent.ProjectileType<PrimevalJavelin>();
             Item.shootSpeed = 12f;
             Item.damage = 70;
             Item.knockBack = 5f;

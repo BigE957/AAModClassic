@@ -21,7 +21,7 @@ namespace AAModClassic.Tiles.Crafters
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Abyss Altar");
-            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            DustType = ModContent.DustType<AbyssiumDust>();
             AddMapEntry(new Color(0, 0 ,100), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

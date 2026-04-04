@@ -55,7 +55,7 @@ namespace AAModClassic.Items.Boss.Akuma
             for (int i = 0; i < 4; i++)
             {
                 Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15)) * .5f;
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("Daystormbullet").Type, damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Daystormbullet>(), damage, knockback, player.whoAmI);
             }
 
             if (Main.rand.Next(3) == 0)
@@ -66,7 +66,7 @@ namespace AAModClassic.Items.Boss.Akuma
                 for (int i = 0; i < Main.rand.Next(2); i++)
                 {
                     Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, Mod.Find<ModProjectile>("DaystormbulletA").Type, (int)(damage * 1.5f), knockback, player.whoAmI);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, ModContent.ProjectileType<DaystormbulletA>(), (int)(damage * 1.5f), knockback, player.whoAmI);
                 }
             }
             return false;

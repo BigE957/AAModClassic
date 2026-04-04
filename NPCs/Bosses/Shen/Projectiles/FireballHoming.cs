@@ -62,8 +62,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                     for (int i = 0; i < 16; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 8);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelR>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelR>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                     }
                 }
             }
@@ -87,8 +87,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 16; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 8);
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelR").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelR>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelR>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                 }
             }
         }
@@ -160,8 +160,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                     for (int i = 0; i < 16; ++i)
                     {
                         vel = vel.RotatedBy(Math.PI / 8);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelB>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelB>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                     }
                 }
             }
@@ -185,8 +185,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
                 for (int i = 0; i < 16; ++i)
                 {
                     vel = vel.RotatedBy(Math.PI / 8);
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, Mod.Find<ModProjectile>("FireballAccelB").Type, Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelB>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, vel, ModContent.ProjectileType<FireballAccelB>(), Projectile.damage, 0f, Main.myPlayer, Math.Abs(ai), 0f);
                 }
             }
         }

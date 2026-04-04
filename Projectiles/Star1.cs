@@ -62,7 +62,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeleft)
         {
-            int stardust = Mod.Find<ModDust>("StarDust").Type;
+            int stardust = ModContent.DustType<StarDust>();
             for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, stardust, -Projectile.velocity.X * 0.2f,

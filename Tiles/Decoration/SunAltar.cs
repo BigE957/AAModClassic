@@ -76,7 +76,7 @@ namespace AAModClassic.Tiles.Decoration
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("SunAltar").Type;
+            player.cursorItemIconID = ModContent.ItemType<SunAltar>();
         }
 
         public override void HitWire(int i, int j)

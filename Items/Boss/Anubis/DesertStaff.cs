@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Boss.Anubis
 			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("DesertBlast").Type;
+			Item.shoot = ModContent.ProjectileType<DesertBlast>();
 			Item.shootSpeed = 12f;
 		}
 

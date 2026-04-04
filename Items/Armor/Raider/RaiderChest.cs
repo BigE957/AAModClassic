@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Armor.Raider
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == Mod.Find<ModItem>("RaiderHelm").Type && legs.type == Mod.Find<ModItem>("RaiderLegs").Type;
+			return head.type == ModContent.ItemType<RaiderHelm>() && legs.type == ModContent.ItemType<RaiderLegs>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -40,10 +40,10 @@ namespace AAModClassic.Items.Armor.Raider
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("VikingPlate").Type);
+			recipe.AddIngredient(ModContent.ItemType<VikingPlate>());
             recipe.AddIngredient(ItemID.Coral, 8);
-            recipe.AddIngredient(Mod.Find<ModItem>("HydraHide").Type, 8);
-            recipe.AddIngredient(Mod.Find<ModItem>("Doomite").Type, 8);
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 8);
+            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 8);
             recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

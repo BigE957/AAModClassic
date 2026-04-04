@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
         
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-        	target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 300);
+        	target.AddBuff(ModContent.BuffType<HydraToxin>(), 300);
         }
 
         public override void OnKill(int timeLeft)
@@ -56,8 +56,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 	    	if (Main.netMode != NetmodeID.MultiplayerClient)
 	    	{
                 const float ai0 = 20;
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("Shockwave2").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, -ai0);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai0);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Shockwave2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -ai0);
             }
         	for (int dust = 0; dust <= 10; dust++)
         	{

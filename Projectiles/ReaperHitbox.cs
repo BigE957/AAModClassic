@@ -34,11 +34,11 @@ namespace AAModClassic.Projectiles
 		public override void ModifyHitNPC (NPC target, ref NPC.HitModifiers modifiers)
 		{
 			Player player = Main.player[Projectile.owner]; 
-			if (player.HasBuff(Mod.Find<ModBuff>("ReaperImmune2").Type))
+			if (player.HasBuff(ModContent.BuffType<ReaperImmune2>()))
 			{
 				modifiers.TargetDamageMultiplier *= 15;
 			}
-			else if (player.HasBuff(Mod.Find<ModBuff>("ReaperImmune").Type))
+			else if (player.HasBuff(ModContent.BuffType<ReaperImmune>()))
 			{
 				modifiers.TargetDamageMultiplier *= 10;
 			}

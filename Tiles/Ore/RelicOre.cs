@@ -14,7 +14,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlockLight[Type] = false;
             Main.tileOreFinderPriority[Type] = 370; 
             Main.tileSpelunker[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("VikingRelic").Type);   
+            RegisterItemDrop(ModContent.ItemType<VikingRelic>());   
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Viking Relic");
             AddMapEntry(new Color(58, 68, 102), name);

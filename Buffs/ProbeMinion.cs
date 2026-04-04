@@ -16,7 +16,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("ProbeMinion").Type] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<ProbeMinion>()] > 0)
 			{
 				modPlayer.ProbeMinion = true;
 			}

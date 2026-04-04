@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.knockBack = 3f;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = ItemRarityID.Purple;      
-            Item.shoot = Mod.Find<ModProjectile>("DarkShredders").Type;
+            Item.shoot = ModContent.ProjectileType<DarkShredders>();
             Item.noUseGraphic = true;
         }
 

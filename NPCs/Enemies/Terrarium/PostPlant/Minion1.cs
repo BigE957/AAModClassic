@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraSquidBanner").Type;
+			BannerItem = ModContent.ItemType<TerraSquidBanner>();
         }
 
         public override void AI()
@@ -38,7 +38,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("SummonDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }

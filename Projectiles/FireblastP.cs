@@ -83,7 +83,7 @@ namespace AAModClassic.Projectiles
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 300);
+			target.AddBuff(ModContent.BuffType<DragonFire>(), 300);
 			Projectile.Kill();
 		}
 

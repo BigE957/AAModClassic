@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Potions
 			Item.height = 28;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.buffType = Mod.Find<ModBuff>("HydratoxinFlaskBuff").Type;
+			Item.buffType = ModContent.BuffType<HydratoxinFlaskBuff>();
 			Item.buffTime = 52000;
 		}
 
@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Potions
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(Mod.Find<ModItem>("HydraToxin").Type, 2);
+			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 2);
 			recipe.AddTile(TileID.ImbuingStation);
 			recipe.Register();
 		}

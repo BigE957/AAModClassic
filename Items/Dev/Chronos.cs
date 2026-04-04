@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Dev
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
-            Item.shoot = Mod.Find<ModProjectile>("Chronos").Type;
+            Item.shoot = ModContent.ProjectileType<Chronos>();
             Item.expert = true; Item.expertOnly = true;
         }
 

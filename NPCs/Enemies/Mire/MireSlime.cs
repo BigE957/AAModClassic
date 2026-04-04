@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.CorruptSlime;
 			Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MireSlimeBanner").Type;
+			BannerItem = ModContent.ItemType<MireSlimeBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

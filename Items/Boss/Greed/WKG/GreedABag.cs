@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("GreedA").Type;
+        //public override int BossBagNPC => ModContent.NPCType<GreedA>();
 
         public override bool CanRightClick()
 		{
@@ -30,11 +30,11 @@ namespace AAModClassic.Items.Boss.Greed.WKG
 
 		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(25, 30));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CovetiteOre").Type, Main.rand.Next(30, 50));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StoneShell>(), Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CovetiteOre>(), Main.rand.Next(30, 50));
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("WKGreedMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<WKGreedMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -44,8 +44,8 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             string[] lootTable = { "OreCannon", "Unearther", "OreStaff", "Earthbreaker" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GravitySphere").Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DesireTalisman").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GravitySphere>());
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DesireTalisman>());
         }
 	}
 }

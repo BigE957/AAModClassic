@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("EventideBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<EventideBrick>());   
             AddMapEntry(AAColor.Yamata);
             DustType = ModContent.DustType<AbyssDust>();
         }

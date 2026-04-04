@@ -196,23 +196,23 @@ namespace AAModClassic.Globals
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneSnow)
                             {
-                                itemtype = Mod.Find<ModItem>("IceCrate").Type;
+                                itemtype = ModContent.ItemType<IceCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneDesert)
                             {
-                                itemtype = Mod.Find<ModItem>("DesertCrate").Type;
+                                itemtype = ModContent.ItemType<DesertCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
                             {
-                                itemtype = Mod.Find<ModItem>("InfernoCrate").Type;
+                                itemtype = ModContent.ItemType<InfernoCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
                             {
-                                itemtype = Mod.Find<ModItem>("MireCrate").Type;
+                                itemtype = ModContent.ItemType<MireCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
                             {
-                                itemtype = Mod.Find<ModItem>("VoidCrate").Type;
+                                itemtype = ModContent.ItemType<VoidCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
                             {
@@ -220,7 +220,7 @@ namespace AAModClassic.Globals
                             }
                             else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].ZoneUnderworldHeight)
                             {
-                                itemtype = Mod.Find<ModItem>("HellCrate").Type;
+                                itemtype = ModContent.ItemType<HellCrate>();
                             }
                             else if (Main.rand.Next(3) == 0 && WorldHeightType == 0)
                             {

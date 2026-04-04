@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
         
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-        	target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 300);
+        	target.AddBuff(ModContent.BuffType<HydraToxin>(), 300);
         }
 
         public override void OnKill(int timeLeft)
@@ -83,8 +83,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 		    	for (i = 0; i < 10; i++ )
 		    	{
 		   			offsetAngle = startAngle + Angle * ( i + i * i ) / 2f  + 32f * i;
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 6f ), (float)( Math.Cos(offsetAngle) * 6f ), Mod.Find<ModProjectile>("YamataRain").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 6f ), (float)( -Math.Cos(offsetAngle) * 6f ), Mod.Find<ModProjectile>("YamataRain").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 6f ), (float)( Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 6f ), (float)( -Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<YamataRain>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 		    	}
 	    	}
         	for (int dust = 0; dust <= 5; dust++)

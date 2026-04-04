@@ -14,8 +14,8 @@ namespace AAModClassic.Tiles
             Main.tileBlendAll[Type] = false;
             Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("DoomiteScrap").Type);
+            DustType = ModContent.DustType<DoomDust>();
+            RegisterItemDrop(ModContent.ItemType<DoomiteScrap>());
             AddMapEntry(new Color(51, 48, 61));
             MinPick = 0;
         }

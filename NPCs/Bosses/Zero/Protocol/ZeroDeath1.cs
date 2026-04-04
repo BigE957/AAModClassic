@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Lang.BossChat("ZeroDeath3"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
-            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("ZeroDeath2").Type, 0, 0);
+            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath2>(), 0, 0);
             Main.projectile[p].Center = Projectile.Center;
         }
     }

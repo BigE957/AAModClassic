@@ -254,7 +254,7 @@ namespace AAModClassic.Projectiles.Serpent
                 scaleFactor17 = num1053;
                 scaleFactor16 = 16f;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("SerpentHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<SerpentHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
             }
 
             if (!flag67) return;
@@ -296,7 +296,7 @@ namespace AAModClassic.Projectiles.Serpent
                 if (byUUID != -1)
                 {
                     Projectile projectile1 = Main.projectile[byUUID];
-                    if (projectile1.type != Mod.Find<ModProjectile>("SerpentHead").Type) projectile1.localAI[1] = Projectile.localAI[1];
+                    if (projectile1.type != ModContent.ProjectileType<SerpentHead>()) projectile1.localAI[1] = Projectile.localAI[1];
                     projectile1 = Main.projectile[(int)Projectile.localAI[1]];
                     projectile1.ai[0] = Projectile.ai[0];
                     projectile1.ai[1] = 1f;
@@ -383,8 +383,8 @@ namespace AAModClassic.Projectiles.Serpent
                 value67 = Main.projectile[byUUID].Center;
                 num1052 = Main.projectile[byUUID].rotation;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("SerpentHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
-                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == Mod.Find<ModProjectile>("SerpentHead").Type)
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<SerpentHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Projectile.owner == player.whoAmI && Main.projectile[byUUID].type == ModContent.ProjectileType<SerpentHead>())
                 {
                     Main.projectile[byUUID].Kill();
                     Projectile.Kill();

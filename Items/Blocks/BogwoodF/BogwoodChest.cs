@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
-			Item.createTile = Mod.Find<ModTile>("BogwoodChest").Type;
+			Item.createTile = ModContent.TileType<BogwoodChest>();
 		}
 
 		public override void AddRecipes()

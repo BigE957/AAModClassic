@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.shootSpeed = 11f;
-            Item.shoot = Mod.Find<ModProjectile>("ChaosYari").Type;  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<ChaosYari>();  //put your Spear projectile name
         }
 
         public override bool CanUseItem(Player player)

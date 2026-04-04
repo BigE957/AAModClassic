@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("CovetiteBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<CovetiteBrick>());   
             AddMapEntry(new Color(100, 51, 0));
             DustType = DustID.Gold;
         }

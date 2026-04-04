@@ -32,10 +32,10 @@ namespace AAModClassic.Items.Dev.RuneBook
         public override void AI()
         {
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("VoidRune").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<VoidRune>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("CCRune").Type, 3600);
+            player.AddBuff(ModContent.BuffType<CCRune>(), 3600);
             if (!modPlayer.CCBookEX)
             {
                 Projectile.active = false;
@@ -60,7 +60,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             float num637 = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("VoidRune").Type;
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<VoidRune>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)
@@ -225,7 +225,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             if (Projectile.ai[0] == 0f)
             {
                 float scaleFactor3 = 8f;
-				int num658 = Mod.Find<ModProjectile>("CCRuneNovaRay").Type;
+				int num658 = ModContent.ProjectileType<CCRuneNovaRay>();
 				if (flag25 && Projectile.ai[1] == 0)
 				{
 					Projectile.ai[1] += 1f;

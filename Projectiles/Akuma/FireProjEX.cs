@@ -54,7 +54,7 @@ namespace AAModClassic.Projectiles.Akuma
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjEXBoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<FireProjEXBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

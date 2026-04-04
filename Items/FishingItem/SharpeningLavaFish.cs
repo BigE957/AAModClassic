@@ -24,7 +24,7 @@ namespace AAModClassic.Items.FishingItem
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 128000;
-            Item.createTile = Mod.Find<ModTile>("SharpeningLavaFishTile").Type;
+            Item.createTile = ModContent.TileType<SharpeningLavaFishTile>();
         }
     }
 }

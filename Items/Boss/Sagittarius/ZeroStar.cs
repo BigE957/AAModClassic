@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
             Item.UseSound = SoundID.Item1;
 	        Item.autoReuse = true;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.shoot = Mod.Find<ModProjectile>("ZeroStarP").Type;
+            Item.shoot = ModContent.ProjectileType<ZeroStarP>();
             Item.shootSpeed = 10f;
             Item.noMelee = true;
             Item.noUseGraphic = true;

@@ -362,7 +362,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
         {
             if (bodyNPC != null || NPC.AnyNPCs(ModContent.NPCType<Hydra>()))
             {
-                if (NPC.type == Mod.Find<ModNPC>("HydraHead1").Type)
+                if (NPC.type == ModContent.NPCType<HydraHead1>())
                 {
                     int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead4>(), 0, bodyNPC.whoAmI);
                     Body.Head4 = Main.npc[a];
@@ -370,7 +370,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                     Body.Head5 = Main.npc[b];
                     return false;
                 }
-                if (NPC.type == Mod.Find<ModNPC>("HydraHead2").Type)
+                if (NPC.type == ModContent.NPCType<HydraHead2>())
                 {
                     int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead6>(), 0, bodyNPC.whoAmI);
                     Body.Head6 = Main.npc[a];
@@ -378,7 +378,7 @@ namespace AAModClassic.NPCs.Bosses.Hydra
                     Body.Head7 = Main.npc[b];
                     return false;
                 }
-                if (NPC.type == Mod.Find<ModNPC>("HydraHead3").Type)
+                if (NPC.type == ModContent.NPCType<HydraHead3>())
                 {
                     int a = NPC.NewNPC(NPC.GetSource_Death(), (int)bodyNPC.Center.X, (int)bodyNPC.Center.Y, ModContent.NPCType<HydraHead8>(), 0, bodyNPC.whoAmI);
                     Body.Head8 = Main.npc[a];

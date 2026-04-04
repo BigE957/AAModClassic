@@ -1,15 +1,15 @@
 using AAModClassic.Dusts;
-using AAModClassic._Unreleased.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class IZShot : ModProjectile
+    public class InfinityZero_InfinityZeroShot : ModProjectile
     {
 
         public override void SetDefaults()
@@ -45,7 +45,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
             if (Main.rand.Next(1) == 0)
             {
-                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 200, default(Color), 0.8f);
+                int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustnumber].velocity *= 0.3f;
             }
         }

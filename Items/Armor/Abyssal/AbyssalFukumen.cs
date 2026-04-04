@@ -35,7 +35,7 @@ Weightless as shadow itself"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("AbyssalGi").Type && legs.type == Mod.Find<ModItem>("AbyssalHakama").Type;
+			return body.type == ModContent.ItemType<AbyssalGi>() && legs.type == ModContent.ItemType<AbyssalHakama>();
 		}
 
 		public override void UpdateArmorSet(Player player)

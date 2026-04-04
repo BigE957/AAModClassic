@@ -194,7 +194,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 if (Main.hardMode == true)
                 {
-                    items[nextSlot] = new Item(Mod.Find<ModItem>("OrangeSolution").Type);
+                    items[nextSlot] = new Item(ModContent.ItemType<OrangeSolution>());
                     nextSlot++;
                 }
             }
@@ -202,12 +202,12 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 if (Main.hardMode == true)
                 {
-                    items[nextSlot] = new Item(Mod.Find<ModItem>("IndigoSolution").Type);
+                    items[nextSlot] = new Item(ModContent.ItemType<IndigoSolution>());
                     nextSlot++;
                 }
             }
 
-            items[nextSlot] = new Item(Mod.Find<ModItem>("OrderSolution").Type);
+            items[nextSlot] = new Item(ModContent.ItemType<OrderSolution>());
             nextSlot++;
         }
 

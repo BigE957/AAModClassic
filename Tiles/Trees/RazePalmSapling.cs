@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Trees
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = new int[] { Mod.Find<ModTile>("Torchsand").Type };
+            TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<Torchsand>() };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;

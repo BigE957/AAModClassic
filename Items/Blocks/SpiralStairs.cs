@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 100;
-            Item.createTile = Mod.Find<ModTile>("SpiralStairs").Type;
+            Item.createTile = ModContent.TileType<SpiralStairs>();
         }
 
         public override void AddRecipes()

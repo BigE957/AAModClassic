@@ -44,11 +44,11 @@ namespace AAModClassic.Tiles.Chests
             name = this.GetLocalization("MapEntry", () => Name + "_Locked"); // With multiple map entries, you need unique translation keys.
             // name.SetDefault("{$Mods.AAModClassic.Common.DoomsdayChest_Locked}");
             AddMapEntry(new Color(0, 141, 63), name, MapChestName);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Doomsday Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("DoomsdayChest").Type);
+            RegisterItemDrop(ModContent.ItemType<DoomsdayChest>());
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("DoomsdayChest").DisplayName;
@@ -228,7 +228,7 @@ namespace AAModClassic.Tiles.Chests
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Doomsday Chest";
                 if (player.cursorItemIconText == "Doomsday Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("DoomsdayChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<DoomsdayChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
                         player.cursorItemIconID = ModContent.ItemType<DoomstopperKey>();
                     player.cursorItemIconText = "";

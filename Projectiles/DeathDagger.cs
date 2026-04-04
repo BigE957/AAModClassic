@@ -77,7 +77,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 120);
+        	target.AddBuff(ModContent.BuffType<HydraToxin>(), 120);
         	if (target.type == NPCID.TargetDummy)
 			{
 				return;
@@ -93,7 +93,7 @@ namespace AAModClassic.Projectiles
 			}
 			Main.LocalPlayer.lifeSteal -= num;
 			int num2 = Projectile.owner;
-			Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, Mod.Find<ModProjectile>("DeathDaggerHeal").Type, 0, 0f, Projectile.owner, num2, num);
+			Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.position.X, target.position.Y, 0f, 0f, ModContent.ProjectileType<DeathDaggerHeal>(), 0, 0f, Projectile.owner, num2, num);
         }
     }
 }

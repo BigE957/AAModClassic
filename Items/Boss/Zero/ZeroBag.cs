@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.rare = ItemRarityID.Red;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("ZeroProtocol").Type;
+        //public override int BossBagNPC => ModContent.NPCType<ZeroProtocol>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -58,19 +58,19 @@ namespace AAModClassic.Items.Boss.Zero
         {
             if (Main.rand.Next(10) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ZeroCore").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroCore>());
             }
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ZeroMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ZeroMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PMLDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("UnstableSingularity").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("BrokenCode").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<UnstableSingularity>(), Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<BrokenCode>());
             string[] lootTable = 
             {
                 "Battery",

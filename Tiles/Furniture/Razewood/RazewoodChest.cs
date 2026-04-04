@@ -36,12 +36,12 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Chest");
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Razewood Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("RazewoodChest").Type);
+            RegisterItemDrop(ModContent.ItemType<RazewoodChest>());
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("RazewoodChest").DisplayName;
@@ -183,7 +183,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Razewood Chest";
                 if (player.cursorItemIconText == "Razewood Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("RazewoodChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<RazewoodChest>();
                     player.cursorItemIconText = "";
                 }
             }

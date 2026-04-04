@@ -9,17 +9,17 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Walls
+namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 {
-	public class RottedWall : ModWall
+	public class RottedWall_Wall : ModWall
 	{
         public Texture2D glowTex;
 		public bool glow = true;
 
 		public override void SetStaticDefaults()
 		{
-            Main.wallHouse[this.Type] = true;
-			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("RottedWall").Type;
+            Main.wallHouse[Type] = true;
+			//ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<RottedWall>();
 			AddMapEntry(new Color(39, 34, 8));
 		}
 

@@ -3,9 +3,9 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
-    public class IZTrophy : ModItem
+    public class InfinityZeroTrophy : ModItem
 	{
         public static int type;
         
@@ -39,7 +39,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = 1;
-			Item.createTile = Mod.Find<ModTile>("IZTrophy").Type;
+			Item.createTile = ModContent.TileType<IZTrophy>();
 		}
 	}
 }

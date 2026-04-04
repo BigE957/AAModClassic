@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks.Boxes
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RajahBox").Type;
+            Item.createTile = ModContent.TileType<RajahBox>();
             Item.width = 36;
             Item.height = 36;
             Item.rare = ItemRarityID.LightRed;

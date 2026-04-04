@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Tools
             Item.rare = ItemRarityID.Lime;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("PShadowDrill").Type;
+			Item.shoot = ModContent.ProjectileType<PShadowDrill>();
 			Item.shootSpeed = 40f;
 		}
 

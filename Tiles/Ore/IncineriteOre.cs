@@ -20,12 +20,12 @@ namespace AAModClassic.Tiles.Ore
 			Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
             Main.tileOreFinderPriority[Type] = 340; 
-            Main.tileMerge[Type][Mod.Find<ModTile>("Torchstone").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<Torchstone>()] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("Incinerite").Type);   
-            DustType = Mod.Find<ModDust>("IncineriteDust").Type;
+            RegisterItemDrop(ModContent.ItemType<Incinerite>());   
+            DustType = ModContent.DustType<IncineriteDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Incinerite Ore");
             AddMapEntry(new Color(204, 102, 0), name);

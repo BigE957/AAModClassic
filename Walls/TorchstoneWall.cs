@@ -10,7 +10,7 @@ namespace AAModClassic.Walls
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            //RegisterItemDrop(Mod.Find<ModItem>("TorchstoneWall").Type);
+            //RegisterItemDrop(ModContent.ItemType<TorchstoneWall>());
             AddMapEntry(new Color(25, 12, 10));
             Terraria.ID.WallID.Sets.Conversion.Stone[Type] = true;
         }

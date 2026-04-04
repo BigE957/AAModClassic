@@ -21,9 +21,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.DD2PetGhost);
-			Item.shoot = Mod.Find<ModProjectile>("Broodmini").Type;
+			Item.shoot = ModContent.ProjectileType<Broodmini>();
             
-            Item.buffType = Mod.Find<ModBuff>("Broodmini").Type;
+            Item.buffType = ModContent.BuffType<Broodmini>();
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

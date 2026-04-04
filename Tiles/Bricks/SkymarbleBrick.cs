@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("SkymarbleBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<SkymarbleBrick>());   
             AddMapEntry(new Color(130, 130, 150));
             DustType = DustID.Gold;
         }

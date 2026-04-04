@@ -23,12 +23,12 @@ namespace AAModClassic.Items.Blocks.Doom
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = Mod.Find<ModTile>("DoomSink").Type;
+            Item.createTile = ModContent.TileType<DoomSink>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 6);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 6);
             recipe.AddIngredient(ItemID.WaterBucket);
             recipe.AddTile(null, "ACS");
             recipe.Register();

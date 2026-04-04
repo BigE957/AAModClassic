@@ -48,21 +48,21 @@ namespace AAModClassic.Buffs
     {
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            if (Main.player[projectile.owner].HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
+            if (Main.player[projectile.owner].HasBuff(ModContent.BuffType<DragonFire>()))
             {
                 modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if (player.HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
+            if (player.HasBuff(ModContent.BuffType<DragonFire>()))
             {
                 modifiers.TargetDamageMultiplier *= 0.8f;
             }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
-            if (npc.HasBuff(Mod.Find<ModBuff>("DragonFire").Type))
+            if (npc.HasBuff(ModContent.BuffType<DragonFire>()))
             {
                 modifiers.FinalDamage.Flat -= 10;
                 if(modifiers.FinalDamage.Flat < 0)

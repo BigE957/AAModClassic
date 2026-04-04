@@ -43,7 +43,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == Mod.Find<ModNPC>("ShenA").Type)
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenA>())
             {
                 Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitX.RotatedBy(Main.npc[(int)Projectile.ai[1]].ai[3]) * 250 + Main.rand.NextVector2Circular(5, 5);
             }
@@ -232,7 +232,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == Mod.Find<ModNPC>("ShenA").Type)
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<ShenA>())
             {
 
             }

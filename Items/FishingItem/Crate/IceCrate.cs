@@ -18,7 +18,7 @@ namespace AAModClassic.Items.FishingItem.Crate
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.createTile = Mod.Find<ModTile>("IceCrate").Type;
+            Item.createTile = ModContent.TileType<IceCrate>();
         }
 
         public override void SetStaticDefaults()

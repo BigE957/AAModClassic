@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Armor.Terra
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("TerraPlate").Type && legs.type == Mod.Find<ModItem>("TerraGreaves").Type;
+            return body.type == ModContent.ItemType<TerraPlate>() && legs.type == ModContent.ItemType<TerraGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -40,9 +40,9 @@ namespace AAModClassic.Items.Armor.Terra
             modPlayer.TerraSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("TerraCrystal").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<TerraCrystal>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("TerraCrystal").Type, (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(60), 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<TerraCrystal>(), (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(60), 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

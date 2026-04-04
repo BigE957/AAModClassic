@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic._Unreleased.Items.Boss.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
 	public class GalacticStormspike : ModItem
 	{
@@ -37,13 +37,13 @@ namespace AAModClassic._Unreleased.Items.Boss.SoC
             Item.mana = 10;
             Item.autoReuse = true;
             Item.noMelee = true;	
-            Item.shoot = Mod.ProjType("Stormray");
+            Item.shoot = ModContent.ProjectileType<GalacticStormspike_Stormray>();
             Item.shootSpeed = 4;	
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			int pID = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, Mod.ProjType("Stormray"), damage, knockback, player.whoAmI);
+			int pID = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
 			return false;
 		}
 	}

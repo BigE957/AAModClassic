@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("ChaosDou").Type && legs.type == Mod.Find<ModItem>("ChaosGreaves").Type;
+            return body.type == ModContent.ItemType<ChaosDou>() && legs.type == ModContent.ItemType<ChaosGreaves>();
         }
 
         public override void UpdateArmorSet(Player player){
@@ -49,12 +49,12 @@ namespace AAModClassic.Items.Armor.Chaos
 		{
             Recipe recipe;
             recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("AbyssalFukumen").Type);
+			recipe.AddIngredient(ModContent.ItemType<AbyssalFukumen>());
 			recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Dynaskull").Type);
+            recipe.AddIngredient(ModContent.ItemType<Dynaskull>());
             recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

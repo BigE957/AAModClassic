@@ -34,14 +34,14 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.noGravity = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("VortexBanner").Type;
+			BannerItem = ModContent.ItemType<VortexBanner>();
         }
 
         public float Rotation = 0;
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<VoidEnergy>(), Main.rand.Next(1, 4));
         }
 
         public override void AI()

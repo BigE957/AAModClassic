@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
-			Item.createTile = Mod.Find<ModTile>("OroborosChest").Type;
+			Item.createTile = ModContent.TileType<OroborosChest>();
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

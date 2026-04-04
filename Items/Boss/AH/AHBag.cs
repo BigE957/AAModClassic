@@ -114,8 +114,8 @@ namespace AAModClassic.Items.Boss.AH
             player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>(lootTableH[lootH]).Type);
 
 
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfPassion").Type);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("HeartOfSorrow").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HeartOfPassion>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HeartOfSorrow>());
         }
 	}
 }

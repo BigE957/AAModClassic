@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Orange;
             Item.value = 5400;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.shoot = Mod.Find<ModProjectile>("DoomShot").Type;
+            Item.shoot = ModContent.ProjectileType<DoomShot>();
             Item.shootSpeed = 8f;
         }
 

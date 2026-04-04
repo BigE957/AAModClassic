@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Armor.Viking
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return head.type == Mod.Find<ModItem>("VikingHelm").Type && legs.type == Mod.Find<ModItem>("VikingBoots").Type;
+			return head.type == ModContent.ItemType<VikingHelm>() && legs.type == ModContent.ItemType<VikingBoots>();
 		}
 
 		public override void UpdateArmorSet(Player player)

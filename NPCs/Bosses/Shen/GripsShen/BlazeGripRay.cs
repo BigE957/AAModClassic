@@ -57,7 +57,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
             {
                 for(int i = 0; i<1000; i++)
                 {
-                    if(Main.projectile[i].type == Mod.Find<ModProjectile>("BlazeBomb").Type)
+                    if(Main.projectile[i].type == ModContent.ProjectileType<BlazeBomb>())
                     {
                         proj = Main.projectile[i].whoAmI;
                     }

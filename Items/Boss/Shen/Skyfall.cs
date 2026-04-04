@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Boss.Shen
             Item.knockBack = 5f;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("Skyfall").Type;
+            Item.shoot = ModContent.ProjectileType<Skyfall>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item124;
             Item.rare = ItemRarityID.Cyan;
@@ -84,13 +84,13 @@ namespace AAModClassic.Items.Boss.Shen
             switch (type)
             {
                 case 0:
-                    type = Mod.Find<ModProjectile>("Skyfall").Type;
+                    type = ModContent.ProjectileType<Skyfall>();
                     break;
                 case 1:
-                    type = Mod.Find<ModProjectile>("SkyfallR").Type;
+                    type = ModContent.ProjectileType<SkyfallR>();
                     break;
                 default:
-                    type = Mod.Find<ModProjectile>("SkyfallB").Type;
+                    type = ModContent.ProjectileType<SkyfallB>();
                     break;
             }
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);

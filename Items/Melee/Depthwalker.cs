@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Melee
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = Mod.Find<ModProjectile>("Depthwalker").Type;  
+            Item.shoot = ModContent.ProjectileType<Depthwalker>();  
 		}
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

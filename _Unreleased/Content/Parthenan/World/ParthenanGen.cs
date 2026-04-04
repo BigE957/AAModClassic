@@ -1,7 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient.Walls;
 using AAModClassic.Tiles;
 using AAModClassic.World;
 using Microsoft.Xna.Framework;
@@ -16,8 +13,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using AAModClassic._Removed.Content.Parthenan.Tiles;
+using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient.Walls;
+using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 
-namespace AAModClassic._Unreleased.World
+namespace AAModClassic._Unreleased.Content.Parthenan.World
 {
     public class ParthenanGen : MicroBiome
     {
@@ -45,9 +45,9 @@ namespace AAModClassic._Unreleased.World
 
             //TODOSIEGE some of these dont actually place in world
             gen.Generate(origin.X, origin.Y, true, true);
-            WorldGen.PlaceObject((int)(origin.X) + 34, (int)(origin.Y) + 47, (ushort)ModContent.TileType<AncientDataBank>());
-            WorldGen.PlaceChest((origin.X) + 32, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
-            WorldGen.PlaceChest((origin.X) + 41, (origin.Y) + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)ModContent.TileType<AncientDataBank>());
+            WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            WorldGen.PlaceChest(origin.X + 41, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
             return true;
         }
     }

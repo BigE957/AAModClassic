@@ -33,7 +33,7 @@ namespace AAModClassic.Tiles.Crafters
             TileID.Sets.DisableSmartCursor[Type] = false;
             AdjTiles = new int[]
             {
-                Mod.Find<ModTile>("SharpeningLavaFishTile").Type
+                ModContent.TileType<SharpeningLavaFishTile>()
             };
             AnimationFrameHeight = 38;
         }
@@ -78,7 +78,7 @@ namespace AAModClassic.Tiles.Crafters
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("SharpeningLavaFish").Type;
+			player.cursorItemIconID = ModContent.ItemType<SharpeningLavaFish>();
 		}
     }
 }

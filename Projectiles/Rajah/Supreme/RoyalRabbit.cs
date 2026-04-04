@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
 
         public override void AI()
         {
-			bool flag64 = Projectile.type == Mod.Find<ModProjectile>("RoyalRabbit").Type;
+			bool flag64 = Projectile.type == ModContent.ProjectileType<RoyalRabbit>();
 			Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
             if (!player.active)

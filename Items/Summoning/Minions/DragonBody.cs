@@ -100,7 +100,7 @@ namespace AAModClassic.Items.Summoning.Minions
                 scaleFactor16 = 16f;
                 int arg_2D9AD_0 = Main.projectile[byUUID].alpha;
                 Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
-                if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("DragonHead").Type) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
+                if (Main.projectile[byUUID].type != ModContent.ProjectileType<DragonHead>()) Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
             }
 
             if (!flag67) return;
@@ -142,7 +142,7 @@ namespace AAModClassic.Items.Summoning.Minions
                 if (byUUID != -1)
                 {
                     Projectile projectile1 = Main.projectile[byUUID];
-                    if (projectile1.type != Mod.Find<ModProjectile>("DragonHead").Type) projectile1.localAI[1] = Projectile.localAI[1];
+                    if (projectile1.type != ModContent.ProjectileType<DragonHead>()) projectile1.localAI[1] = Projectile.localAI[1];
                     projectile1 = Main.projectile[(int) Projectile.localAI[1]];
                     projectile1.ai[0] = Projectile.ai[0];
                     projectile1.ai[1] = 1f;

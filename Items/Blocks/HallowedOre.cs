@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.rare = ItemRarityID.LightRed;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("HallowedOre").Type;
+            Item.createTile = ModContent.TileType<HallowedOre>();
             Item.value = 10000;
         }
 

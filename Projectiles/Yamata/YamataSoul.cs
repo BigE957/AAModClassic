@@ -118,7 +118,7 @@ namespace AAModClassic.Projectiles.Yamata
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 1000);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 1000);
         }
 
         public override void OnKill(int timeLeft)

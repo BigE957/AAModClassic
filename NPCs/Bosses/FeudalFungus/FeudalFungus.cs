@@ -183,7 +183,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 internalAI[4] = 0;
                 Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));
                 Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
-                int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos.X, pos.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 0f);
+                int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos.X, pos.Y, velocity.X, velocity.Y, ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].timeLeft = 720;
                 Main.projectile[proj].alpha = 255;
             }
@@ -207,7 +207,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
         public override void OnKill()
         {
             AAWorld.downedFungus = true;
-            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModProjectile>("FungusIGoNow").Type, 0, 0, 255, NPC.scale);
+            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, ModContent.ProjectileType<FungusIGoNow>(), 0, 0, 255, NPC.scale);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -253,7 +253,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                     for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                     {
                         offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer, 0f, 1f);
                     }
                 }
             }
@@ -273,7 +273,7 @@ namespace AAModClassic.NPCs.Bosses.FeudalFungus
                 for (int i = 0; i < (Main.expertMode ? 5 : 4); i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), Mod.Find<ModProjectile>("FungusCloud").Type, damage, 0, Main.myPlayer, 0f, 1f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer, 0f, 1f);
                 }
             }
             else

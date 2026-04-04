@@ -200,7 +200,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 5f, ModContent.ProjectileType<YamataAVenom2>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 240)
                     {
@@ -216,7 +216,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, ModContent.ProjectileType<YamataABomb>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 180)
                     {
@@ -235,7 +235,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     if (internalAI[1] == NPC.ai[3] * 60 - 30)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), Mod.Find<ModProjectile>("YamataDeathraySmall").Type, NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center), ModContent.ProjectileType<YamataDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0f, NPC.whoAmI);
                     }
                     if (++internalAI[1] > 360)
                     {
@@ -254,7 +254,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -1; i <= 1; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, Mod.Find<ModProjectile>("YamataAVenom2").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, ModContent.ProjectileType<YamataAVenom2>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 420)
                     {
@@ -286,7 +286,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                     {
                         internalAI[2] = 120;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, Mod.Find<ModProjectile>("YamataABomb").Type, NPC.damage / 6, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center) * 7f, ModContent.ProjectileType<YamataABomb>(), NPC.damage / 6, 0f, Main.myPlayer);
                     }
                     if (++internalAI[1] > 360)
                     {

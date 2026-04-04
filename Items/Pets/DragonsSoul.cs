@@ -20,7 +20,7 @@ It feels hot, but comforting..."); */
 		{
 			Item.damage = 0;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = Mod.Find<ModProjectile>("DragonSoul").Type;
+			Item.shoot = ModContent.ProjectileType<DragonSoul>();
 			Item.width = 16;
 			Item.height = 30;
 			Item.UseSound = SoundID.Item2;
@@ -29,7 +29,7 @@ It feels hot, but comforting..."); */
 			Item.rare = ItemRarityID.Yellow;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 5, 50, 0);
-			Item.buffType = Mod.Find<ModBuff>("DragonSoul").Type;
+			Item.buffType = ModContent.BuffType<DragonSoul>();
             Item.noUseGraphic = true;
 		}
 

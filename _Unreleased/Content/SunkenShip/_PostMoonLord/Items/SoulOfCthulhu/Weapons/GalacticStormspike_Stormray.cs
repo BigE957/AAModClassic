@@ -8,13 +8,11 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
 using AAModClassic.Dusts;
-using AAModClassic._Unreleased.Items.Boss.SoC;
 
-namespace AAModClassic._Unreleased.Projectiles.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-	public class Stormray : AAProjectile
+	public class GalacticStormspike_Stormray : AAProjectile
 	{
 
         public override string Texture { get { return "AAModClassic/BlankTex"; } }
@@ -63,7 +61,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 		{
 			lifeTimer--; if (!Main.player[Projectile.owner].active || Main.player[Projectile.owner].dead || lifeTimer <= 0) { Projectile.Kill(); return; }
 			Projectile.Center = GetOwnerCenter();
-			if (!hasVel) { hasVel = true; vel = Projectile.velocity; velRot = BaseUtility.RotationTo(Projectile.Center, Projectile.Center + Projectile.velocity); Projectile.velocity = default(Vector2); }
+			if (!hasVel) { hasVel = true; vel = Projectile.velocity; velRot = BaseUtility.RotationTo(Projectile.Center, Projectile.Center + Projectile.velocity); Projectile.velocity = default; }
 			endPos = BaseAI.TracePlayer(Projectile.Center, maxDistance, velRot, Projectile.owner, false, true, false);
 			Vector2 damagePos = Projectile.Center;
 			int count = (int)Vector2.Distance(damagePos, endPos) / 32;
@@ -91,7 +89,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 				{
 					if (m == targetVec.Length - 1 || targetVec[m - 1] != targetVec[m])
 					{
-						int id = (m == targetVec.Length - 1 ? m : m - 1);
+						int id = m == targetVec.Length - 1 ? m : m - 1;
 						vecList.Add(targetVec[id]); startList.Add(startVec[id]); nextID = m; break;
 					}
 				}
@@ -101,7 +99,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 
 		public Vector2 GetOwnerCenter()
 		{
-			return Main.player[Projectile.owner].Center + BaseUtility.RotateVector(default(Vector2), new Vector2(ModContent.GetModItem(ModContent.ItemType<GalacticStormspike>()).Item.width, 0f), velRot);
+			return Main.player[Projectile.owner].Center + BaseUtility.RotateVector(default, new Vector2(ModContent.GetModItem(ModContent.ItemType<GalacticStormspike>()).Item.width, 0f), velRot);
 		}
 
 		public Vector2[] FindAndHitTargets(Vector2 startPos)
@@ -124,7 +122,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 					list.Add(player);
 				}
 			}
-			int[] npcs = BaseAI.GetNPCs(startPos, -1, default(int[]), maxRange);
+			int[] npcs = BaseAI.GetNPCs(startPos, -1, default, maxRange);
 			foreach (int i in npcs)
 			{
 				if (list1.Count >= maxTargets) { break; }
@@ -211,7 +209,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 			{
 				Vector2 dir = endPos - currentPoint; dir.Normalize();
 				Vector2 vstart = currentPoint;
-				Vector2 vend = currentPoint + (dir * Jump); vend = BaseUtility.RotateVector(vstart, vend, (float)(Math.PI / (5f + Main.rand.Next(5))) * 0.35f * (Main.rand.Next(2) == 0 ? -1f : 1f));
+				Vector2 vend = currentPoint + dir * Jump; vend = BaseUtility.RotateVector(vstart, vend, (float)(Math.PI / (5f + Main.rand.Next(5))) * 0.35f * (Main.rand.Next(2) == 0 ? -1f : 1f));
 				if (targetPosStart.Length > 0 && subJump > 32f)
 				{
 					for (int m = nextID; m < targetPosStart.Length; m++)
@@ -249,8 +247,8 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 				{
 					if (textures[0] != null && Way == 0f)
 					{
-						float texWidth2 = (float)textures[0].Width;
-						float texHeight2 = (float)textures[0].Height;
+						float texWidth2 = textures[0].Width;
+						float texHeight2 = textures[0].Height;
 						Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
 						Vector2 v2 = start - Main.screenPosition + texCenter2;
 						Color lightColor2 = (Color)overrideColor;
@@ -258,18 +256,18 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 					}
 					if (textures[2] != null && Way + Jump >= length)
 					{
-						float texWidth2 = (float)textures[2].Width;
-						float texHeight2 = (float)textures[2].Height;
+						float texWidth2 = textures[2].Width;
+						float texHeight2 = textures[2].Height;
 						Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
 						Vector2 v2 = end - Main.screenPosition + texCenter2;
 						Color lightColor2 = (Color)overrideColor;
 						sb.Draw(textures[2], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0f);
 					}
 				};
-				float texWidth = (float)textures[1].Width;
-				float texHeight = (float)textures[1].Height;
+				float texWidth = textures[1].Width;
+				float texHeight = textures[1].Height;
 				Vector2 texCenter = new Vector2(texWidth / 2f, texHeight / 2f) * scale;
-				Vector2 v = (start + dir * Way) - Main.screenPosition + texCenter;			
+				Vector2 v = start + dir * Way - Main.screenPosition + texCenter;			
 				if(BaseDrawing.InDrawZone(v, true))
 				{
 					Color lightColor = (Color)overrideColor;						
@@ -278,8 +276,8 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
 					if (Main.rand.Next(15) == 0)
 					{
 						v += Main.screenPosition;
-                        int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<CthulhuDust>(), Projectile.velocity.X, Projectile.velocity.Y, 80, default(Color));
-						Main.dust[dustID].rotation = (Main.rand.Next(5) * (float)(Math.PI / 8f));
+                        int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<CthulhuDust>(), Projectile.velocity.X, Projectile.velocity.Y, 80, default);
+						Main.dust[dustID].rotation = Main.rand.Next(5) * (float)(Math.PI / 8f);
 						Main.dust[dustID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
 						Main.dust[dustID].velocity *= 3f;
 					}

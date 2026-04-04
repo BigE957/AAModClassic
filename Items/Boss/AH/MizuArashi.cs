@@ -61,7 +61,7 @@ Spirits deal 2x damage, pierce up to 10 enemies and go through tiles
         {
 			if (Main.rand.NextBool(15))
 			{
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("Mizu").Type, damage * 2, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Mizu>(), damage * 2, knockback, player.whoAmI);
             }
 			else
 			{

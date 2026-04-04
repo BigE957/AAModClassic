@@ -19,7 +19,7 @@ Inflicts Moonrazed"); */
         
         public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("PhantomSword").Type;
+            Item.shoot = ModContent.ProjectileType<PhantomSword>();
             Item.damage = 220;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 86;              

@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("Excalihare").Type;
+			Item.shoot = ModContent.ProjectileType<Excalihare>();
             Item.scale = 1.1f;
             Item.shootSpeed = 14f;
             Item.knockBack = 6.5f;

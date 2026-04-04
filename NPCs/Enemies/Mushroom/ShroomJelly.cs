@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
             NPC.alpha = 20;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ShroomJellyBanner").Type;
+			BannerItem = ModContent.ItemType<ShroomJellyBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -77,7 +77,7 @@ namespace AAModClassic.Projectiles.Akuma   //The directory for your .cs and .png
                     {
                         num92 *= -1f;
                     }
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value2.X, value2.Y, Mod.Find<ModProjectile>("FireTentacle").Type, Projectile.damage * (int)1.25f, Projectile.knockBack, player.whoAmI, num92, num91);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value2.X, value2.Y, ModContent.ProjectileType<FireTentacle>(), Projectile.damage * (int)1.25f, Projectile.knockBack, player.whoAmI, num92, num91);
                 }
             }
         }

@@ -43,7 +43,7 @@ The armor of a champion feared across the land"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("ChampionChestplate").Type && legs.type == Mod.Find<ModItem>("ChampionGreaves").Type;
+			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionGreaves>();
 		}
 
 
@@ -55,13 +55,13 @@ The armor of a champion feared across the land"); */
             modPlayer.ChampionSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(Mod.Find<ModBuff>("BaronBuff").Type) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<BaronBuff>()) == -1)
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("BaronBuff").Type, 3600, true);
+                    player.AddBuff(ModContent.BuffType<BaronBuff>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BaronBunny").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<BaronBunny>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("BaronBunny").Type, 100, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<BaronBunny>(), 100, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

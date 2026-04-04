@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.Hardmode
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraSquireBanner").Type;
+			BannerItem = ModContent.ItemType<TerraSquireBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

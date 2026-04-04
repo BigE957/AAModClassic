@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Magic
 			Item.mana = 10;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("Toxifang").Type;
+			Item.shoot = ModContent.ProjectileType<Toxifang>();
 			Item.shootSpeed = 8f;
 		}   
 
@@ -47,8 +47,8 @@ namespace AAModClassic.Items.Magic
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpellTome);
-			recipe.AddIngredient(Mod.Find<ModItem>("HydraToxin").Type, 20);
-			recipe.AddIngredient(Mod.Find<ModItem>("SoulOfSpite").Type, 15);
+			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 20);
+			recipe.AddIngredient(ModContent.ItemType<SoulOfSpite>(), 15);
 			recipe.AddTile(TileID.Bookcases);
 			recipe.Register();
 		}

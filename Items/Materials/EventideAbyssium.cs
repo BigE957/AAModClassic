@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Purple;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("EventideAbyssiumBar").Type;
+            Item.createTile = ModContent.TileType<EventideAbyssiumBar>();
             Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
         public override void AddRecipes()

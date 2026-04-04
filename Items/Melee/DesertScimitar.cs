@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Pink;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("SandPro").Type;
+            Item.shoot = ModContent.ProjectileType<SandPro>();
             Item.shootSpeed = 12f;
         }
 

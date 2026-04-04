@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Bed");
 			AddMapEntry(new Color(70, 0, 10), name);
-			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			DustType = ModContent.DustType<DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
 			TileID.Sets.CanBeSleptIn[Type] = true;
@@ -83,7 +83,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("OroborosBed").Type;
+			player.cursorItemIconID = ModContent.ItemType<OroborosBed>();
 		}
 	}
 }

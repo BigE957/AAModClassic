@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("TerraWarlockBanner").Type;
+			BannerItem = ModContent.ItemType<TerraWarlockBanner>();
 
         }
       
@@ -95,16 +95,16 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
                             switch (SummonThis)
                             {
                                 case 0:
-                                    SummonThis = Mod.Find<ModNPC>("Minion1").Type;
+                                    SummonThis = ModContent.NPCType<Minion1>();
                                     break;
                                 case 1:
-                                    SummonThis = Mod.Find<ModNPC>("Minion2").Type;
+                                    SummonThis = ModContent.NPCType<Minion2>();
                                     break;
                                 case 2:
-                                    SummonThis = Mod.Find<ModNPC>("Minion3").Type;
+                                    SummonThis = ModContent.NPCType<Minion3>();
                                     break;
                                 default:
-                                    SummonThis = Mod.Find<ModNPC>("Minion4").Type;
+                                    SummonThis = ModContent.NPCType<Minion4>();
                                     break;
                             }
                             NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X - 10, (int)spawnAt.Y - 10, SummonThis);

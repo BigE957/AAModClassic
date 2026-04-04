@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("SearcherBanner").Type;
+			BannerItem = ModContent.ItemType<SearcherBanner>();
 
         }
 
@@ -88,7 +88,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Apocalyptite").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Apocalyptite>());
         }
     }
 }

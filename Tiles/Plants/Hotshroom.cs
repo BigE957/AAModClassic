@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            RegisterItemDrop(Mod.Find<ModItem>("Hotshroom").Type);
+            RegisterItemDrop(ModContent.ItemType<Hotshroom>());
         }
 
         public override bool IsTileDangerous(int i, int j, Player player)

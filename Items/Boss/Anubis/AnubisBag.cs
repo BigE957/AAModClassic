@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Anubis
             Item.rare = ItemRarityID.Red;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Anubis").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Anubis>();
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -57,15 +57,15 @@ namespace AAModClassic.Items.Boss.Anubis
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("AnubisMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AnubisMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.HMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ForsakenFragment").Type, Main.rand.Next(10, 20));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("ArtifactOfJudgement").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ForsakenFragment>(), Main.rand.Next(10, 20));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<ArtifactOfJudgement>());
             string[] lootTable = { "Judgment", "NeithsString", "DesertStaff", "JackalsWrath", "Sandthrower", "SentryOfTheEye" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);

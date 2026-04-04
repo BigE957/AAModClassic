@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useAmmo = AmmoID.Rocket;
             Item.width = 50;
             Item.height = 20;
-            Item.shoot = Mod.Find<ModProjectile>("YotD").Type;
+            Item.shoot = ModContent.ProjectileType<YotD>();
             Item.UseSound = SoundID.Item11;
             Item.damage = 600;
             Item.shootSpeed = 30f;
@@ -77,7 +77,7 @@ namespace AAModClassic.Items.Boss.Akuma
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + (Main.rand.Next(-40, 41) * 0.02f);
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, Mod.Find<ModProjectile>("YotD").Type, damage/2, knockback, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YotD>(), damage/2, knockback, player.whoAmI, 0f, -0.5f + ((float)Main.rand.NextDouble() * 0.3f));
             }
             return false;
         }

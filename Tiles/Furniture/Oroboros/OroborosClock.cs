@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Clock"); // Automatic from .lang files
 			AddMapEntry(new Color(70, 0, 10), name);
-			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			DustType = ModContent.DustType<DoomDust>();
 			AdjTiles = new int[] { TileID.GrandfatherClocks };
 		}
 

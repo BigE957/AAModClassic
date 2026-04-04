@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Dev
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("Squirrel1").Type;
+            Item.shoot = ModContent.ProjectileType<Squirrel1>();
             Item.damage = 120;
             Item.width = 20;
             Item.height = 20;
@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Dev
             Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
-			Item.buffType = Mod.Find<ModBuff>("Squirrel").Type;
+			Item.buffType = ModContent.BuffType<Squirrel>();
         }
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)
@@ -63,10 +63,10 @@ namespace AAModClassic.Items.Dev
                 switch (shootMe)
                 {
                     case 0:
-                        shootMe = Mod.Find<ModProjectile>("Squirrel1").Type;
+                        shootMe = ModContent.ProjectileType<Squirrel1>();
                         break;
                     case 1:
-                        shootMe = Mod.Find<ModProjectile>("Squirrel2").Type;
+                        shootMe = ModContent.ProjectileType<Squirrel2>();
                         break;
                 }
             }

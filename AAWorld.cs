@@ -718,18 +718,18 @@ namespace AAModClassic
                                 PlacementHeight++;
                                 if (WorldGen.SolidTile(PlaceHere, PlacementHeight))
                                 {
-                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)Mod.Find<ModTile>("InfernoChest").Type, false, 1);
+                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)ModContent.TileType<InfernoChest>(), false, 1);
                                     if (PlacementSuccess >= 0)
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
-                                        chest.item[0].SetDefaults(Mod.Find<ModItem>("DragonriderStaff").Type, false);
+                                        chest.item[0].SetDefaults(ModContent.ItemType<DragonriderStaff>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { Mod.Find<ModItem>("RadiantIncinerite").Type }), false);
+                                        { ModContent.ItemType<RadiantIncinerite>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { Mod.Find<ModItem>("DragonfireFlask").Type };
+                                        { ModContent.ItemType<DragonfireFlask>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
@@ -774,18 +774,18 @@ namespace AAModClassic
                                 PlacementHeight++;
                                 if (WorldGen.SolidTile(PlaceHere, PlacementHeight))
                                 {
-                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)Mod.Find<ModTile>("MireChest").Type, false, 1);
+                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)ModContent.TileType<MireChest>(), false, 1);
                                     if (PlacementSuccess >= 0)
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
-                                        chest.item[0].SetDefaults(Mod.Find<ModItem>("BogBomb").Type, false);
+                                        chest.item[0].SetDefaults(ModContent.ItemType<BogBomb>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { Mod.Find<ModItem>("DeepAbyssium").Type }), false);
+                                        { ModContent.ItemType<DeepAbyssium>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { Mod.Find<ModItem>("HydratoxinFlask").Type };
+                                        { ModContent.ItemType<HydratoxinFlask>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
@@ -831,18 +831,18 @@ namespace AAModClassic
                                 PlacementHeight++;
                                 if (WorldGen.SolidTile(PlaceHere, PlacementHeight))
                                 {
-                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)Mod.Find<ModTile>("DoomsdayChest").Type, false, 1);
+                                    int PlacementSuccess = WorldGen.PlaceChest(PlaceHere, PlacementHeight - 1, (ushort)ModContent.TileType<DoomsdayChest>(), false, 1);
                                     if (PlacementSuccess >= 0)
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
-                                        chest.item[0].SetDefaults(Mod.Find<ModItem>("SingularityCannon").Type, false);
+                                        chest.item[0].SetDefaults(ModContent.ItemType<SingularityCannon>(), false);
                                         chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { Mod.Find<ModItem>("DoomiteScrap").Type }), false);
+                                        { ModContent.ItemType<DoomiteScrap>() }), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
                                         int[] array = new int[]
-                                        { Mod.Find<ModItem>("Doomite").Type };
+                                        { ModContent.ItemType<Doomite>() };
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
@@ -880,7 +880,7 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Stone)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("IncineriteOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<IncineriteOre>());
                 }
             }
         }
@@ -898,7 +898,7 @@ namespace AAModClassic
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
                     //TODO: This was formerly generating "EverleafRoot", unsure if this is the proper replacement.
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)Mod.Find<ModTile>("EverleafRoot").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)ModContent.TileType<EverleafRoot>());
                 }
             }
             */
@@ -914,7 +914,7 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next((int)GenVars.rockLayerLow, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("AbyssiumOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<AbyssiumOre>());
                 }
             }
         }
@@ -929,7 +929,7 @@ namespace AAModClassic
                 int tilesY = WorldGen.genRand.Next(0, Main.maxTilesY);
                 if (Main.tile[tilesX, tilesY].TileType == TileID.IceBlock)
                 {
-                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)Mod.Find<ModTile>("RelicOre").Type);
+                    WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(3, 6), (ushort)ModContent.TileType<RelicOre>());
                 }
             }
         }
@@ -1000,7 +1000,7 @@ namespace AAModClassic
                         Point randompoint = new Point(
                             posIslands[k].X + WorldGen.genRand.Next(-30, 31),
                             posIslands[k].Y + WorldGen.genRand.Next(7, 42));
-                        WorldGen.TileRunner(randompoint.X, randompoint.Y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(6, 13), Mod.Find<ModTile>("Apocalyptite").Type, false, 0f, 0f, false, true);
+                        WorldGen.TileRunner(randompoint.X, randompoint.Y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(6, 13), ModContent.TileType<Apocalyptite>(), false, 0f, 0f, false, true);
                     }
                 }
             }
@@ -1010,7 +1010,7 @@ namespace AAModClassic
                 Point position = posIslands[j];
                 position.X -= 4;
                 position.Y -= 11;
-                VoidHouses(position.X, position.Y, (ushort)Mod.Find<ModTile>("DoomitePlate").Type, 10, 7);
+                VoidHouses(position.X, position.Y, (ushort)ModContent.TileType<DoomitePlate>(), 10, 7);
             }
             progress.Set(1f);
         }
@@ -1049,7 +1049,7 @@ namespace AAModClassic
                     WorldGen.PlaceTile(position.X + i, position.Y + j, ModContent.TileType<Doomstone>());
                 }
                 int y = Raycast(position.X + i, position.Y - 5);
-                WorldGen.PlaceObject(position.X + i, y, Mod.Find<ModTile>("OroborosSapling").Type);
+                WorldGen.PlaceObject(position.X + i, y, ModContent.TileType<OroborosSapling>());
                 WorldGen.GrowTree(position.X + i, y);
             }
         }
@@ -1109,7 +1109,7 @@ namespace AAModClassic
 
         public void VoidHouses(int X, int Y, int type = 30, int sizeX = 10, int sizeY = 7)
         {
-            int wallID = (ushort)Mod.Find<ModWall>("DoomiteWall").Type;
+            int wallID = (ushort)ModContent.WallType<DoomiteWall>();
             //Clear area
             for (int i = X; i < X + sizeX - 1; ++i)
             {
@@ -1134,36 +1134,36 @@ namespace AAModClassic
             for (int i = Y; i < Y + sizeY - 1; ++i)
             {
                 WorldGen.PlaceTile(X, i, type);
-                WorldGen.PlaceTile(X + (sizeX - 2), i, (ushort)Mod.Find<ModTile>("DoomitePlate").Type);
+                WorldGen.PlaceTile(X + (sizeX - 2), i, (ushort)ModContent.TileType<DoomitePlate>());
             }
             //Roof-floor placements
             for (int i = X; i < X + sizeX - 2; ++i)
             {
                 WorldGen.PlaceTile(i, Y, type);
-                WorldGen.PlaceTile(i, Y + (sizeY - 1), (ushort)Mod.Find<ModTile>("DoomitePlate").Type);
+                WorldGen.PlaceTile(i, Y + (sizeY - 1), (ushort)ModContent.TileType<DoomitePlate>());
             }
-            WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)Mod.Find<ModTile>("DoomitePlate").Type);
+            WorldGen.PlaceTile(X + sizeX - 2, Y + sizeY - 1, (ushort)ModContent.TileType<DoomitePlate>());
 
-            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)Mod.Find<ModTile>("OroborosChest").Type, true);
+            int PlacementSuccess = WorldGen.PlaceChest(X + ((sizeX - 1) / 2), Y + sizeY - 2, (ushort)ModContent.TileType<OroborosChest>(), true);
             if (PlacementSuccess >= 0)
             {
                 Chest chest = Main.chest[PlacementSuccess];
                 if (ChestNumber == 0)
                 {
-                    VoidLoot(Mod.Find<ModItem>("Voidsaber").Type, chest);
+                    VoidLoot(ModContent.ItemType<Voidsaber>(), chest);
                 }
                 else if (ChestNumber == 1)
                 {
-                    VoidLoot(Mod.Find<ModItem>("DoomGun").Type, chest);
+                    VoidLoot(ModContent.ItemType<DoomGun>(), chest);
                 }
                 else if (ChestNumber == 2)
                 {
-                    VoidLoot(Mod.Find<ModItem>("DoomStaff").Type, chest);
+                    VoidLoot(ModContent.ItemType<DoomStaff>(), chest);
 
                 }
                 else if (ChestNumber == 3)
                 {
-                    VoidLoot(Mod.Find<ModItem>("ProbeControlUnit").Type, chest);
+                    VoidLoot(ModContent.ItemType<ProbeControlUnit>(), chest);
                 }
                 ChestNumber += 1;
             }
@@ -1177,7 +1177,7 @@ namespace AAModClassic
         public void VoidLoot(int Item, Chest chest)
         {
             chest.item[0].SetDefaults(Item, false);
-            chest.item[1].SetDefaults(Mod.Find<ModItem>("DoomiteScrap").Type, false);
+            chest.item[1].SetDefaults(ModContent.ItemType<DoomiteScrap>(), false);
             chest.item[1].stack = WorldGen.genRand.Next(4, 6);
             Item item = chest.item[2];
             UnifiedRandom genRand = WorldGen.genRand;
@@ -1194,7 +1194,7 @@ namespace AAModClassic
 
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInDungeonChests = new int[] { Mod.Find<ModItem>("SkullStaff").Type };
+            int[] itemsToPlaceInDungeonChests = new int[] { ModContent.ItemType<SkullStaff>() };
             int itemsToPlaceInDungeonChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             {
@@ -1297,8 +1297,8 @@ namespace AAModClassic
                                     {
                                         ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
                                     }
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], Mod.Find<ModNPC>("GripOfChaosBlue").Type, false, 1, 0);
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], Mod.Find<ModNPC>("GripOfChaosRed").Type, false, -1, 0);
+                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosBlue>(), false, 1, 0);
+                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosRed>(), false, -1, 0);
                                 spawnGrips = false;
                                 break;
                             }
@@ -1359,7 +1359,7 @@ namespace AAModClassic
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
                     {
-                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), (ushort)Mod.Find<ModTile>("LuminiteOre").Type);
+                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), (ushort)ModContent.TileType<LuminiteOre>());
                     }
                     return;
                 }
@@ -1395,7 +1395,7 @@ namespace AAModClassic
                         int tilesY = WorldGen.genRand.Next((int)(y * .3f), (int)(y * .75f));
                         if (Main.tile[tilesX, tilesY].TileType == TileID.Mud)
                         {
-                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)Mod.Find<ModTile>("EventideAbyssiumOre").Type);
+                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<EventideAbyssiumOre>());
                         }
                     }
                     for (int k = 0; k < (int)(x * y * 15E-05); k++)
@@ -1404,7 +1404,7 @@ namespace AAModClassic
                         int tilesY = WorldGen.genRand.Next((int)(y * .3f), (int)(y * .75f));
                         if (Main.tile[tilesX, tilesY].TileType == TileID.Stone)
                         {
-                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)Mod.Find<ModTile>("DaybreakIncineriteOre").Type);
+                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DaybreakIncineriteOre>());
                         }
                     }
                 }
@@ -1433,7 +1433,7 @@ namespace AAModClassic
                         int tilesY = WorldGen.genRand.Next(0, y);
                         if (Main.tile[tilesX, tilesY].TileType == TileID.HardenedSand)
                         {
-                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)Mod.Find<ModTile>("DynaskullOre").Type);
+                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DynaskullOre>());
                         }
                     }
                 }

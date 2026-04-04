@@ -1,8 +1,10 @@
 using Terraria;
-using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Graphics; using Terraria.GameContent;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles
 {
 	public class Sticker : ModItem
 	{
@@ -28,7 +30,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = 1;
-			Item.createTile = Mod.Find<ModTile>("Sticker").Type;
+			Item.createTile = ModContent.TileType<Sticker>();
             
 		}
 

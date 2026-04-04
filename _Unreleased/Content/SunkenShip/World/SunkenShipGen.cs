@@ -1,7 +1,6 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient.Walls;
 using AAModClassic.Tiles;
 using AAModClassic.World;
 using Microsoft.Xna.Framework;
@@ -17,9 +16,9 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
 
-namespace AAModClassic._Unreleased.World
+namespace AAModClassic._Unreleased.Content.SunkenShip.World
 {
-    public class ShipGen : MicroBiome
+    public class SunkenShipGen : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
         {
@@ -29,22 +28,23 @@ namespace AAModClassic._Unreleased.World
 
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
-            colorToTile[new Color(255, 0, 0)] = mod.Find<ModTile>("RottedDynastyWoodS").Type;
-            colorToTile[new Color(0, 255, 0)] = mod.Find<ModTile>("RottedPlatform").Type;
+            //TODOREFACTOR see if rotted wood uses era accurate sprite
+            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS>();
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform>();
             colorToTile[new Color(0, 0, 255)] = TileID.Rope;
-            colorToTile[new Color(0, 255, 255)] = mod.Find<ModTile>("CthulhuPortal").Type;
+            colorToTile[new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal>();
             colorToTile[new Color(150, 150, 150)] = -2;
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
-            colorToWall[new Color(255, 0, 0)] = mod.Find<ModWall>("RottedWall").Type;
+            colorToWall[new Color(255, 0, 0)] = ModContent.WallType<RottedWall_Wall>();
             colorToWall[Color.Black] = -1; //don't touch when genning				
 
             TexGen gen = TexGen.GetTexGenerator(TexGenAssets_Unreleased.ShipTileData, colorToTile, TexGenAssets_Unreleased.ShipWallData, colorToWall, TexGenAssets_Unreleased.ShipLiquidData);
             
             gen.Generate(origin.X, origin.Y - 28, true, true);
             
-            WorldGen.PlaceChest((origin.X) + 13, (origin.Y - 28) + 26, (ushort)mod.Find<ModTile>("SunkenChest").Type, true);
+            WorldGen.PlaceChest(origin.X + 13, origin.Y - 28 + 26, ModContent.TileType<SunkenChest>(), true);
             return true;
         }
     }

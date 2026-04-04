@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Bosses.Grips
 
         public override void OnKill()
         {
-            int blueGripExists = NPC.CountNPCS(Mod.Find<ModNPC>("GripOfChaosBlue").Type);
+            int blueGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosBlue>());
             if (blueGripExists == 0)
                 AAWorld.downedGrips = true;
         }

@@ -28,7 +28,7 @@ Slap Hand EX"); */
 		{
 			Recipe recipe = CreateRecipe();      
 			recipe.AddIngredient(ItemID.SlapHand);
-			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
 			recipe.AddTile(null, "QuantumFusionAccelerator");
 			recipe.Register();
 

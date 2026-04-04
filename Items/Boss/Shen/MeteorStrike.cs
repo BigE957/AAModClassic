@@ -28,7 +28,7 @@ Inflicts Discordian Inferno"); */
 
         public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("Meteor").Type;
+            Item.shoot = ModContent.ProjectileType<Meteor>();
             Item.damage = 400;            
             Item.DamageType = DamageClass.Magic;            //if it's magic
             Item.width = 32;              
@@ -85,13 +85,13 @@ Inflicts Discordian Inferno"); */
             switch (type)
             {
                 case 0:
-                    type = Mod.Find<ModProjectile>("Meteor").Type;
+                    type = ModContent.ProjectileType<Meteor>();
                     break;
                 case 1:
-                    type = Mod.Find<ModProjectile>("MeteorRed").Type;
+                    type = ModContent.ProjectileType<MeteorRed>();
                     break;
                 default:
-                    type = Mod.Find<ModProjectile>("MeteorBlue").Type;
+                    type = ModContent.ProjectileType<MeteorBlue>();
                     break;
             }
 
@@ -102,7 +102,7 @@ Inflicts Discordian Inferno"); */
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DiscordInferno").Type, 600);
+            target.AddBuff(ModContent.BuffType<DiscordInferno>(), 600);
         }
 
         public override void AddRecipes()  //How to craft this sword

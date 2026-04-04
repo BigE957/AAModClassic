@@ -48,10 +48,10 @@ namespace AAModClassic.Projectiles.Djinn
 
         public override void AI()
         {
-            bool flag64 = Projectile.type == Mod.Find<ModProjectile>("DustDevil").Type;
+            bool flag64 = Projectile.type == ModContent.ProjectileType<DustDevil>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("DustDevil").Type, 3600);
+            player.AddBuff(ModContent.BuffType<DustDevil>(), 3600);
             if (flag64)
             {
                 if (player.dead)

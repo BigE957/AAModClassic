@@ -75,7 +75,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, Mod.Find<ModProjectile>("FlareF").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<FlareF>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

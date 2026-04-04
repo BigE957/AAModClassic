@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.rare = ItemRarityID.Orange;
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = Mod.Find<ModProjectile>("GlacierBreaker").Type;
+            Item.shoot = ModContent.ProjectileType<GlacierBreaker>();
 			Item.UseSound = SoundID.Item18;
         }
 
@@ -35,7 +35,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.BorealWood, 20);
 			recipe.AddIngredient(ItemID.IceBlock, 40);
-			recipe.AddIngredient(Mod.Find<ModItem>("SnowMana").Type, 3);
+			recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
 

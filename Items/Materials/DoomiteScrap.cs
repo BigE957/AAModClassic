@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("DoomitePlate").Type;
+            Item.createTile = ModContent.TileType<DoomitePlate>();
         }
     }
 }

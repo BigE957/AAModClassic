@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 NPC.alpha = 255;
             }
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("SeraphBanner").Type;
+			BannerItem = ModContent.ItemType<SeraphBanner>();
         }
 
         public override bool PreAI()
@@ -148,7 +148,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 Main.npc[a].velocity = NPC.velocity;
             }
             SeraphChance.SeraphKills++;
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SeraphFeather").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SeraphFeather>());
         }
 
         public static string SeraphBitching()

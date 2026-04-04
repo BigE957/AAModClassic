@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.aiStyle = -1;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("HydraClawBanner").Type;
+			BannerItem = ModContent.ItemType<HydraClawBanner>();
         }
 
         public override void AI()
@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Enemies.Other
         {
             if(Main.rand.NextBool())
             {
-                NPC.DropLoot(Mod.Find<ModItem>("HydraClaw").Type, 1);
+                NPC.DropLoot(ModContent.ItemType<HydraClaw>(), 1);
             }
             
         }

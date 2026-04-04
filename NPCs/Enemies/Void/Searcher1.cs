@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("StoneSearcherBanner").Type;
+			BannerItem = ModContent.ItemType<StoneSearcherBanner>();
 
         }
 
@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(3));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), Main.rand.Next(3));
         }
     }
 }

@@ -8,7 +8,7 @@ using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Unreleased.Backgrounds
+namespace AAModClassic._Unreleased._Aggregate.snow
 {
     public class AuroraSky : CustomSky
     {
@@ -48,15 +48,15 @@ namespace AAModClassic._Unreleased.Backgrounds
         {
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * this.Intensity);
+                spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                 var planetPos = new Vector2(Main.screenWidth * 0.3f, Main.screenHeight * 0.3f);
-                spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * this.Intensity, 0f, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
             }
         }
 
         public override float GetCloudAlpha()
         {
-            return (1f - Intensity);
+            return 1f - Intensity;
         }
 
         public override void Activate(Vector2 position, params object[] args)

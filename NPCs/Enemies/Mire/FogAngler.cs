@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.knockBackResist = .10f;
             NPC.aiStyle = -1;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("FogAnglerBanner").Type;
+			BannerItem = ModContent.ItemType<FogAnglerBanner>();
         }
 
         public override void AI()

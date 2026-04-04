@@ -54,18 +54,18 @@ namespace AAModClassic.Items.Magic
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("OceanTrident").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("BlazePike").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("SandLamp").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("NeutronStaff").Type);
+			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
+			recipe.AddIngredient(ModContent.ItemType<BlazePike>());
+			recipe.AddIngredient(ModContent.ItemType<SandLamp>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 			
 			recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("OceanTrident").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("SludgeShot").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("Sickle").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("NeutronStaff").Type);
+			recipe.AddIngredient(ModContent.ItemType<OceanTrident>());
+			recipe.AddIngredient(ModContent.ItemType<SludgeShot>());
+			recipe.AddIngredient(ModContent.ItemType<Sickle>());
+			recipe.AddIngredient(ModContent.ItemType<NeutronStaff>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

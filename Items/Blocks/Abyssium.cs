@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.rare = ItemRarityID.Blue;
             Item.value = Terraria.Item.sellPrice(0, 0, 8, 0);
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("AbyssiumOre").Type;
+            Item.createTile = ModContent.TileType<AbyssiumOre>();
         }
 
         public override void SetStaticDefaults()

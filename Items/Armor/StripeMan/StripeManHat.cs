@@ -56,7 +56,7 @@ You can put any sand into the Extractinator"); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("StripeManShirt").Type && legs.type == Mod.Find<ModItem>("StripeManPants").Type;
+			return body.type == ModContent.ItemType<StripeManShirt>() && legs.type == ModContent.ItemType<StripeManPants>();
 		}
 
 		public override void UpdateArmorSet(Player player)

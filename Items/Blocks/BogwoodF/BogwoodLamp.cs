@@ -23,12 +23,12 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = Mod.Find<ModTile>("BogwoodLamp").Type;
+            Item.createTile = ModContent.TileType<BogwoodLamp>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Bogwood").Type, 3);
+            recipe.AddIngredient(ModContent.ItemType<Bogwood>(), 3);
             recipe.AddIngredient(ItemID.Torch, 1);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();

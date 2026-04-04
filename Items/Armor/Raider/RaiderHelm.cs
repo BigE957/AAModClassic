@@ -26,10 +26,10 @@ namespace AAModClassic.Items.Armor.Raider
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("VikingHelm").Type);
+            recipe.AddIngredient(ModContent.ItemType<VikingHelm>());
             recipe.AddIngredient(ItemID.Coral, 5);
-            recipe.AddIngredient(Mod.Find<ModItem>("HydraHide").Type, 5);
-            recipe.AddIngredient(Mod.Find<ModItem>("Doomite").Type, 5);
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

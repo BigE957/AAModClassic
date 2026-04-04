@@ -150,7 +150,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 SoundEngine.PlaySound(SoundID.MenuTick);
 
-                int Mushman = NPC.FindFirstNPC(Mod.Find<ModNPC>("Mushman").Type);
+                int Mushman = NPC.FindFirstNPC(ModContent.NPCType<Mushman>());
 
                 int Item1 = player.FindItem(ModContent.ItemType<Items.Materials.TerraShard>());
                 int Item2 = player.FindItem(ModContent.ItemType<Items.Materials.DragonScale>());
@@ -177,8 +177,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid1 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("PurityFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("PurityFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("PurityFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<PurityFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<PurityFlask>();
                     }
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -199,8 +199,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid2 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("AshJarChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("AshJar").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("AshJar").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<AshJar>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<AshJar>();
                     }
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -221,8 +221,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid3 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("DarkwaterFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("DarkwaterFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("DarkwaterFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<DarkwaterFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<DarkwaterFlask>();
                     }
 
 					if(Main.netMode == NetmodeID.MultiplayerClient)
@@ -243,8 +243,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid4 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("CorruptionFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("CorruptionFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("CorruptionFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<CorruptionFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<CorruptionFlask>();
                     }
 
 					if(Main.netMode == NetmodeID.MultiplayerClient)
@@ -265,8 +265,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid5 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("CrimsonFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("CrimsonFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("CrimsonFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<CrimsonFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<CrimsonFlask>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -286,8 +286,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid6 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("HallowFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("HallowFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("HallowFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<HallowFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<HallowFlask>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -307,8 +307,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid7 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("VoidFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("VoidFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("Z").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<VoidFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<Z>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -328,8 +328,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid8 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("FungicideChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("Fungicide").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("Fungicide").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Fungicide>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<Fungicide>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -349,8 +349,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid9 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("SporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("SporeSacChat2");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("SporeSac").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("SporeSac").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeSac>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<SporeSac>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -370,8 +370,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid10 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Lang.TownNPCLovecraftian("GlowingSporeSacChat2");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("GlowingSporeSac").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("GlowingSporeSac").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeSac>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeSac>();
                     }
 					if(Main.netMode == NetmodeID.MultiplayerClient)
 					{
@@ -391,8 +391,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid11 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("JungleFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("JungleFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("JungleFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<JungleFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<JungleFlask>();
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
@@ -412,9 +412,9 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid12 == 0)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("IceFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("IceFlask").Type, 3);
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("IcemeltFlask").Type, 3);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("IceFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<IceFlask>(), 3);
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<IcemeltFlask>(), 3);
+                        Main.npcChatCornerItem = ModContent.ItemType<IceFlask>();
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
@@ -434,8 +434,8 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (AAWorld.squid13 == 4)
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("ForestFlaskChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>("ForestFlask").Type, 5);
-                        Main.npcChatCornerItem = Mod.Find<ModItem>("ForestFlask").Type;
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<ForestFlask>(), 5);
+                        Main.npcChatCornerItem = ModContent.ItemType<ForestFlask>();
                     }
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
@@ -449,7 +449,7 @@ namespace AAModClassic.NPCs.TownNPCs
                     if (!BasePlayer.HasItem(player, ModContent.ItemType<Items.Flasks.SquidList>()))
                     {
                         Main.npcChatText = Lang.TownNPCLovecraftian("SquidListChat");
-                        int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("SquidList").Type, 1, false, 0, false, false);
+                        int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<SquidList>(), 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 1f, 0f, 0f, 0, 0, 0);

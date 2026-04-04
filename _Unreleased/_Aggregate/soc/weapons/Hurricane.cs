@@ -7,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.SoC
+namespace AAModClassic._Unreleased._Aggregate.soc.weapons
 {
     public class Hurricane : ModProjectile
     {
@@ -69,7 +69,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             int num3 = 160;
             for (int i = 0; i < 1; i++)
             {
-                Vector2 position = new Vector2(Projectile.Center.X - (float)(num2 / 2), Projectile.position.Y + (float)Projectile.height - (float)num3);
+                Vector2 position = new Vector2(Projectile.Center.X - num2 / 2, Projectile.position.Y + Projectile.height - num3);
                 if (Collision.SolidCollision(position, num2, num3) || Collision.WetCollision(position, num2, num3))
                 {
                     if (Projectile.velocity.Y > 0f)
@@ -127,7 +127,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
                     value5.X *= -1f;
                     Vector2 value6 = new Vector2(6f, 10f);
                     Vector2 position2 = value + value2 * value5 * 0.5f + value6;
-                    Dust dust = Main.dust[Dust.NewDust(position2, 0, 0, 274, 0f, 0f, 0, default(Color), 1f)];
+                    Dust dust = Main.dust[Dust.NewDust(position2, 0, 0, 274, 0f, 0f, 0, default, 1f)];
                     dust.position = position2;
                     dust.fadeIn = 1.3f;
                     dust.scale = 0.87f;
@@ -146,7 +146,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             Vector2 position3 = Projectile.Bottom + new Vector2(-25f, -25f);
             for (int k = 0; k < 4; k++)
             {
-                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, 31, Projectile.velocity.X, -2f, 100, default(Color), 1f);
+                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, 31, Projectile.velocity.X, -2f, 100, default, 1f);
                 dust2.fadeIn = 1.1f;
                 dust2.noGravity = true;
             }
@@ -154,7 +154,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 if (Main.rand.Next(5) == 0)
                 {
-                    Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom<int>(Main.rand, new int[]
+                    Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -170,7 +170,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom<int>(Main.rand, new int[]
+                    Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,
@@ -184,7 +184,7 @@ namespace AAModClassic._Unreleased.Projectiles.SoC
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom<int>(Main.rand, new int[]
+                    Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
                     {
                         1007,
                         1008,

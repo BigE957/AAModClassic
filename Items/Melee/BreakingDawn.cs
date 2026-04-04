@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Melee
 			Item.width = 60;
 			Item.height = 60;
 			Item.useTime = 15;
-            Item.shoot = Mod.Find<ModProjectile>("MorningStar").Type;
+            Item.shoot = ModContent.ProjectileType<MorningStar>();
             Item.shootSpeed = 10f;
             Item.useAnimation = 15;
 			Item.useStyle = ItemUseStyleID.Swing;

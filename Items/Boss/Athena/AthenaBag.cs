@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Athena
             Item.rare = ItemRarityID.Red;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Athena").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Athena>();
 
         public override bool CanRightClick()
         {
@@ -35,15 +35,15 @@ namespace AAModClassic.Items.Boss.Athena
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("AthenaMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<AthenaMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PPDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("SeraphHarp").Type);
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GoddessFeather").Type, Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<SeraphHarp>());
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GoddessFeather>(), Main.rand.Next(25, 30));
             string[] lootTable = { "DivineWindCharm", "GaleOfWings", "RazorwindLongbow", "SkycutterKopis", "OlympianWings" };
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);

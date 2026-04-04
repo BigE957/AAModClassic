@@ -63,7 +63,7 @@ Converts wooden arrows into slower, but high-damaging mummy arrows"); */
 			}
 			if (Main.rand.NextBool(5))
 			{
-				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("AnubisArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AnubisArrow>(), damage, knockback, player.whoAmI, 0f, 0f);
 			}
             return false;
         }

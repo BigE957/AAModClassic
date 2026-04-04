@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 600);
+            target.AddBuff(ModContent.BuffType<HydraToxin>(), 600);
         }
 
         public override void OnKill(int timeleft)
@@ -115,7 +115,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
                 }
             }*/
             SoundEngine.PlaySound(SoundID.Item89);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("YamataABoom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<YamataABoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Projectile.active = false;
         }
 

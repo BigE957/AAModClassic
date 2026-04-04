@@ -1,12 +1,11 @@
 using Terraria;
-using Microsoft.Xna.Framework; 
-using Microsoft.Xna.Framework.Graphics; 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
-    public class IZCache : ModItem
+    public class InfinityZeroTreasureBag : ModItem
 	{
         
         public override void SetStaticDefaults()
@@ -24,7 +23,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
 			Item.height = 32;
 			Item.expert = true;
             //TODOIZ
-			//bossBagNPC = Mod.Find<ModNPC>("Infinity").Type;
+			//bossBagNPC = ModContent.NPCType<Infinity>();
 		}
 
 
@@ -60,15 +59,15 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
 		{
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>("ZeroMask").Type);
+                player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<ZeroMask>());
             }
             if (Main.rand.NextFloat() < 0.01f)
             {
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.SADevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>("Infinitium").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>("EXSoul").Type);
+            player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<Infinitium>(), Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<EXSoul>());
             string[] lootTable = 
             {
                 "Genocide",

@@ -58,17 +58,17 @@ namespace AAModClassic.NPCs.Bosses.Equinox
             SpawnDust();
             if(Main.rand.Next(2) == 0)
             {
-                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -12f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, 12f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int c = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-12f, 0), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int d = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(12f, 0), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
+                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -12f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, 12f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int c = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-12f, 0), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int d = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(12f, 0), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
             }
             else
             {
-                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, -8f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 8f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int c = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-8f, 8f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
-                int d = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-8f, -8f), Mod.Find<ModProjectile>("DayBringerBlast").Type, Projectile.damage, 3);
+                int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, -8f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(8f, 8f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int c = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-8f, 8f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
+                int d = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-8f, -8f), ModContent.ProjectileType<DayBringerBlast>(), Projectile.damage, 3);
             }
             Projectile.active = false;
         }

@@ -38,9 +38,9 @@ namespace AAModClassic.Items.Boss.Zero
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = Mod.Find<ModProjectile>("Protocol").Type;
+            Item.shoot = ModContent.ProjectileType<Protocol>();
             Item.shootSpeed = 10f;
-            Item.buffType = Mod.Find<ModBuff>("Protocol").Type;
+            Item.buffType = ModContent.BuffType<Protocol>();
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.value = Item.sellPrice(0, 30, 0, 0);
@@ -96,7 +96,7 @@ namespace AAModClassic.Items.Boss.Zero
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("Protocol").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<Protocol>(), num73, num74, i, 0f, 0f);
             return false;
         }
 

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RelicBrick").Type;
+            Item.createTile = ModContent.TileType<RelicBrick>();
         }
 
         public override void SetStaticDefaults()

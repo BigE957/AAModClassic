@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("OrderBar").Type;
+            Item.createTile = ModContent.TileType<OrderBar>();
             Item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
         }
     }

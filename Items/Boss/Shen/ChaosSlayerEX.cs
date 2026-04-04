@@ -32,7 +32,7 @@ Chaos Slayer EX"); */
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.expert = true; Item.expertOnly = true;
             Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ChaosSlayerSwordEX").Type;
+			Item.shoot = ModContent.ProjectileType<ChaosSlayerSwordEX>();
 			Item.shootSpeed = 7;
             Item.useTurn = true;
             AARarity = 14;
@@ -54,7 +54,7 @@ Chaos Slayer EX"); */
 			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI);
 			for (int m = 0; m < 2; m++)
 			{
-				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosSlayerSwordRedEX").Type : Mod.Find<ModProjectile>("ChaosSlayerSwordBlueEX").Type, damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? ModContent.ProjectileType<ChaosSlayerSwordRedEX>() : ModContent.ProjectileType<ChaosSlayerSwordBlueEX>(), damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

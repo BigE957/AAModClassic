@@ -27,7 +27,7 @@ Storm Rifle EX"); */
             Item.useTime = 2; 
             Item.useAnimation = 6; 
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = Mod.Find<ModProjectile>("SThunderBullet").Type;
+            Item.shoot = ModContent.ProjectileType<SThunderBullet>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
@@ -49,7 +49,7 @@ Storm Rifle EX"); */
             {
                 position += muzzleOffset;
             }
-            type = Main.rand.Next(20) == 0 ? Mod.Find<ModProjectile>("SThunderBullet").Type : Mod.Find<ModProjectile>("ThunderBullet").Type;
+            type = Main.rand.Next(20) == 0 ? ModContent.ProjectileType<SThunderBullet>() : ModContent.ProjectileType<ThunderBullet>();
             Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI, 2f, 2f);
             return false;
         }

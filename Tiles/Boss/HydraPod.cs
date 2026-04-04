@@ -98,7 +98,7 @@ namespace AAModClassic.Tiles.Boss
                 AAWorld.SmashHydraPod = 2;
                 if (!Main.dayTime)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Hydra").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Hydra>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
                 }
                 else
                 {

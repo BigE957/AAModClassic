@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("CovetiteOre").Type); 
+            RegisterItemDrop(ModContent.ItemType<CovetiteOre>()); 
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Covetite");
             DustType = DustID.Gold;

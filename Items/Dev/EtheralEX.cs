@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Dev
 	        Item.knockBack = 0f;
 	        Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.channel = true;
-            Item.shoot = Mod.Find<ModProjectile>("EtheralEX").Type;
+            Item.shoot = ModContent.ProjectileType<EtheralEX>();
             Item.shootSpeed = 30f;           
             Item.expert = true; Item.expertOnly = true;
 

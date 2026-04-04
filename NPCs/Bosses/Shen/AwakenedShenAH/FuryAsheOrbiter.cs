@@ -83,13 +83,13 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
             body = (int)NPC.ai[0];
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("FuryAshe").Type, 120f, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<FuryAshe>(), 120f, null);
                 if (npcID >= 0) body = npcID;
             }
             if (body == -1) return;
 
             NPC ashe = Main.npc[body];
-            if (ashe == null || ashe.life <= 0 || !ashe.active || ashe.type != Mod.Find<ModNPC>("FuryAshe").Type) { NPC.active = false; return; }
+            if (ashe == null || ashe.life <= 0 || !ashe.active || ashe.type != ModContent.NPCType<FuryAshe>()) { NPC.active = false; return; }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {

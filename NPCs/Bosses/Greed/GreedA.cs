@@ -169,7 +169,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         {
                             SoundEngine.PlaySound(Mod.GetLegacySoundSlot(Terraria.Audio.SoundType.Sound, "Sounds/Custom/Quake1") with { Volume = 0.7f, PitchVariance = 0.1f });
                         }
-                        int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y - 100, 0f, 0f, Mod.Find<ModProjectile>("WarningPro").Type, 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
+                        int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y - 100, 0f, 0f, ModContent.ProjectileType<WarningPro>(), 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
                         Main.projectile[proj].netUpdate = true;
                         NPC.netUpdate = true;
                     }
@@ -182,7 +182,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                         if (Main.rand.Next(40) == 0)
                         {
 
-                            int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + Main.rand.Next(-200, 200), player.Center.Y + Main.rand.Next(200, 350), 0f, -4f, Mod.Find<ModProjectile>("TreasurePro").Type, 32, 0, Main.myPlayer);
+                            int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + Main.rand.Next(-200, 200), player.Center.Y + Main.rand.Next(200, 350), 0f, -4f, ModContent.ProjectileType<TreasurePro>(), 32, 0, Main.myPlayer);
                             Main.projectile[proj].netUpdate = true;
                         }
                     }
@@ -217,7 +217,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
                     int A = Main.rand.Next(-200, 200) * 6;
                     int B = Main.rand.Next(-200, 200) - 1000;
 
-                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + A, player.Center.Y + B, 0f, 7f, Mod.Find<ModProjectile>("CovStalactitePro").Type, 43, 1);
+                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + A, player.Center.Y + B, 0f, 7f, ModContent.ProjectileType<CovStalactitePro>(), 43, 1);
                     Main.projectile[p].netUpdate = true;
                 }
             }
@@ -565,22 +565,22 @@ namespace AAModClassic.NPCs.Bosses.Greed
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("WKGreedMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<WKGreedMask>());
                 }
                 string[] lootTable = { "OreCannon", "Unearther", "Earthbreaker", "OreStaff" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(20, 25));
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CovetiteOre").Type, Main.rand.Next(25, 40));
-                NPC.DropLoot(Mod.Find<ModItem>("GravitySphere").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<StoneShell>(), Main.rand.Next(20, 25));
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<CovetiteOre>(), Main.rand.Next(25, 40));
+                NPC.DropLoot(ModContent.ItemType<GravitySphere>());
             }
             if (Main.expertMode)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("GreedABag").Type);
+                NPC.DropLoot(ModContent.ItemType<GreedABag>());
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("WKGTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<WKGTrophy>());
             }
             NPC.value = 0f;
             NPC.boss = false;
@@ -836,7 +836,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("GreedA").Type)
+                if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<GreedA>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);

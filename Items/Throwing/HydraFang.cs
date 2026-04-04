@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.height = 34;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
-			Item.shoot = Mod.Find<ModProjectile>("HydraFangP").Type;
+			Item.shoot = ModContent.ProjectileType<HydraFangP>();
 			Item.shootSpeed = 16f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;
@@ -38,7 +38,7 @@ namespace AAModClassic.Items.Throwing
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(99);
-			recipe.AddIngredient(Mod.Find<ModItem>("AbyssiumBar").Type);
+			recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

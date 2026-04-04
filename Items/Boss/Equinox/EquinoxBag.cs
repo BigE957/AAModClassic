@@ -25,7 +25,7 @@ Contained loot depends on the time of day"); */
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("DaybringerHead").Type;
+        //public override int BossBagNPC => ModContent.NPCType<DaybringerHead>();
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
@@ -135,33 +135,33 @@ Contained loot depends on the time of day"); */
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("NCMask").Type);
+                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<NCMask>());
                 }
                 if (Main.rand.Next(20) == 0)
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();
                 }
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DarkEnergy").Type, Main.rand.Next(40, 90));
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DarkVoid").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DarkEnergy>(), Main.rand.Next(40, 90));
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DarkVoid>());
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DBMask").Type);
+                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DBMask>());
                 }
                 if (Main.rand.Next(20) == 0)
                 {
                     AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                     modPlayer.PMLDevArmor();
                 }
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("Stardust").Type, Main.rand.Next(40, 90));
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RadiantStar").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<Stardust>(), Main.rand.Next(40, 90));
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RadiantStar>());
             }
             if (AAWorld.RadiumOre)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("StarIdol").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StarIdol>());
             }
         }
 	}

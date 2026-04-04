@@ -34,10 +34,10 @@ Forged in the flames of the blazing sun"); */
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("KindledDou").Type);
+            recipe.AddIngredient(ModContent.ItemType<KindledDou>());
             recipe.AddIngredient(ItemID.Coral, 8);
             recipe.AddIngredient(ItemID.FossilOre, 8);
-            recipe.AddIngredient(Mod.Find<ModItem>("Doomite").Type, 8);
+            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 8);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

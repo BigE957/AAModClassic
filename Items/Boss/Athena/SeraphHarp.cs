@@ -41,13 +41,13 @@ Seraph is boosted by minion damage"); */
 			{
                 if (!hideVisual)
                 {
-                    if (player.FindBuffIndex(Mod.Find<ModBuff>("Seraph").Type) == -1)
+                    if (player.FindBuffIndex(ModContent.BuffType<Seraph>()) == -1)
                     {
-                        player.AddBuff(Mod.Find<ModBuff>("Seraph").Type, 3600, true);
+                        player.AddBuff(ModContent.BuffType<Seraph>(), 3600, true);
                     }
-                    if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Seraph").Type] < 1)
+                    if (player.ownedProjectileCounts[ModContent.ProjectileType<Seraph>()] < 1)
                     {
-                        Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Seraph").Type, (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(60f), 2f, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<Seraph>(), (int)(player.GetDamage(DamageClass.Summon)).ApplyTo(60f), 2f, Main.myPlayer, 0f, 0f);
                     }
                 }
 			}

@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
             Item.expert = true; Item.expertOnly = true;
         }
 
-        //public override int BossBagNPC => Mod.Find<ModNPC>("SupremeRajah").Type;
+        //public override int BossBagNPC => ModContent.NPCType<SupremeRajah>();
 
         public override bool CanRightClick()
         {
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
         {
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
                 modPlayer.SADevArmor();
             }
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Terraria.ModLoader.ModContent.ItemType<ChampionPlate>(), Main.rand.Next(15, 31));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("RajahCape").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<RajahCape>());
             string[] lootTable = { "Excalihare", "FluffyFury", "RabbitsWrath", "BaneOfTheBunnyEX", "CottonCaneEX", "PunisherEX", "RoyalScepterEX", "BunzookaEX"};
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);

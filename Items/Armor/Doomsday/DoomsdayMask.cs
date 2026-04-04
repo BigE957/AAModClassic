@@ -69,7 +69,7 @@ The power to destroy entire planets rests in this armor"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("DoomsdayChestplate").Type && legs.type == Mod.Find<ModItem>("DoomsdayLeggings").Type;
+			return body.type == ModContent.ItemType<DoomsdayChestplate>() && legs.type == ModContent.ItemType<DoomsdayLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)

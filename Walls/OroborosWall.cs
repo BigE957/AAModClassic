@@ -9,10 +9,10 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = Mod.Find<ModDust>("DoomDust").Type;
+			DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(8, 8, 8));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("OroborosWall").Type);
+            RegisterItemDrop(ModContent.ItemType<OroborosWall>());
             Main.wallHouse[Type] = true;
         }
 

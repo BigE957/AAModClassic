@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
-            Item.shoot = Mod.Find<ModProjectile>("Incineration").Type;
+            Item.shoot = ModContent.ProjectileType<Incineration>();
         }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

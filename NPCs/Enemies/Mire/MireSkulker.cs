@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.noTileCollide = false;
             NPC.knockBackResist = .2f;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MireSkulkerBanner").Type;
+			BannerItem = ModContent.ItemType<MireSkulkerBanner>();
         }
 
         private bool Shell = false;

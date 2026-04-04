@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("ChaosDou").Type && legs.type == Mod.Find<ModItem>("ChaosGreaves").Type;
+            return body.type == ModContent.ItemType<ChaosDou>() && legs.type == ModContent.ItemType<ChaosGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -42,13 +42,13 @@ namespace AAModClassic.Items.Armor.Chaos
             player.maxMinions += 4;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(Mod.Find<ModBuff>("DragonSpirit").Type) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<DragonSpirit>()) == -1)
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("DragonSpirit").Type, 3600, true);
+                    player.AddBuff(ModContent.BuffType<DragonSpirit>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonSpirit").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<DragonSpirit>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("DragonSpirit").Type, 55, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<DragonSpirit>(), 55, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Armor.Chaos
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("DoomiteVisor").Type);
+			recipe.AddIngredient(ModContent.ItemType<DoomiteVisor>());
 			recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

@@ -45,7 +45,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("WyrmlingBanner").Type;
+			BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
         public override bool PreAI()
         {
@@ -56,7 +56,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -79,21 +79,21 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                     {
                         if (segment == 0 || segment == 1)
                         {
-                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingBody").Type, NPC.whoAmI, 0, latestNPC);
+                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmlingBody>(), NPC.whoAmI, 0, latestNPC);
                             Main.npc[latestNPC].realLife = NPC.whoAmI;
                             Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                             segment += 1;
                         }
                         if (segment == 2)
                         {
-                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail1").Type, NPC.whoAmI, 0, latestNPC);
+                            latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmlingTail1>(), NPC.whoAmI, 0, latestNPC);
                             Main.npc[latestNPC].realLife = NPC.whoAmI;
                             Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                             segment += 1;
                         }
                     }
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmlingTail2").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmlingTail2>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -290,8 +290,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrmling").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmlingBanner").Type;
+            Banner = ModContent.NPCType<Wyrmling>();
+			BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -334,7 +334,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -397,8 +397,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrmling").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmlingBanner").Type;
+            Banner = ModContent.NPCType<Wyrmling>();
+			BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -443,7 +443,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -504,8 +504,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrmling").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmlingBanner").Type;
+            Banner = ModContent.NPCType<Wyrmling>();
+			BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -548,7 +548,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

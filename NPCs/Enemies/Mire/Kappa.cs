@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
 			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			AnimationType = NPCID.CreatureFromTheDeep;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("KappaBanner").Type;
+			BannerItem = ModContent.ItemType<KappaBanner>();
 		}
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		public override void SetDefaults()
 		{
 			Item.shootSpeed = 5f;
-			Item.shoot = Mod.Find<ModProjectile>("HydratoxinBullet").Type;
+			Item.shoot = ModContent.ProjectileType<HydratoxinBullet>();
 			Item.damage = 12;
 			Item.width = 8;
 			Item.height = 8;
@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		{
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ItemID.MusketBall, 100);
-			recipe.AddIngredient(Mod.Find<ModItem>("HydraToxin").Type, 1);
+			recipe.AddIngredient(ModContent.ItemType<HydraToxin>(), 1);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

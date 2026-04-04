@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("VoidScoutBanner").Type;
+			BannerItem = ModContent.ItemType<VoidScoutBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)
@@ -89,7 +89,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
 		public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("VoidEnergy").Type, Main.rand.Next(1, 4));
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<VoidEnergy>(), Main.rand.Next(1, 4));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

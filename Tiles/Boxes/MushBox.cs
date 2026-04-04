@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = Mod.Find<ModDust>("MushDust").Type;
+            DustType = ModContent.DustType<MushDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.MushBox>());
         }
@@ -32,7 +32,7 @@ namespace AAModClassic.Tiles.Boxes
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("MushBox").Type;
+			player.cursorItemIconID = ModContent.ItemType<MushBox>();
 		}
 	}
 }

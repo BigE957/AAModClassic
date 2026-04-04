@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RadiumBrick").Type;
+            Item.createTile = ModContent.TileType<RadiumBrick>();
         }
 
         public override void SetStaticDefaults()

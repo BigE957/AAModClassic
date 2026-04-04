@@ -48,7 +48,7 @@ namespace AAModClassic.Projectiles.Akuma
                 {
                     float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f * num165;
                     float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f * num165;
-                    int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, Mod.Find<ModDust>("AkumaADust").Type, Projectile.velocity.X * 0.2f,
+                    int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<AkumaADust>(), Projectile.velocity.X * 0.2f,
                         Projectile.velocity.Y * 0.2f, 0, default, 2f);
                     Main.dust[num166].alpha = Projectile.alpha;
                     Main.dust[num166].position.X = x2;
@@ -155,7 +155,7 @@ namespace AAModClassic.Projectiles.Akuma
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }
-            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("DaybreakBlast").Type, Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
+            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage, Projectile.knockBack * 3, Main.myPlayer, 0, 0);
             Main.projectile[id].DamageType = DamageClass.Magic;
         }
 

@@ -63,10 +63,10 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Door");
 			AddMapEntry(new Color(20, 0, 100), name);
-			DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.OpenDoor };
-			TileID.Sets.CloseDoorID[Type] = Mod.Find<ModTile>("BogwoodDoorClosed").Type;
+			TileID.Sets.CloseDoorID[Type] = ModContent.TileType<BogwoodDoorClosed>();
 		}
 
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -84,7 +84,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDoor").Type;
+			player.cursorItemIconID = ModContent.ItemType<BogwoodDoor>();
 		}
     }
 }

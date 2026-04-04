@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = Mod.Find<ModWall>("OroborosWall").Type;
+            Item.createWall = ModContent.WallType<OroborosWall>();
         }
         
         public override void SetStaticDefaults()

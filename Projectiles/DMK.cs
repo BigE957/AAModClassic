@@ -53,13 +53,13 @@ namespace AAModClassic.Projectiles
         {
             if (Main.rand.Next(2) == 0)
             {
-                Item.NewItem(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("DarkmatterKunai").Type);
+                Item.NewItem(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<DarkmatterKunai>());
             }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+            target.AddBuff(ModContent.BuffType<Electrified>(), 500);
         }
 
     }

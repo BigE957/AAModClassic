@@ -37,11 +37,11 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Dresser");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
 			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Bogwood Dresser";
-			RegisterItemDrop(Mod.Find<ModItem>("BogwoodDresser").Type);
+			RegisterItemDrop(ModContent.ItemType<BogwoodDresser>());
 		}
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("BogDresser").DisplayName;
@@ -170,7 +170,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("ExampleDresser").Type;
+					player.cursorItemIconID = ModContent.ItemType<ExampleDresser>();
 					player.cursorItemIconText = "";
 				}
 			}
@@ -212,7 +212,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = Mod.Find<ModItem>("BogwoodDresser").Type;
+					player.cursorItemIconID = ModContent.ItemType<BogwoodDresser>();
 					player.cursorItemIconText = "";
 				}
 			}

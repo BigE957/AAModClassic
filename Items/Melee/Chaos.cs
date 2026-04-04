@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("ChaosShot").Type;
+			Item.shoot = ModContent.ProjectileType<ChaosShot>();
             Item.shootSpeed = 14f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

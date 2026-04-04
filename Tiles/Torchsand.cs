@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles
                             int projectileType = 0;
                             if (tileType == Type)
                             {
-                                projectileType = Mod.Find<ModProjectile>("TorchsandBall").Type;
+                                projectileType = ModContent.ProjectileType<TorchsandBall>();
                                 damage = 0;
                             }
                             tile.ClearTile();
@@ -63,7 +63,7 @@ namespace AAModClassic.Tiles
                         int projectileType = 0;
                         if (tileType == Type)
                         {
-                            projectileType = Mod.Find<ModProjectile>("TorchsandBall").Type;
+                            projectileType = ModContent.ProjectileType<TorchsandBall>();
                             damage2 = 0;
                         }
 

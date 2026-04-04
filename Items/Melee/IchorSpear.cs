@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Melee
 			Item.autoReuse = true;
             Item.rare = ItemRarityID.Orange;
             Item.shootSpeed = 5f;
-            Item.shoot = Mod.Find<ModProjectile>("IchorSpear").Type;  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<IchorSpear>();  //put your Spear projectile name
         }
 
         public override bool CanUseItem(Player player)

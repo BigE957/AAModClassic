@@ -53,7 +53,7 @@ namespace AAModClassic.Projectiles
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Mod.Find<ModDust>("HydraToxin").Type, 90);
+			target.AddBuff(ModContent.DustType<HydraToxin>(), 90);
 		}
 	}
 }

@@ -1,7 +1,4 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient;
-using AAModClassic._Unreleased.Tiles.Fulgurite.Parthenan.Ancient.Walls;
 using AAModClassic.Tiles;
 using AAModClassic.World;
 using Microsoft.Xna.Framework;
@@ -17,7 +14,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
 
-namespace AAModClassic._Unreleased.World
+namespace AAModClassic._Unreleased
 {
     public class TexGenAssets_Unreleased : ModSystem
     {

@@ -39,7 +39,7 @@ Grants 1 soul essence on direct hit"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("HydrasFury").Type;
+            Item.shoot = ModContent.ProjectileType<HydrasFury>();
             Item.shootSpeed = 0.1f;
 		}
 		
@@ -47,7 +47,7 @@ Grants 1 soul essence on direct hit"); */
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("HydrasFuryEffect").Type, damage, knockback, player.whoAmI, k, 0f);
+				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<HydrasFuryEffect>(), damage, knockback, player.whoAmI, k, 0f);
 			}
 			return true;
 		}

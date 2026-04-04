@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("FlamespitterBanner").Type;
+			BannerItem = ModContent.ItemType<FlamespitterBanner>();
         }
 
         public bool teleport = false;
@@ -134,7 +134,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.ai[1] -= 1f;
                 if (NPC.ai[1] == 25f)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), Mod.Find<ModProjectile>("Magma").Type, 15, 3); ;
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + 17f, NPC.position.Y + 18f), new Vector2(-6 + Main.rand.Next(-6, 0), -4 + Main.rand.Next(-4, 0)), ModContent.ProjectileType<Magma>(), 15, 3); ;
                 }
             }
 

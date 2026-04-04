@@ -74,7 +74,7 @@ namespace AAModClassic.Tiles.Decoration
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("VoidUnit").Type;
+            player.cursorItemIconID = ModContent.ItemType<VoidUnit>();
         }
 
         public override void HitWire(int i, int j)

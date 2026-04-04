@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Usable
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.createTile = Mod.Find<ModTile>("MireGrass").Type;
+            Item.createTile = ModContent.TileType<MireGrass>();
             Item.consumable = true;		
         }
 

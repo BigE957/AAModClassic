@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RottedDynastyWood").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<RottedDynastyWood>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

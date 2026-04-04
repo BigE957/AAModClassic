@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Summoning.Minions
         {
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(Mod.Find<ModBuff>("XiaoDoragon").Type, 3600);
+            player.AddBuff(ModContent.BuffType<XiaoDoragon>(), 3600);
 
             if (player.dead)
             {
@@ -61,7 +61,7 @@ namespace AAModClassic.Items.Summoning.Minions
             float IdleSpeed = 0.05f;
             for (int num638 = 0; num638 < 1000; num638++)
             {
-                bool flag23 = Main.projectile[num638].type == Mod.Find<ModProjectile>("XiaoDoragon").Type;
+                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<XiaoDoragon>();
                 if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
                 {
                     if (Projectile.position.X < Main.projectile[num638].position.X)

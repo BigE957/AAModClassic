@@ -74,7 +74,7 @@ Dark, yet still barely visible"); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("DarkmatterBreastplate").Type && legs.type == Mod.Find<ModItem>("DarkmatterGreaves").Type;
+			return body.type == ModContent.ItemType<DarkmatterBreastplate>() && legs.type == ModContent.ItemType<DarkmatterGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -90,7 +90,7 @@ Dark, yet still barely visible"); */
                 double angle = Main.rand.NextDouble() * 2d * Math.PI;
                 offset.X += (float)(Math.Sin(angle) * 300);
                 offset.Y += (float)(Math.Cos(angle) * 300);
-                Dust dust = Main.dust[Dust.NewDust(player.Center + offset - new Vector2(4, 4), 0, 0,  Mod.Find<ModDust>("DarkmatterDust").Type, 0, 0, 100, default, 1f)];
+                Dust dust = Main.dust[Dust.NewDust(player.Center + offset - new Vector2(4, 4), 0, 0,  ModContent.DustType<DarkmatterDust>(), 0, 0, 100, default, 1f)];
                 dust.velocity = player.velocity;
                 dust.noGravity = true;
             }
@@ -129,10 +129,10 @@ Dark, yet still barely visible"); */
                     {
                         
                         npcCooldown[n] = 30;
-                        int type = Mod.Find<ModProjectile>("DarkLeech").Type;
+                        int type = ModContent.ProjectileType<DarkLeech>();
                         if (sunSiphon)
                         {
-                            type = Mod.Find<ModProjectile>("SunSiphon").Type;
+                            type = ModContent.ProjectileType<SunSiphon>();
                         }
 
                         Projectile.NewProjectile(Main.npc[n].GetSource_FromThis(), Main.npc[n].Center, Vector2.Zero, type, (int)(Player.GetDamage(DamageClass.Magic)).ApplyTo(100f), 0f, Player.whoAmI, n);

@@ -21,7 +21,7 @@ namespace AAModClassic.Buffs
     {
         public override void PostItemCheck()
         {
-            if (Player.HasBuff(Mod.Find<ModBuff>("ManaOverload").Type) && Player.HeldItem.CountsAsClass(DamageClass.Magic))
+            if (Player.HasBuff(ModContent.BuffType<ManaOverload>()) && Player.HeldItem.CountsAsClass(DamageClass.Magic))
             {
                 if (Player.itemAnimation > 0)
                 {

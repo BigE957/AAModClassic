@@ -18,9 +18,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.DD2PetGhost);
-			Item.shoot = Mod.Find<ModProjectile>("BoomBoi").Type;
+			Item.shoot = ModContent.ProjectileType<BoomBoi>();
             
-            Item.buffType = Mod.Find<ModBuff>("BoomBoi").Type;
+            Item.buffType = ModContent.BuffType<BoomBoi>();
 		}
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)

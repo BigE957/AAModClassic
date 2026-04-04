@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-    public class RealityBurstLarge : ModProjectile
+    public class RealityAnchor_RealityBurstLarge : ModProjectile
     {
         public override void SetStaticDefaults()
         {

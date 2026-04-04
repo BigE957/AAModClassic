@@ -194,7 +194,7 @@ namespace AAModClassic.Projectiles.Zero
 				float SpeedX = f1 * num5;
 				float SpeedY = f2 * num5;
                 SoundEngine.PlaySound(SoundID.Item89, Projectile.position);
-                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, SpeedX, SpeedY, Mod.Find<ModProjectile>("Antimatter").Type, damage, 1f, player.whoAmI);
+                int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<Antimatter>(), damage, 1f, player.whoAmI);
                 Main.projectile[proj].penetrate = chargeLevel;
             }
         }

@@ -1,5 +1,4 @@
 using System;
-using AAModClassic;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     public class UDUNFUKED : ModNPC
     {
@@ -73,10 +72,10 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 return;
             }
             NPC.rotation += NPC.direction * 0.7f;
-            Vector2 vector44 = new Vector2(NPC.position.X + ((float)NPC.width * 0.5f), NPC.position.Y + ((float)NPC.height * 0.5f));
-            float num441 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
-            float num442 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector44.Y;
-            float num443 = (float)Math.Sqrt((double)((num441 * num441) + (num442 * num442)));
+            Vector2 vector44 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float num441 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector44.X;
+            float num442 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector44.Y;
+            float num443 = (float)Math.Sqrt((double)(num441 * num441 + num442 * num442));
             float num4 = 9f + num443 / 100f;
             if (num4 < 8.0)
                 num4 = 8f;

@@ -58,13 +58,13 @@ namespace AAModClassic.Items.Dev
             {
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
-                Item.shoot = Mod.Find<ModProjectile>("VoidWave").Type;
+                Item.shoot = ModContent.ProjectileType<VoidWave>();
             }
             else
             {
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.shoot = Mod.Find<ModProjectile>("VoidSpear").Type;
+                Item.shoot = ModContent.ProjectileType<VoidSpear>();
             }
             return base.CanUseItem(player);
 		}

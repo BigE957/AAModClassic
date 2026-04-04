@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonClaw").Type] > 0 || player.ownedProjectileCounts[Mod.Find<ModProjectile>("HydraClaw").Type] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<DragonClaw>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<HydraClaw>()] > 0)
             {
 				modPlayer.GripMinion = true;
 			}

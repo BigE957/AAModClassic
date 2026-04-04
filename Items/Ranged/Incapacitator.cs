@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged
 
         public override void SetDefaults()
         {
-            Item.shoot = Mod.Find<ModProjectile>("Incapacitator").Type;
+            Item.shoot = ModContent.ProjectileType<Incapacitator>();
             Item.shootSpeed = 11f;
             Item.damage = 21;
             Item.knockBack = 5f;

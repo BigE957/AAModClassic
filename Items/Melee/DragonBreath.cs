@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 18;
             Item.useTime = 18;
-            Item.shoot = Mod.Find<ModProjectile>("DragonBreathP").Type;
+            Item.shoot = ModContent.ProjectileType<DragonBreathP>();
         }
 
         public override void SetStaticDefaults()

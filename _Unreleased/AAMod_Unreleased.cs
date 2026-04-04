@@ -1,5 +1,7 @@
-﻿using AAModClassic.Backgrounds;
-using AAModClassic._Unreleased.Backgrounds;
+﻿using AAModClassic._Unreleased.Content.Parthenan.Biomes;
+using AAModClassic._Unreleased.Content.SunkenShip.Biomes;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Skies;
+using AAModClassic.Backgrounds;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -66,10 +68,10 @@ namespace AAModClassic._Unreleased
             SkyManager.Instance["AAModClassic:CthulhuSky"] = new CthulhuSky();
 
             Filters.Scene["AAModClassic:StormSky"] = new Filter(new StormSkyData("FilterMiniTower").UseColor(0.4f, 0f, 0.6f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:StormSky"] = new StormSky();
+            SkyManager.Instance["AAModClassic:StormSky"] = new StormBiome();
 
-            Filters.Scene["AAModClassic:IZSky"] = new Filter(new IZSkyData("FilterMiniTower").UseColor(0.4f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
-            SkyManager.Instance["AAModClassic:IZSky"] = new IZSky();
+            Filters.Scene["AAModClassic:InfinityZeroSky"] = new Filter(new InfinityZeroSkyData("FilterMiniTower").UseColor(0.4f, 0.1f, 0.1f).UseOpacity(0.3f), EffectPriority.High);
+            SkyManager.Instance["AAModClassic:InfinityZeroSky"] = new InfinityZeroSky();
         }
     }
 }

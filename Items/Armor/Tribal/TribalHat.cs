@@ -32,7 +32,7 @@ Increases maximum mana by 20"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("TribalCloak").Type && legs.type == Mod.Find<ModItem>("TribalKilt").Type;
+            return body.type == ModContent.ItemType<TribalCloak>() && legs.type == ModContent.ItemType<TribalKilt>();
         }
 
         public override void UpdateArmorSet(Player player)

@@ -34,7 +34,7 @@ Scythe of the Grim Reaper EX"); */
 			Item.scale = 1.15f;
 			Item.UseSound = SoundID.Item71;
 			Item.rare = ItemRarityID.Purple;
-			Item.shoot = Mod.Find<ModProjectile>("GrimReaperScytheEX").Type;
+			Item.shoot = ModContent.ProjectileType<GrimReaperScytheEX>();
 			Item.shootSpeed = 16f;
 			Item.value = 1000000;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -50,14 +50,14 @@ Scythe of the Grim Reaper EX"); */
 			int side = player.direction;
 			if (player.altFunctionUse != 2)
 			{
-				Item.shoot = Mod.Find<ModProjectile>("GrimReaperScytheEX").Type;
+				Item.shoot = ModContent.ProjectileType<GrimReaperScytheEX>();
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(Mod.Find<ModBuff>("ReaperCD").Type))
+			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD>()))
 			{
-				player.AddBuff(Mod.Find<ModBuff>("ReaperImmune2").Type, 60);
-				player.AddBuff(Mod.Find<ModBuff>("ReaperCD").Type, 300);
-				Item.shoot = Mod.Find<ModProjectile>("ReaperHitbox").Type;
+				player.AddBuff(ModContent.BuffType<ReaperImmune2>(), 60);
+				player.AddBuff(ModContent.BuffType<ReaperCD>(), 300);
+				Item.shoot = ModContent.ProjectileType<ReaperHitbox>();
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -69,7 +69,7 @@ Scythe of the Grim Reaper EX"); */
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == Mod.Find<ModProjectile>("GrimReaperScytheEX").Type)
+			if (type == ModContent.ProjectileType<GrimReaperScytheEX>())
 			{
 				float num121 = 0.99f;
 				int num122 = 3;
@@ -88,7 +88,7 @@ Scythe of the Grim Reaper EX"); */
 					{
 						vector15 -= vector14;
 					}
-					if (type == Mod.Find<ModProjectile>("GrimReaperScytheEX").Type && player.HasBuff(Mod.Find<ModBuff>("ReaperImmune2").Type))
+					if (type == ModContent.ProjectileType<GrimReaperScytheEX>() && player.HasBuff(ModContent.BuffType<ReaperImmune2>()))
 					{
 						Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + vector15.X, vector2.Y + vector15.Y, num82, num83, type, damage/15, knockback, player.whoAmI);
 					}
@@ -98,7 +98,7 @@ Scythe of the Grim Reaper EX"); */
 					}
 				}
 			}
-			if (type == Mod.Find<ModProjectile>("ReaperHitbox").Type)
+			if (type == ModContent.ProjectileType<ReaperHitbox>())
 			{
 				return true;
 			}

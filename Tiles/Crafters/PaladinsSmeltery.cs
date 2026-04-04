@@ -37,8 +37,8 @@ namespace AAModClassic.Tiles.Crafters
                 TileID.AdamantiteForge,
                 TileID.Autohammer,
                 TileID.ImbuingStation,
-                Mod.Find<ModTile>("HallowedForge").Type,
-                Mod.Find<ModTile>("HallowedAnvil").Type
+                ModContent.TileType<HallowedForge>(),
+                ModContent.TileType<HallowedAnvil>()
               };
             AnimationFrameHeight = 38;
         }

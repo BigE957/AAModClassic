@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Dev
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("SockPuppet").Type;
+            Item.shoot = ModContent.ProjectileType<SockPuppet>();
             Item.damage = 130;
             Item.width = 60;
             Item.height = 56;
@@ -54,7 +54,7 @@ namespace AAModClassic.Items.Dev
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("SockPuppet").Type, damage, num74, i, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<SockPuppet>(), damage, num74, i, 0f, 0f);
             return false;
         }
     }

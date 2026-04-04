@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = Mod.Find<ModProjectile>("RabbitRocket3").Type;
+            Item.shoot = ModContent.ProjectileType<RabbitRocket3>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Yellow;
         }
@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Boss.Rajah
             {
                 position += muzzleOffset;
             }
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("RabbitRocket3").Type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<RabbitRocket3>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
     }

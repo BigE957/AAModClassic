@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = true;   
             Item.useTurn = false;
-			Item.shoot = Mod.Find<ModProjectile>("DragonSP").Type;
+			Item.shoot = ModContent.ProjectileType<DragonSP>();
 			Item.shootSpeed = 14f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

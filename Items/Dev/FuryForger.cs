@@ -53,8 +53,8 @@ namespace AAModClassic.Items.Dev
                 for (int i = 0; i < 4; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), Mod.Find<ModProjectile>("SparkFury").Type, Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<SparkFury>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), target.Center.X, target.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), ModContent.ProjectileType<SparkFury>(), Item.damage, 1.25f, player.whoAmI, 0f, 0f);
                 }
             }
             target.AddBuff(BuffID.OnFire, 200);

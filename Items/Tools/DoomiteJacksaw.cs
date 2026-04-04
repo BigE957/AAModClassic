@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Tools
 			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item23;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("DoomiteJacksaw").Type;
+			Item.shoot = ModContent.ProjectileType<DoomiteJacksaw>();
 			Item.shootSpeed = 40f;
 		}
 

@@ -21,7 +21,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Bed");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+            DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
 			TileID.Sets.CanBeSleptIn[Type] = true;
@@ -67,7 +67,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("Bogwood Bed").Type;
+			player.cursorItemIconID = ModContent.ItemType<Bogwood Bed>();
 		}
 	}
 }

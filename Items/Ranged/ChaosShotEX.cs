@@ -58,10 +58,10 @@ Chaos Bustershot EX"); */
             }
             for (int m = 0; m < 2; m++)
             {
-                Projectile.NewProjectile(source, position, velocity, m == 0 ? Mod.Find<ModProjectile>("ChaosShot2").Type : Mod.Find<ModProjectile>("ChaosShot3").Type, damage, knockback, player.whoAmI, 0, 1);
+                Projectile.NewProjectile(source, position, velocity, m == 0 ? ModContent.ProjectileType<ChaosShot2>() : ModContent.ProjectileType<ChaosShot3>(), damage, knockback, player.whoAmI, 0, 1);
             }
 
-            Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("ChaosShot1").Type, damage, knockback, player.whoAmI, 0, 1);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<ChaosShot1>(), damage, knockback, player.whoAmI, 0, 1);
             return false;
 		}
 

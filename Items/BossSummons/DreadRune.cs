@@ -72,12 +72,12 @@ Non-Consumable"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse1"), Color.Indigo, false);
                     return false;
                 }
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("Yamata").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(45, 46, 70), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataA").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(146, 30, 68), false);
                     return false;
@@ -87,7 +87,7 @@ Non-Consumable"); */
                 {
                     return false;
                 }
-                if (NPC.AnyNPCs(Mod.Find<ModNPC>("YamataTransition").Type))
+                if (NPC.AnyNPCs(ModContent.NPCType<YamataTransition>()))
                 {
                     return false;
                 }

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Greed
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("GreedTrophy").Type;
+			Item.createTile = ModContent.TileType<GreedTrophy>();
 		}
 	}
 }

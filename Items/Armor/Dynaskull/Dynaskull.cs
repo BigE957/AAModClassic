@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Dynaskull
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("DynaskullRibguard").Type && legs.type == Mod.Find<ModItem>("DynaskullGreaves").Type;
+			return body.type == ModContent.ItemType<DynaskullRibguard>() && legs.type == ModContent.ItemType<DynaskullGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)

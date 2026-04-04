@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Ranged
 			Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 22f;
-			Item.useAmmo = Mod.Find<ModItem>("Energy_Cell").Type;
+			Item.useAmmo = ModContent.ItemType<Energy_Cell>();
 			Item.crit = 5;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

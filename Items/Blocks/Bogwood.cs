@@ -16,7 +16,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("Bogwood").Type; //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<Bogwood>(); //put your CustomBlock Tile name
             Item.ammo = Item.type;
             Item.notAmmo = true;
         }

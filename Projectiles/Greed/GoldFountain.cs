@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles.Greed
             }
 
             Player player = Main.player[Projectile.owner];
-            if(player.inventory[player.selectedItem].type == Mod.Find<ModItem>("GoldDigger").Type && player.altFunctionUse == 2 && player.controlUseItem)
+            if(player.inventory[player.selectedItem].type == ModContent.ItemType<GoldDigger>() && player.altFunctionUse == 2 && player.controlUseItem)
             {
                 Projectile.Kill();
             }

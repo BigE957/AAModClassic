@@ -92,7 +92,7 @@ OreCannonEX"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("OreChunk").Type, damage + Damage(), knockback, player.whoAmI);
+            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<OreChunk>(), damage + Damage(), knockback, player.whoAmI);
             Main.projectile[p].ai[1] = projType;
             if (Main.projectile[p].ai[1] == ItemID.TinOre || Main.projectile[p].ai[1] == ItemID.CopperOre)
             {
@@ -137,7 +137,7 @@ OreCannonEX"); */
                     num92 *= Main.rand.Next(75, 150) * 0.01f;
                     vector2.X += Main.rand.Next(-50, 51);
                     Vector2 speedfinal = Vector2.Normalize(new Vector2(num92, speedY2)) * (velocity).Length();
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, Mod.Find<ModProjectile>("OreChunk").Type, damage + Damage(), knockback, player.whoAmI, 0f, ItemID.Meteorite);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedfinal.X, speedfinal.Y, ModContent.ProjectileType<OreChunk>(), damage + Damage(), knockback, player.whoAmI, 0f, ItemID.Meteorite);
                 }
             }
             else if (Main.projectile[p].ai[1] == ItemID.CobaltOre)
@@ -160,14 +160,14 @@ OreCannonEX"); */
                 for (int i = 0; i < 2; i++)
                 {
                     Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(20));
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("OreChunk").Type, damage + (int)(Damage() * 0.8), knockback, player.whoAmI, 0, ItemID.TitaniumOre);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<OreChunk>(), damage + (int)(Damage() * 0.8), knockback, player.whoAmI, 0, ItemID.TitaniumOre);
                 }
             }
             else if(Main.projectile[p].ai[1] == ItemID.LunarOre)
             {
                 Main.projectile[p].velocity *= 2;
             }
-            else if(Main.projectile[p].ai[1] == Mod.Find<ModItem>("RadiumOre").Type)
+            else if(Main.projectile[p].ai[1] == ModContent.ItemType<RadiumOre>())
             {
                 Main.projectile[p].damage = (int)(Main.projectile[p].damage / 1.3);
                 Main.projectile[p].velocity /= 2;

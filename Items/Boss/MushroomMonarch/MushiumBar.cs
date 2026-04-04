@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("MushiumBar").Type;
+            Item.createTile = ModContent.TileType<MushiumBar>();
             Item.value = Terraria.Item.sellPrice(0, 0, 9, 0);
         }
 

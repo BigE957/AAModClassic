@@ -37,7 +37,7 @@ Can only be used in a glowing mushroom biome"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("FeudalFungus").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.FeudalFungus"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<FeudalFungus>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.FeudalFungus"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

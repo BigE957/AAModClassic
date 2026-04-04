@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Boss.Shen
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
 			Item.autoReuse = true;
-			Item.shoot = Mod.Find<ModProjectile>("DiscordianInfernoF").Type;
+			Item.shoot = ModContent.ProjectileType<DiscordianInfernoF>();
 			Item.shootSpeed = 11f;
 			Item.useAmmo = AmmoID.Gel;
 		}
@@ -69,7 +69,7 @@ Consumes gel as ammo
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = Mod.Find<ModProjectile>("DiscordianInfernoF").Type;
+            type = ModContent.ProjectileType<DiscordianInfernoF>();
             if (player.altFunctionUse == 2)
             {
                 float num72 = Item.shootSpeed;

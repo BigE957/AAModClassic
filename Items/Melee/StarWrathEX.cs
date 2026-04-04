@@ -54,7 +54,7 @@ namespace AAModClassic.Items.Melee
 				float num83 = vector13.Y;
 				float speedX5 = num82;
 				float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(source, vector2.X, vector2.Y, speedX5, speedY6, Mod.Find<ModProjectile>("StarWrathEXP").Type, damage*3/2, knockback, Main.myPlayer);
+				Projectile.NewProjectile(source, vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<StarWrathEXP>(), damage*3/2, knockback, Main.myPlayer);
 			}
 			return false;
 		}
@@ -63,7 +63,7 @@ namespace AAModClassic.Items.Melee
         {
             Recipe recipe = CreateRecipe();      
             recipe.AddIngredient(ItemID.StarWrath);
-			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(null, "QuantumFusionAccelerator");
             recipe.Register();
         }

@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.rare = ItemRarityID.Green;
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Sounds/BHB");
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("RedBullet").Type; //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<RedBullet>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 18f;
             Item.crit = 45;
             Item.useAmmo = AmmoID.Bullet;
@@ -61,16 +61,16 @@ namespace AAModClassic.Items.Boss.Zero
             for (int i = 0; i < Main.rand.Next(2, 4); i++)
             {
                 Vector2 vector = velocity.RotatedBy(rotationA, default);
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + (vector.X * 4.8f) - 0.2f * vector.Y, position.Y + (vector.Y * 4.8f) + 0.2f * vector.X, vector.X, vector.Y, Mod.Find<ModProjectile>("RedBullet").Type, damage, knockback, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + (vector.X * 4.8f) - 0.2f * vector.Y, position.Y + (vector.Y * 4.8f) + 0.2f * vector.X, vector.X, vector.Y, ModContent.ProjectileType<RedBullet>(), damage, knockback, player.whoAmI, 0f, 0f);
                 rotationA += Main.rand.NextFloat(0.02f, 0.1f);
             }
             if (cooldown == 10)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, Mod.Find<ModProjectile>("Rocket").Type, damage, knockback, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, ModContent.ProjectileType<Rocket>(), damage, knockback, player.whoAmI, 0f, 0f);
                 cooldown = 0;
             }
             if (Main.rand.Next(1, 25) == 1)
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, Mod.Find<ModProjectile>("Black").Type, damage, knockback, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity / 2f, ModContent.ProjectileType<Black>(), damage, knockback, player.whoAmI, 0f, 0f);
 
             return false;
         }

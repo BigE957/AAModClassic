@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Armor.Oroboros
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("OroborosChestplate").Type && legs.type == Mod.Find<ModItem>("OroborosBoots").Type;
+            return body.type == ModContent.ItemType<OroborosChestplate>() && legs.type == ModContent.ItemType<OroborosBoots>();
         }
 
         public override void UpdateArmorSet(Player player)

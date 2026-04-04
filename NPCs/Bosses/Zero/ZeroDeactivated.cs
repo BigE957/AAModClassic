@@ -146,7 +146,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
 				if(!AAWorld.downedZero)			
-					NPC.NewNPC(NPC.GetSource_NaturalSpawn(), ZX, ZY, Mod.Find<ModNPC>("ZeroDeactivated").Type);
+					NPC.NewNPC(NPC.GetSource_NaturalSpawn(), ZX, ZY, ModContent.NPCType<ZeroDeactivated>());
             }
         }
 
@@ -176,7 +176,7 @@ namespace AAModClassic.NPCs.Bosses.Zero
 			
 			Point spawnTilePos = new Point((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, VoidHeight);				
 			Vector2 spawnPos = new Vector2(spawnTilePos.X * 16, spawnTilePos.Y * 16);
-			bool anyZerosExist = NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroDeactivated").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("Zero").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("ZeroProtocol").Type);			
+			bool anyZerosExist = NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()) || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>());			
 			if (!anyZerosExist)
 			{
                 int whoAmI = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<ZeroDeactivated>());

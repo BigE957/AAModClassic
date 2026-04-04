@@ -35,7 +35,7 @@ Allows to breath underwater"); */
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("AtlanteanPlate").Type && legs.type == Mod.Find<ModItem>("AtlanteanGreaves").Type;
+			return body.type == ModContent.ItemType<AtlanteanPlate>() && legs.type == ModContent.ItemType<AtlanteanGreaves>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -43,7 +43,7 @@ Allows to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AtlanteanBonus");
 			if (player.wet)
 			{
-				player.AddBuff(Mod.Find<ModBuff>("AtlanteanBuff").Type, 2);
+				player.AddBuff(ModContent.BuffType<AtlanteanBuff>(), 2);
 			}
         }
 		
@@ -51,15 +51,15 @@ Allows to breath underwater"); */
         {
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("OceanHelm").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("HydraHide").Type, 5);
+            recipe.AddIngredient(ModContent.ItemType<OceanHelm>());
+            recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
             recipe.AddIngredient(null, "RelicBar", 5);
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("OceanHelm").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("BroodScale").Type, 5);
+            recipe.AddIngredient(ModContent.ItemType<OceanHelm>());
+            recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
             recipe.AddIngredient(null, "Doomite", 5);
             recipe.AddTile(TileID.DemonAltar);

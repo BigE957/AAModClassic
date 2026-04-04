@@ -32,7 +32,7 @@ namespace AAModClassic.Items.DevTools
             Item.autoReuse = true;   
             Item.useTurn = true;
             Item.expert = true; Item.expertOnly = true;
-			Item.shoot = Mod.Find<ModProjectile>("Noodle").Type;
+			Item.shoot = ModContent.ProjectileType<Noodle>();
 			Item.shootSpeed = 9f;
             Item.GetGlobalItem<RogueItem>().rogue = true; //Set rogue damage
         }
@@ -41,20 +41,20 @@ namespace AAModClassic.Items.DevTools
 		{
             if (ModSupport.GetMod("CalamityMod") != null)
             {
-                int num = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("Noodle").Type, damage, knockback, player.whoAmI, 0f, 1f);
+                int num = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<Noodle>(), damage, knockback, player.whoAmI, 0f, 1f);
                 Main.projectile[num].GetGlobalProjectile<RogueProj>().rogue = true;
                 if (player.GetModPlayer<RoguePlayer>().StealthStrikeAvailable) //Stealth Strike
                 {
                     float scaleFactor = 15f;
                     int num5 = 25;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(1f, 0f) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(0f, 1f) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(-1f, 0f) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(0f, -1f) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(1f, 1f)) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(1f, -1f)) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(-1f, -1f)) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(-1f, 1f)) * scaleFactor, Mod.Find<ModProjectile>("Noodle").Type, num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(1f, 0f) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(0f, 1f) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(-1f, 0f) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, new Vector2(0f, -1f) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(1f, 1f)) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(1f, -1f)) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(-1f, -1f)) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.position, Vector2.Normalize(new Vector2(-1f, 1f)) * scaleFactor, ModContent.ProjectileType<Noodle>(), num5, 2f, player.whoAmI, 0f, 0f);
                 }
                 return false;
             }

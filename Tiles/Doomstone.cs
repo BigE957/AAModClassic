@@ -12,12 +12,12 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("Apocalyptite").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<Apocalyptite>()] = true;
             Main.tileMergeDirt[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Doomstone").Type);   
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            RegisterItemDrop(ModContent.ItemType<Doomstone>());   
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(21, 21, 31));
 			MinPick = 225;
         }

@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Yamata
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 5f;
-            Item.shoot = Mod.Find<ModProjectile>("AbyssalYariP").Type;  
+            Item.shoot = ModContent.ProjectileType<AbyssalYariP>();  
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

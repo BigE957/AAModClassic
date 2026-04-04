@@ -32,7 +32,7 @@ Right click to shoot a blade wave"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
+            Item.shoot = ModContent.ProjectileType<Surasshu>();
             Item.shootSpeed = 15f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
@@ -68,7 +68,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 15;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.autoReuse = true;
-                Item.shoot = Mod.Find<ModProjectile>("MasamuneSlash").Type;
+                Item.shoot = ModContent.ProjectileType<MasamuneSlash>();
                 Item.shootSpeed = 12f;
             }
             else
@@ -82,7 +82,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 5;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.autoReuse = false;
-                Item.shoot = Mod.Find<ModProjectile>("Surasshu").Type;
+                Item.shoot = ModContent.ProjectileType<Surasshu>();
                 Item.shootSpeed = 15f;
             }
             return base.CanUseItem(player);
@@ -90,7 +90,7 @@ Right click to shoot a blade wave"); */
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
     }
 }

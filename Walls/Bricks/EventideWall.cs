@@ -11,10 +11,10 @@ namespace AAModClassic.Walls.Bricks
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            DustType = Mod.Find<ModDust>("AbyssiumDust").Type;
+            DustType = ModContent.DustType<AbyssiumDust>();
 			AddMapEntry(new Color(33, 37, 96));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("EventideWall").Type);
+            RegisterItemDrop(ModContent.ItemType<EventideWall>());
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

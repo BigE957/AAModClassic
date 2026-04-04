@@ -25,10 +25,10 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Razewood Candle");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Candelabras };
-            RegisterItemDrop(Mod.Find<ModItem>("RazewoodCandle").Type);
+            RegisterItemDrop(ModContent.ItemType<RazewoodCandle>());
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }
         public override void HitWire(int i, int j)
@@ -60,7 +60,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("RazewoodCandle").Type;
+            player.cursorItemIconID = ModContent.ItemType<RazewoodCandle>();
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

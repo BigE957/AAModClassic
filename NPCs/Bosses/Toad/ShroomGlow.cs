@@ -58,12 +58,12 @@ namespace AAModClassic.NPCs.Bosses.Toad
             }
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, Mod.Find<ModNPC>("TruffleToad").Type, 1000, null);
+                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<TruffleToad>(), 1000, null);
                 if (npcID >= 0) body = npcID;
             }
             if (body == -1) return;
             NPC toad = Main.npc[body];
-            if (toad == null || toad.life <= 0 || !toad.active || toad.type != Mod.Find<ModNPC>("TruffleToad").Type) { BaseAI.KillNPCWithLoot(NPC); return; }
+            if (toad == null || toad.life <= 0 || !toad.active || toad.type != ModContent.NPCType<TruffleToad>()) { BaseAI.KillNPCWithLoot(NPC); return; }
 
         }
 

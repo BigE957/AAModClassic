@@ -8,14 +8,17 @@ using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.NPCs.Bosses.SoC.Bosses;
-using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEater;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     [AutoloadBossHead]
-    public class SoC : ModNPC
+    public class SoulOfCthulhu : ModNPC
     {
 
         public override void SetStaticDefaults()
@@ -95,7 +98,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
 
             if (EnemyTimer >= 600)
             {
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("Portal").Type, 0, -NPC.velocity.X, -NPC.velocity.Y);
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<Portal>(), 0, -NPC.velocity.X, -NPC.velocity.Y);
                 EnemyTimer = 0;
             }
 
@@ -238,7 +241,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         NPC.velocity.Y = -2f;
                     }
                 }
-                if (NPC.position.X + (float)(NPC.width / 2) > Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) + 100f)
+                if (NPC.position.X + NPC.width / 2 > Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 + 100f)
                 {
                     if (NPC.velocity.X > 0f)
                     {
@@ -250,7 +253,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         NPC.velocity.X = 8f;
                     }
                 }
-                if (NPC.position.X + (float)(NPC.width / 2) < Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - 100f)
+                if (NPC.position.X + NPC.width / 2 < Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - 100f)
                 {
                     if (NPC.velocity.X < 0f)
                     {
@@ -289,10 +292,10 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                         NPC.ai[1] = 0f;
                     }
                     NPC.rotation += NPC.direction * 0.7f;
-                    Vector2 vector44 = new Vector2(NPC.position.X + ((float)NPC.width * 0.5f), NPC.position.Y + ((float)NPC.height * 0.5f));
-                    float num441 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
-                    float num442 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector44.Y;
-                    float num443 = (float)Math.Sqrt((double)((num441 * num441) + (num442 * num442)));
+                    Vector2 vector44 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    float num441 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector44.X;
+                    float num442 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector44.Y;
+                    float num443 = (float)Math.Sqrt((double)(num441 * num441 + num442 * num442));
                     float num4 = 5f + num443 / 100f;
                     if (num4 < 8.0)
                         num4 = 8f;
@@ -332,7 +335,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             if (Eye == false)
                             {
                                 Eye = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("DeityEye").Type);
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEye>());
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                             }
@@ -364,7 +367,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             if (Eater == false)
                             {
                                 Eater = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("DeityEater").Type);
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityEater>());
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                             }
@@ -398,7 +401,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             if (Skull == false)
                             {
                                 Skull = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("DeitySkull").Type, 0, 0, 1);
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeitySkull>(), 0, 0, 1);
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                             }
@@ -433,7 +436,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             if (Rose == false)
                             {
                                 Rose = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("DeityRose").Type);
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityRose>());
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                             }
@@ -467,7 +470,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                             if (Leviathan == false)
                             {
                                 Leviathan = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, Mod.Find<ModNPC>("DeityLeviathan").Type);
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<DeityLeviathan>());
                                 NPC.ai[2] = 0f;
                                 NPC.ai[1] = 0f;
                             }
@@ -528,7 +531,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             Texture2D RitualTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/DeityRitual");
             Texture2D Rift = Mod.GetTexture("_Unreleased/NPCs/Bosses/SoC/Rift");
             Vector2 vector38 = NPC.position + new Vector2(NPC.width, NPC.height) / 2f + Vector2.UnitY * NPC.gfxOffY - Main.screenPosition;
-            Vector2 origin8 = new Vector2((float)RitualTex.Width, (float)RitualTex.Height) / 2f;
+            Vector2 origin8 = new Vector2(RitualTex.Width, RitualTex.Height) / 2f;
             int num214 = TextureAssets.Npc[NPC.type].Value.Height;
             int y6 = 0;
             Color color25 = Lighting.GetColor((int)(NPC.position.X + NPC.width * 0.5) / 16, (int)((NPC.position.Y + NPC.height * 0.5) / 16.0));

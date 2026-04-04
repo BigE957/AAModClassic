@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
             NPC.knockBackResist = 0f;
             NPC.boss = true;
             Music = MusicLoader.GetMusicSlot("AAModMusic/Sounds/Music/Anubis");
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AnubisBag").Type;
+            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<AnubisBag>();
             NPC.value = Item.sellPrice(0, 1, 0, 0);
         }
 
@@ -126,7 +126,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                 {
                     for (int m = 0; m < LocustCount; m++)
                     {
-                        int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Locust").Type, 0);
+                        int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Locust>(), 0);
                         Main.npc[npcID].Center = NPC.Center;
                         Main.npc[npcID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
                         Main.npc[npcID].velocity *= 8f;
@@ -458,21 +458,21 @@ namespace AAModClassic.NPCs.Bosses.Anubis
 
             if (Main.rand.Next(10) == 0)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("AnubisTrophy").Type);
+                NPC.DropLoot(ModContent.ItemType<AnubisTrophy>());
             }
 
             if (Main.expertMode)
             {
-                NPC.DropLoot(Mod.Find<ModItem>("AnubisBag").Type);
+                NPC.DropLoot(ModContent.ItemType<AnubisBag>());
             }
             else
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("AnubisMask").Type);
+                    NPC.DropLoot(ModContent.ItemType<AnubisMask>());
                 }
-                NPC.DropLoot(Mod.Find<ModItem>("ForsakenFragment").Type, Main.rand.Next(8, 16));
-                NPC.DropLoot(Mod.Find<ModItem>("ArtifactOfJudgment").Type);
+                NPC.DropLoot(ModContent.ItemType<ForsakenFragment>(), Main.rand.Next(8, 16));
+                NPC.DropLoot(ModContent.ItemType<ArtifactOfJudgment>());
                 string[] lootTable = { "Judgment", "NeithsString", "DesertStaff", "JackalsWrath", "Sandthrower", "SentryOfTheEye" };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);

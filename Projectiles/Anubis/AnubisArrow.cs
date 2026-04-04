@@ -37,7 +37,7 @@ namespace AAModClassic.Projectiles.Anubis
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("BrokenArmor").Type, 600);
+            target.AddBuff(ModContent.BuffType<BrokenArmor>(), 600);
         }
     }
 }

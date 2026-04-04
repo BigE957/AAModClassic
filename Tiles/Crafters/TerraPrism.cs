@@ -64,11 +64,11 @@ namespace AAModClassic.Tiles.Crafters
                 TileID.HoneyDispenser,
                 TileID.AlchemyTable,
                 TileID.LunarCraftingStation,
-                Mod.Find<ModTile>("HellstoneAnvil").Type,
-                Mod.Find<ModTile>("HallowedAnvil").Type,
-                Mod.Find<ModTile>("HallowedForge").Type,
-                Mod.Find<ModTile>("QuantumFusionAccelerator").Type,
-                Mod.Find<ModTile>("ACS").Type,
+                ModContent.TileType<HellstoneAnvil>(),
+                ModContent.TileType<HallowedAnvil>(),
+                ModContent.TileType<HallowedForge>(),
+                ModContent.TileType<QuantumFusionAccelerator>(),
+                ModContent.TileType<ACS>(),
             };
             TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;

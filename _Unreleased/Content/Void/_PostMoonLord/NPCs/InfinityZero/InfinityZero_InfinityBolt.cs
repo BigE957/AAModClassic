@@ -1,15 +1,15 @@
 using AAModClassic.Globals;
-using AAModClassic._Unreleased.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using AAModClassic._Unreleased.Content.Void.Dusts;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class InfinityBolt : ModProjectile
+    public class InfinityZero_InfinityBolt : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -60,17 +60,17 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                 {
                     for (int num850 = 0; num850 < 2; num850++)
                     {
-                        float num851 = Projectile.rotation + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
+                        float num851 = Projectile.rotation + (Main.rand.Next(2) == 1 ? -1f : 1f) * 1.57079637f;
                         float num852 = (float)Main.rand.NextDouble() * 0.8f + 1f;
                         Vector2 vector84 = new Vector2((float)Math.Cos((double)num851) * num852, (float)Math.Sin((double)num851) * num852);
-                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<VoidDust_Unreleased>(), vector84.X, vector84.Y, 0, default(Color), 1f);
+                        int num853 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<VoidDust_Unreleased>(), vector84.X, vector84.Y, 0, default, 1f);
                         Main.dust[num853].noGravity = true;
                         Main.dust[num853].scale = 1.2f;
                     }
                     if (Main.rand.Next(5) == 0)
                     {
-                        Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866, default(Vector2)) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width;
-                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default(Color), 1.5f);
+                        Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866, default) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
+                        int num854 = Dust.NewDust(Projectile.Center + value49 - Vector2.One * 4f, 8, 8, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 1.5f);
                         Main.dust[num854].velocity *= 0.5f;
                         Main.dust[num854].velocity.Y = -Math.Abs(Main.dust[num854].velocity.Y);
                         return;
@@ -88,9 +88,9 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                 do
                 {
                     int num857 = unifiedRandom.Next();
-                    Projectile.ai[1] = (float)num857;
+                    Projectile.ai[1] = num857;
                     num857 %= 100;
-                    float f = (float)num857 / 100f * 6.28318548f;
+                    float f = num857 / 100f * 6.28318548f;
                     vector85 = f.ToRotationVector2();
                     if (vector85.Y > 0f)
                     {
@@ -101,11 +101,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     {
                         flag36 = true;
                     }
-                    if (vector85.X * (float)(Projectile.extraUpdates + 1) * 2f * num855 + Projectile.localAI[0] > 40f)
+                    if (vector85.X * (Projectile.extraUpdates + 1) * 2f * num855 + Projectile.localAI[0] > 40f)
                     {
                         flag36 = true;
                     }
-                    if (vector85.X * (float)(Projectile.extraUpdates + 1) * 2f * num855 + Projectile.localAI[0] < -40f)
+                    if (vector85.X * (Projectile.extraUpdates + 1) * 2f * num855 + Projectile.localAI[0] < -40f)
                     {
                         flag36 = true;
                     }
@@ -123,8 +123,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                 IL_230BF:
                 if (Projectile.velocity != Vector2.Zero)
                 {
-                    Projectile.localAI[0] += spinningpoint2.X * (float)(Projectile.extraUpdates + 1) * 2f * num855;
-                    Projectile.velocity = spinningpoint2.RotatedBy((double)(Projectile.ai[0] + 1.57079637f), default(Vector2)) * num855;
+                    Projectile.localAI[0] += spinningpoint2.X * (Projectile.extraUpdates + 1) * 2f * num855;
+                    Projectile.velocity = spinningpoint2.RotatedBy((double)(Projectile.ai[0] + 1.57079637f), default) * num855;
                     Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
                     return;
                 }

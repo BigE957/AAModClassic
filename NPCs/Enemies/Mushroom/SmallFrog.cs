@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("FungusFrogBanner").Type;
+			BannerItem = ModContent.ItemType<FungusFrogBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

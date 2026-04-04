@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Ranged
         {
             float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
-            Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<TerraArrow>(), damage, knockback, player.whoAmI, 0f, 0f);
         
             return false;
         }

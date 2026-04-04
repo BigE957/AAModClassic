@@ -119,7 +119,7 @@ namespace AAModClassic.Projectiles.Akuma
             }
 			if (Projectile.timeLeft == 80)
 			{
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X*0.75f, Projectile.velocity.Y*0.75f, Mod.Find<ModProjectile>("SunSpearProj").Type, Projectile.damage, Projectile.knockBack, Projectile.owner);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X*0.75f, Projectile.velocity.Y*0.75f, ModContent.ProjectileType<SunSpearProj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
         }
 

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 1, 8, 0);
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("SkyCrystal").Type;
+            Item.createTile = ModContent.TileType<SkyCrystal>();
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }

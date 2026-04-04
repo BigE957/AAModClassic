@@ -22,7 +22,7 @@ Magic Acorn EX"); */
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("DapperSquirrel1").Type;
+            Item.shoot = ModContent.ProjectileType<DapperSquirrel1>();
             Item.damage = 200;
             Item.width = 20;
             Item.height = 20;
@@ -34,7 +34,7 @@ Magic Acorn EX"); */
             Item.rare = ItemRarityID.Cyan;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
-			Item.buffType = Mod.Find<ModBuff>("DapperSquirrel").Type;
+			Item.buffType = ModContent.BuffType<DapperSquirrel>();
         }
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)
@@ -52,10 +52,10 @@ Magic Acorn EX"); */
                 switch (shootMe)
                 {
                     case 0:
-                        shootMe = Mod.Find<ModProjectile>("DapperSquirrel1").Type;
+                        shootMe = ModContent.ProjectileType<DapperSquirrel1>();
                         break;
                     case 1:
-                        shootMe = Mod.Find<ModProjectile>("DapperSquirrel2").Type;
+                        shootMe = ModContent.ProjectileType<DapperSquirrel2>();
                         break;
                 }
             }

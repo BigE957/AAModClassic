@@ -46,7 +46,7 @@ namespace AAModClassic.Tiles.Chests
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Greed Chest";
-            RegisterItemDrop(Mod.Find<ModItem>("GreedChest").Type);
+            RegisterItemDrop(ModContent.ItemType<GreedChest>());
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("GreedChest").DisplayName;
@@ -59,7 +59,7 @@ namespace AAModClassic.Tiles.Chests
 
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
-            bool Greed = NPC.AnyNPCs(Mod.Find<ModNPC>("Greed").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedA").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedSpawn").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("GreedTransition").Type);
+            bool Greed = NPC.AnyNPCs(ModContent.NPCType<Greed>()) || NPC.AnyNPCs(ModContent.NPCType<GreedA>()) || NPC.AnyNPCs(ModContent.NPCType<GreedSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<GreedTransition>());
             if (!Greed)
             {
                 if (AAWorld.OpenedChest == 2)
@@ -77,7 +77,7 @@ namespace AAModClassic.Tiles.Chests
                     Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
                     AAWorld.OpenedChest = 2;
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.GreedChest("GreedChest3"), Color.Goldenrod);
-                    AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Greed").Type, false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Greed>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                 }
             }
             dustType = this.DustType;
@@ -247,7 +247,7 @@ namespace AAModClassic.Tiles.Chests
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Greed Chest";
                 if (player.cursorItemIconText == "Greed Chest")
                 {
-                    player.cursorItemIconID = Mod.Find<ModItem>("GreedChest").Type;
+                    player.cursorItemIconID = ModContent.ItemType<GreedChest>();
                     if (Main.tile[left, top].TileFrameX / 36 == 1)
                         player.cursorItemIconID = ModContent.ItemType<Items.Usable.GreedKey>();
                     player.cursorItemIconText = "";

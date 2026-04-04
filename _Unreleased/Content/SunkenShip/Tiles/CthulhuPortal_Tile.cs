@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -7,9 +6,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Unreleased.Tiles
+namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 {
-    public class CthulhuPortal : ModTile
+    public class CthulhuPortal_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +23,7 @@ namespace AAModClassic._Unreleased.Tiles
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             Color color = BaseUtility.ColorMult(AAColor.Cthulhu, 0.7f);
-            r = (color.R / 255f); g = (color.G / 255f); b = (color.B / 255f);
+            r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
@@ -42,8 +41,8 @@ namespace AAModClassic._Unreleased.Tiles
 
         public override bool PreDraw(int x, int y, SpriteBatch sb)
         {
-            Texture2D PortalTex = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Portal");
-            Texture2D PortalTex2 = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Portal2");
+            Texture2D PortalTex = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Tile_Portal");
+            Texture2D PortalTex2 = Mod.GetTexture("_Unreleased/Tiles/CthulhuPortal_Tile_Portal2");
             Rotation1 -= .0008f;
             Rotation2 += .0008f;
             Tile tile = Main.tile[x, y];

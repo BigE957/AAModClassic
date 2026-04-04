@@ -41,7 +41,7 @@ namespace AAModClassic.Tiles.Torches
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(150, 40, 10), name);
 			DustType = ModContent.DustType<Dusts.DragonflameDust>();
-			RegisterItemDrop(Mod.Find<ModItem>("DragonfireTorch").Type);
+			RegisterItemDrop(ModContent.ItemType<DragonfireTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
 			TileID.Sets.Torch[Type] = true;

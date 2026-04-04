@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Armor.Olympian
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("OlympianPlate").Type && legs.type == Mod.Find<ModItem>("OlympianBoots").Type;
+			return body.type == ModContent.ItemType<OlympianPlate>() && legs.type == ModContent.ItemType<OlympianBoots>();
         }
 
         public override void UpdateArmorSet(Player player)

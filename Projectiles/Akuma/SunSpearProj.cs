@@ -115,7 +115,7 @@ namespace AAModClassic.Projectiles.Akuma
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 8f;
-				int i = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("FireTentacle").Type, Projectile.damage/3, 0, Main.myPlayer);
+				int i = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<FireTentacle>(), Projectile.damage/3, 0, Main.myPlayer);
 				Main.projectile[i].usesLocalNPCImmunity = true;
 				Main.projectile[i].localNPCHitCooldown = 6;
 				Main.projectile[i].penetrate = -1;

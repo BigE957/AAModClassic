@@ -31,7 +31,7 @@ namespace AAModClassic.Projectiles
             Lighting.AddLight(Projectile.Center, 0.1f, 0.1f, 1f);
                 if (Main.rand.Next(2) == 0)
                 {
-                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, Mod.Find<ModDust>("AbyssDust").Type, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, ModContent.DustType<AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
                 }
                 float magnitude = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
             if (magnitude > 0.5f)
@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles
             {
                 for (int k = 0; k < Main.rand.Next(3) + 5; k++)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, Mod.Find<ModProjectile>("Drop").Type, Projectile.damage, 2f, Projectile.owner,0f,0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, ModContent.ProjectileType<Drop>(), Projectile.damage, 2f, Projectile.owner,0f,0f);
                 }
             }
         }

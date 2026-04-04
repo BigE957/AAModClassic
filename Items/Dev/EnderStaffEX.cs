@@ -34,8 +34,8 @@ Conflagrate Staff EX"); */
 			Item.noMelee = true;
 			Item.knockBack = 3;
 			Item.value = Item.sellPrice(0, 20, 0, 0);
-            Item.shoot = Mod.Find<ModProjectile>("EnderMinionEX").Type;
-            Item.buffType = Mod.Find<ModBuff>("EnderMinionBuffEX").Type;
+            Item.shoot = ModContent.ProjectileType<EnderMinionEX>();
+            Item.buffType = ModContent.BuffType<EnderMinionBuffEX>();
             Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;

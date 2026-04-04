@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Athena
             Item.autoReuse = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = Mod.Find<ModProjectile>("Tornado").Type;
+            Item.shoot = ModContent.ProjectileType<Tornado>();
             Item.shootSpeed = 9f;    
         }   
 

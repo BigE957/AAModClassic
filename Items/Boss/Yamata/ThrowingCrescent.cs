@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Yamata
 			Item.knockBack = 1;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.shootSpeed = 15f;
-			Item.shoot = Mod.Find<ModProjectile>("TC").Type;
+			Item.shoot = ModContent.ProjectileType<TC>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

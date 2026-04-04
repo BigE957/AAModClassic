@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Razewood Piano");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
             AdjTiles = new int[] { TileID.Pianos };
         }
 

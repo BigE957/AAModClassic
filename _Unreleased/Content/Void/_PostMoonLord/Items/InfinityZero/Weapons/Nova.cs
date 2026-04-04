@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
     public class Nova : ModItem
     {
@@ -29,7 +29,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
             Item.height = 54;
             Item.damage = 390;
             Item.UseSound = SoundID.Item20;
-            Item.shoot = Mod.Find<ModProjectile>("NovaBurst").Type;
+            Item.shoot = ModContent.ProjectileType<NovaBurst>();
             Item.mana = 20;
             Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.noMelee = true;

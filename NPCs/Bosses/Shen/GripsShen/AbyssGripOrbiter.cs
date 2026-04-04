@@ -68,7 +68,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 {
                     Main.projectile[i].Kill();
                 }
-                if(Main.projectile[i].type == Mod.Find<ModProjectile>("AbyssalBomb").Type && proj == 0)
+                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssalBomb>() && proj == 0)
                 {
                     Center = Main.projectile[i].Center;
                     proj = Main.projectile[i].whoAmI;
@@ -100,7 +100,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                     Projectile.Center = BaseUtility.RotateVector(Center, Center + new Vector2(140f, 0f), rotValue);
                 }
             }
-            else if(centerNPC.active && centerNPC.life > 0 && centerNPC.type == Mod.Find<ModNPC>("AbyssGrip").Type && !shooting)
+            else if(centerNPC.active && centerNPC.life > 0 && centerNPC.type == ModContent.NPCType<AbyssGrip>() && !shooting)
             {
                 for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
                 {
@@ -109,7 +109,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 Projectile.oldPos[0] = Projectile.position;
                 Projectile.Center = BaseUtility.RotateVector(Center, Center + new Vector2(140f, 0f), rotValue);
             }
-            else if((!centerNPC.active || centerNPC.life <= 0 || centerNPC.type != Mod.Find<ModNPC>("AbyssGrip").Type) && !shooting)
+            else if((!centerNPC.active || centerNPC.life <= 0 || centerNPC.type != ModContent.NPCType<AbyssGrip>()) && !shooting)
             {
                 Projectile.velocity = 18f * Vector2.Normalize(centerNPC.DirectionTo(Projectile.Center));
                 shooting = true;

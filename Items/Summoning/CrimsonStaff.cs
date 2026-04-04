@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("CrimeraMinion").Type;
+            Item.shoot = ModContent.ProjectileType<CrimeraMinion>();
             Item.damage = 20;
             Item.width = 46;
             Item.height = 46;
@@ -66,7 +66,7 @@ namespace AAModClassic.Items.Summoning
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("CrimeraMinion").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<CrimeraMinion>(), num73, num74, i, 0f, 0f);
             return false;
         }
 

@@ -3,9 +3,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class InfinityCore : Infinity
+    public class InfinityCore : InfinityZero
     {
 		
         public override void SetStaticDefaults()
@@ -27,7 +27,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
         public int XvarOld = 0;
         public NPC Body;
-        public Infinity iz = null;
+        public InfinityZero iz = null;
         public bool HoriSwitch = false;
         public int f = 1;
         public float TargetDirection = (float)Math.PI / 2;
@@ -45,9 +45,9 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             if (iz == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<Infinity>())
+                if (npcBody.type == ModContent.NPCType<InfinityZero>())
                 {
-                    iz = (Infinity)npcBody.ModNPC;
+                    iz = (InfinityZero)npcBody.ModNPC;
                 }
             }
 

@@ -51,8 +51,8 @@ Non-Consumable"); */
                 {
                     ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.EquinoxWormawoken")), new Color(175, 75, 255), -1);
                 }
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("DaybringerHead").Type, false, 0, 0);
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("NightcrawlerHead").Type, false, 0, 0);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<DaybringerHead>(), false, 0, 0);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<NightcrawlerHead>(), false, 0, 0);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

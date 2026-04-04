@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = false;
             Item.useTurn = false;
-            Item.shoot = Mod.Find<ModProjectile>("Yogan").Type;
+            Item.shoot = ModContent.ProjectileType<Yogan>();
 			Item.UseSound = SoundID.Item18;
         }
 
@@ -33,15 +33,15 @@ namespace AAModClassic.Items.Melee
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Pyrosphere").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("GlacierBreaker").Type);
+            recipe.AddIngredient(ModContent.ItemType<Pyrosphere>());
+            recipe.AddIngredient(ModContent.ItemType<GlacierBreaker>());
             recipe.AddIngredient(ItemID.BlueMoon);
 			recipe.AddIngredient(ItemID.Sunfury);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
 			recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Pyrosphere").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("GlacierBreaker").Type);
+            recipe.AddIngredient(ModContent.ItemType<Pyrosphere>());
+            recipe.AddIngredient(ModContent.ItemType<GlacierBreaker>());
             recipe.AddIngredient(ItemID.BlueMoon);
 			recipe.AddIngredient(ItemID.Sunfury);
             recipe.AddTile(TileID.Anvils);

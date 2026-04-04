@@ -10,7 +10,7 @@ namespace AAModClassic.Walls
 		public override void SetStaticDefaults()
 		{
             Main.wallHouse[Type] = true;
-			//RegisterItemDrop(Mod.Find<ModItem>("Mushroom Wall").Type);
+			//RegisterItemDrop(ModContent.ItemType<Mushroom Wall>());
 			AddMapEntry(new Color(60, 14, 14));
             Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }

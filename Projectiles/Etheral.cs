@@ -99,7 +99,7 @@ namespace AAModClassic.Projectiles
                             vector12 = -Vector2.UnitY;
 
                         int num29 = Projectile.damage;
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("EtheralBeam").Type,
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), center3.X, center3.Y, vector12.X, vector12.Y, ModContent.ProjectileType<EtheralBeam>(),
                                num29, Projectile.knockBack, Projectile.owner, 0, Projectile.whoAmI);
                         Projectile.netUpdate = true;
                     }

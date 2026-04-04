@@ -166,7 +166,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 {
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("MireBubbleDust").Type, 0f, 0f, 90, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<MireBubbleDust>(), 0f, 0f, 90, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].velocity.Y -= 1f;
                     }
@@ -188,7 +188,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     attackCounter = 0;
                 }
             }
-            AAAI.DustOnNPCSpawn(NPC, Mod.Find<ModDust>("AkumaDust").Type, 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -219,7 +219,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     int[] Frame = { 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 3, 4 };
                     for (int i = 0; i < Frame.Length; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AkumaBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         Main.npc[latestNPC].netUpdate = true;
@@ -498,16 +498,16 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 string[] lootTable = { "AkumaTerratool", "DayStorm", "LungStaff", "MorningGlory", "RadiantDawn", "Solar", "SunSpear", "ReignOfFire", "DaybreakArrow", "Daycrusher", "Dawnstrike", "SunStorm", "SunStaff", "DragonSlasher" };
                 AAWorld.downedAkuma = true;
 
-                NPC.DropLoot(Mod.Find<ModItem>("AkumaTrophy").Type, 1 / 10f);
+                NPC.DropLoot(ModContent.ItemType<AkumaTrophy>(), 1 / 10f);
 
                 if (Main.expertMode)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("AkumaBag").Type);
+                    NPC.DropLoot(ModContent.ItemType<AkumaBag>());
                 }
                 else
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("CrucibleScale").Type, 20, 30);
-                    NPC.DropLoot(Mod.Find<ModItem>("AkumaMask").Type, 1 / 10f);
+                    NPC.DropLoot(ModContent.ItemType<CrucibleScale>(), 20, 30);
+                    NPC.DropLoot(ModContent.ItemType<AkumaMask>(), 1 / 10f);
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
@@ -516,7 +516,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             }
             if (Main.expertMode)
             {
-                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("AkumaTransition").Type, 0, 0, 0, 0, 0, NPC.target);
+                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AkumaTransition>(), 0, 0, 0, 0, 0, NPC.target);
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate2 = true; Main.npc[npcID].netUpdate = true;
             }
@@ -631,7 +631,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -645,7 +645,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Akuma").Type)
+                if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Akuma>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);

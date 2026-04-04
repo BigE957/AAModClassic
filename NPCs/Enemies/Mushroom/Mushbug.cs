@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
             NPC.buffImmune[31] = false;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MushbugBanner").Type;
+			BannerItem = ModContent.ItemType<MushbugBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

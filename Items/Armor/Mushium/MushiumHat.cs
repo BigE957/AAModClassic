@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.Mushium
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("MushiumShirt").Type && legs.type == Mod.Find<ModItem>("MushiumPants").Type;
+			return body.type == ModContent.ItemType<MushiumShirt>() && legs.type == ModContent.ItemType<MushiumPants>();
 		}
 
 		public override void UpdateArmorSet(Player player)

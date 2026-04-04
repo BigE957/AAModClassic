@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("EventideBrick").Type;
+            Item.createTile = ModContent.TileType<EventideBrick>();
         }
 
         public override void SetStaticDefaults()

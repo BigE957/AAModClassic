@@ -62,7 +62,7 @@ namespace AAModClassic.Projectiles
 					Projectile.timeLeft -= 20;
 				}
 				Projectile.ai[1] = 0f;
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 8f, Mod.Find<ModProjectile>("HydratoxinDrop").Type, Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 8f, ModContent.ProjectileType<HydratoxinDrop>(), Projectile.damage/2, Projectile.knockBack * 0.5f, Projectile.owner, 0f, 0f);
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace AAModClassic.Projectiles
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Mod.Find<ModDust>("HydraToxin").Type, 180);
+			target.AddBuff(ModContent.DustType<HydraToxin>(), 180);
 		}
 	}
 }

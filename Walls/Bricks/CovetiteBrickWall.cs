@@ -13,7 +13,7 @@ namespace AAModClassic.Walls.Bricks
             DustType = DustID.Gold;
             AddMapEntry(new Color(60, 60, 0));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("CovetiteBrickWall").Type);
+            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
             Main.wallHouse[Type] = true;
         }
 

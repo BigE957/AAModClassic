@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Djinn
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = Mod.Find<ModProjectile>("DustDevil").Type;
+            Item.shoot = ModContent.ProjectileType<DustDevil>();
             Item.damage = 25;
             Item.width = 52;
             Item.height = 52;
@@ -65,7 +65,7 @@ namespace AAModClassic.Items.Boss.Djinn
             num79 = 0f;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num78, num79, Mod.Find<ModProjectile>("DustDevil").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<DustDevil>(), num73, num74, i, 0f, 0f);
             return false;
         }
     }

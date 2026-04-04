@@ -153,7 +153,7 @@ namespace AAModClassic.Projectiles
                 Gore expr_140D_cp_0 = Main.gore[num38];
                 expr_140D_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y - 51, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("BlazeBlast").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y - 51, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<BlazeBlast>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

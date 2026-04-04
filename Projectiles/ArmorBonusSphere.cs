@@ -127,15 +127,15 @@ namespace AAModClassic.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.timeLeft = 600;
             Projectile.extraUpdates = 1;
-            useDust = Mod.Find<ModDust>("DarkmatterDust").Type;
+            useDust = ModContent.DustType<DarkmatterDust>();
 
         }
         public override void InflictBuffs(NPC target)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DarkCurse").Type, 600);
+            target.AddBuff(ModContent.BuffType<DarkCurse>(), 600);
             if(!target.boss)
             {
-                target.AddBuff(Mod.Find<ModBuff>("DarkLock").Type, 120);
+                target.AddBuff(ModContent.BuffType<DarkLock>(), 120);
             }
         }
     }
@@ -154,12 +154,12 @@ namespace AAModClassic.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.timeLeft = 600;
             Projectile.extraUpdates = 1;
-            useDust = Mod.Find<ModDust>("RadiumDust").Type;
+            useDust = ModContent.DustType<RadiumDust>();
 
         }
         public override void InflictBuffs(NPC target)
         {
-            target.AddBuff(Mod.Find<ModBuff>("RadiumInferno").Type, 600);
+            target.AddBuff(ModContent.BuffType<RadiumInferno>(), 600);
         }
     }
 }

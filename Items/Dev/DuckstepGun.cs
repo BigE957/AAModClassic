@@ -36,7 +36,7 @@ namespace AAModClassic.Items.Dev
             Item.autoReuse = true;
 			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
 			Item.shootSpeed = 12f;
-            Item.shoot = Mod.Find<ModProjectile>("Duck").Type;
+            Item.shoot = ModContent.ProjectileType<Duck>();
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
             glowmaskDrawType = GLOWMASKTYPE_GUN; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	

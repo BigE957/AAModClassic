@@ -33,7 +33,7 @@ namespace AAModClassic.Globals
 
             if (item.type == ItemID.LunarOre)
             {
-                item.createTile = Mod.Find<ModTile>("LuminiteOre").Type;
+                item.createTile = ModContent.TileType<LuminiteOre>();
             }
 
             if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)
@@ -155,7 +155,7 @@ namespace AAModClassic.Globals
 
         public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
-            if (item.type == ItemID.AnkhShield || item.type == ItemID.ObsidianShield || item.type == ModContent.ItemType<TaiyangBaolei>() || item.type == Mod.Find<ModItem>("Duality").Type)
+            if (item.type == ItemID.AnkhShield || item.type == ItemID.ObsidianShield || item.type == ModContent.ItemType<TaiyangBaolei>() || item.type == ModContent.ItemType<Duality>())
             {
                 if (slot < 10)
                 {
@@ -178,7 +178,7 @@ namespace AAModClassic.Globals
                             return false;
                         }
 
-                        if (slot != i && player.armor[i].type == Mod.Find<ModItem>("Duality").Type)
+                        if (slot != i && player.armor[i].type == ModContent.ItemType<Duality>())
                         {
                             return false;
                         }
@@ -386,23 +386,23 @@ namespace AAModClassic.Globals
                         switch (item)
                         {
                             case 0:
-                                item = mod.Find<ModItem>("Pyrosphere").Type;
+                                item = ModContent.ItemType<Pyrosphere>();
                                 break;
                             case 1:
-                                item = mod.Find<ModItem>("Firebuster").Type;
+                                item = ModContent.ItemType<Firebuster>();
                                 break;
                             case 2:
-                                item = mod.Find<ModItem>("Volley").Type;
+                                item = ModContent.ItemType<Volley>();
                                 break;
                             case 3:
-                                item = mod.Find<ModItem>("DragonsSoul").Type;
+                                item = ModContent.ItemType<DragonsSoul>();
                                 break;
                             default:
-                                item = mod.Find<ModItem>("DragonsGuard").Type;
+                                item = ModContent.ItemType<DragonsGuard>();
                                 break;
                         }
                         player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item);
-                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), mod.Find<ModItem>("IncineriteBar").Type, Main.rand.Next(1, 12));
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<IncineriteBar>(), Main.rand.Next(1, 12));
 
                     }
                     if (CrateType == 1)
@@ -412,24 +412,24 @@ namespace AAModClassic.Globals
                         switch (item)
                         {
                             case 0:
-                                item = mod.Find<ModItem>("HydrasSpear").Type;
+                                item = ModContent.ItemType<HydrasSpear>();
                                 break;
                             case 1:
-                                item = mod.Find<ModItem>("Mossket").Type;
+                                item = ModContent.ItemType<Mossket>();
                                 break;
                             case 2:
-                                item = mod.Find<ModItem>("GlowmossBall").Type;
+                                item = ModContent.ItemType<GlowmossBall>();
                                 break;
                             case 3:
-                                item = mod.Find<ModItem>("ShadowBand").Type;
+                                item = ModContent.ItemType<ShadowBand>();
                                 break;
                             default:
-                                item = mod.Find<ModItem>("GunkWand").Type;
+                                item = ModContent.ItemType<GunkWand>();
                                 break;
                         }
 
                         player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item);
-                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), mod.Find<ModItem>("AbyssiumBar").Type, Main.rand.Next(1, 12));
+                        player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<AbyssiumBar>(), Main.rand.Next(1, 12));
 
                     }
                 }
@@ -532,11 +532,11 @@ namespace AAModClassic.Globals
                     }
                 }
             }
-            else if(extractType == Mod.Find<ModItem>("Depthsand").Type)
+            else if(extractType == ModContent.ItemType<Depthsand>())
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = Mod.Find<ModItem>("Abyssium").Type;
+                    result = ModContent.ItemType<Abyssium>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -551,11 +551,11 @@ namespace AAModClassic.Globals
                     }
                 }
             }
-            else if(extractType == Mod.Find<ModItem>("Torchsand").Type)
+            else if(extractType == ModContent.ItemType<Torchsand>())
             {
                 if(Main.rand.Next(10) == 0)
                 {
-                    result = Mod.Find<ModItem>("Incinerite").Type;
+                    result = ModContent.ItemType<Incinerite>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -965,7 +965,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.Next(50) == 0)
                 {
-                    result = Mod.Find<ModItem>("VikingRelic").Type;
+                    result = ModContent.ItemType<VikingRelic>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -984,7 +984,7 @@ namespace AAModClassic.Globals
             {
                 if(Main.rand.Next(50) == 0)
                 {
-                    result = Mod.Find<ModItem>("DynaskullOre").Type;
+                    result = ModContent.ItemType<DynaskullOre>();
                     if (Main.rand.Next(5) == 0)
                     {
                         stack += Main.rand.Next(2);
@@ -1035,7 +1035,7 @@ namespace AAModClassic.Globals
                     {
                         if(Main.rand.Next(2) == 0)
                         {
-                            result = Mod.Find<ModItem>("DynaskullOre").Type;
+                            result = ModContent.ItemType<DynaskullOre>();
                             stack += 1;
                             if (Main.rand.Next(5) == 0)
                             {
@@ -1052,7 +1052,7 @@ namespace AAModClassic.Globals
                         }
                         else
                         {
-                            result = Mod.Find<ModItem>("VikingRelic").Type;
+                            result = ModContent.ItemType<VikingRelic>();
                             stack += 1;
                             if (Main.rand.Next(5) == 0)
                             {
@@ -1157,7 +1157,7 @@ namespace AAModClassic.Globals
         }
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == Mod.Find<ModItem>("InvokerStaff").Type && player.altFunctionUse == 2))
+            if (player.GetModPlayer<InvokerPlayer>().InvokedCaligula && item.damage > 0 && !(player.GetModPlayer<InvokerPlayer>().DarkCaligula && player.inventory[player.selectedItem].type == ModContent.ItemType<InvokerStaff>() && player.altFunctionUse == 2))
             {
                 return false;
             }

@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Buffs;
+using AAModClassic._Unreleased.Content.Void.Buffs;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class IZSpawn1 : ModNPC
+    public class InfinityZeroSpawn1 : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -62,7 +62,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
             {
                 Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/IZ");
                 NPC.alpha = 0;
-                int endFrame = (spawnState == 0 ? 7 : spawnState == 1 ? 4 : spawnState == 2 ? 4 : spawnState == 3 ? 4 : spawnState == 4 ? 3 : 6);
+                int endFrame = spawnState == 0 ? 7 : spawnState == 1 ? 4 : spawnState == 2 ? 4 : spawnState == 3 ? 4 : spawnState == 4 ? 3 : 6;
                 if (Frame >= endFrame)
                 {
                     Frame = endFrame;
@@ -71,7 +71,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
                     {
                         Frame = 0;
                         FrameCounter = 0;
-                        HoldTimer = NPC.ai[0] == 2f ? (spawnState >= 3 ? 30 : 40) : (spawnState >= 3 ? 50 : 60);
+                        HoldTimer = NPC.ai[0] == 2f ? spawnState >= 3 ? 30 : 40 : spawnState >= 3 ? 50 : 60;
                         spawnState++;
                         if (spawnState >= 5 && Main.netMode != 1)
                         {
@@ -101,7 +101,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 			//roar is now handled when infinity spawns so his mouth opens
              if(Main.netMode != 1)
 			{
-				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Infinity").Type);
+				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Infinity>());
                 for (int i = 0; i < Main.player.Length; i++)
                 {
                     Player player2 = Main.player[i];
@@ -127,13 +127,13 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.Infinity
 
             NPC.frame = BaseDrawing.GetFrame(Frame, 171, 210, 0, 0);
 			Rectangle darkFrame = BaseDrawing.GetFrame(0, 171, 210, 0, 0);
-			Texture2D drawTexture = (spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6);
+			Texture2D drawTexture = spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6;
 			Texture2D infinityTex = Mod.GetTexture("_Unreleased/NPCs/Bosses/Infinity/IZShadow");		
 			NPC.position.Y += 72;
             if (StartTimer <= 0)
             {
                 BaseDrawing.DrawTexture(spriteBatch, infinityTex, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, 3f, NPC.rotation, NPC.spriteDirection, 7, darkFrame, Color.Black);
-                BaseDrawing.DrawTexture(spriteBatch, drawTexture, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, 3f, NPC.rotation, NPC.spriteDirection, 7, NPC.frame, Infinity.GetGlowAlpha(true));
+                BaseDrawing.DrawTexture(spriteBatch, drawTexture, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, 3f, NPC.rotation, NPC.spriteDirection, 7, NPC.frame, InfinityZero.GetGlowAlpha(true));
             }
             NPC.position.Y -= 72;
 			return false;

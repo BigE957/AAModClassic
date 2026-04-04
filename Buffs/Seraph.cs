@@ -19,7 +19,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Seraph").Type] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), true, false))
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Seraph>()] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), true, false))
 			{
 				modPlayer.Seraph = true;
 			}

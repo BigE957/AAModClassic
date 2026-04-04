@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][Mod.Find<ModTile>("AbyssiumOre").Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssiumOre>()] = true;
             Main.tileMergeDirt[Type] = true;
             TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileBlendAll[Type] = false;
@@ -20,8 +20,8 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Dig;
             MinPick = 65;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("Depthstone").Type);   
+            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            RegisterItemDrop(ModContent.ItemType<Depthstone>());   
             AddMapEntry(new Color(27, 19, 50));
         }
     }

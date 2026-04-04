@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RadiantIncinerite").Type;
+            Item.createTile = ModContent.TileType<RadiantIncinerite>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 

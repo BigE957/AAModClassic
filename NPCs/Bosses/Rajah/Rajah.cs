@@ -486,7 +486,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 else if (NPC.ai[3] == 2) //Royal Scepter
                 {
                     int carrots = isSupreme ? 5 : 3;
-                    int carrotType = isSupreme ? Mod.Find<ModProjectile>("CarrotEXR").Type : Mod.Find<ModProjectile>("CarrotHostile").Type;
+                    int carrotType = isSupreme ? ModContent.ProjectileType<CarrotEXR>() : ModContent.ProjectileType<CarrotHostile>();
                     float spread = 45f * 0.0174f * .5f;
                     Vector2 dir = Vector2.Normalize(player.Center - WeaponPos);
                     dir *= ProjSpeed() + (isSupreme? 3 : 1);
@@ -548,7 +548,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                         for (int i = 0; i < Arrows; i++)
                         {
                             double offsetAngle = startAngle + (deltaAngle * i);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("CarrowR").Type, damage, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<CarrowR>(), damage, 5, Main.myPlayer);
                         }
                         NPC.netUpdate = true;
                     }
@@ -1045,7 +1045,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RajahTrophy>());
             }
             if (isSupreme)
             {
@@ -1074,7 +1074,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 }
                 if (Main.expertMode)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("RajahCache").Type);
+                    NPC.DropLoot(ModContent.ItemType<RajahCache>());
                 }
                 else
                 {
@@ -1096,7 +1096,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 {
                     if (Main.rand.Next(7) == 0)
                     {
-                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("RajahMask").Type);
+                        Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RajahMask>());
                     }
                     NPC.DropLoot(ModContent.ItemType<RajahPelt>(), Main.rand.Next(10, 26));
                     string[] lootTableA = { "BaneOfTheBunny", "Bunnyzooka", "RoyalScepter", "Punisher", "RabbitcopterEars" };
@@ -1105,7 +1105,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
                 }
                 else
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("RajahBag").Type);
+                    NPC.DropLoot(ModContent.ItemType<RajahBag>());
                 }
             }
             AAWorld.downedRajah = true;

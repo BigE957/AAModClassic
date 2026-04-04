@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = Mod.Find<ModWall>("DoomstoneBrickWall").Type;
+            Item.createWall = ModContent.WallType<DoomstoneBrickWall>();
         }
         
         public override void SetStaticDefaults()

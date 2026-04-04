@@ -32,7 +32,7 @@ Right click and hold to release and aim manually"); */
             Item.useTime = 30;
             Item.width = 40;
             Item.height = 40;
-            Item.shoot = Mod.Find<ModProjectile>("SunstormFireball").Type;
+            Item.shoot = ModContent.ProjectileType<SunstormFireball>();
             Item.shootSpeed = 20f;
             Item.knockBack = 4.5f;
             Item.value = Item.sellPrice(0, 30, 0, 0);

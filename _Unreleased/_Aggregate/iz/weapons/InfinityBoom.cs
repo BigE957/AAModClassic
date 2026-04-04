@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.Infinity
+namespace AAModClassic._Unreleased._Aggregate.iz.weapons
 {
     public class InfinityBoom : ModProjectile
     {
@@ -51,7 +51,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("InfinityScorch").Type, 600);
+            target.AddBuff(ModContent.BuffType<InfinityScorch>(), 600);
         }
 
         public override void OnKill(int timeLeft)

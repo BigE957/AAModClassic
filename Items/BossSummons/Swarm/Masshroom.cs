@@ -39,7 +39,7 @@ namespace AAModClassic.Items.BossSummons.Swarm
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("It's time for a Mush Pit", new Color(216, 110, 40), false);
             for (int i = 0; i < 10; i++)
             {
-                 NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), Mod.Find<ModNPC>("MushroomMonarch").Type);
+                 NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<MushroomMonarch>());
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);

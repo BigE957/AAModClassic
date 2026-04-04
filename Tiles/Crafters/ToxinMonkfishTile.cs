@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Crafters
             AdjTiles = new int[]
             {
                 TileID.AlchemyTable,
-                Mod.Find<ModTile>("ToxinMonkfishTile").Type
+                ModContent.TileType<ToxinMonkfishTile>()
             };
             AnimationFrameHeight = 54;
         }
@@ -63,7 +63,7 @@ namespace AAModClassic.Tiles.Crafters
         public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(Mod.Find<ModBuff>("HydratoxinFlaskBuff").Type, 36000, true);
+            player.AddBuff(ModContent.BuffType<HydratoxinFlaskBuff>(), 36000, true);
 			SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }
@@ -73,7 +73,7 @@ namespace AAModClassic.Tiles.Crafters
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("ToxinMonkfish").Type;
+			player.cursorItemIconID = ModContent.ItemType<ToxinMonkfish>();
 		}
     }
 }

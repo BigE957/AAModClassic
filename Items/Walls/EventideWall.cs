@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = Mod.Find<ModWall>("EventideWall").Type;
+            Item.createWall = ModContent.WallType<EventideWall>();
         }
         
         public override void SetStaticDefaults()

@@ -217,7 +217,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public void SummonShen()
         {
-            AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], Mod.Find<ModNPC>("Shen").Type, false, NPC.Center, "");
+            AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<Shen>(), false, NPC.Center, "");
         }
 
         public static Color GetColorAlpha()
@@ -553,11 +553,11 @@ namespace AAModClassic.NPCs.Bosses.Shen
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ShenTransition7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("ShenTransition8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
-            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
             Main.projectile[b].Center = NPC.Center;
 
 
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("ShenA").Type, false, NPC.Center, "Shen Awakened", false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenA>(), false, NPC.Center, "Shen Awakened", false);
         }
 
         public static Color GetColorAlpha()

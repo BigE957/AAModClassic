@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = Mod.Find<ModTile>("SagTrophy").Type;
+			Item.createTile = ModContent.TileType<SagTrophy>();
 		}
 	}
 }

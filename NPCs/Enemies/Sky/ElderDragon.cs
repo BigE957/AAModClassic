@@ -30,7 +30,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ElderDragonBanner").Type;
+			BannerItem = ModContent.ItemType<ElderDragonBanner>();
         }
 
         public override void AI()
@@ -71,7 +71,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
         }
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DragonSpirit").Type);
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DragonSpirit>());
         }
     }
 }

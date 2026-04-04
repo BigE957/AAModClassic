@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Armor.Assassin
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("AssassinHurt").Type, 1000);
+            target.AddBuff(ModContent.BuffType<AssassinHurt>(), 1000);
         }
 
         public override void OnKill(int timeLeft)

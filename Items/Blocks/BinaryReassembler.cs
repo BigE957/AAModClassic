@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
-            Item.createTile = Mod.Find<ModTile>("BinaryReassembler").Type;
+            Item.createTile = ModContent.TileType<BinaryReassembler>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

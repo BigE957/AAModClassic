@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles
 
             if (Projectile.ai[0] % 5 == 0)
             {
-                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AxisSnow").Type, Projectile.damage, Projectile.knockBack * 0.55f, Projectile.owner, 0f, Main.rand.Next(3));
+                int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, ModContent.ProjectileType<AxisSnow>(), Projectile.damage, Projectile.knockBack * 0.55f, Projectile.owner, 0f, Main.rand.Next(3));
                 Main.projectile[p].DamageType = DamageClass.Ranged;
                 Projectile.netUpdate = true;
             }

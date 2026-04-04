@@ -397,7 +397,7 @@ namespace AAModClassic.NPCs.Bosses.Broodmother
                         Vector2 dir = new Vector2(NPC.velocity.X * 2f + (4f * NPC.direction), NPC.velocity.Y * 0.5f + 1f);
                         Vector2 firePos = new Vector2(NPC.Center.X + (64 * NPC.direction), NPC.Center.Y + 10f);
                         firePos = BaseUtility.RotateVector(NPC.Center, firePos, NPC.rotation); //+ (npc.direction == -1 ? (float)Math.PI : 0f)));
-                        int projID = Projectile.NewProjectile(NPC.GetSource_FromThis(), firePos, dir, Mod.Find<ModProjectile>("BroodBall").Type, damage, 1, 255);
+                        int projID = Projectile.NewProjectile(NPC.GetSource_FromThis(), firePos, dir, ModContent.ProjectileType<BroodBall>(), damage, 1, 255);
                         Main.projectile[projID].netUpdate = true;
                     }
                 }

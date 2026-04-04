@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileSand[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("Depthsand").Type);
+            RegisterItemDrop(ModContent.ItemType<Depthsand>());
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
@@ -42,7 +42,7 @@ namespace AAModClassic.Tiles
                             int projectileType = 0;
                             if (tileType == Type)
                             {
-                                projectileType = Mod.Find<ModProjectile>("DepthsandBall").Type;
+                                projectileType = ModContent.ProjectileType<DepthsandBall>();
                                 damage = 0;
                             }
                             tile.ClearTile();
@@ -61,7 +61,7 @@ namespace AAModClassic.Tiles
                         int projectileType = 0;
                         if (tileType == Type)
                         {
-                            projectileType = Mod.Find<ModProjectile>("DepthsandBall").Type;
+                            projectileType = ModContent.ProjectileType<DepthsandBall>();
                             damage2 = 0;
                         }
 

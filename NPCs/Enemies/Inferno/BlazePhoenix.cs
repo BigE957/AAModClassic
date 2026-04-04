@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.damage = 70;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("BlazePhoenixBanner").Type;
+			BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
         }
 
         public override void AI()
@@ -108,7 +108,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 600);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

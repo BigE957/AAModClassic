@@ -1,14 +1,11 @@
-﻿
-using AAModClassic;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Accessories;
-using AAModClassic._Unreleased;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Backgrounds
+namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 {
     public class CthulhuSky_Clouds
     {
@@ -43,11 +40,11 @@ namespace AAModClassic._Unreleased.Backgrounds
 			}
 			if(backgroundFog)
 			{
-				dayTimeOpacity = (BaseUtility.MultiLerp((float)Main.time / 52000f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f));		
+				dayTimeOpacity = BaseUtility.MultiLerp((float)Main.time / 52000f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f);		
 				dayTimeOpacity *= 0.7f; //make it fadier as it's in the background
 			}else
 			{
-				dayTimeOpacity = (BaseUtility.MultiLerp((float)Main.time / 52000f, 0.3f, 1f, 1f, 1f, 1f, 1f, 0.3f));
+				dayTimeOpacity = BaseUtility.MultiLerp((float)Main.time / 52000f, 0.3f, 1f, 1f, 1f, 1f, 1f, 0.3f);
 			}
         }
 
@@ -77,11 +74,11 @@ namespace AAModClassic._Unreleased.Backgrounds
 		public Color GetAlpha(Color newColor, float alph)
 		{
 			int alpha = 255 - (int)(255 * alph);
-			float alphaDiff = (float)(255 - alpha) / 255f;
-			int newR = (int)((float)newColor.R * alphaDiff);
-			int newG = (int)((float)newColor.G * alphaDiff);
-			int newB = (int)((float)newColor.B * alphaDiff);
-			int newA = (int)newColor.A - alpha;
+			float alphaDiff = (255 - alpha) / 255f;
+			int newR = (int)(newColor.R * alphaDiff);
+			int newG = (int)(newColor.G * alphaDiff);
+			int newB = (int)(newColor.B * alphaDiff);
+			int newA = newColor.A - alpha;
 			if (newA < 0) newA = 0;
 			if (newA > 255) newA = 255;		
 			return new Color(newR, newG, newB, newA);

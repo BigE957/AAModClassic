@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Greed
 			Item.rare = ItemRarityID.Purple;
 			Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("Greed").Type;
+        //public override int BossBagNPC => ModContent.NPCType<Greed>();
 
         public override bool CanRightClick()
 		{
@@ -31,10 +31,10 @@ namespace AAModClassic.Items.Boss.Greed
 
 		public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(25, 30));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<StoneShell>(), Main.rand.Next(25, 30));
             if (Main.rand.Next(7) == 0)
             {
-                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GreedMask").Type);
+                player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GreedMask>());
             }
             if (Main.rand.Next(10) == 0)
             {
@@ -44,8 +44,8 @@ namespace AAModClassic.Items.Boss.Greed
             string[] lootTable = { "GildedGlock", "Miner", "StoneSlammer", "GoldDigger"};
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type);
-            //player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("CovetiteCoin").Type, Main.rand.Next(60, 150));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("DesireCharm").Type);
+            //player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<CovetiteCoin>(), Main.rand.Next(60, 150));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DesireCharm>());
         }
 	}
 }

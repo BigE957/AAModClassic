@@ -36,7 +36,7 @@ Can only be used in the Void"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("Sag").Type, true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Sag>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

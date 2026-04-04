@@ -28,7 +28,7 @@ Non-consumable"); */
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = Mod.Find<ModProjectile>("ZeroArrow").Type;
+			Item.shoot = ModContent.ProjectileType<ZeroArrow>();
 			Item.ammo = AmmoID.Arrow;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

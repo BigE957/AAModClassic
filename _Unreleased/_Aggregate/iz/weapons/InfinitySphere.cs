@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Projectiles.Infinity
+namespace AAModClassic._Unreleased._Aggregate.iz.weapons
 {
     public class InfinitySphere : ModProjectile
 	{
@@ -65,15 +65,15 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
                         }
                     }
                 }
-                Projectile.ai[0] = (float)(num690 + 1);
+                Projectile.ai[0] = num690 + 1;
                 if (Projectile.ai[0] == 0f)
                 {
                     Projectile.ai[0] = -15f;
                 }
                 if (Projectile.ai[0] > 0f)
                 {
-                    float scaleFactor5 = (float)Main.rand.Next(35, 75) / 30f;
-                    Projectile.velocity = (Projectile.velocity * 20f + Vector2.Normalize(Main.npc[(int)Projectile.ai[0] - 1].Center - Projectile.Center + new Vector2((float)Main.rand.Next(-100, 101), (float)Main.rand.Next(-100, 101))) * scaleFactor5) / 21f;
+                    float scaleFactor5 = Main.rand.Next(35, 75) / 30f;
+                    Projectile.velocity = (Projectile.velocity * 20f + Vector2.Normalize(Main.npc[(int)Projectile.ai[0] - 1].Center - Projectile.Center + new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101))) * scaleFactor5) / 21f;
                     Projectile.netUpdate = true;
                 }
             }
@@ -94,7 +94,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
             }
             if (Projectile.ai[1] == 0f)
             {
-                Projectile.ai[1] = (float)Main.rand.Next(80, 121) / 100f;
+                Projectile.ai[1] = Main.rand.Next(80, 121) / 100f;
                 Projectile.netUpdate = true;
             }
             Projectile.scale = Projectile.ai[1];
@@ -103,7 +103,7 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }
 
         public override void OnKill(int timeleft)
@@ -111,14 +111,14 @@ namespace AAModClassic._Unreleased.Projectiles.Infinity
             for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(Projectile.width, Projectile.height), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f,
-                    -Projectile.velocity.Y * 0.2f, 100, default(Color), 2f);
+                    -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
                 num469 = Dust.NewDust(new Vector2(Projectile.Center.X, Projectile.Center.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f,
-                    -Projectile.velocity.Y * 0.2f, 100, default(Color));
+                    -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("Toxiboom").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Toxiboom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
     }
 }

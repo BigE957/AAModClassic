@@ -15,8 +15,8 @@ namespace AAModClassic.Tiles
             Main.tileMerge[TileID.SnowBlock][Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Item50;
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("Torchice").Type);   
+            DustType = ModContent.DustType<RazewoodDust>();
+            RegisterItemDrop(ModContent.ItemType<Torchice>());   
             AddMapEntry(new Color(50, 35, 0));
             TileID.Sets.Ices[Type] = true;
         }

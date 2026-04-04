@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Djinn
 			Item.value = 8;
 			Item.rare = ItemRarityID.Orange;
 			Item.shootSpeed = 9f;
-			Item.shoot = Mod.Find<ModProjectile>("Sandagger").Type;
+			Item.shoot = ModContent.ProjectileType<Sandagger>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.consumable = true;

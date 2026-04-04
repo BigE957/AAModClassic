@@ -47,17 +47,17 @@ Terra Ballista EX"); */
 			float speedY2 = perturbedSpeed2.Y;
 			float speedX3 = perturbedSpeed3.X;
 			float speedY3 = perturbedSpeed3.Y;
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.X, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockback, player.whoAmI);
-			Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, Mod.Find<ModProjectile>("TerraArrow").Type, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, speedX2, speedY2, ModContent.ProjectileType<TerraArrow>(), damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, velocity.X, velocity.X, ModContent.ProjectileType<TerraArrow>(), damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, vector.X, vector.Y, speedX3, speedY3, ModContent.ProjectileType<TerraArrow>(), damage, knockback, player.whoAmI);
             return false;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(Mod.Find<ModItem>("TerraBallista").Type);
-			recipe.AddIngredient(Mod.Find<ModItem>("EXSoul").Type);
+            recipe.AddIngredient(ModContent.ItemType<TerraBallista>());
+			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(null, "QuantumFusionAccelerator");
             recipe.Register();
         }

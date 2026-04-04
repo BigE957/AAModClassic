@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("DemonEater").Type] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<DemonEater>()] > 0)
 			{
 				modPlayer.EaterMinion = true;
 			}

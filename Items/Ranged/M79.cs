@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Ranged
 			Item.useTime = 65;
 			Item.width = 68;
 			Item.height = 24;
-			Item.shoot = Mod.Find<ModProjectile>("M79P").Type;
+			Item.shoot = ModContent.ProjectileType<M79P>();
 			Item.UseSound = SoundID.Item61;
 			Item.damage = 180;
 			Item.shootSpeed = 11f;
@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Ranged
 			Item.knockBack = 6f;
 			Item.rare = ItemRarityID.Yellow;
 			Item.DamageType = DamageClass.Ranged;
-			Item.useAmmo = Mod.Find<ModItem>("M79Round").Type;
+			Item.useAmmo = ModContent.ItemType<M79Round>();
 		}
 		
 		public override bool CanConsumeAmmo(Item ammo, Player player)
@@ -46,7 +46,7 @@ namespace AAModClassic.Items.Ranged
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("M79Parts").Type);
+			recipe.AddIngredient(ModContent.ItemType<M79Parts>());
 			recipe.AddIngredient(ItemID.IllegalGunParts);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

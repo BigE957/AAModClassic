@@ -87,7 +87,7 @@ Every ten shots, it can shoot two extra bullets.
 					{
 						value9 -= vector7;
 					}
-					int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + value9.X, vector2.Y + value9.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("OmegaVolleyExtraAmmo").Type, damage, knockback, player.whoAmI, 0.0f, 0.0f);
+					int num121 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X + value9.X, vector2.Y + value9.Y, velocity.X, velocity.Y, ModContent.ProjectileType<OmegaVolleyExtraAmmo>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
 					Main.projectile[num121].noDropItem = true;
 				}
 				extraammocount = 0;
@@ -115,7 +115,7 @@ Every ten shots, it can shoot two extra bullets.
 			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
 			recipe.AddIngredient(null, "UnstableSingularity", 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(Mod.Find<ModTile>("ACS").Type);
+            recipe.AddTile(ModContent.TileType<ACS>());
 			recipe.Register();
 		}
 	}

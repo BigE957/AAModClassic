@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Chair");
 			AddMapEntry(new Color(20, 0, 100), name);
-			DustType = Mod.Find<ModDust>("BogwoodDust").Type;
+			DustType = ModContent.DustType<BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Chairs };
 		}

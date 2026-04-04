@@ -53,14 +53,14 @@ Right click to detonate fireballs"); */
         {
             if(player.altFunctionUse != 2)
             {
-                Item.shoot = Mod.Find<ModProjectile>("FireMagic").Type;
+                Item.shoot = ModContent.ProjectileType<FireMagic>();
                 Item.UseSound = SoundID.Item20;
             }
             if (player.altFunctionUse == 2)
             {
                 foreach(int P in AshRainFire)
                 {
-                    if(Main.projectile[P].type == Mod.Find<ModProjectile>("FireMagic").Type) Main.projectile[P].Kill();
+                    if(Main.projectile[P].type == ModContent.ProjectileType<FireMagic>()) Main.projectile[P].Kill();
                 }
                 Item.UseSound = null;
                 AshRainFire.Clear();
@@ -76,7 +76,7 @@ Right click to detonate fireballs"); */
 		{
             if (player.altFunctionUse != 2)
 			{
-				int P = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("FireMagic").Type, damage, knockback, player.whoAmI, 0f, 0f);
+				int P = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, velocity.X, velocity.Y, ModContent.ProjectileType<FireMagic>(), damage, knockback, player.whoAmI, 0f, 0f);
                 AshRainFire.Add(P);
 			}
 			return false;

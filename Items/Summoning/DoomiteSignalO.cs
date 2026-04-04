@@ -28,9 +28,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = Mod.Find<ModProjectile>("ScoutMinion").Type;
+            Item.shoot = ModContent.ProjectileType<ScoutMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = Mod.Find<ModBuff>("ScoutMinion").Type;
+            Item.buffType = ModContent.BuffType<ScoutMinion>();
             Item.autoReuse = true;
         }
 		
@@ -52,7 +52,7 @@ namespace AAModClassic.Items.Summoning
             Vector2 vector2;
             vector2.X = Main.mouseX + Main.screenPosition.X;
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
-            Projectile.NewProjectile(source, vector2.X, vector2.Y, 0, 0, Mod.Find<ModProjectile>("ScoutMinion").Type, num73, num74, i, 0f, 0f);
+            Projectile.NewProjectile(source, vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<ScoutMinion>(), num73, num74, i, 0f, 0f);
             return false;
         }
 

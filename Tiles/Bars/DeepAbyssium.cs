@@ -22,8 +22,8 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            DustType = Mod.Find<ModDust>("DeepAbyssiumDust").Type;
-            RegisterItemDrop(Mod.Find<ModItem>("DeepAbyssium").Type);   
+            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            RegisterItemDrop(ModContent.ItemType<DeepAbyssium>());   
             AddMapEntry(new Color(0, 0, 100));
 			MinPick = 0;
         }

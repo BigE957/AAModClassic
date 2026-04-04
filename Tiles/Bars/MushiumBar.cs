@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.MushDust>();
-            RegisterItemDrop(Mod.Find<ModItem>("MushiumBar").Type);   
+            RegisterItemDrop(ModContent.ItemType<MushiumBar>());   
             AddMapEntry(new Color(200, 0, 35));
 			MinPick = 0;
         }

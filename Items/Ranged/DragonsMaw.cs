@@ -45,9 +45,9 @@ namespace AAModClassic.Items.Ranged
 			for (int i = 0; i < 2; i++)
 			{
 				Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i));
-				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, Mod.Find<ModProjectile>("DragonLaser").Type, damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DragonLaser>(), damage, knockback, player.whoAmI);
 			}
-            Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("DragonArrow").Type, damage, knockback, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DragonArrow>(), damage, knockback, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false;
         }
         public override void AddRecipes()

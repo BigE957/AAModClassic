@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Desert
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MiniDjinnBanner").Type;
+			BannerItem = ModContent.ItemType<MiniDjinnBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

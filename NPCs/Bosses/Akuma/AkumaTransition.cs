@@ -107,12 +107,12 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                         NPC.netUpdate = true;
                     }
                     else
-                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(Mod.Find<ModNPC>("AkumaA").Type))
+                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
                     {
-                        AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("AkumaA").Type, false, NPC.Center, "", false);
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaA>(), false, NPC.Center, "", false);
                         if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AkumaTransition4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
-                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;
 
                         NPC.netUpdate = true;
@@ -199,13 +199,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 				{
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AkumaTransition3"), Color.DeepSkyBlue);
 				}else
-				if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(Mod.Find<ModNPC>("AkumaA").Type))
+				if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
 				{
-					AAModGlobalNPC.SpawnBoss(player, Mod.Find<ModNPC>("AkumaA").Type, false, NPC.Center, "", false);
+					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaA>(), false, NPC.Center, "", false);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AkumaTransition4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("AkumaTransition5"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
 
-                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockwaveBoom").Type, 0, 1, Main.myPlayer, 0, 0);
+                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
                     NPC.netUpdate = true;
@@ -244,7 +244,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override bool CheckActive()
         {
-            if (!NPC.AnyNPCs(Mod.Find<ModNPC>("AkumaA").Type))
+            if (!NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
             {
                 return false;
             }

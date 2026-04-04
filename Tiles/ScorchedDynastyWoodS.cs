@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("ScorchedDynastyWood").Type);   
+            RegisterItemDrop(ModContent.ItemType<ScorchedDynastyWood>());   
             AddMapEntry(new Color(153, 100, 0));
         }
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

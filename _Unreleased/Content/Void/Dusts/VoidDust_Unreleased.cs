@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Dusts
+namespace AAModClassic._Unreleased.Content.Void.Dusts
 {
     public class VoidDust_Unreleased : ModDust
 	{

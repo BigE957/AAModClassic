@@ -13,7 +13,7 @@ namespace AAModClassic.Walls.Bricks
             DustType = DustID.Ice;
 			AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("RelicWall").Type);
+            RegisterItemDrop(ModContent.ItemType<RelicWall>());
             Main.wallHouse[Type] = true;
         }
 

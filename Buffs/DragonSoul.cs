@@ -18,10 +18,10 @@ namespace AAModClassic.Buffs
 		{
 			player.GetModPlayer<AAPlayer>().DragonSoul = true;
 			player.buffTime[buffIndex] = 18000;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[Mod.Find<ModProjectile>("DragonSoul").Type] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<DragonSoul>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, Mod.Find<ModProjectile>("DragonSoul").Type, 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.GetSource_FromThis(), player.position.X + player.width / 2, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<DragonSoul>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}

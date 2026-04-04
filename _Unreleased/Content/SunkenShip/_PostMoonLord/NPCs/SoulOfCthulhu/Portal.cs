@@ -5,7 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     public class Portal : ModNPC
     {
@@ -63,11 +63,11 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             for (int num468 = 0; num468 < 3; num468++)
             {
                 int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<AkumaADust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color), 2f);
+                    -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
                 num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<AkumaADust>(), -NPC.velocity.X * 0.2f,
-                    -NPC.velocity.Y * 0.2f, 100, default(Color));
+                    -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
         }
@@ -79,13 +79,13 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             switch (Enemy)
             {
                 case 0:
-                    Enemy = Mod.Find<ModNPC>("DeityDragon").Type;
+                    Enemy = ModContent.NPCType<DeityDragon>();
                     break;
                 case 1:
-                    Enemy = Mod.Find<ModNPC>("EoA").Type;
+                    Enemy = ModContent.NPCType<EoA>();
                     break;
                 default:
-                    Enemy = Mod.Find<ModNPC>("RiftVision").Type;
+                    Enemy = ModContent.NPCType<RiftVision>();
                     break;
             }
             if (Main.netMode != 1)

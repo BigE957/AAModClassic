@@ -40,7 +40,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("InfernoSalamanderBanner").Type;
+			BannerItem = ModContent.ItemType<InfernoSalamanderBanner>();
 
         }
 

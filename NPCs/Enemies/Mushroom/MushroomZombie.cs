@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
             NPC.value = 1200f;
             NPC.buffImmune[31] = false;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MushroomZombieBanner").Type;
+			BannerItem = ModContent.ItemType<MushroomZombieBanner>();
         }
 
         public override void AI()

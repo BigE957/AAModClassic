@@ -16,7 +16,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Searcher").Type] > 0)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<Searcher>()] > 0)
             {
                 modPlayer.Searcher = true;
             }

@@ -7,7 +7,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = Mod.Find<ModDust>("BogleafDust").Type;
+			DustType = ModContent.DustType<BogleafDust>();
 			AddMapEntry(new Color(100, 0, 150));
 		}
 

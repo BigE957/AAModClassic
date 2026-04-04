@@ -13,7 +13,7 @@ namespace AAModClassic.Tiles.Altar
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("RadiumBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<RadiumBrick>());   
             AddMapEntry(Color.DarkGoldenrod);
             DustType = ModContent.DustType<Dusts.RadiumDust>();
         }

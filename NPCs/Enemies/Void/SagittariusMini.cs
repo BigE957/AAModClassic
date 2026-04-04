@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("ShadowScoutBanner").Type;
+			BannerItem = ModContent.ItemType<ShadowScoutBanner>();
         }
 
 		public int frameCount = 0;
@@ -92,7 +92,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 
         public override void OnKill()
         {
-            //Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DoomiteScrap").Type, 1);
+            //Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), 1);
         }
 
         

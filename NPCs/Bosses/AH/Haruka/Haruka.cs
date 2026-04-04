@@ -158,13 +158,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void OnKill()
         {
-            int Ashe = NPC.CountNPCS(Mod.Find<ModNPC>("Ashe").Type);
+            int Ashe = NPC.CountNPCS(ModContent.NPCType<Ashe>());
             if (Ashe == 0)
             {
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
                 if (Main.expertMode)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, Mod.Find<ModItem>("AHBag").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
                 }
             }
             if (!Main.expertMode)
@@ -175,7 +175,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HarukaTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<HarukaTrophy>());
             }
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.BossChat("HarukaDowned"), new Color(72, 78, 117));
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>());
@@ -205,7 +205,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
                 damage = NPC.damage / 2;
             }
 
-            int Ashe = NPC.CountNPCS(Mod.Find<ModNPC>("Ashe").Type);
+            int Ashe = NPC.CountNPCS(ModContent.NPCType<Ashe>());
             bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;
             if (Ashe == 0)
             {

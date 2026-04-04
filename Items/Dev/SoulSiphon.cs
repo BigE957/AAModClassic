@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Dev
             Item.shootSpeed = 9f;
             Item.value = 500000;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("SoulSiphon").Type;
+            Item.shoot = ModContent.ProjectileType<SoulSiphon>();
 		}
 
         public override void ModifyTooltips(List<TooltipLine> list)

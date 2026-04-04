@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.addTile(Type);
             
             DustType = DustID.Terra;
-            RegisterItemDrop(Mod.Find<ModItem>("OrderBar").Type);   
+            RegisterItemDrop(ModContent.ItemType<OrderBar>());   
             AddMapEntry(new Color(0, 200, 0));
 			MinPick = 0;
         }

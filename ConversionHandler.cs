@@ -112,38 +112,38 @@ namespace AAModClassic
             {
                 case ConversionType.MIRE:
                     {
-                        tileGrass = mod.Find<ModTile>("MireGrass").Type;
-                        wallGrass = mod.Find<ModWall>("MireJungleWall").Type;
-                        tileStone = mod.Find<ModTile>("Depthstone").Type;
-                        wallStone = mod.Find<ModWall>("DepthstoneWall").Type;
-                        tileSand = mod.Find<ModTile>("Depthsand").Type;
-                        tileSandHard = mod.Find<ModTile>("DepthsandHardened").Type;
-                        wallSandHard = mod.Find<ModWall>("DepthsandHardenedWall").Type;
-                        tileSandstone = mod.Find<ModTile>("Depthsandstone").Type;
-                        wallSandstone = mod.Find<ModWall>("DepthsandstoneWall").Type;
-                        tileIce = mod.Find<ModTile>("IndigoIce").Type;
-                        tileWood = mod.Find<ModTile>("LivingBogwood").Type;
-                        tileLeaves = mod.Find<ModTile>("LivingBogleaves").Type;
-                        wallLeaves = mod.Find<ModTile>("LivingBogleafWall").Type;
-                        livingwoodWall = mod.Find<ModTile>("LivingBogwoodWall").Type;
+                        tileGrass = ModContent.TileType<MireGrass>();
+                        wallGrass = ModContent.WallType<MireJungleWall>();
+                        tileStone = ModContent.TileType<Depthstone>();
+                        wallStone = ModContent.WallType<DepthstoneWall>();
+                        tileSand = ModContent.TileType<Depthsand>();
+                        tileSandHard = ModContent.TileType<DepthsandHardened>();
+                        wallSandHard = ModContent.WallType<DepthsandHardenedWall>();
+                        tileSandstone = ModContent.TileType<Depthsandstone>();
+                        wallSandstone = ModContent.WallType<DepthsandstoneWall>();
+                        tileIce = ModContent.TileType<IndigoIce>();
+                        tileWood = ModContent.TileType<LivingBogwood>();
+                        tileLeaves = ModContent.TileType<LivingBogleaves>();
+                        wallLeaves = ModContent.TileType<LivingBogleafWall>();
+                        livingwoodWall = ModContent.TileType<LivingBogwoodWall>();
                         break;
                     }
 
                 case ConversionType.INFERNO:
                     {
-                        tileGrass = mod.Find<ModTile>("InfernoGrass").Type;
-                        wallGrass = mod.Find<ModWall>("InfernoGrassWall").Type;
-                        tileStone = mod.Find<ModTile>("Torchstone").Type;
-                        wallStone = mod.Find<ModWall>("TorchstoneWall").Type;
-                        tileSand = mod.Find<ModTile>("Torchand").Type;
-                        tileSandHard = mod.Find<ModTile>("TorchsandHardened").Type;
-                        wallSandHard = mod.Find<ModWall>("TorchsandHardenedWall").Type;
-                        tileSandstone = mod.Find<ModTile>("Infernosandstone").Type;
-                        wallSandstone = mod.Find<ModWall>("InfernosandstoneWall").Type;
-                        tileIce = mod.Find<ModTile>("Torchice").Type;
-                        tileWood = mod.Find<ModTile>("LivingRazewood").Type;
-                        tileLeaves = mod.Find<ModTile>("LivingRazeleaves").Type;
-                        wallLeaves = mod.Find<ModTile>("LivingRazeleafWall").Type;
+                        tileGrass = ModContent.TileType<InfernoGrass>();
+                        wallGrass = ModContent.WallType<InfernoGrassWall>();
+                        tileStone = ModContent.TileType<Torchstone>();
+                        wallStone = ModContent.WallType<TorchstoneWall>();
+                        tileSand = ModContent.TileType<Torchand>();
+                        tileSandHard = ModContent.TileType<TorchsandHardened>();
+                        wallSandHard = ModContent.WallType<TorchsandHardenedWall>();
+                        tileSandstone = ModContent.TileType<Infernosandstone>();
+                        wallSandstone = ModContent.WallType<InfernosandstoneWall>();
+                        tileIce = ModContent.TileType<Torchice>();
+                        tileWood = ModContent.TileType<LivingRazewood>();
+                        tileLeaves = ModContent.TileType<LivingRazeleaves>();
+                        wallLeaves = ModContent.TileType<LivingRazeleafWall>();
                         break;
                     }
 

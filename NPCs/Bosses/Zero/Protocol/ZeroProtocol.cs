@@ -108,13 +108,13 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             if (Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), Mod.Find<ModProjectile>("ZeroDeath1").Type, 0, 0);
+                    Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath1>(), 0, 0);
 
                 if (!AAWorld.downedZero)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) 
                         BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZeroRune").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroRune>());
                     VoidSky.Alpha = 0f;
                 }
 
@@ -123,17 +123,17 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
                 if (Main.rand.Next(10) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZeroTrophy").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroTrophy>());
                 }
                 if (Main.rand.Next(7) == 0)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZeroMask").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<ZeroMask>());
                 }
                 if (Main.rand.Next(50) == 0 && AAWorld.downedShen)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EXSoul").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EXSoul>());
                 }
-                NPC.DropLoot(Mod.Find<ModItem>("ZeroBag").Type);
+                NPC.DropLoot(ModContent.ItemType<ZeroBag>());
                 return;
             }
         }
@@ -207,7 +207,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 glowTex = Mod.GetTexture("Glowmasks/ZeroProtocol_Glow");
             }
             
-            if(!(NPC.ai[0] == 4 && NPC.CountNPCS(Mod.Find<ModNPC>("ZeroEcho").Type) > 0 && !Counterattack))
+            if(!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack))
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, afterimage, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
                 BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, drawColor);
@@ -227,7 +227,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
         public override void AI()
         {
-            if((NPC.ai[0] == 4 && NPC.CountNPCS(Mod.Find<ModNPC>("ZeroEcho").Type) > 0 && !Counterattack) || isCharging)
+            if((NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack) || isCharging)
             {
                 NPC.chaseable = false;
                 NPC.defense = 9999;
@@ -366,8 +366,8 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
                                         for (int z = 0; z < 7; z++)
                                         {
-                                            int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer, 0f, 0f);
-                                            int a2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer, 1f, 0f);
+                                            int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer, 0f, 0f);
+                                            int a2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer, 1f, 0f);
                                             Main.projectile[a1].Center = player.Center + new Vector2(-500, yPos);
                                             Main.projectile[a2].Center = player.Center + new Vector2(500, yPos);
                                             yPos += 250 * dirY;
@@ -381,8 +381,8 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
                                         for (int z = 0; z < 7; z++)
                                         {
-                                            int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer , 2f, 0f);
-                                            int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer , 3f, 0f);
+                                            int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer , 2f, 0f);
+                                            int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer , 3f, 0f);
                                             Main.projectile[h1].Center = player.Center + new Vector2(xPos, -500);
                                             Main.projectile[h2].Center = player.Center + new Vector2(xPos, 500);
                                             xPos += 250 * dirX;
@@ -402,16 +402,16 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
                                     for (int z = 0; z < 13; z++)
                                     {
-                                        int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer, 0f, 0f);
-                                        int a2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer, 1f, 0f);
+                                        int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer, 0f, 0f);
+                                        int a2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer, 1f, 0f);
                                         Main.projectile[a1].Center = player.Center + new Vector2(-500, yPos);
                                         Main.projectile[a2].Center = player.Center + new Vector2(500, yPos);
                                         yPos += 250 * dirY;
                                     }
                                     for (int z = 0; z < 13; z++)
                                     {
-                                        int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer , 2f, 0f);
-                                        int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, Mod.Find<ModProjectile>("Blast").Type, damage, 3, Main.myPlayer , 3f, 0f);
+                                        int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer , 2f, 0f);
+                                        int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<Blast>(), damage, 3, Main.myPlayer , 3f, 0f);
                                         Main.projectile[h1].Center = player.Center + new Vector2(xPos, -500);
                                         Main.projectile[h2].Center = player.Center + new Vector2(xPos, 500);
                                         xPos += 250 * dirX;
@@ -436,39 +436,39 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                             Teleport(3);
                             if(Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                 Main.projectile[a].Center = NPC.Center + new Vector2(-100, 0);
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 12f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 12f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                 Main.projectile[b].Center = NPC.Center + new Vector2(100, 0);
-                                int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-12f, 0), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-12f, 0), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                 Main.projectile[c].Center = NPC.Center + new Vector2(0, 100);
-                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(12f, 0), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(12f, 0), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                 Main.projectile[d].Center = NPC.Center + new Vector2(0, -100);
                                 if (NPC.life < NPC.lifeMax / 2)
                                 {
-                                    int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 12f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int a1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 12f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[a1].Center = NPC.Center + new Vector2(-100, 0);
-                                    int b1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int b1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[b1].Center = NPC.Center + new Vector2(100, 0);
-                                    int c1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(12f, 0), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int c1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(12f, 0), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[c1].Center = NPC.Center + new Vector2(0, 100);
-                                    int d1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-12f, 0), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int d1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-12f, 0), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[d1].Center = NPC.Center + new Vector2(0, -100);
-                                    int e = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int e = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[e].Center = NPC.Center + new Vector2(-80, -80);
-                                    int e1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int e1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[e1].Center = NPC.Center + new Vector2(-80, -80);
-                                    int f = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int f = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[f].Center = NPC.Center + new Vector2(80, 80);
-                                    int f1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int f1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[f1].Center = NPC.Center + new Vector2(80, 80);
-                                    int g = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int g = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[g].Center = NPC.Center + new Vector2(-80, 80);
-                                    int g1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int g1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[g1].Center = NPC.Center + new Vector2(-80, 80);
-                                    int h = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int h = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[h].Center = NPC.Center + new Vector2(80, -80);
-                                    int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), Mod.Find<ModProjectile>("ProtoStar").Type, damage, 3);
+                                    int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), ModContent.ProjectileType<ProtoStar>(), damage, 3);
                                     Main.projectile[h1].Center = NPC.Center + new Vector2(80, -80);
                                 }
                             }
@@ -862,7 +862,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 for (int i = 0; i < 6; i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 4f), (float)(Math.Cos(offsetAngle) * 2f), Mod.Find<ModProjectile>("GlitchRocket").Type, 67, 0, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 4f), (float)(Math.Cos(offsetAngle) * 2f), ModContent.ProjectileType<GlitchRocket>(), 67, 0, Main.myPlayer, 0f, 0f);
                 }
             }
             else if (Attack == 2)
@@ -874,7 +874,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 for (int i = 0; i < 5; i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 4f), (float)(Math.Cos(offsetAngle) * 2f), Mod.Find<ModProjectile>("Error").Type, 67, 0, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 4f), (float)(Math.Cos(offsetAngle) * 2f), ModContent.ProjectileType<Error>(), 67, 0, Main.myPlayer, 0f, 0f);
                 }
             }
             else if (Attack == 3)
@@ -886,7 +886,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
                 for (int i = 0; i < 4; i++)
                 {
                     offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 2), (float)Math.Cos(offsetAngle), Mod.Find<ModProjectile>("StaticSphere").Type, 67, 0, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Sin(offsetAngle) * 2), (float)Math.Cos(offsetAngle), ModContent.ProjectileType<StaticSphere>(), 67, 0, Main.myPlayer, 0f, 0f);
                 }
             }
         }

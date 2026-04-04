@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("CrowMinion").Type] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<CrowMinion>()] > 0)
 			{
 				modPlayer.CrowMinion = true;
 			}

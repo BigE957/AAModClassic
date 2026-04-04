@@ -64,7 +64,7 @@ namespace AAModClassic.Tiles.Altar
                         if (item != null && item.type == type && item.stack >= 1)
                         {
                             item.stack--;
-                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), Mod.Find<ModItem>("EquinoxWorm").Type);
+                            player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<EquinoxWorm>());
                             if (!AAWorld.WormActive)
                             {
                                 BaseUtility.Chat(Lang.TheEquinox("WormAltarOK"), new Color(75, 175, 255));
@@ -102,7 +102,7 @@ namespace AAModClassic.Tiles.Altar
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("WormIdol").Type;
+            player.cursorItemIconID = ModContent.ItemType<WormIdol>();
         }
     }
 }

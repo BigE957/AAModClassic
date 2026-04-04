@@ -42,9 +42,9 @@ Contains a set of Fury Witch's robes"); */
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("WitchHood").Type);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("WitchRobe").Type);
-            player.QuickSpawnItem(Item.GetSource_Loot(), Mod.Find<ModItem>("WitchBoots").Type);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchHood>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchRobe>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<WitchBoots>());
         }
     }
 }

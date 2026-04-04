@@ -17,7 +17,7 @@ namespace AAModClassic.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("LungHead").Type] > 0) modPlayer.LungMinion = true;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<LungHead>()] > 0) modPlayer.LungMinion = true;
             if (!modPlayer.LungMinion)
             {
                 player.DelBuff(buffIndex);

@@ -31,7 +31,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 			Projectile.Center = player.Center;
 			Projectile.position.Y = player.Center.Y-90;
 			Projectile.spriteDirection = player.direction;
-			if (player.dead || !player.HasBuff(Mod.Find<ModBuff>("EyeOfForsaken").Type))
+			if (player.dead || !player.HasBuff(ModContent.BuffType<EyeOfForsaken>()))
 			{
 				Projectile.Kill();
 			}
@@ -51,7 +51,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 
                         shootToX *= distance * 3;
                         shootToY *= distance * 3;
-                        int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, shootToX*4, shootToY*4, Mod.Find<ModProjectile>("ForsakenFrag").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, shootToX*4, shootToY*4, ModContent.ProjectileType<ForsakenFrag>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                         Main.projectile[id].minion = true;
                         Projectile.ai[0] = 0f;
                     }

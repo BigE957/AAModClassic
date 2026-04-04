@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Armor.Kindled
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-            return body.type == Mod.Find<ModItem>("KindledDou").Type && legs.type == Mod.Find<ModItem>("KindledSuneate").Type;
+            return body.type == ModContent.ItemType<KindledDou>() && legs.type == ModContent.ItemType<KindledSuneate>();
         }
 
 		public override void UpdateArmorSet(Player player)

@@ -181,7 +181,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
                     for (int i = 0; i < 24; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("GreedBody").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<GreedBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[2] = i;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
@@ -489,21 +489,21 @@ namespace AAModClassic.NPCs.Bosses.Greed
                 {
                     if (Main.rand.Next(7) == 0)
                     {
-                        NPC.DropLoot(Mod.Find<ModItem>("GreedMask").Type);
+                        NPC.DropLoot(ModContent.ItemType<GreedMask>());
                     }
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StoneShell").Type, Main.rand.Next(20, 25));
+                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<StoneShell>(), Main.rand.Next(20, 25));
                     string[] lootTable = { "GildedGlock", "GoldDigger", "Miner" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
                 }
                 if (Main.expertMode)
                 {
-                    NPC.DropLoot(Mod.Find<ModItem>("GreedBag").Type);
+                    NPC.DropLoot(ModContent.ItemType<GreedBag>());
                 }
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GreedTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GreedTrophy>());
             }
             NPC.value = 0f;
             NPC.boss = false;
@@ -693,7 +693,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 		{
-            if (projectile.type == Mod.Find<ModProjectile>("OreChunk").Type && projectile.ai[1] == ItemID.GoldOre && NPC.ai[2] == 6)
+            if (projectile.type == ModContent.ProjectileType<OreChunk>() && projectile.ai[1] == ItemID.GoldOre && NPC.ai[2] == 6)
             {
                 damage += (int)(NPC.defense * (Main.expertMode? .75 : .5f));
                 truehit = true;
@@ -715,7 +715,7 @@ namespace AAModClassic.NPCs.Bosses.Greed
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != Mod.Find<ModNPC>("Greed").Type)
+                if (!Main.npc[(int)NPC.ai[3]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Greed>())
                 {
                     NPC.life = 0;
                     NPC.HitEffect(0, 10.0);

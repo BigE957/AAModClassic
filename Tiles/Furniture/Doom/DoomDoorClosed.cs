@@ -44,10 +44,10 @@ namespace AAModClassic.Tiles.Furniture.Doom
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("DoomDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<DoomDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -65,7 +65,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("DoomDoor").Type;
+            player.cursorItemIconID = ModContent.ItemType<DoomDoor>();
         }
 
 
@@ -134,10 +134,10 @@ namespace AAModClassic.Tiles.Furniture.Doom
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            TileID.Sets.CloseDoorID[Type] = Mod.Find<ModTile>("DoomDoorClosed").Type;
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -155,7 +155,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("DoomDoor").Type;
+            player.cursorItemIconID = ModContent.ItemType<DoomDoor>();
         }
 
 

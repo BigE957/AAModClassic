@@ -46,7 +46,7 @@ Right click for vertical blocks instead"); */
 
         public override bool CanUseItem(Player player)
         {
-            if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("BlockA").Type] >= 1 || player.ownedProjectileCounts[Mod.Find<ModProjectile>("BlockA1").Type] >= 1)
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<BlockA>()] >= 1 || player.ownedProjectileCounts[ModContent.ProjectileType<BlockA1>()] >= 1)
             {
                 return false;
             }

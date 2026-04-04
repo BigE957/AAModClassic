@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = Mod.Find<ModTile>("RadiumBarTile").Type;
+            Item.createTile = ModContent.TileType<RadiumBarTile>();
             Item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
         }
         public override void AddRecipes()

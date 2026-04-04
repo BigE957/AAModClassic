@@ -21,7 +21,7 @@ namespace AAModClassic.Buffs
             }
             npc.lifeRegen -= 200;
             npc.lifeRegenExpectedLossPerSecond = 100;
-            Dust.NewDust(npc.position, npc.width, npc.height, Mod.Find<ModDust>("RadiumDust").Type);
+            Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<RadiumDust>());
         }
     }
     

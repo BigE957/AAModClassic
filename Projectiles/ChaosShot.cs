@@ -57,8 +57,8 @@ namespace AAModClassic.Projectiles
         
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("DragonFire").Type, 500);
-			target.AddBuff(Mod.Find<ModBuff>("HydraToxin").Type, 500);
+            target.AddBuff(ModContent.BuffType<DragonFire>(), 500);
+			target.AddBuff(ModContent.BuffType<HydraToxin>(), 500);
         }
 
     }

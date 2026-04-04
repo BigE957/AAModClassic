@@ -21,7 +21,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Razewood Bed");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = Mod.Find<ModDust>("RazewoodDust").Type;
+            DustType = ModContent.DustType<RazewoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Beds };
 			TileID.Sets.CanBeSleptIn[Type] = true;
@@ -67,7 +67,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = Mod.Find<ModItem>("RazewoodBed").Type;
+			player.cursorItemIconID = ModContent.ItemType<RazewoodBed>();
 		}
 	}
 }

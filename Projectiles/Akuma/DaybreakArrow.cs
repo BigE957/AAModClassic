@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles.Akuma
         {
             target.AddBuff(BuffID.Daybreak, 200);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("FireProjBoom").Type, Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<FireProjBoom>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
             //Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
             Main.projectile[proj].DamageType = DamageClass.Ranged;
         }

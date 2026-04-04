@@ -18,8 +18,8 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
             HitSound = SoundID.Tink;
-            RegisterItemDrop(Mod.Find<ModItem>("DoomsdayPlating").Type);   
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            RegisterItemDrop(ModContent.ItemType<DoomsdayPlating>());   
+            DustType = ModContent.DustType<DoomDust>();
             AddMapEntry(new Color(70, 50, 50
                 ));
 			MinPick = 225;

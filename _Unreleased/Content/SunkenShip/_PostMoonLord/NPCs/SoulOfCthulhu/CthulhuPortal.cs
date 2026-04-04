@@ -1,4 +1,3 @@
-using AAModClassic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
 {
     public class CthulhuPortal : ModNPC
     {
@@ -121,8 +120,8 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
             if (Main.netMode != 1)
             {
                 Main.NewText("The Soul of Cthulhu shreds through reality into this world", Color.DarkCyan);
-                Main.NewText("...but it didnt do that bcuz cthulhu has to be ported aka made from scratch. boss fights over dude", Color.DarkCyan);
-                //int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Cthulhu").Type);
+                //TODOSOC
+                //int npcID = NPC.NewNPC((int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Cthulhu>());
                 //Main.npc[npcID].Center = NPC.Center;
                 //Main.npc[npcID].netUpdate = true;
             }

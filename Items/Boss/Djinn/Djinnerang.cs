@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Djinn
 			Item.value = 8;
 			Item.rare = ItemRarityID.LightPurple;
 			Item.shootSpeed = 6f;
-			Item.shoot = Mod.Find<ModProjectile>("Djinnerang").Type;
+			Item.shoot = ModContent.ProjectileType<Djinnerang>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.value = 50000;

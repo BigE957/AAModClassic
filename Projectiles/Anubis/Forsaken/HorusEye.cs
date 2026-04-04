@@ -70,7 +70,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 							float rand = Main.rand.NextFloat() * 6.283f;
 							vel = vel.RotatedBy(rand);
 							vel *= 8f;
-							Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("HorusHawk").Type, Projectile.damage, 0, Main.myPlayer);
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<HorusHawk>(), Projectile.damage, 0, Main.myPlayer);
 						}
                         Projectile.ai[0] = 0f;
 						Projectile.scale = 0.5f;

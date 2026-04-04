@@ -43,7 +43,7 @@ namespace AAModClassic.Projectiles.Shen
 			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 			for (int i = 0; i < 1; i++)
 			{
-				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("YamataDust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
 				if (Main.rand.Next(6) != 0)
 				{
 					Main.dust[d].noGravity = true;
@@ -55,7 +55,7 @@ namespace AAModClassic.Projectiles.Shen
 					Main.dust[d].velocity.X *= 1.2f;
 					Main.dust[d].velocity.Y *= 1.2f;
 				}
-				int e = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, Mod.Find<ModDust>("AkumaADust").Type, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+				int e = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AkumaADust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
 				if (Main.rand.Next(6) != 0)
 				{
 					Main.dust[e].noGravity = true;
@@ -115,7 +115,7 @@ namespace AAModClassic.Projectiles.Shen
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			target.AddBuff(BuffID.Daybreak, 600);
-            target.AddBuff(Mod.Find<ModBuff>("Moonraze").Type, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
         }		
 
         public override void OnKill(int timeLeft)

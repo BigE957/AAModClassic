@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Armor.Demon
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("DemonGarb").Type && legs.type == Mod.Find<ModItem>("DemonBoots").Type;
+            return body.type == ModContent.ItemType<DemonGarb>() && legs.type == ModContent.ItemType<DemonBoots>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -43,13 +43,13 @@ namespace AAModClassic.Items.Armor.Demon
             modPlayer.demonBonus = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(Mod.Find<ModBuff>("DemonBuff").Type) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<DemonBuff>()) == -1)
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("DemonBuff").Type, 3600, true);
+                    player.AddBuff(ModContent.BuffType<DemonBuff>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("ImpMinion").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<ImpMinion>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("ImpMinion").Type, 20, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<ImpMinion>(), 20, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

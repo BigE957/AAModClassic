@@ -34,7 +34,7 @@ Weightless as shadow itself"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("DepthGi").Type && legs.type == Mod.Find<ModItem>("DepthHakama").Type;
+            return body.type == ModContent.ItemType<DepthGi>() && legs.type == ModContent.ItemType<DepthHakama>();
         }
 
         public override void UpdateArmorSet(Player player)

@@ -172,7 +172,7 @@ namespace AAModClassic.Items.Dev.Invoker
             {
                 if (AAMod.AccessoryAbilityKey.JustPressed)
                 {
-                    Player.AddBuff(Mod.Find<ModBuff>("InvokedCaligulaSafe").Type, 3600);
+                    Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe>(), 3600);
                 }
             }
 		}
@@ -181,11 +181,11 @@ namespace AAModClassic.Items.Dev.Invoker
 			int soulcount = 0;
 			foreach(int soul in CaligulaSoul)
 			{
-				if(soul == Mod.Find<ModNPC>("AkumaA").Type) soulcount ++;
-				if(soul == Mod.Find<ModNPC>("YamataA").Type) soulcount ++;
-				if(soul == Mod.Find<ModNPC>("ZeroProtocol").Type) soulcount ++;
-				if(soul == Mod.Find<ModNPC>("ShenA").Type) soulcount ++;
-				if(soul == Mod.Find<ModNPC>("SupremeRajah").Type) soulcount ++;
+				if(soul == ModContent.NPCType<AkumaA>()) soulcount ++;
+				if(soul == ModContent.NPCType<YamataA>()) soulcount ++;
+				if(soul == ModContent.NPCType<ZeroProtocol>()) soulcount ++;
+				if(soul == ModContent.NPCType<ShenA>()) soulcount ++;
+				if(soul == ModContent.NPCType<SupremeRajah>()) soulcount ++;
 			}
 			if(soulcount >= (WorldTypeSystem.WorldType == AAWorldType.Beta ? 4 : 5))
 			{
@@ -193,7 +193,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			}
 			if (Thebookoflaw && DarkCaligula)
 			{
-				Player.AddBuff(Mod.Find<ModBuff>("InvokedCaligulaSafe").Type, 3600);
+				Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe>(), 3600);
 			}
 			if (InvokerShow)
 			{
@@ -220,7 +220,7 @@ namespace AAModClassic.Items.Dev.Invoker
 							vector20 = Vector2.UnitX * Player.direction;
 						}
 						vector20 *= scaleFactor6;
-						ClawDir = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.position.X, Player.position.Y, vector20.X, vector20.Y, Mod.Find<ModProjectile>("InvokedCaligulaShoot").Type, (int)((DarkCaligula? 1200 : 600) * (Player.GetDamage(DamageClass.Summon).Flat + Player.GetDamage(DamageClass.Generic).Flat - 1)), 4f, Player.whoAmI, 0f, 0f);
+						ClawDir = Projectile.NewProjectile(Player.GetSource_FromThis(), Player.position.X, Player.position.Y, vector20.X, vector20.Y, ModContent.ProjectileType<InvokedCaligulaShoot>(), (int)((DarkCaligula? 1200 : 600) * (Player.GetDamage(DamageClass.Summon).Flat + Player.GetDamage(DamageClass.Generic).Flat - 1)), 4f, Player.whoAmI, 0f, 0f);
 					}
 					else if(InvokedCaligulaClaw > 30)
 					{
@@ -237,7 +237,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			}
 			if (SpringInvoker)
 			{
-				if (Math.Abs(Player.velocity.X) < 0.05 && Math.Abs(Player.velocity.Y) < 0.05 && (Player.itemAnimation == 0 || Player.inventory[Player.selectedItem].type == Mod.Find<ModItem>("InvokerStaff").Type))
+				if (Math.Abs(Player.velocity.X) < 0.05 && Math.Abs(Player.velocity.Y) < 0.05 && (Player.itemAnimation == 0 || Player.inventory[Player.selectedItem].type == ModContent.ItemType<InvokerStaff>()))
 				{
 					if(Player.lifeRegen < 0) Player.lifeRegen /= 2;
 					if (Player.lifeRegenTime > 90 && Player.lifeRegenTime < 1800)

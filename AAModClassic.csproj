@@ -16,7 +16,6 @@
 	<ItemGroup>
 	  <Folder Include="Localization\zh-Hans\" />
 	  <Folder Include="Localization\ru-RU\" />
-	  <Folder Include="_Removed\Items\Weapons\Mire\PreHM\" />
 	</ItemGroup>
 
 	<!-- References -->

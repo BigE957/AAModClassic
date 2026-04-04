@@ -34,7 +34,7 @@ Dashing ability has 10 seconds CD
 			Item.scale = 1.15f;
 			Item.UseSound = SoundID.Item71;
 			Item.rare = ItemRarityID.Lime;
-			Item.shoot = Mod.Find<ModProjectile>("GrimReaperScythe").Type;
+			Item.shoot = ModContent.ProjectileType<GrimReaperScythe>();
 			Item.shootSpeed = 14f;
 			Item.value = 500000;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -50,14 +50,14 @@ Dashing ability has 10 seconds CD
 			int side = player.direction;
 			if (player.altFunctionUse != 2)
 			{
-				Item.shoot = Mod.Find<ModProjectile>("GrimReaperScythe").Type;
+				Item.shoot = ModContent.ProjectileType<GrimReaperScythe>();
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(Mod.Find<ModBuff>("ReaperCD").Type))
+			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD>()))
 			{
-				player.AddBuff(Mod.Find<ModBuff>("ReaperImmune").Type, 60);
-				player.AddBuff(Mod.Find<ModBuff>("ReaperCD").Type, 600);
-				Item.shoot = Mod.Find<ModProjectile>("ReaperHitbox").Type;
+				player.AddBuff(ModContent.BuffType<ReaperImmune>(), 60);
+				player.AddBuff(ModContent.BuffType<ReaperCD>(), 600);
+				Item.shoot = ModContent.ProjectileType<ReaperHitbox>();
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -69,7 +69,7 @@ Dashing ability has 10 seconds CD
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == Mod.Find<ModProjectile>("GrimReaperScythe").Type && player.HasBuff(Mod.Find<ModBuff>("ReaperImmune").Type))
+			if (type == ModContent.ProjectileType<GrimReaperScythe>() && player.HasBuff(ModContent.BuffType<ReaperImmune>()))
 			{
 				damage /= 10;
 			}

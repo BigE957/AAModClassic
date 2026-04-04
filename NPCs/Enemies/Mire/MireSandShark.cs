@@ -18,7 +18,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             NPC.CloneDefaults(NPCID.SandShark);
             AnimationType = NPCID.SandShark;
 			Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("MireSandSharkBanner").Type;
+			BannerItem = ModContent.ItemType<MireSandSharkBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -89,7 +89,7 @@ namespace AAModClassic.Projectiles.Zero
         {
             if(target.life<=0)
            {
-              Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, Mod.Find<ModProjectile>("CycloneF").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);   }
+              Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<CycloneF>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);   }
         } 
        }
         public override void OnKill(int timeLeft)

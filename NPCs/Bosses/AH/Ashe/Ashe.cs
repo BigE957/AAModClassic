@@ -162,8 +162,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), Mod.Find<ModProjectile>("AsheSpell").Type, NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), ModContent.ProjectileType<AsheSpell>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), ModContent.ProjectileType<AsheSpell>(), NPC.damage / 4, 0f, Main.myPlayer, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -490,7 +490,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for(int i = 0; i < 200; i++)
                     {
-                        if(Main.npc[i].type == Mod.Find<ModNPC>("AsheOrbiter").Type)
+                        if(Main.npc[i].type == ModContent.NPCType<AsheOrbiter>())
                         {
                             Main.npc[i].life = 0;
                             Main.npc[i].active = false;
@@ -505,7 +505,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     rotation = 2f * (float)Math.PI / 4;
                     for (int m = 0; m < 4; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<AsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -515,7 +515,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<AsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -526,7 +526,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                     Health = false;
                     for (int m = 0; m < OrbiterCount; m++)
                     {
-                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, Mod.Find<ModNPC>("AsheOrbiter").Type, 0, npc.whoAmI, distance, 300, rotation * m);
+                        int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<AsheOrbiter>(), 0, npc.whoAmI, distance, 300, rotation * m);
                         if (Main.netMode == NetmodeID.Server && n < 200)
                             NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                     }
@@ -537,13 +537,13 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void OnKill()
         {
-            int Haruka = NPC.CountNPCS(Mod.Find<ModNPC>("Haruka").Type);
+            int Haruka = NPC.CountNPCS(ModContent.NPCType<Haruka>());
             if (Haruka == 0)
             {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());
                 if (Main.expertMode)
                 {
-                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, Mod.Find<ModItem>("AHBag").Type);
+                    Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<AHBag>());
                 }
             }
             if (!Main.expertMode)
@@ -554,7 +554,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
             }
             if (Main.rand.Next(10) == 0)
             {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AsheTrophy").Type);
+                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.width, NPC.height, ModContent.ItemType<AsheTrophy>());
             }
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;

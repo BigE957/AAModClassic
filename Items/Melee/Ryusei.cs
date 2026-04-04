@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
             Item.autoReuse = true;
             Item.useTurn = false;
-            Item.shoot = Mod.Find<ModProjectile>("Ryusei").Type;
+            Item.shoot = ModContent.ProjectileType<Ryusei>();
 			Item.UseSound = SoundID.Item18;
         }
 
@@ -33,8 +33,8 @@ namespace AAModClassic.Items.Melee
 		public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("Yogan").Type);
-            recipe.AddIngredient(Mod.Find<ModItem>("HeroShards").Type);
+            recipe.AddIngredient(ModContent.ItemType<Yogan>());
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

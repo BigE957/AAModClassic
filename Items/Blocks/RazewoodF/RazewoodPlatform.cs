@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("RazewoodPlatform").Type;
+			Item.createTile = ModContent.TileType<RazewoodPlatform>();
 		}
 
 		public override void AddRecipes()

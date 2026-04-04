@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlendAll[Type] = false;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("SkyCrystal").Type); 
+            RegisterItemDrop(ModContent.ItemType<SkyCrystal>()); 
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("SkyCrystal");
             DustType = DustID.BlueCrystalShard;

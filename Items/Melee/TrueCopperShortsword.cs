@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee
 			Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
-            Item.shoot = Mod.Find<ModProjectile>("TrueCopperShot").Type;
+            Item.shoot = ModContent.ProjectileType<TrueCopperShot>();
             Item.shootSpeed = 20f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

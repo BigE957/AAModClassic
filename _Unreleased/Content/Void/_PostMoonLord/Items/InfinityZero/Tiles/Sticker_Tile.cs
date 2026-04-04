@@ -5,9 +5,9 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Decoration
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles
 {
-    public class Sticker : ModTile
+    public class Sticker_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.FishingItem.Crate
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.createTile = Mod.Find<ModTile>("VoidCrate").Type;
+            Item.createTile = ModContent.TileType<VoidCrate>();
         }
 
         public override void SetStaticDefaults()
@@ -42,21 +42,21 @@ namespace AAModClassic.Items.FishingItem.Crate
                 switch (item)
                 {
                     case 0:
-                        item = Mod.Find<ModItem>("VoidSaber").Type;
+                        item = ModContent.ItemType<VoidSaber>();
                         break;
                     case 1:
-                        item = Mod.Find<ModItem>("DoomGun").Type;
+                        item = ModContent.ItemType<DoomGun>();
                         break;
                     case 2:
-                        item = Mod.Find<ModItem>("DoomStaff").Type;
+                        item = ModContent.ItemType<DoomStaff>();
                         break;
                     default:
-                        item = Mod.Find<ModItem>("ProbeControlUnit").Type;
+                        item = ModContent.ItemType<ProbeControlUnit>();
                         break;
                 }
 
                 int index = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, item, 1, false, -1, false, false);
-                int index1 = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, Mod.Find<ModItem>("DoomiteScrap").Type, Main.rand.Next(0, 5));
+                int index1 = Item.NewItem(Item.GetSource_Loot(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<DoomiteScrap>(), Main.rand.Next(0, 5));
 
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {

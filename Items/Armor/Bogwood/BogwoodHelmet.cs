@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Armor.Bogwood
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("BogwoodChestplate").Type && legs.type == Mod.Find<ModItem>("BogwoodBoots").Type;
+            return body.type == ModContent.ItemType<BogwoodChestplate>() && legs.type == ModContent.ItemType<BogwoodBoots>();
         }
 
         public override void UpdateArmorSet(Player player)

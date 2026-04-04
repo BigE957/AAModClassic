@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles.Bricks
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("DaybreakBrick").Type);   
+            RegisterItemDrop(ModContent.ItemType<DaybreakBrick>());   
             AddMapEntry(AAColor.Akuma);
             DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
         }

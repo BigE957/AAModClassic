@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Throwing
 			Item.consumable = true;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = Mod.Find<ModProjectile>("MurkyGelP").Type;
+			Item.shoot = ModContent.ProjectileType<MurkyGelP>();
 			Item.shootSpeed = 9f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;

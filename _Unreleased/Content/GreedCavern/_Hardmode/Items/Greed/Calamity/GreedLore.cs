@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Items.Lore.Calamity
+namespace AAModClassic._Unreleased.Content.GreedCavern._Hardmode.Items.Greed.Calamity
 {
     public class GreedLore : ModItem
     {

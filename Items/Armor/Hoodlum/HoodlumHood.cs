@@ -28,7 +28,7 @@ Hopping Mad."); */
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("HoodlumShirt").Type && legs.type == Mod.Find<ModItem>("HoodlumPants").Type;
+			return body.type == ModContent.ItemType<HoodlumShirt>() && legs.type == ModContent.ItemType<HoodlumPants>();
 		}
 
         public override void UpdateArmorSet(Player player)

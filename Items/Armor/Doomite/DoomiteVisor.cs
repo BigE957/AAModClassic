@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Armor.Doomite
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == Mod.Find<ModItem>("DoomiteBreastplate").Type && legs.type == Mod.Find<ModItem>("DoomiteGreaves").Type;
+            return body.type == ModContent.ItemType<DoomiteBreastplate>() && legs.type == ModContent.ItemType<DoomiteGreaves>();
         }
 
         public override void UpdateArmorSet(Player player)
@@ -40,13 +40,13 @@ namespace AAModClassic.Items.Armor.Doomite
             player.GetModPlayer<AAPlayer>().doomite = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(Mod.Find<ModBuff>("Searcher").Type) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<Searcher>()) == -1)
                 {
-                    player.AddBuff(Mod.Find<ModBuff>("Searcher").Type, 3600, true);
+                    player.AddBuff(ModContent.BuffType<Searcher>(), 3600, true);
                 }
-                if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Searcher").Type] < 1)
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<Searcher>()] < 1)
                 {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, Mod.Find<ModProjectile>("Searcher").Type, 30, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<Searcher>(), 30, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

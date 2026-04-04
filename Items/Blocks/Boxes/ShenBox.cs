@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-			Item.createTile = Mod.Find<ModTile>("ShenBox").Type;
+			Item.createTile = ModContent.TileType<ShenBox>();
 			Item.width = 28;
 			Item.height = 28;
 			Item.rare = ItemRarityID.LightRed;

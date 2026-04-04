@@ -23,12 +23,12 @@ namespace AAModClassic.Items.Blocks.Doom
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = Mod.Find<ModTile>("DoomChandelier").Type;
+            Item.createTile = ModContent.TileType<DoomChandelier>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod.Find<ModItem>("ApocalyptitePlate").Type, 4);
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 4);
             recipe.AddIngredient(ItemID.Torch, 4);
             recipe.AddIngredient(ItemID.Chain);
             recipe.AddTile(TileID.Anvils);

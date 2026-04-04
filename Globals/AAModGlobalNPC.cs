@@ -248,34 +248,34 @@ namespace AAModClassic.Globals
 
             if (npc.type == NPCID.FireImp)
             {
-                npc.DropLoot(Mod.Find<ModItem>("DevilSilk").Type, Main.rand.Next(2, 3));
+                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(2, 3));
             }
 
             if (npc.type == NPCID.RedDevil && Main.rand.Next(3) == 0)
             {
-                npc.DropLoot(Mod.Find<ModItem>("PureEvil").Type);
+                npc.DropLoot(ModContent.ItemType<PureEvil>());
             }
 
             if (npc.type == NPCID.Demon)
             {
-                npc.DropLoot(Mod.Find<ModItem>("DevilSilk").Type, Main.rand.Next(4, 5));
+                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(4, 5));
             }
 
             if (npc.type == NPCID.VoodooDemon)
             {
-                npc.DropLoot(Mod.Find<ModItem>("DevilSilk").Type, Main.rand.Next(5, 6));
+                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(5, 6));
             }
 
             if (npc.type == NPCID.Plantera)
             {
-                npc.DropLoot(Mod.Find<ModItem>("PlanteraPetal").Type, Main.rand.Next(30, 40));
+                npc.DropLoot(ModContent.ItemType<PlanteraPetal>(), Main.rand.Next(30, 40));
             }
 
             if (npc.type == NPCID.GreekSkeleton)
             {
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("GladiatorsGlory").Type);
+                    npc.DropLoot(ModContent.ItemType<GladiatorsGlory>());
                 }
             }
 
@@ -296,7 +296,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Seashroom").Type);
+                    npc.DropLoot(ModContent.ItemType<Seashroom>());
                 }
             }
 
@@ -320,20 +320,20 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Shadowban").Type);
+                    npc.DropLoot(ModContent.ItemType<Shadowban>());
                 }
             }
 
             if (Main.rand.NextBool(8192))
             {
-                npc.DropLoot(Mod.Find<ModItem>("ShinyCharm").Type);
+                npc.DropLoot(ModContent.ItemType<ShinyCharm>());
             }
 
             if (npc.type == NPCID.LostGirl || npc.type == NPCID.Nymph || npc.type == NPCID.DoctorBones)
             {
                 if (Main.rand.NextBool(20) && Main.expertMode)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("AncientGoldLeg").Type);
+                    npc.DropLoot(ModContent.ItemType<AncientGoldLeg>());
                 }
             }
 
@@ -341,7 +341,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(20) && Main.expertMode)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("AncientGoldBody").Type);
+                    npc.DropLoot(ModContent.ItemType<AncientGoldBody>());
                 }
             }
 
@@ -349,7 +349,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(4))
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("CthulhusBlade").Type);
+                    npc.DropLoot(ModContent.ItemType<CthulhusBlade>());
                 }
             }
 
@@ -357,7 +357,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(4))
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("TheFox").Type);
+                    npc.DropLoot(ModContent.ItemType<TheFox>());
                 }
             }
 
@@ -365,7 +365,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < 0.1f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Exorcist").Type);
+                    npc.DropLoot(ModContent.ItemType<Exorcist>());
                 }
             }
 
@@ -373,32 +373,32 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < 0.01f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("AncientPoker").Type);
+                    npc.DropLoot(ModContent.ItemType<AncientPoker>());
                 }
             }
 
             if (npc.type == NPCID.Probe)
             {
-                npc.DropLoot(Mod.Find<ModItem>("Energy_Cell").Type, Main.rand.Next(3, 12));
+                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(3, 12));
             }
 
             if (npc.type == NPCID.TheDestroyer)
             {
-                npc.DropLoot(Mod.Find<ModItem>("Energy_Cell").Type, Main.rand.Next(8, 16));
+                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(8, 16));
 
                 if (Main.rand.NextFloat() < .34f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Laser_Rifle").Type);
+                    npc.DropLoot(ModContent.ItemType<Laser_Rifle>());
                 }
             }
 
             if (npc.type == NPCID.SkeletronPrime)
             {
-                npc.DropLoot(Mod.Find<ModItem>("Energy_Cell").Type, Main.rand.Next(8, 16));
+                npc.DropLoot(ModContent.ItemType<Energy_Cell>(), Main.rand.Next(8, 16));
 
                 if (Main.rand.NextFloat() < .34f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Laser_Rifle").Type);
+                    npc.DropLoot(ModContent.ItemType<Laser_Rifle>());
                 }
             }
 
@@ -406,7 +406,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .1f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("HK_MP5").Type);
+                    npc.DropLoot(ModContent.ItemType<HK_MP5>());
                 }
             }
 
@@ -414,12 +414,12 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .12f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Alien_Rifle").Type);
+                    npc.DropLoot(ModContent.ItemType<Alien_Rifle>());
                 }
 
                 if (Main.rand.NextFloat() < .03f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Energy_Conduit").Type);
+                    npc.DropLoot(ModContent.ItemType<Energy_Conduit>());
                 }
             }
 
@@ -427,20 +427,20 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .12f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("SkullStaff").Type);
+                    npc.DropLoot(ModContent.ItemType<SkullStaff>());
                 }
             }
 
             if (npc.type == NPCID.Vulture)
             {
-                npc.DropLoot(Mod.Find<ModItem>("vulture_feather").Type, Main.rand.Next(1, 3));
+                npc.DropLoot(ModContent.ItemType<vulture_feather>(), Main.rand.Next(1, 3));
             }
 
             if (npc.type == NPCID.Drippler)
             {
                 if (Main.rand.NextFloat() < .005f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("Bloody_Mary").Type);
+                    npc.DropLoot(ModContent.ItemType<Bloody_Mary>());
                 }
             }
 
@@ -448,7 +448,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(50) == 0)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("M79Parts").Type);
+                    npc.DropLoot(ModContent.ItemType<M79Parts>());
                 }
             }
 
@@ -456,7 +456,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .01f)
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("BugSwatter").Type);
+                    npc.DropLoot(ModContent.ItemType<BugSwatter>());
                 }
 
                 npc.DropLoot(ItemID.Stinger, Main.rand.Next(14, 20));
@@ -486,20 +486,20 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextBool(20))
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("GoblinSoul").Type);
+                    npc.DropLoot(ModContent.ItemType<GoblinSoul>());
                 }
             }
 
             if (npc.type == NPCID.GoldBunny && NPC.downedGolemBoss)
             {
-                npc.DropLoot(Mod.Find<ModItem>("GoldenCarrot").Type);
+                npc.DropLoot(ModContent.ItemType<GoldenCarrot>());
             }
 
             if (IsBunny(npc) && NPC.downedGolemBoss)
             {
                 if (Main.rand.NextBool(80))
                 {
-                    npc.DropLoot(Mod.Find<ModItem>("GoldenCarrot").Type);
+                    npc.DropLoot(ModContent.ItemType<GoldenCarrot>());
                 }
             }
 
@@ -510,7 +510,7 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(5))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("SoulOfSpite").Type);
+                        npc.DropLoot(ModContent.ItemType<SoulOfSpite>());
                     }
                 }
 
@@ -518,35 +518,35 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(5))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("SoulOfSmite").Type);
+                        npc.DropLoot(ModContent.ItemType<SoulOfSmite>());
                     }
                 }
                 if (player.GetModPlayer<AAPlayer>().ZoneMire)
                 {
                     if (Main.rand.NextBool(2500))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("MireKey").Type);
+                        npc.DropLoot(ModContent.ItemType<MireKey>());
                     }
                 }
                 if (player.GetModPlayer<AAPlayer>().ZoneInferno)
                 {
                     if (Main.rand.NextBool(2500))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("InfernoKey").Type);
+                        npc.DropLoot(ModContent.ItemType<InfernoKey>());
                     }
                 }
                 if (player.GetModPlayer<AAPlayer>().ZoneVoid)
                 {
                     if (Main.rand.NextBool(1250))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("DoomstopperKey").Type);
+                        npc.DropLoot(ModContent.ItemType<DoomstopperKey>());
                     }
                 }
                 if (player.GetModPlayer<AAPlayer>().Terrarium && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(100))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("TerraCrystal").Type);
+                        npc.DropLoot(ModContent.ItemType<TerraCrystal>());
                     }
                 }
 
@@ -554,7 +554,7 @@ namespace AAModClassic.Globals
                 {
                     if (Main.rand.NextBool(100))
                     {
-                        npc.DropLoot(Mod.Find<ModItem>("ChaosCrystal").Type);
+                        npc.DropLoot(ModContent.ItemType<ChaosCrystal>());
                     }
                 }
             }
@@ -643,7 +643,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("ForsakenDust").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 2f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<ForsakenDust>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 2f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -690,7 +690,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadB").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadB>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -703,7 +703,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.1f, 0.3f, 0.7f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadR").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadR>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -716,7 +716,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.7f, 0.2f, 0.2f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadG").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadG>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -729,7 +729,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.1f, 0.7f, 0.1f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadY").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadY>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -742,7 +742,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.5f, 0.5f, 0.1f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadP").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadP>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -755,7 +755,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.6f, 0.1f, 0.6f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, Mod.Find<ModDust>("InfinityOverloadO").Type, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadO>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -893,7 +893,7 @@ namespace AAModClassic.Globals
             }
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneStars)
             {
-                pool.Add(Main.dayTime ? Mod.Find<ModNPC>("Sunwatcher").Type : Mod.Find<ModNPC>("Nightguard").Type, .2f);
+                pool.Add(Main.dayTime ? ModContent.NPCType<Sunwatcher>() : ModContent.NPCType<Nightguard>(), .2f);
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(spawnInfo.Player))
@@ -903,55 +903,55 @@ namespace AAModClassic.Globals
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
-                        pool.Add(Mod.Find<ModNPC>("InfernalSlime").Type, .05f);
-                        pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
-                        pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
-                        pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                        pool.Add(ModContent.NPCType<Wyrmling>(), .25f);
+                        pool.Add(ModContent.NPCType<InfernalSlime>(), .05f);
+                        pool.Add(ModContent.NPCType<Flamebrute>(), .25f);
+                        pool.Add(ModContent.NPCType<InfernoSalamander>(), .5f);
+                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
                     }
 
                     if (Main.hardMode)
                     {
-                        pool.Add(Mod.Find<ModNPC>("MagmaSwimmer").Type, SpawnCondition.WaterCritter.Chance * 0.2f);
-                        pool.Add(Mod.Find<ModNPC>("BlazePhoenix").Type, .1f);
+                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * 0.2f);
+                        pool.Add(ModContent.NPCType<BlazePhoenix>(), .1f);
                     }
 
                     if (AAWorld.downedSisters)
                     {
-                        pool.Add(Mod.Find<ModNPC>("BlazeClaw").Type, .05f);
+                        pool.Add(ModContent.NPCType<BlazeClaw>(), .05f);
                     }
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        pool.Add(Mod.Find<ModNPC>("Wyrmling").Type, .25f);
-                        pool.Add(Mod.Find<ModNPC>("Flamebrute").Type, .25f);
-                        pool.Add(Mod.Find<ModNPC>("InfernoSalamander").Type, .5f);
-                        pool.Add(Mod.Find<ModNPC>("DragonClaw").Type, .05f);
+                        pool.Add(ModContent.NPCType<Wyrmling>(), .25f);
+                        pool.Add(ModContent.NPCType<Flamebrute>(), .25f);
+                        pool.Add(ModContent.NPCType<InfernoSalamander>(), .5f);
+                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
                     }
 
                     if (Main.hardMode)
                     {
-                        pool.Add(Mod.Find<ModNPC>("MagmaSwimmer").Type, SpawnCondition.WaterCritter.Chance * 0.2f);
-                        pool.Add(Mod.Find<ModNPC>("Wyrm").Type, .008f);
-                        pool.Add(Mod.Find<ModNPC>("ChaoticDawn").Type, .01f);
+                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * 0.2f);
+                        pool.Add(ModContent.NPCType<Wyrm>(), .008f);
+                        pool.Add(ModContent.NPCType<ChaoticDawn>(), .01f);
 
                         if (spawnInfo.Player.ZoneSnow)
                         {
-                            pool.Add(Mod.Find<ModNPC>("Dragron").Type, .01f);
+                            pool.Add(ModContent.NPCType<Dragron>(), .01f);
                         }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
                         {
-                            pool.Add(Mod.Find<ModNPC>("InfernoGhoul").Type, .1f);
+                            pool.Add(ModContent.NPCType<InfernoGhoul>(), .1f);
                         }
                     }
                 }
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(Mod.Find<ModNPC>("Lung").Type, .01f);
+                    pool.Add(ModContent.NPCType<Lung>(), .01f);
                 }
             }
 
@@ -962,60 +962,60 @@ namespace AAModClassic.Globals
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
-                        pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
-                        pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
-                        pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
-                        pool.Add(Mod.Find<ModNPC>("MireSlime").Type, .025f);
+                        pool.Add(ModContent.NPCType<Mosster>(), .025f);
+                        pool.Add(ModContent.NPCType<Newt>(), .05f);
+                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
+                        pool.Add(ModContent.NPCType<MireSlime>(), .025f);
                     }
 
                     if (Main.hardMode)
                     {
-                        pool.Add(Mod.Find<ModNPC>("FogAngler").Type, SpawnCondition.WaterCritter.Chance * 0.05f);
-                        pool.Add(Mod.Find<ModNPC>("Toxitoad").Type, .005f);
-                        pool.Add(Mod.Find<ModNPC>("Kappa").Type, .025f);
+                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * 0.05f);
+                        pool.Add(ModContent.NPCType<Toxitoad>(), .005f);
+                        pool.Add(ModContent.NPCType<Kappa>(), .025f);
                     }
 
                     if (AAWorld.downedSisters)
                     {
-                        pool.Add(Mod.Find<ModNPC>("AbyssClaw").Type, .01f);
+                        pool.Add(ModContent.NPCType<AbyssClaw>(), .01f);
                     }
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     { 
-                        pool.Add(Mod.Find<ModNPC>("Mosster").Type, .025f);
-                        pool.Add(Mod.Find<ModNPC>("Newt").Type, .05f);
-                        pool.Add(Mod.Find<ModNPC>("HydraClaw").Type, .025f);
-                        pool.Add(Mod.Find<ModNPC>("MireSkulker").Type, .02f);
+                        pool.Add(ModContent.NPCType<Mosster>(), .025f);
+                        pool.Add(ModContent.NPCType<Newt>(), .05f);
+                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
                     }
 
                     if (Main.hardMode)
                     {
-                        pool.Add(Mod.Find<ModNPC>("FogAngler").Type, SpawnCondition.WaterCritter.Chance * 0.1f);
-                        pool.Add(Mod.Find<ModNPC>("Miresquito").Type, .025f);
-                        pool.Add(Mod.Find<ModNPC>("ChaoticTwilight").Type, .005f);
+                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * 0.1f);
+                        pool.Add(ModContent.NPCType<Miresquito>(), .025f);
+                        pool.Add(ModContent.NPCType<ChaoticTwilight>(), .005f);
 
                         if (spawnInfo.Player.ZoneSnow)
                         {
-                            pool.Add(Mod.Find<ModNPC>("Miregron").Type, .005f);
+                            pool.Add(ModContent.NPCType<Miregron>(), .005f);
                         }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
                         {
-                            pool.Add(Mod.Find<ModNPC>("MireGhoul").Type, .025f);
+                            pool.Add(ModContent.NPCType<MireGhoul>(), .025f);
                         }
                     }
                 }
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(Mod.Find<ModNPC>("Soulsucker").Type, .01f);
+                    pool.Add(ModContent.NPCType<Soulsucker>(), .01f);
                 }
 
-                if (!AAWorld.downedSisters && AAWorld.downedHydra && !NPC.AnyNPCs(Mod.Find<ModNPC>("HarukaShadow").Type))
-                pool.Add(Mod.Find<ModNPC>("HarukaShadow").Type, .00005f);
+                if (!AAWorld.downedSisters && AAWorld.downedHydra && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+                pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneVoid)
@@ -1024,27 +1024,27 @@ namespace AAModClassic.Globals
 
                 if (AAWorld.downedSag)
                 {
-                    pool.Add(Mod.Find<ModNPC>("SagittariusMini").Type, .005f);
+                    pool.Add(ModContent.NPCType<SagittariusMini>(), .005f);
                 }
 
                 if (NPC.downedPlantBoss)
                 {
-                    pool.Add(Mod.Find<ModNPC>("Vortex").Type, 0.002f);
-                    pool.Add(Mod.Find<ModNPC>("Scout").Type, .005f);
+                    pool.Add(ModContent.NPCType<Vortex>(), 0.002f);
+                    pool.Add(ModContent.NPCType<Scout>(), .005f);
                 }
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(Mod.Find<ModNPC>("Searcher").Type, .005f);
+                    pool.Add(ModContent.NPCType<Searcher>(), .005f);
 
                     if (AAWorld.downedZero)
                     {
-                        pool.Add(Mod.Find<ModNPC>("Null").Type, .005f);
+                        pool.Add(ModContent.NPCType<Null>(), .005f);
                     }
                 }
                 else
                 {
-                    pool.Add(Mod.Find<ModNPC>("Searcher1").Type, .005f);
+                    pool.Add(ModContent.NPCType<Searcher1>(), .005f);
                 }
             }
 

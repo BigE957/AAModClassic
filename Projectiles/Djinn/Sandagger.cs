@@ -40,7 +40,7 @@ namespace AAModClassic.Projectiles.Djinn
         {
             if (Main.rand.Next(2) == 0)
             {
-                Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, Mod.Find<ModItem>("Sandagger").Type);
+                Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<Sandagger>());
             }
             for (int i = 0; i < 5; i++)
             {

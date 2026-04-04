@@ -29,7 +29,7 @@ namespace AAModClassic.Projectiles.Tools
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Mod.Find<ModBuff>("Electrified").Type, 500);
+            target.AddBuff(ModContent.BuffType<Electrified>(), 500);
         }
     }
 }

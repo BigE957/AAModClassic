@@ -45,10 +45,10 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Oroboros Door");
             AddMapEntry(new Color(162, 184, 185), name);
-            DustType = Mod.Find<ModDust>("DoomDust").Type;
+            DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("OroborosDoorOpen").Type;
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<OroborosDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -66,7 +66,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = Mod.Find<ModItem>("OroborosDoor").Type;
+            player.cursorItemIconID = ModContent.ItemType<OroborosDoor>();
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

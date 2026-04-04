@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Magic
 			Item.width = 38;
 			Item.height = 10;
 			Item.damage = 35;
-			Item.shoot = Mod.Find<ModProjectile>("Depthsprayer").Type;
+			Item.shoot = ModContent.ProjectileType<Depthsprayer>();
 			Item.shootSpeed = 12f;
 			Item.UseSound = SoundID.Item13;
 			Item.rare = ItemRarityID.LightPurple;
@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Magic
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod.Find<ModItem>("DeepAbyssium").Type);
+			recipe.AddIngredient(ModContent.ItemType<DeepAbyssium>());
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

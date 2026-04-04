@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
             Item.rare = ItemRarityID.Purple;
             Item.expert = true; Item.expertOnly = true;
         }
-        //public override int BossBagNPC => Mod.Find<ModNPC>("FeudalFungus").Type;
+        //public override int BossBagNPC => ModContent.NPCType<FeudalFungus>();
 
         public override bool CanRightClick()
         {
@@ -39,8 +39,8 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
                 AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
                 modPlayer.PHMDevArmor();
             }
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("GlowingMushium").Type, Main.rand.Next(30, 40));
-            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), Mod.Find<ModItem>("MagicTruffle").Type);
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<GlowingMushium>(), Main.rand.Next(30, 40));
+            player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<MagicTruffle>());
         }
     }
 }

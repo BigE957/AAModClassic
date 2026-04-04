@@ -48,7 +48,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = Mod.Find<ModItem>("WyrmBanner").Type;
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
         public override bool PreAI()
         {
@@ -58,7 +58,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("AkumaDust").Type, 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -79,20 +79,20 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                     int WyrmLength = Main.expertMode ? 5 : 3;
                     for (int i = 0; i < WyrmLength; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody1").Type, NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmBody1>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
                         segment += 1;
                     }
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody2").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmBody2>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody3").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmBody3>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("WyrmBody4").Type, NPC.whoAmI, 0, latestNPC);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<WyrmBody4>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
 
@@ -310,8 +310,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrm").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmBanner").Type;
+            Banner = ModContent.NPCType<Wyrm>();
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -372,7 +372,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("WyrmADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -435,8 +435,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrm").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmBanner").Type;
+            Banner = ModContent.NPCType<Wyrm>();
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -499,7 +499,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("WyrmADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -559,8 +559,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrm").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmBanner").Type;
+            Banner = ModContent.NPCType<Wyrm>();
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -621,7 +621,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("WyrmADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -684,8 +684,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = Mod.Find<ModNPC>("Wyrm").Type;
-			BannerItem = Mod.Find<ModItem>("WyrmBanner").Type;
+            Banner = ModContent.NPCType<Wyrm>();
+			BannerItem = ModContent.ItemType<WyrmBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -746,7 +746,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("WyrmADust").Type, 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

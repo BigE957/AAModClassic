@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 500;
-			Item.createTile = Mod.Find<ModTile>("RazewoodChest").Type;
+			Item.createTile = ModContent.TileType<RazewoodChest>();
 		}
 
 		public override void AddRecipes()

@@ -110,8 +110,8 @@ Certain ores have special effects when shot"); */
 					if (itemFired.type == ItemID.Meteorite) projType = 8;
 					if (itemFired.type == ItemID.DemoniteOre) projType = 9;
 					if (itemFired.type == ItemID.CrimtaneOre) projType = 10;
-					if (itemFired.type == Mod.Find<ModItem>("Abyssium").Type) projType = 11;
-					if (itemFired.type == Mod.Find<ModItem>("Incinerite").Type) projType = 12;
+					if (itemFired.type == ModContent.ItemType<Abyssium>()) projType = 11;
+					if (itemFired.type == ModContent.ItemType<Incinerite>()) projType = 12;
 					if (itemFired.type == ItemID.Hellstone) projType = 13;
 					if (itemFired.type == ItemID.CobaltOre) projType = 14;
 					if (itemFired.type == ItemID.PalladiumOre) projType = 15;
@@ -119,14 +119,14 @@ Certain ores have special effects when shot"); */
 					if (itemFired.type == ItemID.OrichalcumOre) projType = 17;
 					if (itemFired.type == ItemID.AdamantiteOre) projType = 18;
 					if (itemFired.type == ItemID.TitaniumOre) projType = 19;
-					if (itemFired.type == Mod.Find<ModItem>("HallowedOre").Type) projType = 20;
+					if (itemFired.type == ModContent.ItemType<HallowedOre>()) projType = 20;
 					if (itemFired.type == ItemID.ChlorophyteOre) projType = 21;
 					if (itemFired.type == ItemID.LunarOre) projType = 22;
-                    if (itemFired.type == Mod.Find<ModItem>("DarkmatterOre").Type) projType = 23;
-                    if (itemFired.type == Mod.Find<ModItem>("RadiumOre").Type) projType = 24;
-                    if (itemFired.type == Mod.Find<ModItem>("DaybreakIncineriteOre").Type) projType = 25;
-                    if (itemFired.type == Mod.Find<ModItem>("EventideAbyssiumOre").Type) projType = 26;
-                    if (itemFired.type == Mod.Find<ModItem>("Apocalyptite").Type) projType = 27;
+                    if (itemFired.type == ModContent.ItemType<DarkmatterOre>()) projType = 23;
+                    if (itemFired.type == ModContent.ItemType<RadiumOre>()) projType = 24;
+                    if (itemFired.type == ModContent.ItemType<DaybreakIncineriteOre>()) projType = 25;
+                    if (itemFired.type == ModContent.ItemType<EventideAbyssiumOre>()) projType = 26;
+                    if (itemFired.type == ModContent.ItemType<Apocalyptite>()) projType = 27;
                     return true;
  				}
  			}
@@ -135,7 +135,7 @@ Certain ores have special effects when shot"); */
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
  		{
-            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, Mod.Find<ModProjectile>("OreChunkHM").Type, damage, knockback, player.whoAmI, 0, projType);
+            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<OreChunkHM>(), damage, knockback, player.whoAmI, 0, projType);
             if (Main.projectile[p].ai[1] == 10)
             {
                  Main.projectile[p].knockBack *= 1.5f;

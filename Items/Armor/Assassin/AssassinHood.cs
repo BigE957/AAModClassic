@@ -48,7 +48,7 @@ A dark hood infused with the shadow of midnight"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == Mod.Find<ModItem>("AssassinShirt").Type && legs.type == Mod.Find<ModItem>("AssassinBoots").Type;
+			return body.type == ModContent.ItemType<AssassinShirt>() && legs.type == ModContent.ItemType<AssassinBoots>();
         }
 
 		public override void UpdateArmorSet(Player player)

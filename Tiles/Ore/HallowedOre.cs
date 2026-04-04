@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileBlendAll[Type] = false;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(Mod.Find<ModItem>("HallowedOre").Type); 
+            RegisterItemDrop(ModContent.ItemType<HallowedOre>()); 
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Hallowed Ore");
             DustType = DustID.Gold;

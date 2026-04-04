@@ -6,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Items.Boss.SoC
+namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
 public class SquidStorm : ModItem
 {
@@ -33,7 +33,7 @@ public class SquidStorm : ModItem
         Item.rare = 5;
         Item.UseSound = SoundID.Item103;
         Item.autoReuse = true;
-        Item.shoot = Mod.Find<ModProjectile>("CthulhuTentacle").Type;
+        Item.shoot = ModContent.ProjectileType<CthulhuTentacle>();
         Item.shootSpeed = 12f;
     }
     
@@ -45,26 +45,26 @@ public class SquidStorm : ModItem
     	num74 = player.GetWeaponKnockback(Item, num74);
     	player.itemTime = Item.useTime;
     	Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
-    	float num78 = (float)Main.mouseX + Main.screenPosition.X - vector2.X;
-		float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
+    	float num78 = Main.mouseX + Main.screenPosition.X - vector2.X;
+		float num79 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
     	Vector2 value2 = new Vector2(num78, num79);
 		value2.Normalize();
-		Vector2 value3 = new Vector2((float)Main.rand.Next(-100, 101), (float)Main.rand.Next(-100, 101));
+		Vector2 value3 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
 		value3.Normalize();
 		value2 = value2 * 4f + value3;
 		value2.Normalize();
 		value2 *= Item.shootSpeed;
-		float num91 = (float)Main.rand.Next(10, 80) * 0.001f;
+		float num91 = Main.rand.Next(10, 80) * 0.001f;
 		if (Main.rand.Next(2) == 0)
 		{
 			num91 *= -1f;
 		}
-		float num92 = (float)Main.rand.Next(10, 80) * 0.001f;
+		float num92 = Main.rand.Next(10, 80) * 0.001f;
 		if (Main.rand.Next(2) == 0)
 		{
 			num92 *= -1f;
 		}
-		Projectile.NewProjectile(Item.GetSource_FromThis(), vector2.X, vector2.Y, value2.X, value2.Y, Mod.Find<ModProjectile>("CthulhuTentacle").Type, num73, num74, i, num92, num91);
+		Projectile.NewProjectile(Item.GetSource_FromThis(), vector2.X, vector2.Y, value2.X, value2.Y, ModContent.ProjectileType<CthulhuTentacle>(), num73, num74, i, num92, num91);
     	return false;
 	}
 }}

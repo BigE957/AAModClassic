@@ -4,10 +4,9 @@ using Terraria.ModLoader;
 using Terraria;
 using System.Collections.Generic;
 using Terraria.Audio;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic._Unreleased.Items.Boss.Infinity
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
     public class Annihilator : ModItem
 	{
@@ -33,7 +32,7 @@ namespace AAModClassic._Unreleased.Items.Boss.Infinity
             //TODOIZ
             //Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("Anhialation").Type;
+            Item.shoot = ModContent.ProjectileType<Anhialation>();
 			Item.shootSpeed = 8f;
             
 		}
