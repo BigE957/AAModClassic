@@ -17,6 +17,7 @@ using AAModClassic.Items.Boss.Rajah.Supreme;
 using AAModClassic.CrossMod;
 using AAModClassic.Items.Boss.Rajah;
 using Terraria.Localization;
+using AAModClassic.UI.Titles;
 
 namespace AAModClassic.NPCs.Bosses.Rajah
 {
@@ -151,6 +152,8 @@ namespace AAModClassic.NPCs.Bosses.Rajah
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             if (Main.expertMode)
             {
                 damage = NPC.damage / 4;
