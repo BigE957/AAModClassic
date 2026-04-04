@@ -1,8 +1,10 @@
+using AAModClassic;
+using AAModClassic.World.Conversions;
+using AAModClassic.World.Convertions;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles
 {
@@ -26,7 +28,8 @@ namespace AAModClassic.Projectiles
             int dustType = DustID.GrassBlades;
             if (Projectile.owner == Main.myPlayer)
             {
-                AAWorld.AAConvert((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 7);
+                Point tilePos = Projectile.Center.ToTileCoordinates();
+                WorldGen.Convert(tilePos.X, tilePos.Y, ModContent.GetInstance<JungleRemovalConversion>().Type);
             }
             if (Projectile.timeLeft > 133)
             {

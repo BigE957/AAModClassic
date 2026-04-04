@@ -1701,6 +1701,7 @@ namespace AAModClassic
             modPlayer.YamataAltar = false;
         }
 
+        [Obsolete("Use WorldGen.Convert with new ModBiomeConversions")]
         public static void AAConvert(int i, int j, int conversionType, int size = 4)
         {
             for (int k = i - size; k <= i + size; k++)
