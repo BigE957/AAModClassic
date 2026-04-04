@@ -25,8 +25,10 @@ using AAModClassic.Projectiles.AH;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -1544,8 +1546,33 @@ namespace AAModClassic
 
             if (Main.netMode != NetmodeID.Server)
             {
+                static bool IsModInstalled(string modName)
+                {
+                    var modOrganizerType = typeof(ModLoader).Assembly.GetType("Terraria.ModLoader.Core.ModOrganizer");
+
+                    if (modOrganizerType == null)
+                        return false;
+
+                    var findModsMethod = modOrganizerType.GetMethod("FindMods", BindingFlags.NonPublic | BindingFlags.Static);
+
+                    if (findModsMethod == null)
+                        return false;
+
+                    if (findModsMethod.Invoke(null, [false]) is not System.Collections.IEnumerable mods)
+                        return false;
+
+                    foreach (var mod in mods)
+                    {
+                        var nameProp = mod.GetType().GetProperty("Name");
+                        if (nameProp?.GetValue(mod) as string == modName)
+                            return true;
+                    }
+
+                    return false;
+                }
+
                 List<int> yappers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-                if (!NewAAReminder && !ModContent.GetInstance<AAConfigClient>().DisableNewAAReminderMessage && !ModLoader.TryGetMod("AAMod", out _))
+                if (!NewAAReminder && !ModContent.GetInstance<AAConfigClient>().DisableNewAAReminderMessage && !IsModInstalled("AAMod"))
                 {
                     int yapper = yappers[Main.rand.Next(yappers.Count)];
                     switch (yapper)
