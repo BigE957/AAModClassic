@@ -1,12 +1,20 @@
-Release: Release
-Mixed: Mixed
-Beta: Beta
-AAWorldDescriptionRelease: Experience Ancients Awakened as it was in its final release version.
-AAWorldDescriptionMixed: Experience a mix of new and old content from both versions of the mod.
-AAWorldDescriptionBeta: Experience a new Ancients Awakened, ported from an In-Dev Beta.
+Removed: {
+	Title: Removed
+	Description: Experience removed content from older versions of Ancients Awakened.
+}
+
+Unreleased: {
+	Title: Unreleased
+	Description: Experience never-before Ancients Awakened content from in-dev builds.
+}
+
+Unofficial: {
+	Title: Unofficial
+	Description: Experience a smoother experience with improvements and new additions.
+}
 
 WindowTitle: {
-	0: Ancients Awakened: Youngins Asleep
+	0: Ancients Awakened: Youngins Tired
 	1: Ancients Awakened: Lost at Sea...
 	2: Ancients Awakened: The Slayer Cometh
 	3: Ancients Awakened: Burning in Discordian Hell

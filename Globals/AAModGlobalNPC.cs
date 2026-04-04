@@ -560,7 +560,7 @@ namespace AAModClassic.Globals
             }
 
 
-            if (WorldTypeSystem.WorldType != AAWorldType.Beta && Main.hardMode && IsBunny(npc) && Rajah != -1)
+            if (/*WorldTypeSystem.WorldType != AAWorldType.Beta &&*/ Main.hardMode && IsBunny(npc) && Rajah != -1)
             {
                 Player player = Main.player[Player.FindClosest(npc.Center, npc.width, npc.height)];
 
