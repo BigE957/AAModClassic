@@ -1,3 +1,5 @@
+using AAModClassic.Dusts;
+using AAModClassic.Items.Blocks.Doom;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -68,7 +70,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<Doom Bed>();
+			player.cursorItemIconID = ModContent.ItemType<DoomBed>();
 		}
 
 

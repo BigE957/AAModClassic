@@ -7,6 +7,7 @@ using Terraria.Localization;
 using AAModClassic.NPCs.Bosses.MushroomMonarch;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
+using AAModClassic.NPCs.Bosses.FeudalFungus;
 
 namespace AAModClassic.Items.BossSummons.Swarm
 {
@@ -39,7 +40,7 @@ Can only be used in glowing mushroom biomes"); */
 
             for (int i = 0; i < 10; i++)
             {
-                NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<Feudal Fungus>());
+                NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<FeudalFungus>());
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
