@@ -12,6 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
+    [AutoloadBossHead]
     public class ForsakenAnubis : ModNPC
     {
 		public override void SetStaticDefaults()
