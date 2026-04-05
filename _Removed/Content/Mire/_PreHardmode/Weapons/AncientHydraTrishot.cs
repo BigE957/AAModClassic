@@ -4,12 +4,12 @@ using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Items.Ranged;
 
 namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
 {
     public class HydraTrishot_Removed : ModItem
     {
-
         public override void SetDefaults()
         {
 
@@ -36,6 +36,9 @@ namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
         {
             // DisplayName.SetDefault("Ancient Hydra Trishot");
             // Tooltip.SetDefault("'It even purifies the corruption!'");
+
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<HydraTrishot>();
+            ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<HydraTrishot>()] = Type;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -51,14 +54,6 @@ namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
                 Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, Item.playerIndexTheItemIsReservedFor);
             }
             return false;
-        }
-
-        //TODOGENERAL make this shimmer from trishot and vice versa
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(null, "AbyssiumBar", 8);
-            recipe.Register();
         }
     }
 }
