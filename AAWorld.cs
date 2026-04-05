@@ -1477,7 +1477,7 @@ namespace AAModClassic
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                        if (AAWorld_Unreleased.doUnreleasedContent)
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                         {
                             Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
                             Main.NewText("An otherworldly fog encompasses the ocean", Color.Cyan);

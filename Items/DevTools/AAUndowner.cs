@@ -1,4 +1,5 @@
 using AAModClassic._Unreleased;
+using AAModClassic.UI.WorldGen;
 using Terraria;
 using Terraria.ID;
 
@@ -55,7 +56,7 @@ Non-Consumable"); */
             AAWorld.downedAnubisA = false;
             AAWorld.downedGreedA = false;
 
-            if (AAWorld_Unreleased.doUnreleasedContent)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 AAWorld_Unreleased.downedIZ = false;
                 AAWorld_Unreleased.downedSoC = false;

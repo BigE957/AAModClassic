@@ -24,13 +24,12 @@ using AAModClassic._Unreleased.Content.SunkenShip.World;
 using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.Tiles;
 using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
+using AAModClassic.UI.WorldGen;
 
 namespace AAModClassic._Unreleased
 {
     public class AAWorld_Unreleased : ModSystem
     {
-        public static bool doUnreleasedContent = true; // has no function but u can see where unreleased content is placed elsewhere
-
         private Vector2 shipPos = new Vector2(0, 0);
         private int shipSide = 0;
 
@@ -92,7 +91,7 @@ namespace AAModClassic._Unreleased
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            if (doUnreleasedContent)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
                 int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
@@ -271,7 +270,7 @@ namespace AAModClassic._Unreleased
 
         public override void PostWorldGen()
         {
-            if (doUnreleasedContent)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 int[] itemsToPlaceInSunkenChest = new int[] { ModContent.ItemType<CursedCompass>() };
                 int itemsToPlaceInSunkenChestsChoice = 0;
