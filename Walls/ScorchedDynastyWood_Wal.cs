@@ -1,17 +1,14 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class AcropolisBrick_Wall : ModWall
+    public class ScorchedDynastyWood_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-            Main.wallHouse[Type] = true;
-            DustType = DustID.Marble;
-            AddMapEntry(new Color(0, 0, 25));
+            DustType = ModContent.DustType<AshRain>();
+			AddMapEntry(new Color(50, 25, 0));
 		}
 
         public override void NumDust(int i, int j, bool fail, ref int num)
@@ -19,8 +16,13 @@ namespace AAModClassic.Walls
 			num = fail ? 1 : 3;
 		}
 
+
         public override void KillWall(int i, int j, ref bool fail)
         {
+            if (AAWorld.downedShen)
+            {
+                fail = false;
+            }
             fail = true;
         }
 

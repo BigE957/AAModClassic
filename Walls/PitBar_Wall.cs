@@ -5,19 +5,20 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class AcropolisBrick_Wall : ModWall
+    public class PitBar_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-            Main.wallHouse[Type] = true;
-            DustType = DustID.Marble;
-            AddMapEntry(new Color(0, 0, 25));
-		}
+            DustType = DustID.Torch;
+			AddMapEntry(new Color(50, 34, 0));
+            Main.tileBlockLight[Type] = false;
+        }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
+
 
         public override void KillWall(int i, int j, ref bool fail)
         {
