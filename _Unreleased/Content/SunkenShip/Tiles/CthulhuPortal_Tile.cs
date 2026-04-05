@@ -15,8 +15,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
         {
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             Main.tileSolid[Type] = false;
-            //TODOSOC
-            //HitSound = 0;
+            HitSound = SoundID.Dig;
             DustType = DustID.Dirt;
             AddMapEntry(new Color(0, 80, 100));
         }
