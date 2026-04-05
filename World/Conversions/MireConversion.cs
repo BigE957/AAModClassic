@@ -11,7 +11,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.World.Convertions
+namespace AAModClassic.World.Conversions
 {
     public class MireConversion : ModBiomeConversion
     {
@@ -25,7 +25,7 @@ namespace AAModClassic.World.Convertions
                 if (success)
                 {
                     spirit.Call("RegisterConversionSet", "AcaciaTree", ModContent.TileType<MireGrass>(), type);
-                    ModContent.GetModTile(type).RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Bogwood>());
+                    ModContent.GetModTile(type).RegisterItemDrop(ModContent.ItemType<Items.Blocks.Bogwood>());
                 }
             }
         }

@@ -7,6 +7,7 @@ using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.Water;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -74,7 +75,22 @@ namespace AAModClassic.World
 
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
 
-        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<InfernoDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<InfernoSurfaceBgStyle>() : null;
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle 
+        { 
+            get 
+            {
+                if((Main.LocalPlayer.ZoneDesert && Main.LocalPlayer.ZoneSnow) && ModLoader.TryGetMod("SpiritReforged", out var spirit))
+                {
+                    //Rectangle saltFlatsArea = (Rectangle)spirit.Call("GetSaltFlatsArea");
+                    //bool playerInSaltFlats = saltFlatsArea.Contains(Main.LocalPlayer.Center.ToTileCoordinates());
+                    //Main.NewText(saltFlatsArea);
+                    //if (playerInSaltFlats)
+                        return null;
+                }
+
+                return Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<InfernoDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<InfernoSurfaceBgStyle>() : null;
+            }
+        }
 
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<InfernoUgBgStyle>();
 

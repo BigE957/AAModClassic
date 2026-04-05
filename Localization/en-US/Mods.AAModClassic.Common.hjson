@@ -620,7 +620,7 @@ RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
 
 Conditions: {
-	ReleaseExclusive: in a Released type world
+	ReleaseExclusive: in worlds where Unreleased content is disabled
 	BetaExclusive: in a Beta type world.
 	ReleaseOrMixed: in a Release or Mixed type world
 	BetaOrMixed: in a Beta or Mixed type world

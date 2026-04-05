@@ -1,16 +1,19 @@
-﻿using System;
+﻿using AAModClassic;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Equinox;
+using AAModClassic.Items.Materials;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic;
-using AAModClassic.Globals;
-using AAModClassic.Dusts;
 
 namespace AAModClassic.NPCs.Bosses.Equinox
 {
@@ -190,6 +193,9 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
         public override bool PreAI()
         {
+            if (!nightcrawler)
+                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             bool isHead = NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>();
             if (Main.netMode != NetmodeID.MultiplayerClient && !initCustom)
             {

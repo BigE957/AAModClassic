@@ -1617,7 +1617,7 @@ namespace AAModClassic
 
         private static void Terrarium(GenerationProgress progress)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
             Point origin = new Point((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
@@ -1628,7 +1628,7 @@ namespace AAModClassic
 
         private static void LostKeep(GenerationProgress progress)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Release)
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
             Point val = new ((int)((float)Main.maxTilesX * 0.3f), (int)((float)Main.maxTilesY * 0.38f));
@@ -1681,7 +1681,7 @@ namespace AAModClassic
             //Added to save Lucifer from the Brimstone Crags
             int offset = ModLoader.HasMod("CalamityMod") && GenVars.dungeonX > Main.maxTilesX / 2 ? 600 : 500;
 
-            if (WorldTypeSystem.WorldType == AAWorldType.Release)
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 Point origin = new Point(Main.maxTilesX - offset, Main.maxTilesY - 170);
                 new PitTeaser().Place(origin, GenVars.structures);

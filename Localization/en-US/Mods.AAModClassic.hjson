@@ -45,8 +45,8 @@ Configs: {
 			Tooltip: ""
 		}
 
-		EnableContentReplacement: {
-			Label: Enable Content Replacement
+		AncientIntroText: {
+			Label: Ancient Intro Text
 			Tooltip: ""
 		}
 	}

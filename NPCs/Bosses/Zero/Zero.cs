@@ -1,12 +1,13 @@
-using System;
-using System.IO;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -333,6 +334,8 @@ namespace AAModClassic.NPCs.Bosses.Zero
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             if (Main.expertMode)
             {
                 damage = NPC.damage / 4;

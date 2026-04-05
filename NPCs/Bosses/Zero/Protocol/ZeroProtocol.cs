@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.BossSummons;
@@ -233,7 +234,9 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
 
         public override void AI()
         {
-            if((NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack) || isCharging)
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
+            if ((NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack) || isCharging)
             {
                 NPC.chaseable = false;
                 NPC.defense = 9999;

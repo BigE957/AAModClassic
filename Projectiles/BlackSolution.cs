@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Dusts;
-using AAModClassic.World.Convertions;
+using AAModClassic.World.Conversions;
 
 namespace AAModClassic.Projectiles
 {

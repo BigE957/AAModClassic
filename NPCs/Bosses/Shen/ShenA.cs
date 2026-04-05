@@ -14,6 +14,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.UI.Titles;
 using AAModClassic.Items.Boss.Shen;
 
 namespace AAModClassic.NPCs.Bosses.Shen
@@ -67,6 +68,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             Main.dayTime = false;
             Main.time = 18000;
 

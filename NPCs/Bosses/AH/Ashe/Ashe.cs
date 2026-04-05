@@ -13,6 +13,7 @@ using AAModClassic;
 using AAModClassic.NPCs.Bosses.AH;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.UI.Titles;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -57,6 +58,8 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             Player player = Main.player[NPC.target];
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 250);

@@ -1,20 +1,20 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.Audio;
-
-using Terraria.ModLoader;
-using System.IO;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
-using AAModClassic;
-using AAModClassic.Globals;
 using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Yamata;
+using AAModClassic.UI.Titles;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 {
@@ -351,6 +351,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             TargetClosest();
             HandleHeads();
 

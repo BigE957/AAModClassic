@@ -1,16 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.UI.Titles;
+using Microsoft.Xna.Framework;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
-
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.Globals;
 using Terraria.Localization;
-using AAModClassic.Items.Boss.Anubis;
-using AAModClassic.Items.Vanity.Mask;
+using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis
 {
@@ -713,6 +711,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                                 Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
                                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis6"), Color.Gold);
                                 internalAI[0] = 1;
+                                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                 Teleport();
                                 NPC.netUpdate = true;
                             }
@@ -722,6 +721,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis
                             Music = MusicLoader.GetMusicSlot("AAModClassic/Sounds/Music/Anubis");
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis7"), Color.Gold);
                             internalAI[0] = 1;
+                            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                             Teleport();
                             NPC.netUpdate = true;
                         }

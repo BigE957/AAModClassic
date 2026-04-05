@@ -1,6 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Athena;
 using AAModClassic.NPCs.Enemies.Sky;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -197,6 +198,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 if (internalAI[3] >= 420)
                                 {
                                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena6"));
+                                    NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                     internalAI[2] = 1;
 
                                     NPC.netUpdate = true;
@@ -217,6 +219,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 if (internalAI[3] == 300)
                                 {
                                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena14"));
+                                    NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                     internalAI[2] = 1;
                                     NPC.netUpdate = true;
                                 }
@@ -231,6 +234,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                                 if (internalAI[3] >= 180)
                                 {
                                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena8"));
+                                    NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                                     internalAI[2] = 1;
                                     NPC.netUpdate = true;
                                 }

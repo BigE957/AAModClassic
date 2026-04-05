@@ -45,8 +45,8 @@ Can only be used in a glowing mushroom biome"); */
 
         public override bool CanUseItem(Player player)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
-                return false;
+            //if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+            //    return false;
 
             if (!player.ZoneGlowshroom)
             {
@@ -70,7 +70,7 @@ Can only be used in a glowing mushroom biome"); */
             recipe.AddIngredient(null, "Mushium", 10);
             recipe.AddIngredient(null, "GlowingMushium", 10);
             recipe.AddTile(TileID.Anvils);
-            recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
+            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

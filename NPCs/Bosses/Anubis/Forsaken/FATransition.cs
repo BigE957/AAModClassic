@@ -1,10 +1,11 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
@@ -84,7 +85,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
                     {
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 0, Main.myPlayer, 0, 10);
                         Main.projectile[b].Center = NPC.Center;
-
+                        NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                         NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ForsakenAnubis>());
                         NPC.active = false;
                         NPC.netUpdate = true;

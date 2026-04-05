@@ -45,9 +45,9 @@ namespace AAModClassic.Items.BossSummons
 
         public override bool CanUseItem(Player player)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
+            /*if (WorldTypeSystem.WorldType == AAWorldType.Beta)
                 return false;
-
+            */
             if (!player.ZoneDesert)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DjinnLampDesertFalse1"), Color.Goldenrod.R, Color.Goldenrod.G, Color.Goldenrod.B, false);
@@ -93,7 +93,7 @@ namespace AAModClassic.Items.BossSummons
                 recipe.AddIngredient(null, "DesertMana", 3);
                 recipe.AddIngredient(ItemID.Sandstone, 30);
                 recipe.AddTile(TileID.Anvils);
-                recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
+                //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
                 recipe.Register();
             }
         }

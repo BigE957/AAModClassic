@@ -6,7 +6,7 @@ using AAModClassic.Tiles.Chests;
 using AAModClassic.Tiles.Crafters;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Walls;
-using AAModClassic.World.Convertions;
+using AAModClassic.World.Conversions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -609,8 +609,6 @@ namespace AAModClassic.World
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            if (WorldTypeSystem.WorldType == AAWorldType.Beta)
-                return true;
             //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
 
             int worldSize = GetWorldSize();

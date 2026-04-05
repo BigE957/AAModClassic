@@ -1,6 +1,7 @@
 ﻿using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -115,6 +116,8 @@ namespace AAModClassic.NPCs.Bosses.Akuma
 
         public override bool PreAI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             Player player = Main.player[NPC.target];
             if (Main.expertMode)
             {

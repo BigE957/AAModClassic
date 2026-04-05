@@ -16,6 +16,7 @@ using AAModClassic.Buffs;
 using AAModClassic;
 using AAModClassic.Globals;
 using Terraria.Localization;
+using AAModClassic.UI.Titles;
 using AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH;
 using AAModClassic.NPCs.Bosses.Shen.GripsShen;
 using AAModClassic.Items.Boss.Shen;
@@ -163,6 +164,8 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             Vector2 targetPos;

@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Microsoft.CodeAnalysis.Options;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
@@ -20,18 +22,18 @@ using static Terraria.UI.UIElement;
 
 namespace AAModClassic.UI.WorldGen
 {
-    public enum AAWorldType
+    public enum AAWorldOption
     {
-        Release,
-        Beta,
-        Mixed
+        Removed,
+        Unreleased,
+        Unofficial
     }
 
     public class WorldTypeSystem : ModSystem
     {
-        private static AAWorldType _optionAAWorldType = AAWorldType.Release;
-        public static AAWorldType WorldType => _optionAAWorldType;
-        private static ModGroupOptionButton<AAWorldType>[] _aaWorldTypeButtons;
+        private static readonly HashSet<AAWorldOption> enabledOptions = [AAWorldOption.Removed, AAWorldOption.Unreleased, AAWorldOption.Unofficial];
+        public static bool IsWorldOptionEnabled(AAWorldOption option) => enabledOptions.Contains(option);
+        private static ModGroupOptionButton<AAWorldOption>[] _aaWorldTypeButtons;
 
         public override void Load()
         {
@@ -40,15 +42,20 @@ namespace AAModClassic.UI.WorldGen
 
         public override void SaveWorldData(TagCompound tag)
         {
-            tag.Add("AAWorldType", (int)WorldType);
+            tag.Add("RemovedContentEnabled", enabledOptions.Contains(AAWorldOption.Removed));
+            tag.Add("UnreleasedContentEnabled", enabledOptions.Contains(AAWorldOption.Unreleased));
+            tag.Add("UnofficialContentEnabled", enabledOptions.Contains(AAWorldOption.Unofficial));
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
-            //Assume a world is a release world type, then get the tag if it exists for what it actually is.
-            _optionAAWorldType = AAWorldType.Release;
-            if (tag.TryGet<int>("AAWorldType", out int option))
-                _optionAAWorldType = (AAWorldType)option;
+            enabledOptions.Clear();
+            if(tag.Get<bool>("RemovedContentEnabled"))
+                enabledOptions.Add(AAWorldOption.Removed);
+            if (tag.Get<bool>("UnreleasedContentEnabled"))
+                enabledOptions.Add(AAWorldOption.Unreleased);
+            if (tag.Get<bool>("UnofficialContentEnabled"))
+                enabledOptions.Add(AAWorldOption.Unofficial);
         }
 
         private static bool perviousStateWorldCreation = false;
@@ -69,7 +76,10 @@ namespace AAModClassic.UI.WorldGen
                 UIPanel worldGenPanel = (UIPanel)baseChildren[0];
 
                 perviousStateWorldCreation = true;
-                _optionAAWorldType = AAWorldType.Release;
+                enabledOptions.Clear();
+                enabledOptions.Add(AAWorldOption.Removed);
+                enabledOptions.Add(AAWorldOption.Unreleased);
+                enabledOptions.Add(AAWorldOption.Unofficial);
 
                 UITextPanel<LocalizedText> backButton = (UITextPanel<LocalizedText>)baseChildren[1];
                 UITextPanel<LocalizedText> createButton = (UITextPanel<LocalizedText>)baseChildren[2];
@@ -97,24 +107,24 @@ namespace AAModClassic.UI.WorldGen
                 perviousStateWorldCreation = false;
         }
 
-        private void AddAAWorldOptions(UIWorldCreation worldCreation, UIText desc, UIElement container, float accumualtedHeight, MouseEvent clickEvent, string tagGroup, float usableWidthPercent)
+        private static void AddAAWorldOptions(UIWorldCreation worldCreation, UIText desc, UIElement container, float accumualtedHeight, MouseEvent clickEvent, string tagGroup, float usableWidthPercent)
         {
-            AAWorldType[] array = new AAWorldType[3] {
-                AAWorldType.Release,
-                AAWorldType.Mixed,
-                AAWorldType.Beta,
-            };
+            AAWorldOption[] array = [
+                AAWorldOption.Removed,
+                AAWorldOption.Unreleased,
+                AAWorldOption.Unofficial,
+            ];
 
             LocalizedText[] array2 = new LocalizedText[3] {
-                Language.GetText("Mods.AAModClassic.UI.Release"),
-                Language.GetText("Mods.AAModClassic.UI.Mixed"),
-                Language.GetText("Mods.AAModClassic.UI.Beta")
+                Language.GetText("Mods.AAModClassic.UI.Removed.Title"),
+                Language.GetText("Mods.AAModClassic.UI.Unreleased.Title"),
+                Language.GetText("Mods.AAModClassic.UI.Unofficial.Title")
             };
 
             LocalizedText[] array3 = new LocalizedText[3] {
-                Language.GetText("Mods.AAModClassic.UI.AAWorldDescriptionRelease"),
-                Language.GetText("Mods.AAModClassic.UI.AAWorldDescriptionMixed"),
-                Language.GetText("Mods.AAModClassic.UI.AAWorldDescriptionBeta")
+                Language.GetText("Mods.AAModClassic.UI.Removed.Description"),
+                Language.GetText("Mods.AAModClassic.UI.Unreleased.Description"),
+                Language.GetText("Mods.AAModClassic.UI.Unofficial.Description")
             };
 
             Color[] array4 = new Color[3] {
@@ -129,7 +139,7 @@ namespace AAModClassic.UI.WorldGen
                 "AAModClassic/Items/Vanity/Mask/AkumaMask"
             };
 
-            ModGroupOptionButton<AAWorldType>[] array6 = new ModGroupOptionButton<AAWorldType>[array.Length];
+            ModGroupOptionButton<AAWorldOption>[] array6 = new ModGroupOptionButton<AAWorldOption>[array.Length];
             for (int i = 0; i < array6.Length; i++)
             {
                 Vector2 iconOffset = i switch
@@ -139,7 +149,7 @@ namespace AAModClassic.UI.WorldGen
                     _ => new Vector2(4, 2)
                 };
 
-                ModGroupOptionButton<AAWorldType> groupOptionButton = new ModGroupOptionButton<AAWorldType>(array[i], array2[i], array3[i], array4[i], array5[i], 1f, 1f, 16f, iconOffset);
+                ModGroupOptionButton<AAWorldOption> groupOptionButton = new ModGroupOptionButton<AAWorldOption>(array[i], array2[i], array3[i], array4[i], array5[i], 1f, 1f, 16f, iconOffset);
                 groupOptionButton.Width = StyleDimension.FromPixelsAndPercent(-4 * (array6.Length - 1), 1f / (float)array6.Length * usableWidthPercent);
                 groupOptionButton.Left = StyleDimension.FromPercent(1f - usableWidthPercent);
                 groupOptionButton.HAlign = (float)i / (float)(array6.Length - 1);
@@ -148,7 +158,6 @@ namespace AAModClassic.UI.WorldGen
                 groupOptionButton.OnMouseOver += (_, _) => desc.SetText(groupOptionButton.Description);
                 groupOptionButton.OnMouseOut += worldCreation.ClearOptionDescription;
                 groupOptionButton.SetSnapPoint(tagGroup, i);
-                groupOptionButton.SetCurrentOption(AAWorldType.Release);
                 container.Append(groupOptionButton);
                 array6[i] = groupOptionButton;
             }
@@ -158,19 +167,22 @@ namespace AAModClassic.UI.WorldGen
 
         private void ClickAAWorldTypeOption(UIMouseEvent evt, UIElement listeningElement)
         {
-            ModGroupOptionButton<AAWorldType> groupOptionButton = (ModGroupOptionButton<AAWorldType>)listeningElement;
-            _optionAAWorldType = groupOptionButton.OptionValue;
-            ModGroupOptionButton<AAWorldType>[] sizeButtons = _aaWorldTypeButtons;
-            for (int i = 0; i < sizeButtons.Length; i++)
+            ModGroupOptionButton<AAWorldOption> groupOptionButton = (ModGroupOptionButton<AAWorldOption>)listeningElement;
+            AAWorldOption option = groupOptionButton.OptionValue;
+            if (!enabledOptions.Remove(option))
+                enabledOptions.Add(option);
+
+            ModGroupOptionButton<AAWorldOption>[] optionButtons = _aaWorldTypeButtons;
+            for (int i = 0; i < optionButtons.Length; i++)
             {
-                sizeButtons[i].SetCurrentOption(groupOptionButton.OptionValue);
+                optionButtons[i].SetCurrentOptions(enabledOptions);
             }
         }
     }
 
     public class ModGroupOptionButton<T> : UIElement, IGroupOptionButton
     {
-        private T _currentOption;
+        private HashSet<T> _currentOptions;
         private readonly Asset<Texture2D> _BasePanelTexture;
         private readonly Asset<Texture2D> _selectedBorderTexture;
         private readonly Asset<Texture2D> _hoveredBorderTexture;
@@ -199,8 +211,8 @@ namespace AAModClassic.UI.WorldGen
         {
             get
             {
-                if (_currentOption != null)
-                    return _currentOption.Equals(_myOption);
+                if (_currentOptions != null)
+                    return _currentOptions.Contains(_myOption);
 
                 return false;
             }
@@ -210,7 +222,7 @@ namespace AAModClassic.UI.WorldGen
         {
             _iconOffset = iconOffset ?? Vector2.Zero;
             _borderColor = Color.White;
-            _currentOption = option;
+            _currentOptions = [option];
             _myOption = option;
             Description = description;
             Width = StyleDimension.FromPixels(44f);
@@ -256,9 +268,9 @@ namespace AAModClassic.UI.WorldGen
             _title = uIText;
         }
 
-        public void SetCurrentOption(T option)
+        public void SetCurrentOptions(HashSet<T> options)
         {
-            _currentOption = option;
+            _currentOptions = options;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)

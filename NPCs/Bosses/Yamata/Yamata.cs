@@ -11,6 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.Localization;
+using AAModClassic.UI.Titles;
 
 
 namespace AAModClassic.NPCs.Bosses.Yamata
@@ -303,6 +304,8 @@ namespace AAModClassic.NPCs.Bosses.Yamata
 
         public override void AI()
         {
+            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+
             TargetClosest();
             HandleHeads();
 

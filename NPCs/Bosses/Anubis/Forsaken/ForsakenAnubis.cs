@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Items.Boss.Anubis.Forsaken;
+using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -12,6 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
 {
+    [AutoloadBossHead]
     public class ForsakenAnubis : ModNPC
     {
 		public override void SetStaticDefaults()
