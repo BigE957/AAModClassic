@@ -26,7 +26,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noGravity = true;
             NPC.width = 40;
             NPC.height = 40;
-            NPC.aiStyle = 52;
+            NPC.aiStyle = NPCAIStyleID.PlanteraHook;
             NPC.damage = 60;
             NPC.defense = 24;
             NPC.lifeMax = 4000;
@@ -55,7 +55,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.localAI[0] -= 4f;
                 flag48 = true;
             }
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0f)
                 {
@@ -66,7 +66,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.ai[1] = (int)(NPC.Center.X / 16f);
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0f || NPC.ai[1] == 0f)
                 {
@@ -124,7 +124,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             NPC.TargetClosest(true);
                             int num742 = (int)(Main.player[NPC.target].Center.X / 16f);
                             int num743 = (int)(Main.player[NPC.target].Center.Y / 16f);
-                            if (Main.tile[num742, num743].WallType > 0)
+                            if (Main.tile[num742, num743].WallType > WallID.None)
                             {
                                 num740 = num742;
                                 num741 = num743;
@@ -132,7 +132,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         }
                         try
                         {
-                            if (WorldGen.SolidTile(num740, num741) || Main.tile[num740, num741].WallType > 0 && (num736 > 500 || Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2))
+                            if (WorldGen.SolidTile(num740, num741) || Main.tile[num740, num741].WallType > WallID.None && (num736 > 500 || Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2))
                             {
                                 flag50 = true;
                                 NPC.ai[0] = num740;

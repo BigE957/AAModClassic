@@ -31,7 +31,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 			Projectile.Center = player.Center;
 			Projectile.position.Y = player.Center.Y-90;
 			Projectile.spriteDirection = player.direction;
-			if (player.dead || !player.HasBuff(ModContent.BuffType<EyeOfForsaken>()))
+			if (player.dead || !player.HasBuff(ModContent.BuffType<Buffs.EyeOfForsaken>()))
 			{
 				Projectile.Kill();
 			}

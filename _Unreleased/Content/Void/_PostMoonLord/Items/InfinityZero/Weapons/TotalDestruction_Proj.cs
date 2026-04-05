@@ -7,6 +7,7 @@ using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using AAModClassic._Unreleased.Content.Void.Dusts;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -218,7 +219,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                 Vector2 offset = Projectile.velocity.RotatedBy(1.57f, new Vector2()) * ((float)Main.rand.NextDouble() - 0.5f) *
                                  Projectile.width;
                 Dust dust = Main.dust[
-                    Dust.NewDust(dustPos + offset - Vector2.One * 4f, 8, 8, 31, 0.0f, 0.0f, ModContent.DustType<VoidDust_Unreleased>(), new Color(), 1.5f)];
+                    Dust.NewDust(dustPos + offset - Vector2.One * 4f, 8, 8, DustID.Smoke, 0.0f, 0.0f, ModContent.DustType<VoidDust_Unreleased>(), new Color(), 1.5f)];
                 dust.velocity = dust.velocity * 0.5f;
                 dust.velocity.Y = -Math.Abs(dust.velocity.Y);
 

@@ -7,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased._Aggregate.soc.weapons
+namespace AAModClassic._Unreleased._Aggregate.SoulOfCthulhu.weapons
 {
     public class Hurricane : ModProjectile
     {
@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
         {
             Projectile.width = 80;
             Projectile.height = 300;
-            Projectile.aiStyle = 145;
+            Projectile.aiStyle = ProjAIStyleID.WisdomWhirlwind;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
@@ -127,7 +127,7 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
                     value5.X *= -1f;
                     Vector2 value6 = new Vector2(6f, 10f);
                     Vector2 position2 = value + value2 * value5 * 0.5f + value6;
-                    Dust dust = Main.dust[Dust.NewDust(position2, 0, 0, 274, 0f, 0f, 0, default, 1f)];
+                    Dust dust = Main.dust[Dust.NewDust(position2, 0, 0, DustID.ApprenticeStorm, 0f, 0f, 0, default, 1f)];
                     dust.position = position2;
                     dust.fadeIn = 1.3f;
                     dust.scale = 0.87f;
@@ -146,7 +146,7 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
             Vector2 position3 = Projectile.Bottom + new Vector2(-25f, -25f);
             for (int k = 0; k < 4; k++)
             {
-                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, 31, Projectile.velocity.X, -2f, 100, default, 1f);
+                Dust dust2 = Dust.NewDustDirect(position3, 50, 25, DustID.Smoke, Projectile.velocity.X, -2f, 100, default, 1f);
                 dust2.fadeIn = 1.1f;
                 dust2.noGravity = true;
             }

@@ -2,6 +2,7 @@ using Terraria;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -53,7 +54,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (!Body.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghost heads'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost heads'
                 {
                     NPC.life = 0;
                     NPC.checkDead();

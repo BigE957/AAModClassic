@@ -27,7 +27,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noTileCollide = true;
             NPC.width = 86;
             NPC.height = 86;
-            NPC.aiStyle = 51;
+            NPC.aiStyle = NPCAIStyleID.Plantera;
             NPC.damage = 90;
             NPC.defense = 100;
             NPC.lifeMax = 150000;
@@ -98,7 +98,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 flag46 = true;
                 flag45 = true;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int num703 = 6000;
                 if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > num703)
@@ -108,7 +108,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
             AAModGlobalNPC.Rose = NPC.whoAmI;
-            if (NPC.localAI[0] == 0f && Main.netMode != 1)
+            if (NPC.localAI[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.localAI[0] = 1f;
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DeityRoseHook>(), NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
@@ -121,7 +121,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             int num706 = 0;
             for (int num707 = 0; num707 < 200; num707++)
             {
-                if (Main.npc[num707].active && Main.npc[num707].aiStyle == 52)
+                if (Main.npc[num707].active && Main.npc[num707].aiStyle == NPCAIStyleID.PlanteraHook)
                 {
                     num704 += Main.npc[num707].Center.X;
                     num705 += Main.npc[num707].Center.Y;
@@ -246,7 +246,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.defense *= 2;
                     NPC.damage *= 2;
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.localAI[1] += 1f;
                     if (NPC.life < NPC.lifeMax * 0.9)
@@ -350,7 +350,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.defense *= 4;
                     NPC.damage *= 2;
                 }
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (NPC.localAI[0] == 1f)
                     {
@@ -363,7 +363,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         {
                             for (int num724 = 0; num724 < 200; num724++)
                             {
-                                if (Main.npc[num724].active && Main.npc[num724].aiStyle == 52)
+                                if (Main.npc[num724].active && Main.npc[num724].aiStyle == NPCAIStyleID.PlanteraHook)
                                 {
                                     for (int num725 = 0; num725 < 3; num725++)
                                     {
@@ -379,7 +379,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         int num727 = 0;
                         for (int num728 = 0; num728 < 200; num728++)
                         {
-                            if (Main.npc[num728].active && Main.npc[num728].type == 264 && Main.npc[num728].ai[3] == 0f)
+                            if (Main.npc[num728].active && Main.npc[num728].type == NPCID.PlanterasTentacle && Main.npc[num728].ai[3] == 0f)
                             {
                                 num727++;
                             }
@@ -444,7 +444,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.life > 0)
             {
-                SoC.ComeBack = true;
+                SoulOfCthulhu.ComeBack = true;
                 int num440 = 0;
                 while (num440 < hit.Damage / (double)NPC.lifeMax * 100.0)
                 {

@@ -41,7 +41,7 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<Ashe>()) && !NPC.AnyNPCs(ModContent.NPCType<Haruka>()) && !NPC.AnyNPCs(ModContent.NPCType<AHSpawn>());
+            return !NPC.AnyNPCs(ModContent.NPCType<Ashe>()) && !NPC.AnyNPCs(ModContent.NPCType<Haruka.Haruka>()) && !NPC.AnyNPCs(ModContent.NPCType<AHSpawn>());
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
@@ -55,7 +55,7 @@ Non-Consumable"); */
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo2"), new Color(72, 78, 117));
-                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka>(), false, 1, 0, "Haruka Yamata", false);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka.Haruka>(), false, 1, 0, "Haruka Yamata", false);
                 return true;
             }
             else if (AAWorld.SistersSummoned && AAWorld.downedSisters)
@@ -64,7 +64,7 @@ Non-Consumable"); */
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo2"), new Color(102, 20, 48));
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
-                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka>(), false, 1, 0, "Haruka Yamata", false);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka.Haruka>(), false, 1, 0, "Haruka Yamata", false);
                 return true;
             }
             else

@@ -76,7 +76,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<HydraToxin>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
         }
     }
 }

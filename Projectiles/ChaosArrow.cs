@@ -43,10 +43,10 @@ namespace AAModClassic.Projectiles
 			switch (Main.rand.Next(2))
 			{
 				case 0:
-                    target.AddBuff(ModContent.BuffType<Dragonfire>(), 300);
+                    target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 300);
                     break;
 				case 1:
-                    target.AddBuff(ModContent.BuffType<HydraToxin>(), 300);
+                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 300);
                     break;
 			}
         }

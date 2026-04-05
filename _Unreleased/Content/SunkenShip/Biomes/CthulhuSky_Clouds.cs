@@ -3,6 +3,7 @@ using AAModClassic.Items.Accessories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
@@ -21,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
 
         public void Update(Texture2D texture)
         {
-			if(Main.netMode == 2 || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
+			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
 			Player player = Main.player[Main.myPlayer];
             bool CthulhuTime = Main.player[Main.myPlayer].InZone("Ocean") && AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;

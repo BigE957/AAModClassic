@@ -27,7 +27,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         {
             Item.width = 20;
             Item.height = 20;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.useStyle = 500;
@@ -127,7 +127,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
 		public void SpawnBoss(Player player, string name, string displayName)
 		{
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int bossType = Mod.Find<ModNPC>(name).Type;
 				if(NPC.AnyNPCs(bossType)){ return; } //don't spawn if there's already a boss!

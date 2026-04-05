@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Armor.Raider
             recipe.AddIngredient(ModContent.ItemType<VikingHelm>());
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ModContent.ItemType<HydraHide>(), 5);
-            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Items.Materials.Doomite>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

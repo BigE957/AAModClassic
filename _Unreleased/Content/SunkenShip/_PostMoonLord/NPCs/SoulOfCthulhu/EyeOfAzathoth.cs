@@ -193,7 +193,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath6, NPC.position);
                 }
-                if ((num1198 == num1194 - 14f || num1198 == num1194 - 7f || num1198 == num1194) && Main.netMode != 1)
+                if ((num1198 == num1194 - 14f || num1198 == num1194 - 7f || num1198 == num1194) && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 vector188 = Utils.Vector2FromElipse(NPC.localAI[0].ToRotationVector2(), value31 * NPC.localAI[1]);
                     Vector2 vector189 = Vector2.Normalize(v9) * 8f;
@@ -259,11 +259,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.localAI[1] = MathHelper.Lerp(NPC.localAI[1], value36, 0.5f);
                     for (int num1205 = 0; num1205 < 2; num1205++)
                     {
-                        int num1206 = Dust.NewDust(NPC.Center + vector190 - Vector2.One * 4f, 0, 0, 229, 0f, 0f, 0, default, 1f);
+                        int num1206 = Dust.NewDust(NPC.Center + vector190 - Vector2.One * 4f, 0, 0, DustID.Vortex, 0f, 0f, 0, default, 1f);
                         Main.dust[num1206].velocity += vector190 / 15f;
                         Main.dust[num1206].noGravity = true;
                     }
-                    if ((num1198 - 15f) % 10f == 0f && Main.netMode != 1)
+                    if ((num1198 - 15f) % 10f == 0f && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Vector2 vec4 = Vector2.Normalize(vector190);
                         if (vec4.HasNaNs())
@@ -271,7 +271,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             vec4 = Vector2.UnitY * -1f;
                         }
                         vec4 *= 4f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector190.X, NPC.Center.Y + vector190.Y, vec4.X, vec4.Y, 454, 55, 0f, Main.myPlayer, 30f, NPC.whoAmI);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + vector190.X, NPC.Center.Y + vector190.Y, vec4.X, vec4.Y, ProjectileID.PhantasmalSphere, 55, 0f, Main.myPlayer, 30f, NPC.whoAmI);
                         return;
                     }
                 }
@@ -289,7 +289,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             for (int num1207 = 0; num1207 < 1000; num1207++)
                             {
                                 Projectile projectile7 = Main.projectile[num1207];
-                                if (projectile7.active && projectile7.type == 454 && projectile7.ai[1] == NPC.whoAmI && projectile7.ai[0] != -1f)
+                                if (projectile7.active && projectile7.type == ProjectileID.PhantasmalSphere && projectile7.ai[1] == NPC.whoAmI && projectile7.ai[0] != -1f)
                                 {
                                     projectile7.velocity += NPC.velocity;
                                     projectile7.netUpdate = true;
@@ -313,7 +313,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         for (int num1208 = 0; num1208 < 1000; num1208++)
                         {
                             Projectile projectile8 = Main.projectile[num1208];
-                            if (projectile8.active && projectile8.type == 454 && projectile8.ai[1] == NPC.whoAmI && projectile8.ai[0] != -1f)
+                            if (projectile8.active && projectile8.type == ProjectileID.PhantasmalSphere && projectile8.ai[1] == NPC.whoAmI && projectile8.ai[0] != -1f)
                             {
                                 projectile8.ai[0] = -1f;
                                 projectile8.velocity = velocity8;
@@ -387,12 +387,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     float scaleFactor10 = MathHelper.Lerp(8f, 20f, (num1198 - 15f - 30f) / 140f);
                     NPC.velocity = Vector2.Normalize(vector191) * scaleFactor10;
                     NPC.rotation = NPC.rotation.AngleLerp(NPC.velocity.ToRotation() + 1.57079637f, 0.2f);
-                    if ((num1198 - 15f - 30f) % 10f == 0f && Main.netMode != 1)
+                    if ((num1198 - 15f - 30f) % 10f == 0f && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Vector2 vector192 = NPC.Center + Vector2.Normalize(vector191) * value31.Length() * 0.4f;
                         Vector2 vector193 = Vector2.Normalize(vector191) * 8f;
                         float ai3 = (6.28318548f * (float)Main.rand.NextDouble() - 3.14159274f) / 30f + 0.0174532924f * NPC.ai[2];
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), vector192.X, vector192.Y, vector193.X, vector193.Y, 452, 35, 0f, Main.myPlayer, 0f, ai3);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), vector192.X, vector192.Y, vector193.X, vector193.Y, ProjectileID.PhantasmalEye, 35, 0f, Main.myPlayer, 0f, ai3);
                         return;
                     }
                 }
@@ -448,7 +448,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     if (num1198 < num1194 - 15f)
                     {
-                        if (num1198 == 180f && Main.netMode != 1)
+                        if (num1198 == 180f && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             NPC.TargetClosest(false);
                             Vector2 vector195 = Main.player[NPC.target].Center - NPC.Center;
@@ -459,7 +459,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                                 num1214 = 1f;
                             }
                             vector195 = vector195.RotatedBy((double)(-(double)num1214 * 6.28318548f / 6f), default);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector195.X, vector195.Y, 455, 50, 0f, Main.myPlayer, num1214 * 6.28318548f / 540f, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector195.X, vector195.Y, ProjectileID.PhantasmalDeathray, 50, 0f, Main.myPlayer, num1214 * 6.28318548f / 540f, NPC.whoAmI);
                             NPC.ai[2] = (vector195.ToRotation() + 9.424778f) * num1214;
                             NPC.netUpdate = true;
                         }

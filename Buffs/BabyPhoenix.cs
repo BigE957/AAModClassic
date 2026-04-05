@@ -16,7 +16,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<BabyPhoenix>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Items.Summoning.Minions.BabyPhoenix>()] > 0)
 			{
 				modPlayer.BabyPhoenix = true;
 			}

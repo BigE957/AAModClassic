@@ -2,14 +2,48 @@
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Armor.Assassin;
 using AAModClassic.Items.Armor.Champion;
+using AAModClassic.Items.Armor.Champion.Carrot;
+using AAModClassic.Items.Armor.Champion.Drone;
+using AAModClassic.Items.Armor.Chaos;
+using AAModClassic.Items.Armor.Darkmatter;
+using AAModClassic.Items.Armor.Doomite;
+using AAModClassic.Items.Armor.Doomsday;
+using AAModClassic.Items.Armor.Draco;
+using AAModClassic.Items.Armor.GlowingMushium;
+using AAModClassic.Items.Armor.Hoodlum;
+using AAModClassic.Items.Armor.PerfectChaos;
+using AAModClassic.Items.Armor.Radium;
+using AAModClassic.Items.Armor.StripeMan;
 using AAModClassic.Items.Armor.Terra.Projectiles;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Boss.Equinox;
+using AAModClassic.Items.Boss.Yamata;
+using AAModClassic.Items.Dev;
+using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.Items.Dev.RuneBook;
+using AAModClassic.Items.Dev.Tools;
 using AAModClassic.Items.FishingItem;
+using AAModClassic.Items.FishingItem.Crate;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Misc;
+using AAModClassic.Items.Potions;
 using AAModClassic.Items.Usable;
+using AAModClassic.Items.Vanity.Apawn;
 using AAModClassic.Items.Vanity.Aves;
+using AAModClassic.Items.Vanity.Blazen;
+using AAModClassic.Items.Vanity.Dallin;
 using AAModClassic.Items.Vanity.Delly;
+using AAModClassic.Items.Vanity.Gibs;
+using AAModClassic.Items.Vanity.Grox;
 using AAModClassic.Items.Vanity.Hallam;
+using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Items.Vanity.Tails;
+using AAModClassic.Items.Vanity.Universe;
+using AAModClassic.Mounts;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
@@ -21,7 +55,10 @@ using AAModClassic.NPCs.Bosses.Yamata;
 using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.NPCs.Enemies.Inferno;
+using AAModClassic.NPCs.Enemies.Mire;
 using AAModClassic.Projectiles.AH;
+using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -804,7 +841,7 @@ namespace AAModClassic
                 }
             }
 
-            if (target.HasBuff(ModContent.BuffType<Forsaken>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
+            if (target.HasBuff(ModContent.BuffType<Buffs.Forsaken>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
             {
 				float num1 = 9f;
 				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
@@ -832,7 +869,7 @@ namespace AAModClassic
 					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
-				target.buffImmune[ModContent.BuffType<Forsaken>()] = true;
+				target.buffImmune[ModContent.BuffType<Buffs.Forsaken>()] = true;
 			}
         }
 
@@ -894,8 +931,8 @@ namespace AAModClassic
 
             if (ChaosMe)
             {
-                npc.AddBuff(ModContent.BuffType<DragonFire>(), 180);
-                npc.AddBuff(ModContent.BuffType<HydraToxin>(), 180);
+                npc.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+                npc.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
             }
 
             if (BrokenCode)
@@ -1007,7 +1044,7 @@ namespace AAModClassic
 
             if (HeartP && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
+                target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 600);
             }
             else if (HeartP && Player.statLife < (Player.statLifeMax / 3))
             {
@@ -1016,7 +1053,7 @@ namespace AAModClassic
 
             if (HeartS && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<HydraToxin>(), 600);
+                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
             }
             else if (HeartS && Player.statLife < (Player.statLifeMax / 3))
             {
@@ -1035,12 +1072,12 @@ namespace AAModClassic
 
             if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
             {
-                target.AddBuff(ModContent.BuffType<DragonFire>(), 900);
+                target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 900);
             }
 
             if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
             {
-                target.AddBuff(ModContent.BuffType<Hydratoxin>(), 900);
+                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 900);
             }
             if (StoneSoldier)
             {
@@ -1097,12 +1134,12 @@ namespace AAModClassic
 
                 if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<DragonFire>(), 900);
+                    target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 900);
                 }
 
                 if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<Hydratoxin>(), 900);
+                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 900);
                 }
             }
 
@@ -1170,7 +1207,7 @@ namespace AAModClassic
 
                 if (BlackLotusEmblem)
                 {
-                    target.AddBuff(ModContent.BuffType<Moonraze>(), 180);
+                    target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 180);
                 }
             }
 
@@ -1388,7 +1425,7 @@ namespace AAModClassic
 			}
 			if (artifactGuiltCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<EyeOfForsaken>(), 900);
+				Player.AddBuff(ModContent.BuffType<Buffs.EyeOfForsaken>(), 900);
 				artifactGuiltCharge = 0;
 			}
             if (!Greed1 && !Greed2)
@@ -3993,10 +4030,10 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterVisor_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelm>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
+                //else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelm>()))
+                //{
+                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelm_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
+                //}
                 else if (!Main.dayTime && modPlayer.DarkmatterSet && HasAndCanDraw(drawPlayer, ModContent.ItemType<DarkmatterHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DarkmatterHelmet_Head_Glow").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Nightcrawler, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -4013,10 +4050,10 @@ namespace AAModClassic
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHat_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
-                else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelm>()))
-                {
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelm_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
-                }
+                //else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelm>()))
+                //{
+                //    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelm_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);
+                //}
                 else if (Main.dayTime && modPlayer.Radium && HasAndCanDraw(drawPlayer, ModContent.ItemType<RadiumHelmet>()))
                 {
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/Items/Armor/Radium/RadiumHelmet_Head").Value, dyeHead, drawPlayer, position, 0, 0f, 0f, drawPlayer.GetImmuneAlphaPure(AAColor.Glow, drawInfo.shadow), drawPlayer.bodyFrame);

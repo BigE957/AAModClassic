@@ -69,7 +69,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.life <= 0)
             {
-                SoC.ComeBack = true;
+                SoulOfCthulhu.ComeBack = true;
             }
         }
 
@@ -173,7 +173,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             return false;
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = 0;   //boss drops
         }
@@ -289,7 +289,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.localAI[0] = 1f;
                 NPC.alpha = 255;
                 NPC.rotation = 0f;
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.ai[0] = -1f;
                     NPC.netUpdate = true;
@@ -651,7 +651,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[2] % num7 == 0f)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.Center);
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Vector2 vector6 = Vector2.Normalize(player.Center - vector) * (NPC.width + 20) / 2f + vector;
                         NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector6.X, (int)vector6.Y + 45, ModContent.NPCType<LeviathanBubble>(), 0, 0f, 0f, 0f, 0f, 255);
@@ -685,11 +685,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.Zombie9, vector);
                 }
-                if (Main.netMode != 1 && NPC.ai[2] == num9 - 30)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[2] == num9 - 30)
                 {
                     Vector2 vector7 = NPC.rotation.ToRotationVector2() * (Vector2.UnitX * NPC.direction) * (NPC.width + 20) / 2f + vector;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector7.X, vector7.Y, NPC.direction * 2, 8f, ModContent.ProjectileType<RazorbladeRift>(), 0, 0f, Main.myPlayer, 0f, 0f);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector7.X, vector7.Y, (float)(-(float)NPC.direction * 2), 8f, ModContent.ProjectileType<RazorbladeRift>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector7.X, vector7.Y, NPC.direction * 2, 8f, ModContent.ProjectileType<DeityLeviathan_RazorbladeRift>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector7.X, vector7.Y, (float)(-(float)NPC.direction * 2), 8f, ModContent.ProjectileType<DeityLeviathan_RazorbladeRift>(), 0, 0f, Main.myPlayer, 0f, 0f);
                 }
                 NPC.ai[2] += 1f;
                 if (NPC.ai[2] >= num9)
@@ -885,7 +885,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[2] % num14 == 0f)
                 {
                     SoundEngine.PlaySound(SoundID.NPCDeath19, NPC.Center);
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Vector2 vector10 = Vector2.Normalize(NPC.velocity) * (NPC.width + 20) / 2f + vector;
                         int num31 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector10.X, (int)vector10.Y + 45, ModContent.NPCType<LeviathanBubble>(), 0, 0f, 0f, 0f, 0f, 255);
@@ -915,9 +915,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.Zombie20, vector);
                 }
-                if (Main.netMode != 1 && NPC.ai[2] == num9 - 30)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[2] == num9 - 30)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector.X, vector.Y, 0f, 0f, ModContent.ProjectileType<RazorbladeRift>(), 0, 0f, Main.myPlayer, 1f, NPC.target + 1);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), vector.X, vector.Y, 0f, 0f, ModContent.ProjectileType<DeityLeviathan_RazorbladeRift>(), 0, 0f, Main.myPlayer, 1f, NPC.target + 1);
                 }
                 NPC.ai[2] += 1f;
                 if (NPC.ai[2] >= num9)
@@ -1116,7 +1116,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.Zombie20, vector);
                 }
-                if (Main.netMode != 1 && NPC.ai[2] == num12 / 2)
+                if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[2] == num12 / 2)
                 {
                     if (NPC.ai[1] == 0f)
                     {

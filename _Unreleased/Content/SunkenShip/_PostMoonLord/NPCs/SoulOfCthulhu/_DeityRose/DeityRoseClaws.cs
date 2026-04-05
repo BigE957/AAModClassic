@@ -24,7 +24,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             NPC.width = 24;
             NPC.height = 24;
-            NPC.aiStyle = 53;
+            NPC.aiStyle = NPCAIStyleID.PlanteraTentacle;
             NPC.damage = 60;
             NPC.defense = 20;
             NPC.lifeMax = 1000;
@@ -48,7 +48,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 num750 = (int)NPC.ai[3] - 1;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.localAI[0] -= 1f;
                 if (NPC.localAI[0] <= 0f)

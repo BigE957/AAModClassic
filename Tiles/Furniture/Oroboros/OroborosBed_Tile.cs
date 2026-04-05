@@ -1,6 +1,8 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks.Oroboros;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -56,12 +58,12 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			if (player.SpawnX == spawnX && player.SpawnY == spawnY)
 			{
 				player.RemoveSpawn();
-				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("Spawnpointremoved"), 255, 240, 20, false);
+				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Game.SpawnPointRemoved"), 255, 240, 20, false);
 			}
 			else if (Player.CheckSpawn(spawnX, spawnY))
 			{
 				player.ChangeSpawn(spawnX, spawnY);
-				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Lang.TilesInfo("Spawnpointset"), 255, 240, 20, false);
+				if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Game.SpawnPointSet"), 255, 240, 20, false);
 			}
 			return true;
         }

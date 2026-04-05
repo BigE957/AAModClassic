@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<DragonFire>(), 200);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 200);
         }
 
         public override void OnKill(int timeLeft)

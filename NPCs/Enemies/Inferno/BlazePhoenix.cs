@@ -108,7 +108,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 600);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

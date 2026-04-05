@@ -20,12 +20,12 @@ namespace AAModClassic._Removed.Content.Mire._PreHardmode.Weapons
             Item.height = 20;
             Item.useTime = 25;
             Item.useAnimation = 25;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = ProjectileID.PurificationPowder;
             Item.useAmmo = AmmoID.Bullet;
             Item.knockBack = 0;
             Item.value = 2000;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 12f;

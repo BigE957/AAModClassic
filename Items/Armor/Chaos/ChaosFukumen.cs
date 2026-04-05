@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Armor.Abyssal;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -54,7 +55,7 @@ namespace AAModClassic.Items.Armor.Chaos
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Dynaskull>());
+            recipe.AddIngredient(ModContent.ItemType<Items.Armor.Dynaskull.Dynaskull>());
             recipe.AddIngredient(null, "ChaosCrystal", 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

@@ -5,6 +5,7 @@ using Terraria;
 using System.Collections.Generic;
 using Terraria.Audio;
 using AAModClassic.Globals;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -25,7 +26,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.height = 58;
 			Item.useTime = 10;
 			Item.useAnimation = 10;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 0;
             Item.value = Item.buyPrice(1, 0, 0, 0);

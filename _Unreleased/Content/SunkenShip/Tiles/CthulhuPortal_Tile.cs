@@ -3,6 +3,7 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -16,7 +17,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
             Main.tileSolid[Type] = false;
             //TODOSOC
             //HitSound = 0;
-            DustType = 0;
+            DustType = DustID.Dirt;
             AddMapEntry(new Color(0, 80, 100));
         }
 

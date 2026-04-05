@@ -32,11 +32,11 @@ Doesn't require ammo"); */
             Item.height = 24;
             Item.useTime = 20;
             Item.useAnimation = 20; 
-            Item.useStyle = 5; 
+            Item.useStyle = ItemUseStyleID.Shoot; 
             Item.shoot = ModContent.ProjectileType<Antimatter_Unreleased>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             //TODOIZ
             //Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
             Item.autoReuse = true;

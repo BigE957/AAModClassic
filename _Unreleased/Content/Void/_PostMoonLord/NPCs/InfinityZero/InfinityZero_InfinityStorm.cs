@@ -59,7 +59,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
             }
             Projectile.ai[0] += 1f;
-            if (Projectile.ai[0] % 30f == 0f && Projectile.ai[0] < 180f && Main.netMode != 1)
+            if (Projectile.ai[0] % 30f == 0f && Projectile.ai[0] < 180f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int[] array4 = new int[5];
                 Vector2[] array5 = new Vector2[5];

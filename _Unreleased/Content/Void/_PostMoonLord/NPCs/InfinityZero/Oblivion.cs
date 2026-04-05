@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
@@ -233,7 +234,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 if (OblivionSpeech == 180)
                 {
-                    if (Main.netMode != 2 && Main.netMode != 1) Main.NewText(AAPlayer.ZeroKills + " kills...congratulations. You have no life", color1);
+                    if (Main.netMode != NetmodeID.Server && Main.netMode != NetmodeID.MultiplayerClient) Main.NewText(AAPlayer.ZeroKills + " kills...congratulations. You have no life", color1);
                 }
                 if (OblivionSpeech == 300)
                 {

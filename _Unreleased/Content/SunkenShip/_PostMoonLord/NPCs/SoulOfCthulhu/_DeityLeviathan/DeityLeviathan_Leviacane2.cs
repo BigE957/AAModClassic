@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
@@ -78,7 +79,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     Projectile.alpha = 60;
                 }
-                if (Projectile.type == 386 && Projectile.alpha < 100)
+                if (Projectile.type == ProjectileID.Cthulunado && Projectile.alpha < 100)
                 {
                     Projectile.alpha = 100;
                 }

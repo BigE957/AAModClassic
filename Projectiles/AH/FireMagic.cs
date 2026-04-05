@@ -82,7 +82,7 @@ namespace AAModClassic.Projectiles.AH
         {
             Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MagicBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-            target.AddBuff(ModContent.BuffType<DragonFire>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 600);
             Projectile.active = false;
 		}
     }

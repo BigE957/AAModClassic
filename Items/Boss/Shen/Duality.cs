@@ -71,9 +71,9 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             player.buffImmune[196] = true;
             player.buffImmune[197] = true;
             player.buffImmune[203] = true;
-            player.buffImmune[ModContent.BuffType<DragonFire>()] = true;
+            player.buffImmune[ModContent.BuffType<Buffs.DragonFire>()] = true;
             player.buffImmune[ModContent.BuffType<BurningAsh>()] = true;
-            player.buffImmune[ModContent.BuffType<HydraToxin>()] = true;
+            player.buffImmune[ModContent.BuffType<Buffs.HydraToxin>()] = true;
             player.buffImmune[ModContent.BuffType<Clueless>()] = true;
             player.buffImmune[ModContent.BuffType<Terrablaze>()] = true;
             player.buffImmune[ModContent.BuffType<DiscordInferno>()] = true;

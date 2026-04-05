@@ -97,7 +97,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<HydraToxin>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
         }
 
         public override void OnKill(int timeleft)

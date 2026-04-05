@@ -26,11 +26,11 @@ public class SquidStorm : ModItem
         Item.height = 32;
         Item.useTime = 6;
         Item.useAnimation = 28;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true; //so the item's animation doesn't do damage
         Item.knockBack = 3.5f;
         Item.value = Item.buyPrice(1, 0, 0, 0);
-        Item.rare = 5;
+        Item.rare = ItemRarityID.Pink;
         Item.UseSound = SoundID.Item103;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<CthulhuTentacle>();

@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
         {
             Projectile.width = 36;
             Projectile.height = 36;
-            Projectile.aiStyle = 84;
+            Projectile.aiStyle = ProjAIStyleID.ThickLaser;
             Projectile.hostile = true;
             Projectile.penetrate = -1;
             Projectile.alpha = 255;
@@ -149,14 +149,14 @@ namespace AAModClassic._Unreleased.NPCs.Bosses.SoC
                 float num804 = Projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
                 float num805 = (float)Main.rand.NextDouble() * 2f + 2f;
                 Vector2 vector71 = new Vector2((float)Math.Cos((double)num804) * num805, (float)Math.Sin((double)num804) * num805);
-                int num806 = Dust.NewDust(vector70, 0, 0, 229, vector71.X, vector71.Y, 0, default(Color), 1f);
+                int num806 = Dust.NewDust(vector70, 0, 0, DustID.Vortex, vector71.X, vector71.Y, 0, default(Color), 1f);
                 Main.dust[num806].noGravity = true;
                 Main.dust[num806].scale = 1.7f;
             }
             if (Main.rand.Next(5) == 0)
             {
                 Vector2 value37 = Projectile.velocity.RotatedBy(1.5707963705062866, default(Vector2)) * ((float)Main.rand.NextDouble() - 0.5f) * (float)Projectile.width;
-                int num807 = Dust.NewDust(vector70 + value37 - Vector2.One * 4f, 8, 8, 31, 0f, 0f, 100, default(Color), 1.5f);
+                int num807 = Dust.NewDust(vector70 + value37 - Vector2.One * 4f, 8, 8, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
                 Main.dust[num807].velocity *= 0.5f;
                 Main.dust[num807].velocity.Y = -Math.Abs(Main.dust[num807].velocity.Y);
             }

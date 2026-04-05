@@ -7,6 +7,7 @@ using AAModClassic.NPCs.Bosses.Athena;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
+using AAModClassic.Items.Banners;
 
 namespace AAModClassic.NPCs.Enemies.Sky
 {
@@ -100,7 +101,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                     }
                     if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {
-                        AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
+                        AcropolisAltar_Tile.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
                     }
                     BaseAI.KillNPC(NPC); 
                     NPC.netUpdate = true; 

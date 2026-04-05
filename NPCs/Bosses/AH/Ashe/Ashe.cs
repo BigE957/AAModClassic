@@ -14,6 +14,7 @@ using AAModClassic.NPCs.Bosses.AH;
 using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
+using AAModClassic.Items.Boss.AH;
 
 namespace AAModClassic.NPCs.Bosses.AH.Ashe
 {
@@ -541,7 +542,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
 
         public override void OnKill()
         {
-            int Haruka = NPC.CountNPCS(ModContent.NPCType<Haruka>());
+            int Haruka = NPC.CountNPCS(ModContent.NPCType<Haruka.Haruka>());
             if (Haruka == 0)
             {
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AHDeath>());

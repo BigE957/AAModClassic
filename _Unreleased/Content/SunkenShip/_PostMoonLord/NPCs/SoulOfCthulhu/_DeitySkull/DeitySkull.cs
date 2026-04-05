@@ -58,7 +58,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.life <= 0)
             {
-                SoC.ComeBack = true;
+                SoulOfCthulhu.ComeBack = true;
             }
         }
         //TODOSOC
@@ -102,7 +102,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 NPC.dontTakeDamage = true;
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.ai[0] == 0)
                 {
@@ -199,7 +199,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
 
 
-                if (Main.netMode == 1 || !expert || NPC.ai[3] != 6)
+                if (Main.netMode == NetmodeID.MultiplayerClient || !expert || NPC.ai[3] != 6)
                     return;
                 ++NPC.localAI[0];
                 if (NPC.localAI[0] <= 150.0)

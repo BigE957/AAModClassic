@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using AAModClassic.Base.BaseMod.Base;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -91,7 +92,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write((short)customAI[0]);
                 writer.Write((short)customAI[1]);
@@ -103,7 +104,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {				
                 customAI[0] = reader.ReadFloat();
                 customAI[1] = reader.ReadFloat();
@@ -167,7 +168,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (Body != null && Body.Reseting)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -198,7 +199,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (!Body.NPC.active)
             {
-                if (Main.netMode != 1) //force a kill to prevent 'ghost hands'
+                if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
                 {
                     NPC.life = 0;
                     NPC.checkDead();
@@ -217,7 +218,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			Player targetPlayer = Main.player[NPC.target];
 			if(targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
 
-			if(Main.netMode != 1)
+			if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				customAI[0]++;
 				int aiTimerFire = NPC.whoAmI % 3 == 0 ? 250 : NPC.whoAmI % 2 == 0 ? 250 : 200; //aiTimerFire is different per head by using whoAmI (which is usually different) 
@@ -291,7 +292,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				if(ChargeAttack)
 				{
 					NPC.velocity *= 1.5f; //slow WAY the fuck down (testing to see if speedy)
-					if(Main.netMode != 1)
+					if(Main.netMode != NetmodeID.MultiplayerClient)
 					{
 						ChargeAttack = false;
 						Vector2 point = GetVariance(false);

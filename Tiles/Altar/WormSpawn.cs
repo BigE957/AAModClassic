@@ -46,11 +46,11 @@ namespace AAModClassic.Tiles.Altar
 
             if (!NPC.AnyNPCs(ModContent.NPCType<DBPortal>()))
             {
-                WormAltar.SpawnBoss(player, ModContent.NPCType<DBPortal>(), false, player.Center);
+                WormAltar_Tile.SpawnBoss(player, ModContent.NPCType<DBPortal>(), false, player.Center);
             }
             if (!NPC.AnyNPCs(ModContent.NPCType<NCPortal>()))
             {
-                WormAltar.SpawnBoss(player, ModContent.NPCType<NCPortal>(), false, player.Center);
+                WormAltar_Tile.SpawnBoss(player, ModContent.NPCType<NCPortal>(), false, player.Center);
             }
 
             NPC.ai[0]++;

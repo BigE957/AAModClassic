@@ -49,7 +49,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.life <= 0)
             {
-                SoC.ComeBack = true;
+                SoulOfCthulhu.ComeBack = true;
             }
         }
 
@@ -174,7 +174,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             if (Main.rand.Next(5) == 0)
             {
-                int num410 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + NPC.height * 0.25f), NPC.width, (int)(NPC.height * 0.5f), 5, NPC.velocity.X, 2f, 0, default, 1f);
+                int num410 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + NPC.height * 0.25f), NPC.width, (int)(NPC.height * 0.5f), DustID.Blood, NPC.velocity.X, 2f, 0, default, 1f);
                 Dust expr_1447B_cp_0 = Main.dust[num410];
                 expr_1447B_cp_0.velocity.X = expr_1447B_cp_0.velocity.X * 0.5f;
                 Dust expr_1449B_cp_0 = Main.dust[num410];
@@ -268,7 +268,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             vector40 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
                             num415 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector40.X;
                             num416 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector40.Y;
-                            if (Main.netMode != 1)
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 float num418 = 12f;
                                 int num419 = 25;
@@ -411,7 +411,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         SoundEngine.PlaySound(SoundID.Roar, NPC.position);
                     }
                 }
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, Main.rand.Next(-30, 31) * 0.2f, Main.rand.Next(-30, 31) * 0.2f, 0, default, 1f);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, Main.rand.Next(-30, 31) * 0.2f, Main.rand.Next(-30, 31) * 0.2f, 0, default, 1f);
                 NPC.velocity.X = NPC.velocity.X * 0.98f;
                 NPC.velocity.Y = NPC.velocity.Y * 0.98f;
                 if (NPC.velocity.X > -0.1 && NPC.velocity.X < 0.1)
@@ -521,7 +521,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             NPC.localAI[2] = 0f;
                             SoundEngine.PlaySound(SoundID.Item34, NPC.position);
                         }
-                        if (Main.netMode != 1)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             NPC.localAI[1] += 1f;
                             if (NPC.life < NPC.lifeMax * 0.75)

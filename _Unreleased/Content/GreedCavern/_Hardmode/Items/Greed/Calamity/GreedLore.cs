@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.GreedCavern._Hardmode.Items.Greed.Calamity
@@ -33,7 +34,7 @@ Impossible, they were all purged except for the Devourer because he escaped into
         {
             Item.width = 20;
             Item.height = 20;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.consumable = false;
         }
 

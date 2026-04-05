@@ -67,7 +67,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
         
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-        	target.AddBuff(ModContent.BuffType<HydraToxin>(), 300);
+        	target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 300);
         }
 
         public override void OnKill(int timeLeft)

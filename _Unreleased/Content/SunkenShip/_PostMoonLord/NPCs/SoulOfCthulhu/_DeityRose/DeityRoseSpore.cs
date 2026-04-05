@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             NPC.width = 18;
             NPC.height = 18;
-            NPC.aiStyle = 50;
+            NPC.aiStyle = NPCAIStyleID.Spore;
             NPC.damage = 70;
             NPC.defense = 0;
             NPC.lifeMax = 1;

@@ -29,8 +29,8 @@ namespace AAModClassic.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(500) == 0)
             {
-                PlaceObject(i, j - 1, ModContent.TileType<Hotshroom>());
-                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom>(), 0, 0, -1, -1);
+                PlaceObject(i, j - 1, ModContent.TileType<Hotshroom_Tile>());
+                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom_Tile>(), 0, 0, -1, -1);
 
             }
         }

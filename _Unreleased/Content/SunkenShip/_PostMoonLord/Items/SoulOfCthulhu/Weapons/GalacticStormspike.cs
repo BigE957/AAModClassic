@@ -23,10 +23,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.width = 40;
             Item.height = 25;
             Item.maxStack = 1;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = BaseUtility.CalcValue(0, 35, 55, 20);
 
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
             //TODOSOC

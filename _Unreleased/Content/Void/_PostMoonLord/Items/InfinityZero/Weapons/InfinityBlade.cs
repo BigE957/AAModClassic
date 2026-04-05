@@ -9,6 +9,7 @@ using System;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic._Unreleased.Content.Void.Dusts;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 
@@ -32,7 +33,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.shoot = ModContent.ProjectileType<Rift_Unreleased>();
             Item.shootSpeed = 14f;
             Item.useAnimation = 13;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = Item.buyPrice(1, 0, 0, 0);
             //TODOIZ

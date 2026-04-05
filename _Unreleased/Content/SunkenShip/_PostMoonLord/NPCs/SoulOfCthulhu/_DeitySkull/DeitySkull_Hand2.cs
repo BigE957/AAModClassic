@@ -77,7 +77,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (!Main.npc[(int)NPC.ai[1]].active)
             {
                 NPC.ai[2] += 10f;
-                if (NPC.ai[2] > 50.0 || Main.netMode != 2)
+                if (NPC.ai[2] > 50.0 || Main.netMode != NetmodeID.Server)
                 {
                     NPC.life = -1;
                     NPC.HitEffect(0, 10.0);
@@ -169,7 +169,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
                         NPC.TargetClosest(true);
 
-                        if (Main.netMode == 1 || !Main.expertMode)
+                        if (Main.netMode == NetmodeID.MultiplayerClient || !Main.expertMode)
                             return;
                         ++NPC.localAI[0];
                         if (NPC.localAI[0] <= 150.0)

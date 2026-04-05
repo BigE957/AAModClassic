@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 {
@@ -19,7 +20,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
 
         public void Update(Texture2D texture)
         {
-			if(Main.netMode == 2 || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
+			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
 			Player player = Main.player[Main.myPlayer];
 			bool inStorm = Main.player[Main.myPlayer].GetModPlayer<AAPlayer_Unreleased>().ZoneStorm;

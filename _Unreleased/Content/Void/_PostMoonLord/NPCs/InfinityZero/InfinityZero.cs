@@ -10,6 +10,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Unreleased.Content.Void.Dusts;
+using AAModClassic.Items.Potions;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -70,7 +71,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
-            if (Main.netMode == 2 || Main.dedServ)
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
                 writer.Write((short)customAI[0]);
                 writer.Write((short)customAI[1]);
@@ -82,7 +83,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {				
                 customAI[0] = reader.ReadFloat();
                 customAI[1] = reader.ReadFloat();
@@ -106,10 +107,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (StormTimer >= 750)
             {
                 StormTimer = 0;
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityStorm>(), NPC.damage, 0, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityZero_InfinityStorm>(), NPC.damage, 0, Main.myPlayer);
             }
 
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
 			{
 				int ThreeQuartersHealth = NPC.lifeMax * (int).75f;
 				int HalfHealth = NPC.lifeMax * (int).5f;
@@ -191,36 +192,36 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             BaseAI.AIElemental(NPC, ref customAI, false, 0, false, false, 800f, 600f, 60, movementMax);
             if (!ZerosSpawned)
             {
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int latestNPC = NPC.whoAmI;
 					int handType = 0;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero1 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero2 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand1>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero3 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero4 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
 					handType++;
                     Zero5 = Main.npc[latestNPC];
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<IZHand2>(), 0, NPC.whoAmI);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), 0, NPC.whoAmI);
                     Main.npc[latestNPC].ai[0] = NPC.whoAmI;
 					Main.npc[latestNPC].ai[1] = handType;
                     Zero6 = Main.npc[latestNPC];
@@ -292,7 +293,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
 		{
 			potionType = ModContent.ItemType<GrandHealingPotion>();
         }
@@ -330,39 +331,39 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		{
             if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
-                if (Main.netMode != 1) BaseUtility.Chat("WARNING. Systems have reached 75% efficiency.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("WARNING. Systems have reached 75% efficiency.", new Color(158, 3, 32));
                 threeQuarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
             {
-                if (Main.netMode != 1) BaseUtility.Chat("Redirecting resources to offensive systems.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Redirecting resources to offensive systems.", new Color(158, 3, 32));
                 HalfHealth = true;
                 NPC.defense = 225;
-                IZHand1.damageIdle = 250;
-                IZHand1.damageCharging = 350;
+                InfinityZeroHand1.damageIdle = 250;
+                InfinityZeroHand1.damageCharging = 350;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
             {
-                if (Main.netMode != 1) BaseUtility.Chat("CRITICAL WARNING. Systems have reached 25% efficiency. Failure imminent.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("CRITICAL WARNING. Systems have reached 25% efficiency. Failure imminent.", new Color(158, 3, 32));
                 quarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 6 && !fifthHealth)
             {
                 fifthHealth = true;
-                if (Main.netMode != 1) BaseUtility.Chat("Terrarian, you will not win this. Rerouting all resources to offensive systems.", new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Terrarian, you will not win this. Rerouting all resources to offensive systems.", new Color(158, 3, 32));
                 NPC.defense = 175;
-                IZHand1.damageIdle = 350;
-                IZHand1.damageCharging = 500;
+                InfinityZeroHand1.damageIdle = 350;
+                InfinityZeroHand1.damageCharging = 500;
                 roarTimer = 200;
             }
             if (NPC.ai[3] == 6)
             {
                 CoreTimer--;
                 OpenCore = true;
-                if (Main.netMode != 1 && !FirstCoreLine)
+                if (Main.netMode != NetmodeID.MultiplayerClient && !FirstCoreLine)
                 {
                     FirstCoreLine = true;
                     BaseUtility.Chat("Zero Units in critical condition. Rerouting resources to repair systems. Core defense temporarily disabled.", new Color(158, 3, 32));
@@ -373,8 +374,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
-                    IZHand1.RepairMode = false;
-                    IZHand1.RepairMode = false;
+                    InfinityZeroHand1.RepairMode = false;
+                    InfinityZeroHand1.RepairMode = false;
                 }
 
             }
@@ -414,7 +415,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
 					Main.dust[num624].noGravity = true;
 					Main.dust[num624].velocity *= 5f;
-					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 244, 0f, 0f, 100, default, 2f);
+					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.CopperCoin, 0f, 0f, 100, default, 2f);
 					Main.dust[num624].velocity *= 2f;
 				}
 			}
@@ -492,7 +493,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 
 
-            string ZeroTex = "_Unreleased/NPCs/Bosses/Infinity/IZHand1";
+            string ZeroTex = "_Unreleased/NPCs/Bosses/Infinity/InfinityZeroHand1";
 
             //bottom arms
             DrawZero(spriteBatch, ZeroTex, ZeroTex + "_Glow", Zero6, drawColor);
@@ -510,9 +511,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public void DrawZero(SpriteBatch spriteBatch, string zeroTexture, string glowMaskTexture, NPC Zero, Color drawColor)
         {
-            if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is IZHand1 || Zero.ModNPC is IZHand2))
+            if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
-				IZHand1 handNPC = (IZHand1)Zero.ModNPC;
+				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
                 string ArmTex = "_Unreleased/NPCs/Bosses/Infinity/IZArm";
                 Texture2D ArmTex2D = Mod.GetTexture(ArmTex);
 				Texture2D zeroTex = Mod.GetTexture(zeroTexture);

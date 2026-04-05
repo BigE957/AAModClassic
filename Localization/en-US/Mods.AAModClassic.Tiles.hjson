@@ -3,11 +3,11 @@ CerberusKennel.MapEntry: Cerberus Kennel
 InvokerBookTile.MapEntry: Invoker Book Tile
 GravAltar.MapEntry: Grav Altar
 StarAltar.MapEntry: Star Altar
-WormAltar.MapEntry: Worm Altar
+WormAltar_Tile.MapEntry: Worm Altar
 Banners.MapEntry: Banners
 FatPixieBanner.MapEntry: Fat Pixie Banner
 ThixxieBanner.MapEntry: Thixxie Banner
-AcropolisAltar.MapEntry: Acropolis Altar
+AcropolisAltar_Tile.MapEntry: Acropolis Altar
 DragonEgg.MapEntry: Dragon Egg
 GreedAltar.MapEntry: Greed Altar
 HydraPod.MapEntry: Hydra Pod

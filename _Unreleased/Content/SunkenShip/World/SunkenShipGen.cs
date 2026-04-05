@@ -29,10 +29,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
             //TODOREFACTOR see if rotted wood uses era accurate sprite
-            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS>();
-            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform>();
+            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS_Tile>();
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform_Tile>();
             colorToTile[new Color(0, 0, 255)] = TileID.Rope;
-            colorToTile[new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal>();
+            colorToTile[new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal_Tile>();
             colorToTile[new Color(150, 150, 150)] = -2;
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World
             
             gen.Generate(origin.X, origin.Y - 28, true, true);
             
-            WorldGen.PlaceChest(origin.X + 13, origin.Y - 28 + 26, ModContent.TileType<SunkenChest>(), true);
+            WorldGen.PlaceChest(origin.X + 13, origin.Y - 28 + 26, (ushort)ModContent.TileType<SunkenChest_Tile>(), true);
             return true;
         }
     }

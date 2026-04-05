@@ -144,7 +144,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (Projectile.ai[1] < 1f)
                 {
                     int num328 = Main.expertMode ? 25 : 40;
-                    int num329 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - Projectile.direction * 30, Projectile.Center.Y - 4f, (float)-(float)Projectile.direction * 0.01f, 0f, ModContent.ProjectileType<Leviacane>(), num328, 4f, Projectile.owner, 16f, 15f);
+                    int num329 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - Projectile.direction * 30, Projectile.Center.Y - 4f, (float)-(float)Projectile.direction * 0.01f, 0f, ModContent.ProjectileType<DeityLeviathan_Leviacane>(), num328, 4f, Projectile.owner, 16f, 15f);
                     Main.projectile[num329].netUpdate = true;
                 }
                 else
@@ -178,7 +178,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         }
                     }
                     int num334 = Main.expertMode ? 100 : 140;
-                    int num335 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), num331 * 16 + 8, num330 * 16 - 24, 0f, 0f, ModContent.ProjectileType<Leviacane2>(), num334, 4f, Main.myPlayer, 16f, 24f);
+                    int num335 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), num331 * 16 + 8, num330 * 16 - 24, 0f, 0f, ModContent.ProjectileType<DeityLeviathan_Leviacane2>(), num334, 4f, Main.myPlayer, 16f, 24f);
                     Main.projectile[num335].netUpdate = true;
                 }
             }

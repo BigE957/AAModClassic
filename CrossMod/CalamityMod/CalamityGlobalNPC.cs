@@ -29,7 +29,7 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<AsheDragon>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<AsheOrbiter>()) CalamityDR = 0.7f;
 
-                if(npc.type == ModContent.NPCType<Haruka>()) CalamityDR = 0.6f;
+                if(npc.type == ModContent.NPCType<Haruka.Haruka>()) CalamityDR = 0.6f;
 
                 if(npc.type == ModContent.NPCType<AkumaA>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<Akuma>()) CalamityDR = 0.4f;

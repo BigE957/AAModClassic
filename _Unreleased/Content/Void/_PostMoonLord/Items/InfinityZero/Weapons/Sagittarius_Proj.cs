@@ -34,7 +34,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         {
             Projectile.width = 16;
             Projectile.height = 16;
-            Projectile.aiStyle = 75;
+            Projectile.aiStyle = ProjAIStyleID.HeldProjectile;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;

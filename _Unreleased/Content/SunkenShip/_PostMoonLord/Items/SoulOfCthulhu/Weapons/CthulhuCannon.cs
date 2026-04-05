@@ -25,7 +25,7 @@ public class CthulhuCannon : ModItem
         Item.height = 32;
         Item.useTime = 30;
         Item.useAnimation = 30;
-        Item.useStyle = 5;
+        Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true;
         Item.knockBack = 0f;
         Item.value = 5000000;

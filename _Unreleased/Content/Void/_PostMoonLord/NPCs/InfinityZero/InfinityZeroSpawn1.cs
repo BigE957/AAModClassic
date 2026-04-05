@@ -8,6 +8,7 @@ using System.IO;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
+using Terraria.ID;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -73,7 +74,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         FrameCounter = 0;
                         HoldTimer = NPC.ai[0] == 2f ? spawnState >= 3 ? 30 : 40 : spawnState >= 3 ? 50 : 60;
                         spawnState++;
-                        if (spawnState >= 5 && Main.netMode != 1)
+                        if (spawnState >= 5 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             SummonInfinity();
 
@@ -99,7 +100,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		public void SummonInfinity()
 		{
 			//roar is now handled when infinity spawns so his mouth opens
-             if(Main.netMode != 1)
+             if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Infinity>());
                 for (int i = 0; i < Main.player.Length; i++)

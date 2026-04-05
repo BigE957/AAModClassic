@@ -50,7 +50,7 @@ Forged in the flames of the blazing sun"); */
             recipe.AddIngredient(ModContent.ItemType<KindledKabuto>());
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(ModContent.ItemType<Doomite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<Items.Materials.Doomite>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }
