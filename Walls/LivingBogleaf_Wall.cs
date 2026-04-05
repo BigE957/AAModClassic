@@ -3,14 +3,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class MireJungleWall : ModWall
+    public class LivingBogleaf_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<AbyssiumDust>();
-			AddMapEntry(new Color(0, 0, 120));
-            Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
-        }
+			DustType = ModContent.DustType<BogleafDust>();
+			AddMapEntry(new Color(100, 0, 150));
+		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{

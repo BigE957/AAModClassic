@@ -3,19 +3,18 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class DepthsandstoneWall : ModWall
+    public class InfernoGrassWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<AbyssiumDust>();
-			AddMapEntry(new Color(0, 10, 150));
-            Terraria.ID.WallID.Sets.Conversion.Sandstone[Type] = true;
+			DustType = ModContent.DustType<RazeleafDust>();
+			AddMapEntry(new Color(200, 150, 0));
+            Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
-        
     }
 }

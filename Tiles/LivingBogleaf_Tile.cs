@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Tiles
 {
-    public class LivingBogleaves_Tile : ModTile
+    public class LivingBogleaf_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

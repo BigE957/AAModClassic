@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class Mushwall : ModWall
+    public class RedMushrooomWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

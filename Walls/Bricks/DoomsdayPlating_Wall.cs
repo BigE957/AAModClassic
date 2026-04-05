@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class DoomsdayWall : ModWall
+    public class DoomsdayPlating_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {

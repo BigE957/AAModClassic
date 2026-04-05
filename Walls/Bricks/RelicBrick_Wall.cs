@@ -5,15 +5,15 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class CovetiteBrickWall : ModWall
+    public class RelicBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = DustID.Gold;
-            AddMapEntry(new Color(60, 60, 0));
+            DustType = DustID.Ice;
+			AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
+            RegisterItemDrop(ModContent.ItemType<RelicWall>());
             Main.wallHouse[Type] = true;
         }
 

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class IncineriteWall : ModWall
+    public class IncineriteBrick_Wall : ModWall
 	{
         public override void SetStaticDefaults()
         {

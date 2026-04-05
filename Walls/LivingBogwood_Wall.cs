@@ -3,20 +3,17 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class DepthsandHardenedWall : ModWall
+    public class LivingBogwood_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<AbyssiumDust>();
-			AddMapEntry(new Color(0, 10, 150));
-            Terraria.ID.WallID.Sets.Conversion.HardenedSand[Type] = true;
-
-        }
+			DustType = ModContent.DustType<BogwoodDust>();
+			AddMapEntry(new Color(100, 0, 30));
+		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
-        
     }
 }

@@ -1,19 +1,19 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class DarkmatterWall : ModWall
+    public class RadiumBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = ModContent.DustType<DarkmatterDust>();
-            AddMapEntry(new Color(30, 30, 60));
+            DustType = ModContent.DustType<RadiumDust>();
+            AddMapEntry(new Color(60, 60, 30));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DarkmatterWall>());
+            RegisterItemDrop(ModContent.ItemType<RadiumWall>());
             Main.wallHouse[Type] = true;
         }
 

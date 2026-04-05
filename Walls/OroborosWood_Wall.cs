@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace AAModClassic.Walls
 {
-    public class OroborosWall : ModWall
+    public class OroborosWood_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

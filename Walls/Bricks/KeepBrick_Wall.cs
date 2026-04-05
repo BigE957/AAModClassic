@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks;
 
-public class KeepBrickWall : ModWall
+public class KeepBrick_Wall : ModWall
 {
 	public override void SetStaticDefaults()
 	{

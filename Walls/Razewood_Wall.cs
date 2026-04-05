@@ -4,13 +4,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class BogwoodWall : ModWall
+    public class Razewood_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<BogwoodDust>();
+			DustType = ModContent.DustType<RazewoodDust>();
             AddMapEntry(new Color(25, 12, 10));
-            RegisterItemDrop(ModContent.ItemType<BogwoodWall>());
+            RegisterItemDrop(ModContent.ItemType<RazewoodWall>());
             Main.wallHouse[Type] = true;
         }
 

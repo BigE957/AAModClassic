@@ -5,7 +5,7 @@ using Terraria.ID;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class DoomiteWall : ModWall
+    public class DoomitePlate_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

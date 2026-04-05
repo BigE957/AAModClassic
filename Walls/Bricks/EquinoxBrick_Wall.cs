@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class EquinoxWall : ModWall
+    public class EquinoxBrick_Wall : ModWall
     {
         public override void SetStaticDefaults()
         {

@@ -5,16 +5,16 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class EventideWall : ModWall
+    public class CovetiteBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            Main.wallHouse[Type] = true;
-            DustType = ModContent.DustType<AbyssiumDust>();
-			AddMapEntry(new Color(33, 37, 96));
+            DustType = DustID.Gold;
+            AddMapEntry(new Color(60, 60, 0));
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<EventideWall>());
+            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
+            Main.wallHouse[Type] = true;
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

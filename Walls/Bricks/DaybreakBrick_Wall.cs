@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class DaybreakBrickWall : ModWall
+    public class DaybreakBrick_Wall : ModWall
 	{
         public override void SetStaticDefaults()
         {

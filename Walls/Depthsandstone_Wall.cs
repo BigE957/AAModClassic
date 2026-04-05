@@ -3,17 +3,19 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class LivingBogleafWall : ModWall
+    public class Depthsandstone_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<BogleafDust>();
-			AddMapEntry(new Color(100, 0, 150));
-		}
+			DustType = ModContent.DustType<AbyssiumDust>();
+			AddMapEntry(new Color(0, 10, 150));
+            Terraria.ID.WallID.Sets.Conversion.Sandstone[Type] = true;
+        }
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
 		}
+        
     }
 }
