@@ -26,6 +26,9 @@ namespace AAModClassic
 
         [DefaultValue(true)]
         public bool EnableContentReplacement;
+
+        [DefaultValue(false)]
+        public bool DisableAnticheat;
     }
 
     public static class Config

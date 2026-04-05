@@ -40,24 +40,29 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[20] = true;
         }
 
-        //TODOSOC
-        /*
-        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
+        public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if (AAWorld_Unreleased.Anticheat == true)
+            if (!AAConfigClient.Instance.DisableAnticheat)
             {
-                if (damage > NPC.lifeMax / 8)
+                if (modifiers.GetDamage(item.damage, true) > NPC.lifeMax / 8)
                 {
                     Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
-                    damage = 0;
+                    modifiers.TargetDamageMultiplier *= 0;
                 }
-
-                return false;
             }
-
-            return true;
         }
-        */
+
+        public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
+        {
+            if (!AAConfigClient.Instance.DisableAnticheat)
+            {
+                if (modifiers.GetDamage(projectile.damage, true) > NPC.lifeMax / 8)
+                {
+                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
+                    modifiers.TargetDamageMultiplier *= 0;
+                }
+            }
+        }
 
         public override void FindFrame(int frameHeight)
         {

@@ -39,8 +39,6 @@ namespace AAModClassic._Unreleased
 
         public static int StormTiles = 0;
 
-        public static bool Anticheat = true;
-
         #region stupid bullshit
         public override void PreWorldGen()
         {
