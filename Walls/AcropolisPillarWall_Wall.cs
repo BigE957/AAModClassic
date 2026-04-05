@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class AcropolisPillar_Wall : ModWall
+    public class AcropolisPillarWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
