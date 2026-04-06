@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Projectiles.Anubis
 {

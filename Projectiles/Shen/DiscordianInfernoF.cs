@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -29,7 +30,7 @@ namespace AAModClassic.Projectiles.Shen
         public override void AI()
         {
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
-            int dustType = ModContent.DustType<Dusts.Discord>();
+            int dustType = ModContent.DustType<Dusts.Discord_Dust>();
             if (Projectile.localAI[0] == 0f)
             {
                 Projectile.localAI[0] = 1f;
@@ -45,7 +46,7 @@ namespace AAModClassic.Projectiles.Shen
         }
         public override void OnKill(int timeLeft)
         {
-            int dustType = ModContent.DustType<Dusts.Discord>();
+            int dustType = ModContent.DustType<Dusts.Discord_Dust>();
             int pieCut = 20;
 			for(int m = 0; m < pieCut; m++)
 			{

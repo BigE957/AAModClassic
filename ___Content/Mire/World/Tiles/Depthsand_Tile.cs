@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     class Depthsand_Tile : ModTile
     {

@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Dusts;
-using AAModClassic.Walls;
-using AAModClassic.Tiles;
+using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic.Projectiles
 {

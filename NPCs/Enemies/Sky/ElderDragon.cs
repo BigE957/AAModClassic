@@ -1,4 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Armor.Chaos;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -71,7 +73,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
         }
         public override void OnKill()
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DragonSpirit>());
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.DragonSpirit>());
         }
     }
 }

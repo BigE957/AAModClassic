@@ -83,7 +83,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Enemy = ModContent.NPCType<DeityDragon>();
                     break;
                 case 1:
-                    Enemy = ModContent.NPCType<EoA>();
+                    Enemy = ModContent.NPCType<EyeOfAzathoth>();
                     break;
                 default:
                     Enemy = ModContent.NPCType<RiftVision>();

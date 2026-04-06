@@ -42,11 +42,11 @@ namespace AAModClassic.Projectiles.Shen
             }
             Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
             bool flag5 = WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16));
-            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0, default, 1f)];
+            Dust dust19 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord_Dust>(), 0f, 0f, 0, default, 1f)];
             dust19.position = Projectile.Center;
             dust19.velocity = Vector2.Zero;
             dust19.noGravity = true;
-            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0, default, 1f)];
+            Dust dust18 = Main.dust[Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord_Dust>(), 0f, 0f, 0, default, 1f)];
             dust18.position = Projectile.Center;
             dust18.velocity = Vector2.Zero;
             dust18.noGravity = true;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
+using AAModClassic.Projectiles.Thorium;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -39,7 +40,7 @@ Grants 1 soul essence on direct hit"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DragonsClaw>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Thorium.DragonsClaw>();
             Item.shootSpeed = 0.1f;
 		}
 		

@@ -244,7 +244,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
                         int dust = spawnDust == 1 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.YamataADust>();
-                        if (Main.rand.Next(4) == 0) dust = ModContent.DustType<Dusts.Discord>();
+                        if (Main.rand.Next(4) == 0) dust = ModContent.DustType<Dusts.Discord_Dust>();
                         int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust, 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].noLight = true;

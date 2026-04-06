@@ -25,6 +25,7 @@ using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.Tiles;
 using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
 using AAModClassic.UI.WorldGen;
+using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic._Unreleased
 {

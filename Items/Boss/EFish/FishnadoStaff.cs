@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.EFish;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace AAModClassic.Items.Boss.EFish
 			Item.CloneDefaults(ItemID.TempestStaff);
 			Item.damage = 150;
 			Item.rare = ItemRarityID.Purple;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Fishnado>();
+			Item.shoot = ModContent.ProjectileType<Fishnado>();
         }
 
         public override void AddRecipes()

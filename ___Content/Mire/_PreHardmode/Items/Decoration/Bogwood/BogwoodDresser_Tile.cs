@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAModClassic.Tiles.Furniture.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodDresser_Tile : ModTile
 	{
@@ -170,7 +170,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = ModContent.ItemType<ExampleDresser>();
+					player.cursorItemIconID = ModContent.ItemType<BogwoodDresser>();
 					player.cursorItemIconText = "";
 				}
 			}

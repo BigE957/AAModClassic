@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Walls;
 
 namespace AAModClassic.Walls.Bricks
 {

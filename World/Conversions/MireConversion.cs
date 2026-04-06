@@ -1,5 +1,5 @@
-﻿using AAModClassic.Tiles;
-using AAModClassic.Walls;
+﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood;
+using AAModClassic.___Content.Mire.World.Tiles;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace AAModClassic.World.Conversions
                 if (success)
                 {
                     spirit.Call("RegisterConversionSet", "AcaciaTree", ModContent.TileType<MireGrass_Tile>(), type);
-                    ModContent.GetModTile(type).RegisterItemDrop(ModContent.ItemType<Items.Blocks.Bogwood>());
+                    ModContent.GetModTile(type).RegisterItemDrop(ModContent.ItemType<Bogwood>());
                 }
             }
         }

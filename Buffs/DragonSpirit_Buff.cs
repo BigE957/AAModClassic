@@ -1,3 +1,4 @@
+using AAModClassic.Items.Armor.Chaos;
 using Terraria;
 using Terraria.ModLoader;
 

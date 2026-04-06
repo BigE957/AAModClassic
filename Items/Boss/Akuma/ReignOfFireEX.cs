@@ -5,6 +5,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma;
 
 namespace AAModClassic.Items.Boss.Akuma   //where is located
 {

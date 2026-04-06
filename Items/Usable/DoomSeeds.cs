@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

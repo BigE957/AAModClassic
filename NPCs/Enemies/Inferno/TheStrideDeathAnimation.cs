@@ -64,9 +64,10 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             Main.dust[num].velocity *= 2.5f;
             Main.dust[num].noLight = true;
           }
-            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore5>(), NPC.damage/2, 4f);
-            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore4>(), NPC.damage / 2, 4f);
-            Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore3>(), NPC.damage / 2, 4f);            
+          //TODO: Fake projectile, gore, thing...
+            //Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2 (Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore5>(), NPC.damage/2, 4f);
+            //Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore4>(), NPC.damage / 2, 4f);
+            //Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(0, -40)), ModContent.ProjectileType<FlamebruteProjectileGore3>(), NPC.damage / 2, 4f);            
         }
 
 

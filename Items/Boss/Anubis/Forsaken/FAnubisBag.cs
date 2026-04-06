@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {

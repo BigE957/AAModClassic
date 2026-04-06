@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using System;
 

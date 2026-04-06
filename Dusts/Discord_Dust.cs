@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
-    public class Discord : ModDust
+    public class Discord_Dust : ModDust
 	{
         public override bool Update(Dust dust)
         {

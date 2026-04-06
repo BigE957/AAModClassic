@@ -1,5 +1,4 @@
 using AAModClassic.Dusts;
-using AAModClassic.Items.Blocks.BogwoodF;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ObjectInteractions;
@@ -8,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Furniture.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodBed_Tile : ModTile
 	{

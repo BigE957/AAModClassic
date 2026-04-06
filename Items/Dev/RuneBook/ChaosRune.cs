@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Projectiles.Greed.WKG;
 using Microsoft.Xna.Framework;
 using System;
@@ -254,13 +256,13 @@ namespace AAModClassic.Items.Dev.RuneBook
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ModContent.ProjectileType<FlairdraCyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X, vector55.Y, ModContent.ProjectileType<Flairdra_Cyclone>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 Main.projectile[id].minion = true;
             }
         }
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Buffs.Moonraze_Buff>();
+            int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
             target.AddBuff(buff, 1200);
             if(Main.dayTime)
             {

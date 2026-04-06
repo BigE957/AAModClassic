@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class DepthsandHardened_Tile : ModTile
     {

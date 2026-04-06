@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles;
 
 namespace AAModClassic.Items.Blocks
 {

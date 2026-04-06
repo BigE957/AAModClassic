@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Mire.World.Tiles;
 using AAModClassic.Dusts;
-using AAModClassic.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;

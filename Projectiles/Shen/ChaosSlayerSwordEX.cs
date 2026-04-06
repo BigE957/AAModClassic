@@ -84,7 +84,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnKill(int timeLeft)
         {
-			int dustType = swordType == 0 ? ModContent.DustType<Dusts.Discord>() : swordType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataDustLight>();
+			int dustType = swordType == 0 ? ModContent.DustType<Dusts.Discord_Dust>() : swordType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataDustLight>();
             int boomType = swordType == 0 ? ModContent.ProjectileType<MeteorBoom>() : swordType == 1 ? ModContent.ProjectileType<MeteorBoomBlue>() : ModContent.ProjectileType<MeteorBoomRed>();
             int pieCut = 20;
 			for(int m = 0; m < pieCut; m++)

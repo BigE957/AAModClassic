@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace AAModClassic.Tiles.Furniture.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodBookshelf_Tile : ModTile
 	{

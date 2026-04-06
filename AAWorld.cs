@@ -40,6 +40,8 @@ using AAModClassic.Tiles.Furniture.Oroboros;
 using AAModClassic.Items.Melee;
 using AAModClassic.NPCs.Bosses.Grips;
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.___Content.Mire.World.who;
 
 namespace AAModClassic
 {

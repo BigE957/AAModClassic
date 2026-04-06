@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AAModClassic.Tiles.Furniture.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodChandelier_Tile : ModTile
 	{

@@ -38,7 +38,7 @@ namespace AAModClassic.Items.DevTools
         {
             for (int a = 0; a < 8; a++)
             {
-                Dust.NewDust(player.Center, player.width, player.height, ModContent.DustType<Dusts.Feather2>(), Main.rand.Next(-2, 2), 1, 0);
+                Dust.NewDust(player.Center, player.width, player.height, ModContent.DustType<Feather2>(), Main.rand.Next(-2, 2), 1, 0);
             }
             return false;
 		}

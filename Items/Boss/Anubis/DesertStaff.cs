@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Anubis;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +31,7 @@ namespace AAModClassic.Items.Boss.Anubis
 			Item.rare = ItemRarityID.LightPurple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.DesertBlast>();
+			Item.shoot = ModContent.ProjectileType<DesertBlast>();
 			Item.shootSpeed = 12f;
 		}
 

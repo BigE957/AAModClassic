@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Akuma;
 
 namespace AAModClassic.Projectiles.Ammo
 {

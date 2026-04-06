@@ -1,9 +1,8 @@
-using AAModClassic.Tiles.Furniture.Bogwood;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks.BogwoodF
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodCandle : ModItem
     {

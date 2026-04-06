@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Furniture.Bogwood
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     public class BogwoodBathtub_Tile : ModTile
 	{
@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			// name.SetDefault("Bogwood Bathtub");
             AddMapEntry(new Color(12, 62, 205), name);
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.BogwoodF.BogwoodBathtub>());
+            RegisterItemDrop(ModContent.ItemType<BogwoodBathtub>());
         }
 
 		

@@ -26,6 +26,7 @@ using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic.Globals
 {

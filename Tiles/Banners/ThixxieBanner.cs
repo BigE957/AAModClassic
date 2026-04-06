@@ -1,3 +1,4 @@
+using AAModClassic.NPCs.Enemies.Hallow;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class AbyssVines_Tile : ModTile
     {

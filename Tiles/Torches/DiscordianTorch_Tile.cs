@@ -1,5 +1,6 @@
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -41,7 +42,7 @@ namespace AAModClassic.Tiles.Torches
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(150, 10, 180), name);
-			DustType = ModContent.DustType<Dusts.Discord>();
+			DustType = ModContent.DustType<Dusts.Discord_Dust>();
 			RegisterItemDrop(ModContent.ItemType<DiscordianTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };

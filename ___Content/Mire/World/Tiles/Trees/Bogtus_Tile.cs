@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Trees
+namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 {
     public class Bogtus_Tile : ModCactus
 	{

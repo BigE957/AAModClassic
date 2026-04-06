@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Walls;
 
 namespace AAModClassic.Walls.Bricks
 {

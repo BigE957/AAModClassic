@@ -2,7 +2,7 @@ using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Walls
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class Depthstone_Wall : ModWall
 	{

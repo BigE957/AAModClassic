@@ -1,4 +1,5 @@
 ﻿using AAModClassic;
+using AAModClassic.Items.Ranged;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

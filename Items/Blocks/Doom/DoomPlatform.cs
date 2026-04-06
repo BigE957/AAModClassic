@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Furniture.Doom;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

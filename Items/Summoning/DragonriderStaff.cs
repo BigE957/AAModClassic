@@ -1,5 +1,7 @@
 using System.Linq;
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -22,7 +24,7 @@ namespace AAModClassic.Items.Summoning
             Item.damage = 50;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DragonHead>();
+            Item.shoot = ModContent.ProjectileType<DragonHead>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;

@@ -8,6 +8,8 @@ using Terraria.Audio;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Buffs;
+using AAModClassic.Projectiles.Shen;
 
 namespace AAModClassic.Items.Boss.Shen   //where is located
 {
@@ -28,7 +30,7 @@ Inflicts Discordian Inferno"); */
 
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.Meteor>();
+            Item.shoot = ModContent.ProjectileType<Meteor>();
             Item.damage = 400;            
             Item.DamageType = DamageClass.Magic;            //if it's magic
             Item.width = 32;              

@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -37,7 +39,7 @@ I thought the sky was purple
 			Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;
-			Item.shoot = ModContent.ProjectileType<Projectiles.EnderMinion>();
+			Item.shoot = ModContent.ProjectileType<EnderMinion>();
 			Item.shootSpeed = 7f;
 			Item.buffType = ModContent.BuffType<EnderMinionBuff_Buff>();	//The buff added to player after used the item
 		}

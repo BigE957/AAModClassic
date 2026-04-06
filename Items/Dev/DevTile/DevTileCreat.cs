@@ -1,8 +1,8 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using AAModClassic.Tiles;
 using AAModClassic.Items.Dev.DevTile.Tiles;
+using AAModClassic.___Content.Mire.World.Tiles;
 
 namespace AAModClassic.Items.Dev.DevTile
 {

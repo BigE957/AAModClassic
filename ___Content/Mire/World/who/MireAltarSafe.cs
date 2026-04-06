@@ -1,11 +1,11 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire.World.who
 {
-    public class MireAltar : BaseAAItem
+    public class MireAltarSafe : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

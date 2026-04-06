@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.___Content._PLACEHOLDER
+namespace AAModClassic.___Content._PLACEHOLDER.crossmod
 {
     public class HydrasFury : CrossoverItem
 	{

@@ -34,7 +34,7 @@ Inflicts Moonraze"); */
             Item.knockBack = 3.5f;
             Item.damage = 160;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Flairdra_Holdout>();
+            Item.shoot = ModContent.ProjectileType<Flairdra_Holdout>();
             Item.shootSpeed = 24f;
             Item.UseSound = SoundID.Item21;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

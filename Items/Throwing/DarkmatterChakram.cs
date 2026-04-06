@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Throwing
 {

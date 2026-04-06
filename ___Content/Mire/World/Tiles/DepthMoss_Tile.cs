@@ -2,12 +2,11 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Items.Blocks;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Dusts;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class DepthMoss_Tile : ModTile
     {
@@ -26,7 +25,7 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Tink;
             MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Depthstone>());
+            RegisterItemDrop(ModContent.ItemType<Depthstone>());
         }
 
         public override void RandomUpdate(int i, int j)

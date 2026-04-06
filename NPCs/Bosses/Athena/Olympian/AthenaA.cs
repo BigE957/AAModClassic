@@ -132,17 +132,17 @@ namespace AAModClassic.NPCs.Bosses.Athena.Olympian
                             NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 150, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                             NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                             NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 150, (int)NPC.Center.Y - 75, ModContent.NPCType<SeraphA>())];
                             for (int i = 0; i < 3; i++)
                             {
-                                Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                                Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                             }
                         }
                         internalAI[3] = 0;

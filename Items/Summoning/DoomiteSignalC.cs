@@ -5,6 +5,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -30,7 +32,7 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DoomiteProbeC>();
+            Item.shoot = ModContent.ProjectileType<DoomiteProbeC>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<DoomiteProbeC_Buff>();
             Item.autoReuse = true;

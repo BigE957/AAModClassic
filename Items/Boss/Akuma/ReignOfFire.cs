@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

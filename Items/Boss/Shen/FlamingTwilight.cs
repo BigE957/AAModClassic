@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Shen;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Boss.Shen
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.DiscordianInfernoF>();
+			Item.shoot = ModContent.ProjectileType<DiscordianInfernoF>();
 			Item.shootSpeed = 11f;
 			Item.useAmmo = AmmoID.Gel;
 		}

@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Djinn;
 
 namespace AAModClassic.Items.Boss.Djinn
 {
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Boss.Djinn
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DustDevil>();
+            Item.shoot = ModContent.ProjectileType<DustDevil>();
             Item.damage = 25;
             Item.width = 52;
             Item.height = 52;

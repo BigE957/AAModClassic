@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
+	//TODO: think this used to be fire orbiter minion buff but dunno
+	/*
     public class FireSpirit_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
@@ -17,7 +19,7 @@ namespace AAModClassic.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<FireSpirit>()] > 0)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<FireSp>()] > 0)
 			{
 				modPlayer.FireSpirit = true;
 			}
@@ -32,4 +34,5 @@ namespace AAModClassic.Buffs
 			}
 		}
 	}
+	*/
 }

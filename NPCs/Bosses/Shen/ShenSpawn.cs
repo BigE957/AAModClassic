@@ -71,7 +71,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 {
                     Dust dust1;
                     Vector2 position1 = NPC.Center;
-                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
                     dust1.scale *= 1.3f;
                     dust1.velocity.Y -= 6;
@@ -183,7 +183,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     {
                         Dust dust1;
                         Vector2 position1 = NPC.Center;
-                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
                         dust1.scale *= 1.3f;
                         dust1.velocity.Y -= 6;
@@ -458,7 +458,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                 {
                     Dust dust1;
                     Vector2 position1 = NPC.Center;
-                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
                     dust1.scale *= 1.3f;
                     dust1.velocity.Y -= 6;
@@ -525,7 +525,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
                     {
                         Dust dust1;
                         Vector2 position1 = NPC.Center;
-                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
                         dust1.scale *= 1.3f;
                         dust1.velocity.Y -= 6;

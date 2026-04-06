@@ -2627,7 +2627,7 @@ namespace AAModClassic
 
                                 if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
                                 {
-                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0);
+                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord_Dust>(), 0f, 0f, 0);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
 
                                     Dust expr_292_cp_0 = Main.dust[dust];
@@ -3719,7 +3719,7 @@ namespace AAModClassic
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Dusts.Discord_Dust>(), 0f, -2.5f, 0);
 
                     Main.dust[dust].alpha = 100;
                     Main.dust[dust].noGravity = true;

@@ -73,7 +73,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
                     NPC.position = new Vector2(pos, 200);
                     for (int i = 0; i < 5; i++)
                     {
-                        Dust d = Main.dust[Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0)];
+                        Dust d = Main.dust[Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0)];
                         d.position = NPC.Center;
                     }
                 }
@@ -108,7 +108,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
                         for (int i = 0; i < 5; i++)
                         {
-                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                         }
 
                         NPC.active = false;
@@ -128,7 +128,7 @@ namespace AAModClassic.NPCs.Bosses.Athena
 
                         for (int i = 0; i < 5; i++)
                         {
-                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                         }
 
                         NPC.active = false;

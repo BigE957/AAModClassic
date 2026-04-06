@@ -1,7 +1,6 @@
-using AAModClassic;
 using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class Depthsandstone : BaseAAItem
     {

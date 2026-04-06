@@ -47,7 +47,7 @@ namespace AAModClassic.Projectiles
                 }
                 if (Main.rand.Next(3) == 1)
                 {
-                    DustType = ModContent.DustType<Dusts.Discord>();
+                    DustType = ModContent.DustType<Dusts.Discord_Dust>();
                 }
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustType, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }

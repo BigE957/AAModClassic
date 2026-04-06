@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles.Greed;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,7 +23,7 @@ namespace AAModClassic.Items.Boss.Greed
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Dig>();
+            Item.shoot = ModContent.ProjectileType<Dig>();
             Item.shootSpeed = 13f;     
         }   
 

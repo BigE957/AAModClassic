@@ -1,9 +1,10 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class LivingBogwood_Tile : ModTile
     {

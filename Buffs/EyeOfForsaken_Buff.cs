@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles.Anubis.Forsaken;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

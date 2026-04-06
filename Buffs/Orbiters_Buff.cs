@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ModLoader;
 

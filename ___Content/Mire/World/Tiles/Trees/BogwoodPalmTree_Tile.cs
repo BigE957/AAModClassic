@@ -3,7 +3,7 @@ using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Trees
+namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 {
     class BogwoodPalmTree_Tile : ModPalmTree
     {

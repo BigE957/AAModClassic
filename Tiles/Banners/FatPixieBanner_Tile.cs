@@ -1,3 +1,4 @@
+using AAModClassic.NPCs.Enemies.Hallow;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.Tiles.Banners
 {
-    public class FatPixieBanner : ModTile
+    public class FatPixieBanner_Tile : ModTile
 	{
 		public override void SetStaticDefaults() 
 		{

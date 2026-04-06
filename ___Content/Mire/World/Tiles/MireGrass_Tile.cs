@@ -6,7 +6,7 @@ using AAModClassic.Tiles.Plants;
 using AAModClassic.Dusts;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
-namespace AAModClassic.Tiles
+namespace AAModClassic.___Content.Mire.World.Tiles
 {
     public class MireGrass_Tile : ModTile
     {

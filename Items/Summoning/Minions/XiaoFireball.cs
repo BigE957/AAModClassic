@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Summoning.Minions
             {
                 float num573 = Projectile.velocity.X * 0.2f * num572;
                 float num574 = -(Projectile.velocity.Y * 0.2f) * num572;
-                int num575 = Dust.NewDust(Vector2.Zero, Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 100, default, 1f);
+                int num575 = Dust.NewDust(Vector2.Zero, Projectile.width, Projectile.height, ModContent.DustType<Dusts.Discord_Dust>(), 0f, 0f, 100, default, 1f);
                 Main.dust[num575].noGravity = true;
                 Main.dust[num575].velocity *= 0f;
                 Dust expr_178B4_cp_0 = Main.dust[num575];

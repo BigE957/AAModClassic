@@ -1,10 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
-using AAModClassic.Walls.Bricks;
 
-namespace AAModClassic.Items.Walls
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
 {
     public class EventideWall : BaseAAItem
     {

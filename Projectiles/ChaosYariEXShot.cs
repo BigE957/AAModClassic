@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    int DustType = ModContent.DustType<Dusts.Discord>();
+                    int DustType = ModContent.DustType<Dusts.Discord_Dust>();
                     Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType, Projectile.velocity.X * 0.025f, Projectile.velocity.Y * 0.025f, 40, Color.White, j == 0 ? 1.1f : 1.2f);
                 }
             }

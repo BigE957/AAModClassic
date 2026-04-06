@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.AH;
 
 namespace AAModClassic.Items.Boss.AH
 {
@@ -53,7 +54,7 @@ Right click to detonate fireballs"); */
         {
             if(player.altFunctionUse != 2)
             {
-                Item.shoot = ModContent.ProjectileType<Projectiles.FireMagic>();
+                Item.shoot = ModContent.ProjectileType<FireMagic>();
                 Item.UseSound = SoundID.Item20;
             }
             if (player.altFunctionUse == 2)

@@ -7,6 +7,8 @@ using AAModClassic.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using Terraria.DataStructures;
+using AAModClassic.___Content.Mire.World.Tiles;
+using AAModClassic.Items.FishingItem.Crate;
 
 namespace AAModClassic.Globals
 {

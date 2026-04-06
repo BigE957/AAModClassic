@@ -8,7 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trees
+namespace AAModClassic.___Content.Mire.World.Tiles.Trees
 {
     class BogwoodSapling_Tile : ModTile
     {

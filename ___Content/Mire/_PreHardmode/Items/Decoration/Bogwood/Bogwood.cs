@@ -1,7 +1,6 @@
-﻿using AAModClassic.Tiles;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration.Bogwood
 {
     class Bogwood : BaseAAItem
     {

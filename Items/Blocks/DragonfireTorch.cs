@@ -1,6 +1,7 @@
 using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Torches;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

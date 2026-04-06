@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Tiles.Banners;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +21,7 @@ namespace AAModClassic.Items.Banners
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
-			Item.createTile = ModContent.TileType<Tiles.Banners.FatPixieBanner_Tile>();
+			Item.createTile = ModContent.TileType<FatPixieBanner_Tile>();
 			Item.placeStyle = 0;
 		}
 	}

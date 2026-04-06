@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.Tiles.Crafters
+namespace AAModClassic.___Content.Mire.World.who
 {
     public class ChaosAltar1_Tile : ModTile
 	{
