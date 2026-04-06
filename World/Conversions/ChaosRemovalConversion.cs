@@ -16,27 +16,27 @@ namespace AAModClassic.World.Conversions
         public override void PostSetupContent()
         {
             //Tiles
-            TileLoader.RegisterConversion(ModContent.TileType<InfernoGrass>(), Type, TileID.Grass);
-            //TileLoader.RegisterConversion(ModContent.TileType<DoomGrass>(), Type, TileID.Grass); //Was a part of order solution, but seems unintentional, especially with the lack of doomstone
+            TileLoader.RegisterConversion(ModContent.TileType<InfernoGrass_Tile>(), Type, TileID.Grass);
+            //TileLoader.RegisterConversion(ModContent.TileType<DoomGrass_Tile>(), Type, TileID.Grass); //Was a part of order solution, but seems unintentional, especially with the lack of doomstone
 
-            TileLoader.RegisterConversion(ModContent.TileType<Torchstone>(), Type, TileID.Stone);
-            TileLoader.RegisterConversion(ModContent.TileType<Depthstone>(), Type, TileID.Stone);
+            TileLoader.RegisterConversion(ModContent.TileType<Torchstone_Tile>(), Type, TileID.Stone);
+            TileLoader.RegisterConversion(ModContent.TileType<Depthstone_Tile>(), Type, TileID.Stone);
 
-            TileLoader.RegisterConversion(ModContent.TileType<MireGrass>(), Type, TileID.JungleGrass);
+            TileLoader.RegisterConversion(ModContent.TileType<MireGrass_Tile>(), Type, TileID.JungleGrass);
 
-            TileLoader.RegisterConversion(ModContent.TileType<TorchAsh>(), Type, TileID.SnowBlock);
+            TileLoader.RegisterConversion(ModContent.TileType<TorchAsh_Tile>(), Type, TileID.SnowBlock);
 
-            TileLoader.RegisterConversion(ModContent.TileType<Torchsand>(), Type, TileID.Sand);
-            TileLoader.RegisterConversion(ModContent.TileType<Depthsand>(), Type, TileID.Sand);
+            TileLoader.RegisterConversion(ModContent.TileType<Torchsand_Tile>(), Type, TileID.Sand);
+            TileLoader.RegisterConversion(ModContent.TileType<Depthsand_Tile>(), Type, TileID.Sand);
 
-            TileLoader.RegisterConversion(ModContent.TileType<TorchsandHardened>(), Type, TileID.HardenedSand);
-            TileLoader.RegisterConversion(ModContent.TileType<DepthsandHardened>(), Type, TileID.HardenedSand);
+            TileLoader.RegisterConversion(ModContent.TileType<TorchsandHardened_Tile>(), Type, TileID.HardenedSand);
+            TileLoader.RegisterConversion(ModContent.TileType<DepthsandHardened_Tile>(), Type, TileID.HardenedSand);
 
-            TileLoader.RegisterConversion(ModContent.TileType<Torchsandstone>(), Type, TileID.Sandstone);
-            TileLoader.RegisterConversion(ModContent.TileType<Depthsandstone>(), Type, TileID.Sandstone);
+            TileLoader.RegisterConversion(ModContent.TileType<Torchsandstone_Tile>(), Type, TileID.Sandstone);
+            TileLoader.RegisterConversion(ModContent.TileType<Depthsandstone_Tile>(), Type, TileID.Sandstone);
 
-            TileLoader.RegisterConversion(ModContent.TileType<Torchice>(), Type, TileID.IceBlock);
-            TileLoader.RegisterConversion(ModContent.TileType<IndigoIce>(), Type, TileID.IceBlock);
+            TileLoader.RegisterConversion(ModContent.TileType<Torchice_Tile>(), Type, TileID.IceBlock);
+            TileLoader.RegisterConversion(ModContent.TileType<IndigoIce_Tile>(), Type, TileID.IceBlock);
 
             //Walls
             WallLoader.RegisterConversion(ModContent.WallType<TorchstoneWall>(), Type, WallID.Stone);

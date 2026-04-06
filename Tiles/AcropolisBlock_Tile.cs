@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles
         {
             Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<AcropolisBlock2>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AcropolisBlock2_Tile>()] = true;
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(66, 78, 92));
             DustType = DustID.Marble;

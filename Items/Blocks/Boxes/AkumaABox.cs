@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Blocks.Boxes
 			Item.useTime = 10;
 			Item.autoReuse = true;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<AkumaABox>();
+			Item.createTile = ModContent.TileType<AkumaABox_Tile>();
 			Item.width = 24;
 			Item.height = 24;
 			Item.rare = ItemRarityID.LightRed;

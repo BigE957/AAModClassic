@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Red;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.createTile = ModContent.TileType<MoonAltar>();
+			Item.createTile = ModContent.TileType<MoonAltar_Tile>();
 		}
 
 		public override void AddRecipes()

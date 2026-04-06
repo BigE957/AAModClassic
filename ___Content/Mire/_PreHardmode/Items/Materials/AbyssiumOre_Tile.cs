@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles.Ore
 			Main.tileMergeDirt[Type] = true;
             Main.tileOreFinderPriority[Type] = 330; 
             Main.tileSpelunker[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<Depthstone>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<Depthstone_Tile>()] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;

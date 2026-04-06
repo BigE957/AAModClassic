@@ -31,7 +31,7 @@ namespace AAModClassic.Tiles.Crafters
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]
             {
-                ModContent.TileType<ACS>(),
+                ModContent.TileType<ACS_Tile>(),
             };
             AnimationFrameHeight = 54;
         }

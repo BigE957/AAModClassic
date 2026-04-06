@@ -25,7 +25,7 @@ public class TerraBed : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraBed>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraBed_Tile>();
 	}
 
 	public override void AddRecipes()

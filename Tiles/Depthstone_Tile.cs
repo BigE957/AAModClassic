@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<AbyssiumOre>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssiumOre_Tile>()] = true;
             Main.tileMergeDirt[Type] = true;
             TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileBlendAll[Type] = false;

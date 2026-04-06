@@ -25,6 +25,6 @@ public class GreedPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.GreedPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.GreedPainting_Tile>();
 	}
 }

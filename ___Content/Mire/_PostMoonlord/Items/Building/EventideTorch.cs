@@ -27,7 +27,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<EventideTorch>();
+			Item.createTile = ModContent.TileType<EventideTorch_Tile>();
 			Item.flame = true;
             AARarity = 13;
             Item.value = Item.sellPrice(0, 0, 50, 0);

@@ -25,6 +25,6 @@ public class AkumaPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AkumaPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AkumaPainting_Tile>();
 	}
 }

@@ -1,4 +1,5 @@
 using AAModClassic.Bases;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class MidnightWrath : Javelin
+    public class MidnightWrath_Proj : Javelin
     {
         public override void SetStaticDefaults()
         {
@@ -23,8 +24,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().CanImpale = true;
-            Projectile.GetGlobalProjectile<Buffs.ImplaingProjectile>().damagePerImpaler = 24;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().CanImpale = true;
+            Projectile.GetGlobalProjectile<ImplaingProjectile>().damagePerImpaler = 24;
             maxStickingJavelins = 12;
             rotationOffset = (float)Math.PI / 4;
         }

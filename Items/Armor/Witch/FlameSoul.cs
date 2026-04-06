@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Armor.Witch
             bool flag64 = Projectile.type == ModContent.ProjectileType<FlameSoul>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<FlameSoul>(), 3600);
+            player.AddBuff(ModContent.BuffType<Buffs.FlameSoul_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead || !modPlayer.Witch)

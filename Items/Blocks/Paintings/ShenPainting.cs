@@ -25,6 +25,6 @@ public class ShenPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShenPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShenPainting_Tile>();
 	}
 }

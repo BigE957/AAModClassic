@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Boss.Zero
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<ZeroTrophy>();
+			Item.createTile = ModContent.TileType<ZeroTrophy_Tile>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

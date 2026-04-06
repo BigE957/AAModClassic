@@ -16,27 +16,27 @@ namespace AAModClassic.World.Conversions
     {
         public override void PostSetupContent()
         {
-            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<InfernoGrass>());
+            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<InfernoGrass_Tile>());
             WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<InfernoGrassWall>());
             WallLoader.RegisterConversion(WallID.GrassUnsafe, Type, ModContent.WallType<InfernoGrassWall>());
             
-            TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Torchstone>());
+            TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Torchstone_Tile>());
             WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<TorchstoneWall>());
             
-            TileLoader.RegisterConversion(TileID.Sand, Type, ModContent.TileType<Torchsand>());
-            TileLoader.RegisterConversion(TileID.HardenedSand, Type, ModContent.TileType<TorchsandHardened>());
+            TileLoader.RegisterConversion(TileID.Sand, Type, ModContent.TileType<Torchsand_Tile>());
+            TileLoader.RegisterConversion(TileID.HardenedSand, Type, ModContent.TileType<TorchsandHardened_Tile>());
             WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<TorchsandHardenedWall>());
-            TileLoader.RegisterConversion(TileID.Sandstone, Type, ModContent.TileType<Torchsandstone>());
+            TileLoader.RegisterConversion(TileID.Sandstone, Type, ModContent.TileType<Torchsandstone_Tile>());
             WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<TorchsandstoneWall>());
             
-            TileLoader.RegisterConversion(TileID.SnowBlock, Type, ModContent.TileType<TorchAsh>());
-            TileLoader.RegisterConversion(TileID.IceBlock, Type, ModContent.TileType<Torchice>());
+            TileLoader.RegisterConversion(TileID.SnowBlock, Type, ModContent.TileType<TorchAsh_Tile>());
+            TileLoader.RegisterConversion(TileID.IceBlock, Type, ModContent.TileType<Torchice_Tile>());
             
-            TileLoader.RegisterConversion(TileID.LivingWood, Type, ModContent.TileType<LivingRazewood>());
-            TileLoader.RegisterConversion(TileID.LivingMahogany, Type, ModContent.TileType<LivingRazewood>());
+            TileLoader.RegisterConversion(TileID.LivingWood, Type, ModContent.TileType<LivingRazewood_Tile>());
+            TileLoader.RegisterConversion(TileID.LivingMahogany, Type, ModContent.TileType<LivingRazewood_Tile>());
             
-            TileLoader.RegisterConversion(TileID.LeafBlock, Type, ModContent.TileType<LivingRazeleaves>());
-            TileLoader.RegisterConversion(TileID.LivingMahoganyLeaves, Type, ModContent.TileType<LivingRazeleaves>());
+            TileLoader.RegisterConversion(TileID.LeafBlock, Type, ModContent.TileType<LivingRazeleaves_Tile>());
+            TileLoader.RegisterConversion(TileID.LivingMahoganyLeaves, Type, ModContent.TileType<LivingRazeleaves_Tile>());
         }
     }
 }

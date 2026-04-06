@@ -37,8 +37,8 @@ namespace AAModClassic.Tiles.Plants
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 			TileObjectData.newTile.AnchorValidTiles = new int[]
 			{
-                ModContent.TileType<InfernoGrass>(),
-                ModContent.TileType<Torchstone>(),
+                ModContent.TileType<InfernoGrass_Tile>(),
+                ModContent.TileType<Torchstone_Tile>(),
             };
 			TileObjectData.newTile.AnchorAlternateTiles = new int[]
 			{

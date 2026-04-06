@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.AH
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<HarukaTrophy>();
+			Item.createTile = ModContent.TileType<HarukaTrophy_Tile>();
 		}
     }
 }

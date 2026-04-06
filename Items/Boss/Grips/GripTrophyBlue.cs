@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Grips
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<GripBlueTrophy>();
+			Item.createTile = ModContent.TileType<GripBlueTrophy_Tile>();
 		}
 	}
 }

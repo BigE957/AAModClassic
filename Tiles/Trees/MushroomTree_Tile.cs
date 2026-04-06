@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<Mycelium>()];
+            GrowsOnTileId = [ModContent.TileType<Mycelium_Tile>()];
         }
 
         public override int DropWood()

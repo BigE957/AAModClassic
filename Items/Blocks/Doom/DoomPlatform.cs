@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.Doom
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<DoomPlatform>();
+			Item.createTile = ModContent.TileType<DoomPlatform_Tile>();
 		}
 
 		public override void AddRecipes()

@@ -70,7 +70,7 @@ namespace AAModClassic.Items.Melee
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 500);
-			target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
+			target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
         }
 	}
 }

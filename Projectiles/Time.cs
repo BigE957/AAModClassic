@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles
                 }
                 else
                 {
-                    Buff = ModContent.BuffType<Moonraze>();
+                    Buff = ModContent.BuffType<Moonraze_Buff>();
                 }
 
                 target.AddBuff(Buff, 180);

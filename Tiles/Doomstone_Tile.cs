@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<Apocalyptite>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<Apocalyptite_Tile>()] = true;
             Main.tileMergeDirt[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;

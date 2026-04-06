@@ -25,6 +25,6 @@ public class YamataPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.YamataPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.YamataPainting_Tile>();
 	}
 }

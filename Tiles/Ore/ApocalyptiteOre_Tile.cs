@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Ore
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<Doomstone>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<Doomstone_Tile>()] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileOreFinderPriority[Type] = 860;
             Main.tileBlockLight[Type] = true;

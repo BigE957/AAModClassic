@@ -39,7 +39,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<YamataTrophy>();
+			Item.createTile = ModContent.TileType<YamataTrophy_Tile>();
 		}
 	}
 }

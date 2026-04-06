@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<RazewoodClock>();
+            Item.createTile = ModContent.TileType<RazewoodClock_Tile>();
         }
         public override void AddRecipes()
         {

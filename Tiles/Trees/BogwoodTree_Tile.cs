@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<AbyssGrass>(), ModContent.TileType<MireGrass>()];
+            GrowsOnTileId = [ModContent.TileType<AbyssGrass_Tile>(), ModContent.TileType<MireGrass_Tile>()];
         }
 
         public override int DropWood()

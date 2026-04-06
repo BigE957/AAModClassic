@@ -8,7 +8,7 @@ namespace AAModClassic.Tiles.Trees
 	{
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<Depthsand>()];
+            GrowsOnTileId = [ModContent.TileType<Depthsand_Tile>()];
         }
 
         public override Asset<Texture2D> GetFruitTexture()

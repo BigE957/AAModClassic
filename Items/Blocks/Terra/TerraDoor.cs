@@ -25,7 +25,7 @@ public class TerraDoor : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-		Item.createTile = ModContent.TileType<TerraDoorClosed>();
+		Item.createTile = ModContent.TileType<TerraDoorClosed_Tile>();
 	}
 
 	public override void AddRecipes()

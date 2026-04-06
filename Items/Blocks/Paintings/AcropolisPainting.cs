@@ -25,6 +25,6 @@ public class AcropolisPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AcropolisPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AcropolisPainting_Tile>();
 	}
 }

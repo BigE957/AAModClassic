@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Banners
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
-			Item.createTile = ModContent.TileType<ThixxieBanner>();
+			Item.createTile = ModContent.TileType<Tiles.Banners.ThixxieBanner_Tile>();
 			Item.placeStyle = 0;
 		}
 	    public override void AddRecipes()

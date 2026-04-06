@@ -39,7 +39,7 @@ Inflicts daybroken"); */
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
-            Item.shoot = ModContent.ProjectileType<SunSpear>();  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<Projectiles.Akuma.SunSpear>();  //put your Spear projectile name
             Item.shootSpeed = 7f;
         }
 

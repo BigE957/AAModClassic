@@ -18,7 +18,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<EventideBrick>();
+            Item.createTile = ModContent.TileType<EventideBrick_Tile>();
         }
 
         public override void SetStaticDefaults()

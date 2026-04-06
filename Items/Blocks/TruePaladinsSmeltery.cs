@@ -32,7 +32,7 @@ Functions as most necessary crafting stations"); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
-            Item.createTile = ModContent.TileType<TruePaladinsSmeltery>();
+            Item.createTile = ModContent.TileType<TruePaladinsSmeltery_Tile>();
         }
 
 

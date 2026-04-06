@@ -31,7 +31,7 @@ Functions as a Hellforge, Hellstone Anvil, Alchemy Table, Demon Altar, Tinkerer'
             Item.rare = ItemRarityID.Pink;
             Item.consumable = true;
             Item.value = 150;
-            Item.createTile = ModContent.TileType<HaphestusForge>();
+            Item.createTile = ModContent.TileType<HaphestusForge_Tile>();
         }
 
 

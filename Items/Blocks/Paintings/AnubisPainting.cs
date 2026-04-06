@@ -25,6 +25,6 @@ public class AnubisPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AnubisPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.AnubisPainting_Tile>();
 	}
 }

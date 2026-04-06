@@ -188,12 +188,12 @@ namespace AAModClassic.Globals
 
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
             {
                 return false;
             }
@@ -203,7 +203,7 @@ namespace AAModClassic.Globals
 
         public override bool CanExplode(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
@@ -213,12 +213,12 @@ namespace AAModClassic.Globals
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<ChaosAltar2_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar1_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<ChaosAltar2_Tile>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar>()))
+            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
             {
                 return false;
             }
@@ -234,9 +234,9 @@ namespace AAModClassic.Globals
                 {
                     int style = Main.rand.Next(5);
 
-                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom>(), false, style))
+                    if (PlaceObject(i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), false, style))
                     {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom>(), style, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MadnessShroom_Tile>(), style, 0, -1, -1);
                     }
                 }
             }
@@ -245,9 +245,9 @@ namespace AAModClassic.Globals
             {
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.Next(800) == 0)
                 {
-                    if (PlaceObject(i, j - 1, ModContent.TileType<Carrot>(), false, 0))
+                    if (PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
                     {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot>(), 0, 0, -1, -1);
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot_Tile>(), 0, 0, -1, -1);
                     }
                 }
             }
@@ -776,21 +776,21 @@ namespace AAModClassic.Globals
                 }
                 else if(itemtype == ModContent.ItemType<Abyssium>())
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Depthstone>())
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Depthstone_Tile>())
                     {
                         return itemtype;
                     }
                 }
                 else if(itemtype == ModContent.ItemType<Incinerite>())
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Torchstone>())
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Torchstone_Tile>())
                     {
                         return itemtype;
                     }
                 }
                 else if(itemtype == ModContent.ItemType<Apocalyptite>())
                 {
-                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Doomstone>() && AAWorld.downedZero)
+                    if(Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Doomstone_Tile>() && AAWorld.downedZero)
                     {
                         return itemtype;
                     }

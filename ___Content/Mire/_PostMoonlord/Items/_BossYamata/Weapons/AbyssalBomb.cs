@@ -10,7 +10,7 @@ using AAModClassic.Globals;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
-    public class Toxibomb : BaseAAItem
+    public class AbyssalBomb : BaseAAItem
     {
         public override void SetDefaults()
         {
@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons  
             Item.mana = 9;
             Item.UseSound = SoundID.Item20; 
             Item.autoReuse = true; 
-            Item.shoot = ModContent.ProjectileType<SmallToxibomb>();  
+            Item.shoot = ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>();  
             Item.shootSpeed = 20f;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
@@ -55,7 +55,7 @@ Small chance to fire an awakened bomb that explodes into abyss souls"); */
         {
             if (Main.rand.Next(3) == 0)
             {
-                type = ModContent.ProjectileType<Toxibomb>();
+                type = ModContent.ProjectileType<AbyssalBomb_SoulBomb>();
             }
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.Tiles;
+using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic.Items.Blocks
 {
@@ -16,7 +17,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<Bogwood>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<Bogwood_Tile>(); //put your CustomBlock Tile name
             Item.ammo = Item.type;
             Item.notAmmo = true;
         }

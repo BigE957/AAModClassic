@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Armor.Chaos
             }
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<DragonSpirit>(), 3600);
+            player.AddBuff(ModContent.BuffType<Buffs.DragonSpirit_Buff>(), 3600);
             if (player.dead || !modPlayer.ChaosSu)
             {
                 modPlayer.DragonSpirit = false;

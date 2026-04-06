@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Boss.Shen
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Green;
-			Item.createTile = ModContent.TileType<ShenTrophy>();
+			Item.createTile = ModContent.TileType<ShenTrophy_Tile>();
             AARarity = 14;
         }
 

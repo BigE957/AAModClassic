@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Blocks
             Item.consumable = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.expert = true; Item.expertOnly = true;
-            Item.createTile = ModContent.TileType<Transmuter>();
+            Item.createTile = ModContent.TileType<Transmuter_Tile>();
         }
         
         public override void AddRecipes()

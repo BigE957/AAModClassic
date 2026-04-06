@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Walls;
 
 namespace AAModClassic.Items.Blocks.Oroboros
 {
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<OroborosWall>();
+            Item.createWall = ModContent.WallType<OroborosWood_Wall>();
         }
         
         public override void SetStaticDefaults()

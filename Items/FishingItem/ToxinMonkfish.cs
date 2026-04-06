@@ -24,7 +24,7 @@ namespace AAModClassic.Items.FishingItem
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 128000;
-            Item.createTile = ModContent.TileType<ToxinMonkfishTile>();
+            Item.createTile = ModContent.TileType<ToxinMonkfishTile_Tile>();
         }
     }
 }

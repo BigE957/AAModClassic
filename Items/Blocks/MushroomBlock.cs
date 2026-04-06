@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks
             Item.rare = ItemRarityID.Blue;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<MushroomBlock>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<MushroomBlock_Tile>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

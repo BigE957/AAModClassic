@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<Darkmud>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<Darkmud_Tile>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

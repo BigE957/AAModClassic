@@ -19,7 +19,7 @@ public class KeepBrick : BaseAAItem
 		Item.useTime = 10;
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
-		Item.createTile = ModContent.TileType<KeepBrickS>();
+		Item.createTile = ModContent.TileType<KeepBrickS_Tile>();
 	}
 
 	public override void SetStaticDefaults()

@@ -3,7 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Yamata;
 
 namespace AAModClassic.___Content._PLACEHOLDER
 {

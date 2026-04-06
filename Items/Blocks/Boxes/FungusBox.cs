@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks.Boxes
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<FungusBox>();
+            Item.createTile = ModContent.TileType<FungusBox_Tile>();
             Item.width = 24;
             Item.height = 24;
             Item.rare = ItemRarityID.LightRed;

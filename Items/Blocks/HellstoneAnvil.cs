@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
-            Item.createTile = ModContent.TileType<HellstoneAnvil>();
+            Item.createTile = ModContent.TileType<HellstoneAnvil_Tile>();
         }
 
         public override void AddRecipes()

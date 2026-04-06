@@ -24,7 +24,7 @@ namespace AAModClassic._Removed
         {
             Mod mod = AAMod.instance;
 
-            ushort tileGrass = (ushort)ModContent.TileType<Mycelium>();
+            ushort tileGrass = (ushort)ModContent.TileType<Mycelium_Tile>();
 
             int worldSize = BaseWorldGen.GetWorldSize();
             int biomeWidth = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150, biomeWidthHalf = biomeWidth / 2;

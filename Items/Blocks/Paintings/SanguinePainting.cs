@@ -25,6 +25,6 @@ public class SanguinePainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.SanguinePainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.SanguinePainting_Tile>();
 	}
 }

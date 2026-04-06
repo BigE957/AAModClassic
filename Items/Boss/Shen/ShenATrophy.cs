@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Shen
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
-			Item.createTile = ModContent.TileType<ShenATrophy>();
+			Item.createTile = ModContent.TileType<ShenATrophy_Tile>();
 		}
 	}
 }

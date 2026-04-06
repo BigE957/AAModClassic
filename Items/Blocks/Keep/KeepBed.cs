@@ -25,7 +25,7 @@ public class KeepBed : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBed>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBed_Tile>();
 	}
 
 	public override void AddRecipes()

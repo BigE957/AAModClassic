@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks.Boxes
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<GreedABox>();
+            Item.createTile = ModContent.TileType<GreedABox_Tile>();
             Item.width = 24;
             Item.height = 24;
             Item.rare = ItemRarityID.LightRed;

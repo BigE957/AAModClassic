@@ -25,7 +25,7 @@ public class TerraLamp : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraLamp>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraLamp_Tile>();
 	}
 
 	public override void AddRecipes()

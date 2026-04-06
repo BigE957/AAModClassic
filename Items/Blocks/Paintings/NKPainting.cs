@@ -25,6 +25,6 @@ public class NKPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.NKPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.NKPainting_Tile>();
 	}
 }

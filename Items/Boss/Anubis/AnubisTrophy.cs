@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Boss.Anubis
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<AnubisTrophy>();
+			Item.createTile = ModContent.TileType<AnubisTrophy_Tile>();
 		}
 	}
 }

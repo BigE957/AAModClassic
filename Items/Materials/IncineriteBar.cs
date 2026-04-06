@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Green;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<IncineriteBar>();
+            Item.createTile = ModContent.TileType<IncineriteBar_Tile>();
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

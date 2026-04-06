@@ -28,16 +28,16 @@ public class Keep : MicroBiome
 	{
 		Mod instance = AAMod.instance;
 		Dictionary<Color, int> ColorToTile = new Dictionary<Color, int>();
-		ColorToTile[new(128, 128, 128)] = ModContent.TileType<KeepBrick>();
-		ColorToTile[new(64, 64, 64)] = ModContent.TileType<TerraBrick>();
-		ColorToTile[new(0, 128, 0)] = ModContent.TileType<TerraCrystalBack>();
-		ColorToTile[new(0, 64, 0)] = ModContent.TileType<TerraPillar>();
-		ColorToTile[new(128, 0, 0)] = ModContent.TileType<TerraWoodSolid>();
-		ColorToTile[new(0, 255, 255)] = ModContent.TileType<TerraWood>();
+		ColorToTile[new(128, 128, 128)] = ModContent.TileType<KeepBrick_Tile>();
+		ColorToTile[new(64, 64, 64)] = ModContent.TileType<TerraBrick_Tile>();
+		ColorToTile[new(0, 128, 0)] = ModContent.TileType<TerraCrystalBack_Tile>();
+		ColorToTile[new(0, 64, 0)] = ModContent.TileType<TerraPillar_Tile>();
+		ColorToTile[new(128, 0, 0)] = ModContent.TileType<TerraWoodSolid_Tile>();
+		ColorToTile[new(0, 255, 255)] = ModContent.TileType<TerraWood_Tile>();
 		Color black = default(Color);
-		ColorToTile[new(0, 0, 64)] = ModContent.TileType<TerraLeaves>();
-		ColorToTile[new(64, 0, 0)] = ModContent.TileType<ScorchedShinglesS>();
-		ColorToTile[new(255, 0, 255)] = ModContent.TileType<TerraVault>();
+		ColorToTile[new(0, 0, 64)] = ModContent.TileType<TerraLeaves_Tile>();
+		ColorToTile[new(64, 0, 0)] = ModContent.TileType<ScorchedShinglesS_Tile>();
+		ColorToTile[new(255, 0, 255)] = ModContent.TileType<TerraVault_Tile>();
 		ColorToTile[new(0, 0, 255)] = TileID.Glass;
 		ColorToTile[new(255, 255, 255)] = -1;
 		Color black3 = Color.Black;
@@ -76,19 +76,19 @@ public class Keep : MicroBiome
 				if (Main.tile[i, j].TileType == TileID.AmberGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform>(), mute: true);
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform_Tile>(), mute: true);
 					WorldGen.SlopeTile(i, j, 1);
 				}
 				if (Main.tile[i, j].TileType == TileID.TopazGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform>(), mute: true);
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform_Tile>(), mute: true);
 					WorldGen.SlopeTile(i, j, 2);
 				}
 				if (Main.tile[i, j].TileType == TileID.AmethystGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform>(), mute: true);
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepPlatform_Tile>(), mute: true);
 				}
 			}
 		}
@@ -120,17 +120,17 @@ public class Keep : MicroBiome
 				if (Main.tile[i, j].TileType == TileID.AmberGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepLamp>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepLamp_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.TopazGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepLantern>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepLantern_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.AmethystGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepChandelier>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepChandelier_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.RubyGemspark)
 				{
@@ -139,7 +139,7 @@ public class Keep : MicroBiome
 				if (Main.tile[i, j].TileType == TileID.DiamondGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepTable>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepTable_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.EmeraldGemspark)
 				{
@@ -148,52 +148,52 @@ public class Keep : MicroBiome
 				if (Main.tile[i, j].TileType == TileID.SapphireGemspark)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepBookcase>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<KeepBookcase_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.AmberGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraStatue>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraStatue_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.TopazGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraBed>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraBed_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.AmethystGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraBath>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraBath_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.RubyGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraSink>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraSink_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.DiamondGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraChandelier>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraChandelier_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.EmeraldGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraLantern>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<TerraLantern_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.SapphireGemsparkOff)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodLantern>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodLantern_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.LivingFire)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodBed>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodBed_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.LivingFrostFire)
 				{
 					Main.tile[i, j].ClearTile();
-					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodDresser>());
+					WorldGen.PlaceTile(i, j, ModContent.TileType<RazewoodDresser_Tile>());
 				}
 				if (Main.tile[i, j].TileType == TileID.LivingCursedFire)
 				{
@@ -202,68 +202,68 @@ public class Keep : MicroBiome
 				}
 			}
 		}
-		WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<InvokerBookTile>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<InvokerBookTile>(), mute: true);
-		WorldGen.PlaceChest(origin.X + 238, origin.Y + 104, (ushort)ModContent.TileType<TerraDresser>());
-		WorldGen.PlaceTile(origin.X + 226, origin.Y + 104, ModContent.TileType<TerraBookcase>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 97, origin.Y + 60, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 192, origin.Y + 60, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 209, origin.Y + 60, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 223, origin.Y + 60, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 31, origin.Y + 152, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 27, origin.Y + 162, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 29, origin.Y + 183, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 247, origin.Y + 152, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 251, origin.Y + 162, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 249, origin.Y + 183, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 62, origin.Y + 80, ModContent.TileType<KeepDoor1>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 80, origin.Y + 130, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 80, origin.Y + 158, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 209, origin.Y + 130, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 209, origin.Y + 158, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 73, origin.Y + 130, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 216, origin.Y + 102, ModContent.TileType<KeepDoor2>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 127, origin.Y + 114, ModContent.TileType<KeepDoor2S>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 160, origin.Y + 114, ModContent.TileType<KeepDoor2S>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 73, origin.Y + 109, ModContent.TileType<KeepDoor3>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 228, origin.Y + 108, ModContent.TileType<KeepDoor3>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 103, origin.Y + 174, ModContent.TileType<CoreDoor>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 186, origin.Y + 174, ModContent.TileType<CoreDoor>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 122, origin.Y + 181, ModContent.TileType<CoreDoor>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 162, origin.Y + 181, ModContent.TileType<CoreDoor>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 115, origin.Y + 79, ModContent.TileType<ShenPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 127, origin.Y + 79, ModContent.TileType<CRajahPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 139, origin.Y + 79, ModContent.TileType<IZPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 151, origin.Y + 79, ModContent.TileType<SoCPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 163, origin.Y + 79, ModContent.TileType<MushmadPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 175, origin.Y + 79, ModContent.TileType<DecayPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 103, origin.Y + 90, ModContent.TileType<FulgurusPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 133, origin.Y + 90, ModContent.TileType<AkumaPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 156, origin.Y + 90, ModContent.TileType<YamataPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 186, origin.Y + 90, ModContent.TileType<ZeroPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 103, origin.Y + 100, ModContent.TileType<DaedalusPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 119, origin.Y + 100, ModContent.TileType<HotJPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 135, origin.Y + 100, ModContent.TileType<AnubisPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 154, origin.Y + 100, ModContent.TileType<ValkyriePainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 170, origin.Y + 100, ModContent.TileType<NKPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 186, origin.Y + 100, ModContent.TileType<LuciferPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 89, origin.Y + 110, ModContent.TileType<RajahPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 105, origin.Y + 110, ModContent.TileType<UmbraPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 121, origin.Y + 110, ModContent.TileType<GreedPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 168, origin.Y + 110, ModContent.TileType<AcropolisPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 184, origin.Y + 110, ModContent.TileType<SanguinePainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 200, origin.Y + 110, ModContent.TileType<ShipPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 31, origin.Y + 87, ModContent.TileType<WizardPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 30, origin.Y + 136, ModContent.TileType<TerraPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 230, origin.Y + 102, ModContent.TileType<KingQueenPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 223, origin.Y + 142, ModContent.TileType<JojoBagginsPainting>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 144, origin.Y + 134, ModContent.TileType<CoreActivator>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 140, origin.Y + 125, ModContent.TileType<Core>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 106, origin.Y + 129, ModContent.TileType<Core>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 174, origin.Y + 129, ModContent.TileType<Core>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 113, origin.Y + 151, ModContent.TileType<Core>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 167, origin.Y + 151, ModContent.TileType<Core>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 140, origin.Y + 156, ModContent.TileType<Core>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<InvokerBookTile_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<InvokerBookTile_Tile>(), mute: true);
+		WorldGen.PlaceChest(origin.X + 238, origin.Y + 104, (ushort)ModContent.TileType<TerraDresser_Tile>());
+		WorldGen.PlaceTile(origin.X + 226, origin.Y + 104, ModContent.TileType<TerraBookcase_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 97, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 192, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 209, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 223, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 31, origin.Y + 152, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 27, origin.Y + 162, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 29, origin.Y + 183, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 247, origin.Y + 152, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 251, origin.Y + 162, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 249, origin.Y + 183, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 62, origin.Y + 80, ModContent.TileType<KeepDoor1_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 80, origin.Y + 130, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 80, origin.Y + 158, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 209, origin.Y + 130, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 209, origin.Y + 158, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 73, origin.Y + 130, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 216, origin.Y + 102, ModContent.TileType<KeepDoor2_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 127, origin.Y + 114, ModContent.TileType<KeepDoor2S_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 160, origin.Y + 114, ModContent.TileType<KeepDoor2S_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 73, origin.Y + 109, ModContent.TileType<KeepDoor3_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 228, origin.Y + 108, ModContent.TileType<KeepDoor3_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 103, origin.Y + 174, ModContent.TileType<CoreDoor_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 186, origin.Y + 174, ModContent.TileType<CoreDoor_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 122, origin.Y + 181, ModContent.TileType<CoreDoor_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 162, origin.Y + 181, ModContent.TileType<CoreDoor_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 115, origin.Y + 79, ModContent.TileType<ShenPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 127, origin.Y + 79, ModContent.TileType<CRajahPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 139, origin.Y + 79, ModContent.TileType<IZPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 151, origin.Y + 79, ModContent.TileType<SoCPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 163, origin.Y + 79, ModContent.TileType<MushmadPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 175, origin.Y + 79, ModContent.TileType<DecayPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 103, origin.Y + 90, ModContent.TileType<FulgurusPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 133, origin.Y + 90, ModContent.TileType<AkumaPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 156, origin.Y + 90, ModContent.TileType<YamataPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 186, origin.Y + 90, ModContent.TileType<ZeroPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 103, origin.Y + 100, ModContent.TileType<DaedalusPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 119, origin.Y + 100, ModContent.TileType<HotJPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 135, origin.Y + 100, ModContent.TileType<AnubisPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 154, origin.Y + 100, ModContent.TileType<ValkyriePainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 170, origin.Y + 100, ModContent.TileType<NKPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 186, origin.Y + 100, ModContent.TileType<LuciferPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 89, origin.Y + 110, ModContent.TileType<RajahPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 105, origin.Y + 110, ModContent.TileType<UmbraPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 121, origin.Y + 110, ModContent.TileType<GreedPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 168, origin.Y + 110, ModContent.TileType<AcropolisPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 184, origin.Y + 110, ModContent.TileType<SanguinePainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 200, origin.Y + 110, ModContent.TileType<ShipPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 31, origin.Y + 87, ModContent.TileType<WizardPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 30, origin.Y + 136, ModContent.TileType<TerraPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 230, origin.Y + 102, ModContent.TileType<KingQueenPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 223, origin.Y + 142, ModContent.TileType<JojoBagginsPainting_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 144, origin.Y + 134, ModContent.TileType<CoreActivator_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 140, origin.Y + 125, ModContent.TileType<Core_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 106, origin.Y + 129, ModContent.TileType<Core_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 174, origin.Y + 129, ModContent.TileType<Core_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 113, origin.Y + 151, ModContent.TileType<Core_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 167, origin.Y + 151, ModContent.TileType<Core_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 140, origin.Y + 156, ModContent.TileType<Core_Tile>(), mute: true);
 		return true;
 	}
 

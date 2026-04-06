@@ -25,6 +25,6 @@ public class SoCPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.SoCPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.SoCPainting_Tile>();
 	}
 }

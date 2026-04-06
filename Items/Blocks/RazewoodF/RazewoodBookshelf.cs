@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<RazewoodBookshelf>();
+            Item.createTile = ModContent.TileType<RazewoodBookshelf_Tile>();
         }
         public override void AddRecipes()
         {

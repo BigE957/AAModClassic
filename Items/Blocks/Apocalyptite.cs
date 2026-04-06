@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Ore;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Red;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<Apocalyptite>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<ApocalyptiteOre_Tile>(); //put your CustomBlock Tile name
             
         }
 

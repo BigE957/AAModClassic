@@ -25,6 +25,6 @@ public class RajahPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.RajahPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.RajahPainting_Tile>();
 	}
 }

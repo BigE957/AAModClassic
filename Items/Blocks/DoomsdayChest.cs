@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-			Item.createTile = ModContent.TileType<DoomsdayChest>();
+			Item.createTile = ModContent.TileType<DoomsdayChest_Tile>();
 		}
 	}
 }

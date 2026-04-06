@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<DepthMoss>(), ModContent.TileType<Depthsand>()];
+            GrowsOnTileId = [ModContent.TileType<DepthMoss_Tile>(), ModContent.TileType<Depthsand_Tile>()];
         }
 
         public override int DropWood() => AAMod.instance.Find<ModItem>("Bogwood").Type;

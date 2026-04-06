@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Anubis.Forsaken
 {
-    public class Soulsplitter : ModProjectile
+    public class Soulsplitter_Proj : ModProjectile
 	{
         public override void SetStaticDefaults()
         {

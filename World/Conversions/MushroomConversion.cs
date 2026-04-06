@@ -14,7 +14,7 @@ namespace AAModClassic.World.Conversions
     {
         public override void PostSetupContent()
         {
-            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<Mycelium>());
+            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<Mycelium_Tile>());
             WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<Mushwall>());
         }
     }

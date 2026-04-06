@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<AbyssiumBar>();
+            Item.createTile = ModContent.TileType<AbyssiumBar_Tile>();
 			
         }
 

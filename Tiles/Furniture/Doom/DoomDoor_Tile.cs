@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<DoomDoorOpen>();
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<DoomDoorOpen_Tile>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -137,7 +137,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed>();
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed_Tile>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

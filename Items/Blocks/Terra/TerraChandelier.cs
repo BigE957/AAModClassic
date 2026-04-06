@@ -25,7 +25,7 @@ public class TerraChandelier : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraChandelier>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraChandelier_Tile>();
 	}
 
 	public override void AddRecipes()

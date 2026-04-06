@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Walls;
 
 namespace AAModClassic.Items.Blocks.RazewoodF
 {
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<RazewoodWall>();
+            Item.createWall = ModContent.WallType<Razewood_Wall>();
         }
         
         public override void SetStaticDefaults()

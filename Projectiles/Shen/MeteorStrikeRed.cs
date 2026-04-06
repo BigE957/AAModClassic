@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

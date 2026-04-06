@@ -27,7 +27,7 @@ Functions as most hardmode crafting stations + A workbench and heavy workbench")
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 150;
-            Item.createTile = ModContent.TileType<PaladinsSmeltery>();
+            Item.createTile = ModContent.TileType<PaladinsSmeltery_Tile>();
         }
 
         public override void AddRecipes()

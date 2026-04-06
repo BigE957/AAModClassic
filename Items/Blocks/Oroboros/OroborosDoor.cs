@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<OroborosDoorClosed>();
+            Item.createTile = ModContent.TileType<OroborosDoorClosed_Tile>();
         }
         public override void AddRecipes()
         {

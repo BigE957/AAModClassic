@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Hydra
 			Item.value = 2000;
             Item.rare = ItemRarityID.Green;
             Item.expert = true; Item.expertOnly = true;
-			Item.createTile = ModContent.TileType<HydraTrophy>();
+			Item.createTile = ModContent.TileType<HydraTrophy_Tile>();
 		}
 	}
 }

@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<FAnubisTrophy>();
+			Item.createTile = ModContent.TileType<FAnubisTrophy_Tile>();
 		}
 	}
 }

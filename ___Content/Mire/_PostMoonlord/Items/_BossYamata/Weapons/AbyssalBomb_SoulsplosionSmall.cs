@@ -1,10 +1,11 @@
+using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class ToxiboomSmall : ModProjectile
+    public class AbyssalBomb_SoulsplosionSmall : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -50,7 +51,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

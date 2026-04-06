@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Unreleased.Content.Parthenan.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.Biomes;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Skies;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Biomes;
 using AAModClassic.Backgrounds;
 using Microsoft.Xna.Framework.Graphics;
 using System;

@@ -82,7 +82,7 @@ namespace AAModClassic.NPCs.TownNPCs
             {
                 for (int j = num4 + 2; j < num5 + 2; j++)
                 {
-                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom>() || Main.tile[i, j].TileType == ModContent.TileType<AAModClassic.Tiles.Plants.MadnessShroom>()))
+                    if (Main.tile[i, j].HasTile && (Main.tile[i, j].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<Mushroom_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<AAModClassic.Tiles.Plants.MadnessShroom_Tile>()))
                     {
                         num++;
                     }

@@ -90,7 +90,7 @@ Right click to shoot a blade wave"); */
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
     }
 }

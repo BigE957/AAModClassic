@@ -25,7 +25,7 @@ public class KeepBath : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBath>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBath_Tile>();
 	}
 
 	public override void AddRecipes()

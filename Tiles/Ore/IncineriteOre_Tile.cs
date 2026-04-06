@@ -20,7 +20,7 @@ namespace AAModClassic.Tiles.Ore
 			Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
             Main.tileOreFinderPriority[Type] = 340; 
-            Main.tileMerge[Type][ModContent.TileType<Torchstone>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<Torchstone_Tile>()] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;

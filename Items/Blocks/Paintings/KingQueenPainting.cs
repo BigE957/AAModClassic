@@ -25,6 +25,6 @@ public class KingQueenPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.KingQueenPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.KingQueenPainting_Tile>();
 	}
 }

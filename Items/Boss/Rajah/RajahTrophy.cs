@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.Rajah
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<RajahTrophy>();
+			Item.createTile = ModContent.TileType<RajahTrophy_Tile>();
 		}
 	}
 }

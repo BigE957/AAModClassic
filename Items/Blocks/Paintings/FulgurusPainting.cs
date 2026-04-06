@@ -25,6 +25,6 @@ public class FulgurusPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.FulgurusPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.FulgurusPainting_Tile>();
 	}
 }

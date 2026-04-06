@@ -25,6 +25,6 @@ public class TerraPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.TerraPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.TerraPainting_Tile>();
 	}
 }

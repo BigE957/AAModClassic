@@ -116,7 +116,7 @@ namespace AAModClassic._Unreleased
 
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
-            StormTiles = tileCounts[ModContent.TileType<StormCloud>()] + tileCounts[ModContent.TileType<AncientFulguritePlatingS>()] + tileCounts[ModContent.TileType<AncientFulguriteBrickS>()] + tileCounts[ModContent.TileType<AncientFulgurGlassS>()];
+            StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<AncientFulguritePlatingS_Tile>()] + tileCounts[ModContent.TileType<AncientFulguriteBrickS_Tile>()] + tileCounts[ModContent.TileType<AncientFulgurGlassS_Tile>()];
         }
 
         private void Mush_Refactored(GenerationProgress progress)
@@ -184,15 +184,15 @@ namespace AAModClassic._Unreleased
                     TileID.CrimsonGrass,
                     TileID.Crimstone,
                     TileID.Crimsand,
-                    (ushort)ModContent.TileType<MireGrass>(),
-                    (ushort)ModContent.TileType<Depthstone>(),
-                    (ushort)ModContent.TileType<Depthsand>(),
-                    (ushort)ModContent.TileType<IndigoIce>(),
-                    (ushort)ModContent.TileType<InfernoGrass>(),
-                    (ushort)ModContent.TileType<Torchstone>(),
-                    (ushort)ModContent.TileType<Torchsand>(),
-                    (ushort)ModContent.TileType<TorchAsh>(),
-                    (ushort)ModContent.TileType<AAModClassic.Tiles.Torchice>(),
+                    (ushort)ModContent.TileType<MireGrass_Tile>(),
+                    (ushort)ModContent.TileType<Depthstone_Tile>(),
+                    (ushort)ModContent.TileType<Depthsand_Tile>(),
+                    (ushort)ModContent.TileType<IndigoIce_Tile>(),
+                    (ushort)ModContent.TileType<InfernoGrass_Tile>(),
+                    (ushort)ModContent.TileType<Torchstone_Tile>(),
+                    (ushort)ModContent.TileType<Torchsand_Tile>(),
+                    (ushort)ModContent.TileType<TorchAsh_Tile>(),
+                    (ushort)ModContent.TileType<AAModClassic.Tiles.Torchice_Tile>(),
                 }).Output(dictionary));
 
                 // we do this manually bcuz im stupid as fuuuuuuuuuuuck
@@ -214,11 +214,11 @@ namespace AAModClassic._Unreleased
 
                 int dontGenThreshold = worldSize == 3 ? 800 : worldSize == 2 ? 600 : 400;
                 int grassCountThreshold = worldSize == 3 ? 100 : worldSize == 2 ? 75 : 50;
-                int IceBlockBiomeCount = dictionary[TileID.SnowBlock] + dictionary[TileID.IceBlock] + dictionary[(ushort)ModContent.TileType<IndigoIce>()] + dictionary[(ushort)ModContent.TileType<TorchAsh>()] + dictionary[(ushort)ModContent.TileType<AAModClassic.Tiles.Torchice>()];
-                int sandBiomeCount = dictionary[TileID.Sand] + dictionary[TileID.Ebonsand] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<Depthsand>()] + dictionary[(ushort)ModContent.TileType<Torchsand>()];
+                int IceBlockBiomeCount = dictionary[TileID.SnowBlock] + dictionary[TileID.IceBlock] + dictionary[(ushort)ModContent.TileType<IndigoIce_Tile>()] + dictionary[(ushort)ModContent.TileType<TorchAsh_Tile>()] + dictionary[(ushort)ModContent.TileType<AAModClassic.Tiles.Torchice_Tile>()];
+                int sandBiomeCount = dictionary[TileID.Sand] + dictionary[TileID.Ebonsand] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<Depthsand_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchsand_Tile>()];
                 int dungeonBiomeCount = dictionary[TileID.BlueDungeonBrick] + dictionary[TileID.PinkDungeonBrick] + dictionary[TileID.GreenDungeonBrick];
-                int jungleBiomeCount = dictionary[TileID.JungleGrass] + dictionary[TileID.Mud] + dictionary[(ushort)ModContent.TileType<MireGrass>()];
-                int evilBiomeCount = dictionary[TileID.CorruptGrass] + dictionary[TileID.Ebonstone] + dictionary[TileID.Ebonsand] + dictionary[TileID.CrimsonGrass] + dictionary[TileID.Crimstone] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<MireGrass>()] + dictionary[(ushort)ModContent.TileType<Depthstone>()] + dictionary[(ushort)ModContent.TileType<Depthsand>()] + dictionary[(ushort)ModContent.TileType<InfernoGrass>()] + dictionary[(ushort)ModContent.TileType<Torchstone>()] + dictionary[(ushort)ModContent.TileType<Torchsand>()];
+                int jungleBiomeCount = dictionary[TileID.JungleGrass] + dictionary[TileID.Mud] + dictionary[(ushort)ModContent.TileType<MireGrass_Tile>()];
+                int evilBiomeCount = dictionary[TileID.CorruptGrass] + dictionary[TileID.Ebonstone] + dictionary[TileID.Ebonsand] + dictionary[TileID.CrimsonGrass] + dictionary[TileID.Crimstone] + dictionary[TileID.Crimsand] + dictionary[(ushort)ModContent.TileType<MireGrass_Tile>()] + dictionary[(ushort)ModContent.TileType<Depthstone_Tile>()] + dictionary[(ushort)ModContent.TileType<Depthsand_Tile>()] + dictionary[(ushort)ModContent.TileType<InfernoGrass_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchstone_Tile>()] + dictionary[(ushort)ModContent.TileType<Torchsand_Tile>()];
                 if (grassCount > grassCountThreshold && dungeonBiomeCount <= 0 && IceBlockBiomeCount < dontGenThreshold && sandBiomeCount < dontGenThreshold && jungleBiomeCount < dontGenThreshold && evilBiomeCount < dontGenThreshold)
                 {
                     attempts = 0;
@@ -277,7 +277,7 @@ namespace AAModClassic._Unreleased
                 for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
                 {
                     Chest chest = Main.chest[chestIndex];
-                    if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest>()) // if glass chest
+                    if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
                     {
                         for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                         {

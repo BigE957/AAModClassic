@@ -33,7 +33,7 @@ namespace AAModClassic.Tiles.Crafters
             TileID.Sets.DisableSmartCursor[Type] = false;
             AdjTiles = new int[]
             {
-                ModContent.TileType<SharpeningLavaFishTile>()
+                ModContent.TileType<SharpeningLavaFishTile_Tile>()
             };
             AnimationFrameHeight = 38;
         }

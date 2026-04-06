@@ -25,6 +25,6 @@ public class MushmadPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.MushmadPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.MushmadPainting_Tile>();
 	}
 }

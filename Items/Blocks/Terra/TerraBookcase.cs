@@ -25,7 +25,7 @@ public class TerraBookcase : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraBookcase>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraBookcase_Tile>();
 	}
 
 	public override void AddRecipes()

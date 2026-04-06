@@ -88,7 +88,7 @@ namespace AAModClassic.Projectiles
                         int type = Main.tile[k, l].TileType;
                         if (TileID.Sets.Conversion.Grass[type])
                         {
-                            Main.tile[k, l].TileType = (ushort)ModContent.TileType<Mycelium>();
+                            Main.tile[k, l].TileType = (ushort)ModContent.TileType<Mycelium_Tile>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }

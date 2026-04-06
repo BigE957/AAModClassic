@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
 			Item.consumable = true;
 			Item.value = 2000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<AthenaATrophy>();
+			Item.createTile = ModContent.TileType<AthenaATrophy_Tile>();
 		}
 	}
 }

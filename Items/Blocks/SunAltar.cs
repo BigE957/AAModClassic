@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Red;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.createTile = ModContent.TileType<SunAltar>();
+			Item.createTile = ModContent.TileType<SunAltar_Tile>();
 		}
 
 		public override void AddRecipes()

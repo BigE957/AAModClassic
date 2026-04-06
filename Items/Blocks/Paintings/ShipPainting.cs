@@ -25,6 +25,6 @@ public class ShipPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShipPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ShipPainting_Tile>();
 	}
 }

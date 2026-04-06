@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
 			Item.consumable = true;
 			Item.value = 2000;
             Item.rare = ItemRarityID.Green;
-			Item.createTile = ModContent.TileType<FungusTrophy>();
+			Item.createTile = ModContent.TileType<FungusTrophy_Tile>();
 		}
 	}
 }

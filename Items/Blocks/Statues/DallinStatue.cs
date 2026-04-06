@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Blocks.Statues
 			Item.consumable = true;
 			Item.value = 50000;
 			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<DevStatue>();
+			Item.createTile = ModContent.TileType<DevStatue_Tile>();
 			Item.placeStyle = 4;
         }
         public override void AddRecipes()

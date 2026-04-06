@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
-            Item.createTile = ModContent.TileType<BinaryReassembler>();
+            Item.createTile = ModContent.TileType<BinaryReassembler_Tile>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

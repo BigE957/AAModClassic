@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Akuma.Dawnstrike;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useTime = 65;
             Item.useAnimation = 65;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Dawnstrike>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Akuma.Dawnstrike.Dawnstrike>();
             Item.channel = true;
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);

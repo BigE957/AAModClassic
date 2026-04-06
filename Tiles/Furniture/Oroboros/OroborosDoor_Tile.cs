@@ -50,7 +50,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
-            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<OroborosDoorOpen>();
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<OroborosDoorOpen_Tile>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -140,7 +140,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             DustType = ModContent.DustType<DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
-            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<OroborosDoorClosed>();
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<OroborosDoorClosed_Tile>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

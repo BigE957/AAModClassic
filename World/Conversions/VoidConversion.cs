@@ -14,8 +14,8 @@ namespace AAModClassic.World.Conversions
     {
         public override void PostSetupContent()
         {
-            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<DoomGrass>());
-            TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<DoomstoneB>());
+            TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<DoomGrass_Tile>());
+            TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<DoomstoneB_Tile>());
         }
     }
 }

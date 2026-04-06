@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Boss.Greed.WKG
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<CovetiteBar>();
+            Item.createTile = ModContent.TileType<CovetiteBar_Tile>();
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
         }

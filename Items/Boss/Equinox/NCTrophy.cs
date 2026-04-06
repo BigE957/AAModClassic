@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Boss.Equinox
             Item.consumable = true;
             Item.value = 2000;
             Item.rare = ItemRarityID.Blue;
-            Item.createTile = ModContent.TileType<NCTrophy>();
+            Item.createTile = ModContent.TileType<NCTrophy_Tile>();
 
         }
     }

@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<DragonfireTorch>();
+			Item.createTile = ModContent.TileType<DragonfireTorch_Tile>();
 			Item.flame = true;
             Item.rare = ItemRarityID.Orange;
             Item.value = Item.sellPrice(0, 0, 1, 0);

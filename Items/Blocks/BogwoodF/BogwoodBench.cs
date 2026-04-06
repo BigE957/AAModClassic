@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Furniture.Bogwood;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,7 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<BogwoodBench>();
+            Item.createTile = ModContent.TileType<BogwoodBench_Tile>();
         }
         public override void AddRecipes()
         {

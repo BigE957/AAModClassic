@@ -20,7 +20,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<EventideAbyssiumOre>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<EventideAbyssiumOre_Tile>(); //put your CustomBlock Tile name
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

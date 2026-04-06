@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<DiscordianTorch>();
+			Item.createTile = ModContent.TileType<DiscordianTorch_Tile>();
 			Item.flame = true;
             AARarity = 14;
             Item.value = Item.sellPrice(0, 0, 50, 0);

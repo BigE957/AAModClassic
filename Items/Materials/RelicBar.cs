@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<RelicBar>();
+            Item.createTile = ModContent.TileType<RelicBar_Tile>();
             Item.value = Terraria.Item.sellPrice(0, 0, 32, 0);
         }
 

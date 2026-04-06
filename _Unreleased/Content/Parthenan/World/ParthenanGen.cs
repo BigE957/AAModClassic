@@ -29,10 +29,10 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World
 
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>();
-            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<AncientFulguritePlatingS>();
-            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<AncientFulguriteBrickS>();
-            colorToTile[new Color(0, 0, 255)] = ModContent.TileType<StormCloud>();
-            colorToTile[new Color(255, 0, 255)] = ModContent.TileType<AncientFulgurGlassS>();
+            colorToTile[new Color(0, 255, 0)] = ModContent.TileType<AncientFulguritePlatingS_Tile>();
+            colorToTile[new Color(255, 0, 0)] = ModContent.TileType<AncientFulguriteBrickS_Tile>();
+            colorToTile[new Color(0, 0, 255)] = ModContent.TileType<StormCloud_Tile>();
+            colorToTile[new Color(255, 0, 255)] = ModContent.TileType<AncientFulgurGlassS_Tile>();
             colorToTile[new Color(150, 150, 150)] = -2; //turn into air
             colorToTile[Color.Black] = -1; //don't touch when genning		
 
@@ -45,9 +45,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World
 
             //TODOSIEGE some of these dont actually place in world
             gen.Generate(origin.X, origin.Y, true, true);
-            WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)ModContent.TileType<AncientDataBank>());
-            WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
-            WorldGen.PlaceChest(origin.X + 41, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest>(), true);
+            WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)ModContent.TileType<AncientDataBank_Tile>());
+            WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest_Tile>(), true);
+            WorldGen.PlaceChest(origin.X + 41, origin.Y + 47, (ushort)ModContent.TileType<AncientStormChest_Tile>(), true);
             return true;
         }
     }

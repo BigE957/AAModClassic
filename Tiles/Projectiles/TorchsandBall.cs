@@ -92,9 +92,9 @@ namespace AAModClassic.Tiles.Projectiles
                     bool onMinecartTrack = tileY < Main.maxTilesY - 2 && Main.tile[tileX, tileY + 1] != null && Main.tile[tileX, tileY + 1].HasTile && Main.tile[tileX, tileY + 1].TileType == TileID.MinecartTrack;
                     if (!onMinecartTrack)
                     {
-                        WorldGen.PlaceTile(tileX, tileY, ModContent.TileType<Torchsand>(), false, true, -1, 0);
+                        WorldGen.PlaceTile(tileX, tileY, ModContent.TileType<Torchsand_Tile>(), false, true, -1, 0);
                     }
-                    if (!onMinecartTrack && Main.tile[tileX, tileY].HasTile && Main.tile[tileX, tileY].TileType == ModContent.TileType<Torchsand>())
+                    if (!onMinecartTrack && Main.tile[tileX, tileY].HasTile && Main.tile[tileX, tileY].TileType == ModContent.TileType<Torchsand_Tile>())
                     {
                         if (Main.tile[tileX, tileY + 1].IsHalfBlock || Main.tile[tileX, tileY + 1].Slope != 0)
                         {
@@ -106,7 +106,7 @@ namespace AAModClassic.Tiles.Projectiles
                         }
                         if (Main.netMode != NetmodeID.SinglePlayer)
                         {
-                            NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, tileX, tileY, ModContent.TileType<Torchsand>(), 0, 0, 0);
+                            NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, tileX, tileY, ModContent.TileType<Torchsand_Tile>(), 0, 0, 0);
                         }
                     }
                 }

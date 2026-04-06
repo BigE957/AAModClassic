@@ -19,8 +19,8 @@ namespace AAModClassic.World.Conversions
             TileLoader.RegisterConversion(TileID.CorruptIce, Type, TileID.Ebonstone);
             TileLoader.RegisterConversion(TileID.FleshIce, Type, TileID.Crimstone);
             TileLoader.RegisterConversion(TileID.HallowedIce, Type, TileID.Pearlstone);
-            TileLoader.RegisterConversion(ModContent.TileType<Torchice>(), Type, ModContent.TileType<Torchstone>());
-            TileLoader.RegisterConversion(ModContent.TileType<IndigoIce>(), Type, ModContent.TileType<Depthstone>());
+            TileLoader.RegisterConversion(ModContent.TileType<Torchice_Tile>(), Type, ModContent.TileType<Torchstone_Tile>());
+            TileLoader.RegisterConversion(ModContent.TileType<IndigoIce_Tile>(), Type, ModContent.TileType<Depthstone_Tile>());
 
             WallLoader.RegisterConversion(WallID.IceUnsafe, Type, WallID.Stone);
             WallLoader.RegisterConversion(WallID.SnowWallUnsafe, Type, WallID.GrassUnsafe);

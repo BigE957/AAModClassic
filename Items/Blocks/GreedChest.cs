@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
 			Item.value = 1000;
-			Item.createTile = ModContent.TileType<GreedChest>();
+			Item.createTile = ModContent.TileType<GreedChest_Tile>();
 		}
     }
 }

@@ -10,8 +10,8 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<AbyssGrass>()] = true;
-            Main.tileMerge[Type][ModContent.TileType<AbyssWoodSolid>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssGrass_Tile>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AbyssWoodSolid_Tile>()] = true;
             Main.tileBlendAll[Type] = false;
 			Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileLighted[Type] = false;

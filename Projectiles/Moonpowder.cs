@@ -94,37 +94,37 @@ namespace AAModClassic.Projectiles
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<Torchstone>())
+                        else if (type == ModContent.TileType<Torchstone_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.Stone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<InfernoGrass>())
+                        else if (type == ModContent.TileType<InfernoGrass_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.Grass;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<Torchice>())
+                        else if (type == ModContent.TileType<Torchice_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.IceBlock;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<Torchsandstone>())
+                        else if (type == ModContent.TileType<Torchsandstone_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.Sandstone;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<Torchsand>())
+                        else if (type == ModContent.TileType<Torchsand_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.Sand;
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == ModContent.TileType<TorchsandHardened>())
+                        else if (type == ModContent.TileType<TorchsandHardened_Tile>())
                         {
                             Main.tile[k, l].TileType = TileID.HardenedSand;
                             WorldGen.SquareTileFrame(k, l, true);

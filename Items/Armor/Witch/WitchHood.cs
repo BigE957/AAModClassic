@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Armor.Witch
 {
@@ -68,9 +69,9 @@ A hood enchanted with the firey spirit of a supreme dragon acolyte"); */
 
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<FlameSoul>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<FlameSoul_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<FlameSoul>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<FlameSoul_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<FlameSoul>()] < 1)
                 {

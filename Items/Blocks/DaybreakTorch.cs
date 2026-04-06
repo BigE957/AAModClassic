@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Blocks
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<DaybreakTorch>();
+			Item.createTile = ModContent.TileType<DaybreakTorch_Tile>();
 			Item.flame = true;
             AARarity = 13;
             Item.value = Item.sellPrice(0, 0, 50, 0);

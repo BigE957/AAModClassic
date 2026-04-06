@@ -99,7 +99,7 @@ Ignores enemy defense
 			recipe.AddIngredient(null, "Discordium", 5);
             recipe.AddIngredient(null, "ChaosScale", 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(ModContent.TileType<ACS>());
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
 			recipe.Register();
 		}
 	}

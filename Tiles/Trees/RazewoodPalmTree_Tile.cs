@@ -11,7 +11,7 @@ namespace AAModClassic.Tiles.Trees
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<Torchsand>()];
+            GrowsOnTileId = [ModContent.TileType<Torchsand_Tile>()];
         }
 
         public override int DropWood() => AAMod.instance.Find<ModItem>("Razewood").Type;

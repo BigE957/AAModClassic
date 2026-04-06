@@ -25,6 +25,6 @@ public class ZeroPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ZeroPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ZeroPainting_Tile>();
 	}
 }

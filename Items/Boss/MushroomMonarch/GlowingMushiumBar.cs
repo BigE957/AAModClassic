@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.MushroomMonarch
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<GlowingMushiumBar>();
+            Item.createTile = ModContent.TileType<GlowingMushiumBar_Tile>();
             Item.value = Item.sellPrice(0, 0, 9, 0);
         }
 

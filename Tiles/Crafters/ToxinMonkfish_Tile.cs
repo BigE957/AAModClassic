@@ -34,7 +34,7 @@ namespace AAModClassic.Tiles.Crafters
             AdjTiles = new int[]
             {
                 TileID.AlchemyTable,
-                ModContent.TileType<ToxinMonkfishTile>()
+                ModContent.TileType<ToxinMonkfishTile_Tile>()
             };
             AnimationFrameHeight = 54;
         }

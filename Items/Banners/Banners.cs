@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Banners
         {
 			if(dName != null)
 			{
-				Item.createTile = ModContent.TileType<Banners>();
+				Item.createTile = ModContent.TileType<Tiles.Banners.Banners_Tile>();
 				Item.placeStyle = pStyle;			
 			}
 			Item.scale = 0.7f;

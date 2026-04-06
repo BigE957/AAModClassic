@@ -25,6 +25,6 @@ public class ValkyriePainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ValkyriePainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.ValkyriePainting_Tile>();
 	}
 }

@@ -25,6 +25,6 @@ public class DecayPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.DecayPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.DecayPainting_Tile>();
 	}
 }

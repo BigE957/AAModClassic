@@ -27,7 +27,7 @@ Now you don't have to clutter your base with 12 crafting stations!"); */
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 1000000;
-            Item.createTile = ModContent.TileType<FurnitureDynamo>();
+            Item.createTile = ModContent.TileType<FurnitureDynamo_Tile>();
         }
 
         public override void AddRecipes()

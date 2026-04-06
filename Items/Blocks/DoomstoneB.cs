@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Green;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DoomstoneB>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<DoomstoneB_Tile>(); //put your CustomBlock Tile name
         }
        
         public override void SetStaticDefaults()

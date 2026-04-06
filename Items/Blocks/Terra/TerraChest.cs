@@ -26,7 +26,7 @@ public class TerraChest : BaseAAItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 500;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraChest>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Terra.TerraChest_Tile>();
 	}
 
 	public override void AddRecipes()

@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Walls;
 
 namespace AAModClassic.Items.Blocks.BogwoodF
 {
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Blocks.BogwoodF
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<BogwoodWall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<Bogwood_Wall>(); //put your CustomBlock Tile name
         }
 
         

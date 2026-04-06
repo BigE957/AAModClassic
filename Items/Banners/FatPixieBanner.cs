@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Banners
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
-			Item.createTile = ModContent.TileType<FatPixieBanner>();
+			Item.createTile = ModContent.TileType<Tiles.Banners.FatPixieBanner_Tile>();
 			Item.placeStyle = 0;
 		}
 	}

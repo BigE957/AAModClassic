@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-			Item.createTile = ModContent.TileType<InfernoChest>();
+			Item.createTile = ModContent.TileType<InfernoChest_Tile>();
 		}
 	}
 }

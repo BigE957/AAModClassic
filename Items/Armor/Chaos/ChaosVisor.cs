@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Armor.Doomite;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -42,9 +44,9 @@ namespace AAModClassic.Items.Armor.Chaos
             player.maxMinions += 4;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<DragonSpirit>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<DragonSpirit_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<DragonSpirit>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<DragonSpirit_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<DragonSpirit>()] < 1)
                 {

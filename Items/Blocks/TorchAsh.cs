@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Blocks
             Item.rare = ItemRarityID.White;
             Item.value = 0;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<TorchAsh>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<TorchAsh_Tile>(); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

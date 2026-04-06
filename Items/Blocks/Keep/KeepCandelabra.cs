@@ -25,7 +25,7 @@ public class KeepCandelabra : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepCandelabra>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepCandelabra_Tile>();
 	}
 
 	public override void AddRecipes()

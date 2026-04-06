@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.BogwoodF
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<BogwoodPlatform>();
+			Item.createTile = ModContent.TileType<BogwoodPlatform_Tile>();
 		}
 
 		public override void AddRecipes()

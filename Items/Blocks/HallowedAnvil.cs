@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Blocks
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 100000;
-            Item.createTile = ModContent.TileType<HallowedAnvil>();
+            Item.createTile = ModContent.TileType<HallowedAnvil_Tile>();
         }
 
         public override void AddRecipes()

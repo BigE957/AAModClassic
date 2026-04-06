@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.Doom
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<DoomChandelier>();
+            Item.createTile = ModContent.TileType<DoomChandelier_Tile>();
         }
         public override void AddRecipes()
         {

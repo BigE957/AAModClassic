@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<OroborosLantern>();
+            Item.createTile = ModContent.TileType<OroborosLantern_Tile>();
         }
         public override void AddRecipes()
         {

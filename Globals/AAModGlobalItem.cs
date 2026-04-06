@@ -33,7 +33,7 @@ namespace AAModClassic.Globals
 
             if (item.type == ItemID.LunarOre)
             {
-                item.createTile = ModContent.TileType<LuminiteOre>();
+                item.createTile = ModContent.TileType<LuminiteOre_Tile>();
             }
 
             if (item.ModItem != null && item.ModItem.Mod.Name == Mod.Name && (item.damage > 0 || item.accessory || item.defense > 0) && item.maxStack < 2)

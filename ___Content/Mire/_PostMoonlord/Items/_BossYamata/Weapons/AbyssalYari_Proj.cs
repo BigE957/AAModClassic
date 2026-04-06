@@ -70,7 +70,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
         }		
 
         public override void OnKill(int timeLeft)

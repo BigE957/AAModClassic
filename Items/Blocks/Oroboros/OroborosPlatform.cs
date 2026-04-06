@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks.Oroboros
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.createTile = ModContent.TileType<OroborosPlatform>();
+			Item.createTile = ModContent.TileType<OroborosPlatform_Tile>();
 		}
 
 		public override void AddRecipes()

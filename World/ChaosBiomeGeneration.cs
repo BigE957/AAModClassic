@@ -123,7 +123,7 @@ namespace AAModClassic.World
 			Mod mod = AAMod.instance;
             //ushort tileGrass = (ushort)mod.Find<ModTile>("MireGrass").Type, tileDirt = TileID.Mud, tileStone = (ushort)mod.Find<ModTile>("Depthstone").Type, tileIce = (ushort)mod.Find<ModTile>("IndigoIce").Type,
             //tileSand = (ushort)mod.Find<ModTile>("Depthsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("DepthsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Depthsandstone").Type,
-            //LivingWood = (ushort)ModContent.TileType<LivingBogwood>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves>();
+            //LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves_Tile>();
 
             ushort StoneWall = (ushort)ModContent.WallType<DepthstoneWall>(),
             SandstoneWall = (ushort)ModContent.WallType<DepthsandstoneWall>(),
@@ -136,15 +136,15 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(0, 0, 255)] = ModContent.TileType<Depthstone>(),
-                [new Color(255, 128, 0)] = ModContent.TileType<Darkmud>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<AbyssGrass>(),
-                [new Color(255, 0, 0)] = ModContent.TileType<AbyssWood>(),
-                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<AbyssVines>(),
-                [new Color(0, 255, 255)] = ModContent.TileType<DepthMoss>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<AbyssLeaves>(),
-                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<Depthstone_Tile>(),
+                [new Color(255, 128, 0)] = ModContent.TileType<Darkmud_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<AbyssGrass_Tile>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<AbyssWood_Tile>(),
+                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<AbyssVines_Tile>(),
+                [new Color(0, 255, 255)] = ModContent.TileType<DepthMoss_Tile>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<AbyssLeaves_Tile>(),
+                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning
             };
@@ -170,26 +170,26 @@ namespace AAModClassic.World
             gen.Generate(genX, genY, true, true);
 
 
-            WorldGen.PlaceObject(genX + 24, genY + 203, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 43, genY + 211, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 59, genY + 221, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 81, genY + 223, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 103, genY + 231, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 124, genY + 222, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 143, genY + 216, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 161, genY + 214, ModContent.TileType<HydraPod>());
-            WorldGen.PlaceObject(genX + 171, genY + 205, ModContent.TileType<HydraPod>());
-            NetMessage.SendObjectPlacement(-1, genX + 25, genY + 204, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 43, genY + 211, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 59, genY + 221, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 81, genY + 223, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 103, genY + 231, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 124, genY + 222, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 143, genY + 216, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 161, genY + 214, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 171, genY + 205, ModContent.TileType<HydraPod>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(genX + 24, genY + 203, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 43, genY + 211, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 59, genY + 221, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 81, genY + 223, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 103, genY + 231, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 124, genY + 222, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 143, genY + 216, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 161, genY + 214, ModContent.TileType<HydraPod_Tile>());
+            WorldGen.PlaceObject(genX + 171, genY + 205, ModContent.TileType<HydraPod_Tile>());
+            NetMessage.SendObjectPlacement(-1, genX + 25, genY + 204, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 43, genY + 211, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 59, genY + 221, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 81, genY + 223, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 103, genY + 231, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 124, genY + 222, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 143, genY + 216, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 161, genY + 214, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 171, genY + 205, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
 
-            //WorldGen.PlaceObject(genX + 59, genY + 31, Terraria.ModLoader.ModContent.TileType<DreadAltarS>());		   
+            //WorldGen.PlaceObject(genX + 59, genY + 31, Terraria.ModLoader.ModContent.TileType<DreadAltarS_Tile>());		   
 
             for (int num = 0; num < Main.maxTilesX / 390; num++)
             {
@@ -201,7 +201,7 @@ namespace AAModClassic.World
                     {
                         if (Main.rand.Next(15) == 0)
                         {
-                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar1>());
+                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar1_Tile>());
                         }
                     }
                 }
@@ -222,7 +222,7 @@ namespace AAModClassic.World
         public override bool Place(Point origin, StructureMap structures)
         {
             Mod mod = AAMod.instance;
-            ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves>();
+            ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves_Tile>();
 
             ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwoodWall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleafWall>();
 
@@ -317,7 +317,7 @@ namespace AAModClassic.World
             //--- Initial variable creation
             //ushort tileGrass = (ushort)mod.Find<ModTile>("InfernoGrass").Type, tileStone = (ushort)mod.Find<ModTile>("Torchstone").Type, tileSnow = (ushort)mod.Find<ModTile>("TorchAsh").Type,
             //tileIce = (ushort)mod.Find<ModTile>("Torchice").Type, tileSand = (ushort)mod.Find<ModTile>("Torchsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("TorchsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Torchsandstone").Type,
-            //LivingWood = (ushort)ModContent.TileType<LivingRazewood>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves>();
+            //LivingWood = (ushort)ModContent.TileType<LivingRazewood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves_Tile>();
 
             ushort StoneWall = (ushort)ModContent.WallType<TorchstoneWall>(), 
             SandstoneWall = (ushort)ModContent.WallType<TorchsandstoneWall>(),
@@ -330,11 +330,11 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<Torchstone>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<Torchstone>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWoodS>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<ScorchedShinglesS>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<ScorchedPlatform>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<Torchstone_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<Torchstone_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<ScorchedDynastyWoodS_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<ScorchedShinglesS_Tile>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<ScorchedPlatform_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning
             };
@@ -474,25 +474,25 @@ namespace AAModClassic.World
             int genY = origin.Y - 80;
             gen.Generate(genX, genY, true, true);
 
-            //WorldGen.PlaceObject(genX + 65, genY + 4, Terraria.ModLoader.ModContent.TileType<DracoAltarS>());
-            WorldGen.PlaceObject(genX + 24, genY + 307, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 33, genY + 313, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 46, genY + 314, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 57, genY + 316, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 67, genY + 316, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 78, genY + 317, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 87, genY + 315, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 96, genY + 312, ModContent.TileType<DragonEgg>());
-            WorldGen.PlaceObject(genX + 103, genY + 307, ModContent.TileType<DragonEgg>());
-            NetMessage.SendObjectPlacement(-1, genX + 24, genY + 307, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 33, genY + 313, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 46, genY + 314, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 57, genY + 316, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 67, genY + 316, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 78, genY + 317, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 87, genY + 315, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 96, genY + 312, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
-            NetMessage.SendObjectPlacement(-1, genX + 103, genY + 307, (ushort)ModContent.TileType<DragonEgg>(), 0, 0, -1, -1);
+            //WorldGen.PlaceObject(genX + 65, genY + 4, Terraria.ModLoader.ModContent.TileType<DracoAltarS_Tile>());
+            WorldGen.PlaceObject(genX + 24, genY + 307, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 33, genY + 313, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 46, genY + 314, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 57, genY + 316, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 67, genY + 316, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 78, genY + 317, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 87, genY + 315, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 96, genY + 312, ModContent.TileType<DragonEgg_Tile>());
+            WorldGen.PlaceObject(genX + 103, genY + 307, ModContent.TileType<DragonEgg_Tile>());
+            NetMessage.SendObjectPlacement(-1, genX + 24, genY + 307, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 33, genY + 313, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 46, genY + 314, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 57, genY + 316, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 67, genY + 316, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 78, genY + 317, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 87, genY + 315, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 96, genY + 312, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, genX + 103, genY + 307, (ushort)ModContent.TileType<DragonEgg_Tile>(), 0, 0, -1, -1);
 
             for (int num = 0; num < Main.maxTilesX / 390; num++)
             {
@@ -504,7 +504,7 @@ namespace AAModClassic.World
                     {
                         if (Main.rand.Next(15) == 0)
                         {
-                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar2>());
+                            WorldGen.PlaceObject(AltarX, AltarY - 1, ModContent.TileType<ChaosAltar2_Tile>());
                         }
                     }
                 }
@@ -555,7 +555,7 @@ namespace AAModClassic.World
         {
             Mod mod = AAMod.instance;
 
-            ushort tileGrass = (ushort)ModContent.TileType<Mycelium>(); //change to types in your mod
+            ushort tileGrass = (ushort)ModContent.TileType<Mycelium_Tile>(); //change to types in your mod
 
             int worldSize = GetWorldSize();
             int biomeWidth = worldSize == 3 ? 200 : worldSize == 2 ? 180 : 150, biomeWidthHalf = biomeWidth / 2; //how wide the biome is (scaled by world size)
@@ -678,9 +678,9 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(0, 255, 0)] = ModContent.TileType<TerraCrystal>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<TerraWood>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<TerraLeaves>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<TerraCrystal_Tile>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<TerraWood_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<TerraLeaves_Tile>(),
                 [new Color(0, 0, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
@@ -764,8 +764,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<GreedStone>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<GreedBrick>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<GreedStone_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<GreedBrick_Tile>(),
                 [new Color(255, 255, 255)] = -2,
                 [Color.Black] = -1
             };
@@ -801,15 +801,15 @@ namespace AAModClassic.World
             HoardChest(origin.X + 131, origin.Y + 48, 3);
             HoardChest(origin.X + 130, origin.Y + 69);
 
-            WorldGen.PlaceObject(origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar_Tile>(), 0, 0, -1, -1);
 
             return true;
         }
 
         public static void HoardChest(int x, int y, int specialItem = 0)
         {
-            int PlacementSuccess = WorldGen.PlaceChest(x, y, (ushort)ModContent.TileType<GreedChest>(), false, 1);
+            int PlacementSuccess = WorldGen.PlaceChest(x, y, (ushort)ModContent.TileType<GreedChest_Tile>(), false, 1);
 
             int[] GreedChestLoot = new int[] {
 
@@ -924,7 +924,7 @@ namespace AAModClassic.World
                 }
             }
 
-            NetMessage.SendObjectPlacement(-1, x, y, (ushort)ModContent.TileType<GreedChest>(), 1, 0, -1, -1);
+            NetMessage.SendObjectPlacement(-1, x, y, (ushort)ModContent.TileType<GreedChest_Tile>(), 1, 0, -1, -1);
         }
     }
 
@@ -936,9 +936,9 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<AcropolisBlock>(),
-                [new Color(128, 128, 128)] = ModContent.TileType<AcropolisBlock2>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<SkyShard>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<AcropolisBlock_Tile>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<AcropolisBlock2_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<SkyShard_Tile>(),
                 [new Color(0, 255, 255)] = TileID.Grass,
                 [new Color(0, 255, 0)] = TileID.Dirt,
                 [new Color(0, 0, 255)] = TileID.Cloud,
@@ -960,8 +960,8 @@ namespace AAModClassic.World
 
             gen.Generate(origin.X, origin.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 79, origin.Y + 86, (ushort)ModContent.TileType<AcropolisAltar>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 79, origin.Y + 87, (ushort)ModContent.TileType<AcropolisAltar>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 79, origin.Y + 86, (ushort)ModContent.TileType<AcropolisAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 79, origin.Y + 87, (ushort)ModContent.TileType<AcropolisAltar_Tile>(), 0, 0, -1, -1);
 
             return true;
         }
@@ -975,11 +975,11 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<GreedBrick>(),
-                [new Color(0, 255, 255)] = ModContent.TileType<DayCrystal>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<NightCrystal>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<DaybringerBrick>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<NightcrawlerBrick>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<GreedBrick_Tile>(),
+                [new Color(0, 255, 255)] = ModContent.TileType<DayCrystal_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<NightCrystal_Tile>(),
+                [new Color(255, 255, 0)] = ModContent.TileType<DaybringerBrick_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<NightcrawlerBrick_Tile>(),
                 [new Color(255, 255, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
@@ -988,12 +988,12 @@ namespace AAModClassic.World
 
             gen.Generate(origin.X, origin.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 45, origin.Y + 42, ModContent.TileType<GravAltar>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GravAltar>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 45, origin.Y + 42, ModContent.TileType<GravAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GravAltar_Tile>(), 0, 0, -1, -1);
 
             return true;
         }
@@ -1007,9 +1007,9 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<PitStone>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<PitBars>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<PitStone_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
                 [new Color(255, 255, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
@@ -1033,8 +1033,8 @@ namespace AAModClassic.World
 
             gen.Generate(origin.X, origin.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 281, origin.Y + 52, ModContent.TileType<Throne>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 281, origin.Y + 52, ModContent.TileType<Throne>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 281, origin.Y + 52, ModContent.TileType<Throne_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 281, origin.Y + 52, ModContent.TileType<Throne_Tile>(), 0, 0, -1, -1);
 
             return true;
         }
@@ -1048,9 +1048,9 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<PitStone>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<PitBars>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge>(),
+                [new Color(128, 128, 128)] = ModContent.TileType<PitStone_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
                 [new Color(255, 255, 255)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
@@ -1065,8 +1065,8 @@ namespace AAModClassic.World
 
             gen.Generate(origin.X, origin.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 35, origin.Y + 20, ModContent.TileType<Throne>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 20, ModContent.TileType<Throne>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 35, origin.Y + 20, ModContent.TileType<Throne_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 20, ModContent.TileType<Throne_Tile>(), 0, 0, -1, -1);
 
             return true;
         }
@@ -1085,10 +1085,10 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(0, 255, 0)] = ModContent.TileType<FulguritePlatingS>(),
-                [new Color(255, 0, 0)] = ModContent.TileType<FulguriteBrickS>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<StormCloud>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<FulgurGlassS>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<FulguritePlatingS_Tile>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<FulguriteBrickS_Tile>(),
+                [new Color(0, 0, 255)] = ModContent.TileType<StormCloud_Tile>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<FulgurGlassS_Tile>(),
                 [new Color(150, 150, 150)] = -2, //turn into air
                 [Color.Black] = -1 //don't touch when genning		
             };
@@ -1096,16 +1096,16 @@ namespace AAModClassic.World
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
                 [new Color(0, 255, 0)] = ModContent.WallType<FulguritePlatingWallS>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<FulgurGlassWall>(),
+                [new Color(255, 0, 255)] = ModContent.TileType<FulgurGlassWall_Tile>(),
                 [Color.Black] = -1 //don't touch when genning				
             };
 
             //TexGen gen = TexGen.GetTexGenerator(ModContent.Request<Texture2D>("AAModClassic/World/Parthenan").Value, colorToTile, ModContent.Request<Texture2D>("AAModClassic/World/ParthenanWalls").Value, colorToWall);
             
             gen.Generate(origin.X, origin.Y, true, true);
-            WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)ModContent.TileType<DataBank>());
-            WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<StormChest>(), true);
-            WorldGen.PlaceChest(origin.X + 41, origin.Y + 47, (ushort)ModContent.TileType<StormChest>(), true);
+            WorldGen.PlaceObject(origin.X + 34, origin.Y + 47, (ushort)ModContent.TileType<DataBank_Tile>());
+            WorldGen.PlaceChest(origin.X + 32, origin.Y + 47, (ushort)ModContent.TileType<StormChest_Tile>(), true);
+            WorldGen.PlaceChest(origin.X + 41, origin.Y + 47, (ushort)ModContent.TileType<StormChest_Tile>(), true);
             return true;
         }
     }
@@ -1119,10 +1119,10 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform>(),
+                [new Color(255, 0, 0)] = ModContent.TileType<RottedDynastyWoodS_Tile>(),
+                [new Color(0, 255, 0)] = ModContent.TileType<RottedPlatform_Tile>(),
                 //colorToTile[new Color(0, 0, 255)] = TileID.Rope;
-                [new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal>(),
+                [new Color(0, 255, 255)] = ModContent.TileType<CthulhuPortal_Tile>(),
                 [new Color(255, 255, 0)] = TileID.Sand,
                 [new Color(150, 150, 150)] = -2,
                 [Color.Black] = -1 //don't touch when genning		
@@ -1178,12 +1178,12 @@ namespace AAModClassic.World
 
             gen.Generate(origin.X, origin.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>());
+            NetMessage.SendObjectPlacement(-1, origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>(), 0, 0, -1, -1);
 
             return true;
         }

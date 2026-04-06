@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Blocks
             Item.value = Item.sellPrice(0, 0, 8, 0);
             Item.rare = ItemRarityID.Blue;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<IncineriteOre>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<IncineriteOre_Tile>(); //put your CustomBlock Tile name
         }
 
 

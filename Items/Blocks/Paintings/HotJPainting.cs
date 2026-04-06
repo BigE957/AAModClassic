@@ -25,6 +25,6 @@ public class HotJPainting : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.rare = ItemRarityID.Blue;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.HotJPainting>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Keep.HotJPainting_Tile>();
 	}
 }

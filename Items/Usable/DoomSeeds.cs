@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Usable
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.createTile = ModContent.TileType<DoomGrass>();
+            Item.createTile = ModContent.TileType<DoomGrass_Tile>();
             Item.consumable = true;		
         }
 

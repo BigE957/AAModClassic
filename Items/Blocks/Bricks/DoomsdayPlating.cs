@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Blocks.Bricks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DoomsdayPlating>(); //put your CustomBlock Tile name
+            Item.createTile = ModContent.TileType<DoomsdayPlating_Tile>(); //put your CustomBlock Tile name
         }
 
         

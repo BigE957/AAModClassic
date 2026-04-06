@@ -25,7 +25,7 @@ public class KeepBookcase : ModItem
 		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 250;
-        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBookcase>();
+        Item.createTile = ModContent.TileType<AAModClassic.Tiles.Furniture.Keep.KeepBookcase_Tile>();
 	}
 
 	public override void AddRecipes()

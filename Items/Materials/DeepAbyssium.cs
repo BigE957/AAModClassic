@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DeepAbyssium>();
+            Item.createTile = ModContent.TileType<DeepAbyssium_Tile>();
             Item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
         }
 

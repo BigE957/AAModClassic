@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.AH;
 
 namespace AAModClassic.Items.Boss.AH
 {
@@ -26,7 +27,7 @@ namespace AAModClassic.Items.Boss.AH
             Item.useTime = 2;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<FuryFlame>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.AH.FuryFlame>();
             Item.mana = 4;
             Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 25, 0, 0);

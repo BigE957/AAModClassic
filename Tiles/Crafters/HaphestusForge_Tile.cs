@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Crafters
               TileID.DemonAltar,
               TileID.Chairs,
               TileID.Anvils,
-              ModContent.TileType<HellstoneAnvil>()
+              ModContent.TileType<HellstoneAnvil_Tile>()
               };
             AnimationFrameHeight = 38;
         }

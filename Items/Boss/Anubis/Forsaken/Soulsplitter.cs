@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.height = 28;
 			Item.damage = 183;
 			Item.UseSound = SoundID.Item71;
-			Item.shoot = ModContent.ProjectileType<Soulsplitter>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Anubis.Forsaken.Soulsplitter_Proj>();
 			Item.shootSpeed = 14f;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;

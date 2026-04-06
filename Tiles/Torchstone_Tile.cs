@@ -10,7 +10,7 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<IncineriteOre>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<IncineriteOre_Tile>()] = true;
             Terraria.ID.TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;

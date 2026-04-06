@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Materials
             Item.rare = ItemRarityID.Purple;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DaybreakIncineriteBar>();
+            Item.createTile = ModContent.TileType<DaybreakIncineriteBar_Tile>();
             Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
         public override void AddRecipes()

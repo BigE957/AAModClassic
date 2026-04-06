@@ -175,7 +175,7 @@ namespace AAModClassic
 
             recipe = GetNewRecipe(ItemID.LavaBucket);
             recipe.AddIngredient(ItemID.EmptyBucket, 1);
-            recipe.AddTile(ModContent.TileType<RazewoodSink>());
+            recipe.AddTile(ModContent.TileType<RazewoodSink_Tile>());
             recipe.Register();
             #endregion
         }
