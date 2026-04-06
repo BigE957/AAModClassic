@@ -1010,12 +1010,10 @@ namespace AAModClassic.Globals
                 }
 
                 if (NPC.downedMoonlord)
-                {
                     pool.Add(ModContent.NPCType<Soulsucker>(), .01f);
-                }
 
                 if (!AAWorld.downedSisters && AAWorld.downedHydra && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
-                pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
+                    pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneVoid)
