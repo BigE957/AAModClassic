@@ -12,29 +12,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
     // to investigate: Projectile.Damage, (8843)
     class InfinityBlade_Rift : ModProjectile
 	{
-        public short customGlowMask = 0;
-        //TODOIZ
-        /*
-        public override void SetStaticDefaults()
-        {
-            if (Main.netMode != 2)
-            {
-                Texture2D[] glowMasks = new Microsoft.Xna.Framework.Graphics.Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
-                }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
-            }
-            Projectile.glowMask = customGlowMask;
-        }
-        */
+        public override string GlowTexture => "AAModClassic/_Unreleased/Glowmasks/" + GetType().Name + "_Glow";
 
         public override void SetDefaults()
 		{
-            
             Projectile.width = 64;
             Projectile.height = 64;
             Projectile.alpha = 100;
