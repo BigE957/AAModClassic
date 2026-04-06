@@ -1,8 +1,8 @@
-using AAModClassic;
+using AAModClassic.Items.Boss;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
     public class HydraPendant : BaseAAItem

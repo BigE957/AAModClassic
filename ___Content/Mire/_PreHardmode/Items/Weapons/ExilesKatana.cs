@@ -1,11 +1,10 @@
-using AAModClassic;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Melee
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class ExilesKatana : BaseAAItem
 	{

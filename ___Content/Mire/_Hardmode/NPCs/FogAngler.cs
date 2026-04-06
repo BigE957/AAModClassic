@@ -6,7 +6,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs
 {
     public class FogAngler : ModNPC
 	{

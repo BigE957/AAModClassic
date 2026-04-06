@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Tools
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tools
 {
     //ported from my tAPI mod because I don't want to make more artwork
     public class HydraTuneller : BaseAAItem

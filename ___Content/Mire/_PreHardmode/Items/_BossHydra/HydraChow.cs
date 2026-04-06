@@ -9,7 +9,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra
 {
     public class HydraChow : BaseAAItem
 	{

@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
     public class EventideArrow_Proj : ModProjectile
 	{

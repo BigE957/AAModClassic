@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
@@ -44,9 +45,9 @@ Blue pulls in/retracts quicker"); */
 		{
 			Recipe recipe = CreateRecipe(1);
 			recipe.AddIngredient(ModContent.ItemType<Materials.DragonClaw>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<Materials.HydraClaw>(), 5);
+			recipe.AddIngredient(ModContent.ItemType<HydraClaw>(), 5);
 			recipe.AddIngredient(ModContent.ItemType<Materials.IncineriteBar>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<Materials.AbyssiumBar>(), 5);
+			recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

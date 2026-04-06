@@ -1,4 +1,4 @@
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using System;
@@ -7,7 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
     public class Kappa : ModNPC
@@ -141,7 +141,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
             bool flag8 = true;
             if (!flag7 && flag8)
             {
-                if (NPC.velocity.Y == 0f && ((NPC.velocity.X > 0f && NPC.direction < 0) || (NPC.velocity.X < 0f && NPC.direction > 0)))
+                if (NPC.velocity.Y == 0f && (NPC.velocity.X > 0f && NPC.direction < 0 || NPC.velocity.X < 0f && NPC.direction > 0))
                 {
                     flag5 = true;
                 }
@@ -290,7 +290,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
                     Main.tile[num172, num173 + 1] == null &&
                     Main.tile[num172 - num171, num173 - 3] == null))
                 {
-                    if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && ((Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType]) || (Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile)) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || (Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType]))) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
+                    if (num172 * 16 < position2.X + NPC.width && num172 * 16 + 16 > position2.X && (Main.tile[num172, num173].HasUnactuatedTile && !Main.tile[num172, num173].TopSlope && !Main.tile[num172, num173 - 1].TopSlope && Main.tileSolid[Main.tile[num172, num173].TileType] && !Main.tileSolidTop[Main.tile[num172, num173].TileType] || Main.tile[num172, num173 - 1].IsHalfBlock && Main.tile[num172, num173 - 1].HasUnactuatedTile) && (!Main.tile[num172, num173 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 1].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 1].TileType] || Main.tile[num172, num173 - 1].IsHalfBlock && (!Main.tile[num172, num173 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 4].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 4].TileType])) && (!Main.tile[num172, num173 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 2].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 2].TileType]) && (!Main.tile[num172, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172, num173 - 3].TileType] || Main.tileSolidTop[Main.tile[num172, num173 - 3].TileType]) && (!Main.tile[num172 - num171, num173 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num172 - num171, num173 - 3].TileType]))
                     {
                         float num174 = num173 * 16;
                         if (Main.tile[num172, num173].IsHalfBlock)
@@ -336,7 +336,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
                     Main.tile[num177 + NPC.direction, num178 + 1] == null &&
                     Main.tile[num177 - NPC.direction, num178 + 1] == null);
 
-                if (nullcheck && (Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6))
+                if (nullcheck && Main.tile[num177, num178 - 1].HasUnactuatedTile && (Main.tile[num177, num178 - 1].TileType == TileID.ClosedDoor || Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed) && flag6)
                 {
                     NPC.ai[2] += 1f;
                     NPC.ai[3] = 0f;
@@ -362,7 +362,7 @@ namespace AAModClassic.NPCs.Enemies.Mire
                 else
                 {
                     int num180 = NPC.spriteDirection;
-                    if ((NPC.velocity.X < 0f && num180 == -1) || (NPC.velocity.X > 0f && num180 == 1))
+                    if (NPC.velocity.X < 0f && num180 == -1 || NPC.velocity.X > 0f && num180 == 1)
                     {
                         if (NPC.height >= 32 && Main.tile[num177, num178 - 2].HasUnactuatedTile && Main.tileSolid[Main.tile[num177, num178 - 2].TileType])
                         {

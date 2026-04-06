@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Globals;
@@ -156,7 +157,7 @@ namespace AAModClassic.NPCs.TownNPCs
 
                 int Item1 = player.FindItem(ModContent.ItemType<Items.Materials.TerraShard>());
                 int Item2 = player.FindItem(ModContent.ItemType<Items.Materials.DragonScale>());
-                int Item3 = player.FindItem(ModContent.ItemType<Items.Materials.MirePod>());
+                int Item3 = player.FindItem(ModContent.ItemType<MirePod>());
                 int Item4 = player.FindItem(ItemID.RottenChunk);
                 int Item5 = player.FindItem(ItemID.Vertebrae);
                 int Item6 = player.FindItem(ItemID.PixieDust);
@@ -214,7 +215,7 @@ namespace AAModClassic.NPCs.TownNPCs
                 }
                 else if (Item3 >= 0 && AAWorld.squid3 < 5)
                 {
-                    Main.npcChatCornerItem = ModContent.ItemType<Items.Materials.MirePod>();
+                    Main.npcChatCornerItem = ModContent.ItemType<MirePod>();
                     player.inventory[Item3].stack--;
                     if (player.inventory[Item3].stack <= 0)
                     {

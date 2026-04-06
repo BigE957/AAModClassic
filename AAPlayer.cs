@@ -1,4 +1,5 @@
-﻿using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+﻿using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
@@ -56,7 +57,6 @@ using AAModClassic.NPCs.Bosses.Toad;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.NPCs.Enemies.Inferno;
-using AAModClassic.NPCs.Enemies.Mire;
 using AAModClassic.Projectiles.AH;
 using AAModClassic.Projectiles.Anubis.Forsaken;
 using Microsoft.Xna.Framework;

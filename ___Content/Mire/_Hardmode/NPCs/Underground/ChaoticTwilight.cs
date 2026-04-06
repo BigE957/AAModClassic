@@ -1,5 +1,5 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.Dusts;
-using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -7,7 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground
 {
     public class ChaoticTwilight : ModNPC
 	{

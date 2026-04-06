@@ -2,6 +2,8 @@
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra;
+using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.AH;
@@ -15,7 +17,6 @@ using AAModClassic.Items.Boss.Equinox;
 using AAModClassic.Items.Boss.Greed;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Boss.Grips;
-using AAModClassic.Items.Boss.Hydra;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Rajah;
 using AAModClassic.Items.Boss.Rajah.Supreme;

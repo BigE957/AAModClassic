@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Dusts;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Tiles
 {

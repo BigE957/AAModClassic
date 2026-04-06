@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Desert
 {
     public class MireGhoul : ModNPC
 	{

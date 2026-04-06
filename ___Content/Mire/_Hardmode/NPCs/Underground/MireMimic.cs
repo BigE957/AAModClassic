@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
@@ -9,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground
 {
     public class MireMimic : ModNPC
 	{

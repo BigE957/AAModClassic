@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic;
-using AAModClassic.Items.Boss.Hydra;
+using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.Accessories;
 
 namespace AAModClassic.Items.Boss
 {

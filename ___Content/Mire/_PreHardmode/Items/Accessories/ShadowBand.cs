@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
     public class ShadowBand : BaseAAItem

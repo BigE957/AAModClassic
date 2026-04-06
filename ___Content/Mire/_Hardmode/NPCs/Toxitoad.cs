@@ -1,4 +1,4 @@
-﻿using AAModClassic;
+﻿using AAModClassic.___Content.Mire.Projectiles;
 using AAModClassic.CrossMod;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 
-namespace AAModClassic.NPCs.Enemies.Mire.Toxitoad
+namespace AAModClassic.___Content.Mire._Hardmode.NPCs
 {
     public class Toxitoad : ModNPC
     {

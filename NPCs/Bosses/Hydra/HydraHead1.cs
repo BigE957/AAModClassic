@@ -1,8 +1,7 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire.Projectiles;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Boss.Hydra;
-using AAModClassic.NPCs.Enemies.Mire;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
 {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM
@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Pets
 
 		public override void AI()
         {
-            Lighting.AddLight((int)(Projectile.Center.X + (Projectile.width / 2)) / 16, (int)(Projectile.position.Y + (Projectile.height / 2)) / 16, 0f, 0.5f, 0.2f);
+            Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 0f, 0.5f, 0.2f);
             Player player = Main.player[Projectile.owner];
             Projectile.rotation += 0.02f;
             if (Main.myPlayer == Projectile.owner)

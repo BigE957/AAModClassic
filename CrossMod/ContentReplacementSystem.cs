@@ -1,5 +1,7 @@
-﻿using AAModClassic.Items.Accessories;
-using AAModClassic.Items.Armor.Bogwood;
+﻿using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Armor;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Accessories;
 using AAModClassic.Items.Armor.GlowingMushium;
 using AAModClassic.Items.Armor.Mushium;
 using AAModClassic.Items.Armor.Razewood;
@@ -56,7 +58,7 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<MirePod>(),
             ModContent.ItemType<DragonScale>(),
             ModContent.ItemType<AAModClassic.Items.Materials.DragonClaw>(),
-            ModContent.ItemType<AAModClassic.Items.Materials.HydraClaw>(),
+            ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(),
             ModContent.ItemType<Hotshroom_Tile>(),
             ModContent.ItemType<Darkshroom_Tile>(),
             #endregion
@@ -170,7 +172,7 @@ namespace AAModClassic.CrossMod
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<AAModClassic.Items.Materials.DragonClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
-                OldToNewItems.Add(ModContent.ItemType<AAModClassic.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
+                OldToNewItems.Add(ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(), NewAA.Find<ModItem>("ChaosPowder").Type);
 
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);

@@ -25,6 +25,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic
 {

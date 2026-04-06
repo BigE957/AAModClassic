@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Trophy
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
     public class HydraTrophy_Tile : ModTile
 	{

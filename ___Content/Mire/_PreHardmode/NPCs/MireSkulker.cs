@@ -1,12 +1,12 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Materials;
 using AAModClassic.Items.Throwing;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Enemies.Mire
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 {
 
     public class MireSkulker : ModNPC

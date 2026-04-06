@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
-namespace AAModClassic.Items.Armor.Depth
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     public class DepthFukumen : BaseAAItem

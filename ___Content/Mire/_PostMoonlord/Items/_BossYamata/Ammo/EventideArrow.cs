@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
     public class EventideArrow : BaseAAItem
 	{

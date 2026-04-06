@@ -1,18 +1,15 @@
-using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.Accessories;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.CrossMod;
-using AAModClassic.Items.Accessories;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Items.Magic;
-using AAModClassic.Items.Melee;
-using AAModClassic.Items.Pets;
-using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Hydra
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
     public class HydraBag : BaseAAItem
 	{

@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic;
 
-namespace AAModClassic.Items.Blocks.Boxes
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
     public class    HydraBox : BaseAAItem
 	{

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Plants
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class BlackLotus_Tile : ModTile
 	{

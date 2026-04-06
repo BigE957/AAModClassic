@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
 
-namespace AAModClassic.NPCs.Enemies.Other
+namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 {
     public class HydraClaw : ModNPC
     {
@@ -53,7 +53,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             {
                 NPC.frameCounter = 0;
                 NPC.frame.Y += 26;
-                if (NPC.frame.Y > (26 * 4))
+                if (NPC.frame.Y > 26 * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

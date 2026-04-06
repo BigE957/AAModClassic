@@ -1,6 +1,4 @@
-using AAModClassic;
-
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class HydraClaw : BaseAAItem
     {

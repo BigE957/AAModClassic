@@ -1,5 +1,5 @@
 using AAModClassic;
-using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Vanity.Mask;
 using Microsoft.Xna.Framework;

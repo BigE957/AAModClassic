@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class AbyssiumBar_Tile : ModTile
     {

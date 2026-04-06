@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Pets
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
 {
     public class GlowmossBall : BaseAAItem
 	{

@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Pets
 {
     public class Glowmoss_Buff : ModBuff
     {

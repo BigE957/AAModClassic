@@ -13,6 +13,8 @@ using AAModClassic;
 using AAModClassic.Items.Boss.Grips;
 using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 
 namespace AAModClassic.Globals
 {
@@ -441,7 +443,7 @@ namespace AAModClassic.Globals
 
                 if (Main.hardMode && Main.rand.Next(2) == 0)
                 {
-                    int item = CrateType == 1 ? ModContent.ItemType<Items.Materials.HydraToxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
+                    int item = CrateType == 1 ? ModContent.ItemType<HydraToxin>() : ModContent.ItemType<Items.Materials.DragonFire>();
                     player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), item, Main.rand.Next(2, 6));
                 }
             }

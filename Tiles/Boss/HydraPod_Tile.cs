@@ -4,14 +4,12 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic.Items.Pets;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Ranged;
-using AAModClassic.Items.Magic;
 using AAModClassic;
-using AAModClassic.Items.Melee;
 using AAModClassic.Globals;
-using AAModClassic.Items.Accessories;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
 
 namespace AAModClassic.Tiles.Boss
 {

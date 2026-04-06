@@ -1,8 +1,7 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
 {
     public class BlackLotus : BaseAAItem
     {

@@ -2,7 +2,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Ranged
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class Mossket : BaseAAItem
     {

@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.Tiles.Boxes
+namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
     class HydraBox_Tile : ModTile
 	{
@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<AbyssiumDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.HydraBox>());
+            RegisterItemDrop(ModContent.ItemType<HydraBox>());
         }
 
 		public override void MouseOver(int i, int j)

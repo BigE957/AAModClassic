@@ -2,10 +2,9 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic;
-using AAModClassic.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
-namespace AAModClassic.Items.Accessories
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Accessories
 {
     public class AshProofVest3 : BaseAAItem
     {
