@@ -12,7 +12,7 @@ using Terraria.ID;
 
 namespace AAModClassic.Tiles.Banners
 {
-    public class Banners : ModTile
+    public class Banners_Tile : ModTile
 	{
         public override void SetStaticDefaults()
         {

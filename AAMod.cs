@@ -96,9 +96,9 @@ namespace AAModClassic
                 int fx = 16;
                 Texture2D tex = TextureAssets.Tile[instance.Find<ModTile>("Banners").Type].Value;
 
-                while (Tiles.Banners.Banners.GetBannerName(fx) != null)
+                while (Tiles.Banners.Banners_Tile.GetBannerName(fx) != null)
                 {
-                    string name = Tiles.Banners.Banners.GetBannerName(fx);
+                    string name = Tiles.Banners.Banners_Tile.GetBannerName(fx);
 
                     if (name.Equals("DUMMY"))
                     {
@@ -147,9 +147,9 @@ namespace AAModClassic
                 IDictionary<int, int> bannerToItem = BannerToItemDict;
                 int fx = 16;
 
-                while (Tiles.Banners.Banners.GetBannerName(fx) != null)
+                while (Tiles.Banners.Banners_Tile.GetBannerName(fx) != null)
                 {
-                    string name = Tiles.Banners.Banners.GetBannerName(fx, false);
+                    string name = Tiles.Banners.Banners_Tile.GetBannerName(fx, false);
 
                     if (name.Equals("DUMMY"))
                     {
