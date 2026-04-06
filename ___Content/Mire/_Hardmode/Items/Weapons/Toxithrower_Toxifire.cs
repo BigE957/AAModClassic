@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class Toxifire : ModProjectile
     {

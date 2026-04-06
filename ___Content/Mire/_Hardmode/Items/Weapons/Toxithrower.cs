@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace AAModClassic.Items.Ranged
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class Toxithrower : BaseAAItem
 	{
