@@ -37,7 +37,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600);
+            player.AddBuff(ModContent.BuffType<Buffs.CCRune_Buff>(), 3600);
             if (!modPlayer.CCBook)
             {
                 Projectile.active = false;
@@ -47,7 +47,7 @@ namespace AAModClassic.Items.Dev.RuneBook
             {
                 modPlayer.WeakCCRune = false;
             }
-            if (player.HasBuff(ModContent.BuffType<CCRune_Buff>()))
+            if (player.HasBuff(ModContent.BuffType<Buffs.CCRune_Buff>()))
             {
                 Projectile.timeLeft = 2;
             }

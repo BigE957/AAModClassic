@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -34,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SearcherBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.SearcherBanner>();
 
         }
 

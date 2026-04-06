@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 using AAModClassic.Tiles.Trees;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Tiles.Ore;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Tiles
 {
@@ -12,7 +14,7 @@ namespace AAModClassic.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][ModContent.TileType<Apocalyptite_Tile>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<ApocalyptiteOre_Tile>()] = true;
             Main.tileMergeDirt[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;

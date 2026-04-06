@@ -7,7 +7,7 @@ using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles
 {
-    public class StormCloud : ModTile
+    public class StormCloud_Tile : ModTile
     {
         public Texture2D glowTex;
         public bool glow = true;

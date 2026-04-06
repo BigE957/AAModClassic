@@ -30,7 +30,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraDeadshotBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraDeadshotBanner>();
         }
         
         public override void AI()

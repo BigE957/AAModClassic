@@ -30,7 +30,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ElderDragonBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.ElderDragonBanner>();
         }
 
         public override void AI()

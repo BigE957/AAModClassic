@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
+using AAModClassic.Items.Blocks.Boxes;
 
 namespace AAModClassic.Tiles.Boxes
 {
@@ -24,7 +25,7 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<Dusts.ForsakenDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.AnubisFBox>());
+            RegisterItemDrop(ModContent.ItemType<AnubisFBox>());
         }
 
 		public override void MouseOver(int i, int j)

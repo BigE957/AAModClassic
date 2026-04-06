@@ -39,7 +39,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 NPC.alpha = 255;
             }
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SeraphBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.SeraphBanner>();
         }
 
         public override bool PreAI()

@@ -32,7 +32,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Anhialation>();
+            Item.shoot = ModContent.ProjectileType<Annihilator_Annihilation>();
 			Item.shootSpeed = 8f;
             
 		}

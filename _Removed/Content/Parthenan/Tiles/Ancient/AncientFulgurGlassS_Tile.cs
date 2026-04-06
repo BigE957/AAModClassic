@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
 {
-    public class AncientFulgurGlassS : ModTile
+    public class AncientFulgurGlassS_Tile : ModTile
     {
         public Texture2D glowTex;
         public bool glow = true;

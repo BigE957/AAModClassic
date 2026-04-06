@@ -1,6 +1,7 @@
 using System;
 using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Rajah;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Thorium
 {
-    public class CarrotFarmer : ModProjectile
+    public class CarrotFarmer_Holdout : ModProjectile
     {
         public override void SetStaticDefaults()
         {

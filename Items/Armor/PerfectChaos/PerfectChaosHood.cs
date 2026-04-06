@@ -6,6 +6,7 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {

@@ -1,5 +1,7 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Anubis;
+using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;

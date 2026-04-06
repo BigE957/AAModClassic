@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Tiles.Trophy;
 
 namespace AAModClassic.Items.Boss.Broodmother
 {

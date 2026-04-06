@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
             NPC.knockBackResist = 0.4f;
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PurityCrawlerBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityCrawlerBanner>();
         }
 
         public override void OnKill()

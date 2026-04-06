@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             AnimationType = NPCID.CorruptSlime;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<InfernalSlimeBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.InfernalSlimeBanner>();
         }
 
         public override bool PreAI()

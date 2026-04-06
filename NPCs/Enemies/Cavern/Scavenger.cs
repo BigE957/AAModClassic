@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Cavern
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ScavengerBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.ScavengerBanner>();
         }
 
         public override void AI()

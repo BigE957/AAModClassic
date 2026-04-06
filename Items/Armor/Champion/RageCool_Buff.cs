@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion
 {
-    public class RageCool : ModBuff
+    public class RageCool_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Armor.Champion
 
         public override void Update(Player player, ref int buffIndex)
         {
-            if (!player.HasBuff(ModContent.BuffType<RageBuff_Buff>()))
+            if (!player.HasBuff(ModContent.BuffType<Rage_Buff>()))
             {
                 player.statDefense -= 15;
                 player.moveSpeed *= .2f;

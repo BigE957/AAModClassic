@@ -12,6 +12,7 @@ using AAModClassic.Globals;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Melee;
 using AAModClassic.Items.Magic;
+using AAModClassic.NPCs.Bosses.Broodmother;
 
 namespace AAModClassic.Tiles.Boss
 {

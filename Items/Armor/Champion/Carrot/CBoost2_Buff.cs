@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion.Carrot
 {
-    public class CBoost2 : ModBuff
+    public class CBoost2_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {

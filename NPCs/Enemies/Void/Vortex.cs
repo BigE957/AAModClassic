@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.noGravity = true;
             NPC.netAlways = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<VortexBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.VortexBanner>();
         }
 
         public float Rotation = 0;

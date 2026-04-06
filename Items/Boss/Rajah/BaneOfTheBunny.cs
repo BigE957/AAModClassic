@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Rajah;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +30,7 @@ Throwing Javelins right after a spear thrust throws javelins faster for a moment
             Item.useTime = 20;
             Item.knockBack = 4f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Projectiles.BaneS>();
+            Item.shoot = ModContent.ProjectileType<BaneS>();
             Item.shootSpeed = 4f;
             Item.rare = ItemRarityID.Yellow;
         }
@@ -47,7 +48,7 @@ Throwing Javelins right after a spear thrust throws javelins faster for a moment
                 Item.useAnimation = 15;
                 Item.UseSound = SoundID.Item1;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.shoot = ModContent.ProjectileType<Projectiles.BaneS>();  
+                Item.shoot = ModContent.ProjectileType<BaneS>();  
                 Item.shootSpeed = 10f;
                 Item.autoReuse = true;
             }
@@ -57,7 +58,7 @@ Throwing Javelins right after a spear thrust throws javelins faster for a moment
                 Item.useTime = 13;
                 Item.UseSound = SoundID.Item1;
                 Item.useStyle = ItemUseStyleID.Swing;
-                Item.shoot = ModContent.ProjectileType<Projectiles.BaneT>();
+                Item.shoot = ModContent.ProjectileType<BaneT>();
                 Item.shootSpeed = 10f;
                 Item.autoReuse = true;
             }

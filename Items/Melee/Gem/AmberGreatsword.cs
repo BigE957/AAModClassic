@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Melee.Gem
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = false;   
             Item.useTurn = true; 
-			Item.shoot = ModContent.ProjectileType<Projectiles.AmberShot>();
+			Item.shoot = ModContent.ProjectileType<AmberShot>();
 			Item.shootSpeed = 12f;
         }
 

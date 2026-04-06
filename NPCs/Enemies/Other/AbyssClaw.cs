@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.aiStyle = -1;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AbyssClawBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.AbyssClawBanner>();
         }
 
         public override void AI()

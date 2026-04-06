@@ -1,8 +1,12 @@
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Zero;
+using AAModClassic.Items.Materials;
 using AAModClassic.Items.Pets;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -203,10 +207,9 @@ namespace AAModClassic.NPCs.Bosses.Zero
                 NPC.DropLoot(ModContent.ItemType<ZeroCore>(), 1f / 10f);
                 NPC.DropLoot(ModContent.ItemType<ZeroMask>(), 1f / 7f);
                 NPC.DropLoot(ModContent.ItemType<Items.Boss.Zero.ZeroTrophy>(), 1f / 10f);
-                if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
-                {
-                    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
-                }
+                //TODO: BRING HIM BACK PLEASEEEEEEE
+                //if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
+                //    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
             }
         }
 

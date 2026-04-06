@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<BlazeClawBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.BlazeClawBanner>();
         }
 
         public override void AI()

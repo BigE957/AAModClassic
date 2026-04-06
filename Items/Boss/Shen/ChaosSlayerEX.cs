@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Shen;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -32,7 +33,7 @@ Chaos Slayer EX"); */
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.expert = true; Item.expertOnly = true;
             Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.ChaosSlayerSwordEX>();
+			Item.shoot = ModContent.ProjectileType<ChaosSlayerSwordEX>();
 			Item.shootSpeed = 7;
             Item.useTurn = true;
             AARarity = 14;

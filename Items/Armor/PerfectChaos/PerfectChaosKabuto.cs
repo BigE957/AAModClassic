@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Armor.PerfectChaos
 {

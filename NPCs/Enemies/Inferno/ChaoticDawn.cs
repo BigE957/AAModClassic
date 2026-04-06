@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.ChaoticDawnBanner>();
         }
 
         public override void AI()

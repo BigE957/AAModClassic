@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Assassin
 {
-    public class AssassinHurt : ModBuff
+    public class AssassinHurt_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

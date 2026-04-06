@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
 {
-    public class AncientDataBank : ModTile
+    public class AncientDataBank_Tile : ModTile
     {
         public Texture2D glowTex;
         public bool glow = true;

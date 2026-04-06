@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Blocks
 {

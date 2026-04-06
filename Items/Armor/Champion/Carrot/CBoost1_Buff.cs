@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion.Carrot
 {
-    public class CBoost3 : ModBuff
+    public class CBoost1_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -16,14 +16,15 @@ namespace AAModClassic.Items.Armor.Champion.Carrot
         public override void Update(Player player, ref int buffIndex)
         {
             AAPlayer mplayer = player.GetModPlayer<AAPlayer>();
-            player.manaRegenBonus += 40;
+
+            player.manaRegenBonus += 25;
             player.GetDamage(DamageClass.Generic) += 0.18f * mplayer.CarrotBuff;
             player.lifeRegen += 12 * mplayer.CarrotBuff;
+
             if (player.buffTime[buffIndex] == 2)
             {
-                mplayer.CarrotBuff--;
-                player.buffType[buffIndex] = ModContent.BuffType<CBoost2_Buff>();
-                player.buffTime[buffIndex] = 480;
+				player.DelBuff(buffIndex);
+				buffIndex--;
             }
         }
     }

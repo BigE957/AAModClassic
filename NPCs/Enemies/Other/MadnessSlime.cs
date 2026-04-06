@@ -33,7 +33,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 			NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MadnessSlimeBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.MadnessSlimeBanner>();
 		}
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

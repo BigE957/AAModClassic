@@ -27,7 +27,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraSphereBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraSphereBanner>();
         }
 
 

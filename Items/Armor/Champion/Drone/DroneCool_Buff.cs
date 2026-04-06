@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion.Drone
 {
-    public class DroneCool : ModBuff
+    public class DroneCool_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {

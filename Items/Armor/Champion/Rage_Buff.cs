@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion
 {
-    public class RageBuff : ModBuff
+    public class Rage_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {

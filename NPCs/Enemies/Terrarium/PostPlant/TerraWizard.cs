@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraWizardBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraWizardBanner>();
         }
 
         public float[] shootAI = new float[4];

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.Items.Boss.Anubis
 {

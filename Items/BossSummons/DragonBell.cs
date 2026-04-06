@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.NPCs.Bosses.Broodmother;
 
 namespace AAModClassic.Items.BossSummons
 {

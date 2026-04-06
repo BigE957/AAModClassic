@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Furniture.Bogwood;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

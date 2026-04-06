@@ -1,3 +1,4 @@
+using AAModClassic.Items.Blocks.Statues;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

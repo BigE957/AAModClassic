@@ -1,5 +1,6 @@
 using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

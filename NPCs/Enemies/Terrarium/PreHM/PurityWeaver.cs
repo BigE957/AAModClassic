@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
         }
 
         public override Color? GetAlpha(Color drawColor)
@@ -252,7 +252,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -384,7 +384,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PreHM
 
             NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<PurityWeaverBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.PurityWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

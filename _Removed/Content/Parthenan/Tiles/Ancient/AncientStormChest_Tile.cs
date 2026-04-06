@@ -12,7 +12,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
 {
-	public class AncientStormChest : ModTile
+	public class AncientStormChest_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

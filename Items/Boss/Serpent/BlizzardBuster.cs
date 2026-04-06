@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Serpent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Boss.Serpent
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Orange;
 			Item.shootSpeed = 10f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.BB>();
+			Item.shoot = ModContent.ProjectileType<BB>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
         }

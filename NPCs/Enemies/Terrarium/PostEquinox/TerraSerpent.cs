@@ -38,7 +38,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraSerpentBanner>();
         }
         
         public override bool PreAI()
@@ -259,7 +259,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             base.SetDefaults();
             NPC.dontCountMe = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraSerpentBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -378,7 +378,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
             base.SetDefaults();
             NPC.dontCountMe = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraSerpentBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraSerpentBanner>();
         }
         
         public override bool PreAI()

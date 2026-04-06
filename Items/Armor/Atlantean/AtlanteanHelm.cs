@@ -3,6 +3,10 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Armor.Ocean;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Boss.Broodmother;
 
 namespace AAModClassic.Items.Armor.Atlantean
 {
@@ -43,7 +47,7 @@ Allows to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AtlanteanBonus");
 			if (player.wet)
 			{
-				player.AddBuff(ModContent.BuffType<AtlanteanBuff_Buff>(), 2);
+                player.AddBuff(ModContent.BuffType<Atlantean_Buff>(), 2);
 			}
         }
 		

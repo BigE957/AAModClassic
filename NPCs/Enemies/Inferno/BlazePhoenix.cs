@@ -41,7 +41,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.damage = 70;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.BlazePhoenixBanner>();
         }
 
         public override void AI()

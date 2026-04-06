@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<TerraSquidBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.TerraSquidBanner>();
         }
 
         public override void AI()

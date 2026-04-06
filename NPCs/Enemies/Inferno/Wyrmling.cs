@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
         }
         public override bool PreAI()
         {
@@ -293,7 +293,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             NPC.dontCountMe = true;
             NPC.alpha = 255;
             Banner = ModContent.NPCType<Wyrmling>();
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -400,7 +400,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             NPC.alpha = 255;
             Banner = ModContent.NPCType<Wyrmling>();
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -507,7 +507,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 
             NPC.alpha = 255;
             Banner = ModContent.NPCType<Wyrmling>();
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using AAModClassic.Items.Armor.Atlantean;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Armor.Chaos
 {
@@ -46,7 +48,7 @@ Allows you to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosMaskBonus");
 			if (player.wet)
 			{
-				player.AddBuff(ModContent.BuffType<ChaosBuff_Buff>(), 2);
+				player.AddBuff(ModContent.BuffType<Chaos_Buff>(), 2);
             }
             player.accFlipper = true;
             player.ignoreWater = true;

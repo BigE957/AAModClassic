@@ -165,7 +165,7 @@ namespace AAModClassic
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<Wyrmling>();
-                                npc.BannerItem = ModContent.ItemType<WyrmlingBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmlingBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
@@ -178,7 +178,7 @@ namespace AAModClassic
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<Wyrm>();
-                                npc.BannerItem = ModContent.ItemType<WyrmBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.WyrmBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }
@@ -191,7 +191,7 @@ namespace AAModClassic
                             if (npc != null)
                             {
                                 npc.Banner = ModContent.NPCType<SnakeHead>();
-                                npc.BannerItem = ModContent.ItemType<SnakeBanner>();
+                                npc.BannerItem = ModContent.ItemType<Items.Banners.SnakeBanner>();
                                 bannerToItem[npc.Banner] = npc.BannerItem;
                             }
                         }

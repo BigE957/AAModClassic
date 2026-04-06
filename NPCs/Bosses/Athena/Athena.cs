@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Boss.Athena;
+using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;

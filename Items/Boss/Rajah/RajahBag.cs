@@ -1,4 +1,6 @@
 using AAModClassic.CrossMod;
+using AAModClassic.Items.Thorium.Healer;
+using AAModClassic.Items.Vanity.Mask;
 using Terraria;
 using Terraria.ModLoader;
 

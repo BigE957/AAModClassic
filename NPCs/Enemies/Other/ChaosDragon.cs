@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ChaosDragonBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.ChaosDragonBanner>();
         }
 
         public override void AI()

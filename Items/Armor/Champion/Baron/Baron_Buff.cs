@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Armor.Champion.Baron
 {
-    public class BaronBuff : ModBuff
+    public class Baron_Buff : ModBuff
     {
         public override void SetStaticDefaults()
         {

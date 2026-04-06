@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<DragonClawBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.DragonClawBanner>();
         }
 
         public override void AI()

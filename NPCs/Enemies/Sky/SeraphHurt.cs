@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SeraphBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.SeraphBanner>();
             NPC.dontTakeDamage = true;
         }
 

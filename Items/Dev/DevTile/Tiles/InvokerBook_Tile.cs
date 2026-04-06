@@ -3,10 +3,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ObjectData;
+using AAModClassic.Items.Dev.Invoker;
 
 namespace AAModClassic.Items.Dev.DevTile.Tiles
 {
-    public class InvokerBookTile : ModTile
+    public class InvokerBook_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

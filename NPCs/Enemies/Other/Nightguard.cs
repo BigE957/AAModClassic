@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<NightGuardBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.NightGuardBanner>();
 		}
 
 		public override void HitEffect(NPC.HitInfo hit)

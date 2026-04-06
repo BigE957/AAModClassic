@@ -31,7 +31,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<StoneSearcherBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.StoneSearcherBanner>();
 
         }
 

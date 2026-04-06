@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Armor.Assassin;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

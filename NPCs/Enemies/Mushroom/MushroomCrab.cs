@@ -30,7 +30,7 @@ namespace AAModClassic.NPCs.Enemies.Mushroom
             NPC.buffImmune[31] = false;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MushroomCrabBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.MushroomCrabBanner>();
         }
 
         public override void AI()

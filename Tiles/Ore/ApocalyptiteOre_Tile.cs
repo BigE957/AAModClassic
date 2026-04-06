@@ -7,6 +7,7 @@ using AAModClassic.Tiles.Trees;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Tiles.Ore
 {

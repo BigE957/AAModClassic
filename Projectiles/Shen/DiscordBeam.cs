@@ -35,7 +35,7 @@ namespace AAModClassic.Projectiles.Shen
 			if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
 				Projectile.velocity = -Vector2.UnitY;
 
-			if (Main.projectile[(int)Projectile.ai[1]].active && Main.projectile[(int)Projectile.ai[1]].type == ModContent.ProjectileType<ChaosRayHandle>())
+			if (Main.projectile[(int)Projectile.ai[1]].active)//TODO: Fake Projectile && Main.projectile[(int)Projectile.ai[1]].type == ModContent.ProjectileType<ChaosRayHandle>())
 			{
 				Projectile.Center = Main.projectile[(int)Projectile.ai[1]].Center;
 				Projectile.velocity = Vector2.Normalize(Main.projectile[(int)Projectile.ai[1]].velocity);

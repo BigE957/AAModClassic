@@ -264,7 +264,7 @@ namespace AAModClassic._Unreleased
 
             Point origin = new Point((int)shipPos.X, (int)GenVars.worldSurfaceLow - 200);
             origin.Y = BaseWorldGen.GetFirstTileFloor(origin.X, origin.Y, true);
-            ShipGen biome = new ShipGen();
+            SunkenShipGen biome = new SunkenShipGen();
             biome.Place(origin, GenVars.structures);
         }
 

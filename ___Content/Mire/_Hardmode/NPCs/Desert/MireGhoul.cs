@@ -1,4 +1,5 @@
 using AAModClassic.Dusts;
+using AAModClassic.Items.Banners;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

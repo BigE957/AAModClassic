@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Magic
             Item.mana = 20;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.BlockA>();  
+            Item.shoot = ModContent.ProjectileType<BlockA>();  
             Item.shootSpeed = 11f;
             Item.rare = ItemRarityID.Yellow;
         }   

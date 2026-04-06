@@ -1,6 +1,8 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using AAModClassic.Tiles;
+using AAModClassic.Items.Dev.DevTile.Tiles;
 
 namespace AAModClassic.Items.Dev.DevTile
 {
@@ -33,7 +35,7 @@ namespace AAModClassic.Items.Dev.DevTile
                         bool canplace = type == 19 && (Main.tile[i, j].TileFrameY == 10 * 18 || Main.tile[i, j].TileFrameY == 11 * 18) && !Main.tile[i, j - 1].HasTile;
                         if(canplace)
                         {
-                            WorldGen.PlaceTile(i, j - 1, ModContent.TileType<InvokerBookTile_Tile>(), true, false);
+                            WorldGen.PlaceTile(i, j - 1, ModContent.TileType<InvokerBook_Tile>(), true, false);
                             DevWorld.InvokerBookSetOK = false;
                             if (Main.netMode == NetmodeID.Server && Main.tile[i, j].HasTile)
                             {

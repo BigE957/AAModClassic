@@ -8,6 +8,7 @@ using Terraria.Audio;
 using System.Collections.Generic;
 using System;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 {
@@ -33,7 +34,8 @@ Doesn't require ammo"); */
             Item.useTime = 20;
             Item.useAnimation = 20; 
             Item.useStyle = ItemUseStyleID.Shoot; 
-            Item.shoot = ModContent.ProjectileType<Projectiles.Antimatter_Unreleased>();
+            //TODO: was previously Antimatter_Unreleased
+            Item.shoot = ModContent.ProjectileType<Antimatter>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;

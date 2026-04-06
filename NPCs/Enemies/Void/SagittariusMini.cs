@@ -35,7 +35,7 @@ namespace AAModClassic.NPCs.Enemies.Void
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ShadowScoutBanner>();
+			BannerItem = ModContent.ItemType<Items.Banners.ShadowScoutBanner>();
         }
 
 		public int frameCount = 0;

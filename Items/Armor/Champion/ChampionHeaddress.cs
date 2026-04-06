@@ -4,6 +4,7 @@ using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Items.Armor.Champion.Baron;
 
 namespace AAModClassic.Items.Armor.Champion
 {
@@ -55,9 +56,9 @@ The armor of a champion feared across the land"); */
             modPlayer.ChampionSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<BaronBuff_Buff>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<Baron_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<BaronBuff_Buff>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<Baron_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<BaronBunny>()] < 1)
                 {

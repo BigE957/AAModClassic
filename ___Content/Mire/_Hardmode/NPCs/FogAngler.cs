@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

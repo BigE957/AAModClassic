@@ -1,7 +1,9 @@
-﻿using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
+﻿using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
 using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -932,7 +934,7 @@ namespace AAModClassic
             if (ChaosMe)
             {
                 npc.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
-                npc.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+                npc.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
             }
 
             if (BrokenCode)
@@ -1005,13 +1007,13 @@ namespace AAModClassic
 
             if (Naitokurosu)
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
@@ -1053,11 +1055,11 @@ namespace AAModClassic
 
             if (HeartS && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 600);
+                target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 600);
             }
             else if (HeartS && Player.statLife < (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 600);
+                target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
             }
 
             if (dracoSet)
@@ -1070,14 +1072,14 @@ namespace AAModClassic
                 target.AddBuff(BuffID.Wet, 600);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<DragonfireFlask_Buff>()))
             {
                 target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlask_Buff>()))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 900);
+                target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 900);
             }
             if (StoneSoldier)
             {
@@ -1132,14 +1134,14 @@ namespace AAModClassic
                     target.AddBuff(buff, 180);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff_Buff>()))
+                if (Player.HasBuff(ModContent.BuffType<DragonfireFlask_Buff>()))
                 {
                     target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>()))
+                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlask_Buff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 900);
+                    target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 900);
                 }
             }
 
@@ -1152,7 +1154,7 @@ namespace AAModClassic
 
                 if (dreadSet)
                 {
-                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 600);
+                    target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
                 }
 
                 if (DynaskullSet && Main.rand.Next(4) == 0)
@@ -1181,7 +1183,7 @@ namespace AAModClassic
             {
                 if (MoonSet)
                 {
-                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 300);
                 }
 
                 if (zeroSet)
@@ -1207,7 +1209,7 @@ namespace AAModClassic
 
                 if (BlackLotusEmblem)
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 180);
+                    target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 180);
                 }
             }
 
@@ -1264,13 +1266,13 @@ namespace AAModClassic
 
             if (Naitokurosu && (proj.CountsAsClass(DamageClass.Ranged) || proj.minion))
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
@@ -1838,11 +1840,11 @@ namespace AAModClassic
                     bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
-                        Player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
+                        Player.ClearBuff(ModContent.BuffType<Buffs.CCRune_Buff>());
                     }
-                    if (Player.FindBuffIndex(ModContent.BuffType<CCRune_Buff>()) == -1)
+                    if (Player.FindBuffIndex(ModContent.BuffType<Buffs.CCRune_Buff>()) == -1)
                     {
-                        Player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600, true);
+                        Player.AddBuff(ModContent.BuffType<Buffs.CCRune_Buff>(), 3600, true);
                     }
                     if (CCBook)
                     {
@@ -1892,12 +1894,12 @@ namespace AAModClassic
                 {
                     BuffLength = 600;
                 }
-                Player.AddBuff(ModContent.BuffType<RageBuff_Buff>(), BuffLength);
+                Player.AddBuff(ModContent.BuffType<Rage_Buff>(), BuffLength);
                 int RageCooldown = BuffLength * 4;
                 Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageCool_Buff>(), RageCooldown);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<RageBuff_Buff>()))
+            if (Player.HasBuff(ModContent.BuffType<Rage_Buff>()))
             {
                 Player.armorEffectDrawShadowLokis = true;
             }
@@ -2185,7 +2187,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.Next(50) == 0)
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Dusts.Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2198,7 +2200,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.Next(50) == 0)
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Dusts.Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2227,11 +2229,11 @@ namespace AAModClassic
                         int num12;
                         if (Player.velocity.Y == 0f)
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
                         }
                         else
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
                         }
                         Main.dust[num12].velocity *= 0.1f;
                         Main.dust[num12].scale *= 1f + Main.rand.Next(20) * 0.01f;
@@ -2316,7 +2318,7 @@ namespace AAModClassic
                         Player.dashDelay = -1;
                         for (int num17 = 0; num17 < 2; num17++)
                         {
-                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
+                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
                             Dust expr_CDB_cp_0 = Main.dust[num18];
                             expr_CDB_cp_0.position.X += Main.rand.Next(-5, 6);
                             Dust expr_D02_cp_0 = Main.dust[num18];

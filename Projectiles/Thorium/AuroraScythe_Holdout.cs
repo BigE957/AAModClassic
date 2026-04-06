@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Thorium
 {
-    public class AuroraScythe : ModProjectile
+    public class AuroraScythe_Holdout : ModProjectile
     { 
 		public override void SetDefaults()
 		{
