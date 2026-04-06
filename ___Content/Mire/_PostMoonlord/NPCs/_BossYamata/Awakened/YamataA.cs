@@ -1,11 +1,15 @@
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
@@ -20,6 +24,14 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
     [AutoloadBossHead]
     public class YamataA : YamataBoss
     {
+        public static Asset<Texture2D> HeadTex; //Different cause ModNPC has HeadTexture...
+        public static Asset<Texture2D> HeadFTexture;
+        public static Asset<Texture2D> HeadGlowTexture;
+        public static Asset<Texture2D> HeadFGlowTexture;
+        public static Asset<Texture2D> NeckTexture;
+        public static Asset<Texture2D> TailTexture;
+        public static Asset<Texture2D> Glow;
+
         public NPC TrueHead;
         public NPC Head2;
         public NPC Head3;
@@ -64,6 +76,17 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             base.SetStaticDefaults();
             displayName = "Yamata no Orochi";
             //Main.npcFrameCount[npc.type] = 7;
+
+
+            HeadTex = ModContent.Request<Texture2D>(Texture + "Head");
+            HeadFTexture = ModContent.Request<Texture2D>(Texture + "HeadFake");
+            HeadGlowTexture = ModContent.Request<Texture2D>(Texture + "Head_Glow");
+            HeadFGlowTexture = ModContent.Request<Texture2D>(Texture + "HeadFake_Glow");
+
+            string texRoot = Texture + "_";
+            NeckTexture = ModContent.Request<Texture2D>(texRoot + "ANeck");
+            NeckTexture = ModContent.Request<Texture2D>(texRoot + "Glow");
+            TailTexture = ModContent.Request<Texture2D>(texRoot + "Tail");
         }
 
         public override void SetDefaults()
@@ -398,7 +421,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
                     {
-                        Main.player[p].AddBuff(ModContent.BuffType<YamataAGravity>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
                     }
                 }
 
@@ -681,10 +704,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             if (legs == null || legs.Length < 4)
             {
                 legs = new LegInfo[4];
-                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0), this);
-                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0), this);
-                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), this);
-                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), this);
+                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0));
+                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0));
+                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0));
+                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0));
             }
             for (int m = 0; m < 4; m++)
             {
@@ -711,13 +734,13 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                  y2 * Math.Pow(t, 2)
              );
         }
-        public void DrawHead(SpriteBatch spriteBatch, string headTexture, string glowMaskTexture, NPC head, Color drawColor, bool DrawUnder)
+        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool DrawUnder)
         {
             Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
             Color GlowColor = AAColor.COLOR_WHITEFADE1;
             if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataAHead || head.ModNPC is YamataAHeadF))
             {
-                Texture2D neckTex2D = Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataANeck");
+                Texture2D neckTex2D = NeckTexture.Value;
                 Vector2 connector = head.Center;
                 Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 110 * NPC.scale);
                 float chainsPerUse = 0.05f;
@@ -737,8 +760,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                         new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                     }
                 }
-                BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(headTexture), 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, drawColor, false);
-                BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture(glowMaskTexture), 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, GlowColor, false);
+                BaseDrawing.DrawTexture(spriteBatch, headTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, drawColor, false);
+                BaseDrawing.DrawTexture(spriteBatch, glowMaskTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, GlowColor, false);
             }
         }
 
@@ -746,7 +769,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         {
             Color lightColor = NPC.GetAlpha(drawColor);
             SpriteBatch sb = spriteBatch;
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("NPCs/Bosses/Yamata/Awakened/YamataATail"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
+            BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
             if (legs != null && legs.Length == 4)
             {
                 legs[2].DrawLeg(sb, NPC); //back legs
@@ -755,19 +778,19 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                 legs[1].DrawLeg(sb, NPC);
             }
 
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head2, drawColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head3, drawColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head4, drawColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head5, drawColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head6, drawColor, false);
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHeadF", "Glowmasks/YamataAHeadF_Glow", Head7, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head2, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head3, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head4, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head5, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head6, drawColor, false);
+            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head7, drawColor, false);
 
             BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
 
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
-            BaseDrawing.DrawAfterimage(spriteBatch, Mod.GetTexture("Glowmasks/YamataA_Glow"), 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
+            BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
 
-            DrawHead(sb, "NPCs/Bosses/Yamata/Awakened/YamataAHead", "Glowmasks/YamataAHead_Glow", TrueHead, drawColor, false);
+            DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, TrueHead, drawColor, false);
         }
 
         public bool spawnHaruka = false;
@@ -810,6 +833,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         }
     }
 
+    //TODO: make sure yamata and yamata a work with the modified centrailized animation stuff in normal yamata's file
+    /*
     public class AnimationInfo
     {
         public int animType = 0;
@@ -1000,4 +1025,5 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             BaseDrawing.DrawTexture(sb, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
         }
     }
+    */
 }

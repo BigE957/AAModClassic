@@ -3,9 +3,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class YamataATrophy : BaseAAItem
-	{
-        public static int type;
-        
+	{        
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yamata No Orochi Trophy");
@@ -26,7 +24,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
             Item.expert = true; Item.expertOnly = true;
-			Item.createTile = ModContent.TileType<YamataATrophy>();
+			Item.createTile = ModContent.TileType<YamataATrophy_Tile>();
 		}
 	}
 }
