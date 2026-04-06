@@ -678,7 +678,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             Color GlowColor = Color.White;
             if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataHead || head.ModNPC is YamataHeadF1))
             {
-                string neckTex = "NPCs/Bosses/Yamata/YamataNeck";
+                string neckTex = "NPCs/Bosses/Yamata/Yamata_Neck";
                 Texture2D neckTex2D = Mod.GetTexture(neckTex);
                 Vector2 connector = head.Center;
                 Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 40);
@@ -898,11 +898,11 @@ namespace AAModClassic.NPCs.Bosses.Yamata
             if (textures == null || textures.Length < 5 || textures[1].Height == 1)
             {
                 bool awakened = npc.type == ModContent.NPCType<YamataA>();
-                string texRoot = "NPCs/Bosses/Yamata/Yamata";
-                if (awakened) texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA";
+                string texRoot = "NPCs/Bosses/Yamata/Yamata_";
+                if (awakened) texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA_";
                 textures = new Texture2D[5];
-                textures[0] = mod.GetTexture(texRoot + "LegCap");
-                textures[1] = mod.GetTexture(texRoot + "LegSegment");
+                textures[0] = mod.GetTexture(texRoot + "LegCapL");
+                textures[1] = mod.GetTexture(texRoot + "LegSegmentL");
                 textures[2] = mod.GetTexture(texRoot + "LegCapR");
                 textures[3] = mod.GetTexture(texRoot + "LegSegmentR");
                 textures[4] = mod.GetTexture(texRoot + "Foot");
