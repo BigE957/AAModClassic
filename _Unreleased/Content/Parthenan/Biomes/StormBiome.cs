@@ -31,7 +31,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.Biomes
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<StormSurfaceBgStyle>();
     }
 
-    public class StormBiome : CustomSky
+    public class StormSky : CustomSky
     {
 
         StormSky_Clouds BGClouds = new StormSky_Clouds(true);
