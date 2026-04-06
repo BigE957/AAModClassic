@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             Main.tileLighted[Type] = true; 
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	        AddMapEntry(new Color(70, 0, 10));

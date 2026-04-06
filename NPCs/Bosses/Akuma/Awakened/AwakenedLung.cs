@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 {
@@ -52,7 +53,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
         {
             Player player = Main.player[NPC.target];
        
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -338,7 +339,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -439,7 +440,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 NPC.TargetClosest(true);
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

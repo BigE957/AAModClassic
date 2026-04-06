@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Chest");
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };

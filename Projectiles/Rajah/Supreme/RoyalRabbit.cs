@@ -346,7 +346,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num585 = 0; num585 < 20; num585++)
             {
-                int num586 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), 0f, 0f, 100, Main.DiscoColor, 2f);
+                int num586 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 100, Main.DiscoColor, 2f);
                 Main.dust[num586].noGravity = true;
                 Main.dust[num586].velocity *= 4f;
             }

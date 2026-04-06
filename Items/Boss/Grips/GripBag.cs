@@ -1,3 +1,6 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Items.Vanity.Mask;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -43,7 +43,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 				float num152 = Projectile.velocity.X / 3f * num151;
 				float num153 = Projectile.velocity.Y / 3f * num151;
 				int num154 = 14;
-				int num155 = Dust.NewDust(new Vector2(Projectile.position.X + num154, Projectile.position.Y + num154), Projectile.width - num154 * 2, Projectile.height - num154 * 2, ModContent.DustType<AcidDust>(), 0f, 0f, 100);
+				int num155 = Dust.NewDust(new Vector2(Projectile.position.X + num154, Projectile.position.Y + num154), Projectile.width - num154 * 2, Projectile.height - num154 * 2, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 100);
 				Main.dust[num155].noGravity = true;
 				Main.dust[num155].velocity *= 0.1f;
 				Main.dust[num155].velocity += Projectile.velocity * 0.5f;
@@ -55,7 +55,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 			if (Main.rand.Next(8) == 0)
 			{
 				int num156 = 16;
-				int num157 = Dust.NewDust(new Vector2(Projectile.position.X + num156, Projectile.position.Y + num156), Projectile.width - num156 * 2, Projectile.height - num156 * 2, ModContent.DustType<AcidDust>(), 0f, 0f, 100, default, 0.5f);
+				int num157 = Dust.NewDust(new Vector2(Projectile.position.X + num156, Projectile.position.Y + num156), Projectile.width - num156 * 2, Projectile.height - num156 * 2, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 100, default, 0.5f);
 				Main.dust[num157].velocity *= 0.25f;
 				Main.dust[num157].velocity += Projectile.velocity * 0.5f;
 				return;

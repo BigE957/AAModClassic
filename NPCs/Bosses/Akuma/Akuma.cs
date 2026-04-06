@@ -1,6 +1,9 @@
 ﻿using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Akuma;
+using AAModClassic.Items.Vanity.Mask;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -170,7 +173,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                 {
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<MireBubbleDust>(), 0f, 0f, 90, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.MireBubbleDust>(), 0f, 0f, 90, default, 2f);
                         Main.dust[num935].noGravity = true;
                         Main.dust[num935].velocity.Y -= 1f;
                     }
@@ -192,7 +195,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
                     attackCounter = 0;
                 }
             }
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaDust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -635,7 +638,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }

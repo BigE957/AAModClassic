@@ -14,7 +14,7 @@ namespace AAModClassic.Walls.Bricks
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<IncineriteWall>());
             AddMapEntry(new Color(40, 30, 10));
-            DustType = ModContent.DustType<IncineriteDust>();
+            DustType = ModContent.DustType<Dusts.IncineriteDust>();
         }
     }
 }

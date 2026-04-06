@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            DustType = ModContent.DustType<ShroomDust>();
+            DustType = ModContent.DustType<Dusts.ShroomDust>();
             RegisterItemDrop(ModContent.ItemType<GlowingMushiumBar>());   
             AddMapEntry(new Color(0, 100, 255));
 			MinPick = 0;

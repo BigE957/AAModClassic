@@ -1,3 +1,5 @@
+using AAModClassic.Dusts;
+using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,7 +13,7 @@ namespace AAModClassic.Walls.Bricks
         {
             Main.wallLight[Type] = true;
             Main.wallHouse[Type] = true;
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
 			AddMapEntry(new Color(33, 37, 96));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<EventideWall>());

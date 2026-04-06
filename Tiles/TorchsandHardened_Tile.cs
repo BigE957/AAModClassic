@@ -12,7 +12,7 @@ namespace AAModClassic.Tiles
             Terraria.ID.TileID.Sets.Conversion.HardenedSand[Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             RegisterItemDrop(ModContent.ItemType<TorchsandHardened>());   
             AddMapEntry(new Color(50, 30, 17));
             MinPick = 65;

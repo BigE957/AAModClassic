@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Chest");
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };

@@ -142,7 +142,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
             if (NPC.life <= 0)
             {
                 DontSayDeathLine = false;

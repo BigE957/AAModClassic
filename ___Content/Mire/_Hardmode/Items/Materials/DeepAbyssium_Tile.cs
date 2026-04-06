@@ -22,7 +22,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
             RegisterItemDrop(ModContent.ItemType<DeepAbyssium>());   
             AddMapEntry(new Color(0, 0, 100));
 			MinPick = 0;

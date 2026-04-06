@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<IceDust>();
+            DustType = ModContent.DustType<Dusts.IceDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.SerpentBox>());
         }

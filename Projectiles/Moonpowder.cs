@@ -25,7 +25,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int dustType = ModContent.DustType<AbyssDust>();
+            int dustType = ModContent.DustType<Dusts.AbyssDust>();
             Projectile.velocity *= 0.95f;
             Projectile.ai[0] += 1f;
             if (Projectile.ai[0] == 180f)

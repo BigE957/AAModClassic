@@ -276,7 +276,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 					if (Main.rand.Next(15) == 0)
 					{
 						v += Main.screenPosition;
-                        int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<CthulhuDust>(), Projectile.velocity.X, Projectile.velocity.Y, 80, default);
+                        int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuDust>(), Projectile.velocity.X, Projectile.velocity.Y, 80, default);
 						Main.dust[dustID].rotation = Main.rand.Next(5) * (float)(Math.PI / 8f);
 						Main.dust[dustID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));
 						Main.dust[dustID].velocity *= 3f;

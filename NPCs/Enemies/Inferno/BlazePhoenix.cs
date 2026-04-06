@@ -71,7 +71,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     if (Main.rand.Next(5) == 0)
                     {
-                        int num1282 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<DragonflameDust>(), 0f, 0f, 0);
+                        int num1282 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DragonflameDust>(), 0f, 0f, 0);
                         Main.dust[num1282].alpha = 100;
                         Main.dust[num1282].velocity *= 0.3f;
                         Main.dust[num1282].velocity += NPC.velocity * 0.75f;
@@ -121,7 +121,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
 					int dustID = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, DustID.Torch, -NPC.velocity.X * 0.2f,
 						-NPC.velocity.Y * 0.2f, 100, default, 2f);
 					Main.dust[dustID].velocity *= 2f;
-					dustID = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<BroodmotherDust>(), -NPC.velocity.X * 0.2f,
+					dustID = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.BroodmotherDust>(), -NPC.velocity.X * 0.2f,
 						-NPC.velocity.Y * 0.2f, 100, default);
 					Main.dust[dustID].velocity *= 2f;
 				}

@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
             Main.tileMergeDirt[Type] = true;
             //true for block to emit light
             HitSound = SoundID.Tink;
-            DustType = ModContent.DustType<FulguriteDust>();
+            DustType = ModContent.DustType<Dusts.FulguriteDust>();
             AddMapEntry(new Color(70, 20, 90
                 ));
 			MinPick = 200;

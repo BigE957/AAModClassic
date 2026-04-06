@@ -60,11 +60,11 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             SoundEngine.PlaySound(SoundID.Item89);
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<YamataADust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y - 2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<YamataADust>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y - 4f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }

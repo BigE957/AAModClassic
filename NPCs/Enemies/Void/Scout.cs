@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Enemies.Void
 			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)
 			{
-				int dustType = ModContent.DustType<VoidDust>();
+				int dustType = ModContent.DustType<Dusts.VoidDust>();
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
 			}
 		}

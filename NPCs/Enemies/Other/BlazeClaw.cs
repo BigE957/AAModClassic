@@ -78,7 +78,7 @@ namespace AAModClassic.NPCs.Enemies.Other
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<AkumaDust>());
+                    Dust.NewDust(NPC.Center, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>());
                 }
             }
         }

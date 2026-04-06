@@ -1563,7 +1563,7 @@ namespace AAModClassic
 
                             if (projectile != null && projectile.active)
                             {
-                                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<AkumaDustLight>());
+                                int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, ModContent.DustType<Dusts.AkumaDustLight>());
 
                                 Main.dust[dustID].position += Player.position - Player.oldPosition;
                                 Main.dust[dustID].velocity = (Player.Center - projectile.Center) * 0.05f;
@@ -1778,7 +1778,7 @@ namespace AAModClassic
                             Vector2 vector12 = Vector2.UnitX * 0f;
                             vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
                             vector12 = vector12.RotatedBy(SpeedVector.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<AcidDust>(), 0f, 0f, 0, default, 1f);
+                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1f);
                             Main.dust[Dusti].scale = 1.5f;
                             Main.dust[Dusti].noGravity = true;
                             Main.dust[Dusti].position = Spwanposition[i] + vector12;
@@ -2163,7 +2163,7 @@ namespace AAModClassic
                             Vector2 vector12 = Vector2.UnitX * 0f;
                             vector12 += -Vector2.UnitY.RotatedBy(k * (6.28318548f / round), default) * new Vector2(1f, 4f);
                             vector12 = vector12.RotatedBy(velocity.ToRotation(), default);
-                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<AcidDust>(), 0f, 0f, 0, default, 1f);
+                            int Dusti = Dust.NewDust(Spwanposition[i], 0, 0, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 0, default, 1f);
                             Main.dust[Dusti].scale = 1.5f;
                             Main.dust[Dusti].noGravity = true;
                             Main.dust[Dusti].position = Spwanposition[i] + vector12;
@@ -2185,7 +2185,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.Next(50) == 0)
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Dusts.Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2198,7 +2198,7 @@ namespace AAModClassic
                 {
                     if (AADash == 1 && Main.rand.Next(50) == 0)
                     {
-                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
+                        int dust = Dust.NewDust(new Vector2(Player.position.X - 4f, Player.position.Y), Player.width + 8, 4, ModContent.DustType<Dusts.Feather>(), -Player.velocity.X * 0.5f, Player.velocity.Y * 0.5f, 50, default, 1.5f);
                         Main.dust[dust].velocity.X = Main.dust[dust].velocity.X * 0.2f;
                         Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y * 0.2f;
                         Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(Player.cWings, Player);
@@ -2227,11 +2227,11 @@ namespace AAModClassic
                         int num12;
                         if (Player.velocity.Y == 0f)
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height - 4f), Player.width, 8, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
                         }
                         else
                         {
-                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            num12 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y + Player.height / 2 - 8f), Player.width, 16, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
                         }
                         Main.dust[num12].velocity *= 0.1f;
                         Main.dust[num12].scale *= 1f + Main.rand.Next(20) * 0.01f;
@@ -2316,7 +2316,7 @@ namespace AAModClassic
                         Player.dashDelay = -1;
                         for (int num17 = 0; num17 < 2; num17++)
                         {
-                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<Feather>(), 0f, 0f, 100, default, 1);
+                            int num18 = Dust.NewDust(new Vector2(Player.position.X, Player.position.Y), Player.width, Player.height, ModContent.DustType<Dusts.Feather>(), 0f, 0f, 100, default, 1);
                             Dust expr_CDB_cp_0 = Main.dust[num18];
                             expr_CDB_cp_0.position.X += Main.rand.Next(-5, 6);
                             Dust expr_D02_cp_0 = Main.dust[num18];
@@ -2625,7 +2625,7 @@ namespace AAModClassic
 
                                 if (Main.tile[num7, num8] != null && Main.tile[num7, num8].WallType == WallID.None)
                                 {
-                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Discord>(), 0f, 0f, 0);
+                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
 
                                     Dust expr_292_cp_0 = Main.dust[dust];
@@ -3568,7 +3568,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<ForsakenDust>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default, 1.5f);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.ForsakenDust>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100, default, 1.5f);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3585,7 +3585,7 @@ namespace AAModClassic
             {
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadB>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadB>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3600,7 +3600,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadR>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadR>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3615,7 +3615,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadG>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadG>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3630,7 +3630,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadY>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadY>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3645,7 +3645,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadP>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadP>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3660,7 +3660,7 @@ namespace AAModClassic
 
                 if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<InfinityOverloadO>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width + 4, Player.height + 4, ModContent.DustType<Dusts.InfinityOverloadO>(), Player.velocity.X * 0.4f, Player.velocity.Y * 0.4f, 100);
 
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
@@ -3717,7 +3717,7 @@ namespace AAModClassic
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Discord>(), 0f, -2.5f, 0);
+                    int dust = Dust.NewDust(drawInfo.Position - new Vector2(2f, 2f), Player.width, Player.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
 
                     Main.dust[dust].alpha = 100;
                     Main.dust[dust].noGravity = true;

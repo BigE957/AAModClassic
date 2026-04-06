@@ -26,7 +26,7 @@ namespace AAModClassic.Water
         {
             Instance = this;
             WaterfallStyle = ModContent.Find<ModWaterfallStyle>("AAModClassic/FogWaterfallStyle");
-            SplashDust = ModContent.DustType<FogWaterSplash>();
+            SplashDust = ModContent.DustType<Dusts.FogWaterSplash>();
             DropletGore = ModContent.GoreType<FogDroplet>();
         }
 

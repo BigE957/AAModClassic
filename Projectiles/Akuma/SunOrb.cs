@@ -52,7 +52,7 @@ namespace AAModClassic.Projectiles.Akuma
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector135 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust31 = Main.dust[Dust.NewDust(Projectile.Center - vector135 * 30f, 0, 0, ModContent.DustType<AkumaADust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust31 = Main.dust[Dust.NewDust(Projectile.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
                 dust31.noGravity = true;
                 dust31.position = Projectile.Center - vector135 * Main.rand.Next(10, 21);
                 dust31.velocity = vector135.RotatedBy(1.5707963705062866, default) * 6f;
@@ -63,7 +63,7 @@ namespace AAModClassic.Projectiles.Akuma
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector136 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust32 = Main.dust[Dust.NewDust(Projectile.Center - vector136 * 30f, 0, 0, ModContent.DustType<AkumaADust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust32 = Main.dust[Dust.NewDust(Projectile.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0, default, 1f)];
                 dust32.noGravity = true;
                 dust32.position = Projectile.Center - vector136 * 30f;
                 dust32.velocity = vector136.RotatedBy(-1.5707963705062866, default) * 3f;
@@ -74,7 +74,7 @@ namespace AAModClassic.Projectiles.Akuma
             if (Projectile.ai[0] < 0f)
             {
                 Vector2 center15 = Projectile.Center;
-                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<AkumaADust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 0);
+                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 0);
                 Main.dust[num1059].velocity *= 2f;
                 Main.dust[num1059].noGravity = true;
                 Main.dust[num1059].scale = Utils.SelectRandom(Main.rand, new float[]

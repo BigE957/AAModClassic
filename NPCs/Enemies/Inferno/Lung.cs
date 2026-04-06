@@ -1,5 +1,7 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -62,7 +64,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             float acceleration = 0.09f;
             
             
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaADust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
             NPC.ai[1]++;
@@ -360,7 +362,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaDust>(), 2, 12);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Lung>())
@@ -463,7 +465,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
 
-            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<AkumaDust>(), 2, 12);
+            AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaDust>(), 2, 12);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[3]].type != ModContent.NPCType<Lung>())

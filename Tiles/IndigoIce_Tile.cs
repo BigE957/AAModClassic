@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.SnowBlock][Type] = true;
             HitSound = SoundID.Item50;
-            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
             RegisterItemDrop(ModContent.ItemType<IndigoIce>());   
             AddMapEntry(new Color(0, 60, 127));
             TileID.Sets.Conversion.Ice[Type] = true;

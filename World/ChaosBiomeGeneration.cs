@@ -1,9 +1,13 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Items.Ranged;
 using AAModClassic.Tiles;
+using AAModClassic.Tiles.Altar;
 using AAModClassic.Tiles.Boss;
 using AAModClassic.Tiles.Chests;
 using AAModClassic.Tiles.Crafters;
+using AAModClassic.Tiles.Decoration;
+using AAModClassic.Tiles.Furniture;
+using AAModClassic.Tiles.Keep;
 using AAModClassic.UI.WorldGen;
 using AAModClassic.Walls;
 using AAModClassic.World.Conversions;
@@ -125,12 +129,6 @@ namespace AAModClassic.World
             //tileSand = (ushort)mod.Find<ModTile>("Depthsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("DepthsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Depthsandstone").Type,
             //LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves_Tile>();
 
-            ushort StoneWall = (ushort)ModContent.WallType<DepthstoneWall>(),
-            SandstoneWall = (ushort)ModContent.WallType<DepthsandstoneWall>(),
-            HardenedSandWall = (ushort)ModContent.WallType<DepthsandHardenedWall>(),
-            GrassWall = (ushort)ModContent.WallType<LivingBogleafWall>(),
-            JungleWall = (ushort)ModContent.WallType<MireJungleWall>();
-
 			int worldSize = GetWorldSize();
 			int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180; //how deep the biome is (scaled by world size)	
 
@@ -151,7 +149,7 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(0, 0, 255)] = ModContent.WallType<DepthstoneWall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<Depthstone_Wall>(),
                 [Color.Black] = -1 //don't touch when genning
             };
 
@@ -222,9 +220,9 @@ namespace AAModClassic.World
         public override bool Place(Point origin, StructureMap structures)
         {
             Mod mod = AAMod.instance;
-            ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaves_Tile>();
+            ushort LivingWood = (ushort)ModContent.TileType<LivingBogwood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingBogleaf_Tile>();
 
-            ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwoodWall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleafWall>();
+            ushort BogwoodWall = (ushort)ModContent.WallType<LivingBogwood_Wall>(), LeafWall = (ushort)ModContent.WallType<LivingBogleaf_Wall>();
 
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
@@ -319,10 +317,10 @@ namespace AAModClassic.World
             //tileIce = (ushort)mod.Find<ModTile>("Torchice").Type, tileSand = (ushort)mod.Find<ModTile>("Torchsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("TorchsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Torchsandstone").Type,
             //LivingWood = (ushort)ModContent.TileType<LivingRazewood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves_Tile>();
 
-            ushort StoneWall = (ushort)ModContent.WallType<TorchstoneWall>(), 
-            SandstoneWall = (ushort)ModContent.WallType<TorchsandstoneWall>(),
-            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardenedWall>(),
-            GrassWall = (ushort)ModContent.WallType<InfernoGrassWall>();
+            ushort StoneWall = (ushort)ModContent.WallType<Torchstone_Wall>(), 
+            SandstoneWall = (ushort)ModContent.WallType<Torchsandstone_Wall>(),
+            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardened_Wall>(),
+            GrassWall = (ushort)ModContent.WallType<InfernoGrassWall_Wall>();
 
 
             int worldSize = GetWorldSize();
@@ -341,8 +339,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.WallType<TorchstoneWall>(),
-                [new Color(0, 0, 255)] = ModContent.WallType<BurnedDynastyWall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<Torchstone_Wall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<ScorchedDynastyWood_Wall>(),
                 [Color.Black] = -1 //don't touch when genning				
             };
 
@@ -948,8 +946,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.WallType<AcropolisBrickWall>(),
-                [new Color(0, 255, 255)] = ModContent.WallType<AcropolisWall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<AcropolisBrick_Wall>(),
+                [new Color(0, 255, 255)] = ModContent.WallType<AcropolisPillarWall_Wall>(),
                 [new Color(0, 255, 0)] = WallID.Dirt,
                 [new Color(0, 0, 255)] = WallID.Cloud,
                 [new Color(255, 255, 255)] = -2, 
@@ -1016,8 +1014,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(0, 0, 255)] = ModContent.WallType<PitBarWall>(),
-                [new Color(255, 0, 0)] = ModContent.WallType<PitStoneWall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<PitBar_Wall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<PitStone_Wall>(),
                 [new Color(255, 255, 255)] = -2,
                 [Color.Black] = -1
             };

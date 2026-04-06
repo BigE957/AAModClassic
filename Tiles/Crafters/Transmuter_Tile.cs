@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Crafters
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
-            DustType = ModContent.DustType<MireBubbleDust>();
+            DustType = ModContent.DustType<Dusts.MireBubbleDust>();
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18 };

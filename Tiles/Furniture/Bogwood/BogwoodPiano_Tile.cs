@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Piano");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AdjTiles = new int[] { TileID.Pianos };
         }
 

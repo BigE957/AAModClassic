@@ -47,7 +47,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Oroboros Door");
             AddMapEntry(new Color(162, 184, 185), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<OroborosDoorOpen_Tile>();
@@ -137,7 +137,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Oroboros Door");
             AddMapEntry(new Color(70, 0, 10), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<OroborosDoorClosed_Tile>();

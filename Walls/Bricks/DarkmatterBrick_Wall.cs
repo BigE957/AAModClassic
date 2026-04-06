@@ -10,7 +10,7 @@ namespace AAModClassic.Walls.Bricks
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = ModContent.DustType<DarkmatterDust>();
+            DustType = ModContent.DustType<Dusts.DarkmatterDust>();
             AddMapEntry(new Color(30, 30, 60));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<DarkmatterWall>());

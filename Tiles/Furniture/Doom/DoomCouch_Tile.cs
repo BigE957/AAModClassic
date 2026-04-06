@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Couch");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
 		}
 
 		

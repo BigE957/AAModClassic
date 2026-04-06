@@ -37,7 +37,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)
 			{
-				int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<NightcrawlerDust>() : ModContent.DustType<DaybringerDust>();
+				int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.NightcrawlerDust>() : ModContent.DustType<Dusts.DaybringerDust>();
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
 			}
 		}

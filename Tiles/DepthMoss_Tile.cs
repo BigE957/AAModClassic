@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             HitSound = SoundID.Tink;
             MinPick = 65;
             AddMapEntry(new Color(0, 50, 140));

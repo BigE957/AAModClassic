@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles
             //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(50, 35, 22));
             TileID.Sets.Conversion.Sand[Type] = true;
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)

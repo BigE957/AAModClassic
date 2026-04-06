@@ -64,7 +64,7 @@ namespace AAModClassic.Projectiles
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.DustType<DragonFire>(), 180);
+			target.AddBuff(ModContent.DustType<Dusts.DragonFire>(), 180);
 		}
 	}
 }

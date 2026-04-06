@@ -39,13 +39,13 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             }
             Projectile.rotation = Projectile.velocity.ToRotation() - 1.57079637f;
             Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
-            Dust dust20 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<SummonDust>(), 0f, 0f, 0, default, 1f)];
+            Dust dust20 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SummonDust>(), 0f, 0f, 0, default, 1f)];
             dust20.position = position;
             dust20.velocity = (Projectile.velocity.RotatedBy(1.5707963705062866, default) * 0.33f) + (Projectile.velocity / 4f);
             dust20.position += Projectile.velocity.RotatedBy(1.5707963705062866, default);
             dust20.fadeIn = 0.5f;
             dust20.noGravity = true;
-            dust20 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<SummonDust>(), 0f, 0f, 0, default, 1f)];
+            dust20 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SummonDust>(), 0f, 0f, 0, default, 1f)];
             dust20.position = position;
             dust20.velocity = (Projectile.velocity.RotatedBy(-1.5707963705062866, default) * 0.33f) + (Projectile.velocity / 4f);
             dust20.position += Projectile.velocity.RotatedBy(-1.5707963705062866, default);
@@ -60,11 +60,11 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
             double deltaAngle = spread / 8f;
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<SummonDust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SummonDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<SummonDust>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SummonDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }

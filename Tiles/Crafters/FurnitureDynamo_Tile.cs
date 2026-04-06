@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -15,7 +16,7 @@ namespace AAModClassic.Tiles.Crafters
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };

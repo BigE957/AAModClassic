@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Candelabra");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             AdjTiles = new int[]{ TileID.Candelabras };
 		}

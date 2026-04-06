@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Razewood Workbench");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.WorkBenches };
 		}

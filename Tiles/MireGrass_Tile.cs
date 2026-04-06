@@ -21,7 +21,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             AddMapEntry(new Color(0, 50, 140));
             RegisterItemDrop(ItemID.MudBlock);
         }

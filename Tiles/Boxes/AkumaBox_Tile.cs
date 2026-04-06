@@ -5,6 +5,8 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
+using AAModClassic.Items.Blocks.Boxes;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.Tiles.Boxes
 {
@@ -22,7 +24,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<AkumaDust>();
+            DustType = ModContent.DustType<Dusts.AkumaDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.AkumaBox>());
         }

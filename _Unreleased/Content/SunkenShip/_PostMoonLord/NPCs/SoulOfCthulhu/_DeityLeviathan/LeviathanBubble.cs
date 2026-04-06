@@ -164,7 +164,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 for (int num207 = 0; num207 < 60; num207++)
                 {
                     int num208 = 25;
-                    int num209 = Dust.NewDust(NPC.Center - Vector2.One * num208, num208 * 2, num208 * 2, ModContent.DustType<CthulhuDust>(), 0f, 0f, 0, default, 1f);
+                    int num209 = Dust.NewDust(NPC.Center - Vector2.One * num208, num208 * 2, num208 * 2, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default, 1f);
                     Dust dust47 = Main.dust[num209];
                     Vector2 vector7 = Vector2.Normalize(dust47.position - NPC.Center);
                     dust47.position = NPC.Center + vector7 * 25f * NPC.scale;

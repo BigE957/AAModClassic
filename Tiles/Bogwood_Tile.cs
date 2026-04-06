@@ -14,7 +14,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<Bogwood>());   
             AddMapEntry(new Color(0, 0, 51));
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
         }
     }
 }

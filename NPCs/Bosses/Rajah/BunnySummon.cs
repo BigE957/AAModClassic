@@ -29,7 +29,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
+                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
                 Main.dust[num469].noGravity = true;
             }
             Projectile.damage = 0;
@@ -109,7 +109,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
+                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
                 Main.dust[num469].noGravity = true;
             }
             Projectile.damage = 0;
@@ -189,7 +189,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah
         {
             for (int num468 = 0; num468 < 10; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
+                int num469 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 0, NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()) ? Main.DiscoColor : new Color(107, 137, 179), 1f);
                 Main.dust[num469].noGravity = true;
             }
             Projectile.damage = 0;

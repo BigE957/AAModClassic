@@ -45,7 +45,7 @@ namespace AAModClassic.Projectiles
                     num296 = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<DragonflameDust>();
+                int num297 = ModContent.DustType<Dusts.DragonflameDust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 3; num298++)

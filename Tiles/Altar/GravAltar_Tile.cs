@@ -18,7 +18,7 @@ namespace AAModClassic.Tiles.Altar
             Main.tileSolidTop[Type] = false;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            DustType = ModContent.DustType<DarkmatterDust>();
+            DustType = ModContent.DustType<Dusts.DarkmatterDust>();
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Direction = TileObjectDirection.None;

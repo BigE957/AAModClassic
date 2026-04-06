@@ -1,4 +1,10 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.Buffs;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -68,7 +74,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.shoot = ModContent.ProjectileType<Projectiles.InvokerStaffproj>(); 
+			Item.shoot = ModContent.ProjectileType<InvokerStaffproj>(); 
 			Item.shootSpeed = 40f;
 			Item.value = Item.buyPrice(10, 36, 0, 0);
         }
@@ -405,7 +411,7 @@ namespace AAModClassic.Items.Dev.Invoker
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.BuffType<Invokedproj_Buff>(), 3600);
+			target.AddBuff(ModContent.BuffType<Invokedproj>(), 3600);
 		}
     }
 

@@ -15,7 +15,7 @@ namespace AAModClassic.Walls.Bricks
 		public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
 			AddMapEntry(new Color(10, 10, 10));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<DoomstoneBrickWall>());

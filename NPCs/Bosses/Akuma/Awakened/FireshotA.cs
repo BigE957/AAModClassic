@@ -54,10 +54,10 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
             }
 
-            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
+            int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
             Main.dust[dustId].noGravity = true;
-            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
+            int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.InfinityOverloadB>(), Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
             Main.dust[dustId3].noGravity = true;
         }

@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.Tiles.Crafters
 {
@@ -21,7 +22,7 @@ namespace AAModClassic.Tiles.Crafters
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Abyss Altar");
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             AddMapEntry(new Color(0, 0 ,100), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

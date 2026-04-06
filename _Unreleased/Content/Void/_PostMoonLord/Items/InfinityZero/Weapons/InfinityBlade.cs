@@ -100,7 +100,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
             Dust dust;
-            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 46, default, 1.25f);
+            dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 46, default, 1.25f);
 			dust.noGravity = true;
         }
 	}

@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Tiles.Ore;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,6 +47,8 @@ namespace AAModClassic.Items.DevTools
                 }
             }
 
+            //TODO: Fake tile
+            /*
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
             {
                 int tilesX = WorldGen.genRand.Next(0, x);
@@ -54,6 +58,7 @@ namespace AAModClassic.Items.DevTools
                     WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(3, 8), (ushort)ModContent.TileType<EverleafRoot_Tile>());
                 }
             }
+            */
 
             for (int k = 0; k < (int)(x * y * 15E-05); k++)
             {

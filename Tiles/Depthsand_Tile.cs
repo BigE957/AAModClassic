@@ -20,7 +20,7 @@ namespace AAModClassic.Tiles
             Main.tileBlockLight[Type] = true;
             //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
             AddMapEntry(new Color(37, 33, 50));
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)

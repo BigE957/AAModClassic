@@ -73,7 +73,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                         Vector2 vector14 = Vector2.UnitX * 0f;
                         vector14 += -Vector2.UnitY.RotatedBy((double)(num110 * (6.28318548f / num109)), default) * new Vector2(1f, 4f);
                         vector14 = vector14.RotatedBy((double)Projectile.velocity.ToRotation(), default);
-                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<CthulhuDust>(), 0f, 0f, 0, default, 1f);
+                        int num111 = Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default, 1f);
                         Main.dust[num111].scale = 1.5f;
                         Main.dust[num111].noLight = true;
                         Main.dust[num111].noGravity = true;
@@ -105,13 +105,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             }
             for (int num87 = 0; num87 < 5; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuDust>(), 0f, 0f, 200, default, 3.7f);
+                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 200, default, 3.7f);
                 Main.dust[num88].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += Projectile.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
-                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 1.5f);
                 Main.dust[num88].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -122,7 +122,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             }
             for (int num89 = 0; num89 < 5; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<CthulhuDust>(), 0f, 0f, 0, default, 2.7f);
+                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 0, default, 2.7f);
                 Main.dust[num90].position = Projectile.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy((double)Projectile.velocity.ToRotation(), default) * num84 / 2f;
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;

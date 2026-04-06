@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Latern");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AdjTiles = new int[] { TileID.HangingLanterns };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }

@@ -48,7 +48,7 @@ namespace AAModClassic.Projectiles.Akuma
                 {
                     float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f * num165;
                     float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f * num165;
-                    int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<AkumaADust>(), Projectile.velocity.X * 0.2f,
+                    int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X * 0.2f,
                         Projectile.velocity.Y * 0.2f, 0, default, 2f);
                     Main.dust[num166].alpha = Projectile.alpha;
                     Main.dust[num166].position.X = x2;
@@ -147,11 +147,11 @@ namespace AAModClassic.Projectiles.Akuma
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188), 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, new Color(86, 191, 188));
                 Main.dust[num469].velocity *= 2f;
             }

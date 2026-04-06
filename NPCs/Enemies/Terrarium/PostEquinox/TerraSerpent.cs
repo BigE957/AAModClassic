@@ -283,8 +283,8 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<SummonDust>();
-                int dust2 = ModContent.DustType<SummonDust>();
+                int dust1 = ModContent.DustType<Dusts.SummonDust>();
+                int dust2 = ModContent.DustType<Dusts.SummonDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -324,7 +324,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -407,7 +407,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostEquinox
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<SummonDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.SummonDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

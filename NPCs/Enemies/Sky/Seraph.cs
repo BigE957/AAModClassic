@@ -8,6 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Athena.Olympian;
 using AAModClassic;
 using Terraria.Localization;
+using AAModClassic.Items.Banners;
 
 namespace AAModClassic.NPCs.Enemies.Sky
 {
@@ -107,7 +108,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                     }
                     for (int a = 0; a < 8; a++)
                     {
-                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     BaseAI.KillNPC(NPC);
                 }
@@ -149,7 +150,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 Main.npc[a].velocity = NPC.velocity;
             }
             SeraphChance.SeraphKills++;
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<SeraphFeather>());
+            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.SeraphFeather>());
         }
 
         public static string SeraphBitching()

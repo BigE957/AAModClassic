@@ -4,6 +4,9 @@ using Terraria.ModLoader;
 using System;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
+using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
 namespace AAModClassic.NPCs.Enemies.Other
 {
@@ -81,7 +84,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
         public override void OnKill()

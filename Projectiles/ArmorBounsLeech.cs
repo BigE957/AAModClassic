@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Magic;
-            dust = ModContent.DustType<DarkmatterDust>();
+            dust = ModContent.DustType<Dusts.DarkmatterDust>();
             potencyFactor = .02f;
         }
         public override void PlayerBenifit(int potency, Player player)
@@ -96,7 +96,7 @@ namespace AAModClassic.Projectiles
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Magic;
-            dust = ModContent.DustType<RadiumDust>();
+            dust = ModContent.DustType<Dusts.RadiumDust>();
             potencyFactor = .25f;
         }
         public override void PlayerBenifit(int potency, Player player)

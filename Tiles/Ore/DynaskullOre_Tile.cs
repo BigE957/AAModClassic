@@ -20,7 +20,7 @@ namespace AAModClassic.Tiles.Ore
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             RegisterItemDrop(ModContent.ItemType<DynaskullOre>());
-            DustType = ModContent.DustType<InfinityOverloadY>();
+            DustType = ModContent.DustType<Dusts.InfinityOverloadY>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Dynaskull Ore");
             AddMapEntry(new Color(100, 100, 0), name);

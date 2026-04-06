@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Chair");
 			AddMapEntry(new Color(70, 0, 10), name);
-			DustType = ModContent.DustType<DoomDust>();
+			DustType = ModContent.DustType<Dusts.DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Chairs };
 		}

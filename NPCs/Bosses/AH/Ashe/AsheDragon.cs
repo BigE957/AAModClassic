@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -453,7 +454,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -598,7 +599,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -738,7 +739,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -878,7 +879,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -1018,7 +1019,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Ashe
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

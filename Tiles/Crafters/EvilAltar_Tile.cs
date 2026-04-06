@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Crafters
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Evil Altar");
-            DustType = ModContent.DustType<InfinityOverloadP>();
+            DustType = ModContent.DustType<Dusts.InfinityOverloadP>();
             AddMapEntry(new Color(120, 0, 160), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }

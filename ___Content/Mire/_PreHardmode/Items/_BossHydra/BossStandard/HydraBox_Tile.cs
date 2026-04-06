@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandard
 {
@@ -22,7 +23,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items._BossHydra.BossStandar
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<HydraBox>());
         }

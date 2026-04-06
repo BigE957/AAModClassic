@@ -40,7 +40,7 @@ namespace AAModClassic.Tiles.Chests
             name = this.GetLocalization("MapEntry", () => Name + "_Locked"); // With multiple map entries, you need unique translation keys.
             // name.SetDefault("{$Mods.AAModClassic.Common.MireChest_Locked}");
             AddMapEntry(new Color(0, 64, 141), name, MapChestName);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Mire Chest";

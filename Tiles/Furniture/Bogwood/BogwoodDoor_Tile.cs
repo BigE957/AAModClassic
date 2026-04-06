@@ -45,7 +45,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Bogwood Door");
             AddMapEntry(new Color(162, 184, 185), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<BogwoodDoorOpen_Tile>();
@@ -123,7 +123,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Bogwood Door");
             AddMapEntry(new Color(20, 0, 100), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<BogwoodDoorClosed_Tile>();

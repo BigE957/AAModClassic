@@ -82,7 +82,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
 
         public override void OnKill(int timeLeft)
         {
-            int DustType = ModContent.DustType<VoidDust>();
+            int DustType = ModContent.DustType<Dusts.VoidDust>();
             for (int num468 = 0; num468 < 3; num468++)
             {
                 float VelX = -Projectile.velocity.X * 0.2f;

@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
@@ -7,7 +8,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<AbyssiumDust>();
+			DustType = ModContent.DustType<Dusts.AbyssiumDust>();
 			AddMapEntry(new Color(0, 0, 120));
             Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }

@@ -40,11 +40,11 @@ namespace AAModClassic.Projectiles.Djinn
         {
             if (Main.rand.Next(2) == 0)
             {
-                Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<Sandagger>());
+                Item.NewItem(Projectile.GetSource_DropAsItem(), (int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height, ModContent.ItemType<Items.Boss.Djinn.Sandagger>());
             }
             for (int i = 0; i < 5; i++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<SandDust>());
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.SandDust>());
             }
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
         }

@@ -78,7 +78,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                 }
                 for (int num257 = 0; num257 < 2; num257++)
                 {
-                    int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, new Color(120, 0, 30), 1f);
+                    int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, new Color(120, 0, 30), 1f);
                     Main.dust[num258].noGravity = true;
                 }
                 return;
@@ -98,7 +98,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             }
             for (int num257 = 0; num257 < 2; num257++)
             {
-                int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, new Color(120, 0, 30), 1f);
+                int num258 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, new Color(120, 0, 30), 1f);
                 Main.dust[num258].noGravity = true;
             }
             return;

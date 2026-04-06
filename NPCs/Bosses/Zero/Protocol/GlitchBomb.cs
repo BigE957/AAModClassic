@@ -65,7 +65,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0f / 255f, (255 - Projectile.alpha) * 0.15f / 255f);
 
-            int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height + 10, ModContent.DustType<VoidDust>(), Projectile.velocity.X * 0.2f,
+            int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X * 0.2f,
 					Projectile.velocity.Y * 0.2f, 100);
 				Main.dust[dustId].noGravity = true;
         }
@@ -76,7 +76,7 @@ namespace AAModClassic.NPCs.Bosses.Zero.Protocol
             {
                 for (int m = 0; m < 6; m++)
                 {
-                    int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), -Projectile.velocity.X * 0.2f,
+                    int dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100);
                     Main.dust[dustID].noGravity = true;
                     Main.dust[dustID].velocity = new Vector2(MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()), MathHelper.Lerp(-1f, 1f, (float)Main.rand.NextDouble()));

@@ -24,7 +24,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int dustType = ModContent.DustType<VoidDust>();
+            int dustType = ModContent.DustType<Dusts.VoidDust>();
             if (Projectile.owner == Main.myPlayer)
             {
                 Point tilePos = Projectile.Center.ToTileCoordinates();

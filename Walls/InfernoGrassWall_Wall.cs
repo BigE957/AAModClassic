@@ -7,7 +7,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<RazeleafDust>();
+			DustType = ModContent.DustType<Dusts.RazeleafDust>();
 			AddMapEntry(new Color(200, 150, 0));
             Terraria.ID.WallID.Sets.Conversion.Grass[Type] = true;
         }

@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override void AI()
         {
-            int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<InfinityOverloadR>() : ModContent.DustType<InfinityOverloadB>();
+            int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadB>();
             Projectile.frameCounter++;
             if (Projectile.frameCounter > 5)
             {
@@ -98,7 +98,7 @@ namespace AAModClassic.Items.Armor.Chaos
 
         public override void OnKill(int timeLeft)
         {
-            int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<InfinityOverloadR>() : ModContent.DustType<InfinityOverloadB>();
+            int dustType = Main.rand.Next(2) == 0 ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadB>();
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 160;
             Projectile.Center = Projectile.position;

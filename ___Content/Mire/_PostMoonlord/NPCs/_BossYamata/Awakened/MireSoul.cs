@@ -44,7 +44,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<YamataAuraDust>(), 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.YamataAuraDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }

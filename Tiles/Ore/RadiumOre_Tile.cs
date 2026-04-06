@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileOreFinderPriority[Type] = 830; 
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<RadiumOre>());
-            DustType = ModContent.DustType<RadiumDust>();
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Celestial Ore");
             AddMapEntry(new Color(160, 150, 0), name);
@@ -81,7 +81,7 @@ namespace AAModClassic.Tiles.Ore
             {
                 LocalizedText name = CreateMapEntryName();
                 AddMapEntry(new Color(160, 150, 0), name);
-                DustType = ModContent.DustType<RadiumDust>();
+                DustType = ModContent.DustType<Dusts.RadiumDust>();
             }
             else
             {

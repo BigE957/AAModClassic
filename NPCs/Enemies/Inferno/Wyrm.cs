@@ -58,7 +58,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 100, default, 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 100, default, 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -278,8 +278,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<AkumaDust>();
-                int dust2 = ModContent.DustType<AkumaDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -330,8 +330,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<AkumaDust>();
-                int dust2 = ModContent.DustType<AkumaDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -372,7 +372,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -450,8 +450,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.height = 40;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<AkumaDust>();
-                int dust2 = ModContent.DustType<AkumaDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -499,7 +499,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -579,8 +579,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<AkumaDust>();
-                int dust2 = ModContent.DustType<AkumaDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -621,7 +621,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -699,8 +699,8 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<AkumaDust>();
-                int dust2 = ModContent.DustType<AkumaDust>();
+                int dust1 = ModContent.DustType<Dusts.AkumaDust>();
+                int dust2 = ModContent.DustType<Dusts.AkumaDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -746,7 +746,7 @@ namespace AAModClassic.NPCs.Enemies.Inferno
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<WyrmADust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.WyrmADust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

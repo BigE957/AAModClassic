@@ -38,7 +38,7 @@ IInflicts Moonraze"); */
             Item.UseSound = SoundID.Item103;      
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<Projectiles.AbyssLash>();
+            Item.shoot = ModContent.ProjectileType<AbyssLash>();
             Item.shootSpeed = 10;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
@@ -69,7 +69,7 @@ IInflicts Moonraze"); */
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<YamataDust>(), 0f, 0f, 46, default, 1.381579f)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 46, default, 1.381579f)];
                 dust.noGravity = true;
             }
         }

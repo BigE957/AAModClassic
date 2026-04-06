@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AAModClassic.Dusts;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -31,7 +32,7 @@ namespace AAModClassic.Projectiles
             Lighting.AddLight(Projectile.Center, 0.1f, 0.1f, 1f);
                 if (Main.rand.Next(2) == 0)
                 {
-                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, ModContent.DustType<AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
                 }
                 float magnitude = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
             if (magnitude > 0.5f)

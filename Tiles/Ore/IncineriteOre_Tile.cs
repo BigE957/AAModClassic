@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Ore
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<Incinerite>());   
-            DustType = ModContent.DustType<IncineriteDust>();
+            DustType = ModContent.DustType<Dusts.IncineriteDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Incinerite Ore");
             AddMapEntry(new Color(204, 102, 0), name);

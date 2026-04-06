@@ -41,7 +41,7 @@ namespace AAModClassic.Tiles.Chests
             name = this.GetLocalization("MapEntry", () => Name + "_Locked"); // With multiple map entries, you need unique translation keys.
             // name.SetDefault("{$Mods.AAModClassic.Common.InfernoChest_Locked}");
             AddMapEntry(new Color(0, 141, 63), name, MapChestName);
-            DustType = ModContent.DustType<IncineriteDust>();
+            DustType = ModContent.DustType<Dusts.IncineriteDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Inferno Chest";

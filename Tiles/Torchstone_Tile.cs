@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Dig;
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             RegisterItemDrop(ModContent.ItemType<Torchstone>());   
             AddMapEntry(new Color(50, 25, 12));
 			MinPick = 65;

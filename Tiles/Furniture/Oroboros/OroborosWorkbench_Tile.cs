@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Workbench");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.WorkBenches };
 		}

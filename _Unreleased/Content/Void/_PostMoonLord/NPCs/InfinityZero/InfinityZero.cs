@@ -399,7 +399,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				NPC.position.Y = NPC.position.Y - NPC.height / 2;
 				for (int num621 = 0; num621 < 60; num621++)
 				{
-					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 2f);
+					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 2f);
 					Main.dust[num622].velocity *= 3f;
 					if (Main.rand.Next(2) == 0)
 					{
@@ -409,7 +409,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				}
 				for (int num623 = 0; num623 < 90; num623++)
 				{
-					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
+					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
 					Main.dust[num624].noGravity = true;
 					Main.dust[num624].velocity *= 5f;
 					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.CopperCoin, 0f, 0f, 100, default, 2f);

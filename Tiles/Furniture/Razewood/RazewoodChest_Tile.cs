@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Chest");
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };

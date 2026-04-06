@@ -39,7 +39,7 @@ namespace AAModClassic.Projectiles.Akuma
             Vector2 position = Projectile.Center + (Vector2.Normalize(Projectile.velocity) * 10f);
             for (int num189 = 0; num189 < 1; num189++)
             {
-                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AkumaDust>(), 0f, 0f, 0);
+                int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
                 
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
@@ -51,11 +51,11 @@ namespace AAModClassic.Projectiles.Akuma
         {
             for(int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<AkumaDust>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }

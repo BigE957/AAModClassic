@@ -43,7 +43,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<RazewoodDoorOpen_Tile>();
@@ -120,7 +120,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Razewood Door");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<RazewoodDoorClosed_Tile>();

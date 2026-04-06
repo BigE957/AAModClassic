@@ -113,7 +113,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         num844 = 0.5f;
                     }
                     Vector2 value47 = new Vector2((float)-(float)Projectile.width * 0.2f * Projectile.scale, 0f).RotatedBy((double)(num844 * 6.28318548f), default).RotatedBy((double)Projectile.velocity.ToRotation(), default);
-                    int num845 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num845 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<Dusts.VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num845].position = Projectile.Center + value47;
                     Main.dust[num845].velocity = Vector2.Normalize(Main.dust[num845].position - Projectile.Center) * 2f;
                     Main.dust[num845].noGravity = true;
@@ -130,7 +130,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         num847 = 0.5f;
                     }
                     Vector2 value48 = new Vector2((float)-(float)Projectile.width * 0.6f * Projectile.scale, 0f).RotatedBy((double)(num847 * 6.28318548f), default).RotatedBy((double)Projectile.velocity.ToRotation(), default);
-                    int num848 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
+                    int num848 = Dust.NewDust(Projectile.Center - Vector2.One * 5f, 10, 10, ModContent.DustType<Dusts.VoidDust_Unreleased>(), -Projectile.velocity.X / 3f, -Projectile.velocity.Y / 3f, 150, Color.Transparent, 0.7f);
                     Main.dust[num848].velocity = Vector2.Zero;
                     Main.dust[num848].position = Projectile.Center + value48;
                     Main.dust[num848].noGravity = true;

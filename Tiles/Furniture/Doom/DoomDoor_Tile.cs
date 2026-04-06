@@ -44,7 +44,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<DoomDoorOpen_Tile>();
@@ -134,7 +134,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Doom Door");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed_Tile>();

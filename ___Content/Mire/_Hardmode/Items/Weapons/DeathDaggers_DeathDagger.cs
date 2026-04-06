@@ -60,7 +60,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			}
             if (Main.rand.Next(6) == 0)
             {
-            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
         }
         
@@ -68,7 +68,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         {
             for (int num303 = 0; num303 < 3; num303++)
 			{
-				int num304 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0f, 0f, 100, default, 0.8f);
+				int num304 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, default, 0.8f);
 				Main.dust[num304].noGravity = true;
 				Main.dust[num304].velocity *= 1.2f;
 				Main.dust[num304].velocity -= Projectile.oldVelocity * 0.3f;

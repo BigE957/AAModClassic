@@ -97,7 +97,7 @@ namespace AAModClassic.NPCs.Enemies.Sky
                 {
                     for (int a = 0; a < 8; a++)
                     {
-                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
                     {

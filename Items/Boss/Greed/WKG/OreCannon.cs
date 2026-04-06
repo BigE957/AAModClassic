@@ -6,6 +6,10 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Projectiles.Greed.WKG;
 
 
 namespace AAModClassic.Items.Boss.Greed.WKG

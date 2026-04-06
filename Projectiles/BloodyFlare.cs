@@ -69,7 +69,7 @@ namespace AAModClassic.Projectiles
 			{
 				float num580 = Projectile.velocity.X * 0.2f * num579;
 				float num581 = -(Projectile.velocity.Y * 0.2f) * num579;
-				int num582 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<DiscordLight>(), 0f, 0f, 100, Color.Red, 1.3f);
+				int num582 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.DiscordLight>(), 0f, 0f, 100, Color.Red, 1.3f);
 				Main.dust[num582].noGravity = true;
 				Dust dust = Main.dust[num582];
 				dust.velocity *= 0f;

@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using AAModClassic.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,7 +24,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Materials
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
             RegisterItemDrop(ModContent.ItemType<Abyssium>());   
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Abyssium Ore");
             AddMapEntry(new Color(0, 0, 51), name);

@@ -29,7 +29,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
 			RegisterItemDrop(ModContent.ItemType<BogwoodPlatform>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };

@@ -22,7 +22,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<YamataDust>();
+            DustType = ModContent.DustType<Dusts.YamataDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<YamataBox>());
         }

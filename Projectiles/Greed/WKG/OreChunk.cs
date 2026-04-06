@@ -12,6 +12,13 @@ using AAModClassic.Projectiles.Greed;
 using AAModClassic.Buffs;
 using AAModClassic;
 using AAModClassic.CrossMod;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Items.Blocks;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Boss.Athena.Olympian;
+using AAModClassic.Items.Boss.Greed.WKG;
+using AAModClassic.NPCs.Enemies.Sky;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.Projectiles.Greed.WKG
 {
@@ -194,7 +201,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if(k == ModContent.ItemType<DarkmatterOre>())
             {
-                int num5 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width * 3, Projectile.height * 3, ModContent.DustType<DarkmatterDust>() , 0f, 0f, 200, default, 0.5f);
+                int num5 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width * 3, Projectile.height * 3, ModContent.DustType<Dusts.DarkmatterDust>() , 0f, 0f, 200, default, 0.5f);
                 Main.dust[num5].noGravity = true;
                 Main.dust[num5].velocity *= 0.75f;
                 Main.dust[num5].fadeIn = 1.3f;
@@ -217,7 +224,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     double angle = Main.rand.NextDouble() * 2d * Math.PI;
                     offset.X += (float)(Math.Sin(angle) * 200);
                     offset.Y += (float)(Math.Cos(angle) * 200);
-                    Dust dust = Main.dust[Dust.NewDust(Projectile.Center - Projectile.velocity + offset, 0, 0,  ModContent.DustType<DarkmatterDust>(), 0, 0, 100, default, 1f)];
+                    Dust dust = Main.dust[Dust.NewDust(Projectile.Center - Projectile.velocity + offset, 0, 0,  ModContent.DustType<Dusts.DarkmatterDust>(), 0, 0, 100, default, 1f)];
                     dust.velocity = Projectile.velocity;
                     dust.noGravity = true;
                 }
@@ -887,7 +894,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if(k == ModContent.ItemType<EventideAbyssiumOre>())
             {
-                target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 400);
+                target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 400);
 
                 Projectile.localAI[0] ++;
 
@@ -1115,7 +1122,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 Projectile.tileCollide = false;
                 for (int num291 = 0; num291 < 5; num291++)
                 {
-                    int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<AAModClassic.Dusts.Moonraze>(), 0f, 0f, 100);
+                    int num292 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.Moonraze>(), 0f, 0f, 100);
                     Main.dust[num292].velocity *= 2f;
                     Main.dust[num292].noGravity = true;
                 };
@@ -1352,11 +1359,11 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if (k == ModContent.ItemType<Abyssium>())
             {
-                return ModContent.DustType<AbyssiumDust>();
+                return ModContent.DustType<Dusts.AbyssiumDust>();
             }
             else if (k == ModContent.ItemType<Incinerite>())
             {
-                return ModContent.DustType<IncineriteDust>();
+                return ModContent.DustType<Dusts.IncineriteDust>();
             }
             else if (k == ItemID.Hellstone)
             {
@@ -1396,27 +1403,27 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if (k == ItemID.LunarOre)
             {
-                return ModContent.DustType<LuminiteDust>();
+                return ModContent.DustType<Dusts.LuminiteDust>();
             }
             else if (k == ModContent.ItemType<DarkmatterOre>())
             {
-                return ModContent.DustType<DarkmatterDust>();
+                return ModContent.DustType<Dusts.DarkmatterDust>();
             }
             else if (k == ModContent.ItemType<RadiumOre>())
             {
-                return ModContent.DustType<RadiumDust>();
+                return ModContent.DustType<Dusts.RadiumDust>();
             }
             else if (k == ModContent.ItemType<DaybreakIncineriteOre>())
             {
-                return ModContent.DustType<DaybreakIncineriteDust>();
+                return ModContent.DustType<Dusts.DaybreakIncineriteDust>();
             }
             else if (k == ModContent.ItemType<EventideAbyssiumOre>())
             {
-                return ModContent.DustType<YamataDust>();
+                return ModContent.DustType<Dusts.YamataDust>();
             }
             else if (k == ModContent.ItemType<Apocalyptite>())
             {
-                return ModContent.DustType<VoidDust>();
+                return ModContent.DustType<Dusts.VoidDust>();
             }
             else if (Config.LuckyOre[k] <= 300)
             {
@@ -1449,21 +1456,21 @@ namespace AAModClassic.Projectiles.Greed.WKG
                     case 8:
                         return DustID.t_Meteor;
                     case 9:
-                        return ModContent.DustType<LuminiteDust>();
+                        return ModContent.DustType<Dusts.LuminiteDust>();
                     case 10:
-                        return ModContent.DustType<DarkmatterDust>();
+                        return ModContent.DustType<Dusts.DarkmatterDust>();
                     case 11:
-                        return ModContent.DustType<RadiumDust>();
+                        return ModContent.DustType<Dusts.RadiumDust>();
                     case 12:
-                        return ModContent.DustType<DaybreakIncineriteDust>();
+                        return ModContent.DustType<Dusts.DaybreakIncineriteDust>();
                     case 13:
-                        return ModContent.DustType<YamataDust>();
+                        return ModContent.DustType<Dusts.YamataDust>();
                     case 14:
-                        return ModContent.DustType<VoidDust>();
+                        return ModContent.DustType<Dusts.VoidDust>();
                     case 15:
-                        return ModContent.DustType<IncineriteDust>();
+                        return ModContent.DustType<Dusts.IncineriteDust>();
                     case 16:
-                        return ModContent.DustType<AbyssiumDust>();
+                        return ModContent.DustType<Dusts.AbyssiumDust>();
                     case 17:
                         return DustID.Torch;
                 }
@@ -1494,9 +1501,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 case 10:
                     return 117;
                 case 11:
-                    return ModContent.DustType<IncineriteDust>();
+                    return ModContent.DustType<Dusts.IncineriteDust>();
                 case 12:
-                    return ModContent.DustType<AbyssiumDust>();
+                    return ModContent.DustType<Dusts.AbyssiumDust>();
                 case 13:
                     return DustID.Torch;
                 case 14:
@@ -1516,17 +1523,17 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 case 21:
                     return 128;
                 case 22:
-                    return ModContent.DustType<LuminiteDust>();
+                    return ModContent.DustType<Dusts.LuminiteDust>();
                 case 23:
-                    return ModContent.DustType<DarkmatterDust>();
+                    return ModContent.DustType<Dusts.DarkmatterDust>();
                 case 24:
-                    return ModContent.DustType<RadiumDust>();
+                    return ModContent.DustType<Dusts.RadiumDust>();
                 case 25:
-                    return ModContent.DustType<DaybreakIncineriteDust>();
+                    return ModContent.DustType<Dusts.DaybreakIncineriteDust>();
                 case 26:
-                    return ModContent.DustType<YamataDust>();
+                    return ModContent.DustType<Dusts.YamataDust>();
                 case 27:
-                    return ModContent.DustType<VoidDust>();
+                    return ModContent.DustType<Dusts.VoidDust>();
                 default:
                     goto case 0;
             }

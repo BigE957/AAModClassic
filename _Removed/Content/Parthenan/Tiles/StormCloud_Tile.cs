@@ -17,7 +17,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles
             Main.tileSolid[Type] = true;
             Main.tileMerge[Type][TileID.Cloud] = true;
             Main.tileMergeDirt[Type] = false;
-            DustType = ModContent.DustType<FulguriteDust>();
+            DustType = ModContent.DustType<Dusts.FulguriteDust>();
             AddMapEntry(new Color(60, 20, 90));
 			MinPick = 9999;
         }

@@ -266,9 +266,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 case 10:
                     return 117;
                 case 11:
-                    return ModContent.DustType<IncineriteDust>();
+                    return ModContent.DustType<Dusts.IncineriteDust>();
                 case 12:
-                    return ModContent.DustType<AbyssiumDust>();
+                    return ModContent.DustType<Dusts.AbyssiumDust>();
                 case 13:
                     return DustID.Torch;
                 case 14:
@@ -288,17 +288,17 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 case 21:
                     return 128;
                 case 22:
-                    return ModContent.DustType<LuminiteDust>();
+                    return ModContent.DustType<Dusts.LuminiteDust>();
                 case 23:
-                    return ModContent.DustType<DarkmatterDust>();
+                    return ModContent.DustType<Dusts.DarkmatterDust>();
                 case 24:
-                    return ModContent.DustType<RadiumDust>();
+                    return ModContent.DustType<Dusts.RadiumDust>();
                 case 25:
-                    return ModContent.DustType<DaybreakIncineriteDust>();
+                    return ModContent.DustType<Dusts.DaybreakIncineriteDust>();
                 case 26:
-                    return ModContent.DustType<YamataDust>();
+                    return ModContent.DustType<Dusts.YamataDust>();
                 case 27:
-                    return ModContent.DustType<VoidDust>();
+                    return ModContent.DustType<Dusts.VoidDust>();
                 default:
                     goto case 0;
             }

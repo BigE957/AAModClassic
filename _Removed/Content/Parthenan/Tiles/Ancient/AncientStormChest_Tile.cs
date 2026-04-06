@@ -38,7 +38,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
 			// name.SetDefault("Storm Chest");
 			AddMapEntry(new Color(200, 200, 200), name, MapChestName);
 			//TODOSIEGE
-			//DustType = ModContent.DustType<FulgurChest>();
+			//DustType = ModContent.DustType<Dusts.FulgurChest>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Doom Chest";

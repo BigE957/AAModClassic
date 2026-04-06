@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Hallowed Anvil");
-            DustType = ModContent.DustType<DaybreakIncineriteDust>();
+            DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
             AddMapEntry(new Color(50, 50, 50), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer};

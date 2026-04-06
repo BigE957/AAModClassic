@@ -23,7 +23,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int dustType = ModContent.DustType<HydratoxinDust>();
+            int dustType = ModContent.DustType<Dusts.HydratoxinDust>();
             if (Projectile.owner == Main.myPlayer)
             {
                 Point tilePos = Projectile.Center.ToTileCoordinates();

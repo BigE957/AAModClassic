@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles.Plants
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
             RegisterItemDrop(ModContent.ItemType<Items.Potions.Carrot>());
-            DustType = ModContent.DustType<CarrotDust>();
+            DustType = ModContent.DustType<Dusts.CarrotDust>();
             HitSound = SoundID.Grass;
         }
 

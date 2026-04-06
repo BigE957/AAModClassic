@@ -28,7 +28,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Example Clock"); // Automatic from .lang files
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
             AdjTiles = new int[] { TileID.GrandfatherClocks };
         }
 

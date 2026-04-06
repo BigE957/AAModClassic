@@ -28,7 +28,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int stardust = ModContent.DustType<StarDust>();
+            int stardust = ModContent.DustType<Dusts.StarDust>();
             int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, stardust, Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;
@@ -39,7 +39,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeleft)
         {
-            int stardust = ModContent.DustType<StarDust>();
+            int stardust = ModContent.DustType<Dusts.StarDust>();
             for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, stardust, -Projectile.velocity.X * 0.2f,

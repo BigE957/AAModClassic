@@ -350,11 +350,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             for (int num468 = 0; num468 < 3; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<Dusts.CthulhuDust>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
+                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
@@ -406,8 +406,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<CthulhuDust>();
-                int dust2 = ModContent.DustType<CthulhuDust>();
+                int dust1 = ModContent.DustType<Dusts.CthulhuDust>();
+                int dust2 = ModContent.DustType<Dusts.CthulhuDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -447,7 +447,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -541,8 +541,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<CthulhuDust>();
-                int dust2 = ModContent.DustType<CthulhuDust>();
+                int dust1 = ModContent.DustType<Dusts.CthulhuDust>();
+                int dust2 = ModContent.DustType<Dusts.CthulhuDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -582,7 +582,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -676,8 +676,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<CthulhuDust>();
-                int dust2 = ModContent.DustType<CthulhuDust>();
+                int dust1 = ModContent.DustType<Dusts.CthulhuDust>();
+                int dust2 = ModContent.DustType<Dusts.CthulhuDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -717,7 +717,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -811,8 +811,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<CthulhuDust>();
-                int dust2 = ModContent.DustType<CthulhuDust>();
+                int dust1 = ModContent.DustType<Dusts.CthulhuDust>();
+                int dust2 = ModContent.DustType<Dusts.CthulhuDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -852,7 +852,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }
@@ -946,8 +946,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<CthulhuDust>();
-                int dust2 = ModContent.DustType<CthulhuDust>();
+                int dust1 = ModContent.DustType<Dusts.CthulhuDust>();
+                int dust2 = ModContent.DustType<Dusts.CthulhuDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0, default, 1f);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;
@@ -987,7 +987,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     for (int num934 = 0; num934 < 2; num934++)
                     {
-                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default, 2f);
+                        int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 0f, 0f, 100, default, 2f);
                         Main.dust[num935].noGravity = false;
                         Main.dust[num935].noLight = false;
                     }

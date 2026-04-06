@@ -58,7 +58,7 @@ namespace AAModClassic.Projectiles.AH
 			
 			if (Main.rand.Next(1) == 0)
 			{
-				int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0f, 0f, 200, default, 0.8f);
+				int dustnumber = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 200, default, 0.8f);
 				Main.dust[dustnumber].velocity *= 0.3f;
 			}
 		}

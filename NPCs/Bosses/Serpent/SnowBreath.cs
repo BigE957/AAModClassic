@@ -49,7 +49,7 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 }
                 Projectile.ai[0] += 1f;
 
-                int num297 = ModContent.DustType<SnowDustLight>();
+                int num297 = ModContent.DustType<Dusts.SnowDustLight>();
                 if (Projectile.ai[1] == 1)
                 {
                     num297 = 75;
@@ -60,15 +60,15 @@ namespace AAModClassic.NPCs.Bosses.Serpent
                 }
                 if (Projectile.ai[1] == 3)
                 {
-                    num297 = ModContent.DustType<BroodmotherDust>();
+                    num297 = ModContent.DustType<Dusts.BroodmotherDust>();
                 }
                 if (Projectile.ai[1] == 4)
                 {
-                    num297 = ModContent.DustType<AcidDust>();
+                    num297 = ModContent.DustType<Dusts.AcidDust>();
                 }
                 if (Projectile.ai[1] == 5)
                 {
-                    num297 = ModContent.DustType<HallowedDustT>();
+                    num297 = ModContent.DustType<Dusts.HallowedDustT>();
                 }
 
                 if (Main.rand.Next(2) == 0)

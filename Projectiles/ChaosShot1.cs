@@ -35,7 +35,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int dustType = proType == 0 ? ModContent.DustType<DiscordLight>() : proType == 1 ? ModContent.DustType<AkumaDustLight>() : ModContent.DustType<YamataDustLight>();
+            int dustType = proType == 0 ? ModContent.DustType<Dusts.DiscordLight>() : proType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataDustLight>();
             if (Projectile.ai[1] != 0)
             {
                 Projectile.extraUpdates = 1;
@@ -85,7 +85,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            int dustType = proType == 0 ? 0 : proType == 1 ? ModContent.DustType<AkumaDustLight>() : ModContent.DustType<YamataAuraDust>();
+            int dustType = proType == 0 ? 0 : proType == 1 ? ModContent.DustType<Dusts.AkumaDustLight>() : ModContent.DustType<Dusts.YamataAuraDust>();
             if (proType != 0)
             {
                 for (int i = 0; i < 4; i++)

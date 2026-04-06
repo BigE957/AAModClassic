@@ -44,7 +44,7 @@ namespace AAModClassic.Projectiles.Akuma
             {
                 float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f;
 				float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f;
-                int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<AkumaDust>(), Projectile.velocity.X * 0.2f,
+                int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaDust>(), Projectile.velocity.X * 0.2f,
                     Projectile.velocity.Y * 0.2f, 0, default, 2f);
                 Main.dust[num166].alpha = Projectile.alpha;
                 Main.dust[num166].position.X = x2;

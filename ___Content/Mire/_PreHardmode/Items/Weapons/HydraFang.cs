@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 			Item.height = 34;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
-			Item.shoot = ModContent.ProjectileType<Projectiles.HydraFangP>();
+			Item.shoot = ModContent.ProjectileType<HydraFangP>();
 			Item.shootSpeed = 16f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;

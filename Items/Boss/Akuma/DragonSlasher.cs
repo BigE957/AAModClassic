@@ -77,7 +77,7 @@ Inflicts Daybroken"); */
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
-                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<AkumaDust>(), 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
+                dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
                 dust.noGravity = true;
             }
         }

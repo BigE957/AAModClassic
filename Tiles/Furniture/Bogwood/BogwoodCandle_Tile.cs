@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Candle");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Candelabras };
             RegisterItemDrop(ModContent.ItemType<BogwoodCandle>());

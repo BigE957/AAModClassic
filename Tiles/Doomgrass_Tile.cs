@@ -16,7 +16,7 @@ namespace AAModClassic.Tiles
             TileID.Sets.NeedsGrassFraming[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(50, 50, 50));
             RegisterItemDrop(ItemID.DirtBlock);
         }

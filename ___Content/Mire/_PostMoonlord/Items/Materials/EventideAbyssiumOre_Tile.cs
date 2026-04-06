@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
             TileID.Sets.JungleSpecial[Type] = true;
             Main.tileLighted[Type] = true;
             RegisterItemDrop(ModContent.ItemType<EventideAbyssiumOre>());   
-            DustType = ModContent.DustType<YamataDust>();
+            DustType = ModContent.DustType<Dusts.YamataDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Eventide Abyssium Ore");
             AddMapEntry(new Color(0, 0, 30), name);

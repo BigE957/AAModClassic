@@ -22,7 +22,7 @@ namespace AAModClassic.Tiles.Bars
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            DustType = ModContent.DustType<RadiantIncineriteDust>();
+            DustType = ModContent.DustType<Dusts.RadiantIncineriteDust>();
             RegisterItemDrop(ModContent.ItemType<RadiantIncinerite>());   
             AddMapEntry(new Color(100, 50, 0));
 			MinPick = 0;

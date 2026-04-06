@@ -127,7 +127,7 @@ namespace AAModClassic.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.timeLeft = 600;
             Projectile.extraUpdates = 1;
-            useDust = ModContent.DustType<DarkmatterDust>();
+            useDust = ModContent.DustType<Dusts.DarkmatterDust>();
 
         }
         public override void InflictBuffs(NPC target)
@@ -154,7 +154,7 @@ namespace AAModClassic.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.timeLeft = 600;
             Projectile.extraUpdates = 1;
-            useDust = ModContent.DustType<RadiumDust>();
+            useDust = ModContent.DustType<Dusts.RadiumDust>();
 
         }
         public override void InflictBuffs(NPC target)

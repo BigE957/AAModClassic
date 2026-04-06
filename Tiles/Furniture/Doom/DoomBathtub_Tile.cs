@@ -19,7 +19,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doomsday Bathtub");
 			AddMapEntry(new Color(200, 0, 0), name);
-			DustType = ModContent.DustType<DoomDust>();
+			DustType = ModContent.DustType<Dusts.DoomDust>();
 		}
 
 		

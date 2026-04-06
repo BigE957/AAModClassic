@@ -455,7 +455,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     if (NPC.life > NPC.lifeMax / 2 && Main.rand.Next(3) != 0)
                     {
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), hit.HitDirection, -1f, 0, default, 1f);
+                        Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, default, 1f);
                     }
                     num440++;
                 }
@@ -465,11 +465,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (Main.rand.Next(3) != 0)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 }
                 else
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 }
             }
             

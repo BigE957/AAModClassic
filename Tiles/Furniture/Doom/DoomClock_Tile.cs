@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Example Clock"); // Automatic from .lang files
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AdjTiles = new int[] { TileID.GrandfatherClocks };
         }
 

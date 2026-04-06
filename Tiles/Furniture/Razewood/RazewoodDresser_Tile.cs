@@ -37,7 +37,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Razewood Dresser");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
 			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Razewood Dresser";

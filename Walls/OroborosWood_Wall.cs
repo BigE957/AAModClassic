@@ -9,7 +9,7 @@ namespace AAModClassic.Walls
 	{
 		public override void SetStaticDefaults()
 		{
-			DustType = ModContent.DustType<DoomDust>();
+			DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(8, 8, 8));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<OroborosWall>());

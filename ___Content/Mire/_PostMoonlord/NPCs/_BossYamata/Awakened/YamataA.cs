@@ -129,8 +129,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         {
             modifiers.TargetDamageMultiplier *= 0;
             
-            int dust1 = ModContent.DustType<YamataADust>();
-            int dust2 = ModContent.DustType<YamataADust>();
+            int dust1 = ModContent.DustType<Dusts.YamataADust>();
+            int dust2 = ModContent.DustType<Dusts.YamataADust>();
             if (NPC.life <= 0)
             {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);

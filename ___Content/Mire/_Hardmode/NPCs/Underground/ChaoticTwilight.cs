@@ -134,7 +134,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.NPCs.Underground
 		public override void HitEffect(NPC.HitInfo hit)
 		{
 
-            int dust1 = ModContent.DustType<MireBubbleDust>();
+            int dust1 = ModContent.DustType<Dusts.MireBubbleDust>();
             if (NPC.life <= 0)
 			{
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);

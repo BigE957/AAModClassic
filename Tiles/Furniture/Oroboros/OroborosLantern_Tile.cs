@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Latern");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AdjTiles = new int[] { TileID.HangingLanterns };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         }

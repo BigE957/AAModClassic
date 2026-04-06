@@ -1250,7 +1250,7 @@ namespace AAModClassic
                     NPC Seraph1 = Main.npc[Seraph];
                     for (int i = 0; i < 5; i++)
                     {
-                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
+                        Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<Dusts.Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
                     AthenaHerald = true;
                 }

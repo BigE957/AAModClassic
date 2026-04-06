@@ -41,7 +41,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Lamp");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 
 

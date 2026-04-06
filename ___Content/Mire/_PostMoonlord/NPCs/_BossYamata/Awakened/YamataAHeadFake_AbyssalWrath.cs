@@ -57,7 +57,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     num296 = 0.75f;
                 }
                 Projectile.ai[0] += 1f;
-                int num297 = ModContent.DustType<YamataADust>();
+                int num297 = ModContent.DustType<Dusts.YamataADust>();
                 if (Main.rand.Next(2) == 0)
                 {
                     for (int num298 = 0; num298 < 3; num298++)

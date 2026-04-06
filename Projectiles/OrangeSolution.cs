@@ -23,7 +23,7 @@ namespace AAModClassic.Projectiles
 
         public override void AI()
         {
-            int dustType = ModContent.DustType<DragonflameDust>();
+            int dustType = ModContent.DustType<Dusts.DragonflameDust>();
             if (Projectile.owner == Main.myPlayer)
             {
                 Point tilePos = Projectile.Center.ToTileCoordinates();

@@ -126,7 +126,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
             }
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 0);
                 Main.dust[num469].velocity *= 2f;
             }

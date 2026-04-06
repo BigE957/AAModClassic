@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStand
             DustType = DustID.Stone;
             AnimationFrameHeight = 56;
             TileID.Sets.DisableSmartCursor[Type] = true;
-            DustType = ModContent.DustType<YamataDust>();
+            DustType = ModContent.DustType<Dusts.YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
             RegisterItemDrop(ModContent.ItemType<MoonAltar>());
         }

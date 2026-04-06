@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<AbyssiumBrick>());   
             AddMapEntry(new Color(0, 0, 51));
-            DustType = ModContent.DustType<AbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Boxes
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<RadiumDust>();
+            DustType = ModContent.DustType<Dusts.RadiumDust>();
             AddMapEntry(new Color(200, 200, 200), name);
             RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.StarBox>());
         }
@@ -36,7 +36,7 @@ namespace AAModClassic.Tiles.Boxes
             {
                 LocalizedText name = CreateMapEntryName();
                 AddMapEntry(new Color(160, 150, 0), name);
-                DustType = ModContent.DustType<RadiumDust>();
+                DustType = ModContent.DustType<Dusts.RadiumDust>();
             }
             else
             {

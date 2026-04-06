@@ -63,7 +63,7 @@ namespace AAModClassic.Projectiles
                 num466 = num465 / num466;
                 num463 *= num466;
                 num464 *= num466;
-                int num467 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.5f);
+                int num467 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 100, Main.DiscoColor, 1.5f);
                 Main.dust[num467].noGravity = true;
                 Main.dust[num467].position.X = Projectile.Center.X;
                 Main.dust[num467].position.Y = Projectile.Center.Y;

@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Bathtub");
 			AddMapEntry(new Color(70, 0, 10), name);
-			DustType = ModContent.DustType<DoomDust>();
+			DustType = ModContent.DustType<Dusts.DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.HasOutlines[Type] = false;
             AdjTiles = new int[]{ TileID.Bathtubs };

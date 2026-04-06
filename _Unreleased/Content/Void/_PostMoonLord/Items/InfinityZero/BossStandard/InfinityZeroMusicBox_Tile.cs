@@ -25,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             TileID.Sets.DisableSmartCursor[Type] = true;
             LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
-            DustType = ModContent.DustType<VoidDust_Unreleased>();
+            DustType = ModContent.DustType<Dusts.VoidDust_Unreleased>();
             AddMapEntry(new Color(200, 200, 200), name);
 		}
 

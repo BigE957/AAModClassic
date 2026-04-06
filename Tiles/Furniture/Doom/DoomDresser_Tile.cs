@@ -38,7 +38,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Doom Dresser");
             AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
 			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Doom Dresser";

@@ -46,7 +46,7 @@ namespace AAModClassic.Projectiles.Flasks
             SoundEngine.PlaySound(SoundID.Shatter, position);
 
             int radius = 6;
-            int FlaskDust = ModContent.DustType<MushDust>();
+            int FlaskDust = ModContent.DustType<Dusts.MushDust>();
 
             for (int m = 0; m < 20; m++)
             {

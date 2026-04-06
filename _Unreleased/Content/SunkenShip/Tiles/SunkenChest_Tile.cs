@@ -37,7 +37,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Tiles
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Sunken Chest");
-			DustType = ModContent.DustType<BogwoodDust>();
+			DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
 			//disableSmartCursor/* tModPorter Note: _Unreleased. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;

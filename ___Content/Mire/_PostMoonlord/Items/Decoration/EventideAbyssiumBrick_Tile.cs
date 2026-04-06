@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<EventideBrick>());   
             AddMapEntry(AAColor.Yamata);
-            DustType = ModContent.DustType<AbyssDust>();
+            DustType = ModContent.DustType<Dusts.AbyssDust>();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void AI()
         {
-            int d = Projectile.ai[1] == 0 ? ModContent.DustType<DragonflameDust>() : ModContent.DustType<Dusts.HydratoxinDust>();
+            int d = Projectile.ai[1] == 0 ? ModContent.DustType<Dusts.DragonflameDust>() : ModContent.DustType<Dusts.HydratoxinDust>();
             for (int num572 = 0; num572 < 5; num572++)
             {
                 float num573 = Projectile.velocity.X * 0.2f * num572;
@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void OnKill(int timeLeft)
         {
-            int d = Projectile.ai[1] == 0 ? ModContent.DustType<DragonflameDust>() : ModContent.DustType<Dusts.HydratoxinDust>();
+            int d = Projectile.ai[1] == 0 ? ModContent.DustType<Dusts.DragonflameDust>() : ModContent.DustType<Dusts.HydratoxinDust>();
             for (int num468 = 0; num468 < 3; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, d, -Projectile.velocity.X * 0.2f,

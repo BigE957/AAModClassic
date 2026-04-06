@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System;
 using Terraria;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 
 namespace AAModClassic.NPCs.Bosses.Akuma
 {

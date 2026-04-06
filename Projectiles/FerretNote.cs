@@ -106,11 +106,11 @@ namespace AAModClassic.Projectiles
         {
             for (int m = 0; m < 10; m++)
             {
-                int dustID = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
+                int dustID = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[dustID].noGravity = true;
                 Main.dust[dustID].velocity *= 2f;
-                dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
+                dustID = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDustLight>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[dustID].velocity *= 2f;
             }

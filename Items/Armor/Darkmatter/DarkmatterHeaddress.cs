@@ -148,7 +148,7 @@ Dark, yet still barely visible"); */
             for (int i = 0; i < 100; i++)
             {
                 float theta = Main.rand.NextFloat(-(float)Math.PI, (float)Math.PI);
-                Dust dust = Dust.NewDustPerfect(projectile.Center, ModContent.DustType<DarkmatterDust>(), PolarVector(radius / 30, theta));
+                Dust dust = Dust.NewDustPerfect(projectile.Center, ModContent.DustType<Dusts.DarkmatterDust>(), PolarVector(radius / 30, theta));
                 dust.noGravity = true;
             }
             cooldown = (int)(cooldownRate / projectile.minionSlots);

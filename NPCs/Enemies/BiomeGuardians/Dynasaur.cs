@@ -48,7 +48,8 @@ namespace AAModClassic.NPCs.Enemies.BiomeGuardians
                     BaseAI.FireProjectile(NPC.Center + new Vector2(velocitiesX[m], velocitiesY[m]), NPC.Center, Mod.ProjType("BugAcidShot"), 0, 0f, 5f);
 				}
 			}
-            BaseAI.DropItem(NPC, ModContent.ItemType<AcidSac>(), 1 + Main.rand.Next(2) + (Main.expertMode ? 2 : 0), 2, 65, true);
+            //TODO: Fake Item
+            //BaseAI.DropItem(NPC, ModContent.ItemType<AcidSac>(), 1 + Main.rand.Next(2) + (Main.expertMode ? 2 : 0), 2, 65, true);
 			if(ModSupport.GetMod("CalamityMod") != null)
 			{
                 BaseAI.DropItem(NPC, ModSupport.GetModItem("CalamityMod", "BeetleJuice").Item.type, 1, 1, 65, true);

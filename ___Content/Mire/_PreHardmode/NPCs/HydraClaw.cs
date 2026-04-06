@@ -4,6 +4,7 @@ using System;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
 {
@@ -85,7 +86,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.NPCs
         {
             if(Main.rand.NextBool())
             {
-                NPC.DropLoot(ModContent.ItemType<HydraClaw>(), 1);
+                NPC.DropLoot(ModContent.ItemType<Items.Materials.HydraClaw>(), 1);
             }
             
         }

@@ -23,7 +23,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
-            DustType = ModContent.DustType<RazeleafDust>();
+            DustType = ModContent.DustType<Dusts.RazeleafDust>();
             // name.SetDefault("Hephaestus Forge");
             AddMapEntry(new Color(200, 150, 0), name);
             TileID.Sets.DisableSmartCursor[Type] = true;

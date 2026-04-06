@@ -42,7 +42,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                     Vector2 vector33 = Projectile.position;
                     vector33 -= Projectile.velocity * (num447 * 0.25f);
                     Projectile.alpha = 255;
-                    int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<VoidDust_Unreleased>(), 0f, 0f, 200, default, 1f); //Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default(Color), 1f);;
+                    int num448 = Dust.NewDust(vector33, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 200, default, 1f); //Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.VoidDust>(), 0f, 0f, 200, default(Color), 1f);;
                     Main.dust[num448].position = vector33;
                     Main.dust[num448].scale = Main.rand.Next(70, 110) * 0.013f;
                     Main.dust[num448].velocity *= 0.2f;

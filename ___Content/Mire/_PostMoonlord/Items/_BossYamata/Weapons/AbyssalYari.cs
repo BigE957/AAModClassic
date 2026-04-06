@@ -31,7 +31,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 5f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.AbyssalYariP>();  
+            Item.shoot = ModContent.ProjectileType<AbyssalYariP>();  
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

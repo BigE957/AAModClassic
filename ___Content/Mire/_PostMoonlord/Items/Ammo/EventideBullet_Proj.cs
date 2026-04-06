@@ -74,10 +74,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Ammo
                 hit.Damage += target.defense * 2;
             }
             {
-                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
+                int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
                 Main.dust[num580].velocity *= 1.5f;
-                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
+                num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num580].velocity *= 1.5f;
             }
         }
@@ -88,10 +88,10 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Ammo
             {
                 Projectile.NewProjectile(Projectile.GetSource_Death(), (Vector2)initialPos, (Vector2)initialVel, ModContent.ProjectileType<EventideBullet_ProjCopy>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             }
-            int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
+            int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[num580].noGravity = true;
             Main.dust[num580].velocity *= 1.5f;
-            num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
+            num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100);
             Main.dust[num580].velocity *= 1.5f;
         }
     }

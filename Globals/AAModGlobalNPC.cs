@@ -668,7 +668,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<ForsakenDust>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 2f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.ForsakenDust>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 2f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -715,7 +715,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadB>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadB>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -728,7 +728,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.1f, 0.3f, 0.7f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadR>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadR>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -741,7 +741,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.7f, 0.2f, 0.2f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadG>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadG>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -754,7 +754,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.1f, 0.7f, 0.1f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadY>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadY>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -767,7 +767,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.5f, 0.5f, 0.1f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadP>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadP>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -780,7 +780,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.6f, 0.1f, 0.6f);
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<InfinityOverloadO>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<Dusts.InfinityOverloadO>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default, 3f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
@@ -798,7 +798,7 @@ namespace AAModClassic.Globals
                 int dustCount = Math.Max(1, Math.Min(5, Math.Max(npc.width, npc.height) / 10));
                 for (int i = 0; i < dustCount; i++)
                 {
-                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Moonraze>(), 0f, 1f, 0);
+                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Dusts.Moonraze>(), 0f, 1f, 0);
                     if (Main.dust[num4].velocity.Y > 0) Main.dust[num4].velocity.Y *= -1;
                     Main.dust[num4].noGravity = true;
                     Main.dust[num4].scale += Main.rand.NextFloat();
@@ -809,7 +809,7 @@ namespace AAModClassic.Globals
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Discord>(), 0f, -2.5f, 0);
+                    int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
                     Main.dust[num4].alpha = 100;
                     Main.dust[num4].noGravity = true;
                     Main.dust[num4].scale += Main.rand.NextFloat();
@@ -856,7 +856,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.Next(4) < 3)
                 {
-                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, DustID.Terra, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, ModContent.DustType<VoidDust>(), default, 3.5f);
+                    int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, DustID.Terra, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, ModContent.DustType<Dusts.VoidDust>(), default, 3.5f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;

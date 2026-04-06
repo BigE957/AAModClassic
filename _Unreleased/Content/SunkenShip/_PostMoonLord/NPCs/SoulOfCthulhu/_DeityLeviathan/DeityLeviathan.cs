@@ -443,7 +443,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         Vector2 vector2 = Vector2.Normalize(NPC.velocity) * new Vector2(NPC.width / 2f, NPC.height) * 0.75f * 0.5f;
                         vector2 = vector2.RotatedBy((double)((i - (num20 / 2 - 1)) * 6.28318548f / num20), default) + NPC.Center;
                         Vector2 value = vector2 - NPC.Center;
-                        int num21 = Dust.NewDust(vector2 + value, 0, 0, ModContent.DustType<CthulhuDust>(), value.X * 2f, value.Y * 2f, 100, default, 1.4f);
+                        int num21 = Dust.NewDust(vector2 + value, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), value.X * 2f, value.Y * 2f, 100, default, 1.4f);
                         Main.dust[num21].noGravity = true;
                         Main.dust[num21].noLight = true;
                         Main.dust[num21].velocity = Vector2.Normalize(value) * 3f;
@@ -592,7 +592,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Vector2 vector4 = Vector2.Normalize(NPC.velocity) * new Vector2((NPC.width + 50) / 2f, NPC.height) * 0.75f;
                     vector4 = vector4.RotatedBy((j - (num24 / 2 - 1)) * 3.1415926535897931 / (double)(float)num24, default) + vector;
                     Vector2 value3 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-                    int num25 = Dust.NewDust(vector4 + value3, 0, 0, ModContent.DustType<CthulhuDust>(), value3.X * 2f, value3.Y * 2f, 100, default, 1.4f);
+                    int num25 = Dust.NewDust(vector4 + value3, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), value3.X * 2f, value3.Y * 2f, 100, default, 1.4f);
                     Main.dust[num25].noGravity = true;
                     Main.dust[num25].noLight = true;
                     Main.dust[num25].velocity /= 4f;
@@ -864,7 +864,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Vector2 vector9 = Vector2.Normalize(NPC.velocity) * new Vector2((NPC.width + 50) / 2f, NPC.height) * 0.75f;
                     vector9 = vector9.RotatedBy((k - (num29 / 2 - 1)) * 3.1415926535897931 / (double)(float)num29, default) + vector;
                     Vector2 value6 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-                    int num30 = Dust.NewDust(vector9 + value6, 0, 0, ModContent.DustType<CthulhuDust>(), value6.X * 2f, value6.Y * 2f, 100, default, 1.4f);
+                    int num30 = Dust.NewDust(vector9 + value6, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), value6.X * 2f, value6.Y * 2f, 100, default, 1.4f);
                     Main.dust[num30].noGravity = true;
                     Main.dust[num30].noLight = true;
                     Main.dust[num30].velocity /= 4f;
@@ -1086,7 +1086,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Vector2 vector11 = Vector2.Normalize(NPC.velocity) * new Vector2((NPC.width + 50) / 2f, NPC.height) * 0.75f;
                     vector11 = vector11.RotatedBy((m - (num34 / 2 - 1)) * 3.1415926535897931 / (double)(float)num34, default) + vector;
                     Vector2 value8 = ((float)(Main.rand.NextDouble() * 3.1415927410125732) - 1.57079637f).ToRotationVector2() * Main.rand.Next(3, 8);
-                    int num35 = Dust.NewDust(vector11 + value8, 0, 0, ModContent.DustType<CthulhuDust>(), value8.X * 2f, value8.Y * 2f, 100, default, 1.4f);
+                    int num35 = Dust.NewDust(vector11 + value8, 0, 0, ModContent.DustType<Dusts.CthulhuDust>(), value8.X * 2f, value8.Y * 2f, 100, default, 1.4f);
                     Main.dust[num35].noGravity = true;
                     Main.dust[num35].noLight = true;
                     Main.dust[num35].velocity /= 4f;

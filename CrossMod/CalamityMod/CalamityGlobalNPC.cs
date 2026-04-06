@@ -1,3 +1,21 @@
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.NPCs.Bosses.AH.Ashe;
+using AAModClassic.NPCs.Bosses.AH.Haruka;
+using AAModClassic.NPCs.Bosses.Akuma;
+using AAModClassic.NPCs.Bosses.Akuma.Awakened;
+using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
+using AAModClassic.NPCs.Bosses.Athena;
+using AAModClassic.NPCs.Bosses.Athena.Olympian;
+using AAModClassic.NPCs.Bosses.Equinox;
+using AAModClassic.NPCs.Bosses.Greed;
+using AAModClassic.NPCs.Bosses.Rajah;
+using AAModClassic.NPCs.Bosses.Shen;
+using AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH;
+using AAModClassic.NPCs.Bosses.Shen.GripsShen;
+using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.NPCs.Bosses.Zero.Protocol;
+using AAModClassic.NPCs.Enemies.Sky;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +47,7 @@ namespace AAModClassic.CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<AsheDragon>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<AsheOrbiter>()) CalamityDR = 0.7f;
 
-                if(npc.type == ModContent.NPCType<Haruka.Haruka>()) CalamityDR = 0.6f;
+                if(npc.type == ModContent.NPCType<Haruka>()) CalamityDR = 0.6f;
 
                 if(npc.type == ModContent.NPCType<AkumaA>()) CalamityDR = 0.4f;
                 if(npc.type == ModContent.NPCType<Akuma>()) CalamityDR = 0.4f;

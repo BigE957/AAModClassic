@@ -15,7 +15,7 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Dig;
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<OroborosWood>());   
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(60, 60, 60));
         }
     }

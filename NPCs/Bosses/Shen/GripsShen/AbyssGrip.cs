@@ -44,8 +44,8 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
                 NPC.height = 78;
                 NPC.position.X = NPC.position.X - NPC.width / 2;
                 NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<YamataDust>();
-                int dust2 = ModContent.DustType<YamataDust>();
+                int dust1 = ModContent.DustType<Dusts.YamataDust>();
+                int dust2 = ModContent.DustType<Dusts.YamataDust>();
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Main.dust[dust1].velocity *= 0.5f;
                 Main.dust[dust1].scale *= 1.3f;

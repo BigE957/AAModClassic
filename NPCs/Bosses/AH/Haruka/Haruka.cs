@@ -149,7 +149,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
+            Dust.NewDust(NPC.position + NPC.velocity, NPC.width, NPC.height, ModContent.DustType<Dusts.AcidDust>(), NPC.velocity.X * 0.5f, NPC.velocity.Y * 0.5f);
         }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {

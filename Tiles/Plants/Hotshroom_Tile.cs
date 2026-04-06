@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -16,7 +17,7 @@ namespace AAModClassic.Tiles.Plants
             Main.tileLighted[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.addTile(Type);
-            RegisterItemDrop(ModContent.ItemType<Hotshroom_Tile>());
+            RegisterItemDrop(ModContent.ItemType<Hotshroom>());
         }
 
         public override bool IsTileDangerous(int i, int j, Player player)

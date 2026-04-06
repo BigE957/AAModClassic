@@ -34,7 +34,7 @@ namespace AAModClassic.Water
         {
             Instance = this;
             WaterfallStyle = ModContent.Find<ModWaterfallStyle>("AAModClassic/MireWaterfallStyle");
-            SplashDust = ModContent.DustType<MireWaterSplash>();
+            SplashDust = ModContent.DustType<Dusts.MireWaterSplash>();
             DropletGore = ModContent.GoreType<MireDroplet>();
         }
 

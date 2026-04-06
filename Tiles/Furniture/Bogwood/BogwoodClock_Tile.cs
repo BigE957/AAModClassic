@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Clock"); // Automatic from .lang files
 			AddMapEntry(new Color(70, 0, 10), name);
-			DustType = ModContent.DustType<BogwoodDust>();
+			DustType = ModContent.DustType<Dusts.BogwoodDust>();
 			AdjTiles = new int[] { TileID.GrandfatherClocks };
 		}
 

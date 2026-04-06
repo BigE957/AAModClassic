@@ -59,7 +59,7 @@ namespace AAModClassic.Projectiles.Athena
                 int num501 = 4;
                 for (int num502 = 0; num502 < num501; num502++)
                 {
-                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, ModContent.DustType<NPCs.Bosses.Athena.Feather>(), 0f, 0f, 0, default, 1f);
+                    int num503 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 16f), Projectile.width, Projectile.height - 16, ModContent.DustType<Dusts.NPCs.Bosses.Athena.Feather>(), 0f, 0f, 0, default, 1f);
                     Main.dust[num503].velocity *= 2f;
                 }
             }

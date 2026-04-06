@@ -30,7 +30,7 @@ namespace AAModClassic.Projectiles
             {
                 float num573 = Projectile.velocity.X * 0.2f * num572;
                 float num574 = -(Projectile.velocity.Y * 0.2f) * num572;
-                int num575 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<InfinityOverloadO>(), 0f, 0f, 100, default, 1.3f);
+                int num575 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadO>(), 0f, 0f, 100, default, 1.3f);
                 Main.dust[num575].noGravity = true;
                 Main.dust[num575].velocity *= 0f;
                 Dust expr_178B4_cp_0 = Main.dust[num575];
@@ -88,14 +88,14 @@ namespace AAModClassic.Projectiles
             int pieCut = 20;
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<InfinityOverloadO>(), 0f, 0f, 100, Color.White, 1.6f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.InfinityOverloadO>(), 0f, 0f, 100, Color.White, 1.6f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;
             }
             for (int m = 0; m < pieCut; m++)
             {
-                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<InfinityOverloadO>(), 0f, 0f, 100, Color.White, 2f);
+                int dustID = Dust.NewDust(new Vector2(Projectile.Center.X - 1, Projectile.Center.Y - 1), 2, 2, ModContent.DustType<Dusts.InfinityOverloadO>(), 0f, 0f, 100, Color.White, 2f);
                 Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m / (float)pieCut * 6.28f);
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;

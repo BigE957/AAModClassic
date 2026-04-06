@@ -41,7 +41,7 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 			Projectile.velocity.Y += Projectile.ai[0];
 			if (Main.rand.NextBool(2)) 
             {
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<ForsakenDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
 		}
 

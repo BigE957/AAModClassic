@@ -17,7 +17,7 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<Doomstone>());   
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(21, 21, 31));
 			MinPick = 225;
         }

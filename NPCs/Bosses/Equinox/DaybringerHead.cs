@@ -220,7 +220,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 
             if (wormStronger != prevWormStronger)
             {
-                int dustType = nightcrawler ? ModContent.DustType<NightcrawlerDust>() : ModContent.DustType<DaybringerDust>();
+                int dustType = nightcrawler ? ModContent.DustType<Dusts.NightcrawlerDust>() : ModContent.DustType<Dusts.DaybringerDust>();
                 for (int k = 0; k < 10; k++)
                 {
                     int dustID = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, (int)(NPC.velocity.X * 0.2f), (int)(NPC.velocity.Y * 0.2f), 0, default, 1.5f);
@@ -694,7 +694,7 @@ namespace AAModClassic.NPCs.Bosses.Equinox
 		bool spawnedGore = false;
         public override void HitEffect(NPC.HitInfo hit)
         {
-			int dustType = nightcrawler ? ModContent.DustType<NightcrawlerDust>() : ModContent.DustType<DaybringerDust>();
+			int dustType = nightcrawler ? ModContent.DustType<Dusts.NightcrawlerDust>() : ModContent.DustType<Dusts.DaybringerDust>();
             for (int k = 0; k < 5; k++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, hit.HitDirection, -1f, 0, default, 1.2f);

@@ -21,7 +21,7 @@ namespace AAModClassic.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = ModContent.DustType<RazeleafDust>();
+            DustType = ModContent.DustType<Dusts.RazeleafDust>();
             AddMapEntry(new Color(255, 153, 51));
             RegisterItemDrop(ItemID.DirtBlock);
         }

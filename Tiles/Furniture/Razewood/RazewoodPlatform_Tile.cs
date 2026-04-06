@@ -30,7 +30,7 @@ namespace AAModClassic.Tiles.Furniture.Razewood
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(191, 142, 111));
-            DustType = ModContent.DustType<RazewoodDust>();
+            DustType = ModContent.DustType<Dusts.RazewoodDust>();
 			RegisterItemDrop(ModContent.ItemType<RazewoodPlatform>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Platforms };

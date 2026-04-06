@@ -222,11 +222,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             for (int num468 = 0; num468 < 3; num468++)
             {
-                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, 1, ModContent.DustType<Dusts.CthulhuDust>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), -NPC.velocity.X * 0.2f,
+                num469 = Dust.NewDust(new Vector2(NPC.Center.X, NPC.Center.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), -NPC.velocity.X * 0.2f,
                     -NPC.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }

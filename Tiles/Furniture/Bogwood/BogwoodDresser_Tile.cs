@@ -37,7 +37,7 @@ namespace AAModClassic.Tiles.Furniture.Bogwood
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bogwood Dresser");
             AddMapEntry(new Color(12, 62, 205), name);
-            DustType = ModContent.DustType<BogwoodDust>();
+            DustType = ModContent.DustType<Dusts.BogwoodDust>();
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Dressers };
 			TileID.Sets.BasicDresser[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Bogwood Dresser";

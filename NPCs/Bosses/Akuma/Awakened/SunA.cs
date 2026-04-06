@@ -65,13 +65,13 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 }
                 for (int num87 = 0; num87 < 15; num87++)
                 {
-                    int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<AbyssDust>(), 0f, 0f, 200, default, 3.7f);
+                    int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 200, default, 3.7f);
                     Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                     Main.dust[num88].noGravity = true;
                     Main.dust[num88].noLight = true;
                     Main.dust[num88].velocity *= 3f;
                     Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + (Main.rand.NextFloat() * 4f));
-                    num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<YamataDust>(), 0f, 0f, 100, default, 1.5f);
+                    num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 100, default, 1.5f);
                     Main.dust[num88].position = NPC.Center + (Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f);
                     Main.dust[num88].velocity *= 2f;
                     Main.dust[num88].noGravity = true;
@@ -82,7 +82,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 }
                 for (int num89 = 0; num89 < 10; num89++)
                 {
-                    int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<AbyssDust>(), 0f, 0f, 0, default, 2.7f);
+                    int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.AbyssDust>(), 0f, 0f, 0, default, 2.7f);
                     Main.dust[num90].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                     Main.dust[num90].noGravity = true;
                     Main.dust[num90].noLight = true;
@@ -91,7 +91,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
                 }
                 for (int num91 = 0; num91 < 30; num91++)
                 {
-                    int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<YamataDust>(), 0f, 0f, 0, default, 1.5f);
+                    int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataDust>(), 0f, 0f, 0, default, 1.5f);
                     Main.dust[num92].position = NPC.Center + (Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f);
                     Main.dust[num92].noGravity = true;
                     Main.dust[num92].velocity *= 3f;
@@ -107,7 +107,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector135 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust31 = Main.dust[Dust.NewDust(NPC.Center - vector135 * 30f, 0, 0, ModContent.DustType<AkumaDust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust31 = Main.dust[Dust.NewDust(NPC.Center - vector135 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0, default, 1f)];
                 dust31.noGravity = true;
                 dust31.position = NPC.Center - vector135 * Main.rand.Next(10, 21);
                 dust31.velocity = vector135.RotatedBy(1.5707963705062866, default) * 6f;
@@ -118,7 +118,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (Main.rand.Next(2) == 0)
             {
                 Vector2 vector136 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust32 = Main.dust[Dust.NewDust(NPC.Center - vector136 * 30f, 0, 0, ModContent.DustType<AkumaDust>(), 0f, 0f, 0, default, 1f)];
+                Dust dust32 = Main.dust[Dust.NewDust(NPC.Center - vector136 * 30f, 0, 0, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0, default, 1f)];
                 dust32.noGravity = true;
                 dust32.position = NPC.Center - vector136 * 30f;
                 dust32.velocity = vector136.RotatedBy(-1.5707963705062866, default) * 3f;
@@ -129,7 +129,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
             if (NPC.ai[0] < 0f)
             {
                 Vector2 center15 = NPC.Center;
-                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<AkumaDust>(), NPC.velocity.X / 2f, NPC.velocity.Y / 2f, 0);
+                int num1059 = Dust.NewDust(center15 - Vector2.One * 8f, 16, 16, ModContent.DustType<Dusts.AkumaDust>(), NPC.velocity.X / 2f, NPC.velocity.Y / 2f, 0);
                 Main.dust[num1059].velocity *= 2f;
                 Main.dust[num1059].noGravity = true;
                 Main.dust[num1059].scale = Utils.SelectRandom(Main.rand, new float[]

@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Boss.Zero
 {

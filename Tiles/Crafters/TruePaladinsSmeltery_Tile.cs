@@ -25,7 +25,7 @@ namespace AAModClassic.Tiles.Crafters
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("True Paladin's Smeltery");
-            DustType = ModContent.DustType<DaybreakIncineriteDust>();
+            DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
             AddMapEntry(new Color(40, 40, 40), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[]

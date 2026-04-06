@@ -53,7 +53,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.DustType<HydraToxin>(), 90);
+			target.AddBuff(ModContent.DustType<Dusts.HydraToxin>(), 90);
 		}
 	}
 }

@@ -40,7 +40,7 @@ namespace AAModClassic.Tiles.Furniture.Oroboros
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Oroboros Bookcase");
             AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<DoomDust>();
+            DustType = ModContent.DustType<Dusts.DoomDust>();
             AdjTiles = new int[] { TileID.Bookcases };
         }
 

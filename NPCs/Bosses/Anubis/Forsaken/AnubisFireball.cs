@@ -64,7 +64,7 @@ namespace AAModClassic.NPCs.Bosses.Anubis.Forsaken
             }
             for (int dust = 0; dust < 5; dust++)
 			{
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<ForsakenDust>(), 0f, 0f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0f, 0f);
 			}
 		}
 	}

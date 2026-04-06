@@ -18,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.Tiles.Ancient
             HitSound = SoundID.Tink; 
             //TODOSIEGE
             //ItemDrop/* tModPorter Note: _Unreleased. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ModContent.ItemType<FulguritePlating>();   //put your CustomBlock name
-            DustType = ModContent.DustType<FulguriteDust>();
+            DustType = ModContent.DustType<Dusts.FulguriteDust>();
             AddMapEntry(new Color(90, 20, 120));
 			MinPick = 200;
         }

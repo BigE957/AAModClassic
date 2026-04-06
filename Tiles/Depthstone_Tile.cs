@@ -1,3 +1,6 @@
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.Dusts;
+using AAModClassic.Items.Blocks;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -20,7 +23,7 @@ namespace AAModClassic.Tiles
             HitSound = SoundID.Dig;
             MinPick = 65;
             TileID.Sets.JungleSpecial[Type] = true;
-            DustType = ModContent.DustType<DeepAbyssiumDust>();
+            DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
             RegisterItemDrop(ModContent.ItemType<Depthstone>());   
             AddMapEntry(new Color(27, 19, 50));
         }

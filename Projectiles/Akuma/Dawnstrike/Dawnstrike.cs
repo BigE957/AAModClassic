@@ -71,7 +71,7 @@ namespace AAModClassic.Projectiles.Akuma.Dawnstrike
 				Vector2 value = Projectile.Center + vector2;
 				for (int i = 0; i < chargeLevel; i++)
 				{
-                    int type = chargeLevel >= 3 ? ModContent.DustType<AkumaADust>() : ModContent.DustType<AkumaDust>();
+                    int type = chargeLevel >= 3 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.AkumaDust>();
                     int num5 = Dust.NewDust(value - Vector2.One * 8f, 16, 16, type, Projectile.velocity.X / 2f, Projectile.velocity.Y / 2f, 100);
 					Main.dust[num5].position.Y -= 0.3f;
 					Main.dust[num5].velocity *= 0.66f;
