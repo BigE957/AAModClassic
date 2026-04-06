@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class FallingTwilight : BaseAAItem
 	{
@@ -57,7 +57,7 @@ namespace AAModClassic.Items.Boss.Yamata
                 projectileOffset.X *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
                 projectileOffset.Y *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
                 Vector2 newSpeed = velocity * MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + projectileOffset.X, position.Y + projectileOffset.Y, newSpeed.X, newSpeed.Y, ModContent.ProjectileType<Projectiles.Yamata.NightSoul>(), damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X + projectileOffset.X, position.Y + projectileOffset.Y, newSpeed.X, newSpeed.Y, ModContent.ProjectileType<NightSoul>(), damage, knockback, player.whoAmI);
             }
             return false;
         }

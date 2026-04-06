@@ -6,10 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.Yamata   //where is located
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
     public class HydraStabber : BaseAAItem
     {
@@ -39,7 +38,7 @@ IInflicts Moonraze"); */
             Item.UseSound = SoundID.Item103;      
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Yamata.AbyssLash>();
+            Item.shoot = ModContent.ProjectileType<AbyssLash>();
             Item.shootSpeed = 10;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }
@@ -88,7 +87,7 @@ IInflicts Moonraze"); */
 
         public static void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 600);
         }
         
         public override void AddRecipes()  //How to craft this sword

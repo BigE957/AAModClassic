@@ -9,7 +9,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Skies
+namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Biomes
 {
     public class InfinityZeroSkyScene : ModSceneEffect
     {

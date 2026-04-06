@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     public abstract class YamataBoss : ParentNPC
 	{

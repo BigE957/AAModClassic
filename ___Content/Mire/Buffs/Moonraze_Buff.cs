@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Mire.Buffs
 {
     public class Moonraze_Buff : ModBuff
 	{

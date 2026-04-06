@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
 {
     public class EventideAbyssiumOre : BaseAAItem
     {

@@ -1,10 +1,9 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Mire.Buffs
 {
     public class HydraToxin_Buff : ModBuff
 	{

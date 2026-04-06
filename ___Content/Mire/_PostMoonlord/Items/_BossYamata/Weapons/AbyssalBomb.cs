@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.Yamata        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons        //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
     public class Toxibomb : BaseAAItem
     {

@@ -5,8 +5,9 @@ using Terraria.ModLoader;
 using System;
 using AAModClassic.Dusts;
 using Terraria.ID;
+using AAModClassic.Projectiles;
 
-namespace AAModClassic.Projectiles.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AcidFlame : ModProjectile
     {

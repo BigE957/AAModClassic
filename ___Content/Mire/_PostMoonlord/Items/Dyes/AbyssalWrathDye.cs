@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Dyes
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Dyes
 {
 	public class AbyssalWrathDye : BaseAAItem
 	{

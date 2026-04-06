@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
 
-namespace AAModClassic.Tiles.Boxes
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     class YamataBox_Tile : ModTile
 	{
@@ -24,7 +24,7 @@ namespace AAModClassic.Tiles.Boxes
 			// name.SetDefault("Music Box");
             DustType = ModContent.DustType<YamataDust>();
             AddMapEntry(new Color(200, 200, 200), name);
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.Boxes.YamataBox>());
+            RegisterItemDrop(ModContent.ItemType<YamataBox>());
         }
 
 		public override void MouseOver(int i, int j)

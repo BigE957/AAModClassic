@@ -1,5 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -7,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
 {
     public class TerrorSoul : BaseAAItem
     {

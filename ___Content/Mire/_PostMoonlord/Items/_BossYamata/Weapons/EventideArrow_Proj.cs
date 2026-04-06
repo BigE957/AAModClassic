@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssArrow : ModProjectile
 	{

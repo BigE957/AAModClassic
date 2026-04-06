@@ -1,8 +1,7 @@
-using AAModClassic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Vanity.Mask
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
 	public class YamataAMask : BaseAAItem

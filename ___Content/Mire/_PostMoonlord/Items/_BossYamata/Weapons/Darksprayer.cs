@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AAModClassic;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,7 +6,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class Darksprayer : BaseAAItem
     {

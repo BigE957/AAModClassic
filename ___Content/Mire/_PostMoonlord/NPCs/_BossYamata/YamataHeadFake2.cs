@@ -1,5 +1,5 @@
 using Terraria.ModLoader;
-namespace AAModClassic.NPCs.Bosses.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     [AutoloadBossHead]
     public class YamataHeadF2 : YamataHeadF1
