@@ -19,8 +19,8 @@ namespace AAModClassic.Items.Summoning
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Minion1>();
-            Item.buffType = ModContent.BuffType<TerraSummon>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Minion1>();
+            Item.buffType = ModContent.BuffType<TerraSummon_Buff>();
             Item.knockBack = 2;
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
@@ -58,7 +58,7 @@ namespace AAModClassic.Items.Summoning
 			
 			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
 			modPlayer.TerraSummon = true;
-			player.AddBuff(ModContent.BuffType<TerraSummon>(), 2, true);
+			player.AddBuff(ModContent.BuffType<TerraSummon_Buff>(), 2, true);
 
 			Vector2 point = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
 

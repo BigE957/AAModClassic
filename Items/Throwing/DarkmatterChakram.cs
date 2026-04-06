@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Throwing
 	        Item.value = 100000;
 	        Item.rare = ItemRarityID.Purple;
 	        Item.shootSpeed = 12f;
-	        Item.shoot = ModContent.ProjectileType<DMC>();
+	        Item.shoot = ModContent.ProjectileType<Projectiles.DMC>();
 	        Item.UseSound = SoundID.Item1;
 	        Item.autoReuse = true;
             Item.noMelee = true;

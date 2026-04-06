@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<HorusEye>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.HorusEye>();
             Item.damage = 200;
             Item.width = 50;
             Item.height = 50;

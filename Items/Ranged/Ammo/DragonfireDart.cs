@@ -14,7 +14,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<DragonfireDart>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireDart>();
 			Item.width = 8;
 			Item.height = 8;
 			Item.maxStack = 9999;

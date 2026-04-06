@@ -33,7 +33,7 @@ public class SquidStorm : ModItem
         Item.rare = ItemRarityID.Pink;
         Item.UseSound = SoundID.Item103;
         Item.autoReuse = true;
-        Item.shoot = ModContent.ProjectileType<CthulhuTentacle>();
+        Item.shoot = ModContent.ProjectileType<Projectiles.CthulhuTentacle>();
         Item.shootSpeed = 12f;
     }
     

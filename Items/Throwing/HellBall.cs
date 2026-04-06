@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Throwing
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
-            Item.shoot = ModContent.ProjectileType<HellBallP>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.HellBallP>();
 			Item.width = 56;
             Item.height = 56;
             Item.noMelee = true;

@@ -47,7 +47,7 @@ When player has 3 minion slots it summons terra, chaos and void rune."); */
             if(hideVisual)
             {
                 modPlayer.CCBookEX = false;
-                player.ClearBuff(ModContent.BuffType<CCRune>());
+                player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
             }
         }
 

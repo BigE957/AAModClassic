@@ -51,7 +51,7 @@ namespace AAModClassic._Unreleased._Aggregate.iz.weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<InfinityScorch>(), 600);
+            target.AddBuff(ModContent.BuffType<InfinityScorch_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

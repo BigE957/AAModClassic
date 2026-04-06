@@ -11,7 +11,7 @@ namespace AAModClassic.Items.DevTools.Cinematic
 		public override void SetStaticDefaults()
 		{
 			MountData.spawnDustNoGravity = true;
-			MountData.buff = ModContent.BuffType<CinematicBuff>();
+			MountData.buff = ModContent.BuffType<CinematicBuff_Buff>();
 			MountData.heightBoost = 0;
 			MountData.flightTimeMax = int.MaxValue;
 			MountData.fatigueMax = int.MaxValue;

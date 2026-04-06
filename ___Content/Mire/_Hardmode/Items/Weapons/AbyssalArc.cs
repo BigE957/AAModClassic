@@ -21,7 +21,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.LightPurple;
 			Item.shootSpeed = 15f;
-			Item.shoot = ModContent.ProjectileType<AntimonBoomerangP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.AntimonBoomerangP>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.noMelee = true;

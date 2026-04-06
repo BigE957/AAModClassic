@@ -32,7 +32,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
         {
             Rectangle myRect = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
             bool flag3 = Projectile.Colliding(myRect, target.getRect());
-            target.AddBuff(ModContent.BuffType<SpearStuck>(), 2);
+            target.AddBuff(ModContent.BuffType<SpearStuck_Buff>(), 2);
             if (flag3 && !StuckInEnemy)
             {
                 StuckInEnemy = true;

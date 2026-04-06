@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Dev
             Item.rare = ItemRarityID.Lime;
             Item.autoReuse = true;   //if it's capable of autoswing.
             Item.useTurn = true;
-            Item.shoot = ModContent.ProjectileType<Ryugen>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Ryugen>();
         }
     }
 }

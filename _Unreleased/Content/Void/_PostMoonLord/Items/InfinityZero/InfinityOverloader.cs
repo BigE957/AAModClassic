@@ -108,7 +108,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
                 Player player2 = Main.player[i];
                 if (player2 != null && player2.active && !player2.dead)
                 {
-                    player2.AddBuff(ModContent.BuffType<LockedOn>(), 60);
+                    player2.AddBuff(ModContent.BuffType<LockedOn_Buff>(), 60);
                 }
             }
             SpawnBoss(player, "IZSpawn1", "Infinity Zero");

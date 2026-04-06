@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Dev
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<PonyShot>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.PonyShot>();
 			Item.shootSpeed = 9f;
             Item.expert = true; Item.expertOnly = true;
 		}

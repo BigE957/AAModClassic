@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Boss.Djinn
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<DustDevil>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DustDevil>();
             Item.damage = 25;
             Item.width = 52;
             Item.height = 52;

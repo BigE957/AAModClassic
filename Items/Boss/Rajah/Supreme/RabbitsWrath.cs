@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<CarrotEX>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.CarrotEX>();
             Item.rare = ItemRarityID.Cyan;
             AARarity = 14;
         }

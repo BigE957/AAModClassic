@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +14,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<HydratoxinDart>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.HydratoxinDart_Proj>();
 			Item.width = 8;
 			Item.height = 8;
 			Item.maxStack = 9999;

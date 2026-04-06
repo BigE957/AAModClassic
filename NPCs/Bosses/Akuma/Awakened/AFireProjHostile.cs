@@ -70,7 +70,7 @@ namespace AAModClassic.NPCs.Bosses.Akuma.Awakened
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
         }
 
         public override bool PreDraw(ref Color lightColor)

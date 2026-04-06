@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Djinn;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Boss.Djinn
 			Item.value = 8;
 			Item.rare = ItemRarityID.LightPurple;
 			Item.shootSpeed = 6f;
-			Item.shoot = ModContent.ProjectileType<Djinnerang>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Djinn.Djinnerang>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.value = 50000;

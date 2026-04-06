@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Melee
             Item.value = Item.sellPrice(0, 0, 40, 0);
             Item.rare = ItemRarityID.Green;
             Item.shootSpeed = 5f;
-            Item.shoot = ModContent.ProjectileType<VikingPolearm>();  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<Projectiles.VikingPolearm>();  //put your Spear projectile name
         }
 
         public override bool CanUseItem(Player player)

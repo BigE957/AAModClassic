@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.consumable = true;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.shoot = ModContent.ProjectileType<MadnessKnifeP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.MadnessKnifeP>();
 			Item.shootSpeed = 12f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;

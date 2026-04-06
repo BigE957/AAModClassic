@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<DevilMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DevilMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<DevilMinion>();
+            Item.buffType = ModContent.BuffType<DevilMinion_Buff>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 10, 0, 0);
         }

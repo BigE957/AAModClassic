@@ -19,8 +19,8 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ShadowOrb);
-			Item.shoot = ModContent.ProjectileType<MiniProbe>();
-            Item.buffType = ModContent.BuffType<MiniProbe>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.MiniProbe>();
+            Item.buffType = ModContent.BuffType<MiniProbe_Buff>();
 		}
 
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

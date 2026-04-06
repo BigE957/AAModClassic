@@ -20,7 +20,7 @@ namespace AAModClassic.Buffs
     {
         public override void DrawEffects(NPC npc, ref Color drawColor)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkCurse>()))
+            if (npc.HasBuff(ModContent.BuffType<DarkCurse_Buff>()))
             {
                 drawColor.R = (byte)(drawColor.R * .2f);
                 drawColor.G = (byte)(drawColor.G * .2f);
@@ -30,7 +30,7 @@ namespace AAModClassic.Buffs
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
-            if (npc.HasBuff(ModContent.BuffType<DarkCurse>()))
+            if (npc.HasBuff(ModContent.BuffType<DarkCurse_Buff>()))
             {
                 modifiers.IncomingDamageMultiplier *= 0.5f;
             }

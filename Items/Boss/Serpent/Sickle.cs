@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Serpent
             Item.mana = 9;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<IciclePro>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.IciclePro>();
             Item.shootSpeed = 9f;
         }
 

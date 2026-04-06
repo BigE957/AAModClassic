@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Dev
             Item.useTime = 20; 
             Item.useAnimation = 20; 
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<ThunderSpark>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ThunderSpark>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;

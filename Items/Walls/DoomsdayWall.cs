@@ -1,3 +1,4 @@
+using AAModClassic.Walls.Bricks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<DoomsdayWall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<DoomsdayPlating_Wall>(); //put your CustomBlock Tile name
         }
 
         

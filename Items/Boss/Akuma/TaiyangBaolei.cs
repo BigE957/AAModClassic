@@ -168,8 +168,8 @@ During the day, you gain 6% damage resistance and your melee & magic attacks inf
             player.buffImmune[196] = true;
             player.buffImmune[197] = true;
             player.buffImmune[203] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.DragonFire>()] = true;
-            player.buffImmune[ModContent.BuffType<BurningAsh>()] = true;
+            player.buffImmune[ModContent.BuffType<Buffs.DragonFire_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<BurningAsh_Buff>()] = true;
             player.noKnockback = true;
             if (Main.dayTime)
             {

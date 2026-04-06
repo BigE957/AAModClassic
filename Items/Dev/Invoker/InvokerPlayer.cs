@@ -172,7 +172,7 @@ namespace AAModClassic.Items.Dev.Invoker
             {
                 if (AAMod.AccessoryAbilityKey.JustPressed)
                 {
-                    Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe>(), 3600);
+                    Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe_Buff>(), 3600);
                 }
             }
 		}
@@ -193,7 +193,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			}
 			if (Thebookoflaw && DarkCaligula)
 			{
-				Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe>(), 3600);
+				Player.AddBuff(ModContent.BuffType<InvokedCaligulaSafe_Buff>(), 3600);
 			}
 			if (InvokerShow)
 			{

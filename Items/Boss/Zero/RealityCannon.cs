@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.height = 26;
             Item.damage = 300;
             Item.UseSound = SoundID.Item12;
-            Item.shoot = ModContent.ProjectileType<RealityLaser>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.RealityLaser>();
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;

@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Tools
 			Item.value = 550000;
             Item.UseSound = SoundID.Item23;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<DarkmatterJackhammerPro>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DarkmatterJackhammerPro>();
             Item.shootSpeed = 40f;
             Item.tileBoost += 1;
             Item.rare = ItemRarityID.Cyan;

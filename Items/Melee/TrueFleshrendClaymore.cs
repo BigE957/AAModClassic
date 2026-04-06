@@ -30,7 +30,7 @@ Despite the name, it's not actually made of flesh"); */
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<TrueFleshClaymoreShot>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TrueFleshClaymoreShot>();
             Item.shootSpeed = 12f;
 
             glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.

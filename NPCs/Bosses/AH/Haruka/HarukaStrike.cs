@@ -50,7 +50,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 200);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

@@ -1,4 +1,5 @@
 ﻿using System;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -39,7 +40,7 @@ namespace AAModClassic.Items.Dev.Minions
             bool flag64 = Projectile.type == ModContent.ProjectileType<SockPuppet>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<SockPuppet>(), 3600);
+            player.AddBuff(ModContent.BuffType<SockPuppet_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)

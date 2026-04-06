@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.UseSound = SoundID.Item44;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.RabbitcopterSoldier>();
             Item.shootSpeed = 10f;
-            Item.buffType = Terraria.ModLoader.ModContent.BuffType<Buffs.RabbitcopterSoldier>();
+            Item.buffType = Terraria.ModLoader.ModContent.BuffType<Buffs.RabbitcopterSoldier_Buff>();
             Item.autoReuse = true;
         }
 		

@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.knockBack = 4f;
 			Item.value = 30;
 			Item.rare = ItemRarityID.Blue;
-			Item.shoot = ModContent.ProjectileType<DragonArrow>();   //The projectile shoot when your weapon using this ammo
+			Item.shoot = ModContent.ProjectileType<Projectiles.DragonArrow>();   //The projectile shoot when your weapon using this ammo
 			Item.shootSpeed = 1f;                  //The speed of the projectile
 			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.
 		}

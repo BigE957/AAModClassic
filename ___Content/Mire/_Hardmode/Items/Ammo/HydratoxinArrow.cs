@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 			Item.knockBack = 4f;
 			Item.value = 100;
 			Item.rare = ItemRarityID.LightRed;
-			Item.shoot = ModContent.ProjectileType<HydratoxinArrow>();   //The projectile shoot when your weapon using this ammo
+			Item.shoot = ModContent.ProjectileType<Projectiles.HydratoxinArrow_Proj>();   //The projectile shoot when your weapon using this ammo
 			Item.shootSpeed = 1f;                  //The speed of the projectile
 			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.
 		}

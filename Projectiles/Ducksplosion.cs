@@ -42,7 +42,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Electrified>(), 200);
+            target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

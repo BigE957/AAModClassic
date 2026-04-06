@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Summoning
             Item.damage = 50;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<DragonHead>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonHead>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;
@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Summoning
             Item.useTime = 24;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.buffType = ModContent.BuffType<DragonMinion>();
+            Item.buffType = ModContent.BuffType<DragonMinion_Buff>();
             Item.DamageType = DamageClass.Summon;
             Item.value = Item.sellPrice(0, 8, 0, 0);
         }

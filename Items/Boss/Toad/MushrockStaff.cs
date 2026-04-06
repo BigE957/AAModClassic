@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Toad
 			Item.rare = ItemRarityID.LightRed;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<ToadRock>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.ToadRock>();
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.shootSpeed = 15f;

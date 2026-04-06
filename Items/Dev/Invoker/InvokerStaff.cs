@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.shoot = ModContent.ProjectileType<InvokerStaffproj>(); 
+			Item.shoot = ModContent.ProjectileType<Projectiles.InvokerStaffproj>(); 
 			Item.shootSpeed = 40f;
 			Item.value = Item.buyPrice(10, 36, 0, 0);
         }
@@ -103,7 +103,7 @@ namespace AAModClassic.Items.Dev.Invoker
 			{
 				if(!player.GetModPlayer<InvokerPlayer>().InvokerMadness)
 				{
-					player.AddBuff(ModContent.BuffType<InvokerofMadness>(), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
+					player.AddBuff(ModContent.BuffType<InvokerofMadness_Buff>(), player.GetModPlayer<InvokerPlayer>().DarkCaligula? 30:3000);
 					player.GetModPlayer<InvokerPlayer>().BanishDamage = Item.damage * 5;
 					player.GetModPlayer<InvokerPlayer>().banishing = true;
 				}
@@ -405,7 +405,7 @@ namespace AAModClassic.Items.Dev.Invoker
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.BuffType<Invokedproj>(), 3600);
+			target.AddBuff(ModContent.BuffType<Invokedproj_Buff>(), 3600);
 		}
     }
 

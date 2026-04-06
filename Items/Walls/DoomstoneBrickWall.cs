@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Walls.Bricks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<DoomstoneBrickWall>();
+            Item.createWall = ModContent.WallType<DoomstoneBrick_Wall>();
         }
         
         public override void SetStaticDefaults()

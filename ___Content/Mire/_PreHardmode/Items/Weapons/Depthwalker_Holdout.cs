@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
 {
-    public class Depthwalker : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
+    public class Depthwalker_Holdout : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {
  
         public override void SetDefaults()

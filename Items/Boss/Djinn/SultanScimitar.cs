@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Djinn
 			Item.height = 66;
 			Item.useTime = 26;
             Item.useAnimation = 26;
-            Item.shoot = ModContent.ProjectileType<DesertGust>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DesertGust>();
             Item.shootSpeed = 5f;
 	        Item.UseSound = SoundID.Item1;
 			Item.useStyle = ItemUseStyleID.Swing;

@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<DemonEater>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DemonEater>();
             Item.damage = 9;
             Item.width = 32;
             Item.height = 32;

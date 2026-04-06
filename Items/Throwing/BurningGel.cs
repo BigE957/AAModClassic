@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.consumable = true;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
-			Item.shoot = ModContent.ProjectileType<BurningGelP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.BurningGelP>();
 			Item.shootSpeed = 9f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 2;

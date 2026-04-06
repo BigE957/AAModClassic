@@ -22,7 +22,7 @@ Sock Puppet Staff EX"); */
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<SoccMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SoccMinion>();
             Item.damage = 240;
             Item.width = 60;
             Item.height = 56;

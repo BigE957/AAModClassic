@@ -44,7 +44,7 @@ namespace AAModClassic.Items.Summoning.Minions
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<DiscordInferno>(), 200);
+            target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

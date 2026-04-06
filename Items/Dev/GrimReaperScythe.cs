@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -34,7 +35,7 @@ Dashing ability has 10 seconds CD
 			Item.scale = 1.15f;
 			Item.UseSound = SoundID.Item71;
 			Item.rare = ItemRarityID.Lime;
-			Item.shoot = ModContent.ProjectileType<GrimReaperScythe>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.GrimReaperScythe>();
 			Item.shootSpeed = 14f;
 			Item.value = 500000;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -50,14 +51,14 @@ Dashing ability has 10 seconds CD
 			int side = player.direction;
 			if (player.altFunctionUse != 2)
 			{
-				Item.shoot = ModContent.ProjectileType<GrimReaperScythe>();
+				Item.shoot = ModContent.ProjectileType<Projectiles.	GrimReaperScythe>();
 				return true;
 			}
-			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD>()))
+			if (player.altFunctionUse == 2 && !player.HasBuff(ModContent.BuffType<ReaperCD_Buff>()))
 			{
-				player.AddBuff(ModContent.BuffType<ReaperImmune>(), 60);
-				player.AddBuff(ModContent.BuffType<ReaperCD>(), 600);
-				Item.shoot = ModContent.ProjectileType<ReaperHitbox>();
+				player.AddBuff(ModContent.BuffType<ReaperImmune_Buff>(), 60);
+				player.AddBuff(ModContent.BuffType<ReaperCD_Buff>(), 600);
+				Item.shoot = ModContent.ProjectileType<Projectiles.ReaperHitbox>();
 				player.velocity.X = 26f * side;
 				return true;
 			}
@@ -69,7 +70,7 @@ Dashing ability has 10 seconds CD
 		
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (type == ModContent.ProjectileType<GrimReaperScythe>() && player.HasBuff(ModContent.BuffType<ReaperImmune>()))
+			if (type == ModContent.ProjectileType<Projectiles.GrimReaperScythe>() && player.HasBuff(ModContent.BuffType<ReaperImmune_Buff>()))
 			{
 				damage /= 10;
 			}

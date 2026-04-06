@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Boss.AH
 			Item.noUseGraphic = true;
 			Item.useTime = 8;
 			Item.useAnimation = 8;
-			Item.shoot = ModContent.ProjectileType<HarukaKunaiF>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.HarukaKunaiF>();
 			Item.shootSpeed = 15f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 0;

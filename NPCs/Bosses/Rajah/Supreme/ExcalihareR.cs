@@ -113,7 +113,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 120);
+            target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 120);
             int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<ExcalihareBoomR>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].netUpdate = true;

@@ -37,9 +37,9 @@ I thought the sky was purple
 			Item.rare = ItemRarityID.Yellow;
             Item.expert = true; Item.expertOnly = true;
 			Item.UseSound = SoundID.Item44;
-			Item.shoot = ModContent.ProjectileType<EnderMinion>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.EnderMinion>();
 			Item.shootSpeed = 7f;
-			Item.buffType = ModContent.BuffType<EnderMinionBuff>();	//The buff added to player after used the item
+			Item.buffType = ModContent.BuffType<EnderMinionBuff_Buff>();	//The buff added to player after used the item
 		}
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

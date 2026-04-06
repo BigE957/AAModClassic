@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev
 			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Pine>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Pine>();
 			Item.shootSpeed = 9f;
             Item.expert = true; 
             Item.expertOnly = true;

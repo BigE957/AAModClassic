@@ -32,7 +32,7 @@ blades go through tiles
             Item.knockBack = 12;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<ChaosSlayerSword>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.ChaosSlayerSword>();
 			Item.shootSpeed = 5;
             Item.useTurn = true;
             Item.rare = ItemRarityID.Cyan;

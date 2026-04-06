@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<HallowFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.HallowFlask>();
                 Item.shootSpeed = 9f;
             }
             else

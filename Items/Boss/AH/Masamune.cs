@@ -32,7 +32,7 @@ Right click to shoot a blade wave"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Surasshu>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
             Item.shootSpeed = 15f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;
@@ -68,7 +68,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 15;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.autoReuse = true;
-                Item.shoot = ModContent.ProjectileType<MasamuneSlash>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.MasamuneSlash>();
                 Item.shootSpeed = 12f;
             }
             else
@@ -82,7 +82,7 @@ Right click to shoot a blade wave"); */
                 Item.useTime = 5;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.autoReuse = false;
-                Item.shoot = ModContent.ProjectileType<Surasshu>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
                 Item.shootSpeed = 15f;
             }
             return base.CanUseItem(player);

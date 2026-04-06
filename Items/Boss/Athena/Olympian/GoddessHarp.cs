@@ -40,9 +40,9 @@ Athena is boosted by minion damage"); */
 			{
                 if (!hideVisual)
                 {
-                    if (player.FindBuffIndex(ModContent.BuffType<Buffs.Athena>()) == -1)
+                    if (player.FindBuffIndex(ModContent.BuffType<Buffs.Athena_Buff>()) == -1)
                     {
-                        player.AddBuff(ModContent.BuffType<Buffs.Athena>(), 3600, true);
+                        player.AddBuff(ModContent.BuffType<Buffs.Athena_Buff>(), 3600, true);
                     }
                     if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Athena.Athena>()] < 1)
                     {

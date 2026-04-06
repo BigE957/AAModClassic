@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Potions
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            player.AddBuff(ModContent.BuffType<CrasyLucky>(), 3600);
+            player.AddBuff(ModContent.BuffType<CrasyLucky_Buff>(), 3600);
             return base.UseItem(player);
         }
 	}

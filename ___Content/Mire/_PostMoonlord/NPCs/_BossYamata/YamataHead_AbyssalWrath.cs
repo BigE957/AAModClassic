@@ -89,7 +89,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 600);
         }
     }
 }

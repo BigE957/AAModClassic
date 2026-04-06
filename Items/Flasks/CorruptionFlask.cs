@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse != 2)
             {
-                Item.shoot = ModContent.ProjectileType<CorruptionFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.CorruptionFlask>();
                 Item.shootSpeed = 9f;
             }
             else
@@ -56,7 +56,7 @@ namespace AAModClassic.Items.Flasks
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == ModContent.ProjectileType<CorruptionFlask>())
+            if (type == ModContent.ProjectileType<Projectiles.Flasks.CorruptionFlask>())
             {
                 Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 1);
                 return false;

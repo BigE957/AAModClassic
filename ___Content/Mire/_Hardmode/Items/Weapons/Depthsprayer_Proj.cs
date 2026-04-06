@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
-    public class Depthsprayer : ModProjectile
+    public class Depthsprayer_Proj : ModProjectile
     {
         public override string Texture => "AAModClassic/BlankTex";
         public override void SetDefaults()
@@ -67,7 +67,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 			target.immune[Projectile.owner] = 6;
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 300);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 300);
         }
     }
 }

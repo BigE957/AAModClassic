@@ -65,11 +65,11 @@ namespace AAModClassic.Projectiles.AH
 			
 			Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead || !player.HasBuff(ModContent.BuffType<Orbiters>())) Projectile.Kill();
+            if (player.dead || !player.HasBuff(ModContent.BuffType<Orbiters_Buff>())) Projectile.Kill();
             if (modPlayer.Orbiters)
             {
 				Projectile.timeLeft = 2;
-				player.AddBuff(ModContent.BuffType<Orbiters>(), 2, true);
+				player.AddBuff(ModContent.BuffType<Orbiters_Buff>(), 2, true);
             }
 			
             if (Projectile.active) { SetRot(); }

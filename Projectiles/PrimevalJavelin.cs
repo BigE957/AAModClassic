@@ -41,7 +41,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<DynaEnergy2>(), 60);
+            target.AddBuff(ModContent.BuffType<DynaEnergy2_Buff>(), 60);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Throwing
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 19;
             Item.useTime = 19;
-            Item.shoot = ModContent.ProjectileType<SpookerangP>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SpookerangP>();
 			Item.width = 54;
             Item.height = 54;
             Item.noMelee = true;

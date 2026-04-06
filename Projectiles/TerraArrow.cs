@@ -79,7 +79,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Terrablaze>(), 180);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 180);
         }
         public override void OnKill(int timeleft)
         {

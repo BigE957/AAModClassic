@@ -75,7 +75,7 @@ namespace AAModClassic.Projectiles.Monarch
             TargetWhoAmI = target.whoAmI;
             Projectile.velocity = (target.Center - Projectile.Center) * 0.75f;
             Projectile.netUpdate = true;
-            target.AddBuff(ModContent.BuffType<Impaled>(), 900);
+            target.AddBuff(ModContent.BuffType<Impaled_Buff>(), 900);
             Projectile.penetrate = -1;
             Projectile.damage = 0;
 

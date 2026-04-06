@@ -32,7 +32,7 @@ Blade of Night EX"); */
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<UmbreonSPProjectile>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.UmbreonSPProjectile>();
 			Item.shootSpeed = 18f;
             Item.expert = true; Item.expertOnly = true;
 

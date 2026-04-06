@@ -93,7 +93,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire>(), 210);
+            target.AddBuff(ModContent.BuffType<Buffs.CursedHellfire_Buff>(), 210);
         }
 
         public override void OnKill(int timeleft)

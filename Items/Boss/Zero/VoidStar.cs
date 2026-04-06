@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.height = 26;
             Item.damage = 700;
             Item.UseSound = SoundID.Item20;
-            Item.shoot = ModContent.ProjectileType<VoidStarPF>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.VoidStarPF>();
             Item.mana = 18;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;

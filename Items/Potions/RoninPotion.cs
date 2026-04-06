@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Potions
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if(player.statLife == player.statLifeMax2) player.AddBuff(ModContent.BuffType<Ronin>(), 180);
+            if(player.statLife == player.statLifeMax2) player.AddBuff(ModContent.BuffType<Ronin_Buff>(), 180);
             return base.UseItem(player);
         }
 	}

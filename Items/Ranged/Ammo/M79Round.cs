@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.value = Item.sellPrice(0, 0, 20, 0);
 			Item.rare = ItemRarityID.Orange;
 			Item.consumable = true;
-			Item.shoot = ModContent.ProjectileType<M79P>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.M79P>();
 			Item.ammo = Item.type;
 		}
 		

@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = false;   
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<JungleReaperP>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.JungleReaperP>();
             Item.shootSpeed = 8f;                                 
         }
 

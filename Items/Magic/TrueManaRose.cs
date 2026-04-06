@@ -33,7 +33,7 @@ Right Clicking fires a piercing rose"); */
 			Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<TrueManaShot>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TrueManaShot>();
 			Item.shootSpeed = 10f;
         }
 
@@ -46,7 +46,7 @@ Right Clicking fires a piercing rose"); */
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<TrueManaRose>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TrueManaRose>();
                 Item.damage = 30;
                 Item.useTime = 40;
                 Item.useAnimation = 40;
@@ -54,7 +54,7 @@ Right Clicking fires a piercing rose"); */
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<TrueManaShot>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TrueManaShot>();
                 Item.damage = 100;
                 Item.useTime = 13;
                 Item.useAnimation = 13;

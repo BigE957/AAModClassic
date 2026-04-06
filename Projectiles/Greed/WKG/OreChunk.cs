@@ -615,7 +615,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             if(k == ItemID.TungstenOre)
             {
-                target.AddBuff(ModContent.BuffType<Impaled>(), 900);
+                target.AddBuff(ModContent.BuffType<Impaled_Buff>(), 900);
                 Rectangle rectangle = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
                 if (Projectile.owner == Main.myPlayer)
                 {
@@ -877,7 +877,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if(k == ModContent.ItemType<DarkmatterOre>())
             {
-                target.AddBuff(ModContent.BuffType<Electrified>(), 180);
+                target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 180);
             }
             else if(k == ModContent.ItemType<DaybreakIncineriteOre>())
             {
@@ -887,7 +887,7 @@ namespace AAModClassic.Projectiles.Greed.WKG
             }
             else if(k == ModContent.ItemType<EventideAbyssiumOre>())
             {
-                target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 400);
+                target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 400);
 
                 Projectile.localAI[0] ++;
 

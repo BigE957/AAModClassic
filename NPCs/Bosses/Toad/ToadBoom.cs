@@ -42,7 +42,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.Shroomed_Buff>(), 600);
         }
 
         public override void OnKill(int timeLeft)

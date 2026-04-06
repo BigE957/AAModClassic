@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.useAnimation = 45; 
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.UseSound = new Terraria.Audio.SoundStyle("AAModClassic/Sounds/Sounds/Shock");
-            Item.shoot = ModContent.ProjectileType<ZeroTaze>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ZeroTaze>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;

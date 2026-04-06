@@ -32,7 +32,7 @@ namespace AAModClassic.Items.Dev
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<PonyBoomEX>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.PonyBoomEX>();
 			Item.shootSpeed = 9f;
 		}
 

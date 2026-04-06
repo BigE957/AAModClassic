@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Items.Summoning.Minions.BabyPhoenix>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Items.Summoning.Minions.BabyPhoenix>();
             Item.damage = 12;
             Item.width = 42;
             Item.height = 44;

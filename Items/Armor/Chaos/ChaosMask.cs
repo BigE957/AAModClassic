@@ -46,7 +46,7 @@ Allows you to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosMaskBonus");
 			if (player.wet)
 			{
-				player.AddBuff(ModContent.BuffType<ChaosBuff>(), 2);
+				player.AddBuff(ModContent.BuffType<ChaosBuff_Buff>(), 2);
             }
             player.accFlipper = true;
             player.ignoreWater = true;

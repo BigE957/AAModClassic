@@ -20,7 +20,7 @@ Wand of Sparking EX"); */
             Item.height = 34;
             Item.DamageType = DamageClass.Magic;
             Item.damage = 300;
-            Item.shoot = ModContent.ProjectileType<SparkWand>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SparkWand>();
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;

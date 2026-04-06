@@ -20,9 +20,9 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = ModContent.ProjectileType<Sharkron>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Sharkron>();
             
-            Item.buffType = ModContent.BuffType<Sharkron>();
+            Item.buffType = ModContent.BuffType<Sharkron_Buff>();
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

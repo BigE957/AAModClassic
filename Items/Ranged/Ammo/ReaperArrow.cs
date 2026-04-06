@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 			Item.knockBack = 7f;
 			Item.value = 100;
 			Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = ModContent.ProjectileType<ReaperArrow>();   //The projectile shoot when your weapon using this ammo
+			Item.shoot = ModContent.ProjectileType<Projectiles.ReaperArrow>();   //The projectile shoot when your weapon using this ammo
 			Item.shootSpeed = 2f;                  //The speed of the projectile
 			Item.ammo = AmmoID.Arrow;              //The ammo class this ammo belongs to.
 		}

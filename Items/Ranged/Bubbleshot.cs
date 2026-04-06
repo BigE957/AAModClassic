@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Ranged
 			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = SoundID.Item85;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Bubble>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Bubble>();
 			Item.shootSpeed = 4f;
 		}
 

@@ -99,7 +99,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 120);
+            target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 120);
         	target.immune[Projectile.owner] = 5;
         }
     }

@@ -753,7 +753,7 @@ namespace AAModClassic
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) 
 		{
-			if (npc.HasBuff(ModContent.BuffType<ForsakenWeak>()))
+			if (npc.HasBuff(ModContent.BuffType<ForsakenWeak_Buff>()))
 			{
                 modifiers.FinalDamage.Flat -= modifiers.FinalDamage.Flat / 5;
 			}
@@ -841,7 +841,7 @@ namespace AAModClassic
                 }
             }
 
-            if (target.HasBuff(ModContent.BuffType<Buffs.Forsaken>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
+            if (target.HasBuff(ModContent.BuffType<Buffs.Forsaken_Buff>()) && proj.type == ModContent.ProjectileType<EnchancedMummyArrow>())
             {
 				float num1 = 9f;
 				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
@@ -869,7 +869,7 @@ namespace AAModClassic
 					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
 				}
-				target.buffImmune[ModContent.BuffType<Buffs.Forsaken>()] = true;
+				target.buffImmune[ModContent.BuffType<Buffs.Forsaken_Buff>()] = true;
 			}
         }
 
@@ -931,8 +931,8 @@ namespace AAModClassic
 
             if (ChaosMe)
             {
-                npc.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
-                npc.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
+                npc.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
+                npc.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
             }
 
             if (BrokenCode)
@@ -988,7 +988,7 @@ namespace AAModClassic
 
             if (perfectChaosMe)
             {
-                target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
             }
 
             if (valkyrieSet)
@@ -1005,19 +1005,19 @@ namespace AAModClassic
 
             if (Naitokurosu)
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
             if (darkmatterSetMe)
             {
-                target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
             }
 
             if (kindledSet)
@@ -1033,7 +1033,7 @@ namespace AAModClassic
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
-                target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
             }
 
             if (demonGauntlet)
@@ -1044,7 +1044,7 @@ namespace AAModClassic
 
             if (HeartP && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 600);
+                target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 600);
             }
             else if (HeartP && Player.statLife < (Player.statLifeMax / 3))
             {
@@ -1053,11 +1053,11 @@ namespace AAModClassic
 
             if (HeartS && Player.statLife > (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
+                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 600);
             }
             else if (HeartS && Player.statLife < (Player.statLifeMax / 3))
             {
-                target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
+                target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 600);
             }
 
             if (dracoSet)
@@ -1070,14 +1070,14 @@ namespace AAModClassic
                 target.AddBuff(BuffID.Wet, 600);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
+            if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff_Buff>()))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 900);
+                target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
+            if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>()))
             {
-                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 900);
+                target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 900);
             }
             if (StoneSoldier)
             {
@@ -1101,7 +1101,7 @@ namespace AAModClassic
             {
                 if (perfectChaosMe)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
                 }
 
                 if (dracoSet)
@@ -1117,7 +1117,7 @@ namespace AAModClassic
 
                 if (darkmatterSetMe)
                 {
-                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                    target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
                 if (ChaosMe || ChaosMe1)
@@ -1132,14 +1132,14 @@ namespace AAModClassic
                     target.AddBuff(buff, 180);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff>()))
+                if (Player.HasBuff(ModContent.BuffType<DragonfireFlaskBuff_Buff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 900);
+                    target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 900);
                 }
 
-                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff>()))
+                if (Player.HasBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>()))
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 900);
+                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 900);
                 }
             }
 
@@ -1147,12 +1147,12 @@ namespace AAModClassic
             {
                 if (perfectChaosRa)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
                 }
 
                 if (dreadSet)
                 {
-                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 600);
+                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 600);
                 }
 
                 if (DynaskullSet && Main.rand.Next(4) == 0)
@@ -1167,7 +1167,7 @@ namespace AAModClassic
 
                 if (darkmatterSetRa)
                 {
-                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                    target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
                 if (ChaosRa || ChaosRa2)
@@ -1181,22 +1181,22 @@ namespace AAModClassic
             {
                 if (MoonSet)
                 {
-                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze>(), 300);
+                    target.AddBuff(ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>(), 300);
                 }
 
                 if (zeroSet)
                 {
-                    target.AddBuff(ModContent.BuffType<BrokenArmor>(), 1000);
+                    target.AddBuff(ModContent.BuffType<BrokenArmor_Buff>(), 1000);
                 }
 
                 if (perfectChaosMa)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
                 }
 
                 if (darkmatterSetMa)
                 {
-                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                    target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
                 if (ChaosMa)
@@ -1207,7 +1207,7 @@ namespace AAModClassic
 
                 if (BlackLotusEmblem)
                 {
-                    target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 180);
+                    target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 180);
                 }
             }
 
@@ -1215,12 +1215,12 @@ namespace AAModClassic
             {
                 if (zeroSet1)
                 {
-                    target.AddBuff(ModContent.BuffType<BrokenArmor>(), 1000);
+                    target.AddBuff(ModContent.BuffType<BrokenArmor_Buff>(), 1000);
                 }
 
                 if (perfectChaosSu)
                 {
-                    target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                    target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
                 }
 
                 if (impSet)
@@ -1230,7 +1230,7 @@ namespace AAModClassic
 
                 if (darkmatterSetSu)
                 {
-                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                    target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
             }
 
@@ -1238,7 +1238,7 @@ namespace AAModClassic
             {
                 if (darkmatterSetTh)
                 {
-                    target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+                    target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
                 }
 
                 if (Alpha && Main.rand.Next(2) == 0 && !target.boss)
@@ -1264,13 +1264,13 @@ namespace AAModClassic
 
             if (Naitokurosu && (proj.CountsAsClass(DamageClass.Ranged) || proj.minion))
             {
-                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
+                int buff = Main.dayTime ? BuffID.Venom : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
             if (Duality)
             {
-                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze>();
+                int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<AAModClassic.Buffs.Moonraze_Buff>();
                 target.AddBuff(buff, 1000);
             }
 
@@ -1282,7 +1282,7 @@ namespace AAModClassic
             if (DiscordShredder)
             {
                 Player.ApplyDamageToNPC(target, 30, 0, 0, false);
-                target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+                target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
             }
 
             if (StoneSoldier)
@@ -1420,12 +1420,12 @@ namespace AAModClassic
             }
 			if (artifactJudgementCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<EyeOfJudgement>(), 900);
+				Player.AddBuff(ModContent.BuffType<EyeOfJudgement_Buff>(), 900);
 				artifactJudgementCharge = 0;
 			}
 			if (artifactGuiltCharge >= 250)
 			{
-				Player.AddBuff(ModContent.BuffType<Buffs.EyeOfForsaken>(), 900);
+				Player.AddBuff(ModContent.BuffType<Buffs.EyeOfForsaken_Buff>(), 900);
 				artifactGuiltCharge = 0;
 			}
             if (!Greed1 && !Greed2)
@@ -1441,12 +1441,12 @@ namespace AAModClassic
 
                 if (akuma.ai[0] >= 660)
                 {
-                    Player.AddBuff(ModContent.BuffType<BlazingPain>(), 2);
+                    Player.AddBuff(ModContent.BuffType<BlazingPain_Buff>(), 2);
                 }
             }
             else if (NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
             {
-                Player.AddBuff(ModContent.BuffType<BlazingPain>(), 2);
+                Player.AddBuff(ModContent.BuffType<BlazingPain_Buff>(), 2);
             }
 
             if (BasePlayer.HasAccessory(Player, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
@@ -1698,12 +1698,12 @@ namespace AAModClassic
 
             if (NPC.AnyNPCs(ModContent.NPCType<Yamata>()))
             {
-                Player.AddBuff(ModContent.BuffType<YamataGravity>(), 10, true);
+                Player.AddBuff(ModContent.BuffType<YamataGravity_Buff>(), 10, true);
             }
 
             if (NPC.AnyNPCs(ModContent.NPCType<YamataA>()))
             {
-                Player.AddBuff(ModContent.BuffType<YamataAGravity>(), 10, true);
+                Player.AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
             }
 
             if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
@@ -1712,14 +1712,14 @@ namespace AAModClassic
                 {
                     if (!Player.GetModPlayer<AAPlayer>().FogRemover)
                     {
-                        Player.AddBuff(ModContent.BuffType<Clueless>(), 5);
+                        Player.AddBuff(ModContent.BuffType<Clueless_Buff>(), 5);
                     }
                 }
             }
 
             if (Terrarium)
             {
-                Player.AddBuff(ModContent.BuffType<Terrarium>(), 2);
+                Player.AddBuff(ModContent.BuffType<Terrarium_Buff>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);
             }
 
@@ -1838,11 +1838,11 @@ namespace AAModClassic
                     bool RuneControlEX = Player.ownedProjectileCounts[ModContent.ProjectileType<TerraRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRune>()] > 1 || Player.ownedProjectileCounts[ModContent.ProjectileType<VoidRune>()] > 1;
                     if (RuneControl || RuneControlEX)
                     {
-                        Player.ClearBuff(ModContent.BuffType<CCRune>());
+                        Player.ClearBuff(ModContent.BuffType<CCRune_Buff>());
                     }
-                    if (Player.FindBuffIndex(ModContent.BuffType<CCRune>()) == -1)
+                    if (Player.FindBuffIndex(ModContent.BuffType<CCRune_Buff>()) == -1)
                     {
-                        Player.AddBuff(ModContent.BuffType<CCRune>(), 3600, true);
+                        Player.AddBuff(ModContent.BuffType<CCRune_Buff>(), 3600, true);
                     }
                     if (CCBook)
                     {
@@ -1877,7 +1877,7 @@ namespace AAModClassic
                 }
             }
 
-            if (ChampionMe && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<Items.Armor.Champion.RageCool>()))
+            if (ChampionMe && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<Items.Armor.Champion.RageCool_Buff>()))
             {
                 int BuffLength = 240;
                 if (Player.statLife < (int)(Player.statLifeMax2 * .75f))
@@ -1892,17 +1892,17 @@ namespace AAModClassic
                 {
                     BuffLength = 600;
                 }
-                Player.AddBuff(ModContent.BuffType<RageBuff>(), BuffLength);
+                Player.AddBuff(ModContent.BuffType<RageBuff_Buff>(), BuffLength);
                 int RageCooldown = BuffLength * 4;
-                Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageCool>(), RageCooldown);
+                Player.AddBuff(ModContent.BuffType<Items.Armor.Champion.RageCool_Buff>(), RageCooldown);
             }
 
-            if (Player.HasBuff(ModContent.BuffType<RageBuff>()))
+            if (Player.HasBuff(ModContent.BuffType<RageBuff_Buff>()))
             {
                 Player.armorEffectDrawShadowLokis = true;
             }
 
-            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<DroneCool>()) && 
+            if (ChampionRa && AAMod.ArmorAbilityKey.JustPressed && !Player.HasBuff(ModContent.BuffType<DroneCool_Buff>()) && 
                 !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<RajahDrone>()))
             {
                 Vector2 vector2;
@@ -1953,9 +1953,9 @@ namespace AAModClassic
             {
                 for (int i = 0; i < 22; i++)
                 {
-                    if (Player.buffType[i] == ModContent.BuffType<CBoost1>() || 
-                        Player.buffType[i] == ModContent.BuffType<CBoost2>() ||
-                        Player.buffType[i] == ModContent.BuffType<CBoost3>())
+                    if (Player.buffType[i] == ModContent.BuffType<CBoost1_Buff>() || 
+                        Player.buffType[i] == ModContent.BuffType<CBoost2_Buff>() ||
+                        Player.buffType[i] == ModContent.BuffType<CBoost3_Buff>())
                     {
                         Player.DelBuff(i);
                     }
@@ -2476,7 +2476,7 @@ namespace AAModClassic
             {
                 if (!player.GetModPlayer<AAPlayer>().AshRemover || !(player.ZoneSkyHeight || player.ZoneOverworldHeight))
                 {
-                    player.AddBuff(ModContent.BuffType<BurningAsh>(), 5);
+                    player.AddBuff(ModContent.BuffType<BurningAsh_Buff>(), 5);
                 }
 
                 if (AAWorld.infernoTiles > 0 && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0)
@@ -3122,7 +3122,7 @@ namespace AAModClassic
             {
                 if (AAMod.AccessoryAbilityKey.JustPressed && SagCooldown == 0)
                 {
-                    Player.AddBuff(ModContent.BuffType<SagShield>(), 300);
+                    Player.AddBuff(ModContent.BuffType<SagShield_Buff>(), 300);
                     SagCooldown = 5400;
                 }
             }
@@ -3144,7 +3144,7 @@ namespace AAModClassic
                             Main.projectile[id].friendly = true;
                         }
                     }
-                    Player.AddBuff(ModContent.BuffType<AsheFlame>(), 900);
+                    Player.AddBuff(ModContent.BuffType<AsheFlame_Buff>(), 900);
                     AsheCooldown = 5400;
                 }
             }
@@ -4595,11 +4595,11 @@ namespace AAModClassic
                 if (cbuff > 0)
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost1").Value;
-                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost2>()))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost2_Buff>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost2").Value;
                     }
-                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost3>()))
+                    if (drawPlayer.HasBuff(ModContent.BuffType<CBoost3_Buff>()))
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/Textures/CBoost3").Value;
                     }

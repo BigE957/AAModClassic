@@ -16,8 +16,8 @@ namespace AAModClassic.Items.Pets
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = ModContent.ProjectileType<Cerberus>();
-            Item.buffType = ModContent.BuffType<Buffs.Cerberus>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Cerberus>();
+            Item.buffType = ModContent.BuffType<Buffs.Cerberus_Buff>();
             Item.noUseGraphic = true;
 		}
 

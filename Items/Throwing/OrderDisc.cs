@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Throwing
 			Item.knockBack = 4;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 12;
-			Item.shoot = ModContent.ProjectileType<OrderDiscP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.OrderDiscP>();
 			Item.width = 46;
 			Item.height = 46;
             Item.noMelee = true;

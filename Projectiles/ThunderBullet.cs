@@ -56,7 +56,7 @@ namespace AAModClassic.Projectiles
             SoundEngine.PlaySound(SoundID.Item124);
             Projectile.localNPCImmunity[target.whoAmI] = -1;
             target.immune[Projectile.owner] = 0;
-            target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+            target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
             if(target.life<=0)
            {
               Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<ThunderBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             

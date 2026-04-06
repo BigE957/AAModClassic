@@ -37,7 +37,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.mana = 10;
             Item.autoReuse = true;
             Item.noMelee = true;	
-            Item.shoot = ModContent.ProjectileType<GalacticStormspike_Stormray>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.GalacticStormspike_Stormray>();
             Item.shootSpeed = 4;	
         }
 

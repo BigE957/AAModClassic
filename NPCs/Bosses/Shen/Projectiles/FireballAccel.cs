@@ -65,7 +65,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
         }
     }
 
@@ -128,7 +128,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
         }
     }
 }

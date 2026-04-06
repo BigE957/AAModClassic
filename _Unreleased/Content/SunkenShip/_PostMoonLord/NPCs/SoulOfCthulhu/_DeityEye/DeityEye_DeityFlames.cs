@@ -93,7 +93,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<RealityBent>(), 200);
+            target.AddBuff(ModContent.BuffType<RealityBent_Buff>(), 200);
         }
     }
 }

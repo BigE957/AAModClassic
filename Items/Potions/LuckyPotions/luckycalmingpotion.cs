@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 			Item.height = 16;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.rare = ItemRarityID.Lime;
-			Item.buffType = ModContent.BuffType<LuckyCalming>();
+			Item.buffType = ModContent.BuffType<LuckyCalming_Buff>();
 			Item.buffTime = 18000;
 		}
 

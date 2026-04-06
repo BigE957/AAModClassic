@@ -54,7 +54,7 @@ namespace AAModClassic.Projectiles.AH
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 1000);
+            target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 1000);
         }
 
         public override void OnKill(int timeleft)

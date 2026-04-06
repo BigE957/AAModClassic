@@ -31,9 +31,9 @@ Raven Staff EX"); */
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<CrowMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.CrowMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<CrowMinion>();
+            Item.buffType = ModContent.BuffType<CrowMinion_Buff>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 50, 0, 0);
         }

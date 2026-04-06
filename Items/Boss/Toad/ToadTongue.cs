@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Boss.Toad
             Item.knockBack = 8f;
             Item.damage = 30;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<ToadTongue>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Toad.ToadTongue>();
             Item.shootSpeed = 14;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

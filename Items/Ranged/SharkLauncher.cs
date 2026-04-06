@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Ranged
 		{
 			Item.CloneDefaults(ItemID.PiranhaGun);
 			Item.damage = 500;
-			Item.shoot = ModContent.ProjectileType<SharkLauncherP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.SharkLauncherP>();
 		}
 		
 		public override void AddRecipes()

@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Items.Banners;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -79,7 +80,7 @@ namespace AAModClassic.NPCs.Enemies.Other
         }
         public override void OnKill()
         {
-            NPC.DropLoot(ModContent.ItemType<DragonClaw>(), 1);
+            NPC.DropLoot(ModContent.ItemType<Items.Materials.DragonClaw>(), 1);
         }
     }
 }

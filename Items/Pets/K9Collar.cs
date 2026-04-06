@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Pets
 		{
 			Item.CloneDefaults(ItemID.ZephyrFish);
 			Item.shoot = ModContent.ProjectileType<K9>();
-            Item.buffType = ModContent.BuffType<K9>();
+            Item.buffType = ModContent.BuffType<K9_Buff>();
             Item.noUseGraphic = true;
 		}
 

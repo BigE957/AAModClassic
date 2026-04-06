@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Melee
             Item.useTurn = true;
             Item.noMelee = true;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<ValkyrieSlash>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ValkyrieSlash>();
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
         }
         public override bool AltFunctionUse(Player player)

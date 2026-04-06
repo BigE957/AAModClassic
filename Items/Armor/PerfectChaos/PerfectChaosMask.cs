@@ -52,7 +52,7 @@ The power of discordian rage radiates from this hood"); */
         {
             player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosMaskBonus");
             player.GetModPlayer<AAPlayer>().perfectChaosSu = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath>(), 2);
+            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
         }
 
         public override void UpdateEquip(Player player)

@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
             Item.value = 1000000;
             Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Toxifire>(); //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<Projectiles.Toxifire>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 7.5f;
             Item.useAmmo = 23;
         }

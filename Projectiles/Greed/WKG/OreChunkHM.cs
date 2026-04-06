@@ -124,9 +124,9 @@ namespace AAModClassic.Projectiles.Greed.WKG
                 case 13:
                     target.AddBuff(BuffID.OnFire, 180); break;
 
-                case 23: target.AddBuff(ModContent.BuffType<Electrified>(), 180); break;
+                case 23: target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 180); break;
                 case 25: target.AddBuff(BuffID.Daybreak, 180); break;
-                case 26: target.AddBuff(ModContent.BuffType<Buffs.Moonraze>(), 180); break;
+                case 26: target.AddBuff(ModContent.BuffType<Buffs.Moonraze_Buff>(), 180); break;
             }
         }
 

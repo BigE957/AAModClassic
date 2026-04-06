@@ -30,8 +30,8 @@ namespace AAModClassic.Projectiles.Anubis.Forsaken
 		}
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.buffImmune[ModContent.BuffType<ForsakenWeak>()] = false;
-			target.AddBuff(ModContent.BuffType<ForsakenWeak>(), 300);
+			target.buffImmune[ModContent.BuffType<ForsakenWeak_Buff>()] = false;
+			target.AddBuff(ModContent.BuffType<ForsakenWeak_Buff>(), 300);
 		}
 		
 		public override void AI()

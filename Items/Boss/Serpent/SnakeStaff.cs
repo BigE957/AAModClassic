@@ -23,7 +23,7 @@ Summons 2 segments for each minion slot"); */
             Item.damage = 11;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<SerpentHead>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SerpentHead>();
             Item.width = 26;
             Item.height = 28;
             Item.UseSound = SoundID.Item44;
@@ -33,7 +33,7 @@ Summons 2 segments for each minion slot"); */
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.buffType = ModContent.BuffType<SnakeMinion>();
+            Item.buffType = ModContent.BuffType<SnakeMinion_Buff>();
             Item.DamageType = DamageClass.Summon;
         }
 

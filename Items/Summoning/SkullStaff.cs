@@ -20,8 +20,8 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<SkullMinion>();
-            Item.buffType = ModContent.BuffType<SkullMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SkullMinion>();
+            Item.buffType = ModContent.BuffType<SkullMinion_Buff>();
             Item.damage = 19;
             Item.width = 44;
             Item.height = 44;

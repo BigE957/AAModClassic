@@ -30,9 +30,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<DoomiteProbe>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DoomiteProbe>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<DoomiteProbe>();
+            Item.buffType = ModContent.BuffType<DoomiteProbe_Buff>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }

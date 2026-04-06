@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Excalihare>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Rajah.Supreme.Excalihare>();
             Item.scale = 1.1f;
             Item.shootSpeed = 14f;
             Item.knockBack = 6.5f;
@@ -42,7 +42,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<InfinityOverload>(), 120);
+            target.AddBuff(Terraria.ModLoader.ModContent.BuffType<InfinityOverload_Buff>(), 120);
         }
     }
 }

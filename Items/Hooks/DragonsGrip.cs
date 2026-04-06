@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Hooks
         {
             Item.CloneDefaults(ItemID.IlluminantHook);
             Item.shootSpeed = 18f;
-            Item.shoot = ModContent.ProjectileType<DragonsGripP>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonsGripP>();
         }
     }
     class DragonsGripP : ModProjectile

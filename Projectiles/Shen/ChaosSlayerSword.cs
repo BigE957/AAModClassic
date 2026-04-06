@@ -103,7 +103,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 600);
         }
 
 		public override Color? GetAlpha(Color lightColor)

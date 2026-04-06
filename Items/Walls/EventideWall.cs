@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Walls.Bricks;
 
 namespace AAModClassic.Items.Walls
 {
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<EventideWall>();
+            Item.createWall = ModContent.WallType<EventideBrick_Wall>();
         }
         
         public override void SetStaticDefaults()

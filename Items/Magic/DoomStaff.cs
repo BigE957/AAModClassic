@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Magic
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<DoomProj>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DoomProj>();
 			Item.shootSpeed = 6f;
 		}
 	}

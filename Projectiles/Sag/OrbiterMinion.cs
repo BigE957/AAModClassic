@@ -54,11 +54,11 @@ namespace AAModClassic.Projectiles.Sag
 		{
 			Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            if (player.dead || !player.HasBuff(ModContent.BuffType<SagOrbiter>())) Projectile.Kill();
+            if (player.dead || !player.HasBuff(ModContent.BuffType<SagOrbiter_Buff>())) Projectile.Kill();
             if (modPlayer.SagOrbiter)
             {
 				Projectile.timeLeft = 2;
-				player.AddBuff(ModContent.BuffType<SagOrbiter>(), 2, true);
+				player.AddBuff(ModContent.BuffType<SagOrbiter_Buff>(), 2, true);
             }
 
             Projectile.ai[0] = player.GetDamage(DamageClass.Summon).ApplyTo(30);

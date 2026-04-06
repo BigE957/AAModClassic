@@ -27,7 +27,7 @@ namespace AAModClassic.Items.Dev
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 24;
             Item.useTime = 24;
-            Item.shoot = ModContent.ProjectileType<GibsFemur>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.GibsFemur>();
 			Item.width = 32;
             Item.height = 32;
             Item.noMelee = true;

@@ -32,7 +32,7 @@ Demise EX"); */
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<DemiseSphereEX>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphereEX>();
             Item.shootSpeed = 13f;
             Item.expert = true;
             Item.expertOnly = true;
@@ -50,7 +50,7 @@ Demise EX"); */
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
-                Item.shoot = ModContent.ProjectileType<DemiseBladeEX>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseBladeEX>();
                 Item.shootSpeed = 15f;
             }
             else
@@ -58,7 +58,7 @@ Demise EX"); */
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.shoot = ModContent.ProjectileType<DemiseSphereEX>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphereEX>();
                 Item.shootSpeed = 13f;
             }
             return base.CanUseItem(player);

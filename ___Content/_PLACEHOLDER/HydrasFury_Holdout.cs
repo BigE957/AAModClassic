@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content._PLACEHOLDER
 {
-    public class HydrasFury : ModProjectile
+    public class HydrasFury_Holdout : ModProjectile
 	{
 		public override void SetDefaults()
 		{

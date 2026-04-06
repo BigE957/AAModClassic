@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.useAnimation = 12;
             Item.useTime = 12;
             Item.rare = ItemRarityID.Purple;
-            Item.shoot = ModContent.ProjectileType<Void>();  
+            Item.shoot = ModContent.ProjectileType<Projectiles.Void>();  
 		}
 
         public override void SetStaticDefaults()

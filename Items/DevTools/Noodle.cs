@@ -63,7 +63,7 @@ namespace AAModClassic.Items.DevTools
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 300);
+            target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 300);
         }
     }
 }

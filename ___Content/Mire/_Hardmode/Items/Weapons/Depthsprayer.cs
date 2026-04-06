@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +25,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 			Item.width = 38;
 			Item.height = 10;
 			Item.damage = 35;
-			Item.shoot = ModContent.ProjectileType<Depthsprayer>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Depthsprayer_Proj>();
 			Item.shootSpeed = 12f;
 			Item.UseSound = SoundID.Item13;
 			Item.rare = ItemRarityID.LightPurple;

@@ -28,7 +28,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons  
             Item.mana = 9;
             Item.UseSound = SoundID.Item20; 
             Item.autoReuse = true; 
-            Item.shoot = ModContent.ProjectileType<AbyssalBomb_SoulBombSmall>();  
+            Item.shoot = ModContent.ProjectileType<Projectiles.AbyssalBomb_SoulBombSmall>();  
             Item.shootSpeed = 20f;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
         }

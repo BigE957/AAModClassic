@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Melee
             Item.knockBack = 4f;
             Item.damage = 19;
             Item.noUseGraphic = true;
-            Item.shoot = ModContent.ProjectileType<MushMace>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.MushMace>();
             Item.shootSpeed = 9;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Potions
 			Item.height = 30;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.buffType = ModContent.BuffType<DragonfireFlaskBuff>();
+			Item.buffType = ModContent.BuffType<DragonfireFlaskBuff_Buff>();
 			Item.buffTime = 52000;
 		}
 

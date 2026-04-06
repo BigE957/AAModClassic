@@ -167,7 +167,7 @@ namespace AAModClassic.Projectiles
             {
                 Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position, Projectile.velocity, ModContent.ProjectileType<ChaosChainEXSaw>(), Projectile.damage, 0, Main.myPlayer);
             }
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 240);
+            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 240);
         }
 		
         // chain voodoo

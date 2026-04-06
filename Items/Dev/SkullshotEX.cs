@@ -75,7 +75,7 @@ Super Skullshot EX"); */
                 Item.useAnimation = 20;
                 Item.useTime = 9;
                 Item.reuseDelay = 20;
-                Item.shoot = ModContent.ProjectileType<Hellshot>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Hellshot>();
             }
             else
             {

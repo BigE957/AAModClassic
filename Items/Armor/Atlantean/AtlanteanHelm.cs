@@ -43,7 +43,7 @@ Allows to breath underwater"); */
 			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AtlanteanBonus");
 			if (player.wet)
 			{
-				player.AddBuff(ModContent.BuffType<AtlanteanBuff>(), 2);
+				player.AddBuff(ModContent.BuffType<AtlanteanBuff_Buff>(), 2);
 			}
         }
 		

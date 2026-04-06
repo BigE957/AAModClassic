@@ -61,7 +61,7 @@ namespace AAModClassic.NPCs.Enemies.Terrarium.PostPlant
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 300);
+            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 300);
         }
     }
 }

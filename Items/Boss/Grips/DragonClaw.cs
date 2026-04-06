@@ -43,7 +43,7 @@ namespace AAModClassic.Items.Boss.Grips
             bool flag64 = Projectile.type == ModContent.ProjectileType<DragonClaw>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<GripMinion>(), 3600);
+            player.AddBuff(ModContent.BuffType<GripMinion_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)

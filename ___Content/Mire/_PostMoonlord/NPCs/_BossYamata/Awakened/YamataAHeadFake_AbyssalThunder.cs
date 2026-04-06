@@ -39,7 +39,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 600);
         }
 
         public override void PostAI()

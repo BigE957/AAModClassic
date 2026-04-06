@@ -59,7 +59,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.immune[Projectile.owner] = 8;
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 400);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 400);
         }
     }
 }

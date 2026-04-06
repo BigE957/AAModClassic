@@ -122,18 +122,18 @@ namespace AAModClassic.Projectiles
             }
             if (overloadCount >0)
             {
-                if (player.HasBuff(ModContent.BuffType<ManaOverload>()))
+                if (player.HasBuff(ModContent.BuffType<ManaOverload_Buff>()))
                 {
 
-                    player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] += overloadCount * 2;
-                    if (player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] > 600)
+                    player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] += overloadCount * 2;
+                    if (player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] > 600)
                     {
-                        player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload>())] = 600;
+                        player.buffTime[player.FindBuffIndex(ModContent.BuffType<ManaOverload_Buff>())] = 600;
                     }
                 }
                 else
                 {
-                    player.AddBuff(ModContent.BuffType<ManaOverload>(), overloadCount * 2);
+                    player.AddBuff(ModContent.BuffType<ManaOverload_Buff>(), overloadCount * 2);
                 }
                 CombatText.NewText(player.Hitbox, Color.Purple, overloadCount * 2);
             }

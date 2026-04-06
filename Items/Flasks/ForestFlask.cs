@@ -39,7 +39,7 @@ namespace AAModClassic.Items.Flasks
         {
             if (player.altFunctionUse != 2)
             {
-                Item.shoot = ModContent.ProjectileType<ForestFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.ForestFlask>();
                 Item.shootSpeed = 9f;
             }
             else

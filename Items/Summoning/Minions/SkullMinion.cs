@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Summoning.Minions
         {
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<SkullMinion>(), 3600);
+            player.AddBuff(ModContent.BuffType<SkullMinion_Buff>(), 3600);
             if (player.dead)
             {
                 modPlayer.SkullMinion = false;

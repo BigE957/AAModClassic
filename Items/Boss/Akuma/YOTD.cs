@@ -29,7 +29,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useAmmo = AmmoID.Rocket;
             Item.width = 50;
             Item.height = 20;
-            Item.shoot = ModContent.ProjectileType<YotD>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.YotD>();
             Item.UseSound = SoundID.Item11;
             Item.damage = 600;
             Item.shootSpeed = 30f;

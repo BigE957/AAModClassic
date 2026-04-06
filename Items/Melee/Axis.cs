@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Melee
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.width = 64;
             Item.height = 64;
-            Item.shoot = ModContent.ProjectileType<Axis>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Axis>();
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 30;
 			Item.useTime = 30;

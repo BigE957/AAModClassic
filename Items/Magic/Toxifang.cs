@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -25,7 +27,7 @@ namespace AAModClassic.Items.Magic
 			Item.mana = 10;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Toxifang>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Toxifang>();
 			Item.shootSpeed = 8f;
 		}   
 

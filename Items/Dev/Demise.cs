@@ -30,7 +30,7 @@ Right Click to unleash demon blades that fall from the sky"); */
             Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<DemiseSphere>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphere>();
             Item.shootSpeed = 9f;
 		}
 
@@ -47,14 +47,14 @@ Right Click to unleash demon blades that fall from the sky"); */
                 Item.staff[Item.type] = false;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.noMelee = false;
-                Item.shoot = ModContent.ProjectileType<DemiseBlade>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseBlade>();
             }
             else
             {
                 Item.staff[Item.type] = true;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.shoot = ModContent.ProjectileType<DemiseSphere>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.DemiseSphere>();
             }
             return base.CanUseItem(player);
         }

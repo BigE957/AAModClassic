@@ -14,7 +14,7 @@ namespace AAModClassic.Items.Tools
 		public override void SetDefaults()
 		{
             Item.CloneDefaults(ItemID.HotlineFishingHook);
-            Item.shoot = ModContent.ProjectileType<Hellfisher_Bob>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Hellfisher_Bob>();
 		}
 
         public override void AddRecipes()

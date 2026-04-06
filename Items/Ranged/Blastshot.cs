@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Ranged
             Item.useAnimation = 22;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAmmo = AmmoID.Gel;
-            Item.shoot = ModContent.ProjectileType<DragonfireProj>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireProj>();
             Item.knockBack = 0;
             Item.value = 100000;
             Item.rare = ItemRarityID.Pink;

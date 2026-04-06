@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		public override void SetDefaults()
 		{
 			Item.shootSpeed = 5f;
-			Item.shoot = ModContent.ProjectileType<DragonfireBullet>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DragonfireBullet>();
 			Item.damage = 13;
 			Item.width = 8;
 			Item.height = 8;

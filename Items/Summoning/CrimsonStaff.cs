@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<CrimeraMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.CrimeraMinion>();
             Item.damage = 20;
             Item.width = 46;
             Item.height = 46;

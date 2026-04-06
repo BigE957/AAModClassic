@@ -132,10 +132,10 @@ namespace AAModClassic.Projectiles
         }
         public override void InflictBuffs(NPC target)
         {
-            target.AddBuff(ModContent.BuffType<DarkCurse>(), 600);
+            target.AddBuff(ModContent.BuffType<DarkCurse_Buff>(), 600);
             if(!target.boss)
             {
-                target.AddBuff(ModContent.BuffType<DarkLock>(), 120);
+                target.AddBuff(ModContent.BuffType<DarkLock_Buff>(), 120);
             }
         }
     }
@@ -159,7 +159,7 @@ namespace AAModClassic.Projectiles
         }
         public override void InflictBuffs(NPC target)
         {
-            target.AddBuff(ModContent.BuffType<RadiumInferno>(), 600);
+            target.AddBuff(ModContent.BuffType<RadiumInferno_Buff>(), 600);
         }
     }
 }

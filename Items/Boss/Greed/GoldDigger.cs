@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Boss.Greed
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Dig>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Dig>();
             Item.shootSpeed = 13f;     
         }   
 

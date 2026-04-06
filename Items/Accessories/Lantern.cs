@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Accessories
         {
             if (Item.accessory)
             {
-                player.buffImmune[ModContent.BuffType<Buffs.Clueless>()] = true;
+                player.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] = true;
             }
         }
 

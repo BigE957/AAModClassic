@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Walls.Bricks;
 
 namespace AAModClassic.Items.Walls
 {
@@ -17,7 +18,7 @@ namespace AAModClassic.Items.Walls
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<RelicWall>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<RelicBrick_Wall>(); //put your CustomBlock Tile name
         }
         
         public override void SetStaticDefaults()

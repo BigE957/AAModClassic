@@ -22,7 +22,7 @@ Magic Acorn EX"); */
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<DapperSquirrel1>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.DapperSquirrel1>();
             Item.damage = 200;
             Item.width = 20;
             Item.height = 20;
@@ -34,7 +34,7 @@ Magic Acorn EX"); */
             Item.rare = ItemRarityID.Cyan;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 10;
-			Item.buffType = ModContent.BuffType<DapperSquirrel>();
+			Item.buffType = ModContent.BuffType<DapperSquirrel_Buff>();
         }
 		
 		public override void UseStyle(Player player, Rectangle heldItemFrame)

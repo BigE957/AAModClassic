@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Ranged
 			Item.useTime = 65;
 			Item.width = 68;
 			Item.height = 24;
-			Item.shoot = ModContent.ProjectileType<M79P>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.M79P>();
 			Item.UseSound = SoundID.Item61;
 			Item.damage = 180;
 			Item.shootSpeed = 11f;

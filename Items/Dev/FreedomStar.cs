@@ -23,7 +23,7 @@ Mobian Buster EX"); */
             Item.height = 34;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 250;  
-            Item.shoot = ModContent.ProjectileType<FreedomStar>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.FreedomStar>();
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;

@@ -167,7 +167,7 @@ namespace AAModClassic.Projectiles
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<CursedHellfire>(), 210);
+            target.AddBuff(ModContent.BuffType<CursedHellfire_Buff>(), 210);
         }
 
         public override void AI()
@@ -198,7 +198,7 @@ namespace AAModClassic.Projectiles
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<CursedHellfire>(), 210);
+            target.AddBuff(ModContent.BuffType<CursedHellfire_Buff>(), 210);
         }
 
         public override void AI()

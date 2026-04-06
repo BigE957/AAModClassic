@@ -5,10 +5,12 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Walls;
+using AAModClassic.Dusts;
 
 namespace AAModClassic.Walls.Bricks
 {
-    public class DoomstoneBrickWall : ModWall
+    public class DoomstoneBrick_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
         {

@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Rajah.Supreme
             Item.UseSound = SoundID.Item44;
             Item.shoot = Terraria.ModLoader.ModContent.ProjectileType<Projectiles.Rajah.Supreme.RoyalRabbit>();
             Item.shootSpeed = 10f;
-            Item.buffType = Terraria.ModLoader.ModContent.BuffType<RoyalRabbit>();
+            Item.buffType = Terraria.ModLoader.ModContent.BuffType<RoyalRabbit_Buff>();
             Item.autoReuse = true;
         }
 		

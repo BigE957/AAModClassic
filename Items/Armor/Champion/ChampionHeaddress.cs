@@ -55,9 +55,9 @@ The armor of a champion feared across the land"); */
             modPlayer.ChampionSu = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<BaronBuff>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<BaronBuff_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<BaronBuff>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<BaronBuff_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<BaronBunny>()] < 1)
                 {

@@ -33,7 +33,7 @@ Bunnyzooka EX"); */
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = ModContent.ProjectileType<RabbitRocketEX>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.RabbitRocketEX>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true; Item.expertOnly = true;

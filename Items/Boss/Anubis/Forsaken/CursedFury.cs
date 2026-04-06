@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.UseSound = SoundID.Item34;
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<ForsakenFlame>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.ForsakenFlame>();
 			Item.shootSpeed = 10f;
 			Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan;

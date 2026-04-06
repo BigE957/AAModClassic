@@ -30,9 +30,9 @@ namespace AAModClassic.Items.Summoning
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<XiaoDoragon>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.XiaoDoragon>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<XiaoDoragon>();
+            Item.buffType = ModContent.BuffType<XiaoDoragon_Buff>();
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true;

@@ -62,7 +62,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
             {
                 NPC.buffImmune[k] = true;
             }
-            NPC.buffImmune[ModContent.BuffType<Terrablaze>()] = false;
+            NPC.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = false;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

@@ -80,7 +80,7 @@ namespace AAModClassic.Projectiles.Shen
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<DiscordInferno>(), 300);
+            target.AddBuff(ModContent.BuffType<DiscordInferno_Buff>(), 300);
         }
     }
 }

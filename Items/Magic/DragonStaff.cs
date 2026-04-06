@@ -24,7 +24,7 @@ namespace AAModClassic.Items.Magic
             Item.mana = 5;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<DragonP>();  
+            Item.shoot = ModContent.ProjectileType<Projectiles.DragonP>();  
             Item.shootSpeed = 13f;     
         }   
 

@@ -19,7 +19,7 @@ Hydra Staff EX"); */
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<BlizzardDragon>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.BlizzardDragon>();
             Item.damage = 222;
             Item.width = 50;
             Item.height = 50;

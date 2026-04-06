@@ -30,7 +30,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.UseSound = SoundID.Item34;
             Item.value = 1000000;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<AcidFlame>(); //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<Projectiles.AcidFlame>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

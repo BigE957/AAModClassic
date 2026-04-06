@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Melee
             Item.UseSound = SoundID.Item1;
             Item.useTime = 30 / 2; //dont change the 30 unless you want to soft lock your computer. instead use it as a value and use 15 as the number 2, doing this will divide the 30 with 15 to get a use time of 2
             Item.useAnimation = 13;
-            Item.shoot = ModContent.ProjectileType<MS>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.MS>();
             Item.shootSpeed = 25f;
             Item.value = 25000;
             Item.rare = ItemRarityID.Cyan;

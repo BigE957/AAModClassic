@@ -31,7 +31,7 @@ Left clicking swings the blade
 			Item.knockBack = 3;
 			Item.value = 100000;
 			Item.rare = ItemRarityID.Purple;
-            Item.shoot = ModContent.ProjectileType<TopHat>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.TopHat>();
             Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.shootSpeed = 12f;

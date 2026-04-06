@@ -19,7 +19,7 @@ namespace AAModClassic.Items.Dev
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<SockPuppet>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SockPuppet>();
             Item.damage = 130;
             Item.width = 60;
             Item.height = 56;

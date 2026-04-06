@@ -1,21 +1,36 @@
+using AAModClassic.___Content.Mire._Hardmode.NPCs;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Desert;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Snow;
+using AAModClassic.___Content.Mire._Hardmode.NPCs.Underground;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs.Underground;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
+using AAModClassic.___Content.Mire._PreHardmode.NPCs;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.CrossMod;
 using AAModClassic.Dusts;
+using AAModClassic.Items.Accessories;
+using AAModClassic.Items.Armor.AncientGold;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Currency;
 using AAModClassic.Items.Materials;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Ranged;
 using AAModClassic.Items.Ranged.Ammo;
+using AAModClassic.Items.Summoning;
 using AAModClassic.Items.Usable;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Enemies.Cavern;
+using AAModClassic.NPCs.Enemies.Inferno;
+using AAModClassic.NPCs.Enemies.Other;
 using AAModClassic.NPCs.Enemies.Sky;
 using AAModClassic.NPCs.Enemies.Snow;
 using AAModClassic.NPCs.Enemies.Terrarium.Hardmode;
 using AAModClassic.NPCs.Enemies.Terrarium.PostPlant;
 using AAModClassic.NPCs.Enemies.Terrarium.PreHM;
+using AAModClassic.NPCs.Enemies.Void;
 using AAModClassic.UI.WorldGen;
 using log4net;
 using Microsoft.Xna.Framework;
@@ -29,6 +44,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using DragonClaw = AAModClassic.NPCs.Enemies.Other.DragonClaw;
 
 namespace AAModClassic.Globals
 {
@@ -271,7 +287,8 @@ namespace AAModClassic.Globals
             {
                 npc.DropLoot(ModContent.ItemType<PlanteraPetal>(), Main.rand.Next(30, 40));
             }
-
+            //TODO: Fake item
+            /*
             if (npc.type == NPCID.GreekSkeleton)
             {
                 if (Main.rand.NextFloat() < 0.1f)
@@ -279,7 +296,7 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<GladiatorsGlory>());
                 }
             }
-
+            */
             if (DynaEnergy1)
             {
                 Projectile.NewProjectile(npc.GetSource_Death(), npc.position, Vector2.Zero, ModContent.ProjectileType<Projectiles.DynaEnergy>(), 60, 1, Main.myPlayer);
@@ -317,6 +334,8 @@ namespace AAModClassic.Globals
                 }
             }
 
+            //TODO: Fake item
+            /*
             if (npc.type == NPCID.CursedHammer)
             {
                 if (Main.rand.NextFloat() < 0.1f)
@@ -324,6 +343,7 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<Shadowban>());
                 }
             }
+            */
 
             if (Main.rand.NextBool(8192))
             {
@@ -353,7 +373,8 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<CthulhusBlade>());
                 }
             }
-
+            //TODO: Fake Item
+            /*
             if (npc.type == NPCID.GiantFlyingFox)
             {
                 if (Main.rand.NextBool(4))
@@ -361,7 +382,10 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<TheFox>());
                 }
             }
+            */
 
+            //TODO: Fake item
+            /*
             if (npc.type == NPCID.Necromancer)
             {
                 if (Main.rand.NextFloat() < 0.1f)
@@ -369,7 +393,7 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<Exorcist>());
                 }
             }
-
+            */
             if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == NPCID.AngryBonesBigHelmet || npc.type == NPCID.AngryBonesBigMuscle)
             {
                 if (Main.rand.NextFloat() < 0.01f)
@@ -441,7 +465,7 @@ namespace AAModClassic.Globals
             {
                 if (Main.rand.NextFloat() < .005f)
                 {
-                    npc.DropLoot(ModContent.ItemType<Bloody_Mary>());
+                    npc.DropLoot(ModContent.ItemType<BloodyMary>());
                 }
             }
 
@@ -908,7 +932,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<InfernalSlime>(), .05f);
                         pool.Add(ModContent.NPCType<Flamebrute>(), .25f);
                         pool.Add(ModContent.NPCType<InfernoSalamander>(), .5f);
-                        pool.Add(ModContent.NPCType<DragonClaw>(), .05f);
+                        pool.Add(ModContent.NPCType<NPCs.Enemies.Other.DragonClaw>(), .05f);
                     }
 
                     if (Main.hardMode)
@@ -965,7 +989,7 @@ namespace AAModClassic.Globals
                     {
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
                         pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
                         pool.Add(ModContent.NPCType<MireSlime>(), .025f);
                     }
@@ -988,7 +1012,7 @@ namespace AAModClassic.Globals
                     { 
                         pool.Add(ModContent.NPCType<Mosster>(), .025f);
                         pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw>(), .025f);
+                        pool.Add(ModContent.NPCType<___Content.Mire._PreHardmode.NPCs.HydraClaw>(), .025f);
                         pool.Add(ModContent.NPCType<MireSkulker>(), .02f);
                     }
 

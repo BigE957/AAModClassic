@@ -38,9 +38,9 @@ namespace AAModClassic.Items.Boss.Zero
             Item.noMelee = true;
             Item.knockBack = 3;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Protocol>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Protocol>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<Protocol>();
+            Item.buffType = ModContent.BuffType<Protocol_Buff>();
             Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;
             Item.value = Item.sellPrice(0, 30, 0, 0);

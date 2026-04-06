@@ -4,6 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Pets
 {
@@ -23,7 +24,7 @@ namespace AAModClassic.Items.Pets
 			Item.CloneDefaults(ItemID.DD2PetGhost);
 			Item.shoot = ModContent.ProjectileType<Broodmini>();
             
-            Item.buffType = ModContent.BuffType<Broodmini>();
+            Item.buffType = ModContent.BuffType<Broodmini_Buff>();
 		}
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

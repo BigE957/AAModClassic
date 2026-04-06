@@ -338,7 +338,7 @@ namespace AAModClassic.Projectiles.Rajah.Supreme
                 Main.dust[num15].noGravity = true;
                 Main.dust[num15].scale = 1f + 3 / 3f;
             }
-            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 200);
+            target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

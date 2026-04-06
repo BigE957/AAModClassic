@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Ranged
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<Vulcan>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Vulcan>();
             Item.knockBack = 4;
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item34;

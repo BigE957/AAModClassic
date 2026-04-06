@@ -79,7 +79,7 @@ namespace AAModClassic.Items.Armor.Champion.Drone
 
                 if (Projectile.ai[0] >= 480)
                 {
-                    Main.player[Projectile.owner].AddBuff(ModContent.BuffType<DroneCool>(), 900);
+                    Main.player[Projectile.owner].AddBuff(ModContent.BuffType<DroneCool_Buff>(), 900);
                     Projectile.Kill();
                 }
             }

@@ -36,7 +36,7 @@ namespace AAModClassic.NPCs.Bosses.Toad
         { 
             Collision.HitTiles(Projectile.position, oldVelocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Top.X, (int)Projectile.Top.Y, ModContent.NPCType<ShroomGlow>(), ModContent.ProjectileType<ShroomGlow>(), Projectile.damage, 0, Projectile.owner, 0, 1);
+            NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Top.X, (int)Projectile.Top.Y, ModContent.NPCType<ShroomGlow>(), 0, Projectile.damage, 0, Projectile.owner, 0, 1);
             return true;
         }
 

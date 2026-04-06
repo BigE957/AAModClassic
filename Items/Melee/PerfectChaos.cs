@@ -31,7 +31,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<ChaosShotP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.ChaosShotP>();
             Item.shootSpeed = 16f;
             Item.expert = true; Item.expertOnly = true;
 

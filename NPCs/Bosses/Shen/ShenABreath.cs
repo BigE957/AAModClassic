@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 180);
         }
     }
 }

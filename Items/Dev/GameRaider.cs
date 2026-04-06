@@ -30,7 +30,7 @@ namespace AAModClassic.Items.Dev
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 25f;
-            Item.shoot = ModContent.ProjectileType<GameRocket>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.GameRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
         }

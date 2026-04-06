@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -20,7 +21,7 @@ namespace AAModClassic.Items.Pets
 			Item.CloneDefaults(ItemID.DD2PetGhost);
 			Item.shoot = ModContent.ProjectileType<BoomBoi>();
             
-            Item.buffType = ModContent.BuffType<BoomBoi>();
+            Item.buffType = ModContent.BuffType<BoomBoi_Buff>();
 		}
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)

@@ -12,7 +12,7 @@ namespace AAModClassic.Mounts
 		public override void SetStaticDefaults()
 		{
 			MountData.spawnDust = 15;
-			MountData.buff = ModContent.BuffType<PrinceFishron>();
+			MountData.buff = ModContent.BuffType<PrinceFishron_Buff>();
 			MountData.heightBoost = 14;
 			MountData.flightTimeMax = int.MaxValue;
 			MountData.fatigueMax = int.MaxValue;

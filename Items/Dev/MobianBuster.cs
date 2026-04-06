@@ -21,7 +21,7 @@ namespace AAModClassic.Items.Dev
             Item.height = 34;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 100;
-            Item.shoot = ModContent.ProjectileType<MobianBuster>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.MobianBuster>();
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;

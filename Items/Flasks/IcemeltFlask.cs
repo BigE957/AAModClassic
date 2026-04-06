@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,12 +41,12 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse != 2)
             {
-                Item.shoot = ModContent.ProjectileType<IcemeltFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.IcemeltFlask>();
                 Item.shootSpeed = 9f;
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<Snowmelt>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Snowmelt>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

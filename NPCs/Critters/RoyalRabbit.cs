@@ -34,7 +34,7 @@ namespace AAModClassic.NPCs.Critters
             NPC.dontTakeDamageFromHostiles = false;
             Banner = NPC.type;
             BannerItem = ItemID.BunnyBanner;
-            NPC.catchItem = (short)ModContent.ItemType<RoyalRabbit>();
+            NPC.catchItem = (short)ModContent.ItemType<Items.Materials.RoyalRabbit>();
             NPC.rarity = 6;
         }
 

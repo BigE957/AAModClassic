@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Throwing
 			Item.knockBack = 4;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 20;
-			Item.shoot = ModContent.ProjectileType<DracorangP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.DracorangP>();
 			Item.width = 22;
 			Item.height = 32;
             Item.noMelee = true;

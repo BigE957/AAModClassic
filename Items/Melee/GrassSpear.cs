@@ -26,7 +26,7 @@ namespace AAModClassic.Items.Melee
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 2, 40, 0);
             Item.rare = ItemRarityID.Orange;
-            Item.shoot = ModContent.ProjectileType<GSP>();  //put your Spear projectile name
+            Item.shoot = ModContent.ProjectileType<Projectiles.GSP>();  //put your Spear projectile name
             Item.shootSpeed = 5f;
         }
 		public override bool CanUseItem(Player player)

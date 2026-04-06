@@ -29,9 +29,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<TerraWizard>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.TerraWizard>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<TerraWizard>();
+            Item.buffType = ModContent.BuffType<TerraWizard_Buff>();
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 20, 0, 0);
         }

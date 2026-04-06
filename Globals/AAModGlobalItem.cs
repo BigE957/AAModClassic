@@ -289,7 +289,7 @@ namespace AAModClassic.Globals
             {
                 if (modPlayer.GreedCharm)
                 {
-                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.CharmBuff>(), 240);
+                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.CharmBuff_Buff>(), 240);
                     if (modPlayer.GreedyDamage < 20)
                     {
                         modPlayer.GreedyDamage += 1;
@@ -297,7 +297,7 @@ namespace AAModClassic.Globals
                 }
                 else if (modPlayer.GreedTalisman)
                 {
-                    player.AddBuff(ModContent.BuffType<TalismanBuff>(), 240);
+                    player.AddBuff(ModContent.BuffType<TalismanBuff_Buff>(), 240);
                     if (modPlayer.GreedyDamage < 40)
                     {
                         modPlayer.GreedyDamage += 1;

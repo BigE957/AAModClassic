@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 {
-    public class HydratoxinBullet : ModProjectile
+    public class HydratoxinBullet_Proj : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -55,7 +55,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 90);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 90);
         }
 	}
 }

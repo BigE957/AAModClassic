@@ -30,9 +30,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<TrueHallowedPrism>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.TrueHallowedPrism>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<TrueHallowedPrism>();
+            Item.buffType = ModContent.BuffType<TrueHallowedPrism_Buff>();
             Item.autoReuse = true;
         }
 		

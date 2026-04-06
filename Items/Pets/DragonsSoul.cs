@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Pets
 {
@@ -29,7 +30,7 @@ It feels hot, but comforting..."); */
 			Item.rare = ItemRarityID.Yellow;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(0, 5, 50, 0);
-			Item.buffType = ModContent.BuffType<DragonSoul>();
+			Item.buffType = ModContent.BuffType<DragonSoul_Buff>();
             Item.noUseGraphic = true;
 		}
 

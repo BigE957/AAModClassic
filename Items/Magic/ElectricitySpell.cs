@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Magic
             Item.mana = 20;             
             Item.UseSound = SoundID.Item21;            
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<ElectricitySpellP>();  
+            Item.shoot = ModContent.ProjectileType<Projectiles.ElectricitySpellP>();  
             Item.shootSpeed = 11f;     
         }   
 

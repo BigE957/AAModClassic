@@ -25,7 +25,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.damage = 100;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<LungHead>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.LungHead>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;
@@ -33,7 +33,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.useTime = 24;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.buffType = ModContent.BuffType<LungMinion>();
+            Item.buffType = ModContent.BuffType<LungMinion_Buff>();
             Item.DamageType = DamageClass.Summon;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;
@@ -78,7 +78,7 @@ namespace AAModClassic.Items.Boss.Akuma
 
             if (player.maxMinions - player.slotsMinions < 0.5) return false;
 			
-			player.AddBuff(ModContent.BuffType<LungMinion>(), 2, true);
+			player.AddBuff(ModContent.BuffType<LungMinion_Buff>(), 2, true);
 
             int num184 = -1;
             int num185 = -1;

@@ -22,7 +22,7 @@ namespace AAModClassic.Items.Magic
 			Item.mana = 10;
 			Item.UseSound = SoundID.Item21;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<FireblastP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.FireblastP>();
 			Item.shootSpeed = 8f;
 		}   
 

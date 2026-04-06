@@ -18,7 +18,7 @@ namespace AAModClassic.Items.Melee
             Item.autoReuse = true;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.shootSpeed = 14f;
-			Item.shoot = ModContent.ProjectileType<ScourgeOfShadowsP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.ScourgeOfShadowsP>();
 			Item.damage = 130;
 			Item.width = 18;
 			Item.height = 20;

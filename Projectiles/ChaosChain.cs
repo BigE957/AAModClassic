@@ -139,8 +139,8 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 150);
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 150);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 150);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 150);
         }
 		
  

@@ -53,7 +53,7 @@ namespace AAModClassic.Items.Boss.AH
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(ModContent.BuffType<Orbiters>(), 2, true);
+				player.AddBuff(ModContent.BuffType<Orbiters_Buff>(), 2, true);
 			}
 		}
 

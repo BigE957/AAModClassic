@@ -40,7 +40,7 @@ namespace AAModClassic.Items.Flasks
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<OrderBottle>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.OrderBottle>();
                 Item.shootSpeed = 9f;
             }
             else

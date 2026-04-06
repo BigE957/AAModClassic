@@ -27,7 +27,7 @@ Storm Rifle EX"); */
             Item.useTime = 2; 
             Item.useAnimation = 6; 
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.shoot = ModContent.ProjectileType<SThunderBullet>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.SThunderBullet>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;

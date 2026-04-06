@@ -221,7 +221,7 @@ namespace AAModClassic.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Electrified>(), 200);
+            target.AddBuff(ModContent.BuffType<Buffs.Electrified_Buff>(), 200);
         }
 
         public override void OnKill(int timeLeft)

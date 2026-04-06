@@ -8,7 +8,6 @@ using AAModClassic.Items.Armor.Razewood;
 using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Boss.Broodmother;
 using AAModClassic.Items.Boss.Grips;
-using AAModClassic.Items.Boss.Hydra;
 using AAModClassic.Items.Boss.MushroomMonarch;
 using AAModClassic.Items.Boss.Toad;
 using AAModClassic.Items.BossSummons;
@@ -59,8 +58,8 @@ namespace AAModClassic.CrossMod
             ModContent.ItemType<DragonScale>(),
             ModContent.ItemType<AAModClassic.Items.Materials.DragonClaw>(),
             ModContent.ItemType<___Content.Mire._PreHardmode.Items.Materials.HydraClaw>(),
-            ModContent.ItemType<Hotshroom_Tile>(),
-            ModContent.ItemType<Darkshroom_Tile>(),
+            ModContent.ItemType<Hotshroom>(),
+            ModContent.ItemType<Darkshroom>(),
             #endregion
 
             #region Boss Summons
@@ -177,8 +176,8 @@ namespace AAModClassic.CrossMod
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<Hotshroom_Tile>(), NewAA.Find<ModItem>("InfernoShroom").Type);
-                OldToNewItems.Add(ModContent.ItemType<Darkshroom_Tile>(), NewAA.Find<ModItem>("MireShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<Hotshroom>(), NewAA.Find<ModItem>("InfernoShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<Darkshroom>(), NewAA.Find<ModItem>("MireShroom").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<MushiumBar>(), NewAA.Find<ModItem>("BlightShroom").Type);
                 OldToNewItems.Add(ModContent.ItemType<GlowingMushiumBar>(), NewAA.Find<ModItem>("Biomass").Type);

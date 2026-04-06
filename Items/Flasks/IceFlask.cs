@@ -45,7 +45,7 @@ namespace AAModClassic.Items.Flasks
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<SnowSolution>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.SnowSolution>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

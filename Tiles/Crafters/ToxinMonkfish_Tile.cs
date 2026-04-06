@@ -63,7 +63,7 @@ namespace AAModClassic.Tiles.Crafters
         public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(ModContent.BuffType<HydratoxinFlaskBuff>(), 36000, true);
+            player.AddBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>(), 36000, true);
 			SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }

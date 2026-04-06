@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -17,7 +18,7 @@ namespace AAModClassic.Items.Flasks
             Item.consumable = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = ModContent.ProjectileType<BlackSolution>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.BlackSolution>();
             Item.shootSpeed = 1f;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 0, 1, 0);
@@ -44,12 +45,12 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<VoidFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.VoidFlask>();
                 Item.shootSpeed = 9f;
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<BlackSolution>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.BlackSolution>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);
@@ -57,7 +58,7 @@ namespace AAModClassic.Items.Flasks
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == ModContent.ProjectileType<VoidFlask>())
+            if (type == ModContent.ProjectileType<Projectiles.Flasks.VoidFlask>())
             {
                 Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 4);
                 return false;

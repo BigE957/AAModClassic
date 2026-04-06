@@ -85,7 +85,7 @@ namespace AAModClassic.NPCs.Enemies.Other
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 180);
         }
 
         public override void OnKill()

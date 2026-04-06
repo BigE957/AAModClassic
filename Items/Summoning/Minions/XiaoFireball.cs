@@ -34,7 +34,7 @@ namespace AAModClassic.Items.Summoning.Minions
             int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<XiaoExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
             Main.projectile[p].Center = target.Center;
 
-            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno>(), 200);
+            target.AddBuff(ModContent.BuffType<Buffs.DiscordInferno_Buff>(), 200);
         }
 
         public override void AI()

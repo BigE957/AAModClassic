@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,12 +41,12 @@ namespace AAModClassic.Items.Flasks
 
             if (player.altFunctionUse != 2)
             {
-                Item.shoot = ModContent.ProjectileType<JungleFlask>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.Flasks.JungleFlask>();
                 Item.shootSpeed = 9f;
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<JungleSolution>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.JungleSolution>();
                 Item.shootSpeed = 2f;
             }
             return base.CanUseItem(player);

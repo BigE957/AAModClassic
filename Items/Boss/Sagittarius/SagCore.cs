@@ -41,7 +41,7 @@ namespace AAModClassic.Items.Boss.Sagittarius
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
-				player.AddBuff(ModContent.BuffType<SagOrbiter>(), 2, true);
+				player.AddBuff(ModContent.BuffType<SagOrbiter_Buff>(), 2, true);
 			}
 		}
     }

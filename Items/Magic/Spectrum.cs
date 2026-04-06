@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,7 +33,7 @@ Last Prism EX"); */
 			Item.channel = true;
 	        Item.knockBack = 0f;
 	        Item.value = 1000000;
-	        Item.shoot = ModContent.ProjectileType<Spectrum>();
+	        Item.shoot = ModContent.ProjectileType<Projectiles.Spectrum>();
 	        Item.shootSpeed = 30f;
 			Item.rare = ItemRarityID.Cyan;
 	    }

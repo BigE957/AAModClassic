@@ -48,7 +48,7 @@ namespace AAModClassic.Items.FishingItem
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.HydraToxin>(), 180);
+			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
 		}
 	}
 }

@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.rare = ItemRarityID.Orange;
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<GlacierBreaker>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.GlacierBreaker>();
 			Item.UseSound = SoundID.Item18;
         }
 

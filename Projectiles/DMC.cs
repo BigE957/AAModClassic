@@ -12,7 +12,7 @@ namespace AAModClassic.Projectiles
 
           public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
           {
-              target.AddBuff(ModContent.BuffType<Electrified>(), 500);
+              target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
           }
 
         public override void SetDefaults()
@@ -49,7 +49,7 @@ namespace AAModClassic.Projectiles
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Electrified>(), 90);
+            target.AddBuff(ModContent.BuffType<Buffs.Electrified_Buff>(), 90);
         }
     }
 }

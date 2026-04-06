@@ -59,7 +59,7 @@ namespace AAModClassic.Items.Summoning.Minions
             bool flag64 = Projectile.type == ModContent.ProjectileType<Items.Summoning.Minions.BabyPhoenix>();
             Player player = Main.player[Projectile.owner];
             AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            player.AddBuff(ModContent.BuffType<BabyPhoenix>(), 3600);
+            player.AddBuff(ModContent.BuffType<BabyPhoenix_Buff>(), 3600);
             if (flag64)
             {
                 if (player.dead)

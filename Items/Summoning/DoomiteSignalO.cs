@@ -28,9 +28,9 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<ScoutMinion>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.ScoutMinion>();
             Item.shootSpeed = 10f;
-            Item.buffType = ModContent.BuffType<ScoutMinion>();
+            Item.buffType = ModContent.BuffType<ScoutMinion_Buff>();
             Item.autoReuse = true;
         }
 		

@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Melee
             Item.rare = ItemRarityID.Yellow;
 			Item.UseSound = SoundID.Item19;
 			Item.autoReuse = false;
-			Item.shoot = ModContent.ProjectileType<TrueAbyssalTwilightShot>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TrueAbyssalTwilightShot>();
             Item.shootSpeed = 10f;
 		}
 

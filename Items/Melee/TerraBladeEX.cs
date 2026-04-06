@@ -24,7 +24,7 @@ Terra Blade EX"); */
 			Item.useTime = 21;
 			Item.width = 62;
 			Item.height = 74;
-			Item.shoot = ModContent.ProjectileType<TerraShotEX>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TerraShotEX>();
 			Item.shootSpeed = 7f;
 			Item.knockBack = 7f;
 			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -40,7 +40,7 @@ Terra Blade EX"); */
 
         public void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Terrablaze>(), 600);
+            target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 600);
         }
 
         public override void AddRecipes()

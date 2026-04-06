@@ -22,7 +22,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 			Item.knockBack = 1;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.shootSpeed = 15f;
-			Item.shoot = ModContent.ProjectileType<TC>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TC>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

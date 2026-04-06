@@ -23,7 +23,7 @@ namespace AAModClassic.Items.Melee   //where is located
             Item.UseSound = SoundID.Item1;      
             Item.autoReuse = true;   
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<IceChunk>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.IceChunk>();
             Item.shootSpeed = 14f;                        
         }
 

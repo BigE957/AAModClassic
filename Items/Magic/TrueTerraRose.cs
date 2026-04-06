@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Boss;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +36,7 @@ Terra Rose EX"); */
 			Item.rare = ItemRarityID.Purple;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<TerraRoseShotEX>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.TerraRoseShotEX>();
 			Item.shootSpeed = 20f;
         }
 
@@ -48,7 +49,7 @@ Terra Rose EX"); */
         {
             if (player.altFunctionUse == 2)
             {
-                Item.shoot = ModContent.ProjectileType<TrueTerraRose>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TrueTerraRose>();
                 Item.damage = 70;
                 Item.useTime = 30;
                 Item.useAnimation = 30;
@@ -56,7 +57,7 @@ Terra Rose EX"); */
             }
             else
             {
-                Item.shoot = ModContent.ProjectileType<TerraRoseShotEX>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TerraRoseShotEX>();
                 Item.damage = 500;
                 Item.useTime = 10;
                 Item.useAnimation = 10;

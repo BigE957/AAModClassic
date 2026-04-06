@@ -17,7 +17,7 @@ namespace AAModClassic.Items.Throwing
 			Item.height = 16;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.shoot = ModContent.ProjectileType<FireballP>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.FireballP>();
 			Item.shootSpeed = 12f;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 4;

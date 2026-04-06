@@ -47,7 +47,7 @@ namespace AAModClassic.NPCs.Bosses.Rajah.Supreme
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<InfinityOverload>(), 120);
+            target.AddBuff(ModContent.BuffType<InfinityOverload_Buff>(), 120);
         }
 
         public override void OnKill(int timeLeft)

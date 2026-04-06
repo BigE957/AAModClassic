@@ -15,7 +15,7 @@ namespace AAModClassic.Items.Armor.Champion
 
         public override void Update(Player player, ref int buffIndex)
         {
-            if (!player.HasBuff(ModContent.BuffType<RageBuff>()))
+            if (!player.HasBuff(ModContent.BuffType<RageBuff_Buff>()))
             {
                 player.statDefense -= 15;
                 player.moveSpeed *= .2f;

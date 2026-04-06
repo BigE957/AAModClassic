@@ -68,7 +68,7 @@ namespace AAModClassic.Items.Summoning.Minions.Terra
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze>(), 600);
+            target.AddBuff(ModContent.BuffType<Buffs.Terrablaze_Buff>(), 600);
         }
         
 

@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Projectiles.AH;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +32,7 @@ Titan Axe EX"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Surasshu>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Surasshu>();
             Item.shootSpeed = 15f;
             Item.expert = true; Item.expertOnly = true;
             Item.UseSound = SoundID.Item1;
@@ -49,14 +51,14 @@ Titan Axe EX"); */
                 Item.damage = 300;
                 Item.useStyle = ItemUseStyleID.Swing;
                 Item.DamageType = DamageClass.Throwing;
-                Item.shoot = ModContent.ProjectileType<TitanAxeEX>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TitanAxeEX>();
             }
             else
             {
                 Item.damage = 450;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-                Item.shoot = ModContent.ProjectileType<TitanEX>();
+                Item.shoot = ModContent.ProjectileType<Projectiles.TitanEX>();
             }
             return base.CanUseItem(player);
         }
