@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.DevTools.Cinematic
 {
-	public class CinematicBuff : ModBuff
+	public class Cinematic_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

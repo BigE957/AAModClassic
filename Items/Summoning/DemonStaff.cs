@@ -4,6 +4,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -29,7 +31,7 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DemonMinion>();
+            Item.shoot = ModContent.ProjectileType<DemonMinion>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<DemonMinion_Buff>();
             Item.autoReuse = true;

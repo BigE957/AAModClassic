@@ -33,7 +33,7 @@ public class SquidStorm : ModItem
         Item.rare = ItemRarityID.Pink;
         Item.UseSound = SoundID.Item103;
         Item.autoReuse = true;
-        Item.shoot = ModContent.ProjectileType<Projectiles.CthulhuTentacle>();
+        Item.shoot = ModContent.ProjectileType<SquidStorm_CthulhuTentacle>();
         Item.shootSpeed = 12f;
     }
     
@@ -64,7 +64,7 @@ public class SquidStorm : ModItem
 		{
 			num92 *= -1f;
 		}
-		Projectile.NewProjectile(Item.GetSource_FromThis(), vector2.X, vector2.Y, value2.X, value2.Y, ModContent.ProjectileType<CthulhuTentacle>(), num73, num74, i, num92, num91);
+		Projectile.NewProjectile(Item.GetSource_FromThis(), vector2.X, vector2.Y, value2.X, value2.Y, ModContent.ProjectileType<SquidStorm_CthulhuTentacle>(), num73, num74, i, num92, num91);
     	return false;
 	}
 }}

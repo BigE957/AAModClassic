@@ -5,6 +5,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
+using AAModClassic.Items.Summoning.Minions;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -31,7 +33,7 @@ Raven Staff EX"); */
             Item.knockBack = 3;
             Item.rare = ItemRarityID.Lime;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.CrowMinion>();
+            Item.shoot = ModContent.ProjectileType<CrowMinion>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<CrowMinion_Buff>();
             Item.autoReuse = true;

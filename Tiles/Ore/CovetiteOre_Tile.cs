@@ -1,3 +1,4 @@
+using AAModClassic.Items.Boss.Greed.WKG;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

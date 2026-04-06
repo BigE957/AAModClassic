@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {
-    public class TalismanBuff : ModBuff
+    public class Talisman_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

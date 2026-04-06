@@ -1,4 +1,5 @@
 using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Greed.WKG;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

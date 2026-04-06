@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic.Items.Boss.Equinox
 {
@@ -135,7 +137,7 @@ Contained loot depends on the time of day"); */
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<NCMask>());
+                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<NightcrawlerMask>());
                 }
                 if (Main.rand.Next(20) == 0)
                 {
@@ -149,7 +151,7 @@ Contained loot depends on the time of day"); */
             {
                 if (Main.rand.Next(7) == 0)
                 {
-                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DBMask>());
+                    player.QuickSpawnItem(Item.GetSource_GiftOrReward(), ModContent.ItemType<DaybringerMask>());
                 }
                 if (Main.rand.Next(20) == 0)
                 {

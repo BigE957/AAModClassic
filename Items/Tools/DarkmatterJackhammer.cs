@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Tools;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Tools
 			Item.value = 550000;
             Item.UseSound = SoundID.Item23;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DarkmatterJackhammerPro>();
+            Item.shoot = ModContent.ProjectileType<DarkmatterJackhammerPro>();
             Item.shootSpeed = 40f;
             Item.tileBoost += 1;
             Item.rare = ItemRarityID.Cyan;

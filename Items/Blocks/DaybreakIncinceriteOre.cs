@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Ore;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;

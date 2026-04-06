@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Buffs;
 
 
 namespace AAModClassic.Items.Armor.Demon
@@ -43,9 +44,9 @@ namespace AAModClassic.Items.Armor.Demon
             modPlayer.demonBonus = true;
             if (player.whoAmI == Main.myPlayer)
             {
-                if (player.FindBuffIndex(ModContent.BuffType<DemonBuff_Buff>()) == -1)
+                if (player.FindBuffIndex(ModContent.BuffType<Demon_Buff>()) == -1)
                 {
-                    player.AddBuff(ModContent.BuffType<DemonBuff_Buff>(), 3600, true);
+                    player.AddBuff(ModContent.BuffType<Demon_Buff>(), 3600, true);
                 }
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<ImpMinion>()] < 1)
                 {

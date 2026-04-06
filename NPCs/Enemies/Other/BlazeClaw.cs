@@ -7,6 +7,7 @@ using AAModClassic;
 using AAModClassic.Dusts;
 using AAModClassic.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.NPCs.Enemies.Other
 {

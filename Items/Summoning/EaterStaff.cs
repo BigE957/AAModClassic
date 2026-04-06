@@ -1,3 +1,4 @@
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -19,7 +20,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.DemonEater>();
+            Item.shoot = ModContent.ProjectileType<DemonEater>();
             Item.damage = 9;
             Item.width = 32;
             Item.height = 32;

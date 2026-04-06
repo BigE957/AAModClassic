@@ -39,19 +39,20 @@ namespace AAModClassic.World.Conversions
             TileLoader.RegisterConversion(ModContent.TileType<IndigoIce_Tile>(), Type, TileID.IceBlock);
 
             //Walls
-            WallLoader.RegisterConversion(ModContent.WallType<TorchstoneWall>(), Type, WallID.Stone);
-            WallLoader.RegisterConversion(ModContent.WallType<DepthstoneWall>(), Type, WallID.Stone);
+            WallLoader.RegisterConversion(ModContent.WallType<Torchstone_Wall>(), Type, WallID.Stone);
+            WallLoader.RegisterConversion(ModContent.WallType<Depthstone_Wall>(), Type, WallID.Stone);
 
-            WallLoader.RegisterConversion(ModContent.WallType<InfernoGrassWall>(), Type, WallID.GrassUnsafe);
-            WallLoader.RegisterConversion(ModContent.WallType<MireJungleWall>(), Type, WallID.JungleUnsafe);
+            WallLoader.RegisterConversion(ModContent.WallType<InfernoGrassWall_Wall>(), Type, WallID.GrassUnsafe);
+            //TODO: Fake wall
+            //WallLoader.RegisterConversion(ModContent.WallType<MireJungle_Wall>(), Type, WallID.JungleUnsafe);
 
-            WallLoader.RegisterConversion(ModContent.WallType<TorchsandHardenedWall>(), Type, WallID.HardenedSand);
-            WallLoader.RegisterConversion(ModContent.WallType<DepthsandHardenedWall>(), Type, WallID.HardenedSand);
+            WallLoader.RegisterConversion(ModContent.WallType<TorchsandHardened_Wall>(), Type, WallID.HardenedSand);
+            WallLoader.RegisterConversion(ModContent.WallType<DepthsandHardened_Wall>(), Type, WallID.HardenedSand);
 
-            WallLoader.RegisterConversion(ModContent.WallType<TorchsandstoneWall>(), Type, WallID.Sandstone);
-            WallLoader.RegisterConversion(ModContent.WallType<DepthsandstoneWall>(), Type, WallID.Sandstone);
+            WallLoader.RegisterConversion(ModContent.WallType<Torchsandstone_Wall>(), Type, WallID.Sandstone);
+            WallLoader.RegisterConversion(ModContent.WallType<Depthsandstone_Wall>(), Type, WallID.Sandstone);
 
-            WallLoader.RegisterConversion(ModContent.WallType<LivingBogwoodWall>(), Type, WallID.LivingWood);
+            WallLoader.RegisterConversion(ModContent.WallType<LivingBogwood_Wall>(), Type, WallID.LivingWood);
         }
     }
 }

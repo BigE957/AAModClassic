@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Tiles.Bars;
 
 namespace AAModClassic.Items.Materials
 {

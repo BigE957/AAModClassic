@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -73,7 +75,7 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory"); */
             player.buffImmune[203] = true;
             player.buffImmune[ModContent.BuffType<Buffs.DragonFire_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Buffs.BurningAsh_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<Buffs.HydraToxin_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<HydraToxin_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Terrablaze_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<DiscordInferno_Buff>()] = true;

@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Akuma;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

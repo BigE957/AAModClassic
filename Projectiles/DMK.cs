@@ -1,3 +1,5 @@
+using AAModClassic.Buffs;
+using AAModClassic.Items.Throwing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

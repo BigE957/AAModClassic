@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Items.Blocks.Bricks;
 using Terraria;
 using Terraria.ModLoader;
 

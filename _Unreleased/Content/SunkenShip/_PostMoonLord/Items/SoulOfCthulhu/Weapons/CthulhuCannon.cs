@@ -32,7 +32,7 @@ public class CthulhuCannon : ModItem
         Item.UseSound = SoundID.Item11;
         Item.autoReuse = true;
         Item.shootSpeed = 14f;
-        Item.shoot = ModContent.ProjectileType<Projectiles.CthulhuCannon_CthulhuBomb>();
+        Item.shoot = ModContent.ProjectileType<CthulhuCannon_CthulhuBomb>();
         Item.useAmmo = 771;
     }
     

@@ -19,7 +19,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Depthwalker_Holdout>();  
+            Item.shoot = ModContent.ProjectileType<Depthwalker_Holdout>();  
 		}
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

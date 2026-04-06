@@ -15,6 +15,17 @@ using AAModClassic.Items.Boss.Greed.WKG;
 using AAModClassic.Items.Dev.Invoker;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Tiles.Ore;
+using AAModClassic.Items.Boss.Shen;
+using AAModClassic.Items.Melee;
+using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Pets;
+using AAModClassic.Items.Accessories;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Globals
 {
@@ -289,7 +300,7 @@ namespace AAModClassic.Globals
             {
                 if (modPlayer.GreedCharm)
                 {
-                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.CharmBuff_Buff>(), 240);
+                    player.AddBuff(ModContent.BuffType<Items.Boss.Greed.Charm_Buff>(), 240);
                     if (modPlayer.GreedyDamage < 20)
                     {
                         modPlayer.GreedyDamage += 1;
@@ -297,7 +308,7 @@ namespace AAModClassic.Globals
                 }
                 else if (modPlayer.GreedTalisman)
                 {
-                    player.AddBuff(ModContent.BuffType<TalismanBuff_Buff>(), 240);
+                    player.AddBuff(ModContent.BuffType<Talisman_Buff>(), 240);
                     if (modPlayer.GreedyDamage < 40)
                     {
                         modPlayer.GreedyDamage += 1;

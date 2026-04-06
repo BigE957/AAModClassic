@@ -5,6 +5,8 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using AAModClassic.Tiles.Trees;
 using AAModClassic.Dusts;
+using AAModClassic.Items.Blocks;
+using AAModClassic.Tiles.Projectiles;
 
 namespace AAModClassic.Tiles
 {

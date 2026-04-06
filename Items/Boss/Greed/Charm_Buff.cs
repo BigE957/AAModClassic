@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Items.Boss.Greed
 {
-    public class CharmBuff : ModBuff
+    public class Charm_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
