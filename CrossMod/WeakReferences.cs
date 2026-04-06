@@ -1,4 +1,8 @@
-﻿using AAModClassic.Items.Blocks;
+﻿using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.Items.Blocks;
 using AAModClassic.Items.Blocks.Boxes;
 using AAModClassic.Items.Boss.AH;
 using AAModClassic.Items.Boss.Akuma;
@@ -19,7 +23,6 @@ using AAModClassic.Items.Boss.Sagittarius;
 using AAModClassic.Items.Boss.Serpent;
 using AAModClassic.Items.Boss.Shen;
 using AAModClassic.Items.Boss.Toad;
-using AAModClassic.Items.Boss.Yamata;
 using AAModClassic.Items.Boss.Zero;
 using AAModClassic.Items.BossSummons;
 using AAModClassic.Items.Flasks;
@@ -47,8 +50,6 @@ using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.NPCs.Bosses.Serpent;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.NPCs.Bosses.Toad;
-using AAModClassic.NPCs.Bosses.Yamata;
-using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using AAModClassic.UI.WorldGen;
@@ -923,7 +924,7 @@ namespace AAModClassic.CrossMod
                     ["spawnItems"] = ModContent.ItemType<DreadSigil>(),
                     ["collectibles"] = new List<int>
                     {
-                        ModContent.ItemType<Items.Boss.Yamata.YamataTrophy>(),
+                        ModContent.ItemType<YamataTrophy>(),
                         ModContent.ItemType<YamataMask>(),
                         ModContent.ItemType<YamataBox>()
                     },

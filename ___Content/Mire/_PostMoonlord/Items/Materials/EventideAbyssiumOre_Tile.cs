@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Ore
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
 {
     public class EventideAbyssiumOre_Tile : ModTile
     {

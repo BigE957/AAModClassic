@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using AAModClassic.Dusts;
 
-namespace AAModClassic.Projectiles.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalYariP2 : ModProjectile
     {

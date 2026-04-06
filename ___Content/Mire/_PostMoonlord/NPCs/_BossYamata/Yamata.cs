@@ -12,9 +12,9 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.Localization;
 using AAModClassic.UI.Titles;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 
-
-namespace AAModClassic.NPCs.Bosses.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     [AutoloadBossHead]
     public class Yamata : YamataBoss
@@ -167,7 +167,7 @@ namespace AAModClassic.NPCs.Bosses.Yamata
                     string[] lootTable = { "Flairdra", "Crescent", "Hydraslayer", "AbyssArrow", "HydraStabber", "MidnightWrath", "YamataTerratool" };
                     int loot = Main.rand.Next(lootTable.Length);
                     NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                    NPC.DropLoot(Items.Boss.Yamata.YamataTrophy.type, 1f / 10);
+                    NPC.DropLoot(YamataTrophy.type, 1f / 10);
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata1"), new Color(45, 46, 70));
                     NPC.DropLoot(Items.Vanity.Mask.YamataMask.type, 1f / 7);
                     if (!AAWorld.downedYamata)

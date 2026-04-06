@@ -9,11 +9,10 @@ using Terraria.ModLoader;
 
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.NPCs.Bosses.Shen;
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata
 {
     public class DreadRune : BaseAAItem
 	{

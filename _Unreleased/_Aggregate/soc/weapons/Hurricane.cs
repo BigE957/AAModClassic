@@ -7,7 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased._Aggregate.SoulOfCthulhu.weapons
+namespace AAModClassic._Unreleased._Aggregate.soc.weapons
 {
     public class Hurricane : ModProjectile
     {

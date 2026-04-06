@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     public class YamataStorm : ModProjectile
     {

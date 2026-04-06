@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class MoonAltar : BaseAAItem
 	{

@@ -4,11 +4,9 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Projectiles.Yamata;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class Sevenshot : BaseAAItem
 	{

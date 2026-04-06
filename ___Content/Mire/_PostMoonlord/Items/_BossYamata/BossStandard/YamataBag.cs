@@ -3,8 +3,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class YamataBag : BaseAAItem
     {

@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Materials
 {
     public class EventideAbyssiumBar_Tile : ModTile
     {

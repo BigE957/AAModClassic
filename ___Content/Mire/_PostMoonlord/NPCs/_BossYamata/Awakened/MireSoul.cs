@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 
-namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
     public class YamataSoul : ModNPC
     {

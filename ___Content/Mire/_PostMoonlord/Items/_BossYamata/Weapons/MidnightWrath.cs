@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using AAModClassic.Globals;
+using AAModClassic;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class MidnightWrath : BaseAAItem
     {

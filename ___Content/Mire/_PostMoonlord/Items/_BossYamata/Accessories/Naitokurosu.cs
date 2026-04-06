@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
     public class Naitokurosu : BaseAAItem

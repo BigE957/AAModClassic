@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Yamata   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles
 {
     public class Crescent : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {

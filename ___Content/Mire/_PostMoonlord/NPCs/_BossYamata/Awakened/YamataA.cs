@@ -1,9 +1,8 @@
-using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Yamata;
 using AAModClassic.UI.Titles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,7 +15,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.NPCs.Bosses.Yamata.Awakened
+namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
     [AutoloadBossHead]
     public class YamataA : YamataBoss

@@ -1,4 +1,6 @@
-﻿using AAModClassic.Globals;
+﻿using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
+using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.NPCs.Bosses.Akuma.Awakened;
@@ -10,8 +12,6 @@ using AAModClassic.NPCs.Bosses.Equinox;
 using AAModClassic.NPCs.Bosses.Greed;
 using AAModClassic.NPCs.Bosses.Rajah;
 using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Yamata;
-using AAModClassic.NPCs.Bosses.Yamata.Awakened;
 using AAModClassic.NPCs.Bosses.Zero;
 using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;

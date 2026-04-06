@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Boss.Yamata   //where is located
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
     public class Hydraslayer : BaseAAItem
     {

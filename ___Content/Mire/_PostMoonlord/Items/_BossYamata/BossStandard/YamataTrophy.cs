@@ -1,10 +1,9 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class YamataTrophy : BaseAAItem
 	{

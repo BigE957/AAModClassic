@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
 {
 	public class EventideTorch : BaseAAItem
     {

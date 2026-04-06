@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks.Bricks
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
 {
     public class EventideBrick : BaseAAItem
     {

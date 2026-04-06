@@ -1,4 +1,3 @@
-using AAModClassic;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Decoration
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class MoonAltar_Tile : ModTile
     {
@@ -28,7 +27,7 @@ namespace AAModClassic.Tiles.Decoration
             TileID.Sets.DisableSmartCursor[Type] = true;
             DustType = ModContent.DustType<YamataDust>();
             AdjTiles = new int[] { TileID.LunarMonolith };
-            RegisterItemDrop(ModContent.ItemType<AAModClassic.Items.Blocks.MoonAltar>());
+            RegisterItemDrop(ModContent.ItemType<MoonAltar>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)

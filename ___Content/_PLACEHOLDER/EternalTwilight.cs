@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic.Projectiles.Yamata;
 
-namespace AAModClassic.Items.Boss.Yamata
+namespace AAModClassic.___Content._PLACEHOLDER
 {
     public class EternalTwilight : BaseAAItem
 	{

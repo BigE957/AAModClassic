@@ -2,11 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic;
 using AAModClassic.Globals;
 
 
-namespace AAModClassic.Items.Armor.Dread
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
 	public class DreadHelm : BaseAAItem

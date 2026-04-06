@@ -4,7 +4,7 @@ using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 
-namespace AAModClassic.Items.Blocks.Boxes
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class YamataBox : BaseAAItem
 	{

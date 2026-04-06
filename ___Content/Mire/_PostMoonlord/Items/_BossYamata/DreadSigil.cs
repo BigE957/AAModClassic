@@ -1,4 +1,4 @@
-using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.NPCs.Bosses.Shen;
@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.BossSummons
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata
 {
     public class DreadSigil : BaseAAItem
 	{
@@ -59,7 +59,7 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-            SpawnBoss(player, ModContent.NPCType<NPCs.Bosses.Yamata.Yamata>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
+            SpawnBoss(player, ModContent.NPCType<Yamata>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Sounds/YamataRoar"), player.position);
             if (!AAWorld.downedYamata)
             {
