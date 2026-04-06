@@ -2,7 +2,7 @@ using AAModClassic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Mire.Buffs
 {
     public class Clueless_Buff : ModBuff
 	{

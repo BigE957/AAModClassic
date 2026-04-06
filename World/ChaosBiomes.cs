@@ -19,37 +19,6 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.World
 {
-    public class MireBiomeZone : ModBiome
-    {
-        public override string MapBackground => "AAModClassic/Map/MireMap";
-
-        public override bool IsBiomeActive(Player player)
-        {
-            bool active = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Yamata>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataA>(), 5000) != -1;
-            return player.GetModPlayer<AAPlayer>().ZoneMire = active;
-        }
-
-        public override void SpecialVisuals(Player player, bool isActive)
-        {
-            bool rllyActive = (isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<AAPlayer>().MoonAltar;
-            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", rllyActive);
-        }
-
-        public override int Music =>
-            Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireUnderground") :
-            AAWorld.downedAkuma && AAWorld.downedYamata ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") :
-            Main.dayTime ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/DM") :
-            MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/MireSurface");
-
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-
-        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<MireDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<MireSurfaceBgStyle>() : null;
-
-        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<MireUgBgStyle>();
-
-        public override ModWaterStyle WaterStyle => Main.dayTime && !AAWorld.downedYamata && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0 && !Main.LocalPlayer.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] ? ModContent.GetInstance<FogWaterStyle>() : ModContent.GetInstance<MireWaterStyle>();
-    }
-
     public class InfernoBiomeZone : ModBiome
     {
         public override string MapBackground => "AAModClassic/Map/InfernoMap";
@@ -174,25 +143,6 @@ namespace AAModClassic.World
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<TerrariumBG>();
 
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<TerraWaterStyle>();
-    }
-
-    public class RisingMoonLakeBiomeZone : ModBiome
-    {
-        public override bool IsBiomeActive(Player player)
-        {
-            return player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake = AAWorld.lakeTiles >= 1;
-        }
-
-        public override void SpecialVisuals(Player player, bool isActive)
-        {
-            player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", isActive && player.Center.Y <= Main.worldSurface * 16);
-        }
-
-        public override int Music => 
-            AAWorld.downedAllAncients ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/SleepingDragon") : 
-            (NPC.downedMoonlord && !Main.dayTime) ? MusicLoader.GetMusicSlot(AAMod.instance, "Sounds/Music/Shrines") : -1;
-
-        public override SceneEffectPriority Priority => AAWorld.downedAllAncients ? SceneEffectPriority.Event : (NPC.downedMoonlord && !Main.dayTime) ? SceneEffectPriority.Environment : SceneEffectPriority.None;
     }
 
     public class RisingSunPagodaBiomeZone : ModBiome

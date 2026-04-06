@@ -69,7 +69,7 @@ namespace AAModClassic.Backgrounds
                 RockTextures[i] = AAMod.GetTexture("Backgrounds/YamataRock" + i);
             }
 
-            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/YamataStars");
+            Texture2D SkyTex = AAMod.GetTexture("Backgrounds/YamataSky_Sky");
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
