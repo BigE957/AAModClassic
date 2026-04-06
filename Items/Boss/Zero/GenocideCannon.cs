@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Zero;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -33,7 +34,7 @@ namespace AAModClassic.Items.Boss.Zero
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.GRocket>();
+            Item.shoot = ModContent.ProjectileType<GRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 13;

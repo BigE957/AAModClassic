@@ -67,7 +67,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 			target.immune[Projectile.owner] = 6;
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 300);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 300);
         }
     }
 }

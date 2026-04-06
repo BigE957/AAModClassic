@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -53,7 +54,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 		
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(ModContent.DustType<Dusts.HydraToxin>(), 90);
+			target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 90);
 		}
 	}
 }

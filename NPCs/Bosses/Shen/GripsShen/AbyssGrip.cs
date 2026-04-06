@@ -10,6 +10,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Buffs;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
@@ -94,7 +95,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
         public override void BossLoot(ref int potionType)

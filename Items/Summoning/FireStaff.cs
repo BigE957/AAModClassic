@@ -1,3 +1,4 @@
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -18,7 +19,7 @@ namespace AAModClassic.Items.Summoning
         {
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 14f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Items.Summoning.Minions.BabyPhoenix>();
+            Item.shoot = ModContent.ProjectileType<BabyPhoenix>();
             Item.damage = 12;
             Item.width = 42;
             Item.height = 44;

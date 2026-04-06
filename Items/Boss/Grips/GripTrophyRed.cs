@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic;
+using AAModClassic.Tiles.Trophy;
 namespace AAModClassic.Items.Boss.Grips
 {
     public class GripTrophyRed : BaseAAItem

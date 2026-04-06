@@ -13,6 +13,7 @@ using AAModClassic;
 using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Dusts;
 using Terraria.Localization;
+using AAModClassic.NPCs.Bosses.AH.Haruka;
 
 
 namespace AAModClassic.NPCs.Bosses.Shen.AwakenedShenAH

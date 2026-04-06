@@ -1,3 +1,4 @@
+using AAModClassic.Projectiles.Serpent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,7 +23,7 @@ namespace AAModClassic.Items.Boss.Serpent
             Item.mana = 9;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.IciclePro>();
+            Item.shoot = ModContent.ProjectileType<IciclePro>();
             Item.shootSpeed = 9f;
         }
 

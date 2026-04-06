@@ -28,7 +28,7 @@ namespace AAModClassic.Items.Potions.LuckyPotions
 			Item.height = 16;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
 			Item.rare = ItemRarityID.Lime;
-			Item.buffType = ModContent.BuffType<LuckyThorns_Buff>();
+			Item.buffType = ModContent.BuffType<LuckyThorns>();
 			Item.buffTime = 7200;
 		}
 

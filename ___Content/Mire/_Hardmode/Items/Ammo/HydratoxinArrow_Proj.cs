@@ -50,7 +50,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 90);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 90);
         }
 
         public override void OnKill(int timeleft)

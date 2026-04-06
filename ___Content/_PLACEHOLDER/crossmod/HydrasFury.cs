@@ -39,7 +39,7 @@ Grants 1 soul essence on direct hit"); */
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<Projectiles.HydrasFury_Holdout>();
+            Item.shoot = ModContent.ProjectileType<HydrasFury_Holdout>();
             Item.shootSpeed = 0.1f;
 		}
 		

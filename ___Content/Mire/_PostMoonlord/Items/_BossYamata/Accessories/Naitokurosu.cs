@@ -132,7 +132,7 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             player.dashType = 1;
             player.spikedBoots = 2;
             player.GetModPlayer<AAPlayer>().Naitokurosu = true;
-            player.buffImmune[ModContent.BuffType<Buffs.HydraToxin_Buff>()] = true;
+            player.buffImmune[ModContent.BuffType<HydraToxin_Buff>()] = true;
             player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
             if (player.GetModPlayer<AAPlayer>().ZoneMire)
             {

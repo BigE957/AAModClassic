@@ -9,6 +9,7 @@ using AAModClassic;
 using AAModClassic.Tiles.Plants;
 using AAModClassic.Tiles;
 using Terraria.Localization;
+using AAModClassic.Items.Potions;
 
 namespace AAModClassic.NPCs.TownNPCs
 {

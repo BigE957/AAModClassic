@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles.Akuma.Lung;
+using AAModClassic.Buffs;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -25,7 +26,7 @@ namespace AAModClassic.Items.Boss.Akuma
             Item.damage = 100;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.LungHead>();
+            Item.shoot = ModContent.ProjectileType<LungHead>();
             Item.width = 64;
             Item.height = 64;
             Item.UseSound = SoundID.Item44;

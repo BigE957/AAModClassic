@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 			Item.height = 28;
 			Item.value = Item.sellPrice(0, 5, 0, 0);
 			Item.rare = ItemRarityID.Orange;
-			Item.buffType = ModContent.BuffType<HydratoxinFlaskBuff_Buff>();
+			Item.buffType = ModContent.BuffType<HydratoxinFlask_Buff>();
 			Item.buffTime = 52000;
 		}
 

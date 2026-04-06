@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Buffs;
 using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
@@ -48,7 +49,7 @@ namespace AAModClassic.Items.FishingItem
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+			target.AddBuff(Terraria.ModLoader.ModContent.BuffType<HydraToxin_Buff>(), 180);
 		}
 	}
 }

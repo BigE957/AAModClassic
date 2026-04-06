@@ -12,6 +12,7 @@ using System;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
@@ -118,7 +119,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
 		public override bool CanUseItem(Player player)
 		{
-            if (NPC.AnyNPCs(ModContent.NPCType<Infinity>()) || NPC.AnyNPCs(ModContent.NPCType<IZSpawn1>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<InfinityCore>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()))
             {
                 return false;
             }

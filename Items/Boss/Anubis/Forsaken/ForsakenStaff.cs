@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAModClassic.Projectiles.Anubis.Forsaken;
 
 namespace AAModClassic.Items.Boss.Anubis.Forsaken
 {
@@ -29,7 +30,7 @@ namespace AAModClassic.Items.Boss.Anubis.Forsaken
 			Item.knockBack = 5;
 			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.ForsakenStaffBlast>();
+			Item.shoot = ModContent.ProjectileType<ForsakenStaffBlast>();
 			Item.shootSpeed = 16f;
 			Item.rare = ItemRarityID.Purple;
 		}

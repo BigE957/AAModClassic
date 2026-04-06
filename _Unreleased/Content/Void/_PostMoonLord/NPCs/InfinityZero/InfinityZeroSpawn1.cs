@@ -102,7 +102,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			//roar is now handled when infinity spawns so his mouth opens
              if(Main.netMode != NetmodeID.MultiplayerClient)
 			{
-				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Infinity>());
+				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<InfinityCore>());
                 for (int i = 0; i < Main.player.Length; i++)
                 {
                     Player player2 = Main.player[i];

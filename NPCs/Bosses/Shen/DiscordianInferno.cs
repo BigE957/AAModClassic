@@ -1,4 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -116,7 +117,7 @@ namespace AAModClassic.NPCs.Bosses.Shen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(Projectile.ai[0] == 1 ? ModContent.BuffType<Buffs.DragonFire_Buff>() : ModContent.BuffType<Buffs.HydraToxin_Buff>(), 200);
+            target.AddBuff(Projectile.ai[0] == 1 ? ModContent.BuffType<Buffs.DragonFire_Buff>() : ModContent.BuffType<HydraToxin_Buff>(), 200);
         }
     }
 }

@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -40,7 +41,7 @@ namespace AAModClassic.NPCs.Bosses.AH.Haruka
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
             Projectile.netUpdate = true;
         }
 

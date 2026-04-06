@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -96,7 +97,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.Projectiles
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 180);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
         public override bool PreDraw(ref Color lightColor)

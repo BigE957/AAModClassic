@@ -10,6 +10,7 @@ using AAModClassic.Globals;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Pets;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.___Content.Mire._PreHardmode.Items.Accessories;
+using AAModClassic.NPCs.Bosses.Hydra;
 
 namespace AAModClassic.Tiles.Boss
 {

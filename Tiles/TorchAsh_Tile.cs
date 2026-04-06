@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Tiles.Trees;
+using AAModClassic.Tiles.Plants;
 
 namespace AAModClassic.Tiles
 {

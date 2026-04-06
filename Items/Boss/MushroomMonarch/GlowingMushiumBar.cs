@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Tiles.Bars;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

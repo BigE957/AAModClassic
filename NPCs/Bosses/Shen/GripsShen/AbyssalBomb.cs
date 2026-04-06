@@ -1,4 +1,5 @@
-﻿using AAModClassic.Dusts;
+﻿using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -97,7 +98,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 600);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 600);
         }
 
         public override void OnKill(int timeleft)

@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Decoration;
 using Terraria.ID;
 using Terraria.ModLoader;
 

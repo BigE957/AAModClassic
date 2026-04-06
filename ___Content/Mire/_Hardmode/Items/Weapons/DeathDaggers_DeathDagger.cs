@@ -77,7 +77,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 120);
+        	target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 120);
         	if (target.type == NPCID.TargetDummy)
 			{
 				return;

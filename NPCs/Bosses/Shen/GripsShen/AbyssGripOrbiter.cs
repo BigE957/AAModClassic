@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.___Content.Mire.Buffs;
 
 namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 {
@@ -124,7 +125,7 @@ namespace AAModClassic.NPCs.Bosses.Shen.GripsShen
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 200);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 200);
         }
 
         public override bool PreDraw(ref Color lightColor)

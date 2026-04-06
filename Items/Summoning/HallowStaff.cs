@@ -1,4 +1,6 @@
 using AAModClassic;
+using AAModClassic.Buffs;
+using AAModClassic.Items.Summoning.Minions;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -30,7 +32,7 @@ namespace AAModClassic.Items.Summoning
             Item.knockBack = 3;
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item44;
-            Item.shoot = ModContent.ProjectileType<Projectiles.HallowedPrism>();
+            Item.shoot = ModContent.ProjectileType<HallowedPrism>();
             Item.shootSpeed = 10f;
             Item.buffType = ModContent.BuffType<HallowedPrism_Buff>();
             Item.autoReuse = true;

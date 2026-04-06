@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Items.Boss.Greed;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

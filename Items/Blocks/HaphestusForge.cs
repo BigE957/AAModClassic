@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic;
+using AAModClassic.Tiles.Crafters;
 
 namespace AAModClassic.Items.Blocks
 {

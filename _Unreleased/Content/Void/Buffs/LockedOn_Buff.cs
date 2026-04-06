@@ -4,7 +4,7 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 
 namespace AAModClassic._Unreleased.Content.Void.Buffs
 {
-    public class LockedOn : ModBuff
+    public class LockedOn_Buff : ModBuff
     {
         public string SBHP()
         {

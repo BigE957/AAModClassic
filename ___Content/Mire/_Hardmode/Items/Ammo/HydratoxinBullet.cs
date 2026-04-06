@@ -15,7 +15,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 		public override void SetDefaults()
 		{
 			Item.shootSpeed = 5f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.HydratoxinBullet_Proj>();
+			Item.shoot = ModContent.ProjectileType<HydratoxinBullet_Proj>();
 			Item.damage = 12;
 			Item.width = 8;
 			Item.height = 8;

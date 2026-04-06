@@ -18,7 +18,7 @@ Don?t ask what makes it glow, Trust me"); */
 		{
 			Item.damage = 0;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Glowmoss>();
+			Item.shoot = ModContent.ProjectileType<Glowmoss>();
 			Item.width = 16;
 			Item.height = 30;
 			Item.UseSound = SoundID.Item2;

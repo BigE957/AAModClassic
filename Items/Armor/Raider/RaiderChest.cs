@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Materials;
 
 namespace AAModClassic.Items.Armor.Raider
 {

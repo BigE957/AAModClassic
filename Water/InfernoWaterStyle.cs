@@ -19,7 +19,7 @@ namespace AAModClassic.Water
         {
             Instance = this;
             WaterfallStyle = ModContent.Find<ModWaterfallStyle>("AAModClassic/InfernoWaterfallStyle");
-            SplashDust = ModContent.DustType<Dusts.InfernoWaterSplash>();
+            SplashDust = ModContent.DustType<InfernoWaterSplash>();
             DropletGore = ModContent.GoreType<InfernoDroplet>();
         }
 

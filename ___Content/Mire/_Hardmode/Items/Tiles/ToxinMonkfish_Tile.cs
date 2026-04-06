@@ -6,6 +6,8 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using AAModClassic.___Content.Mire._Hardmode.Items.Consumables;
+using AAModClassic.Items.FishingItem;
 
 namespace AAModClassic.Tiles.Crafters
 {
@@ -34,7 +36,7 @@ namespace AAModClassic.Tiles.Crafters
             AdjTiles = new int[]
             {
                 TileID.AlchemyTable,
-                ModContent.TileType<ToxinMonkfishTile_Tile>()
+                ModContent.TileType<ToxinMonkfish_Tile>()
             };
             AnimationFrameHeight = 54;
         }
@@ -63,7 +65,7 @@ namespace AAModClassic.Tiles.Crafters
         public override bool RightClick(int i, int j)
         {
             Player player = Main.player[Main.myPlayer];
-            player.AddBuff(ModContent.BuffType<HydratoxinFlaskBuff_Buff>(), 36000, true);
+            player.AddBuff(ModContent.BuffType<HydratoxinFlask_Buff>(), 36000, true);
 			SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }

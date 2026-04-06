@@ -45,7 +45,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, ModContent.ItemType<IZTrophy>());
+            Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, ModContent.ItemType<InfinityZeroTrophy>());
         }
 	}
 }

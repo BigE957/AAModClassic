@@ -1,4 +1,5 @@
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Athena;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,7 +22,7 @@ namespace AAModClassic.Items.Boss.Athena.Olympian
             Item.autoReuse = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
-            Item.shoot = ModContent.ProjectileType<Projectiles.HurricaneSpawn>();
+            Item.shoot = ModContent.ProjectileType<HurricaneSpawn>();
             Item.shootSpeed = 9f;
             Item.rare = ItemRarityID.Cyan;
             AARarity = 12;

@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;

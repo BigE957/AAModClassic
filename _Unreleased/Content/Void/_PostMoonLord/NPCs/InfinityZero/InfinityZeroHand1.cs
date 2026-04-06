@@ -153,7 +153,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     float rotation = MathHelper.ToRadians(20);
                     for (int i = 0; i < 3 + 1; i++)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX, PlayerPosY, ModContent.ProjectileType<IZShot>(), 140, 0, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX, PlayerPosY, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 140, 0, Main.myPlayer);
                     }
                 }
             }

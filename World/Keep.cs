@@ -44,7 +44,7 @@ public class Keep : MicroBiome
 		ColorToTile[black3] = -2;
 		Dictionary<Color, int> colorToTile = ColorToTile;
 		Dictionary<Color, int> dictionary2 = new Dictionary<Color, int>();
-		dictionary2[new(0, 255, 0)] = ModContent.WallType<KeepBrickWall>();
+		dictionary2[new(0, 255, 0)] = ModContent.WallType<KeepBrick_Wall>();
 		dictionary2[new(255, 0, 0)] = TileID.Banners;
 		dictionary2[new(255, 0, 255)] = TileID.Dressers;
 		dictionary2[new(0, 0, 255)] = TileID.Containers;
@@ -202,8 +202,8 @@ public class Keep : MicroBiome
 				}
 			}
 		}
-		WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<InvokerBookTile_Tile>(), mute: true);
-		WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<InvokerBookTile_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 32, origin.Y + 137, ModContent.TileType<InvokerBook_Tile>(), mute: true);
+		WorldGen.PlaceTile(origin.X + 36, origin.Y + 137, ModContent.TileType<InvokerBook_Tile>(), mute: true);
 		WorldGen.PlaceChest(origin.X + 238, origin.Y + 104, (ushort)ModContent.TileType<TerraDresser_Tile>());
 		WorldGen.PlaceTile(origin.X + 226, origin.Y + 104, ModContent.TileType<TerraBookcase_Tile>(), mute: true);
 		WorldGen.PlaceTile(origin.X + 97, origin.Y + 60, ModContent.TileType<KeepDoor1_Tile>(), mute: true);

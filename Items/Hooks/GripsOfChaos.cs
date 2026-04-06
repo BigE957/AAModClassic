@@ -22,7 +22,7 @@ Blue pulls in/retracts quicker"); */
 		public override void SetDefaults() 
 		{
 			Item.CloneDefaults(ItemID.SkeletronHand);
-			Item.shoot = ModContent.ProjectileType<Projectiles.GripRed>();
+			Item.shoot = ModContent.ProjectileType<GripRed>();
 		}
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -31,11 +31,11 @@ Blue pulls in/retracts quicker"); */
 			{
 				if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == ModContent.ProjectileType<GripRed>())
 				{
-					Item.shoot = ModContent.ProjectileType<Projectiles.GripBlue>();
+					Item.shoot = ModContent.ProjectileType<GripBlue>();
 				}
 				if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == ModContent.ProjectileType<GripBlue>())
 				{
-					Item.shoot = ModContent.ProjectileType<Projectiles.GripRed>();
+					Item.shoot = ModContent.ProjectileType<GripRed>();
 				}
 			}
 			return true;

@@ -172,7 +172,7 @@ namespace AAModClassic.Tiles.Furniture.Doom
 				}
 				if (player.cursorItemIconText == DefaultContainerName(tile.TileFrameX, tile.TileFrameY).ToString()) // Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 				{
-					player.cursorItemIconID = ModContent.ItemType<ExampleDresser>();
+					player.cursorItemIconID = ModContent.ItemType<DoomDresser>();
 					player.cursorItemIconText = "";
 				}
 			}

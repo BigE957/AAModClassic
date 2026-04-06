@@ -13,6 +13,7 @@ using AAModClassic.Globals;
 using Terraria.Localization;
 using AAModClassic.Items.Boss.Athena.Olympian;
 using AAModClassic.Items.Vanity.Mask;
+using AAModClassic.Items.Boss.Athena;
 
 namespace AAModClassic.NPCs.Bosses.Athena.Olympian
 {

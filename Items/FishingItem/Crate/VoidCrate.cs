@@ -1,5 +1,10 @@
 ﻿using AAModClassic;
+using AAModClassic.Items.Magic;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Melee;
 using AAModClassic.Items.Ranged;
+using AAModClassic.Items.Summoning;
+using AAModClassic.Tiles.Crates;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -43,7 +48,7 @@ namespace AAModClassic.Items.FishingItem.Crate
                 switch (item)
                 {
                     case 0:
-                        item = ModContent.ItemType<VoidSaber>();
+                        item = ModContent.ItemType<Voidsaber>();
                         break;
                     case 1:
                         item = ModContent.ItemType<DoomGun>();

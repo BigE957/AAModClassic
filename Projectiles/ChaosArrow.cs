@@ -1,3 +1,4 @@
+using AAModClassic.___Content.Mire.Buffs;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -46,7 +47,7 @@ namespace AAModClassic.Projectiles
                     target.AddBuff(ModContent.BuffType<Buffs.DragonFire_Buff>(), 300);
                     break;
 				case 1:
-                    target.AddBuff(ModContent.BuffType<Buffs.HydraToxin_Buff>(), 300);
+                    target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 300);
                     break;
 			}
         }

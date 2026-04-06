@@ -51,7 +51,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, ModContent.ItemType<IZBox>());
+            //TODO: Fake item
+			//Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 48, ModContent.ItemType<IZBox>());
 		}
 
 		public override void MouseOver(int i, int j)
@@ -59,7 +60,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<IZBox>();
+			//player.cursorItemIconID = ModContent.ItemType<IZBox>();
 		}
 	}
 }

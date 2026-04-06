@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void.Buffs
 {
-    public class InfinityScorch : ModBuff
+    public class InfinityScorch_Buff : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{
