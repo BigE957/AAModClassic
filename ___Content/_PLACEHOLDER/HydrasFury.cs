@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAModClassic.Items.Thorium.Healer
+namespace AAModClassic.___Content._PLACEHOLDER
 {
     public class HydrasFury : CrossoverItem
 	{
@@ -54,12 +54,12 @@ Grants 1 soul essence on direct hit"); */
 
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-            damage.Flat *= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantBoost;
+            damage.Flat *= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantBoost;
         }
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
 		{
-			if (Main.rand.Next(100) <= ((ModSupportPlayer)player.GetModPlayer<ModSupportPlayer>()).Thorium_radiantCrit)
+			if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
 			{
 				modifiers.SetCrit();
 			}

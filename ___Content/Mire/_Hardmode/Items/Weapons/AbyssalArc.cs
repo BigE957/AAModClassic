@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Throwing
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class AbyssalArc : BaseAAItem
 	{

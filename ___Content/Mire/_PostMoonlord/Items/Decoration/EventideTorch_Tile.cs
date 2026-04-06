@@ -10,7 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
 {
 	public class EventideTorch_Tile : ModTile
 	{
@@ -78,7 +78,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
 
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
-			ulong randSeed = Main.TileFrameSeed ^ (UInt64)(j << 32 | i);
+			ulong randSeed = Main.TileFrameSeed ^ (ulong)(j << 32 | i);
             Color color = AAColor.YamataA;
 			int frameX = Main.tile[i, j].TileFrameX;
 			int frameY = Main.tile[i, j].TileFrameY;

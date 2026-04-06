@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks.Bricks
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
 {
     public class AbyssiumBrick : BaseAAItem
     {

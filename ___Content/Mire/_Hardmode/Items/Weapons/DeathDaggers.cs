@@ -1,13 +1,11 @@
 using System;
-using AAModClassic;
-using AAModClassic.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Melee
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class DeathDaggers : BaseAAItem
 	{
@@ -41,13 +39,13 @@ namespace AAModClassic.Items.Melee
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float spread = 25f * 0.0174f;
-            float baseSpeed = (float)Math.Sqrt((velocity.X * velocity.X) + (velocity.Y * velocity.Y));
+            float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
             double offsetAngle;
             for (int i = 0; i < 3; i++)
             {
-                offsetAngle = startAngle + (deltaAngle * i);
+                offsetAngle = startAngle + deltaAngle * i;
                 Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), Item.shoot, damage, knockback, Main.myPlayer);
             }
             return false;

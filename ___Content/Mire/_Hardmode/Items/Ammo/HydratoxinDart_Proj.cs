@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 {
     public class HydratoxinDart : ModProjectile
 	{

@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using AAModClassic.Base.BaseMod.Base;
 
-namespace AAModClassic.Projectiles
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class Gunk : ModProjectile
     {

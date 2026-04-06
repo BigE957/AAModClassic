@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Buffs
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 {
     public class HydratoxinFlask_Buff : ModBuff
 	{

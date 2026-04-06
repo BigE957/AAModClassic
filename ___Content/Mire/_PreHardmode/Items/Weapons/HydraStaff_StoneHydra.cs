@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Summoning.Minions
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class StoneHydra : ModProjectile
     {

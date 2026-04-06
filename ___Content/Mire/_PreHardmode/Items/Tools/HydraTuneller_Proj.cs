@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Tools
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Tools
 {
     //ported from my tAPI mod because I don't want to make artwork
     public class HydraTuneller : ModProjectile

@@ -1,7 +1,6 @@
-using AAModClassic;
 using Terraria.ID;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
     public class HydraToxin : BaseAAItem
     {

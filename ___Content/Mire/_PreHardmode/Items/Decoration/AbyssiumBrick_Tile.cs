@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Tiles.Bricks
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Decoration
 {
     class AbyssiumBrick_Tile : ModTile
     {

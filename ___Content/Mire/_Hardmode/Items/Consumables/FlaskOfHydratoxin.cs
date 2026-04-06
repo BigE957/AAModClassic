@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Potions
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Consumables
 {
     public class HydratoxinFlask : BaseAAItem
 	{

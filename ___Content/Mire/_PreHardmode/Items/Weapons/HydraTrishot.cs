@@ -3,9 +3,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic;
 
-namespace AAModClassic.Items.Ranged
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class HydraTrishot : BaseAAItem
     {

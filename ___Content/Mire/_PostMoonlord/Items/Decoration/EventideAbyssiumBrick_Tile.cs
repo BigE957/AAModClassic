@@ -3,7 +3,7 @@ using AAModClassic.Globals;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Building
+namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Decoration
 {
     class EventideBrick_Tile : ModTile
     {

@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Projectiles.Thorium
+namespace AAModClassic.___Content._PLACEHOLDER
 {
     public class HydrasFury : ModProjectile
 	{
@@ -46,8 +46,8 @@ namespace AAModClassic.Projectiles.Thorium
 				Projectile.spriteDirection = -1;
 			}
 			
-			Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-			Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+			Projectile.position.X = player.Center.X - Projectile.width / 2f;
+			Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
 			
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
@@ -115,8 +115,8 @@ namespace AAModClassic.Projectiles.Thorium
         {
             Player player = Main.player[Projectile.owner];
 
-            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+            Projectile.position.X = player.Center.X - Projectile.width / 2f;
+            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
     public class HydrasFuryDamage2 : ModProjectile
@@ -149,8 +149,8 @@ namespace AAModClassic.Projectiles.Thorium
         {
             Player player = Main.player[Projectile.owner];
 
-            Projectile.position.X = player.Center.X - (Projectile.width / 2f);
-            Projectile.position.Y = player.Center.Y - (Projectile.height / 2f);
+            Projectile.position.X = player.Center.X - Projectile.width / 2f;
+            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
         }
     }
     public class HydrasFuryEffect : ModProjectile
@@ -192,7 +192,7 @@ namespace AAModClassic.Projectiles.Thorium
                 rot -= 0.20f;
             }
 
-            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + (Projectile.ai[0] * (6.28f / 2)));
+            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + Projectile.ai[0] * (6.28f / 2));
 
             for (int m = 0; m < 3; m++)
             {

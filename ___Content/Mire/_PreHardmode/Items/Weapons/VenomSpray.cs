@@ -1,11 +1,10 @@
-using AAModClassic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Magic
+namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 {
     public class VenomSpray : BaseAAItem
     {

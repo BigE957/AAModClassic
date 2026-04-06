@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Materials
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
     public class DeepAbyssium : BaseAAItem
     {
@@ -21,7 +20,7 @@ namespace AAModClassic.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DeepAbyssium_Tile>();
-            Item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void SetStaticDefaults()

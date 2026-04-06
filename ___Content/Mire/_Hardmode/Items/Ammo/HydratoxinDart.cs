@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Ranged.Ammo
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Ammo
 {
     public class HydratoxinDart : BaseAAItem
 	{

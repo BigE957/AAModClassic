@@ -3,7 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Melee   //where is located
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons   //where is located
 {
     public class GuardianNight : BaseAAItem
     {

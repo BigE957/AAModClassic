@@ -1,11 +1,10 @@
-using AAModClassic;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Blocks
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Decoration
 {
 	public class HydratoxinTorch : BaseAAItem
     {

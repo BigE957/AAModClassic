@@ -1,9 +1,8 @@
-using AAModClassic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic.Items.Magic
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Weapons
 {
     public class Depthsprayer : BaseAAItem
 	{

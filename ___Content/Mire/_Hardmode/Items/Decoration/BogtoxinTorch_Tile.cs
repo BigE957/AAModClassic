@@ -11,7 +11,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Torches
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Decoration
 {
 	public class HydratoxinTorch_Tile : ModTile
 	{
@@ -79,7 +79,7 @@ namespace AAModClassic.Tiles.Torches
 
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
-			ulong randSeed = Main.TileFrameSeed ^ (UInt64)(j << 32 | i);
+			ulong randSeed = Main.TileFrameSeed ^ (ulong)(j << 32 | i);
             Color color = AAColor.BogToxin;
 			int frameX = Main.tile[i, j].TileFrameX;
 			int frameY = Main.tile[i, j].TileFrameY;

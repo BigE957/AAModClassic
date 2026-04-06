@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic.Tiles.Bars
+namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
     public class DeepAbyssium_Tile : ModTile
     {
