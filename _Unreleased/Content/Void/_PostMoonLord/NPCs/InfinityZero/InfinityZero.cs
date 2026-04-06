@@ -11,6 +11,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Unreleased.Content.Void.Dusts;
 using AAModClassic.Items.Potions;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
+using AAModClassic.Items.Boss;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -57,8 +60,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/Sounds/IZRoar");
             NPC.scale *= 1.4f;
-            //TODOIZ
-            //bossBag/* tModPorter Note: _Unreleased. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<IZCache>();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -256,11 +257,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             AAPlayer.ZeroKills += 1;
             AAWorld_Unreleased.downedIZ = true;
-            //TODOIZ
-            /*
             if (Main.expertMode)
             {
-                NPC.DropBossBags();
+                NPC.DropLoot(ModContent.ItemType<IZCache>());
             }
             else
             {
@@ -276,9 +275,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 };
                 int loot = Main.rand.Next(lootTable.Length);
                 NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(Items.Boss.EXSoul.type);
+                NPC.DropLoot(ModContent.ItemType<EXSoul>());
             }
-            */
         }
         
 
@@ -386,14 +384,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			if (NPC.life <= 0)
 			{
 				float randomSpread = Main.rand.Next(-50, 50) / 100;
-                //TODOIZ
-                /*
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore1").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore2").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore3").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore4").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("_Unreleased/IZGore5").Type, 1.4f);
-				*/
+
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore1").Type, 1.4f);
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore2").Type, 1.4f);
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore3").Type, 1.4f);
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore4").Type, 1.4f);
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore5").Type, 1.4f);
+				
                 NPC.position.X = NPC.position.X + NPC.width / 2;
 				NPC.position.Y = NPC.position.Y + NPC.height / 2;
 				NPC.width = 400;

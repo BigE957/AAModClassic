@@ -37,8 +37,7 @@ Doesn't require ammo"); */
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            //TODOIZ
-            //Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.shootSpeed = 8f;
             Item.crit = 5; 

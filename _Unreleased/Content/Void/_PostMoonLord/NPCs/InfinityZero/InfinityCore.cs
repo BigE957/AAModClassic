@@ -100,8 +100,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
-                //TODOIZ
-                //damage /= 2;
+                modifiers.FinalDamage *= 0.5f;
                 modifiers.DisableCrit();
             }
             if (projectile.penetrate == -1 && !projectile.minion)

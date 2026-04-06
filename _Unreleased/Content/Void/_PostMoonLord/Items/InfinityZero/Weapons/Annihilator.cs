@@ -30,8 +30,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.noMelee = true; //so the item's animation doesn't do damage
 			Item.knockBack = 0;
             Item.value = Item.buyPrice(1, 0, 0, 0);
-            //TODOIZ
-            //Item.UseSound = new LegacySoundStyle(2, 75, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Anhialation>();
 			Item.shootSpeed = 8f;

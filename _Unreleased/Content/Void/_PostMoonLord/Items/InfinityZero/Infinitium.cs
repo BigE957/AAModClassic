@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -12,28 +13,19 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 {
     public class Infinitium : ModItem
     {
-        public short customGlowMask = 0;
-        //TODOIZ
-        /*
+        private static Asset<Texture2D> GlowTexture;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinite");
             // Tooltip.SetDefault("Pure, unpredictable malice");
             // ticksperframe, frameCount
+            
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 10));
-            if (Main.netMode != 2)
-            {
-                Texture2D[] glowMasks = new Texture2D[TextureAssets.GlowMask.Value.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Value.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i].Value;
-                }
-                glowMasks[glowMasks.Length - 1] = Mod.GetTexture("_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask.Value = glowMasks;
-            }
+            if (Main.netMode != NetmodeID.Server)
+                GlowTexture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Glowmasks/" + GetType().Name + "_Glow");
+
+
         }
-        */
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -48,7 +40,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 
         public override void SetDefaults()
         {
-            Item.glowMask = customGlowMask;
             Item.width = 30;
             Item.height = 52;
             Item.maxStack = 999;
@@ -58,6 +49,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
         public override void PostUpdate()
         {
             Lighting.AddLight(Item.Center, Color.Red.ToVector3() * 0.55f * Main.essScale);
+        }
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            var frame = TextureAssets.Item[Type].Frame();
+            var position = Item.Center - Main.screenPosition;
+            var origin = frame.Size() / 2f;
+            spriteBatch.Draw(TextureAssets.Item[Type].Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(GlowTexture.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }

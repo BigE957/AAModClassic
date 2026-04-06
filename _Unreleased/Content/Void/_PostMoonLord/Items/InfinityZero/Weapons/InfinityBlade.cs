@@ -36,8 +36,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
 			Item.value = Item.buyPrice(1, 0, 0, 0);
-            //TODOIZ
-            //Item.UseSound = new LegacySoundStyle(2, 15, Terraria.Audio.SoundType.Sound);
+            Item.UseSound = SoundID.Item15;
 			Item.autoReuse = true;
 		}
 

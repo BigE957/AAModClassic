@@ -2,10 +2,12 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using AAModClassic.Items.Boss;
+using AAModClassic.Items.Vanity.Mask;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard
 {
-    public class InfinityZeroTreasureBag : ModItem
+    public class IZCache : ModItem
 	{
         
         public override void SetStaticDefaults()
@@ -21,9 +23,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-			Item.expert = true;
-            //TODOIZ
-			//bossBagNPC = ModContent.NPCType<Infinity>();
+            Item.expert = true;
 		}
 
 
@@ -53,12 +53,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			return true;
 		}
 
-        //TODOIZ
-        /*
-		public override void OpenBossBag(Player player)
+		public override void RightClick(Player player)
 		{
             if (Main.rand.Next(7) == 0)
             {
+                //TODOIZ erm, maskless bozo alert
                 player.QuickSpawnItem(Item.GetSource_FromThis(), ModContent.ItemType<ZeroMask>());
             }
             if (Main.rand.NextFloat() < 0.01f)
@@ -81,6 +80,5 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
             int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(Item.GetSource_FromThis(), Mod.Find<ModItem>(lootTable[loot]).Type);
         }
-        */
 	}
 }
