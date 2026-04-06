@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AbyssArrow : ModProjectile
+    public class EventideArrow_Proj : ModProjectile
 	{
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
@@ -92,7 +92,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
 
 		public override bool PreDraw(ref Color lightColor)

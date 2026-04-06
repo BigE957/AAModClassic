@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Ammo
 {
-    public class EventideBullet : ModProjectile
+    public class EventideBullet_Proj : ModProjectile
 	{
 		public override void SetStaticDefaults() 
                 {
@@ -67,7 +67,7 @@ namespace AAModClassic.Projectiles.Ammo
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.immune[Projectile.owner] = 1;
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
 
             if (target.defense < 300 && !target.boss)
             {
@@ -86,7 +86,7 @@ namespace AAModClassic.Projectiles.Ammo
         {
             if (initialPos != null && initialVel != null)
             {
-                Projectile.NewProjectile(Projectile.GetSource_Death(), (Vector2)initialPos, (Vector2)initialVel, ModContent.ProjectileType<EventideBullet1>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), (Vector2)initialPos, (Vector2)initialVel, ModContent.ProjectileType<EventideBullet_ProjCopy>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             }
             int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataDust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[num580].noGravity = true;

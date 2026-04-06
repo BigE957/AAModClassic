@@ -14,7 +14,7 @@ namespace AAModClassic.Items.Ranged.Ammo
 		public override void SetDefaults()
 		{
 			Item.shootSpeed = 5f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Ammo.EventideBullet>();
+			Item.shoot = ModContent.ProjectileType<EventideBullet_Proj>();
 			Item.damage = 25;
 			Item.width = 8;
 			Item.height = 8;

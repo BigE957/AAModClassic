@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Projectiles.Ammo
 {
-    public class EventideBullet1 : ModProjectile
+    public class EventideBullet_ProjCopy : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -67,7 +67,7 @@ namespace AAModClassic.Projectiles.Ammo
             {
                 hit.Damage += target.defense * 2;
             }
-            target.AddBuff(ModContent.BuffType<Moonraze>(), 500);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
             {
                 int num580 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<YamataADust>(), -Projectile.velocity.X * 0.2f, -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num580].noGravity = true;
