@@ -66,7 +66,7 @@ Allows to breath underwater"); */
             recipe.AddIngredient(ModContent.ItemType<OceanHelm>());
             recipe.AddIngredient(ModContent.ItemType<BroodScale>(), 5);
             recipe.AddIngredient(ItemID.FossilOre, 5);
-            recipe.AddIngredient(ModContent.ItemType<DoomiteBars>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }
