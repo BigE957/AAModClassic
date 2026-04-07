@@ -226,8 +226,8 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     if (internalAI[2] > 360)
                     {
                         internalAI[2] = 0;
-                        if (Main.netMode != NetmodeID.MultiplayerClient) //TODO: Was formerly YamataAShockBomb, unsure if this is correct
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * 5, ModContent.ProjectileType<YamataABomb>(), NPC.damage / 5, 0f, Main.myPlayer, NPC.target);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * 5, ModContent.ProjectileType<YamataAHead_AbyssalStorm>(), NPC.damage / 5, 0f, Main.myPlayer, NPC.target);
                     }
                     if (++internalAI[1] > 420)
                     {

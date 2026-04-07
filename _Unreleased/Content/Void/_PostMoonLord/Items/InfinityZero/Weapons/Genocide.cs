@@ -34,8 +34,7 @@ Doesn't require ammo"); */
             Item.useTime = 20;
             Item.useAnimation = 20; 
             Item.useStyle = ItemUseStyleID.Shoot; 
-            //TODO: was previously Antimatter_Unreleased
-            Item.shoot = ModContent.ProjectileType<Antimatter>();
+            Item.shoot = ModContent.ProjectileType<Genocide_Antimatter>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.rare = ItemRarityID.Cyan;

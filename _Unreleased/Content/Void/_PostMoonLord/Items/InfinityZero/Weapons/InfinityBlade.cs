@@ -31,7 +31,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.width = 94;
 			Item.height = 94;
 			Item.useTime = 13;
-            Item.shoot = ModContent.ProjectileType<Rift>(); //TODO: Was formerly Rift_Unreleased
+            Item.shoot = ModContent.ProjectileType<InfinityBlade_Rift>();
             Item.shootSpeed = 14f;
             Item.useAnimation = 13;
 			Item.useStyle = ItemUseStyleID.Swing;

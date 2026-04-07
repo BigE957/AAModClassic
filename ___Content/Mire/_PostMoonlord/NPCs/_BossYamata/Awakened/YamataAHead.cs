@@ -170,6 +170,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     {
                         internalAI[2] = 0;
                         if (Main.netMode != 1)
+                            // for future note if u wanna reenable this function, this proj would be "YamataAHead_AbyssalStorm"
                             Projectile.NewProjectile(npc.Center, Vector2.UnitY * 5, mod.ProjectileType("YamataAShockBomb"), npc.damage / 6, 0f, Main.myPlayer, npc.target);
                     }*/
                     if (++internalAI[1] > 180)
