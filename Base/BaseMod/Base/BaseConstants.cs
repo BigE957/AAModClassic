@@ -60,6 +60,9 @@ namespace AAModClassic.Base.BaseMod.Base
             switch (zoneName)
             {
                 //TODO: ADD IN BIOMES
+                // caligulas reaction: change to use, like, not strings?
+                // like an enum or smth
+                // BiomeZone.Space or something 
                 case "Space": return p.position.Y / 16 < Main.worldSurface * 0.1f;
                 case "Sky": return p.position.Y / 16 > Main.worldSurface * 0.1f && p.position.Y / 16 < Main.worldSurface * 0.4f;
                 case "Surface": return p.position.Y / 16 > Main.worldSurface * 0.4f && p.position.Y / 16 < Main.worldSurface;
