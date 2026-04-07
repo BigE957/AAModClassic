@@ -9,6 +9,8 @@ using Terraria.ModLoader;
 using AAModClassic.Projectiles.Akuma;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Crafters;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Boss.Akuma
 {
@@ -106,10 +108,10 @@ Right click and hold to release and aim manually"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(null, "DaybreakIncinerite", 5);
-            recipe.AddIngredient(null, "CrucibleScale", 5);
+            recipe.AddIngredient(ModContent.ItemType<DaybreakIncinerite>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
             recipe.AddIngredient(ItemID.LunarFlareBook, 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(ModContent.TileType<ACS_Tile>());
             recipe.Register();
         }
     }
