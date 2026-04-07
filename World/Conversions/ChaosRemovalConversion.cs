@@ -44,8 +44,7 @@ namespace AAModClassic.World.Conversions
             WallLoader.RegisterConversion(ModContent.WallType<Depthstone_Wall>(), Type, WallID.Stone);
 
             WallLoader.RegisterConversion(ModContent.WallType<InfernoGrassWall_Wall>(), Type, WallID.GrassUnsafe);
-            //TODO: Fake wall
-            //WallLoader.RegisterConversion(ModContent.WallType<MireJungle_Wall>(), Type, WallID.JungleUnsafe);
+            WallLoader.RegisterConversion(ModContent.WallType<MireGrassWall_Wall>(), Type, WallID.JungleUnsafe);
 
             WallLoader.RegisterConversion(ModContent.WallType<TorchsandHardenedWall_Wall>(), Type, WallID.HardenedSand);
             WallLoader.RegisterConversion(ModContent.WallType<DepthsandHardened_Wall>(), Type, WallID.HardenedSand);

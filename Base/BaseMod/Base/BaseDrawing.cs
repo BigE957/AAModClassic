@@ -238,6 +238,7 @@ namespace AAModClassic.Base.BaseMod.Base
         public static Texture2D GetPlayerTex(int skinVariant, string name, bool male = true)
         {
             //TODO: FINISH THIS
+            // caligulas reaction: make not a string? use enum instead
             return name switch
             {
                 "Head" => TextureAssets.Players[skinVariant, 0].Value,

@@ -34,7 +34,7 @@ namespace AAModClassic.World.Conversions
         {
             TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<MireGrass_Tile>());
             TileLoader.RegisterConversion(TileID.JungleGrass, Type, ModContent.TileType<MireGrass_Tile>());
-            //TODO: Fake wall
+            //TODO: Fake wall item
             //WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<MireJungleWall>());
             TileLoader.RegisterConversion(TileID.Dirt, Type, TileID.Mud); //Unofficial: This just makes sense to me
 
