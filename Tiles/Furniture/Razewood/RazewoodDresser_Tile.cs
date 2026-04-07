@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
+using AAModClassic.Items.Blocks.RazewoodF;
 
 namespace AAModClassic.Tiles.Furniture.Razewood
 {

@@ -10,6 +10,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic._Unreleased.Content.Void.Dusts;
 using Terraria.ID;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Weapons
 
@@ -30,7 +31,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero
 			Item.width = 94;
 			Item.height = 94;
 			Item.useTime = 13;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Rift_Unreleased>();
+            Item.shoot = ModContent.ProjectileType<Rift>(); //TODO: Was formerly Rift_Unreleased
             Item.shootSpeed = 14f;
             Item.useAnimation = 13;
 			Item.useStyle = ItemUseStyleID.Swing;

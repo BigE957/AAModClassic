@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Armor.Radium
 {

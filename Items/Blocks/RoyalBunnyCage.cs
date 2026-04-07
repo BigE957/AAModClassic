@@ -7,6 +7,7 @@ using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Tiles.Decoration;
 
 namespace AAModClassic.Items.Blocks
 {

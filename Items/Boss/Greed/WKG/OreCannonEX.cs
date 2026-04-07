@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
+using AAModClassic.Items.Blocks;
 
 namespace AAModClassic.Items.Boss.Greed.WKG
 {

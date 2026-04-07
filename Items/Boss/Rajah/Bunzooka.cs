@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Rajah;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -31,7 +32,7 @@ namespace AAModClassic.Items.Boss.Rajah
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.RabbitRocket3>();
+            Item.shoot = ModContent.ProjectileType<RabbitRocket3>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Yellow;
         }

@@ -1,3 +1,4 @@
+using AAModClassic.Tiles.Furniture.Razewood;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

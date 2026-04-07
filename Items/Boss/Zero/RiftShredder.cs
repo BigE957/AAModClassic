@@ -7,6 +7,7 @@ using Terraria.ID;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Dusts;
+using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic.Items.Boss.Zero
 {
@@ -27,7 +28,7 @@ namespace AAModClassic.Items.Boss.Zero
 			Item.width = 94;
 			Item.height = 70;
 			Item.useTime = 22;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Rift>();
+            Item.shoot = ModContent.ProjectileType<Rift>();
             Item.shootSpeed = 10f;
             Item.useAnimation = 22;
 			Item.useStyle = ItemUseStyleID.Swing;

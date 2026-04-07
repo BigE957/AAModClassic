@@ -1,5 +1,6 @@
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles.Zero;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -30,7 +31,7 @@ Non-consumable"); */
 			Item.knockBack = 7f;
 			Item.value = Item.sellPrice(0, 30, 0, 0);
 			Item.rare = ItemRarityID.LightPurple;
-			Item.shoot = ModContent.ProjectileType<Projectiles.RealityLaser>();
+			Item.shoot = ModContent.ProjectileType<RealityLaser>();
 			Item.shootSpeed = 0f;
 			Item.ammo = AmmoID.Bullet;
             Item.rare = ItemRarityID.Cyan; AARarity = 13;

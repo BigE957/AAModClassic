@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Globals;
+using AAModClassic.Projectiles;
 
 namespace AAModClassic.Items.Ranged
 {

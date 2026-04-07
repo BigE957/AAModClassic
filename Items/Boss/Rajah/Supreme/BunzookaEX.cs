@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Projectiles.Rajah.Supreme;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -33,7 +34,7 @@ Bunnyzooka EX"); */
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shootSpeed = 24f;
-            Item.shoot = ModContent.ProjectileType<Projectiles.RabbitRocketEX>();
+            Item.shoot = ModContent.ProjectileType<RabbitRocketEX>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true; Item.expertOnly = true;

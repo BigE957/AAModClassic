@@ -166,7 +166,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 30, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstHuge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 30, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstHuge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -174,7 +174,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstLarge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstLarge>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -182,7 +182,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 10, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstMed>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 10, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstMedium>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }
@@ -190,7 +190,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             {
                 Boom = false;
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 5, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityBurstSmall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 5, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<RealityAnchor_RealityBurstSmall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Projectile.ai[0] = 1f;
                 return false;
             }

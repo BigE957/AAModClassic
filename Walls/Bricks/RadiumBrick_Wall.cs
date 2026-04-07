@@ -1,3 +1,4 @@
+using AAModClassic.Items.Walls;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
