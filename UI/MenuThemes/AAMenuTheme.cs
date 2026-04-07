@@ -33,7 +33,7 @@ namespace AAModClassic.UI.MenuThemes
             InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
             VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
             Sun = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Sun");
-            Moon = ModContent.Request<Texture2D>("AAModClassic/Backgrounds/Moon");
+            Moon = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/MireBiome_Moon");
             BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
         }
 

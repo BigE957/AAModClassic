@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BogwoodBoots : BaseAAItem
+	public class BogwoodLeggings : BaseAAItem
 	{
         public override void SetStaticDefaults()
         {

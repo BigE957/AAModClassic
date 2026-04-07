@@ -14,7 +14,7 @@ using Terraria.Localization;
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
 {
     [AutoloadBossHead]
-    public class YamataAHeadF : ModNPC
+    public class YamataAHeadFake : ModNPC
     {
 		public bool isAwakened = false;
         public override void SetStaticDefaults()

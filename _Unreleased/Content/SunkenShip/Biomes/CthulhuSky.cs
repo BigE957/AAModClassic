@@ -2,6 +2,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.Graphics;
@@ -24,8 +25,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
         public float Intensity;
         private int _fogTimer = 300;
         private int _fogTimer2 = 300;
-        //TODOREFACTOR
-        private Texture2D texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Backgrounds/CthulhuSky_Clouds").Value;
+        private static Asset<Texture2D> texture = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/Biomes/CthulhuSky_Clouds");
 
         public override void Activate(Vector2 position, params object[] args)
         {
@@ -53,12 +53,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
             _fogTimer2 -= 3;
             if (_fogTimer <= 0)
             {
-                _fogTimer = texture.Width;
+                _fogTimer = texture.Width();
             }
 
             if (_fogTimer2 <= 0)
             {
-                _fogTimer2 = texture.Width;
+                _fogTimer2 = texture.Width();
             }
         }
 
@@ -73,11 +73,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.Biomes
             var planetPos = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(texture, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(texture.Width >> 1, texture.Height >> 1), 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(texture.Value, planetPos, null, Color.White * 0.9f * Intensity, 0f, new Vector2(texture.Width() >> 1, texture.Height() >> 1), 1f, SpriteEffects.None, 1f);
 
             }
-            BGClouds.Update(texture);
-            BGClouds.Draw(texture, true, new Color(130, 130, 130));
+            BGClouds.Update(texture.Value);
+            BGClouds.Draw(texture.Value, true, new Color(130, 130, 130));
         }
 
         public override float GetCloudAlpha()

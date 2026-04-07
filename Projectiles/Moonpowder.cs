@@ -76,19 +76,19 @@ namespace AAModClassic.Projectiles
                     {
                         int type = Main.tile[k, l].TileType;
                         int wall = Main.tile[k, l].WallType;
-                        if (type == (ushort)ModContent.WallType<Torchstone_Wall>())
+                        if (type == (ushort)ModContent.WallType<TorchstoneWall_Wall>())
                         {
                             Main.tile[k, l].WallType = WallID.Stone;
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == (ushort)ModContent.WallType<Torchsandstone_Wall>())
+                        else if (type == (ushort)ModContent.WallType<TorchsandstoneWall_Wall>())
                         {
                             Main.tile[k, l].WallType = WallID.Sandstone;
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == (ushort)ModContent.WallType<TorchsandHardened_Wall>())
+                        else if (type == (ushort)ModContent.WallType<TorchsandHardenedWall_Wall>())
                         {
                             Main.tile[k, l].WallType = WallID.HardenedSand;
                             WorldGen.SquareWallFrame(k, l, true);

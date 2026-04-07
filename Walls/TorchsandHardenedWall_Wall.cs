@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class TorchsandHardened_Wall : ModWall
+    public class TorchsandHardenedWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

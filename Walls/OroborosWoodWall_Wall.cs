@@ -6,7 +6,7 @@ using AAModClassic.Items.Blocks.Oroboros;
 
 namespace AAModClassic.Walls
 {
-    public class OroborosWood_Wall : ModWall
+    public class OroborosWoodWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

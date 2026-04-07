@@ -98,7 +98,7 @@ namespace AAModClassic.CrossMod
 
             ModContent.ItemType<BogwoodHelmet>(),
             ModContent.ItemType<BogwoodChestplate>(),
-            ModContent.ItemType<BogwoodBoots>(),
+            ModContent.ItemType<BogwoodLeggings>(),
 
             ModContent.ItemType<MushiumHat>(),
             ModContent.ItemType<MushiumShirt>(),

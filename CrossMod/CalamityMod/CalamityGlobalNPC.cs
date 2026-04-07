@@ -78,14 +78,14 @@ namespace AAModClassic.CrossMod.CalamityMod
 
                 if(npc.type == ModContent.NPCType<YamataA>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataAHead>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<YamataAHeadF>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<YamataAHeadFake>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataAHeadF1>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataAHeadF2>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<Yamata>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<YamataHead>()) CalamityDR = 0.5f;
                 //if(npc.type == ModContent.NPCType<YamataHeadF>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<YamataHeadF1>()) CalamityDR = 0.5f;
-                if(npc.type == ModContent.NPCType<YamataHeadF2>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<YamataHeadFake1>()) CalamityDR = 0.5f;
+                if(npc.type == ModContent.NPCType<YamataHeadFake2>()) CalamityDR = 0.5f;
 
                 if(npc.type == ModContent.NPCType<ZeroEcho>()) CalamityDR = 0.5f;
                 if(npc.type == ModContent.NPCType<ZeroMini>()) CalamityDR = 0.5f;

@@ -20,7 +20,7 @@ namespace AAModClassic.Items.Blocks.RazewoodF
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createWall = ModContent.WallType<Razewood_Wall>();
+            Item.createWall = ModContent.WallType<RazewoodWall_Wall>();
         }
         
         public override void SetStaticDefaults()

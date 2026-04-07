@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DepthGi : BaseAAItem
+    public class DepthChestplate : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

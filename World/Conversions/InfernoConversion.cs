@@ -21,13 +21,13 @@ namespace AAModClassic.World.Conversions
             WallLoader.RegisterConversion(WallID.GrassUnsafe, Type, ModContent.WallType<InfernoGrassWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Torchstone_Tile>());
-            WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<Torchstone_Wall>());
+            WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<TorchstoneWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.Sand, Type, ModContent.TileType<Torchsand_Tile>());
             TileLoader.RegisterConversion(TileID.HardenedSand, Type, ModContent.TileType<TorchsandHardened_Tile>());
-            WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<TorchsandHardened_Wall>());
+            WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<TorchsandHardenedWall_Wall>());
             TileLoader.RegisterConversion(TileID.Sandstone, Type, ModContent.TileType<Torchsandstone_Tile>());
-            WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<Torchsandstone_Wall>());
+            WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<TorchsandstoneWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.SnowBlock, Type, ModContent.TileType<TorchAsh_Tile>());
             TileLoader.RegisterConversion(TileID.IceBlock, Type, ModContent.TileType<Torchice_Tile>());

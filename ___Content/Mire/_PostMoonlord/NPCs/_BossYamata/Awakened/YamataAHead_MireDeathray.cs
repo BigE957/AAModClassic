@@ -42,7 +42,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
             {
                 Projectile.velocity = -Vector2.UnitY;
             }
-            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<YamataAHeadF>())
+            if (Main.npc[(int)Projectile.ai[1]].active && Main.npc[(int)Projectile.ai[1]].type == ModContent.NPCType<YamataAHeadFake>())
             {
                 Projectile.Center = Main.npc[(int)Projectile.ai[1]].Center + Vector2.UnitY * 45;
             }

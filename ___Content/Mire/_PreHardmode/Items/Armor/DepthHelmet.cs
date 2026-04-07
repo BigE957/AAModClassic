@@ -6,7 +6,7 @@ using Terraria.Localization;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DepthFukumen : BaseAAItem
+    public class DepthHelmet : BaseAAItem
     {
         public override void SetStaticDefaults()
         {
@@ -34,7 +34,7 @@ Weightless as shadow itself"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<DepthGi>() && legs.type == ModContent.ItemType<DepthHakama>();
+            return body.type == ModContent.ItemType<DepthChestplate>() && legs.type == ModContent.ItemType<DepthLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)

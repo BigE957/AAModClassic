@@ -14,6 +14,7 @@ using AAModClassic.Items.Potions;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
 using AAModClassic.Items.Boss;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
+using ReLogic.Content;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -30,11 +31,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public bool ZerosSpawned = false;
         public bool Reseting = false;
         public Vector2 topVisualOffset = default;
+
+        public static Asset<Texture2D> glowTex;
+
+
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
 			Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 		public override void SetDefaults()
 		{
 			NPC.damage = 0;
@@ -437,7 +444,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             return new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
         }
 
-        public Texture2D glowTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/NPCs/Bosses/Infinity/Infinity_Glow").Value;
         public float auraPercent = 0f;
         public bool auraDirection = true;
         public bool saythelinezero = false;
@@ -479,14 +485,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 Main.NewText("bluha");
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
-                BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
-                BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetRedAlpha());
+                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha());
+                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetRedAlpha());
             }
             else
             {
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true)));
-                BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
-                BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, GetGlowAlpha(false));
+                BaseDrawing.DrawAura(spriteBatch, glowTex.Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true));
+                BaseDrawing.DrawTexture(spriteBatch, glowTex.Value, 0, NPC, GetGlowAlpha(false));
             }
 
 

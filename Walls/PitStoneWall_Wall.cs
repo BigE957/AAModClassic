@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class PitStone_Wall : ModWall
+    public class PitStoneWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

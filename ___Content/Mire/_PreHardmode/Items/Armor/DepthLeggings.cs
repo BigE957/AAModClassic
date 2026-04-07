@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class DepthHakama : BaseAAItem
+    public class DepthLeggings : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

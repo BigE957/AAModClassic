@@ -25,7 +25,7 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Armor
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<BogwoodChestplate>() && legs.type == ModContent.ItemType<BogwoodBoots>();
+            return body.type == ModContent.ItemType<BogwoodChestplate>() && legs.type == ModContent.ItemType<BogwoodLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)

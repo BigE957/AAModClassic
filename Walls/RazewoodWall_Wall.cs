@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class Razewood_Wall : ModWall
+    public class RazewoodWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{

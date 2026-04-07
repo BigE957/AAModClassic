@@ -14,7 +14,7 @@ using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened;
 namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata
 {
     [AutoloadBossHead]
-    public class YamataHeadF1 : ModNPC
+    public class YamataHeadFake1 : ModNPC
     {
 		public bool isAwakened = false;
         public override void SetStaticDefaults()

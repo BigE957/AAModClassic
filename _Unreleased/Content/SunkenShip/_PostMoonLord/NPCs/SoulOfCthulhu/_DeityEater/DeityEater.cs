@@ -18,7 +18,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class DeityEater : ModNPC
     {
-        public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEater"; } }
+        //public override string Texture { get { return "AAModClassic/_Unreleased/NPCs/Bosses/SoC/Bosses/DeityEater"; } }
         
         public int fireTimer = 0;
 

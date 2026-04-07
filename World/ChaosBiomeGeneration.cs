@@ -320,9 +320,9 @@ namespace AAModClassic.World
             //tileIce = (ushort)mod.Find<ModTile>("Torchice").Type, tileSand = (ushort)mod.Find<ModTile>("Torchsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("TorchsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Torchsandstone").Type,
             //LivingWood = (ushort)ModContent.TileType<LivingRazewood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves_Tile>();
 
-            ushort StoneWall = (ushort)ModContent.WallType<Torchstone_Wall>(), 
-            SandstoneWall = (ushort)ModContent.WallType<Torchsandstone_Wall>(),
-            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardened_Wall>(),
+            ushort StoneWall = (ushort)ModContent.WallType<TorchstoneWall_Wall>(), 
+            SandstoneWall = (ushort)ModContent.WallType<TorchsandstoneWall_Wall>(),
+            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardenedWall_Wall>(),
             GrassWall = (ushort)ModContent.WallType<InfernoGrassWall_Wall>();
 
 
@@ -342,8 +342,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.WallType<Torchstone_Wall>(),
-                [new Color(0, 0, 255)] = ModContent.WallType<ScorchedDynastyWood_Wall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<TorchstoneWall_Wall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<ScorchedDynastyWoodWall_Wall>(),
                 [Color.Black] = -1 //don't touch when genning				
             };
 
@@ -949,7 +949,7 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(255, 0, 0)] = ModContent.WallType<AcropolisBrick_Wall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<AcropolisBrickWall_Wall>(),
                 [new Color(0, 255, 255)] = ModContent.WallType<AcropolisPillarWall_Wall>(),
                 [new Color(0, 255, 0)] = WallID.Dirt,
                 [new Color(0, 0, 255)] = WallID.Cloud,
@@ -1017,8 +1017,8 @@ namespace AAModClassic.World
 
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
             {
-                [new Color(0, 0, 255)] = ModContent.WallType<PitBar_Wall>(),
-                [new Color(255, 0, 0)] = ModContent.WallType<PitStone_Wall>(),
+                [new Color(0, 0, 255)] = ModContent.WallType<PitBarWall_Wall>(),
+                [new Color(255, 0, 0)] = ModContent.WallType<PitStoneWall_Wall>(),
                 [new Color(255, 255, 255)] = -2,
                 [Color.Black] = -1
             };

@@ -273,32 +273,32 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                     TrueHead.ai[0] = NPC.whoAmI;
                     TrueHead.ai[1] = 0;
                     TrueHead.ai[2] = headY;
-                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head2.ai[0] = NPC.whoAmI;
                     Head2.ai[1] = headX * -3f;
                     Head2.ai[2] = headY * 0.7f;
                     Head2.ai[3] = 3f;
-                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head3.ai[0] = NPC.whoAmI;
                     Head3.ai[1] = headX * -2f;
                     Head3.ai[2] = headY * 0.8f;
                     Head3.ai[3] = 2f;
-                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head4 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head4.ai[0] = NPC.whoAmI;
                     Head4.ai[1] = headX * -1f;
                     Head4.ai[2] = headY * 0.9f;
                     Head4.ai[3] = 1f;
-                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head5 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head5.ai[0] = NPC.whoAmI;
                     Head5.ai[1] = headX * 1f;
                     Head5.ai[2] = headY * 0.9f;
                     Head5.ai[3] = 1f;
-                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head6 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head6.ai[0] = NPC.whoAmI;
                     Head6.ai[1] = headX * 2f;
                     Head6.ai[2] = headY * 0.8f;
                     Head6.ai[3] = 2f;
-                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadF>(), 0)];
+                    Head7 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<YamataAHeadFake>(), 0)];
                     Head7.ai[0] = NPC.whoAmI;
                     Head7.ai[1] = headX * 3f;
                     Head7.ai[2] = headY * 0.7f;
@@ -331,32 +331,32 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
                                     TrueHead = npc2;
                                 }
                                 else
-                                if (Head2 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head2 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head2 = npc2;
                                 }
                                 else
-                                if (Head3 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head3 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head3 = npc2;
                                 }
                                 else
-                                if (Head4 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head4 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head4 = npc2;
                                 }
                                 else
-                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head5 = npc2;
                                 }
                                 else
-                                if (Head6 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head6 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head6 = npc2;
                                 }
                                 else
-                                if (Head7 == null && npc2.type == ModContent.NPCType<YamataAHeadF>() && npc2.ai[0] == NPC.whoAmI)
+                                if (Head7 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
                                 {
                                     Head7 = npc2;
                                 }
@@ -738,7 +738,7 @@ namespace AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened
         {
             Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
             Color GlowColor = AAColor.COLOR_WHITEFADE1;
-            if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataAHead || head.ModNPC is YamataAHeadF))
+            if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataAHead || head.ModNPC is YamataAHeadFake))
             {
                 Texture2D neckTex2D = NeckTexture.Value;
                 Vector2 connector = head.Center;

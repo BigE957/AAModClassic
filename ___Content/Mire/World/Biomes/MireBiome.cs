@@ -84,8 +84,8 @@ namespace AAModClassic.___Content.Mire.World.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            Texture2D PlanetTexture = AAMod.GetTexture("Backgrounds/Moon");
-            Texture2D SkyTexture = AAMod.GetTexture("Backgrounds/MireSky");
+            Texture2D PlanetTexture = ModContent.Request<Texture2D>("AAModClassic/___Content/Mire/World/Biomes/MireBiome_Moon").Value;
+            Texture2D SkyTexture = AAMod.GetTexture("AAModClassic/___Content/Mire/World/Biomes/MireBiome_Moon");
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (!Main.dayTime || (!Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar))

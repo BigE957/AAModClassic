@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Walls
 {
-    public class ScorchedDynastyWood_Wall : ModWall
+    public class ScorchedDynastyWoodWall_Wall : ModWall
 	{
 		public override void SetStaticDefaults()
 		{
