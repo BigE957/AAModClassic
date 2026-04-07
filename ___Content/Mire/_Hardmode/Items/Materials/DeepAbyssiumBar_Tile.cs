@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
 {
-    public class DeepAbyssium_Tile : ModTile
+    public class DeepAbyssiumBar_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

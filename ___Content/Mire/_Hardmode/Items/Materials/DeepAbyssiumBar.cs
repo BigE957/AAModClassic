@@ -20,7 +20,7 @@ namespace AAModClassic.___Content.Mire._Hardmode.Items.Materials
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<DeepAbyssium_Tile>();
+            Item.createTile = ModContent.TileType<DeepAbyssiumBar_Tile>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
