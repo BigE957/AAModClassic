@@ -2,6 +2,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 
 namespace AAModClassic.Items.Melee
 {
@@ -41,10 +42,10 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "VikingPolearm", 1);
-            recipe.AddIngredient(Mod, "HydrasSpear", 1);
-            recipe.AddIngredient(Mod, "SaltwaterSpear", 1);
-            recipe.AddIngredient(Mod, "Executioner", 1);
+            recipe.AddIngredient(ModContent.ItemType<VikingPolearm>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HydrasSpear>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SaltwaterSpear>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Executioner>(), 1);
             recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

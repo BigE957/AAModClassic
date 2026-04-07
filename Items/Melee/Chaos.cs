@@ -39,8 +39,8 @@ namespace AAModClassic.Items.Melee
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "TrueBlazingDawn", 1);
-			recipe.AddIngredient(Mod, "TrueAbyssalTwilight", 1);
+			recipe.AddIngredient(ModContent.ItemType<TrueBlazingDawn>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<TrueAbyssalTwilight>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

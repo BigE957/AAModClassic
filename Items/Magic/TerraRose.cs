@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic;
+using AAModClassic.Items.Armor.Terra.Projectiles;
 
 namespace AAModClassic.Items.Magic
 {
@@ -104,7 +105,7 @@ Right Clicking fires a piercing rose"); */
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<TrueManaRose>(), 1);
             recipe.AddIngredient(ItemID.RainbowRod, 1);
-            recipe.AddIngredient(Mod, "TerraCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<Materials.TerraCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

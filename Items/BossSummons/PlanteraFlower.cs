@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.BossSummons
 {
@@ -91,7 +92,7 @@ Can only be used in the underground jungle"); */
             {
                 Recipe recipe = CreateRecipe(1);
 
-                recipe.AddIngredient(Mod, "PlanteraPetal", 10);
+                recipe.AddIngredient(ModContent.ItemType<PlanteraPetal>(), 10);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }

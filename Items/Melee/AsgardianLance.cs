@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {
@@ -48,8 +49,8 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "RaiderLance", 1);
-            recipe.AddIngredient(Mod, "HeroShards", 1);
+            recipe.AddIngredient(ModContent.ItemType<RaiderLance>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

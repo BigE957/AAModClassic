@@ -2,6 +2,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {
@@ -41,9 +42,9 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "AsgardianLance", 1);
+            recipe.AddIngredient(ModContent.ItemType<AsgardianLance>(), 1);
             recipe.AddIngredient(ItemID.Gungnir, 1);
-            recipe.AddIngredient(Mod, "ChaosCrystal", 1);
+            recipe.AddIngredient(ModContent.ItemType<ChaosCrystal>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -47,10 +47,10 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "FlamingFury", 1);
-			recipe.AddIngredient(Mod, "OceanRazor", 1);
-            recipe.AddIngredient(Mod, "DoomiteSaber", 1);
-            recipe.AddIngredient(Mod, "DesertScimitar", 1);
+			recipe.AddIngredient(ModContent.ItemType<FlamingFury>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<OceanRazor>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteSaber>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DesertScimitar>(), 1);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

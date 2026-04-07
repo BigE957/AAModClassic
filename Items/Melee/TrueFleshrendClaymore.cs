@@ -42,7 +42,7 @@ Despite the name, it's not actually made of flesh"); */
 		{
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(Mod, "FleshrendClaymore", 1);
+                recipe.AddIngredient(ModContent.ItemType<FleshrendClaymore>(), 1);
                 recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();

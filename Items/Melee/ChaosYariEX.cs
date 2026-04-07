@@ -3,6 +3,8 @@ using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Melee
 {

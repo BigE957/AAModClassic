@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Melee
 {
@@ -40,7 +41,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "SnowMana", 8);
+            recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 8);
             recipe.AddIngredient(ItemID.IceBlock, 40);
             recipe.AddIngredient(ItemID.BorealWood, 12);
             recipe.AddTile(TileID.Anvils);

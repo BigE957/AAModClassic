@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -47,7 +48,7 @@ namespace AAModClassic.Items.Melee
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "Doomite", 20);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 20);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }

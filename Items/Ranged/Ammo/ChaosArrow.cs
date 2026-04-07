@@ -1,3 +1,5 @@
+using AAModClassic.___Content.Mire._Hardmode.Items.Materials;
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,8 +34,8 @@ namespace AAModClassic.Items.Ranged.Ammo
 		{
 			Recipe recipe = CreateRecipe(150);
 			recipe.AddIngredient(ItemID.WoodenArrow, 150);
-            recipe.AddIngredient(Mod, "RadiantIncinerite", 1);
-			recipe.AddIngredient(Mod, "DeepAbyssium", 1);
+            recipe.AddIngredient(ModContent.ItemType<RadiantIncineriteBar>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

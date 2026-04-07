@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using AAModClassic;
 using AAModClassic.Items.Summoning.Minions;
 using AAModClassic.Buffs;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Summoning
 {
@@ -85,8 +86,8 @@ namespace AAModClassic.Items.Summoning
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "Doomite", 2);
-			recipe.AddIngredient(Mod, "DoomiteScrap", 10);
+			recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 2);
+			recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

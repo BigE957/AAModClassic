@@ -5,6 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using AAModClassic;
+using AAModClassic.Items.Vanity.Cerberus;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev.Invoker
 {
@@ -82,17 +84,17 @@ Includes the effects of all the pieces used to make this.
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "InvokerBook", 1);
-            recipe.AddIngredient(Mod, "InvokerHood", 1);
-            recipe.AddIngredient(Mod, "InvokerRobe", 1);
-            recipe.AddIngredient(Mod, "InvokerPants", 1);
+            recipe.AddIngredient(ModContent.ItemType<InvokerBook>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InvokerHood>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InvokerRobe>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<InvokerPants>(), 1);
 			recipe.AddIngredient(ItemID.SquireGreatHelm, 1);
             recipe.AddIngredient(ItemID.SquireAltShirt, 1);
             recipe.AddIngredient(ItemID.ShinyStone, 1);
             recipe.AddIngredient(ItemID.FrozenTurtleShell, 1);
             recipe.AddIngredient(ItemID.PaladinsShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
-            recipe.AddIngredient(Mod, "EXSoul", 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
 			recipe.AddTile(Mod, "ACS");
 			recipe.Register();
 		}

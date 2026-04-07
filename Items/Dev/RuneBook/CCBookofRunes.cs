@@ -5,6 +5,8 @@ using Terraria;
 using Terraria.ID;
 using AAModClassic.Buffs;
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Items.Boss;
 
 namespace AAModClassic.Items.Dev.RuneBook
 {
@@ -54,10 +56,10 @@ When player has 3 minion slots it summons terra, chaos and void rune."); */
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "CCRuneBookPage", 1);
+            recipe.AddIngredient(ModContent.ItemType<CCRuneBookPage>(), 1);
 			recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddIngredient(Mod, "DreadScale", 15);
-            recipe.AddIngredient(Mod, "EXSoul", 1);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 15);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
 			recipe.AddTile(Mod, "ACS");
 			recipe.Register();
 		}

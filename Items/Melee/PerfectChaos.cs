@@ -11,6 +11,13 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
+using AAModClassic;
+using AAModClassic.___Content.Mire.Buffs;
+using AAModClassic.Items.Materials;
+using AAModClassic.Items.Boss;
+using AAModClassic.Items.Boss.AH;
+using AAModClassic.Items.Boss.Akuma;
 
 namespace AAModClassic.Items.Melee
 {

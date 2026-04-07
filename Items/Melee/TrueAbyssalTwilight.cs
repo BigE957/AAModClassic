@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PreHardmode.Items.Weapons;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -46,7 +47,7 @@ namespace AAModClassic.Items.Melee
         {
             {
                 Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(Mod, "AbyssalTwilight", 1);
+                recipe.AddIngredient(ModContent.ItemType<AbyssalTwilight>(), 1);
                 recipe.AddIngredient(ItemID.BrokenHeroSword, 1);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();

@@ -1,3 +1,4 @@
+using AAModClassic.Items.Melee;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -32,10 +33,10 @@ namespace AAModClassic.___Content.Mire._PreHardmode.Items.Weapons
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(Mod, "ExilesKatana", 1);
-			recipe.AddIngredient(Mod, "OceanRazor", 1);
-			recipe.AddIngredient(Mod, "DoomiteSaber", 1);
-			recipe.AddIngredient(Mod, "IceLongsword", 1);
+			recipe.AddIngredient(ModContent.ItemType<ExilesKatana>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<OceanRazor>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<DoomiteSaber>(), 1);
+			recipe.AddIngredient(ModContent.ItemType<IceLongsword>(), 1);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

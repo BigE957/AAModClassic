@@ -1,3 +1,4 @@
+using AAModClassic.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +37,7 @@ namespace AAModClassic.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "MadnessFragment", 6);
+            recipe.AddIngredient(ModContent.ItemType<MadnessFragment>(), 6);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

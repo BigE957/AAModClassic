@@ -8,6 +8,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic;
 using AAModClassic.Globals;
 using AAModClassic.Tiles.Decoration;
+using AAModClassic.Items.Materials;
 
 namespace AAModClassic.Items.Blocks
 {
@@ -37,7 +38,7 @@ namespace AAModClassic.Items.Blocks
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(Mod, "RoyalRabbit", 1);
+            recipe.AddIngredient(ModContent.ItemType<RoyalRabbit>(), 1);
             recipe.AddIngredient(ItemID.Terrarium, 1);
             recipe.AddRecipeGroup("AAModClassic:Gold", 20);
             recipe.Register();

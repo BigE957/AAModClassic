@@ -69,7 +69,7 @@ Right Clicking fires a piercing rose"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ManaRose>(), 1);
             recipe.AddIngredient(ModContent.ItemType<PlanteraPetal>(), 10);
-            recipe.AddIngredient(Mod, "HeroShards", 1);
+            recipe.AddIngredient(ModContent.ItemType<HeroShards>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
