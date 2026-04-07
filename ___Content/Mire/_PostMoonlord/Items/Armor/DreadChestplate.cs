@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class DreadPlate : BaseAAItem
+	public class DreadChestplate : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

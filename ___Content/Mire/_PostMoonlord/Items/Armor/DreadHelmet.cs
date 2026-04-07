@@ -8,7 +8,7 @@ using AAModClassic.Globals;
 namespace AAModClassic.___Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DreadHelm : BaseAAItem
+	public class DreadHelmet : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -51,7 +51,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<DreadPlate>() && legs.type == ModContent.ItemType<DreadLeggings>();
+			return body.type == ModContent.ItemType<DreadChestplate>() && legs.type == ModContent.ItemType<DreadLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)

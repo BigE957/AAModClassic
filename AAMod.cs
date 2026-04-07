@@ -1,4 +1,5 @@
 using AAModClassic;
+using AAModClassic.___Content.Mire._PostMoonlord.NPCs._BossYamata.Awakened.Skies;
 using AAModClassic.___Content.Mire.World.Biomes;
 using AAModClassic.Backgrounds;
 using AAModClassic.Base.BaseMod;
